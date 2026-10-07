@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-07T22:51:14.392Z",
+  "generatedAt": "2026-10-07T23:16:18.018Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/baseball.json",
@@ -165,7 +165,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-07T22:51:14.392Z",
+      "freshAt": "2026-10-07T23:16:18.018Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -177,7 +177,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-07T21:00:11.048Z",
+      "freshAt": "2026-10-07T23:16:18.018Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {

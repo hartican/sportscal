@@ -137,14 +137,14 @@ function eplHook(event, home, away, homeRecord, awayRecord){
   return fit(completed ? completedBase : base, 180);
 }
 
-function buildEpl(knowledge, events, context, reference){
+function buildEpl(knowledge, events, context, reference, {onlyIds=null,horizonDays=30}={}){
   const ladder = context.ladderSnapshots.find(item => item.competitionId === "competition:premier-league-2026-27");
   const entries = new Map((ladder?.entries || []).map(entry => [entry.participantId, entry]));
   const participants = new Map(context.participants.map(item => [item.id, item.displayName || item.canonicalName]));
   const sourceTable = addSource(knowledge, "source:depth:epl:table", "Premier League current 2026/27 table", "https://www.premierleague.com/en/tables/premier-league/2026-27",ladder?.source?.checkedAt||ladder?.snapshotTimeUtc);
   const sourceGuide = addSource(knowledge, "source:depth:epl:season-guide", "Premier League 2026/27 club guide", "https://www.premierleague.com/en/news/4688364/how-every-premier-league-club-could-line-up-in-202627");
   const sourceFixtures = addSource(knowledge, "source:depth:epl:fixtures", "Premier League 2026/27 fixture list", "https://www.premierleague.com/en/news/4675097");
-  const targetEvents = events.filter(event => event.key === "premier-league" && eventTime(event) >= reference.getTime() - 7 * DAY_MS && eventTime(event) <= reference.getTime() + 30 * DAY_MS);
+  const targetEvents = events.filter(event => event.key === "premier-league" && (!onlyIds || onlyIds.has(idFor(event))) && eventTime(event) >= reference.getTime() - 7 * DAY_MS && eventTime(event) <= reference.getTime() + horizonDays * DAY_MS);
   const allLeagueEvents = events.filter(event => event.key === "premier-league");
   for (const event of targetEvents){
     const homeId = event.homeParticipantId;
@@ -319,7 +319,43 @@ function buildCricket(knowledge, events, reference){
   return targetEvents.length;
 }
 
+function repairMissing({reference=new Date(),root=process.cwd()}={}){
+  const path=require('node:path');
+  const load=file=>readJson(path.join(root,file));
+  const documents=[FEED_PATH,PUBLISHED_FEED_PATH].map(file=>({file:path.join(root,file),document:load(file)}));
+  const candidates=new Map();
+  for(const {document} of documents)for(const event of document.events){
+    const previous=candidates.get(idFor(event));
+    if(!previous || Date.parse(event.canonicalSourceCheckedAt||event.sourceCheckedAt||'')>=Date.parse(previous.canonicalSourceCheckedAt||previous.sourceCheckedAt||''))candidates.set(idFor(event),event);
+  }
+  const events=[...candidates.values()];
+  // A day's lead prevents a fixture crossing the release window after a daily check.
+  const missing=new Set(documents.flatMap(({document})=>document.events).filter(event=>
+    event.key==='premier-league' && eventTime(event)>=+reference-7*DAY_MS && eventTime(event)<=+reference+31*DAY_MS &&
+    (!event.editorialNarrative?.hook || !event.editorialNarrative?.synopsis)).map(idFor));
+  if(!missing.size)return {changed:false,repaired:[]};
+  CHECKED_AT=reference.toISOString();
+  const knowledge=load(KNOWLEDGE_PATH);
+  buildEpl(knowledge,events,load(CONTEXT_PATH),reference,{onlyIds:missing,horizonDays:31});
+  const issues=validateKnowledge(knowledge);
+  if(issues.length)throw Error('Missing preview repair failed: '+issues.join('; '));
+  const api=require('./lib/editorial-narrative'),indexes=api.indexesFor(knowledge),locks=require('../config/editorial-locks');
+  for(const {document} of documents)document.events=document.events.map(event=>{
+    if(!missing.has(idFor(event)) || (event.editorialNarrative?.hook && event.editorialNarrative?.synopsis))return event;
+    const projection=api.projectionForTarget(knowledge,'feed-event',event);
+    if(!projection)throw Error('No researched projection for '+idFor(event));
+    return api.applyToFeedEvent(event,locks.projection(event,projection),indexes);
+  });
+  knowledge.updatedAt=reference.toISOString();
+  const outputs=[...documents.map(({file,document})=>[file,document]),[path.join(root,KNOWLEDGE_PATH),knowledge]];
+  const previous=outputs.map(([file])=>[file,fs.readFileSync(file)]);
+  try{for(const [file,document] of outputs)writeJson(file,document);}
+  catch(error){for(const [file,body] of previous)fs.writeFileSync(file,body);throw error;}
+  return {changed:true,repaired:[...missing]};
+}
+
 function main(){
+  if(process.argv.includes('--repair-missing'))return console.log(JSON.stringify(repairMissing()));
   const write = process.argv.includes("--write");
   const reference = new Date(process.env.NS_EDITORIAL_REFERENCE || Date.now());
   if (Number.isNaN(reference.getTime())) throw new Error("NS_EDITORIAL_REFERENCE must be valid");
@@ -360,4 +396,4 @@ function main(){
 
 if (require.main === module){ try { main(); } catch (error){ console.error(error.message); process.exitCode = 1; } }
 
-module.exports = { AFL_STORIES, CRICKET_CORRECTIONS, CRICKET_STORIES, EPL_PROFILES, reconcileCricket, addSource, addFact, replaceProjection };
+module.exports = { AFL_STORIES, CRICKET_CORRECTIONS, CRICKET_STORIES, EPL_PROFILES, reconcileCricket, addSource, addFact, replaceProjection, repairMissing };

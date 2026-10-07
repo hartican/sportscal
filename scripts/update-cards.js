@@ -130,9 +130,11 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-tennis-scoreboard.js"],
   ["scripts/validate-country-flags.js"],
   ["scripts/validate-national-team-identities.js", "--assets-only"],
+  ["scripts/refresh-football-directory.js", "--refresh-due"],
   ["scripts/refresh-football-directory.js", "--prune-removed"],
   ["scripts/refresh-football-directory.js", "--check"],
   ["scripts/validate-football-directory.js"],
+  ["scripts/validate-release-maintenance.js"],
   ["scripts/build-team-player-directories.js"],
   ["scripts/build-team-player-directories.js", "--check"],
   ["scripts/validate-team-player-directories.js"],
@@ -751,6 +753,10 @@ async function runMain() {
   }
   if(process.argv.includes('--tennis-current')){
     for(const args of [["scripts/apply-reviewed-participant-fixtures.js"],["scripts/refresh-tennis-scoreboard.js"],["scripts/publish-feed.js","data/events.json","data/events.json","data/feed-meta.json","data/events.js","--preserve-known"],["scripts/build-follow-fixtures.js"],["scripts/build-paged-feed.js"],["scripts/build-code-inspector.js","--codes=tennis"],["scripts/build-tennis-feed-parents.js"],["scripts/build-tournament-horizon.js"],["scripts/build-tennis-journeys.js"],["scripts/build-app-shell-runtime.js"],["scripts/version-generated-shell.js"],["scripts/validate-tennis-scoreboard.js"],["scripts/validate-athletes.js"]])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);return;
+  }
+  if(process.argv.includes('--release-maintenance')){
+    for(const args of [["scripts/refresh-football-directory.js","--refresh-due"],["scripts/update-sport-editorial-depth.js","--repair-missing"],["scripts/publish-feed.js","data/events.json","data/events.json","data/feed-meta.json","data/events.js","--preserve-known"],["scripts/build-follow-directories.js","--codes=football"],["scripts/build-follow-fixtures.js"],["scripts/build-paged-feed.js"],["scripts/build-code-inspector.js","--codes=football,tennis"],["scripts/build-app-shell-runtime.js"],["scripts/version-generated-shell.js"],["scripts/validate-football-directory.js"],["scripts/validate-editorial-sport-depth.js"]])runStep(args);
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);return;
   }
   if(process.argv.includes("--participant-schedules")){

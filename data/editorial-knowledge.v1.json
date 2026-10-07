@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-knowledge.v2",
-  "updatedAt": "2026-10-04T05:52:16.390Z",
+  "updatedAt": "2026-10-07T23:14:40.714Z",
   "subjects": [
     {
       "id": "competition:tennis:cincinnati-open",
@@ -1548,7 +1548,7 @@
       "name": "Premier League current 2026/27 table",
       "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:49:56.383Z"
+      "checkedAt": "2026-10-07T20:59:15.968Z"
     },
     {
       "id": "source:depth:epl:season-guide",
@@ -5266,6 +5266,41 @@
       "url": "https://www.supercars.com/news/supercars-news-2026-bathurst-1000-weather-prediction-forecast-race-start-time",
       "sourceType": "official",
       "checkedAt": "2026-10-06T22:12:30Z"
+    },
+    {
+      "id": "source:depth:epl:match:epl-2026-27-129016",
+      "name": "Premier League match record for Everton v Coventry City",
+      "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+      "sourceType": "official",
+      "checkedAt": "2026-10-04T05:51:11.197Z"
+    },
+    {
+      "id": "source:depth:epl:match:epl-2026-27-129019",
+      "name": "Premier League match record for Leeds United v Tottenham Hotspur",
+      "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+      "sourceType": "official",
+      "checkedAt": "2026-10-04T05:51:11.197Z"
+    },
+    {
+      "id": "source:depth:epl:match:epl-2026-27-129013",
+      "name": "Premier League match record for Arsenal v Hull City",
+      "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+      "sourceType": "official",
+      "checkedAt": "2026-10-04T05:51:11.197Z"
+    },
+    {
+      "id": "source:depth:epl:match:epl-2026-27-129017",
+      "name": "Premier League match record for Fulham v Newcastle United",
+      "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+      "sourceType": "official",
+      "checkedAt": "2026-10-04T05:51:11.197Z"
+    },
+    {
+      "id": "source:depth:epl:match:epl-2026-27-129021",
+      "name": "Premier League match record for Nottingham Forest v Manchester City",
+      "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+      "sourceType": "official",
+      "checkedAt": "2026-10-04T05:51:11.197Z"
     }
   ],
   "narrativeFacts": [
@@ -29323,6 +29358,221 @@
       ],
       "observedAt": "2026-10-06T02:59:54.194Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129016:team-football-epl-7:entry-form",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-7"
+      ],
+      "statement": "Everton entered Premier League Matchweek 10 with 2 win, 3 draw and 0 loss from 5 earlier 2026/27 league matches.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:match:epl-2026-27-129016"
+      ],
+      "expiresAt": "2026-11-06T20:00:00.000Z",
+      "observedAt": "2026-10-07T20:59:15.968Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129016:team-football-epl-5:entry-form",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-5"
+      ],
+      "statement": "Coventry City entered Premier League Matchweek 10 with 1 win, 0 draw and 4 loss from 5 earlier 2026/27 league matches.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:match:epl-2026-27-129016"
+      ],
+      "expiresAt": "2026-11-06T20:00:00.000Z",
+      "observedAt": "2026-10-07T20:59:15.968Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129016:matchup",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-7",
+        "subject:depth:epl:team-football-epl-5"
+      ],
+      "statement": "Everton v Coventry City places adding goals to one of the league's strongest away defences directly against the set-piece strength behind a 97-goal promotion in Premier League Matchweek 10.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures"
+      ],
+      "expiresAt": null,
+      "observedAt": "2026-09-30T22:50:31.966Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129019:team-football-epl-9:entry-form",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-9"
+      ],
+      "statement": "Leeds United entered Premier League Matchweek 10 with 2 win, 3 draw and 0 loss from 5 earlier 2026/27 league matches.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:match:epl-2026-27-129019"
+      ],
+      "expiresAt": "2026-11-07T12:30:00.000Z",
+      "observedAt": "2026-10-07T20:59:15.968Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129019:team-football-epl-21:entry-form",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-21"
+      ],
+      "statement": "Tottenham Hotspur entered Premier League Matchweek 10 with 0 win, 2 draw and 3 loss from 5 earlier 2026/27 league matches.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:match:epl-2026-27-129019"
+      ],
+      "expiresAt": "2026-11-07T12:30:00.000Z",
+      "observedAt": "2026-10-07T20:59:15.968Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129019:matchup",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-9",
+        "subject:depth:epl:team-football-epl-21"
+      ],
+      "statement": "Leeds United v Tottenham Hotspur places the physical 3-4-2-1 that lost only three of its final 14 last season directly against a new ball-playing defence under an attacking coach in Premier League Matchweek 10.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures"
+      ],
+      "expiresAt": null,
+      "observedAt": "2026-09-30T22:50:31.966Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129013:team-football-epl-1:entry-form",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-1"
+      ],
+      "statement": "Arsenal entered Premier League Matchweek 10 with 4 win, 0 draw and 1 loss from 5 earlier 2026/27 league matches.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:match:epl-2026-27-129013"
+      ],
+      "expiresAt": "2026-11-07T15:00:00.000Z",
+      "observedAt": "2026-10-07T20:59:15.968Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129013:team-football-epl-41:entry-form",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-41"
+      ],
+      "statement": "Hull City entered Premier League Matchweek 10 with 2 win, 2 draw and 1 loss from 5 earlier 2026/27 league matches.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:match:epl-2026-27-129013"
+      ],
+      "expiresAt": "2026-11-07T15:00:00.000Z",
+      "observedAt": "2026-10-07T20:59:15.968Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129013:matchup",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-1",
+        "subject:depth:epl:team-football-epl-41"
+      ],
+      "statement": "Arsenal v Hull City places settled champion structure directly against a playoff-built counterattack in Premier League Matchweek 10.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures"
+      ],
+      "expiresAt": null,
+      "observedAt": "2026-09-30T22:50:31.966Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129017:team-football-epl-34:entry-form",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-34"
+      ],
+      "statement": "Fulham entered Premier League Matchweek 10 with 0 win, 2 draw and 3 loss from 5 earlier 2026/27 league matches.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:match:epl-2026-27-129017"
+      ],
+      "expiresAt": "2026-11-07T15:00:00.000Z",
+      "observedAt": "2026-10-07T20:59:15.968Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129017:team-football-epl-23:entry-form",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-23"
+      ],
+      "statement": "Newcastle United entered Premier League Matchweek 10 with 2 win, 2 draw and 1 loss from 5 earlier 2026/27 league matches.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:match:epl-2026-27-129017"
+      ],
+      "expiresAt": "2026-11-07T15:00:00.000Z",
+      "observedAt": "2026-10-07T20:59:15.968Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129017:matchup",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-34",
+        "subject:depth:epl:team-football-epl-23"
+      ],
+      "statement": "Fulham v Newcastle United places Alvaro Arbeloa's wide overloads directly against rebuilding leadership, midfield and coaching at once in Premier League Matchweek 10.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures"
+      ],
+      "expiresAt": null,
+      "observedAt": "2026-09-30T22:50:31.966Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129021:team-football-epl-15:entry-form",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-15"
+      ],
+      "statement": "Nottingham Forest entered Premier League Matchweek 10 with 1 win, 2 draw and 2 loss from 5 earlier 2026/27 league matches.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:match:epl-2026-27-129021"
+      ],
+      "expiresAt": "2026-11-07T17:30:00.000Z",
+      "observedAt": "2026-10-07T20:59:15.968Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129021:team-football-epl-11:entry-form",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-11"
+      ],
+      "statement": "Manchester City entered Premier League Matchweek 10 with 5 win, 0 draw and 0 loss from 5 earlier 2026/27 league matches.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:match:epl-2026-27-129021"
+      ],
+      "expiresAt": "2026-11-07T17:30:00.000Z",
+      "observedAt": "2026-10-07T20:59:15.968Z"
+    },
+    {
+      "id": "fact:depth:epl:epl-2026-27-129021:matchup",
+      "subjectIds": [
+        "subject:depth:epl:team-football-epl-15",
+        "subject:depth:epl:team-football-epl-11"
+      ],
+      "statement": "Nottingham Forest v Manchester City places a new three-at-the-back structure against a poor home run directly against Enzo Maresca's continuity-versus-change problem in Premier League Matchweek 10.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures"
+      ],
+      "expiresAt": null,
+      "observedAt": "2026-09-30T22:50:31.966Z"
     }
   ],
   "narrativeThreads": [
@@ -30431,10 +30681,10 @@
       "summary": "Manchester City's cards carry the same researched season question forward, updating form at every fixture so the narrative develops from match to match instead of resetting to schedule information.",
       "factIds": [
         "fact:depth:epl:team-football-epl-11:season-arc",
-        "fact:depth:epl:epl-2026-27-129010:team-football-epl-11:entry-form"
+        "fact:depth:epl:epl-2026-27-129021:team-football-epl-11:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:51:53.963Z"
+      "updatedAt": "2026-10-07T23:14:40.714Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-127:2026-27",
@@ -30459,10 +30709,10 @@
       "summary": "Newcastle United's cards carry the same researched season question forward, updating form at every fixture so the narrative develops from match to match instead of resetting to schedule information.",
       "factIds": [
         "fact:depth:epl:team-football-epl-23:season-arc",
-        "fact:depth:epl:epl-2026-27-129011:team-football-epl-23:entry-form"
+        "fact:depth:epl:epl-2026-27-129017:team-football-epl-23:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:51:53.963Z"
+      "updatedAt": "2026-10-07T23:14:40.714Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-10:2026-27",
@@ -30487,10 +30737,10 @@
       "summary": "Fulham's cards carry the same researched season question forward, updating form at every fixture so the narrative develops from match to match instead of resetting to schedule information.",
       "factIds": [
         "fact:depth:epl:team-football-epl-34:season-arc",
-        "fact:depth:epl:epl-2026-27-129003:team-football-epl-34:entry-form"
+        "fact:depth:epl:epl-2026-27-129017:team-football-epl-34:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:51:53.963Z"
+      "updatedAt": "2026-10-07T23:14:40.714Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-4:2026-27",
@@ -30529,10 +30779,10 @@
       "summary": "Nottingham Forest's cards carry the same researched season question forward, updating form at every fixture so the narrative develops from match to match instead of resetting to schedule information.",
       "factIds": [
         "fact:depth:epl:team-football-epl-15:season-arc",
-        "fact:depth:epl:epl-2026-27-129005:team-football-epl-15:entry-form"
+        "fact:depth:epl:epl-2026-27-129021:team-football-epl-15:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:51:53.963Z"
+      "updatedAt": "2026-10-07T23:14:40.714Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-7:2026-27",
@@ -30543,10 +30793,10 @@
       "summary": "Everton's cards carry the same researched season question forward, updating form at every fixture so the narrative develops from match to match instead of resetting to schedule information.",
       "factIds": [
         "fact:depth:epl:team-football-epl-7:season-arc",
-        "fact:depth:epl:epl-2026-27-129011:team-football-epl-7:entry-form"
+        "fact:depth:epl:epl-2026-27-129016:team-football-epl-7:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:51:53.963Z"
+      "updatedAt": "2026-10-07T23:14:40.714Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-5:2026-27",
@@ -30557,10 +30807,10 @@
       "summary": "Coventry City's cards carry the same researched season question forward, updating form at every fixture so the narrative develops from match to match instead of resetting to schedule information.",
       "factIds": [
         "fact:depth:epl:team-football-epl-5:season-arc",
-        "fact:depth:epl:epl-2026-27-129007:team-football-epl-5:entry-form"
+        "fact:depth:epl:epl-2026-27-129016:team-football-epl-5:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:51:53.963Z"
+      "updatedAt": "2026-10-07T23:14:40.714Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-41:2026-27",
@@ -30571,10 +30821,10 @@
       "summary": "Hull City's cards carry the same researched season question forward, updating form at every fixture so the narrative develops from match to match instead of resetting to schedule information.",
       "factIds": [
         "fact:depth:epl:team-football-epl-41:season-arc",
-        "fact:depth:epl:epl-2026-27-129008:team-football-epl-41:entry-form"
+        "fact:depth:epl:epl-2026-27-129013:team-football-epl-41:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:51:53.963Z"
+      "updatedAt": "2026-10-07T23:14:40.714Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-21:2026-27",
@@ -30585,10 +30835,10 @@
       "summary": "Tottenham Hotspur's cards carry the same researched season question forward, updating form at every fixture so the narrative develops from match to match instead of resetting to schedule information.",
       "factIds": [
         "fact:depth:epl:team-football-epl-21:season-arc",
-        "fact:depth:epl:epl-2026-27-129012:team-football-epl-21:entry-form"
+        "fact:depth:epl:epl-2026-27-129019:team-football-epl-21:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:51:53.963Z"
+      "updatedAt": "2026-10-07T23:14:40.714Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-9:2026-27",
@@ -30599,10 +30849,10 @@
       "summary": "Leeds United's cards carry the same researched season question forward, updating form at every fixture so the narrative develops from match to match instead of resetting to schedule information.",
       "factIds": [
         "fact:depth:epl:team-football-epl-9:season-arc",
-        "fact:depth:epl:epl-2026-27-129004:team-football-epl-9:entry-form"
+        "fact:depth:epl:epl-2026-27-129019:team-football-epl-9:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:51:53.963Z"
+      "updatedAt": "2026-10-07T23:14:40.714Z"
     },
     {
       "id": "thread:depth:epl:team-football-epl-130:2026-27",
@@ -30669,10 +30919,10 @@
       "summary": "Arsenal's cards carry the same researched season question forward, updating form at every fixture so the narrative develops from match to match instead of resetting to schedule information.",
       "factIds": [
         "fact:depth:epl:team-football-epl-1:season-arc",
-        "fact:depth:epl:epl-2026-27-129009:team-football-epl-1:entry-form"
+        "fact:depth:epl:epl-2026-27-129013:team-football-epl-1:entry-form"
       ],
       "status": "active",
-      "updatedAt": "2026-10-04T05:51:53.963Z"
+      "updatedAt": "2026-10-07T23:14:40.714Z"
     },
     {
       "id": "thread:depth:afl:close",
@@ -48000,6 +48250,176 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-06T22:12:30Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-129016",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129016"
+      ],
+      "researchDepth": 2,
+      "hook": "Everton's search for more attack against Coventry's return after 25 years: one result will move two very different season stories.",
+      "synopsis": "Everton arrives with 2W-3D-0L, while Coventry City brings 1W-0D-4L. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-7:2026-27",
+        "thread:depth:epl:team-football-epl-5:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-7:season-arc",
+        "fact:depth:epl:team-football-epl-5:season-arc",
+        "fact:depth:epl:epl-2026-27-129016:team-football-epl-7:entry-form",
+        "fact:depth:epl:epl-2026-27-129016:team-football-epl-5:entry-form",
+        "fact:depth:epl:epl-2026-27-129016:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129016"
+      ],
+      "researchedAt": "2026-10-07T20:59:15.968Z",
+      "refreshAfter": "2026-11-06T20:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-07T20:59:15.968Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-129019",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129019"
+      ],
+      "researchDepth": 2,
+      "hook": "Tottenham's first full De Zerbi season comes to Leeds United, directly testing Leeds' carry-over momentum.",
+      "synopsis": "Leeds United arrives with 2W-3D-0L, while Tottenham Hotspur brings 0W-2D-3L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-9:2026-27",
+        "thread:depth:epl:team-football-epl-21:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-9:season-arc",
+        "fact:depth:epl:team-football-epl-21:season-arc",
+        "fact:depth:epl:epl-2026-27-129019:team-football-epl-9:entry-form",
+        "fact:depth:epl:epl-2026-27-129019:team-football-epl-21:entry-form",
+        "fact:depth:epl:epl-2026-27-129019:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129019"
+      ],
+      "researchedAt": "2026-10-07T20:59:15.968Z",
+      "refreshAfter": "2026-11-07T12:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-07T20:59:15.968Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-129013",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129013"
+      ],
+      "researchDepth": 2,
+      "hook": "Arsenal host Hull City with Arsenal's first title defence in 22 years and Hull's top-flight return after nine years both under examination.",
+      "synopsis": "Arsenal arrives with 4W-0D-1L, while Hull City brings 2W-2D-1L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of settled champion structure against a playoff-built counterattack, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-1:2026-27",
+        "thread:depth:epl:team-football-epl-41:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-1:season-arc",
+        "fact:depth:epl:team-football-epl-41:season-arc",
+        "fact:depth:epl:epl-2026-27-129013:team-football-epl-1:entry-form",
+        "fact:depth:epl:epl-2026-27-129013:team-football-epl-41:entry-form",
+        "fact:depth:epl:epl-2026-27-129013:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129013"
+      ],
+      "researchedAt": "2026-10-07T20:59:15.968Z",
+      "refreshAfter": "2026-11-07T15:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-07T20:59:15.968Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-129017",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129017"
+      ],
+      "researchDepth": 2,
+      "hook": "Fulham host Newcastle United with Fulham's first post-Marco Silva season and Newcastle's new era after a summer exodus both under examination.",
+      "synopsis": "Fulham arrives with 0W-2D-3L, while Newcastle United brings 2W-2D-1L. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-34:2026-27",
+        "thread:depth:epl:team-football-epl-23:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-34:season-arc",
+        "fact:depth:epl:team-football-epl-23:season-arc",
+        "fact:depth:epl:epl-2026-27-129017:team-football-epl-34:entry-form",
+        "fact:depth:epl:epl-2026-27-129017:team-football-epl-23:entry-form",
+        "fact:depth:epl:epl-2026-27-129017:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129017"
+      ],
+      "researchedAt": "2026-10-07T20:59:15.968Z",
+      "refreshAfter": "2026-11-07T15:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-07T20:59:15.968Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-129021",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-129021"
+      ],
+      "researchDepth": 2,
+      "hook": "Nottingham Forest's Glasner reset against Manchester City's first post-Guardiola campaign: one result will move two very different season stories.",
+      "synopsis": "Nottingham Forest arrives with 1W-2D-2L, while Manchester City brings 5 wins from 5. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-15:2026-27",
+        "thread:depth:epl:team-football-epl-11:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-15:season-arc",
+        "fact:depth:epl:team-football-epl-11:season-arc",
+        "fact:depth:epl:epl-2026-27-129021:team-football-epl-15:entry-form",
+        "fact:depth:epl:epl-2026-27-129021:team-football-epl-11:entry-form",
+        "fact:depth:epl:epl-2026-27-129021:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129021"
+      ],
+      "researchedAt": "2026-10-07T20:59:15.968Z",
+      "refreshAfter": "2026-11-07T17:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-07T20:59:15.968Z"
       }
     }
   ]

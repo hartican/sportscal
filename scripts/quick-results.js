@@ -49,7 +49,7 @@ async function refreshNflResults(options={}){
 function projectionSteps(changes,{rebuild=false}={}){
  if(!changes.length&&!rebuild)return [];
  const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL')||change==='Current card evidence');
- const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Current tennis|MLB|NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Editorial preview maintenance|Current tennis|MLB|NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
  const codes=new Set();
  if(changes.some(change=>change.startsWith('Known finals NRL')))codes.add('nrl');
  if(changes.some(change=>change.startsWith('Known finals WRC')))['wrc','motorsport'].forEach(code=>codes.add(code));
@@ -71,6 +71,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  if(changes.some(change=>change.startsWith('Official results')))['aflw','nrl','nrlw','motorsport','f1','motogp','fiba-women','tennis','wrc'].forEach(code=>codes.add(code));
  if(changes.some(change=>change==='Current card evidence'||change.startsWith('Official results')))['rugby-union','cricket'].forEach(code=>codes.add(code));
  const steps=[];
+ if(changes.includes('Football directory maintenance'))steps.push(['scripts/build-follow-directories.js','--codes=football'],['scripts/validate-football-directory.js']);
  if(changes.some(change=>change.startsWith('US Open')))steps.push(['scripts/apply-editorial-narratives.js','--write','--major-events-only']);
  if(canonicalChanged){steps.push(['scripts/sync-canonical-fixtures-to-feed.js','data/canonical/afl-nrl-2026.json','feeds/incoming/events.json','feeds/incoming/events.json'],['scripts/apply-current-card-evidence.js'],['scripts/refresh-major-events-from-canonical.js']);}
  if(changes.some(change=>/^(Premier League|EPL standings)/.test(change)))steps.push(['scripts/build-canonical-context-bundle.js'],['scripts/validate-premier-league-context.js']);
@@ -197,6 +198,9 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  // pre-refresh surface. New finals/corrections must keep regenerated recaps.
  const editorialBaseline=new Map(['feeds/incoming/events.json','data/events.json'].map(file=>[file,read(file).events]));
  const changes=[],failures=[],bundlePath='data/canonical/afl-nrl-2026.json';
+ let footballDirectory;
+ try{footballDirectory=await require('./lib/football-directory-maintenance').refreshDue({now,offline});if(footballDirectory.changed)changes.push('Football directory maintenance');for(const gap of footballDirectory.deferred||[])failures.push(`Football roster ${gap.teamId}: ${gap.message}`);}
+ catch(error){failures.push(`Football directory: ${error.message}`);}
  const hydration=await require('./refresh-tournament-hydration').refresh({now,offline});
  if(hydration.changed.length)changes.push('Tournament hydration');
  if(!offline)try{
@@ -263,10 +267,14 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  if(skiReview.some(surface=>surface.changed.length))changes.push('Skiing calendar review');
  const calendarNotes=require('./lib/reviewed-calendar-notes').applyRetained();
  if(calendarNotes.some(surface=>surface.changed.length))changes.push('Reviewed calendar notes');
+ const previewMaintenance=require('./update-sport-editorial-depth').repairMissing({reference:now});
+ if(previewMaintenance.changed)changes.push('Editorial preview maintenance');
  runProjectionSteps(projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});
+ run('scripts/validate-football-directory.js');
+ run('scripts/validate-editorial-sport-depth.js');
  run('scripts/build-tennis-feed-parents.js');
  run('scripts/build-tournament-horizon.js');
- const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,liveCoverage,nflStandings,chl,nhl,finalResults,tennisCurrent,aiCalls:0,publicationState:'candidate'};
+ const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,footballDirectory,previewMaintenance,liveCoverage,nflStandings,chl,nhl,finalResults,tennisCurrent,aiCalls:0,publicationState:'candidate'};
  // Keep exception evidence outside the rolled-back data surfaces even when
  // result completeness blocks this candidate before publication.
  if(process.env.QUICK_RESULTS_REPORT){const path=require('node:path');fs.mkdirSync(path.dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,report);}

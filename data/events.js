@@ -136079,14 +136079,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
-    "fullSpiel": "Everton v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+    "selectedSentence": "Everton's search for more attack against Coventry's return after 25 years: one result will move two very different season stories.",
+    "fullSpiel": "Everton arrives with 2W-3D-0L, while Coventry City brings 1W-0D-4L. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-04T05:51:11.197Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:11.197Z",
+    "lastReviewedAt": "2026-10-07T20:59:15.968Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -136113,6 +136113,62 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-21"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:epl-2026-27-129016",
+      "researchTier": "standard",
+      "hook": "Everton's search for more attack against Coventry's return after 25 years: one result will move two very different season stories.",
+      "synopsis": "Everton arrives with 2W-3D-0L, while Coventry City brings 1W-0D-4L. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-7:2026-27",
+        "thread:depth:epl:team-football-epl-5:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-7:season-arc",
+        "fact:depth:epl:team-football-epl-5:season-arc",
+        "fact:depth:epl:epl-2026-27-129016:team-football-epl-7:entry-form",
+        "fact:depth:epl:epl-2026-27-129016:team-football-epl-5:entry-form",
+        "fact:depth:epl:epl-2026-27-129016:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129016"
+      ],
+      "dimensions": [
+        "form",
+        "history",
+        "matchup"
+      ],
+      "researchedAt": "2026-10-07T20:59:15.968Z",
+      "refreshAfter": "2026-11-06T20:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Everton — 2026/27 identity under pressure",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
+      ],
+      "sourceName": "Premier League current 2026/27 table",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceCheckedAt": "2026-10-07T20:59:15.968Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Everton's search for more attack against Coventry's return after 25 years: one result will move two very different season stories.",
+      "hookSpoilerOn": "Everton's search for more attack against Coventry's return after 25 years: one result will move two very different season stories.",
+      "synopsisSpoilerOff": "Everton arrives with 2W-3D-0L, while Coventry City brings 1W-0D-4L. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Everton arrives with 2W-3D-0L, while Coventry City brings 1W-0D-4L. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-10-07T20:59:15.968Z"
     }
   },
   {
@@ -136758,14 +136814,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
-    "fullSpiel": "Leeds United v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+    "selectedSentence": "Tottenham's first full De Zerbi season comes to Leeds United, directly testing Leeds' carry-over momentum.",
+    "fullSpiel": "Leeds United arrives with 2W-3D-0L, while Tottenham Hotspur brings 0W-2D-3L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-04T05:51:11.197Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:11.197Z",
+    "lastReviewedAt": "2026-10-07T20:59:15.968Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -136792,6 +136848,62 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-21"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:epl-2026-27-129019",
+      "researchTier": "standard",
+      "hook": "Tottenham's first full De Zerbi season comes to Leeds United, directly testing Leeds' carry-over momentum.",
+      "synopsis": "Leeds United arrives with 2W-3D-0L, while Tottenham Hotspur brings 0W-2D-3L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-9:2026-27",
+        "thread:depth:epl:team-football-epl-21:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-9:season-arc",
+        "fact:depth:epl:team-football-epl-21:season-arc",
+        "fact:depth:epl:epl-2026-27-129019:team-football-epl-9:entry-form",
+        "fact:depth:epl:epl-2026-27-129019:team-football-epl-21:entry-form",
+        "fact:depth:epl:epl-2026-27-129019:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129019"
+      ],
+      "dimensions": [
+        "form",
+        "history",
+        "matchup"
+      ],
+      "researchedAt": "2026-10-07T20:59:15.968Z",
+      "refreshAfter": "2026-11-07T12:30:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Leeds United — 2026/27 identity under pressure",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
+      ],
+      "sourceName": "Premier League current 2026/27 table",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceCheckedAt": "2026-10-07T20:59:15.968Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Tottenham's first full De Zerbi season comes to Leeds United, directly testing Leeds' carry-over momentum.",
+      "hookSpoilerOn": "Tottenham's first full De Zerbi season comes to Leeds United, directly testing Leeds' carry-over momentum.",
+      "synopsisSpoilerOff": "Leeds United arrives with 2W-3D-0L, while Tottenham Hotspur brings 0W-2D-3L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Leeds United arrives with 2W-3D-0L, while Tottenham Hotspur brings 0W-2D-3L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-10-07T20:59:15.968Z"
     }
   },
   {
@@ -137107,14 +137219,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
-    "fullSpiel": "Arsenal v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+    "selectedSentence": "Arsenal host Hull City with Arsenal's first title defence in 22 years and Hull's top-flight return after nine years both under examination.",
+    "fullSpiel": "Arsenal arrives with 4W-0D-1L, while Hull City brings 2W-2D-1L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of settled champion structure against a playoff-built counterattack, and the next result will advance both season threads.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-04T05:51:11.197Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:11.197Z",
+    "lastReviewedAt": "2026-10-07T20:59:15.968Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -137141,6 +137253,62 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-21"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:epl-2026-27-129013",
+      "researchTier": "standard",
+      "hook": "Arsenal host Hull City with Arsenal's first title defence in 22 years and Hull's top-flight return after nine years both under examination.",
+      "synopsis": "Arsenal arrives with 4W-0D-1L, while Hull City brings 2W-2D-1L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of settled champion structure against a playoff-built counterattack, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-1:2026-27",
+        "thread:depth:epl:team-football-epl-41:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-1:season-arc",
+        "fact:depth:epl:team-football-epl-41:season-arc",
+        "fact:depth:epl:epl-2026-27-129013:team-football-epl-1:entry-form",
+        "fact:depth:epl:epl-2026-27-129013:team-football-epl-41:entry-form",
+        "fact:depth:epl:epl-2026-27-129013:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129013"
+      ],
+      "dimensions": [
+        "history",
+        "form",
+        "matchup"
+      ],
+      "researchedAt": "2026-10-07T20:59:15.968Z",
+      "refreshAfter": "2026-11-07T15:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Arsenal — 2026/27 identity under pressure",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
+      ],
+      "sourceName": "Premier League current 2026/27 table",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceCheckedAt": "2026-10-07T20:59:15.968Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Arsenal host Hull City with Arsenal's first title defence in 22 years and Hull's top-flight return after nine years both under examination.",
+      "hookSpoilerOn": "Arsenal host Hull City with Arsenal's first title defence in 22 years and Hull's top-flight return after nine years both under examination.",
+      "synopsisSpoilerOff": "Arsenal arrives with 4W-0D-1L, while Hull City brings 2W-2D-1L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of settled champion structure against a playoff-built counterattack, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Arsenal arrives with 4W-0D-1L, while Hull City brings 2W-2D-1L. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of settled champion structure against a playoff-built counterattack, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-10-07T20:59:15.968Z"
     }
   },
   {
@@ -137214,14 +137382,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
-    "fullSpiel": "Fulham v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+    "selectedSentence": "Fulham host Newcastle United with Fulham's first post-Marco Silva season and Newcastle's new era after a summer exodus both under examination.",
+    "fullSpiel": "Fulham arrives with 0W-2D-3L, while Newcastle United brings 2W-2D-1L. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-04T05:51:11.197Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:11.197Z",
+    "lastReviewedAt": "2026-10-07T20:59:15.968Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -137248,6 +137416,62 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-21"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:epl-2026-27-129017",
+      "researchTier": "standard",
+      "hook": "Fulham host Newcastle United with Fulham's first post-Marco Silva season and Newcastle's new era after a summer exodus both under examination.",
+      "synopsis": "Fulham arrives with 0W-2D-3L, while Newcastle United brings 2W-2D-1L. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-34:2026-27",
+        "thread:depth:epl:team-football-epl-23:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-34:season-arc",
+        "fact:depth:epl:team-football-epl-23:season-arc",
+        "fact:depth:epl:epl-2026-27-129017:team-football-epl-34:entry-form",
+        "fact:depth:epl:epl-2026-27-129017:team-football-epl-23:entry-form",
+        "fact:depth:epl:epl-2026-27-129017:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129017"
+      ],
+      "dimensions": [
+        "history",
+        "form",
+        "matchup"
+      ],
+      "researchedAt": "2026-10-07T20:59:15.968Z",
+      "refreshAfter": "2026-11-07T15:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Fulham — 2026/27 identity under pressure",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
+      ],
+      "sourceName": "Premier League current 2026/27 table",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceCheckedAt": "2026-10-07T20:59:15.968Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Fulham host Newcastle United with Fulham's first post-Marco Silva season and Newcastle's new era after a summer exodus both under examination.",
+      "hookSpoilerOn": "Fulham host Newcastle United with Fulham's first post-Marco Silva season and Newcastle's new era after a summer exodus both under examination.",
+      "synopsisSpoilerOff": "Fulham arrives with 0W-2D-3L, while Newcastle United brings 2W-2D-1L. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Fulham arrives with 0W-2D-3L, while Newcastle United brings 2W-2D-1L. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-10-07T20:59:15.968Z"
     }
   },
   {
@@ -137464,14 +137688,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
-    "fullSpiel": "Nottingham Forest v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+    "selectedSentence": "Nottingham Forest's Glasner reset against Manchester City's first post-Guardiola campaign: one result will move two very different season stories.",
+    "fullSpiel": "Nottingham Forest arrives with 1W-2D-2L, while Manchester City brings 5 wins from 5. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-04T05:51:11.197Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:11.197Z",
+    "lastReviewedAt": "2026-10-07T20:59:15.968Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -137498,6 +137722,62 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-21"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:epl-2026-27-129021",
+      "researchTier": "standard",
+      "hook": "Nottingham Forest's Glasner reset against Manchester City's first post-Guardiola campaign: one result will move two very different season stories.",
+      "synopsis": "Nottingham Forest arrives with 1W-2D-2L, while Manchester City brings 5 wins from 5. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-15:2026-27",
+        "thread:depth:epl:team-football-epl-11:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-15:season-arc",
+        "fact:depth:epl:team-football-epl-11:season-arc",
+        "fact:depth:epl:epl-2026-27-129021:team-football-epl-15:entry-form",
+        "fact:depth:epl:epl-2026-27-129021:team-football-epl-11:entry-form",
+        "fact:depth:epl:epl-2026-27-129021:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129021"
+      ],
+      "dimensions": [
+        "form",
+        "history",
+        "matchup"
+      ],
+      "researchedAt": "2026-10-07T20:59:15.968Z",
+      "refreshAfter": "2026-11-07T17:30:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Nottingham Forest — 2026/27 identity under pressure",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
+      ],
+      "sourceName": "Premier League current 2026/27 table",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceCheckedAt": "2026-10-07T20:59:15.968Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Nottingham Forest's Glasner reset against Manchester City's first post-Guardiola campaign: one result will move two very different season stories.",
+      "hookSpoilerOn": "Nottingham Forest's Glasner reset against Manchester City's first post-Guardiola campaign: one result will move two very different season stories.",
+      "synopsisSpoilerOff": "Nottingham Forest arrives with 1W-2D-2L, while Manchester City brings 5 wins from 5. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Nottingham Forest arrives with 1W-2D-2L, while Manchester City brings 5 wins from 5. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-10-07T20:59:15.968Z"
     }
   },
   {

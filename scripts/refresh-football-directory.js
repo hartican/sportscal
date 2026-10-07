@@ -511,6 +511,10 @@ function checkExisting(){
 }
 
 async function main(){
+  if (process.argv.includes("--refresh-due")) {
+    console.log(JSON.stringify(await require('./lib/football-directory-maintenance').refreshDue()));
+    return;
+  }
   if (process.argv.includes("--bootstrap-public")) return bootstrapAndWrite();
   if (process.argv.includes("--refresh-fixtures")) return refreshEuropeanFixtures();
   if (process.argv.includes("--prune-removed")) return pruneRemovedLeagues();

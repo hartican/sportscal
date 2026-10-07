@@ -35,6 +35,15 @@ function validate(){
   uniqueIds(directory.players, "player");
   const generatedAgeDays = (Date.now() - Date.parse(directory.generatedAt)) / 86400000;
   assert(generatedAgeDays >= 0 && generatedAgeDays <= 45, "football directory evidence must be checked within 45 days");
+  if(directory.refreshEvidence){
+    assert.equal(directory.refreshEvidence.kind,'complete-club-check-with-independent-rosters');
+    for(const league of directory.leagues){
+      const source=directory.sources.find(s=>s.id===`source:football:${league.key}:clubs-current`);
+      assert(source && Date.parse(source.checkedAt)<=Date.now() && Date.now()-Date.parse(source.checkedAt)<=45*86400000,`${league.displayName} requires an actual current club observation`);
+      assert(directory.refreshEvidence.receipts.some(r=>r.url===source.url&&r.checkedAt===source.checkedAt&&/^[a-f0-9]{64}$/.test(r.sha256)),'club source requires a retained response receipt');
+    }
+    for(const player of directory.players.filter(p=>p.rosterStatus==='unconfirmed'))assert.equal(player.currentTeamStatus,'last-known','missing roster membership retains explicitly last-known context');
+  }
   const sourceIds = new Set(directory.sources.map(source => source.id));
   const leagueIds = new Set(directory.leagues.map(league => league.id));
   const teamIds = new Set(directory.teams.map(team => team.id));
