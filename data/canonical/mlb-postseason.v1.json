@@ -1778,6 +1778,7 @@
       "competitionId": "competition:mlb",
       "competitionName": "MLB postseason",
       "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
       "liveWindow": 6,
       "season": 2026,
       "name": "Atlanta Braves v Los Angeles Dodgers",
@@ -1788,7 +1789,7 @@
       "startTimeUtc": "2026-10-06T22:00:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "venue": "Truist Park",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -1828,13 +1829,15 @@
           "participantId": "team:mlb:144",
           "label": "Atlanta Braves",
           "logoUrl": "https://www.mlbstatic.com/team-logos/144.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 1
         },
         {
           "participantId": "team:mlb:119",
           "label": "Los Angeles Dodgers",
           "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 3
         }
       ],
       "sourceName": "MLB",
@@ -1842,24 +1845,33 @@
       "sourceUrl": "https://www.mlb.com/gameday/849819",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849819",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-29&endDate=2026-10-20&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-30&endDate=2026-10-21&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
-      "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-      "selectedSentence": "NLDS 'B' Game 3 at Truist Park. Check the official game page for updates.",
-      "fullSpiel": "NLDS 'B' Game 3 at Truist Park. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-06T04:12:36.040Z",
+      "sourceCheckedAt": "2026-10-07T20:59:15.968Z",
+      "statusCheckedAt": "2026-10-07T20:59:15.968Z",
+      "score": "Atlanta Braves 1–3 Los Angeles Dodgers",
+      "resultStatus": "official",
+      "outcomeText": "Atlanta Braves 1–3 Los Angeles Dodgers",
+      "recapText": "NLDS 'B' Game 3: Atlanta Braves 1–3 Los Angeles Dodgers. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:119",
+      "homeScore": 1,
+      "awayScore": 3,
+      "scoreCheckedAt": "2026-10-07T20:59:15.968Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849819",
+      "resultSourceCheckedAt": "2026-10-07T20:59:15.968Z",
+      "selectedSentence": "NLDS 'B' Game 3 is complete. Reveal results for the outcome.",
+      "fullSpiel": "NLDS 'B' Game 3 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-07T20:59:15.968Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "NLDS 'B' Game 3 at Truist Park. Check the official game page for updates.",
-        "synopsisSpoilerOff": "NLDS 'B' Game 3 at Truist Park. Check the official game page for updates.",
-        "hookSpoilerOn": "NLDS 'B' Game 3 at Truist Park. Check the official game page for updates.",
-        "synopsisSpoilerOn": "NLDS 'B' Game 3 at Truist Park. Check the official game page for updates."
-      },
-      "broadcaster": "Australian viewing unconfirmed"
+        "arcStage": "recap",
+        "hookSpoilerOff": "NLDS 'B' Game 3 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "NLDS 'B' Game 3 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Atlanta Braves 1–3 Los Angeles Dodgers",
+        "synopsisSpoilerOn": "Atlanta Braves 1–3 Los Angeles Dodgers"
+      }
     },
     {
       "id": "fixture:mlb:849826",
@@ -1870,6 +1882,7 @@
       "competitionId": "competition:mlb",
       "competitionName": "MLB postseason",
       "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
       "liveWindow": 6,
       "season": 2026,
       "name": "San Diego Padres v Milwaukee Brewers",
@@ -1880,7 +1893,7 @@
       "startTimeUtc": "2026-10-07T01:30:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "venue": "Petco Park",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -1920,13 +1933,15 @@
           "participantId": "team:mlb:135",
           "label": "San Diego Padres",
           "logoUrl": "https://www.mlbstatic.com/team-logos/135.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 4
         },
         {
           "participantId": "team:mlb:158",
           "label": "Milwaukee Brewers",
           "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 3
         }
       ],
       "sourceName": "MLB",
@@ -1934,24 +1949,33 @@
       "sourceUrl": "https://www.mlb.com/gameday/849826",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849826",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-29&endDate=2026-10-20&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-30&endDate=2026-10-21&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
-      "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-      "selectedSentence": "NLDS 'A' Game 3 at Petco Park. Check the official game page for updates.",
-      "fullSpiel": "NLDS 'A' Game 3 at Petco Park. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-06T04:12:36.040Z",
+      "sourceCheckedAt": "2026-10-07T20:59:15.968Z",
+      "statusCheckedAt": "2026-10-07T20:59:15.968Z",
+      "score": "San Diego Padres 4–3 Milwaukee Brewers",
+      "resultStatus": "official",
+      "outcomeText": "San Diego Padres 4–3 Milwaukee Brewers",
+      "recapText": "NLDS 'A' Game 3: San Diego Padres 4–3 Milwaukee Brewers. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:135",
+      "homeScore": 4,
+      "awayScore": 3,
+      "scoreCheckedAt": "2026-10-07T20:59:15.968Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849826",
+      "resultSourceCheckedAt": "2026-10-07T20:59:15.968Z",
+      "selectedSentence": "NLDS 'A' Game 3 is complete. Reveal results for the outcome.",
+      "fullSpiel": "NLDS 'A' Game 3 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-07T20:59:15.968Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "NLDS 'A' Game 3 at Petco Park. Check the official game page for updates.",
-        "synopsisSpoilerOff": "NLDS 'A' Game 3 at Petco Park. Check the official game page for updates.",
-        "hookSpoilerOn": "NLDS 'A' Game 3 at Petco Park. Check the official game page for updates.",
-        "synopsisSpoilerOn": "NLDS 'A' Game 3 at Petco Park. Check the official game page for updates."
-      },
-      "broadcaster": "Australian viewing unconfirmed"
+        "arcStage": "recap",
+        "hookSpoilerOff": "NLDS 'A' Game 3 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "NLDS 'A' Game 3 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "San Diego Padres 4–3 Milwaukee Brewers",
+        "synopsisSpoilerOn": "San Diego Padres 4–3 Milwaukee Brewers"
+      }
     },
     {
       "id": "fixture:mlb:849833",
@@ -1962,6 +1986,7 @@
       "competitionId": "competition:mlb",
       "competitionName": "MLB postseason",
       "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
       "liveWindow": 6,
       "season": 2026,
       "name": "Chicago White Sox v Cleveland Guardians",
@@ -1972,7 +1997,7 @@
       "startTimeUtc": "2026-10-07T20:00:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "live",
       "venue": "Rate Field",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -2012,13 +2037,15 @@
           "participantId": "team:mlb:145",
           "label": "Chicago White Sox",
           "logoUrl": "https://www.mlbstatic.com/team-logos/145.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 1
         },
         {
           "participantId": "team:mlb:114",
           "label": "Cleveland Guardians",
           "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 4
         }
       ],
       "sourceName": "MLB",
@@ -2026,13 +2053,19 @@
       "sourceUrl": "https://www.mlb.com/gameday/849833",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849833",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-29&endDate=2026-10-20&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-30&endDate=2026-10-21&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
-      "statusCheckedAt": "2026-10-06T04:12:36.040Z",
+      "sourceCheckedAt": "2026-10-07T20:59:15.968Z",
+      "statusCheckedAt": "2026-10-07T20:59:15.968Z",
+      "score": "Chicago White Sox 1–4 Cleveland Guardians",
+      "homeScore": 1,
+      "awayScore": 4,
+      "scoreCheckedAt": "2026-10-07T20:59:15.968Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849833",
+      "resultSourceCheckedAt": "2026-10-07T20:59:15.968Z",
       "selectedSentence": "ALDS 'B' Game 3 at Rate Field. Check the official game page for updates.",
       "fullSpiel": "ALDS 'B' Game 3 at Rate Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-06T04:12:36.040Z",
+      "lastReviewedAt": "2026-10-07T20:59:15.968Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
@@ -2042,8 +2075,7 @@
         "synopsisSpoilerOff": "ALDS 'B' Game 3 at Rate Field. Check the official game page for updates.",
         "hookSpoilerOn": "ALDS 'B' Game 3 at Rate Field. Check the official game page for updates.",
         "synopsisSpoilerOn": "ALDS 'B' Game 3 at Rate Field. Check the official game page for updates."
-      },
-      "broadcaster": "Australian viewing unconfirmed"
+      }
     },
     {
       "id": "fixture:mlb:849822",
@@ -2238,16 +2270,17 @@
       "competitionId": "competition:mlb",
       "competitionName": "MLB postseason",
       "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
       "liveWindow": 6,
       "season": 2026,
       "name": "San Diego Padres v Milwaukee Brewers",
       "roundLabel": "NLDS 'A' Game 4 ",
       "stage": "NLDS 'A' Game 4 ",
       "date": "2026-10-08",
-      "time": null,
-      "startTimeUtc": null,
-      "timePrecision": "tbc",
-      "scheduleStatus": "conditional",
+      "time": "13:00",
+      "startTimeUtc": "2026-10-08T02:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
       "status": "upcoming",
       "venue": "Petco Park",
       "cardKind": "fixture",
@@ -2302,13 +2335,13 @@
       "sourceUrl": "https://www.mlb.com/gameday/849827",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849827",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-29&endDate=2026-10-20&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-30&endDate=2026-10-21&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
-      "statusCheckedAt": "2026-10-06T04:12:36.040Z",
+      "sourceCheckedAt": "2026-10-07T20:59:15.968Z",
+      "statusCheckedAt": "2026-10-07T20:59:15.968Z",
       "selectedSentence": "NLDS 'A' Game 4  at Petco Park. Check the official game page for updates.",
       "fullSpiel": "NLDS 'A' Game 4  at Petco Park. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-06T04:12:36.040Z",
+      "lastReviewedAt": "2026-10-07T20:59:15.968Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
@@ -2318,8 +2351,7 @@
         "synopsisSpoilerOff": "NLDS 'A' Game 4  at Petco Park. Check the official game page for updates.",
         "hookSpoilerOn": "NLDS 'A' Game 4  at Petco Park. Check the official game page for updates.",
         "synopsisSpoilerOn": "NLDS 'A' Game 4  at Petco Park. Check the official game page for updates."
-      },
-      "broadcaster": "Australian viewing unconfirmed"
+      }
     },
     {
       "id": "fixture:mlb:849832",
@@ -2874,6 +2906,6 @@
       "broadcaster": "Australian viewing unconfirmed"
     }
   ],
-  "checkedAt": "2026-10-06T04:17:58.933Z",
-  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-29&endDate=2026-10-20&hydrate=team"
+  "checkedAt": "2026-10-07T20:59:15.968Z",
+  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-30&endDate=2026-10-21&hydrate=team"
 }
