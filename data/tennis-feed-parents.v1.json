@@ -14631,6 +14631,8 @@
       "participationEvidence": [],
       "excludedParticipantIds": [],
       "participantIds": [
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:alex-molcan",
         "competitor:tennis:atp:zhang-zhizhen",
         "competitor:tennis:atp:tomas-machac",
         "competitor:tennis:atp:aleksandar-kovacevic",
@@ -14641,7 +14643,6 @@
         "competitor:tennis:atp:chak-lam-coleman-wong",
         "competitor:tennis:atp:arthur-fery",
         "competitor:tennis:atp:marin-cilic",
-        "competitor:tennis:atp:alex-molcan",
         "competitor:tennis:atp:federico-cina",
         "competitor:tennis:atp:wu-yibing",
         "competitor:tennis:atp:michael-zheng",
@@ -14699,6 +14700,16 @@
       "expected": 5,
       "sourceParticipation": [
         {
+          "participantId": "athlete:tennis:alex-de-minaur",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alex-molcan",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
           "participantId": "competitor:tennis:atp:zhang-zhizhen",
           "draw": "mens-singles",
           "active": true
@@ -14745,11 +14756,6 @@
         },
         {
           "participantId": "competitor:tennis:atp:marin-cilic",
-          "draw": "mens-singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:alex-molcan",
           "draw": "mens-singles",
           "active": true
         },
@@ -15021,6 +15027,8 @@
       ],
       "participantsConfirmed": true,
       "sourceParticipantIds": [
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:alex-molcan",
         "competitor:tennis:atp:zhang-zhizhen",
         "competitor:tennis:atp:tomas-machac",
         "competitor:tennis:atp:aleksandar-kovacevic",
@@ -15031,7 +15039,6 @@
         "competitor:tennis:atp:chak-lam-coleman-wong",
         "competitor:tennis:atp:arthur-fery",
         "competitor:tennis:atp:marin-cilic",
-        "competitor:tennis:atp:alex-molcan",
         "competitor:tennis:atp:federico-cina",
         "competitor:tennis:atp:wu-yibing",
         "competitor:tennis:atp:michael-zheng",
@@ -15086,7 +15093,7 @@
         "competitor:tennis:atp:juan-manuel-cerundolo",
         "competitor:tennis:atp:nicolas-mejia"
       ],
-      "contestCount": 32
+      "contestCount": 33
     },
     {
       "id": "tennis-parent:paris-masters:2026:main",

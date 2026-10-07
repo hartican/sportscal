@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Retained Shanghai pairing receipt — 8 October 2026 Sydney
+
+Add one bounded individually reviewed organiser pairing through the existing participant-schedules route of scripts/update-cards.js. The writer validates canonical ordered participants, round and the dated draw hash before either publication surface changes. Unchanged retries preserve IDs and independent source clocks. Existing publisher aliases can reconcile to the same named pairing; a collection poll cannot supply its official time. No source adapter, scheduler, per-user organiser read, database operation, notification permission or dispatcher change. Preserve the later free ESPN discovery/live owners and their budgets, rather than repeating provider ingestion for this retained projection.
+
+Replaying a retained terminal review preserves a later accepted result and equal unchanged set/winner facts, including their clocks, result copy and provider aliases. The actual retained projection regression covers the newer-final boundary. Cached club-record checks now compare each published club observation independently; they cannot require source clocks to be renewed to a common collection date.
+
 ## Reuse the existing Follow redraw boundary for focus — 5 October 2026
 
 Capture and restore control context inside the deferred Athletes module's existing redraw/animation-frame boundary. Reuse its account, route, preference and generation tickets; remember disabled manual-action focus only until the next redraw, and clear it on stop. Retain exact team identity for repeated action labels and do not take focus from another selected control. No new focus observer, interval, timer, request, retry, API, source/data change, database operation, scheduler, subscription or owner routine. Existing manual throttling, coalescing, pagination and disabled controls remain.

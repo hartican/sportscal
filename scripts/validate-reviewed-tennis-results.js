@@ -8,7 +8,7 @@ assert.deepEqual(finals.find(e=>e.id.includes('sabalenka-bartunkova')).sets,[{ho
 for(const mutate of [e=>{e.resultEvidence.fixtureId='wrong';},e=>{e.resultEvidence.sourceSha256='missing';},e=>{e.resultSourceCheckedAt=new Date(Date.now()+86400000).toISOString();},e=>{e.resultEvidence.participantIds.reverse();},e=>{e.winnerParticipantId='competitor:tennis:atp:someone-else';},e=>{e.sets[0].home=99;},e=>{e.scoreCheckedAt=e.sourceCheckedAt;},e=>{delete e.resultEvidence;},e=>{e.resultStatus='pending';}]){
  const bad=clone();mutate(bad.events[0]);assert.throws(()=>validate(bad),'unverified or misassociated completion must fail');
 }
-const instant=Date.parse('2026-10-06T02:11:00Z'),nexts=doc.events.filter(e=>e.tour==='ATP'&&['scheduled','live'].includes(e.status));
+const instant=Date.parse('2026-10-06T02:11:00Z'),nexts=doc.events.filter(e=>e.tour==='ATP'&&e.round==='final'&&['scheduled','live'].includes(e.status));
 assert.equal(nexts.length,1);
 for(const e of nexts){
  assert.equal(e.timePrecision,'not-before');
@@ -27,6 +27,13 @@ const retirement=doc.events.find(e=>e.resultCode==='RET');assert(retirement);ass
 for(const mutate of [e=>{delete e.resultEvidence.resultCode;},e=>{e.retiredParticipantId=e.winnerParticipantId;},e=>{e.resultCode='DEF';}]){const bad=clone();mutate(bad.events.find(e=>e.resultCode==='RET'));assert.throws(()=>validate(bad),'unverified terminal codes fail before publication');}
 const djokovic=doc.events.find(e=>e.id.includes('djokovic-zverev'));
 assert.equal(djokovic.round,'quarterfinal');assert.equal(djokovic.startTimeUtc,null);assert.equal(djokovic.date,null);assert.equal(policy.timing(djokovic,instant),null,'conditional semifinal clock cannot time a quarterfinal');
+const shanghai=doc.events.find(e=>e.id==='fixture:tennis:atp-shanghai-2026:r64:de-minaur-molcan'),checkpoint=Date.parse('2026-10-07T22:40:00Z');
+assert(shanghai,'the officially published next pairing is retained');assert.equal(shanghai.status,'scheduled');assert.equal(shanghai.roundLabel,'Round of 64');
+assert.equal(shanghai.date,null);assert.equal(shanghai.startTimeUtc,null);assert.equal(shanghai.timePrecision,'unresolved');assert.equal(shanghai.schedulingWindow.basis,'tournament-context-only');
+assert.equal(model.next([shanghai],shanghai.homeParticipantId,checkpoint)?.id,shanghai.id,'a verified pairing is profile-visible without inventing its playing date');
+assert.equal(policy.automaticEventScope(shanghai),true,'early main-draw knockout matches at a Masters remain in automatic scope');assert.equal(policy.timing(shanghai,checkpoint),null,'a published draw cannot provide a reminder clock');
+assert.equal(require('../config/feed-controls').isLiveNow(shanghai,checkpoint),false,'a draw pairing and active tournament cannot establish live match play');
+for(const mutate of [e=>{e.drawEvidence.fixtureId='wrong';},e=>{e.drawEvidence.participantIds.reverse();},e=>{e.drawEvidence.sourceSha256='missing';},e=>{e.drawEvidence.checkedAt='2100-01-01T00:00:00Z';},e=>{e.drawEvidence.roundLabel='Final';}]){const bad=clone();mutate(bad.events.find(e=>e.id===shanghai.id));assert.throws(()=>validate(bad),'unverified, future or mismatched pairing evidence fails before publication');}
 const root=fs.mkdtempSync(path.join(os.tmpdir(),'ns-tennis-review-'));
 try{
  const files=['data/events.json','feeds/incoming/events.json'];
@@ -35,6 +42,10 @@ try{
  apply({root});const first=files.map(f=>fs.readFileSync(path.join(root,f),'utf8'));apply({root});assert.deepEqual(files.map(f=>fs.readFileSync(path.join(root,f),'utf8')),first,'retries cannot duplicate or renew source facts');
  for(const text of first){const rows=JSON.parse(text).events;assert.equal(rows.length,doc.events.length+1);assert.equal(rows.find(e=>e.id==='unrelated').name,'Retained unrelated fixture');for(const e of finals){const row=rows.find(r=>r.canonicalEventId===e.id);assert.equal(row.status,'completed');assert.equal(row.id,e.id.replaceAll(':','-'),'existing action identity survives');for(const [key,value] of Object.entries(newerSchedule))assert.equal(row[key],value,'result review cannot roll back or renew independently checked scheduling');assert.equal(row.resultSourceCheckedAt,e.resultSourceCheckedAt);assert(!row.actualEndTimeUtc&&!row.completedAt,'a draw cannot invent the actual finish');if(e.id===japanFinal.id){assert.equal(row.storyline.arcStage,'recap');assert.notEqual(row.storyline.hookSpoilerOff,row.storyline.hookSpoilerOn);assert(!row.selectedSentence.includes('defeated'));assert(!row.editorialPreview);}else assert.equal(row.editorialPreview,'Retained fixture editorial');}}
  const stale=clone();for(const e of stale.events){if(e.status==='completed'){e.status='scheduled';delete e.resultStatus;delete e.score;delete e.scoreDisplay;delete e.sets;delete e.result;delete e.resultEvidence;delete e.winnerParticipantId;}}apply({root,doc:stale});assert.deepEqual(files.map(f=>fs.readFileSync(path.join(root,f),'utf8')),first,'stale reviewed export cannot reopen a terminal fixture');
+ const latest={...finals[0],statusCheckedAt:'2026-10-06T15:35:03.000Z',scoreCheckedAt:'2026-10-06T15:35:03.000Z',resultSourceCheckedAt:'2026-10-06T15:35:03.000Z',sets:[{home:6,away:3},{home:6,away:4}],score:'6–3, 6–4',scoreDisplay:'6–3, 6–4',result:'6–3, 6–4',outcomeText:'Retained publisher outcome',sourceEventIds:['retained-provider-alias']};
+ for(const file of files)fs.writeFileSync(path.join(root,file),JSON.stringify({events:[latest]})+'\n');
+ apply({root});for(const file of files){const retained=JSON.parse(fs.readFileSync(path.join(root,file))).events.find(e=>e.canonicalEventId===latest.canonicalEventId);for(const key of ['id','canonicalEventId','score','statusCheckedAt','scoreCheckedAt','resultSourceCheckedAt','outcomeText'])assert.deepEqual(retained[key],latest[key],'an old reviewed final cannot rewind later score/status clocks or copy');assert(retained.sourceEventIds.includes('retained-provider-alias'),'later provider aliases survive retained review');}
+ for(let i=0;i<files.length;i++)fs.writeFileSync(path.join(root,files[i]),first[i]);
  const bad=clone();bad.events[0].resultEvidence.sourceSha256='';assert.throws(()=>apply({root,doc:bad}));assert.deepEqual(files.map(f=>fs.readFileSync(path.join(root,f),'utf8')),first,'validation fails before any publication writes');
  fs.writeFileSync(path.join(root,files[1]),'invalid json');assert.throws(()=>apply({root}));assert.equal(fs.readFileSync(path.join(root,files[0]),'utf8'),first[0],'both publication surfaces preflight before writing');
 }finally{fs.rmSync(root,{recursive:true,force:true});}

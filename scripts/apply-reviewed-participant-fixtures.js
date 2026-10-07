@@ -6,6 +6,13 @@ const document=require('../feeds/provider-exports/tennis/participant-fixtures-re
 function validate(doc=document){
  assert.equal(doc.schemaVersion,'reviewed-participant-fixtures.v1');const seen=new Set();
  for(const e of doc.events){assert(!seen.has(e.id));seen.add(e.id);assert.equal(e.participantsConfirmed,true);assert.equal(e.contestUnit,'match');assert.equal(e.participantIds.length,2);assert(e.participantIds.every(id=>/^(athlete|competitor):tennis:/.test(id)));assert(/^https:\/\//.test(e.sourceUrl));assert(Number.isFinite(Date.parse(e.sourceCheckedAt))&&Date.parse(e.sourceCheckedAt)<=Date.now());assert(['exact','not-before','followed-by','unresolved'].includes(e.timePrecision));if(['exact','not-before'].includes(e.timePrecision))assert(Number.isFinite(Date.parse(e.startTimeUtc)));else assert(!e.startTimeUtc);assert(e.timingEvidence?.matchRow&&e.timingEvidence?.clockAssociation);}
+ for(const e of doc.events.filter(e=>e.drawEvidence)){
+  const proof=e.drawEvidence;
+  assert(proof.kind==='official-draw-pairing'&&proof.fixtureId===e.id&&proof.sourceUrl===e.timingEvidence.drawSourceUrl&&proof.checkedAt===e.timingEvidence.drawCheckedAt&&/^[a-f0-9]{64}$/.test(proof.sourceSha256)&&proof.sourceSha256===e.timingEvidence.drawSourceSha256,'reviewed pairing requires the exact dated organiser draw receipt');
+  assert(Number.isFinite(Date.parse(proof.checkedAt))&&Date.parse(proof.checkedAt)<=Date.now()&&proof.roundLabel===e.roundLabel&&proof.matchRow&&proof.winnerCell==='unpublished','reviewed pairing must identify its published round without claiming advancement');
+  assert.deepEqual(proof.participantIds,[e.homeParticipantId,e.awayParticipantId],'draw pairing must bind both canonical participants in order');
+  assert.deepEqual(e.participantIds,proof.participantIds);
+ }
  for(const e of doc.events.filter(e=>e.status==='live'))assert(['reviewed-broadcaster-live','official-match-page-status'].includes(e.statusEvidence?.kind),'unknown live evidence cannot establish match play');
  for(const e of doc.events.filter(e=>e.status==='live'&&e.statusEvidence?.kind==='reviewed-broadcaster-live')){
   const proof=e.statusEvidence;
@@ -60,6 +67,11 @@ function validate(doc=document){
 const scheduleFields=['sourceUrl','sourceName','sourceCheckedAt','canonicalSourceCheckedAt','date','time','startTimeUtc','timePrecision','scheduleStatus','timeTbc','timingVerified','timingEvidence','schedulingWindow'];
 function apply({root='.',doc=document}={}){validate(doc);const plans=[];for(const file of ['data/events.json','feeds/incoming/events.json']){const target=require('node:path').join(root,file),before=fs.readFileSync(target,'utf8'),data=JSON.parse(before);const identity=e=>e.canonicalEventId||e.eventId||e.id;const ids=new Set(doc.events.map(identity));const prior=data.events.filter(e=>ids.has(identity(e)));const settled=e=>['completed','finished','final','abandoned'].includes(e?.status);const updates=doc.events.filter(e=>!settled(prior.find(p=>identity(p)===identity(e)))||settled(e)).map(e=>{
   const base=prior.find(p=>identity(p)===identity(e));
+  // A retained review must not replace a later publisher final or replay
+  // already accepted result copy/aliases at the same observation.
+  const resultObservation=row=>Math.max(...['resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt'].map(key=>Date.parse(row?.[key])||0));
+  const sameFinal=base&&['status','sets','winnerParticipantId','resultCode','retiredParticipantId'].every(key=>JSON.stringify(e[key])===JSON.stringify(base[key]));
+  if(settled(e)&&settled(base)&&(sameFinal||resultObservation(e)<=resultObservation(base)))return base;
   // Reviewing a draw result updates result/status facts only. It cannot roll
   // back a newer fixture check or masquerade as a fresh scheduling observation.
   return settled(e)&&base?{...e,...Object.fromEntries(scheduleFields.filter(k=>base[k]!==undefined).map(k=>[k,base[k]]))}:e;

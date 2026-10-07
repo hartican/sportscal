@@ -1039,6 +1039,103 @@
       },
       "broadcaster": "Australian viewing unconfirmed",
       "viewingOptions": []
+    },
+    {
+      "id": "fixture:tennis:atp-shanghai-2026:r64:de-minaur-molcan",
+      "eventId": "fixture:tennis:atp-shanghai-2026:r64:de-minaur-molcan",
+      "canonicalEventId": "fixture:tennis:atp-shanghai-2026:r64:de-minaur-molcan",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "name": "Alex de Minaur v Alex Molcan",
+      "cardKind": "fixture",
+      "contestUnit": "match",
+      "competitionId": "competition:atp-tour",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+      "eventFamilyId": "shanghai-masters",
+      "tournamentName": "Rolex Shanghai Masters",
+      "tournamentLevel": "1000",
+      "tour": "ATP",
+      "discipline": "singles",
+      "eventType": "mens-singles",
+      "gender": "men",
+      "season": 2026,
+      "round": "knockout",
+      "roundLabel": "Round of 64",
+      "stage": "Round of 64",
+      "date": null,
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "unresolved",
+      "timeTbc": true,
+      "scheduleStatus": "unresolved",
+      "scheduleNote": "Match day and official start time not yet verified.",
+      "status": "scheduled",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:alex-molcan"
+      ],
+      "homeParticipantId": "athlete:tennis:alex-de-minaur",
+      "awayParticipantId": "competitor:tennis:atp:alex-molcan",
+      "participants": [
+        {
+          "id": "athlete:tennis:alex-de-minaur",
+          "name": "Alex de Minaur",
+          "displayName": "Alex de Minaur",
+          "type": "athlete",
+          "countryCode": "AUS"
+        },
+        {
+          "id": "competitor:tennis:atp:alex-molcan",
+          "name": "Alex Molcan",
+          "displayName": "Alex Molcan",
+          "type": "athlete",
+          "countryCode": "SVK"
+        }
+      ],
+      "venue": "Shanghai, China",
+      "court": null,
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
+      "sourceName": "Shanghai Masters official singles draw",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-07T22:39:38.478552+00:00",
+      "statusCheckedAt": "2026-10-07T22:39:38.478552+00:00",
+      "timingEvidence": {
+        "matchRow": "Top half, Round of 64, draw rows 17-20: A. de Minaur (9) v A. Molcan; the Round of 32 winner cell is empty.",
+        "clockAssociation": "Draw confirms both named Round of 64 participants, with no individual match day, court or start clock. Tournament dates and earlier-round result clocks do not time this match.",
+        "publishedAtLocal": "2026-10-07T23:34:07+08:00",
+        "reviewMethod": "Both PDF draw pages rendered and visually checked; Round of 64 column distinguishes the published pairing from earlier results and future-winner placeholders.",
+        "sourceSha256": "bab4e18817ca0b8a63229404dce8220c98670ff3600f3acd5cf76ae2310086ad",
+        "drawSourceUrl": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
+        "drawCheckedAt": "2026-10-07T22:39:38.478552+00:00",
+        "drawSourceSha256": "bab4e18817ca0b8a63229404dce8220c98670ff3600f3acd5cf76ae2310086ad"
+      },
+      "drawEvidence": {
+        "kind": "official-draw-pairing",
+        "fixtureId": "fixture:tennis:atp-shanghai-2026:r64:de-minaur-molcan",
+        "participantIds": [
+          "athlete:tennis:alex-de-minaur",
+          "competitor:tennis:atp:alex-molcan"
+        ],
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
+        "checkedAt": "2026-10-07T22:39:38.478552+00:00",
+        "sourceSha256": "bab4e18817ca0b8a63229404dce8220c98670ff3600f3acd5cf76ae2310086ad",
+        "sourcePublishedAtLocal": "2026-10-07T23:34:07+08:00",
+        "roundLabel": "Round of 64",
+        "matchRow": "Top-half draw rows 17-20, Round of 64: A. de Minaur (9) v A. Molcan; next winner cell unpublished.",
+        "winnerCell": "unpublished"
+      },
+      "schedulingWindow": {
+        "startsOn": "2026-10-07",
+        "endsOn": "2026-10-18",
+        "label": "Tournament context only; match day and time unconfirmed",
+        "basis": "tournament-context-only"
+      },
+      "liveWindow": 3,
+      "broadcaster": "Australian viewing unconfirmed",
+      "viewingOptions": []
     }
   ],
   "reviews": [
@@ -1088,6 +1185,15 @@
       "outcome": "Official draw still pairs Alcaraz and Arnaldi in Round of 16; no winner or second-round score appears. Result unavailable as observed; match status and original not-before clock are unchanged.",
       "checkedAt": "2026-10-03T06:30:54.629Z",
       "sourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf"
+    },
+    {
+      "player": "Alex de Minaur",
+      "outcome": "Official draw confirms the Round of 64 match against Alex Molcan. No individual match day, court, official start clock or live status is established.",
+      "checkedAt": "2026-10-07T22:39:38.478552+00:00",
+      "summary": "Shanghai Masters v Alex Molcan \u00b7 Round of 64 \u00b7 start time unconfirmed",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
+      "sourceLabel": "Official singles draw",
+      "validUntil": "2026-10-18"
     }
   ]
 }

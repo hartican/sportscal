@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Reviewed Shanghai next pairing — 8 October 2026 Sydney
+
+The organiser's 7 October 23:34 China draw now explicitly pairs Alex de Minaur and Alex Molcan in the Round of 64. Retain one canonical fixture for both participants, with the exact draw receipt and original observation. Its individual day, court and official start remain unresolved. Tournament dates are context only; the prior Molcan result cannot time this match. Show the sourced next match in the existing Follow profile and shared tournament fixtures without manufacturing live play or a reminder clock. Masters early main-draw knockout scope remains eligible once valid official timing exists; all Follow, exclusion, dismissal, Results and Remind OFF controls remain authoritative.
+
+This is one reviewed pairing, not complete permitted Shanghai ingestion, full-event reconciliation or phone proof. Djokovic and Alcaraz still have unresolved opponents in this draw, Sinner's dated withdrawal is unchanged, and Wuhan draw/order of play remain unavailable. Preserve the later Match Centre/Follow navigation and shared current-source owner. Regression extends the existing reviewed-tennis contract and actual Feed/Follow/Events browser journeys.
+
 ## Compact tennis browsing and Follow profiles — 7 October 2026
 
 The owner-approved visual pass retains current fixtures as the first tournament content and collapses published past matches. Use consistent name/city/tour/category/edition, readable tournament dates and sourced artwork or the existing tennis glyph. Follow profiles show next match, competition/round and timing before optional venue/source checks and device-alert setup. Source links and notification settings remain accessible; setup disclosure alone cannot enable alerts. Follows, rankings, Feed admission, saved actions, exclusions, Results OFF, Remind OFF and source clocks stay unchanged. Regression: actual tournament presentation and current-fixture profile browser suites, source-failure recovery and both-engine cache upgrades.
