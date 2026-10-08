@@ -286,7 +286,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
     }
     return;
   }
-  if ((chunk.records || []).some(record => record.entityType === "athlete")) void ensureAthleteProfileUi().catch(() => {});
+  // Profiles load only when a participant is opened.
   const filters = directoryFilters(sportKey);
   const curatedIds = (chunk.browseGroups || []).flatMap(group=>group.memberIds);
   const curatedOrder = new Map(curatedIds.map((id,index)=>[id,index]));
@@ -314,7 +314,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
     .filter(record => !filters.genderCategory || record.genderCategory === filters.genderCategory || ['unknown','mixed'].includes(record.genderCategory))
     .filter(record => Number.isFinite(footballDirectoryApi.searchMatchScore(record, filters.query)))
     .sort((first, second) => {
-      if(curatedIds.length && !filters.query && !filters.genderCategory)return (curatedOrder.get(first.id) ?? 999)-(curatedOrder.get(second.id) ?? 999);
+      if(!filters.query)return NOTHINGSPORTS_PARTICIPANT_DIRECTORY.compare(first,second,allRecords);
       if (filters.query){
         const scoreDelta = footballDirectoryApi.searchMatchScore(first, filters.query) - footballDirectoryApi.searchMatchScore(second, filters.query);
         if (scoreDelta) return scoreDelta;
@@ -331,7 +331,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
       }
       return String(first.displayName || "").localeCompare(String(second.displayName || ""), "en-AU", { sensitivity:"base" });
     });
-  if(!curatedIds.length)records.splice(0,records.length,...footballDirectoryApi.followOrder(records,userPreferences,followCollectionsById()));
+  if(!filters.query)records.sort((a,b)=>NOTHINGSPORTS_PARTICIPANT_DIRECTORY.compare(a,b,allRecords));
   const directory = document.createElement("section");
   directory.className = "football-directory";
   if (separatedEntityDirectory){
@@ -514,29 +514,13 @@ function renderTeamsAndPlayersDirectoryLoaded(container){
   toolbar.className = "football-directory-sport-choice";
   toolbar.appendChild(chooser);
   container.appendChild(toolbar);
-  if (session.directorySportKey === "football") renderFootballDirectory(container);
-  else if (session.directorySportKey === "nrl") renderFootballDirectory(container, {
-    sportKey: "nrl",
-    directoryData:leagueDirectoryState.nrl.data,
-    loading:leagueDirectoryState.nrl.loading,
-    error:leagueDirectoryState.nrl.error,
-    loadDirectory: loadNrlDirectoryData,
-  });
-  else if (session.directorySportKey === "afl") renderFootballDirectory(container, {
-    sportKey: "afl",
-    directoryData:leagueDirectoryState.afl.data,
-    loading:leagueDirectoryState.afl.loading,
-    error:leagueDirectoryState.afl.error,
-    loadDirectory: loadAflDirectoryData,
-  });
-  else if (session.directorySportKey === "aflw") renderFootballDirectory(container, {
-    sportKey:"aflw",
-    directoryData:leagueDirectoryState.aflw.data,
-    loading:leagueDirectoryState.aflw.loading,
-    error:leagueDirectoryState.aflw.error,
-    loadDirectory:loadAflwDirectoryData,
-  });
-  else renderLegacyParticipantDirectory(container, session.directorySportKey);
+  if(['football','nrl','afl','aflw'].includes(session.directorySportKey)){
+    const sportKey=session.directorySportKey,chunk=followDirectoryChunks.get(sportKey);
+    if(!chunk||!footballDirectoryApi){renderLegacyParticipantDirectory(container,sportKey);return;}
+    const teams=chunk.records.filter(record=>record.entityType==='team'),byTeam=new Map(teams.map(record=>[record.id,record])),leagues=new Map();
+    const records=chunk.records.map(record=>{const leagueId=record.leagueId||byTeam.get(record.currentTeamId)?.leagueId||'competition:'+sportKey;leagues.set(leagueId,{id:leagueId,name:record.leagueName||leagueId.replace(/^competition:/,'').replaceAll('-',' ')});return {...record,leagueId,...(/birth/i.test(record.countryBasis||'')?{birthCountryCode:record.countryCode}:{}),rank:record.ranking};});
+    renderFootballDirectory(container,{sportKey,directoryData:{teams:records.filter(r=>r.entityType==='team'),players:records.filter(r=>r.entityType==='athlete'),leagues:[...leagues.values()]}});
+  }else renderLegacyParticipantDirectory(container,session.directorySportKey);
 }
 
 function renderTennisFollowCollections(container){
@@ -591,8 +575,8 @@ function renderTennisFollowCollections(container){
 
 function renderFollowViewLoaded(){
   if(!globalThis.NOTHINGSPORTS_FOLLOW_NAV){
-    const panel=document.getElementById('listView');panel.textContent='Loading Follow…';
-    void loadDeferredScript('assets/js/follow-navigation.js?v=453').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
+    const panel=document.getElementById('listView');panel.replaceChildren();buildFollowHomeTabs(panel);const state=document.createElement('p');state.textContent='Loading sports…';state.setAttribute('role','status');panel.append(state);
+    void loadDeferredScript('assets/js/follow-navigation.js?v=463').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
   }
   const oldNavigation=document.querySelector('#listView > .follow-navigation');
   if(oldNavigation){for(const child of [...oldNavigation.querySelector('#follow-navigation-controls').children])oldNavigation.before(child);oldNavigation.remove();}
@@ -610,7 +594,7 @@ function renderFollowViewLoaded(){
   const gender=state.gender||(female({id:state.sportId})?'women':'men');
   const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2||['sport:aflw','sport:nrlw'].includes(entity.id)).filter(entity=>female(entity)===(gender==='women')));
   const genderTabs=document.createElement('nav');genderTabs.className='follow-gender-tabs events-view-tabs';genderTabs.setAttribute('role','tablist');genderTabs.setAttribute('aria-label','Browse sports gender');
-  for(const [value,label]of [['men','Men'],['women','Women']]){const button=document.createElement('button');button.type='button';button.className='btn ghost'+(value===gender?' active':'');button.textContent=label;button.setAttribute('role','tab');button.setAttribute('aria-selected',String(value===gender));button.onclick=()=>{if(value===gender)return;const sportId=value==='women'?'sport:tennis-women':rankedFollowGridSports(BASE_SPORT_SELECTOR_ENTITIES.filter(e=>Number(e.level)===2&&!female(e)))[0]?.id||'sport:afl';saveFollowBrowse({gender:value,sportId,categoryId:'',section:'schedule'});activeInspectorCodeId=null;renderFollowView();};genderTabs.append(button);}
+  for(const [value,label]of [['men','Men'],['women','Women']]){const button=document.createElement('button');button.type='button';button.className='btn ghost'+(value===gender?' active':'');button.textContent=label;button.setAttribute('role','tab');button.setAttribute('aria-selected',String(value===gender));button.onclick=()=>{if(value===gender)return;const sportId=value==='women'?'sport:tennis-women':rankedFollowGridSports(BASE_SPORT_SELECTOR_ENTITIES.filter(e=>Number(e.level)===2&&!female(e)))[0]?.id||'sport:afl';saveFollowBrowse({gender:value,sportId,categoryId:'',section:'teams-players'});activeInspectorCodeId=null;renderFollowView();};genderTabs.append(button);}
   for(const [index,button]of [...genderTabs.children].entries())button.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const target=event.key==='Home'?0:event.key==='End'?1:1-index;genderTabs.children[target].click();requestAnimationFrame(()=>container.querySelector('.follow-gender-tabs [aria-selected="true"]')?.focus({preventScroll:true}));});
   container.insertBefore(genderTabs,retainedBar);
   const primarySports=rankedFollowGridSports(sports);
@@ -636,7 +620,7 @@ function renderFollowViewLoaded(){
     const sport={key:entity.preferenceKey||entity.sportKey||({ 'rugby-union':'rugby',basketball:'nba','afl-premiership':'afl','nrl-premiership':'nrl' })[entity.id.replace('sport:','')]||entity.id.replace('sport:','')};
     const mark=document.createElement('span');mark.className='follow-sport-mark';renderEventIdentityMark(mark,sport,{...sportMetaForEvent(sport),label:entity.label});
     const text=document.createElement('span');text.textContent=label;button.append(mark,text);
-    button.addEventListener('click',()=>{host.closest('dialog')?.close();saveFollowBrowse({sportId:entity.id,categoryId:'',section:'schedule',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();});host.appendChild(button);
+    button.addEventListener('click',()=>{host.closest('dialog')?.close();NOTHINGSPORTS_FOLLOW_NAV.closeMenu();saveFollowBrowse({sportId:entity.id,categoryId:'',section:'teams-players',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();});host.appendChild(button);
     return button;
   };
   primarySports.forEach(entity=>addSportButton(entity,primaryLabels[entity.id]||entity.label));
@@ -658,7 +642,7 @@ function renderFollowViewLoaded(){
     const items=root.id==='sport:afl'?children:[{...root,label:`All ${root.label}`},...children];
     items.forEach(entity=>{
       const button=document.createElement('button');button.type='button';button.className=`btn ghost${state.categoryId===entity.id?' active':''}`;button.textContent=entity.label;
-      button.onclick=()=>{saveFollowBrowse({categoryId:entity.id,section:'schedule',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();};choices.appendChild(button);
+      button.onclick=()=>{saveFollowBrowse({categoryId:entity.id,section:'teams-players',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();};choices.appendChild(button);
     });container.appendChild(choices);
     if (!state.categoryId){
       saveFollowBrowse({categoryId:root.id==='sport:football'?root.id:children[0].id});
@@ -682,7 +666,7 @@ function renderFollowViewLoaded(){
   }
   container.appendChild(commonControls);
   const tabs=document.createElement('nav');tabs.className='follow-section-tabs';tabs.setAttribute('aria-label',`${entity.label} sections`);
-  [['schedule','Schedule'],...(code?.slug === "wrc" ? [["results", "Results / Replays"]] : []),...(followHasStandings(code)?[['standings',followStandingsLabel(code)]]:[]),['teams-players',directorySectionLabel(followDirectoryKey(entity))],['major-events','Major Events']].forEach(([section,label])=>{
+  [['teams-players',directorySectionLabel(followDirectoryKey(entity))],['schedule','Schedule'],...(code?.slug === "wrc" ? [["results", "Results / Replays"]] : []),...(followHasStandings(code)?[['standings',followStandingsLabel(code)]]:[]),['major-events','Major Events']].forEach(([section,label])=>{
     const button=document.createElement('button');button.type='button';button.className=`follow-section-tab${state.section===section?' active':''}`;button.textContent=label;
     button.onclick=()=>{activeInspectorCodeId=null;saveFollowBrowse({section});renderFollowView();};tabs.appendChild(button);
   });container.appendChild(tabs);
@@ -725,7 +709,9 @@ function renderFollowViewLoaded(){
   }
   const panel=document.createElement('section');panel.className='follow-section-panel';panel.dataset.scrollKey=`follow-directory:${entity.id}`;
   const key=followDirectoryKey(entity);updateStandingsDirectorySession({directorySportKey:key});
-  if(key==='tennis')renderTennisFollowCollections(panel);
-  renderTeamsAndPlayersDirectory(panel);panel.querySelector('.football-directory-sport-choice')?.remove();
-  container.appendChild(panel);
+  const content=document.createElement('div');content.className='follow-directory-content';
+  renderTeamsAndPlayersDirectory(content);content.querySelector('.football-directory-sport-choice')?.remove();
+  content.querySelectorAll('.football-directory-field').forEach(field=>{if(field.querySelector('input[type=search]'))field.remove();});
+  const search=document.createElement('div');search.className='follow-global-search';panel.append(search,content);container.appendChild(panel);
+  void loadDeferredScript('assets/js/participant-search-ui.js?v=463').then(()=>{if(search.isConnected)NOTHINGSPORTS_PARTICIPANT_SEARCH.mount(search,content);}).catch(()=>{search.textContent='Search could not load. Select a participant below.';});
 }

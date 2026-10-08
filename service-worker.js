@@ -1,16 +1,17 @@
-const CACHE_NAME = "nothingsport-shell-v462";
-const SHELL_VERSION = "462";
+const CACHE_NAME = "nothingsport-shell-v463";
+const SHELL_VERSION = "463";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
 const APP_SHELL = [
-  "/assets/js/football-card-context.js?v=453",
+  "/config/participant-directory.js?v=463",
+  "/assets/js/football-card-context.js?v=463",
   "/assets/js/tennis-parent-ui.js?v=458",
   "/assets/js/calendar-sync-ui.js?v=449",
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
-  "/assets/js/follow-presentation-ui.js?v=453",
+  "/assets/js/follow-presentation-ui.js?v=463",
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
@@ -18,8 +19,8 @@ const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=302",
-  "/assets/js/settings-optional-ui.js?v=453",
-  "/assets/js/follow-navigation.js?v=453",
+  "/assets/js/settings-optional-ui.js?v=463",
+  "/assets/js/follow-navigation.js?v=463",
   "/assets/js/tournament-fixture-ui.js?v=451",
   "/assets/styles/notifications-inbox.css?v=280",
   "/assets/js/app-update.js?v=293",
@@ -32,7 +33,7 @@ const APP_SHELL = [
   // The optional owner console is cached after use, keeping cold installs lean.
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=424",
+  "/assets/styles/nothingsport-foundation.css?v=463",
   // Bundled modules are cached once; separate files remain cacheable on demand.
   "/assets/identities/motogp/circuits/chang.svg",
   "/assets/identities/motogp/circuits/cota.svg",
@@ -60,16 +61,16 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=462",
+  "/assets/js/app-shell-runtime.js?v=463",
   "/assets/js/follow-schedule-panel.js?v=453",
   "/config/cricket-innings.js?v=431",
   "/config/tournament-schedule.js?v=452",
-  "/assets/js/tennis-schedule-ui.js?v=452",
-  "/config/tennis-journeys.js?v=368",
+  "/assets/js/tennis-schedule-ui.js?v=463",
+  "/config/tennis-journeys.js?v=463",
   "/assets/js/nsc-rankings-ui.js?v=293",
   "/assets/styles/nsc-ladder.css?v=293",
   "/assets/styles/card-clarity.css?v=424",
-  "/config/follow-directory-worker.js?v=275",
+  "/config/follow-directory-worker.js?v=463",
   "/config/calendar-selection.js",
   "/config/sport-hierarchy.js",
   "/config/event-taxonomy-compat.js",
@@ -77,7 +78,7 @@ const APP_SHELL = [
   "/config/follow-summary.js?v=397",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=458",
+  "/styles/follow-feed-rework.css?v=463",
   "/config/marquee-live-renderer.js?v=358",
   "/styles/comms-live.css?v=358",
   "/styles/owner-content.css?v=358",
@@ -89,14 +90,14 @@ const APP_SHELL = [
   "/config/marquee-campaigns.js",
   "/config/server-sync.js",
   "/config/major-events.js?v=293",
-  "/config/event-overviews-ui.js?v=450",
+  "/config/event-overviews-ui.js?v=463",
   "/config/surface-category-ui.js?v=403",
-  "/assets/styles/match-centre.css?v=401",
-  "/config/match-centre.js?v=435",
+  "/assets/styles/match-centre.css?v=463",
+  "/config/match-centre.js?v=463",
   "/config/feed-live-scores.js?v=437",
-  "/config/feed-live-score-loader.js?v=437",
+  "/config/feed-live-score-loader.js?v=463",
   "/config/athletes.js?v=454",
-  "/assets/js/athletes-ui.js?v=458",
+  "/assets/js/athletes-ui.js?v=463",
   // Profile UI caches after first use; optional detail stays out of shell budget.
   "/config/football-directory.js",
   "/config/joint-tennis-tournament.js",
@@ -143,6 +144,9 @@ const APP_SHELL = [
   "/assets/icons/sporticon/american_football.svg",
   "/assets/icons/sporticon/australian_football.svg",
   "/assets/icons/sporticon/basketball.svg",
+  "/assets/fonts/dm-sans-latin.woff2",
+  "/assets/fonts/dm-sans-latin-ext.woff2",
+  "/assets/licenses/DM-SANS-OFL.txt",
   "/assets/licenses/FLAG-ICONS-MIT.txt"
 ];
 
@@ -213,7 +217,7 @@ const DEFERRED_IDENTITY_ASSETS = new Set([
 
 // Optional logos, data and utility screens cache on use. A failed optional
 // download must not hold an installed app on an obsolete shell indefinitely.
-const REQUIRED_SHELL = APP_SHELL.filter(url => ["/index.html", "/privacy.html", "/terms.html", "/manifest.webmanifest"].includes(url) || /\.(?:js|css)(?:\?|$)/.test(url));
+const REQUIRED_SHELL = APP_SHELL.filter(url => ["/index.html", "/privacy.html", "/terms.html", "/manifest.webmanifest"].includes(url) || /\.(?:js|css|woff2)(?:\?|$)/.test(url));
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(REQUIRED_SHELL)).then(() => self.skipWaiting()));
 });

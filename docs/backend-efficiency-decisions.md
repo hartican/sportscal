@@ -1,5 +1,15 @@
 # Backend efficiency decisions
 
+## Find Your Sport delivery — 8 October 2026
+
+Participant-specific athletes reads return paginated published fixtures through the rolling twelve-month horizon; favourites retain one next appearance per participant. Both reuse the existing catalogue, exclusions, account-keyed cache, fifty-item page limit and live overlays. Public global search uses a compact generated identity index, loaded and searched in a Worker on demand rather than fetching all detailed directories. Canonical update-cards remains the owner of directory, standings and search projections; no scheduler, source subscription, provider call per user, database schema or notification consent change is added.
+
+Participant and favourites reads filter canonical participant identities before normalizing fixtures, and skip tournament-parent reconciliation because these compact reads contain no parent cards. The ordinary Feed pipeline retains its full reconciliation. This repairs the measured profile processing bottleneck without changing account isolation, exclusions, pagination or data ownership.
+
+Match Centre classification is shared between server and browser before pagination. It expires elapsed schedules and stale playing observations, preserves genuine completion clocks and explicit pauses, and reconciles only source-reported court identities. Unchanged polling does not redraw; score/status changes patch mounted cards. Existing sixty-ID visible reads, source cadence, hidden pause, database deadlines, last-good fallback and refresh throttles remain. The primary performance target is iPhone Home Screen; local Chromium/WebKit and installed-browser rehearsal evidence must remain separate from physical iPhone measurements. Keep the three-megabyte shell and existing compressed-startup budget.
+
+Local browser evidence found duplicate blocking Google Fonts imports. Bundle the same DM Sans Latin and extended Latin font files and licence with the shell; no remote font stylesheet can hold up app initialization. Reuse one locale comparator for directory sorting. Both changes retain the existing shell and compressed-asset budgets and receive upgrade/offline checks.
+
 ## Retained Shanghai pairing receipt — 8 October 2026 Sydney
 
 Add one bounded individually reviewed organiser pairing through the existing participant-schedules route of scripts/update-cards.js. The writer validates canonical ordered participants, round and the dated draw hash before either publication surface changes. Unchanged retries preserve IDs and independent source clocks. Existing publisher aliases can reconcile to the same named pairing; a collection poll cannot supply its official time. No source adapter, scheduler, per-user organiser read, database operation, notification permission or dispatcher change. Preserve the later free ESPN discovery/live owners and their budgets, rather than repeating provider ingestion for this retained projection.

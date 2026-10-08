@@ -1,7 +1,7 @@
 /* Follow owns its browsing filters; they never mutate sporting follows or Feed filters. */
 (()=>{
  const savedKey='ns_follow_filters_v1';let filters={};try{filters=JSON.parse(localStorage.getItem(savedKey)||'{}');}catch{}
- const windows=new Map();let collapsed=false,floating=false,lastY=scrollY,lockedUntil=0;
+ const windows=new Map();let collapsed=true,floating=false,lastY=scrollY,lockedUntil=0;
  const persist=()=>{try{localStorage.setItem(savedKey,JSON.stringify(filters));}catch{}};
  const selected=code=>filters[code]||{};
  const rawValues=(f,key)=>{
@@ -49,17 +49,18 @@
   }
   const nav=document.createElement('div');nav.className='follow-navigation';const spacer=document.createElement('div');spacer.className='follow-navigation-spacer';spacer.setAttribute('aria-hidden','true');
   const compact=document.createElement('div');compact.className='follow-navigation-compact';
-  const label=document.createElement('span');label.textContent=`${leMans?'24 Hours of Le Mans':entity.label} · ${state.section==='teams-players'?directorySectionLabel(followDirectoryKey(entity)):state.section==='major-events'?'Major Events':state.section==='standings'?'Standings':state.section==='results'?'Results':'Schedule'}`;
+  const label=document.createElement('span');label.textContent=`Sports · ${leMans?'24 Hours of Le Mans':entity.label}`;
   const toggle=document.createElement('button');toggle.type='button';toggle.className='btn ghost follow-navigation-toggle';toggle.setAttribute('aria-controls','follow-navigation-controls');
   const controls=document.createElement('div');controls.id='follow-navigation-controls';
+  const sections=container.querySelector(':scope > .follow-section-tabs');sections?.remove();
   while(container.firstChild)controls.append(container.firstChild);
-  const set=value=>{const panel=container.querySelector('.follow-schedule-panel,.follow-section-panel');const before=panel?.getBoundingClientRect().top;collapsed=value;if(value)floating=true;controls.hidden=value;spacer.hidden=!floating;nav.classList.toggle('is-floating',floating);nav.classList.toggle('is-collapsed',value);toggle.textContent=value?'⌄':'⌃';toggle.setAttribute('aria-label',value?'Expand Follow navigation':'Collapse Follow navigation');toggle.setAttribute('aria-expanded',String(!value));if(before!=null){lockedUntil=performance.now()+150;scrollBy(0,panel.getBoundingClientRect().top-before);}};
+  const set=value=>{const panel=container.querySelector('.follow-schedule-panel,.follow-section-panel');const before=panel?.getBoundingClientRect().top;collapsed=value;controls.hidden=value;spacer.hidden=!floating;nav.classList.toggle('is-floating',floating);nav.classList.toggle('is-collapsed',value);toggle.textContent=value?'⌄':'⌃';toggle.setAttribute('aria-label',value?'Expand Sports menu':'Collapse Sports menu');toggle.setAttribute('aria-expanded',String(!value));if(before!=null){lockedUntil=performance.now()+150;scrollBy(0,panel.getBoundingClientRect().top-before);}};
   toggle.onclick=()=>set(!collapsed);compact.append(label);
   if(['schedule','results'].includes(state.section)){const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent='Filter';b.onclick=()=>{const code=followInspectorCode(entity);if(codeInspectorChunk?.code?.id===code?.id)openFilters(code.id,(codeInspectorChunk.fixtures||[]).filter(inspectorFixtureMatchesTab).filter(followScheduleScopeMatches));};compact.append(b);}
-  compact.append(toggle);nav.append(compact,controls);container.prepend(nav,spacer);set(collapsed);
+  compact.append(toggle);nav.append(compact,controls);if(sections)nav.append(sections);container.prepend(nav,spacer);set(collapsed);
   nav.collapse=()=>set(true);
   if(cardImageLoadingUnlocked)observeDeferredCardImages();
  }
  addEventListener('scroll',()=>{const y=scrollY;if(performance.now()>lockedUntil&&y>lastY+6&&y>100&&!document.activeElement?.matches('.follow-navigation input:not([type=checkbox]),.follow-navigation select,.follow-navigation textarea'))document.querySelector('.follow-navigation:not(.is-collapsed)')?.collapse();lastY=y;},{passive:true});
- globalThis.NOTHINGSPORTS_FOLLOW_NAV={mount,matches,selected,setFilter,openFilters,windows};
+ globalThis.NOTHINGSPORTS_FOLLOW_NAV={closeMenu:()=>{collapsed=true;},mount,matches,selected,setFilter,openFilters,windows};
 })();

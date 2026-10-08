@@ -47,7 +47,7 @@ for(const [fields,expected] of [[{},true],[{participantsConfirmed:true},true],[{
   assert.equal(buildServerFeed({events:[event],userId:'qa',userState:{preferences:{preferenceGraph:{entityFollows:[{participantId:footballPlayer.id,followLevel:'follow'}]}}},now}).events.length>0,expected,'current-team schedule inheritance respects explicit player exclusions');
 }
 const order=require('../config/football-directory');
-assert.deepEqual(order.followOrder([{id:'club-a',teamKind:'club'},{id:'national',teamKind:'national'},{id:'club-b',teamKind:'club'}],{preferenceGraph:{entityFollows:[{participantId:'club-b',followLevel:'follow'}]}}).map(record=>record.id),['club-b','club-a','national']);
+assert.deepEqual(order.followOrder([{id:'club-a',teamKind:'club'},{id:'national',teamKind:'national'},{id:'club-b',teamKind:'club'}],{preferenceGraph:{entityFollows:[{participantId:'club-b',followLevel:'follow'}]}}).map(record=>record.id),['club-a','club-b','national']);
 for(const key of ["afl","aflw","nrl","nrlw"])assert.equal(policy.australiansFilterUseful({key}),false,`${key} has no redundant Australian toggle`);
 assert.equal(policy.australiansFilterUseful({key:"cricket",competitionScope:"domestic",countryCode:"AU"}),false);
 assert.equal(policy.australiansFilterUseful({key:"football"}),true);

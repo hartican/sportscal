@@ -43,8 +43,8 @@ const samples=[...new Map(events.map(e=>[e.weekendId,e])).values()];
    await page.waitForFunction(()=>document.querySelector('#follow-navigation-controls > h2')?.textContent.trim().endsWith('WSL'));
    const reveal=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await reveal.count())await reveal.click();
    const image=page.locator('#follow-navigation-controls h2 img.event-brand-logo').first();await image.waitFor();await image.evaluate(i=>i.decode());assert.match(await image.getAttribute('src'),/assets\/identities\/wsl\/brand.png/);
-   assert(await page.locator('footer .wsl-attribution').isVisible());
-   await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByRole('button',{name:/^About/}).click();assert(await page.locator('.settings-about .wsl-attribution').isVisible());
+   assert.equal(await page.locator('footer .wsl-attribution').count(),0);
+   await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByRole('button',{name:/^About/}).click();await page.locator('.about-acknowledgements>summary').click();await page.locator('.about-acknowledgements').evaluate(n=>n.querySelectorAll('details').forEach(d=>d.open=true));assert(await page.locator('.settings-about .wsl-attribution').isVisible());
    // UI consent must agree with Feed, including a retained broad Surfing follow.
    await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>!startupCoordinator.isHydrating()&&startupFunnelFinished);
    await page.locator('.tab-btn[data-tab="follow"]').click();

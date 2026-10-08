@@ -2,9 +2,9 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cricket-women",
   "label": "Cricket Women",
-  "generatedAt": "2026-09-30T08:35:08.448Z",
+  "generatedAt": "2026-10-07T23:14:37.555Z",
   "status": "available",
-  "sortBasis": "ranking-or-ladder-then-alphabetical",
+  "sortBasis": "alphabetical-fallback",
   "records": [
     {
       "id": "team:cricket:australia-women",
@@ -20,8 +20,8 @@
       "countryCode": "AU",
       "countryBasis": "official-record",
       "genderCategory": "female",
-      "ranking": 0,
-      "ladderPosition": 0,
+      "ranking": null,
+      "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:cricket:espn:24268",

@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "f1",
   "label": "F1",
-  "generatedAt": "2026-09-27T06:31:30Z",
+  "generatedAt": "2026-10-07T23:14:37.555Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -28,7 +28,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -38,7 +38,11 @@
       "competitionNumber": 12,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:kimi-antonelli"
+      "profileRef": "profile:f1:kimi-antonelli",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 1
     },
     {
       "id": "team:f1:mercedes",
@@ -51,7 +55,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 1,
-      "ladderPosition": null,
+      "ladderPosition": 1,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -62,13 +66,16 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/team",
+      "competitionId": "competition:f1-constructors-2026"
     },
     {
       "id": "team:f1:ferrari",
@@ -81,7 +88,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 2,
-      "ladderPosition": null,
+      "ladderPosition": 2,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -92,13 +99,16 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/team",
+      "competitionId": "competition:f1-constructors-2026"
     },
     {
       "id": "competitor:f1:george-russell",
@@ -122,7 +132,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -132,7 +142,11 @@
       "competitionNumber": 63,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:george-russell"
+      "profileRef": "profile:f1:george-russell",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:f1:lewis-hamilton",
@@ -156,7 +170,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -166,7 +180,11 @@
       "competitionNumber": 44,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:lewis-hamilton"
+      "profileRef": "profile:f1:lewis-hamilton",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 2
     },
     {
       "id": "team:f1:mclaren",
@@ -179,7 +197,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 3,
-      "ladderPosition": null,
+      "ladderPosition": 3,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -190,13 +208,16 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/team",
+      "competitionId": "competition:f1-constructors-2026"
     },
     {
       "id": "competitor:f1:lando-norris",
@@ -220,7 +241,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -230,7 +251,11 @@
       "competitionNumber": 1,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:lando-norris"
+      "profileRef": "profile:f1:lando-norris",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 3
     },
     {
       "id": "team:f1:red-bull-racing",
@@ -243,7 +268,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 4,
-      "ladderPosition": null,
+      "ladderPosition": 4,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -254,13 +279,16 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/team",
+      "competitionId": "competition:f1-constructors-2026"
     },
     {
       "id": "competitor:f1:charles-leclerc",
@@ -284,7 +312,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -294,7 +322,11 @@
       "competitionNumber": 16,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:charles-leclerc"
+      "profileRef": "profile:f1:charles-leclerc",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 2
     },
     {
       "id": "team:f1:racing-bulls",
@@ -307,7 +339,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 5,
-      "ladderPosition": null,
+      "ladderPosition": 5,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -318,13 +350,16 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/team",
+      "competitionId": "competition:f1-constructors-2026"
     },
     {
       "id": "team:f1:alpine",
@@ -337,7 +372,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 6,
-      "ladderPosition": null,
+      "ladderPosition": 6,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -348,13 +383,16 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/team",
+      "competitionId": "competition:f1-constructors-2026"
     },
     {
       "id": "competitor:f1:max-verstappen",
@@ -378,7 +416,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -388,7 +426,11 @@
       "competitionNumber": 3,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:max-verstappen"
+      "profileRef": "profile:f1:max-verstappen",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 4
     },
     {
       "id": "team:f1:haas",
@@ -401,7 +443,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 7,
-      "ladderPosition": null,
+      "ladderPosition": 7,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -412,13 +454,16 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/team",
+      "competitionId": "competition:f1-constructors-2026"
     },
     {
       "id": "competitor:f1:oscar-piastri",
@@ -442,7 +487,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -452,7 +497,11 @@
       "competitionNumber": 81,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:oscar-piastri"
+      "profileRef": "profile:f1:oscar-piastri",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 3
     },
     {
       "id": "team:f1:audi",
@@ -465,7 +514,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 8,
-      "ladderPosition": null,
+      "ladderPosition": 8,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -476,13 +525,16 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/team",
+      "competitionId": "competition:f1-constructors-2026"
     },
     {
       "id": "competitor:f1:isack-hadjar",
@@ -506,7 +558,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/redbullracing/isahad01/2026redbullracingisahad01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -516,7 +568,11 @@
       "competitionNumber": 6,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:isack-hadjar"
+      "profileRef": "profile:f1:isack-hadjar",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 4
     },
     {
       "id": "competitor:f1:liam-lawson",
@@ -540,7 +596,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/racingbulls/lialaw01/2026racingbullslialaw01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -550,7 +606,11 @@
       "competitionNumber": 30,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:liam-lawson"
+      "profileRef": "profile:f1:liam-lawson",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 5
     },
     {
       "id": "team:f1:williams",
@@ -563,7 +623,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 9,
-      "ladderPosition": null,
+      "ladderPosition": 9,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -574,13 +634,16 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/team",
+      "competitionId": "competition:f1-constructors-2026"
     },
     {
       "id": "team:f1:aston-martin",
@@ -593,7 +656,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 10,
-      "ladderPosition": null,
+      "ladderPosition": 10,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -604,13 +667,16 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/team",
+      "competitionId": "competition:f1-constructors-2026"
     },
     {
       "id": "competitor:f1:pierre-gasly",
@@ -634,7 +700,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/alpine/piegas01/2026alpinepiegas01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -644,7 +710,11 @@
       "competitionNumber": 10,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:pierre-gasly"
+      "profileRef": "profile:f1:pierre-gasly",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:f1:arvid-lindblad",
@@ -668,7 +738,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/racingbulls/arvlin01/2026racingbullsarvlin01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -678,7 +748,11 @@
       "competitionNumber": 41,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:arvid-lindblad"
+      "profileRef": "profile:f1:arvid-lindblad",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 5
     },
     {
       "id": "team:f1:cadillac",
@@ -691,7 +765,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 11,
-      "ladderPosition": null,
+      "ladderPosition": 11,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -702,13 +776,16 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/team",
+      "competitionId": "competition:f1-constructors-2026"
     },
     {
       "id": "competitor:f1:franco-colapinto",
@@ -732,7 +809,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/alpine/fracol01/2026alpinefracol01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -742,7 +819,11 @@
       "competitionNumber": 43,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:franco-colapinto"
+      "profileRef": "profile:f1:franco-colapinto",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:f1:oliver-bearman",
@@ -766,7 +847,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/haas/olibea01/2026haasolibea01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -776,7 +857,11 @@
       "competitionNumber": 87,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:oliver-bearman"
+      "profileRef": "profile:f1:oliver-bearman",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 7
     },
     {
       "id": "competitor:f1:gabriel-bortoleto",
@@ -800,7 +885,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/audi/gabbor01/2026audigabbor01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -810,7 +895,11 @@
       "competitionNumber": 5,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:gabriel-bortoleto"
+      "profileRef": "profile:f1:gabriel-bortoleto",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:f1:nico-hulkenberg",
@@ -834,7 +923,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/audi/nichul01/2026audinichul01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -844,7 +933,11 @@
       "competitionNumber": 27,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:nico-hulkenberg"
+      "profileRef": "profile:f1:nico-hulkenberg",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:f1:esteban-ocon",
@@ -868,7 +961,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/haas/estoco01/2026haasestoco01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -878,7 +971,11 @@
       "competitionNumber": 31,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:esteban-ocon"
+      "profileRef": "profile:f1:esteban-ocon",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 7
     },
     {
       "id": "competitor:f1:carlos-sainz",
@@ -902,7 +999,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/williams/carsai01/2026williamscarsai01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -912,7 +1009,11 @@
       "competitionNumber": 55,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:carlos-sainz"
+      "profileRef": "profile:f1:carlos-sainz",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:f1:alexander-albon",
@@ -936,7 +1037,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -946,7 +1047,11 @@
       "competitionNumber": 23,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:alexander-albon"
+      "profileRef": "profile:f1:alexander-albon",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:f1:fernando-alonso",
@@ -970,7 +1075,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/astonmartin/feralo01/2026astonmartinferalo01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -980,7 +1085,11 @@
       "competitionNumber": 14,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:fernando-alonso"
+      "profileRef": "profile:f1:fernando-alonso",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:f1:yuki-tsunoda",
@@ -1005,7 +1114,7 @@
       "headshotUrl": null,
       "standingsOnly": true,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [
         "https://www.formula1.com/en/results/2026/drivers"
       ],
@@ -1013,7 +1122,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026"
     },
     {
       "id": "competitor:f1:lance-stroll",
@@ -1037,7 +1149,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/astonmartin/lanstr01/2026astonmartinlanstr01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1047,7 +1159,11 @@
       "competitionNumber": 18,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:lance-stroll"
+      "profileRef": "profile:f1:lance-stroll",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:f1:valtteri-bottas",
@@ -1071,7 +1187,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/cadillac/valbot01/2026cadillacvalbot01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1081,7 +1197,11 @@
       "competitionNumber": 77,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:valtteri-bottas"
+      "profileRef": "profile:f1:valtteri-bottas",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 11
     },
     {
       "id": "competitor:f1:sergio-perez",
@@ -1105,7 +1225,7 @@
       "logoDarkUrl": null,
       "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/cadillac/serper01/2026cadillacserper01right.webp",
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "Current championship standings",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1115,7 +1235,11 @@
       "competitionNumber": 11,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "profileRef": "profile:f1:sergio-perez"
+      "profileRef": "profile:f1:sergio-perez",
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "competitionId": "competition:f1-drivers-2026",
+      "currentTeamRank": 11
     }
   ]
 }

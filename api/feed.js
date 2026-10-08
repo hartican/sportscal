@@ -80,7 +80,7 @@ function createFeedHandler({load=feedDependencies,authenticate=()=>require('../l
       const key=digest({matchCentreOnly,athletesOnly,participantId,userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});
       const hit=cache.get(key,+now);
       if(hit){response.setHeader('X-Feed-Cache','HIT');return send(hit,request.headers?.['if-none-match']===hit.etag?304:200);}
-      t=performance.now();const resolved=d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,copyEvents:false});mark('resolve',performance.now()-t);
+      t=performance.now();const resolved=d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,participantId:athletesOnly?participantId:null,copyEvents:false});mark('resolve',performance.now()-t);
       const participants=new Map(d.canonicalSportContext.participants.map(p=>[p.id,p]));
       resolved.participants.forEach(p=>participants.set(p.id,{...participants.get(p.id),...p}));
       const events=d.overlaySnapshots(resolved.events,snapshot?.sources).map(require('../lib/reviewed-au-viewing').reviewedAuViewing);

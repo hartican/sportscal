@@ -38,8 +38,8 @@ const samples=[...new Map(events.map(e=>[e.weekendId,e])).values()];
    await page.waitForFunction(()=>document.querySelector('#follow-navigation-controls > h2')?.textContent.trim().endsWith('SailGP'));
    const reveal=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await reveal.count())await reveal.click();
    const image=page.locator('#follow-navigation-controls h2 img.event-brand-logo').first();await image.waitFor();await image.evaluate(i=>i.decode());assert.match(await image.getAttribute('src'),/assets\/identities\/sailgp\/brand-(?:light|dark).png/);
-   assert(await page.locator('footer .sailgp-attribution').isVisible());
-   await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByRole('button',{name:/^About/}).click();assert(await page.locator('.settings-about .sailgp-attribution').isVisible());
+   assert.equal(await page.locator('footer .sailgp-attribution').count(),0);
+   await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByRole('button',{name:/^About/}).click();await page.locator('.about-acknowledgements>summary').click();await page.locator('.about-acknowledgements').evaluate(n=>n.querySelectorAll('details').forEach(d=>d.open=true));assert(await page.locator('.settings-about .sailgp-attribution').isVisible());
    await page.close();
   }}finally{await browser.close();}
  }

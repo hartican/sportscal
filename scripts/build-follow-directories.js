@@ -88,13 +88,13 @@ function normalizeRecord(record, additions = {}){
     displayName:String(record.displayName || record.canonicalName || record.shortName || record.id),
     shortName:record.shortName || null,
     aliases:Array.from(new Set([...(record.aliases || []), ...(metadata.titleAliases || [])].filter(Boolean))),
-    entityType:record.type === "competitor" || String(record.id).startsWith("competitor:") ? "athlete" : "team",
+    entityType:["competitor","athlete","player"].includes(record.type) || /^(competitor|athlete|player):/.test(String(record.id)) ? "athlete" : "team",
     current:additions.current ?? (record.active !== false && metadata.active !== false),
     countryCode:String(record.countryCode || record.birthCountryCode || additions.countryCode || "").toUpperCase() || null,
     countryBasis:record.birthCountryBasis || additions.countryBasis || (record.countryCode ? "official-record" : null),
     genderCategory:normalizeGender(record.genderCategory || record.gender || metadata.gender || additions.genderCategory),
-    ranking:Number.isFinite(Number(additions.ranking ?? record.rank ?? record.ranking)) ? Number(additions.ranking ?? record.rank ?? record.ranking) : null,
-    ladderPosition:Number.isFinite(Number(additions.ladderPosition ?? record.ladderPosition)) ? Number(additions.ladderPosition ?? record.ladderPosition) : null,
+    ranking:require('../config/participant-directory').positive(additions.ranking ?? record.rank ?? record.ranking),
+    ladderPosition:require('../config/participant-directory').positive(additions.ladderPosition ?? record.ladderPosition),
     marketValue:Number.isFinite(Number(record.marketValue ?? record.marketValueEur)) ? Number(record.marketValue ?? record.marketValueEur) : null,
     currentTeamId:record.currentTeamId || null,
     leagueId:record.leagueId || null,
@@ -359,6 +359,28 @@ function main(){
   for (const [id,displayName,countryCode] of [["team:rugby:fijian-drua","Fijian Drua","FJ"],["team:rugby:moana-pasifika","Moana Pasifika",null]]){
     if (!chunks.get("rugby").has(id)) chunks.get("rugby").set(id,normalizeRecord({id,displayName,type:"team",teamKind:"club",genderCategory:"male",countryCode,leagueId:"competition:super-rugby-pacific",sourceRefs:[curation.sources[3]]}));
   }
+  // Reuse published fixture participants for public directories without a separate identity source.
+  for(const filename of fs.readdirSync(path.join(ROOT,'data/code-inspector')).filter(name=>name.endsWith('.json'))){
+    const projection=readJson('data/code-inspector/'+filename),sport=filename.replace('.json','');if(sport!=='baseball'||!chunks.has(sport))continue;
+    for(const fixture of projection.fixtures||[])for(const participant of fixture.participants||[]){
+      if(!participant.id||!/^(team|athlete|competitor|player):/.test(participant.id)||chunks.get(sport).has(participant.id))continue;
+      chunks.get(sport).set(participant.id,normalizeRecord({...participant,type:participant.type||participant.entityType,leagueId:participant.competitionId||fixture.competitionId},{sourceRefs:[fixture.sourceUrl].filter(Boolean)}));
+    }
+  }
+  // Publish ranks from the existing canonical standings projection, never favourites.
+  const rankRows=new Map(),identityKey=require('../config/follow-first').participantFollowIdentityKey;
+  for(const filename of fs.readdirSync(path.join(ROOT,'data/code-inspector')).filter(name=>name.endsWith('.json'))){
+    for(const row of readJson('data/code-inspector/'+filename).standings||[]){
+      const rank=Number(row.rank??row.ladderPosition??row.conferenceSeed),key=identityKey(row.participantId);
+      if(!key||!Number.isFinite(rank)||rank<1||row.rankPending)continue;
+      const rows=rankRows.get(key)||[];rows.push({...row,rank});rankRows.set(key,rows);
+    }
+  }
+  for(const chunk of chunks.values())for(const [id,record] of chunk){
+    const choose=(key,league)=>{const rows=rankRows.get(identityKey(key))||[];return rows.filter(row=>!league||row.competitionId===league||row.competitionId?.startsWith(league+'-')).sort((a,b)=>String(b.asOf||'').localeCompare(String(a.asOf||'')))[0];};
+    const rank=choose(id,record.leagueId),team=record.currentTeamId&&chunk.get(record.currentTeamId),teamRank=record.currentTeamId&&choose(record.currentTeamId,record.leagueId||team?.leagueId);
+    chunk.set(id,{...record,...(rank?{ranking:record.entityType==='athlete'?rank.rank:record.ranking,ladderPosition:record.entityType==='team'?rank.rank:record.ladderPosition,rankingBasis:rank.roundLabel||record.rankingBasis,rankingCheckedOn:rank.asOf?.slice(0,10),rankingSourceUrl:rank.sourceUrl,competitionId:rank.competitionId,...(rank.conferenceId?{standingGroup:(record.leagueName||'NFL')+' · '+rank.conferenceId}:{})}:{}),...(teamRank?{currentTeamRank:teamRank.rank}: {})});
+  }
   const generatedAt = sourceGeneratedAt.slice().sort().at(-1) || "2026-08-25T00:00:00.000Z";
   const manifestGeneratedAt = [generatedAt, wrcContext?.generatedAt].filter(Boolean).sort().at(-1) || generatedAt;
   let manifest = {
@@ -418,7 +440,30 @@ function main(){
     changed = writeIfChanged(path.join(OUTPUT_DIR, `${sport.key}.v1.js`), `globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS = globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS || {};\nglobalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS[${JSON.stringify(sport.key)}] = ${JSON.stringify(payload)};\n`, checkOnly) || changed;
   });
   const supportCount = directorySports.length - manifest.sports.length;
+  buildParticipantSearchIndex(manifest,checkOnly);
   console.log(`${checkOnly ? "Checked" : changed ? "Built" : "Unchanged"} ${manifest.sports.length} lazy Follow directory chunks plus ${supportCount} national-identity support chunks (${directorySports.reduce((sum, sport) => sum + chunks.get(sport.key).size, 0)} records).`);
 }
 
+function buildParticipantSearchIndex(manifest,checkOnly){
+  const identity=require('../config/follow-first').participantFollowIdentityKey;
+  const fields=['id','displayName','aliases','sportKey','entityType','genderCategory','leagueId','leagueName','ranking','ladderPosition','countryCode','currentTeamId','currentTeamRank','tour','competitionId','standingGroup','rankingCheckedOn','rankingSourceUrl'];
+  const records=new Map();
+  for(const sport of manifest.sports){
+    const chunk=readJson(sport.jsonUrl);
+    for(const record of chunk.records||[]){
+      const key=identity(record.id),prior=records.get(key);
+      if(prior){prior.aliases=[...new Set([...(prior.aliases||[]),...(record.aliases||[]),record.displayName])];continue;}
+      records.set(key,{...record,sportKey:sport.key});
+    }
+  }
+  for(const filename of fs.readdirSync(path.join(ROOT,'data/code-inspector')).filter(name=>name.endsWith('.json'))){
+    const projection=readJson('data/code-inspector/'+filename);
+    for(const fixture of projection.fixtures||[])for(const record of fixture.participants||[]){
+      if(!record.id||!/^(team|athlete|competitor|player):/.test(record.id)||records.has(identity(record.id)))continue;
+      records.set(identity(record.id),{...record,displayName:record.displayName||record.name,sportKey:filename.replace('.json',''),entityType:record.id.startsWith('team:')?'team':'athlete',leagueId:record.competitionId||fixture.competitionId,leagueName:fixture.competitionName});
+    }
+  }
+  const payload={schemaVersion:'participant-search.v1',generatedAt:manifest.generatedAt,fields,records:[...records.values()].sort((a,b)=>a.id.localeCompare(b.id)).map(record=>fields.map(field=>record[field]??null))};
+  writeIfChanged(path.join(OUTPUT_DIR,'search.v1.json'),JSON.stringify(payload)+'\n',checkOnly);
+}
 main();

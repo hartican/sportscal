@@ -159,7 +159,7 @@ async function appendProfileFixtureContext(container,record,sportKey,fixture){
         profileStandingsChunks.delete(code.id);throw new Error('Invalid profile standings source');
       }
       const all=chunk.standings||[];
-      const relevant=new Set(fixture?.competitionId?[fixture.competitionId]:all.filter(row=>[record.id,record.currentTeamId].includes(row.participantId)).map(row=>row.competitionId));
+      const relevant=new Set(fixture?.competitionId?[fixture.competitionId]:all.filter(row=>[record.id,record.currentTeamId].filter(Boolean).some(id=>NOTHINGSPORTS_FOLLOW_FIRST.participantFollowIdentityKey(id)===NOTHINGSPORTS_FOLLOW_FIRST.participantFollowIdentityKey(row.participantId))).map(row=>row.competitionId));
       const standings=all.filter(row=>relevant.has(row.competitionId));
       status.textContent=standings.length?'Standings loaded.':'Standings are not published for this competition yet.';
       for(const competition of new Set(standings.map(e=>e.competitionId))){
@@ -354,5 +354,5 @@ async function openFromFixture(id,label,sportKey,trigger,origin={}){
     }
     await populateProfile(body,record,sportKey,valid);
   }
-  root.NOTHINGSPORTS_ATHLETE_PROFILE_UI = Object.freeze({ open, openFromFixture, renderInto, decorateIdentity, makeTrigger });
+  root.NOTHINGSPORTS_ATHLETE_PROFILE_UI = Object.freeze({ open, openFromFixture, renderInto, standings:appendProfileFixtureContext, decorateIdentity, makeTrigger });
 })(typeof globalThis !== "undefined" ? globalThis : window);

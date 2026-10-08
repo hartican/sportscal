@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-10-04T04:26:58.1383692Z",
+  "generatedAt": "2026-10-07T23:14:37.555Z",
   "sports": [
     {
       "key": "afl",
@@ -110,7 +110,7 @@
       "key": "rugby",
       "label": "Rugby Union",
       "status": "available",
-      "recordCount": 171,
+      "recordCount": 183,
       "jsonUrl": "data/follow-directory/rugby.v1.json",
       "scriptUrl": "data/follow-directory/rugby.v1.js"
     },
@@ -313,6 +313,14 @@
       "recordCount": 17,
       "jsonUrl": "data/follow-directory/golf.v1.json",
       "scriptUrl": "data/follow-directory/golf.v1.js"
+    },
+    {
+      "key": "baseball",
+      "label": "Baseball",
+      "status": "available",
+      "recordCount": 12,
+      "jsonUrl": "data/follow-directory/baseball.v1.json",
+      "scriptUrl": "data/follow-directory/baseball.v1.js"
     },
     {
       "key": "american-football",

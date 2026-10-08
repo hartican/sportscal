@@ -10,14 +10,41 @@
  }
 
  function completion(e){return Date.parse(e.actualEndTimeUtc||e.completedAt||e.firstConfirmedCompleteAt||e.resultPublishedAt||'');}
- function eligible(e,now=Date.now()){
-  if(!supported(e)||/^(cancelled|canceled|abandoned)$/.test(e.status||''))return false;
-  if(final(e)){const end=completion(e);return Number.isFinite(end)&&now<=end+3600000;}
-  if(e.status==='live'||e.status==='in-progress'||interrupted(e))return true;
-  const start=Date.parse(!e.timeTbc&&!e.startTimeTbc&&(!e.timePrecision||['exact','session-start','not-before'].includes(e.timePrecision))?e.startTimeUtc||'':'');
-  return Number.isFinite(start)&&start<=now+1800000;
+ function observed(e){return Date.parse(e.statusCheckedAt||e.livePlayObservedAt||'');}
+ function liveState(e,now=Date.now()){
+  const paused=interrupted(e)||e.status==='ongoing';
+  if(!paused&&!/^(live|in-progress|in_progress)$/.test(e.status||''))return null;
+  const at=observed(e),age=now-at;
+  if(!Number.isFinite(at)||age<0)return null;
+  if(age<=interval(e,now)*2)return paused?'paused':'playing';
+  return !paused&&age<=1800000?'awaiting-update':null;
  }
- function select(events,now=Date.now()){const seen=new Set(),priority=e=>{const observed=Date.parse(e.statusCheckedAt||e.livePlayObservedAt||'');if(/^(live|in-progress)$/.test(e.status||'')&&observed<=now&&now-observed<=1800000)return 0;if(interrupted(e)||Date.parse(e.startTimeUtc)>=now)return 1;if(final(e))return 2;return 3;};return [...new Map(events.filter(e=>eligible(e,now)).filter(e=>{const sides=[e.homeParticipantId,e.awayParticipantId].filter(Boolean).sort();const key=sides.length===2&&e.startTimeUtc?[sport(e),Date.parse(e.startTimeUtc),...sides].join('|'):id(e);if(seen.has(key))return false;seen.add(key);return true;}).map(e=>[id(e),e])).values()].sort((a,b)=>priority(a)-priority(b)||(Date.parse(a.startTimeUtc||a.estimatedStartTimeUtc)||0)-(Date.parse(b.startTimeUtc||b.estimatedStartTimeUtc)||0)||id(a).localeCompare(id(b)));}
+ function section(e,now=Date.now()){
+  if(!supported(e)||/^(cancelled|canceled|abandoned|past|postponed)$/.test(e.status||''))return null;
+  if(final(e)){const end=completion(e);return Number.isFinite(end)&&end<=now&&now<=end+3600000?'recently-finished':null;}
+  if(liveState(e,now))return 'live';
+  if(!/^(scheduled|upcoming)$/.test(e.status||''))return null;
+  const precision=String(e.timePrecision||'exact').replace('_','-');
+  const start=Date.parse(!e.timeTbc&&!e.startTimeTbc&&e.timingVerified!==false&&e.sourceStale!==true&&(['exact','not-before'].includes(precision)||precision==='session-start'&&sport(e)!=='tennis')?e.startTimeUtc||'':'');
+  return Number.isFinite(start)&&start>=now&&start<=now+1800000?'starting-soon':null;
+ }
+ const eligible=(e,now=Date.now())=>Boolean(section(e,now));
+ function contest(e){const sides=[e.homeParticipantId,e.awayParticipantId].filter(Boolean).sort();return sides.length===2?[sport(e),e.tournamentId||e.tennisTournamentId||'',e.roundLabel||e.round||'',e.startTimeUtc||e.date||'',...sides].join('|'):id(e);}
+ function courtKey(e){const court=e.courtId||e.court,tournament=e.tournamentId||e.tennisTournamentId;return sport(e)==='tennis'&&tournament&&court?`${tournament}|${e.tournamentEditionId||e.editionId||e.season||''}|${String(court).normalize('NFKD').trim().toLowerCase().replace(/\s+/g,' ')}`:null;}
+ function conflicts(events,now=Date.now()){
+  const groups=new Map();for(const e of events){const key=courtKey(e);if(!key||liveState(e,now)!=='playing')continue;const group=groups.get(key)||new Map();group.set(contest(e),e);groups.set(key,group);}
+  return [...groups].filter(([,g])=>g.size>1).map(([court,g])=>({court,events:[...g.values()]}));
+ }
+ function select(events,now=Date.now()){
+  const seen=new Set(),members=[...new Map(events.filter(e=>eligible(e,now)).filter(e=>{const key=contest(e);if(seen.has(key))return false;seen.add(key);return true;}).map(e=>[id(e),e])).values()],suppressed=new Set();
+  for(const group of conflicts(members,now)){
+   const official=group.events.filter(e=>e.statusSourceType==='official'),playing=group.events.filter(e=>Number.isFinite(Date.parse(e.livePlayObservedAt)));
+   const winner=official.length===1?official[0]:!official.length&&playing.length===1?playing[0]:null;
+   for(const e of group.events)if(e!==winner)suppressed.add(id(e));
+  }
+  const priority=e=>({'live':liveState(e,now)==='playing'?0:1,'starting-soon':2,'recently-finished':3})[section(e,now)];
+  return members.filter(e=>!suppressed.has(id(e))).sort((a,b)=>priority(a)-priority(b)||(final(a)&&final(b)?completion(b)-completion(a):(Date.parse(a.startTimeUtc||a.estimatedStartTimeUtc)||0)-(Date.parse(b.startTimeUtc||b.estimatedStartTimeUtc)||0))||id(a).localeCompare(id(b)));
+ }
  function interval(e,now=Date.now()){const restart=Date.parse(e.restartTimeUtc||'');return interrupted(e)&&!(restart>=now-120000&&restart<=now+1800000)?1800000:sport(e)==='tennis'?120000:300000;}
  function safeUrl(value){try{const u=new URL(value);return u.protocol==='https:'?u.href:null;}catch{return null;}}
  function officialUrl(e){return safeUrl(e.sourceUrl||e.canonicalSourceUrl||e.officialUrl)||({nrl:'https://www.nrl.com/draw/',afl:'https://www.afl.com.au/fixture','rugby-union':'https://www.world.rugby/tournaments/fixtures-results'})[sport(e)]||null;}
@@ -33,7 +60,8 @@
   if(sport(e)==='tennis'&&e.contestUnit==='tie'&&/^\d+[–-]\d+$/.test(e.score||'')){const [home,away]=e.score.split(/[–-]/).map(Number);return {home,away};}
   if(sport(e)==='tennis'&&e.contestUnit==='rubber'&&/^\d+[–-]\d+(?:\(\d+\))?(?:\s+\d+[–-]\d+(?:\(\d+\))?)*$/.test(e.score||''))return {sets:e.score.split(/\s+/).map(s=>{const [home,away]=s.split(/[–-]/).map(v=>parseInt(v,10));return {home,away};}),games:null};
   // Never parse a title or free-form commentary into a score, or reverse source sides.
-  if(sport(e)==='tennis')return {sets:Array.isArray(e.sets)?e.sets.map(s=>({home:s.home??s.homeScore,away:s.away??s.awayScore})):[],games:e.games?{home:e.games.home,away:e.games.away}:null,home:e.homeScore??null,away:e.awayScore??null};
+  if(sport(e)==='tennis')return {sets:Array.isArray(e.sets)?e.sets.map(s=>({home:s.home??s.homeScore,away:s.away??s.awayScore,...(s.homeTiebreak!=null||s.awayTiebreak!=null?{homeTiebreak:s.homeTiebreak??null,awayTiebreak:s.awayTiebreak??null}:{})})):[],games:e.games?{home:e.games.home,away:e.games.away}:null,home:e.homeScore??null,away:e.awayScore??null};
+  if(e.classification||e.fixtureResults?.rows)return {classification:(e.classification||e.fixtureResults.rows).slice(0,50)};
   if(sport(e)==='cricket')return {innings:Array.isArray(e.innings)?e.innings.map(i=>{const participantId=i.participantId||(i.battingTeamId!=null?`team:cricket:ca-${i.battingTeamId}`:null);const p=(e.participants||[]).find(p=>p.id===participantId);return {participantId,team:i.team||p?.displayName||p?.name,runs:i.runs??i.runsScored,wickets:i.wickets??i.numberOfWicketsFallen,overs:i.overs??i.oversBowled};}):[]};
   // Explicit flat values, including null, belong to their source observation.
   // Never combine a partial/cleared flat pair with older canonical slots.
@@ -52,6 +80,6 @@
  function compact(e,{checkedAt=null,stale=false,rubbers=false}={}){
   const value=score(e),pair=pairedScore(e),hasScore=value.home!=null||value.away!=null||value.sets?.length||value.games||value.innings?.length;
   const observationCheckedAt=e.scoreCheckedAt||(!hasScore?e.statusCheckedAt:null)||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt||e.canonicalSourceCheckedAt)||null;
-  return {format:e.format||e.matchFormat||null,actualStartTimeUtc:e.actualStartTimeUtc||null,livePlayObservedAt:e.livePlayObservedAt||null,id:id(e),sport:sport(e),status:e.status||'scheduled',homeParticipantId:e.homeParticipantId||pair?.home.participantId||e.matchupSides?.[0]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[0]?.participantId||e.participantIds?.[0]:null)||null,awayParticipantId:e.awayParticipantId||pair?.away.participantId||e.matchupSides?.[1]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[1]?.participantId||e.participantIds?.[1]:null)||null,startTimeUtc:e.startTimeUtc||null,completedAt:Number.isFinite(completion(e))?new Date(completion(e)).toISOString():null,scoreCheckedAt:e.scoreCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,statusCheckedAt:e.statusCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,checkedAt:observationCheckedAt,stale:stale||Boolean(e.fixtureObservationSchema&&hasScore&&!e.scoreCheckedAt),score:value,officialUrl:officialUrl(e),statusText:typeof e.statusText==='string'?e.statusText:null,clock:typeof (e.displayClock||e.clock)==='string'?(e.displayClock||e.clock):null,incidents:(Array.isArray(e.incidents)?e.incidents:Array.isArray(e.goalScorers)?e.goalScorers:[]).slice(0,40).map(i=>({name:i.name||i.playerName||i.scorer||null,time:i.time||i.minute||i.clock||null,type:i.type||'Goal'})),...(rubbers?{rubbers:(e.rubbers||[]).slice(0,10).map(r=>({id:id(r),name:r.sides?.length?r.sides.map(s=>s.names.join(' / ')).join(' v '):r.name||'',status:r.status,score:score({...r,key:'tennis'})}))}:{})};}
- return {id,sport,final,interrupted,supported,completion,eligible,select,interval,compact,observation};
+  return {court:e.court||null,tournamentId:e.tournamentId||e.tennisTournamentId||null,statusSourceType:e.statusSourceType||null,format:e.format||e.matchFormat||null,actualStartTimeUtc:e.actualStartTimeUtc||null,livePlayObservedAt:e.livePlayObservedAt||null,id:id(e),sport:sport(e),status:e.status||'scheduled',homeParticipantId:e.homeParticipantId||pair?.home.participantId||e.matchupSides?.[0]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[0]?.participantId||e.participantIds?.[0]:null)||null,awayParticipantId:e.awayParticipantId||pair?.away.participantId||e.matchupSides?.[1]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[1]?.participantId||e.participantIds?.[1]:null)||null,startTimeUtc:e.startTimeUtc||null,completedAt:Number.isFinite(completion(e))?new Date(completion(e)).toISOString():null,scoreCheckedAt:e.scoreCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,statusCheckedAt:e.statusCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,checkedAt:observationCheckedAt,stale:stale||Boolean(e.fixtureObservationSchema&&hasScore&&!e.scoreCheckedAt),score:value,officialUrl:officialUrl(e),statusText:typeof e.statusText==='string'?e.statusText:null,clock:typeof (e.displayClock||e.clock)==='string'?(e.displayClock||e.clock):null,incidents:(Array.isArray(e.incidents)?e.incidents:Array.isArray(e.goalScorers)?e.goalScorers:[]).slice(0,40).map(i=>({name:i.name||i.playerName||i.scorer||null,time:i.time||i.minute||i.clock||null,type:i.type||'Goal'})),...(rubbers?{rubbers:(e.rubbers||[]).slice(0,10).map(r=>({id:id(r),name:r.sides?.length?r.sides.map(s=>s.names.join(' / ')).join(' v '):r.name||'',status:r.status,score:score({...r,key:'tennis'})}))}:{})};}
+ return {id,sport,final,interrupted,supported,completion,observed,liveState,section,courtKey,conflicts,eligible,select,interval,compact,observation};
 });

@@ -39,7 +39,7 @@ const events=require('../data/events.json').events;const samples=events.filter(e
    const expand=page.getByRole('button',{name:'Expand Follow navigation',exact:true});if(await expand.count())await expand.click();
    const mark=page.locator('#follow-navigation-controls h2 .follow-sport-mark img.event-brand-logo');await mark.waitFor();await mark.evaluate(image=>image.decode());assert.match(await mark.getAttribute('src'),/assets\/identities\/competitions\/wrc-(?:dark|light)\.png/);assert(await mark.isVisible());
    await page.waitForFunction(()=>{const image=document.querySelector('#follow-navigation-controls h2 .follow-sport-mark img.event-brand-logo');return image&&getComputedStyle(image).opacity==='1'&&!image.parentElement.querySelector('.identity-image-placeholder');});
-   assert(await page.locator('footer .wrc-attribution').isVisible());
+   assert.equal(await page.locator('footer .wrc-attribution').count(),0);
    if(width===390){
     const transparency=await page.evaluate(async()=>{
      const image=new Image();image.src='assets/identities/wrc/routes/sardegna-lerno-2026.svg';await image.decode();const canvas=document.createElement('canvas');canvas.width=400;canvas.height=160;const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0,400,160);const data=ctx.getImageData(0,0,400,160).data;let ink=0,nonWhite=0;for(let i=0;i<data.length;i+=4)if(data[i+3]>=128){ink++;if(Math.min(data[i],data[i+1],data[i+2])<250)nonWhite++;}return{fraction:ink/64000,nonWhite,corners:[0,399,400*159,63999].map(i=>data[i*4+3])};

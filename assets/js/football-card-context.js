@@ -51,7 +51,7 @@ async function standings(ev){
  if(!['competition:premier-league-2026-27','competition:uefa-champions-league','competition:uefa-europa-league'].includes(ev.competitionId))return null;
  const section=document.createElement('section');section.className='football-card-standings';section.dataset.cardArea='expanded-information';
  const heading=document.createElement('h3');heading.textContent=ev.competitionName+' · current standings';section.append(heading);
- const full=document.createElement('button');full.type='button';full.className='btn ghost';full.textContent='View competition standings';full.onclick=async()=>{await loadDeferredScript('assets/js/follow-navigation.js?v=453');NOTHINGSPORTS_FOLLOW_NAV.setFilter('sport:football','competition',[ev.competitionId]);activeTab='follow';followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'standings',scheduleScope:null});renderAll();};
+ const full=document.createElement('button');full.type='button';full.className='btn ghost';full.textContent='View competition standings';full.onclick=async()=>{await loadDeferredScript('assets/js/follow-navigation.js?v=463');NOTHINGSPORTS_FOLLOW_NAV.setFilter('sport:football','competition',[ev.competitionId]);activeTab='follow';followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'standings',scheduleScope:null});renderAll();};
  const paint=async()=>{
   section.replaceChildren(heading);
   if(!userPreferences.showSpoilers){const note=document.createElement('p');note.textContent='Standings hidden while Results is off.';section.append(note,full);return;}

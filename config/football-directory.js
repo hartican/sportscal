@@ -174,17 +174,9 @@
   }
 
   function followOrder(records,preferences,collections={}){
-    const follow=globalThis.NOTHINGSPORTS_FOLLOW_FIRST || require('./follow-first');
-    const identity=follow.participantFollowIdentityKey,levels=new Map();
-    for(const item of preferences?.preferenceGraph?.entityFollows || []){
-      const key=identity(item.participantId);
-      if(!['mute','unfollow'].includes(levels.get(key)))levels.set(key,item.followLevel);
-    }
-    for(const id of preferences?.followFirst?.collectionFollows || [])for(const member of collections[id]?.memberIds || []){
-      if(!levels.has(identity(member)))levels.set(identity(member),'follow');
-    }
-    const followed=record=>Number(['follow','priority'].includes(levels.get(identity(record.id))));
-    return records.slice().sort((a,b)=>competitionGroup(a).localeCompare(competitionGroup(b))||followed(b)-followed(a));
+    // Following patches controls; discovery order belongs to the sourced table.
+    const directory=globalThis.NOTHINGSPORTS_PARTICIPANT_DIRECTORY||(typeof require==='function'?require('./participant-directory'):null);
+    return directory?records.slice().sort((a,b)=>directory.compare(a,b,records)):records.slice();
   }
 
   return Object.freeze({

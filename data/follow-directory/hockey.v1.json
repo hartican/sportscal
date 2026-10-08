@@ -2,9 +2,9 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "hockey",
   "label": "Hockey",
-  "generatedAt": "2026-09-30T08:35:08.448Z",
+  "generatedAt": "2026-10-07T23:14:37.555Z",
   "status": "available",
-  "sortBasis": "ranking-or-ladder-then-alphabetical",
+  "sortBasis": "alphabetical-fallback",
   "records": [
     {
       "id": "team:hockey:kookaburras",
@@ -20,8 +20,8 @@
       "countryCode": "AU",
       "countryBasis": "official-record",
       "genderCategory": "male",
-      "ranking": 0,
-      "ladderPosition": 0,
+      "ranking": null,
+      "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,

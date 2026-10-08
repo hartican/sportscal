@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "tennis-women",
   "label": "Tennis Women",
-  "generatedAt": "2026-10-04T05:50:28Z",
+  "generatedAt": "2026-10-07T23:14:37.555Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -30,7 +30,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -41,7 +41,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:aryna-sabalenka",
@@ -67,7 +69,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -78,7 +80,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:jessica-pegula",
@@ -104,7 +108,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -115,7 +119,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:coco-gauff",
@@ -141,7 +147,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -152,7 +158,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:mirra-andreeva",
@@ -178,7 +186,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -189,7 +197,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:linda-noskova",
@@ -215,7 +225,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -226,7 +236,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:elina-svitolina",
@@ -252,7 +264,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -263,7 +275,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:karolina-muchova",
@@ -289,7 +303,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -300,7 +314,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:iga-swiatek",
@@ -326,7 +342,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -337,7 +353,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:marta-kostyuk",
@@ -363,7 +381,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -373,7 +391,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:amanda-anisimova",
@@ -399,7 +419,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -410,7 +430,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:belinda-bencic",
@@ -436,7 +458,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -446,7 +468,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:iva-jovic",
@@ -472,7 +496,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -482,7 +506,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:diana-shnaider",
@@ -508,7 +534,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -518,7 +544,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:victoria-mboko",
@@ -544,7 +572,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -554,7 +582,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:sorana-cirstea",
@@ -580,7 +610,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -590,7 +620,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:naomi-osaka",
@@ -616,7 +648,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -626,7 +658,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:alexandra-eala",
@@ -652,7 +686,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -662,7 +696,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:elise-mertens",
@@ -688,7 +724,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -698,7 +734,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:jasmine-paolini",
@@ -724,7 +762,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -734,7 +772,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:maja-chwalinska",
@@ -760,7 +800,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -770,7 +810,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:anna-kalinskaya",
@@ -796,7 +838,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -806,7 +848,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:madison-keys",
@@ -832,7 +876,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -842,7 +886,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:emma-navarro",
@@ -868,7 +914,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -878,7 +924,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:anastasia-potapova",
@@ -904,7 +952,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -914,7 +962,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:leylah-fernandez",
@@ -940,7 +990,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -950,7 +1000,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:marie-bouzkova",
@@ -976,7 +1028,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -986,7 +1038,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:ekaterina-alexandrova",
@@ -1012,7 +1066,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1022,7 +1076,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:sara-bejlek",
@@ -1048,7 +1104,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1058,7 +1114,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:ann-li",
@@ -1084,7 +1142,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1094,7 +1152,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:diane-parry",
@@ -1120,7 +1180,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1130,7 +1190,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:jelena-ostapenko",
@@ -1156,7 +1218,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1166,7 +1228,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:maria-sakkari",
@@ -1192,7 +1256,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1202,7 +1266,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:nikola-bartunkova",
@@ -1228,7 +1294,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1238,7 +1304,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:cristina-bucsa",
@@ -1264,7 +1332,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1274,7 +1342,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:peyton-stearns",
@@ -1300,7 +1370,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1310,7 +1380,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "athlete:tennis:talia-gibson",
@@ -1325,7 +1397,7 @@
       "countryBasis": "official-player-record",
       "genderCategory": "female",
       "ranking": 37,
-      "ladderPosition": 0,
+      "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -1336,7 +1408,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [
         "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
       ],
@@ -1349,7 +1421,9 @@
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z",
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:xinyu-wang",
@@ -1375,7 +1449,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1385,7 +1459,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:liudmila-samsonova",
@@ -1411,7 +1487,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1421,7 +1497,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:donna-vekic",
@@ -1447,7 +1525,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1457,7 +1535,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "athlete:tennis:kimberly-birrell",
@@ -1472,7 +1552,7 @@
       "countryBasis": "official-player-record",
       "genderCategory": "female",
       "ranking": 41,
-      "ladderPosition": 0,
+      "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -1483,7 +1563,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [
         "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
       ],
@@ -1496,7 +1576,9 @@
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z",
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:hailey-baptiste",
@@ -1522,7 +1604,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1532,7 +1614,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:barbora-krejcikova",
@@ -1558,7 +1642,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1568,7 +1652,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:clara-tauson",
@@ -1594,7 +1680,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1604,7 +1690,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:yuliia-starodubtseva",
@@ -1630,7 +1718,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1640,7 +1728,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:daria-snigur",
@@ -1666,7 +1756,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1676,7 +1766,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:oleksandra-oliynykova",
@@ -1702,7 +1794,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1712,7 +1804,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:magdalena-frech",
@@ -1738,7 +1832,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1748,7 +1842,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:janice-tjen",
@@ -1774,7 +1870,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1784,7 +1880,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:anhelina-kalinina",
@@ -1810,7 +1908,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1820,7 +1918,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "athlete:tennis:maya-joint",
@@ -1835,7 +1935,7 @@
       "countryBasis": "official-player-record",
       "genderCategory": "female",
       "ranking": 75,
-      "ladderPosition": 0,
+      "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -1846,7 +1946,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [
         "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
       ],
@@ -1859,7 +1959,9 @@
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z",
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:daria-kasatkina",
@@ -1885,7 +1987,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1895,7 +1997,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:taylah-preston",
@@ -1921,7 +2025,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -1931,7 +2035,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "athlete:tennis:ajla-tomljanovic",
@@ -1946,7 +2052,7 @@
       "countryBasis": "official-player-record",
       "genderCategory": "female",
       "ranking": 103,
-      "ladderPosition": 0,
+      "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -1957,7 +2063,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [
         "https://www.tennis.com.au/player-profiles/ajla-tomljanovic"
       ],
@@ -1971,7 +2077,9 @@
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z",
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "athlete:tennis:emerson-jones",
@@ -1986,7 +2094,7 @@
       "countryBasis": "official-player-record",
       "genderCategory": "female",
       "ranking": 134,
-      "ladderPosition": 0,
+      "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -1997,7 +2105,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [
         "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
       ],
@@ -2010,7 +2118,9 @@
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z",
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:maddison-inglis",
@@ -2036,7 +2146,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2046,7 +2156,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "athlete:tennis:storm-hunter",
@@ -2061,7 +2173,7 @@
       "countryBasis": "official-player-record",
       "genderCategory": "female",
       "ranking": 182,
-      "ladderPosition": 0,
+      "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -2072,7 +2184,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [
         "https://www.tennis.com.au/player-profiles/storm-hunter"
       ],
@@ -2086,7 +2198,9 @@
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z",
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "athlete:tennis:priscilla-hon",
@@ -2101,7 +2215,7 @@
       "countryBasis": "official-player-record",
       "genderCategory": "female",
       "ranking": 232,
-      "ladderPosition": 0,
+      "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -2112,7 +2226,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [
         "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
       ],
@@ -2125,7 +2239,9 @@
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z",
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "athlete:tennis:olivia-gadecki",
@@ -2140,7 +2256,7 @@
       "countryBasis": "official-player-record",
       "genderCategory": "female",
       "ranking": 275,
-      "ladderPosition": 0,
+      "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -2151,7 +2267,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [
         "https://www.tennis.com.au/player-profiles/olivia-gadecki"
       ],
@@ -2164,7 +2280,9 @@
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z",
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:elena-micic",
@@ -2190,7 +2308,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2200,7 +2318,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:lizette-cabrera",
@@ -2226,7 +2346,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2236,7 +2356,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:tahlia-kokkinis",
@@ -2262,7 +2384,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2272,7 +2394,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:arina-rodionova",
@@ -2298,7 +2422,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2308,7 +2432,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:alana-subasic",
@@ -2334,7 +2460,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2344,7 +2470,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:sarah-rokusek",
@@ -2370,7 +2498,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2380,7 +2508,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:tina-smith",
@@ -2406,7 +2536,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2416,7 +2546,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:gabriella-da-silva-fick",
@@ -2442,7 +2574,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2452,7 +2584,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:melisa-ercan",
@@ -2478,7 +2612,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2488,7 +2622,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:belle-thompson",
@@ -2514,7 +2650,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2524,7 +2660,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:stefani-webb",
@@ -2550,7 +2688,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2560,7 +2698,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:laquisa-khan",
@@ -2586,7 +2726,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2596,7 +2736,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:amy-stevens",
@@ -2622,7 +2764,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2632,7 +2774,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:jizelle-sibai",
@@ -2658,7 +2802,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2668,7 +2812,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:ashleigh-simes",
@@ -2694,7 +2840,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2704,7 +2850,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:cara-korhonen",
@@ -2730,7 +2878,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2740,7 +2888,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:alexandra-osborne",
@@ -2766,7 +2916,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2776,7 +2926,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:eva-lopez",
@@ -2802,7 +2954,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2812,7 +2964,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:ava-beck",
@@ -2838,7 +2992,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2848,7 +3002,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:ava-monet-sycamore",
@@ -2874,7 +3030,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2884,7 +3040,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:alicia-smith",
@@ -2910,7 +3068,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2920,7 +3078,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:tori-russell",
@@ -2946,7 +3106,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2956,7 +3116,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:astra-sharma",
@@ -2982,7 +3144,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -2992,7 +3154,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:renee-alame",
@@ -3018,7 +3182,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3028,7 +3192,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:sarah-mildren",
@@ -3054,7 +3220,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3064,7 +3230,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:rianna-alame",
@@ -3090,7 +3258,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3100,7 +3268,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:naomi-mckenzie",
@@ -3126,7 +3296,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3136,7 +3306,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:lily-taylor",
@@ -3162,7 +3334,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3172,7 +3344,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:audrey-aulia",
@@ -3198,7 +3372,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3208,7 +3382,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:elizabeth-ivanov",
@@ -3234,7 +3410,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3244,7 +3420,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:angela-cui",
@@ -3270,7 +3448,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3280,7 +3458,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:tenika-mcgiffin",
@@ -3306,7 +3486,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3316,7 +3496,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:gurmanat-kaur-sandhu",
@@ -3342,7 +3524,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3352,7 +3534,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:caitlin-baker",
@@ -3378,7 +3562,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3388,7 +3572,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:larisa-arnautovic",
@@ -3414,7 +3600,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3424,7 +3610,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "competitor:tennis:wta:petra-hule",
@@ -3450,7 +3638,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": "WTA singles",
+      "rankingBasis": "WTA singles ranking",
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -3460,7 +3648,9 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "rankingEffectiveOn": "2026-09-28",
-      "rankingCheckedOn": "2026-10-04"
+      "rankingCheckedOn": "2026-09-28",
+      "rankingSourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
+      "competitionId": "competition:wta-singles-2026"
     },
     {
       "id": "athlete:tennis:alicia-molik",

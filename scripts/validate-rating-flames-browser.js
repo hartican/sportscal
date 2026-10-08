@@ -35,11 +35,12 @@ const close=(a,b)=>Math.abs(a-b)<.1;
    await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,theme:'day',selectedSelectorEntityIds:['sport:f1'],followedSports:['f1']})));
    await page.goto(base,{waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating(),null,{timeout:60000});
+   await page.evaluate(async()=>{await ensureFantasyUi();openSettings({section:'about'});});await page.locator('.about-acknowledgements').waitFor();
    const scenarios=await page.evaluate(async()=>{
     const source=new Image();source.src="assets/icons/flaticon/meaicon-steak.png";await source.decode();
     const canvas=document.createElement("canvas");canvas.width=canvas.height=512;const context=canvas.getContext("2d");context.drawImage(source,0,0);const pixels=context.getImageData(0,0,512,512).data;
     if(source.naturalWidth!==512||source.naturalHeight!==512||!pixels.some((v,i)=>i%4===3&&v===0)||!pixels.some((v,i)=>i%4===3&&v===255))throw Error("Supplied steak and transparent detail must load");
-    const credit=document.querySelector("footer .steak-attribution a");if(credit?.textContent!=="Steak icons created by meaicon - Flaticon"||credit.href!=="https://www.flaticon.com/free-icons/steak")throw Error("Missing visible Flaticon credit");
+    const credit=document.querySelector(".about-acknowledgements .steak-attribution a");if(credit?.textContent!=="Steak icons created by meaicon - Flaticon"||credit.href!=="https://www.flaticon.com/free-icons/steak")throw Error("Missing visible Flaticon credit");
     const results=[];
     const ev={id:'qa-stakes',key:'f1',name:'Stakes QA race',startTimeUtc:'2026-10-10T12:00:00Z',timePrecision:'exact'};
     const mount=(snapshot,inDrawer)=>{

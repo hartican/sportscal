@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "wrc",
   "label": "WRC",
-  "generatedAt": "2026-10-04T05:50:28Z",
+  "generatedAt": "2026-10-07T23:14:37.555Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -28,7 +28,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -40,7 +40,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:scott-martin",
@@ -64,7 +67,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -76,7 +79,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "team:wrc:toyota-gazoo-racing-wrt",
@@ -89,7 +95,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 1,
-      "ladderPosition": null,
+      "ladderPosition": 1,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -100,7 +106,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -112,7 +118,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-manufacturers-2026"
     },
     {
       "id": "team:wrc:hyundai-shell-mobis-world-rally-team",
@@ -125,7 +134,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 2,
-      "ladderPosition": null,
+      "ladderPosition": 2,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -136,7 +145,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -148,7 +157,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-manufacturers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:marko-salminen",
@@ -172,7 +184,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -184,7 +196,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:sami-pajari",
@@ -208,7 +223,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -220,7 +235,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:elliott-edmondson",
@@ -244,7 +262,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -256,7 +274,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:oliver-solberg",
@@ -280,7 +301,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -292,7 +313,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "team:wrc:toyota-gazoo-racing-wrt2",
@@ -305,7 +329,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 3,
-      "ladderPosition": null,
+      "ladderPosition": 3,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -316,7 +340,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -328,7 +352,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-manufacturers-2026"
     },
     {
       "id": "team:wrc:m-sport-ford-world-rally-team",
@@ -341,7 +368,7 @@
       "countryBasis": "official-record",
       "genderCategory": "unknown",
       "ranking": 4,
-      "ladderPosition": null,
+      "ladderPosition": 4,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -352,7 +379,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -364,7 +391,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-manufacturers-2026"
     },
     {
       "id": "competitor:wrc:driver:sebastien-ogier",
@@ -388,7 +418,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -400,7 +430,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:vincent-landais",
@@ -424,7 +457,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -436,7 +469,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:adrien-fourmaux",
@@ -460,7 +496,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -472,7 +508,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:alexandre-coria",
@@ -496,7 +535,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -508,7 +547,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:aaron-johnston",
@@ -532,7 +574,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -544,7 +586,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:takamoto-katsuta",
@@ -568,7 +613,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -580,7 +625,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:martijn-wydaeghe",
@@ -604,7 +652,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -616,7 +664,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:thierry-neuville",
@@ -640,7 +691,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -652,7 +703,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:hayden-paddon",
@@ -676,7 +730,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -688,7 +742,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:john-kennard",
@@ -712,7 +769,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -724,7 +781,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:eoin-treacy",
@@ -748,7 +808,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -760,7 +820,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:joshua-mcerlean",
@@ -784,7 +847,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -796,7 +859,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:enni-malkonen",
@@ -820,7 +886,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -832,7 +898,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:esapekka-lappi",
@@ -856,7 +925,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -868,7 +937,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:arnaud-dunand",
@@ -892,7 +964,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -904,7 +976,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:yohan-rossel",
@@ -928,7 +1003,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -940,7 +1015,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:guillaume-mercoiret",
@@ -964,7 +1042,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -976,7 +1054,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:leo-rossel",
@@ -1000,7 +1081,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1012,7 +1093,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:jakko-viilo",
@@ -1036,7 +1120,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1048,7 +1132,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:robert-virves",
@@ -1072,7 +1159,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1084,7 +1171,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:jon-armstrong",
@@ -1108,7 +1198,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1120,7 +1210,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:shane-byrne",
@@ -1144,7 +1237,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1156,7 +1249,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:gus-greensmith",
@@ -1180,7 +1276,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1192,7 +1288,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:jonas-andersson",
@@ -1216,7 +1315,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1228,7 +1327,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:martins-sesks",
@@ -1252,7 +1354,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1264,7 +1366,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:renars-francis",
@@ -1288,7 +1393,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1300,7 +1405,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:konstantin-aleksandrov",
@@ -1324,7 +1432,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1336,7 +1444,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:nikolay-gryazin",
@@ -1360,7 +1471,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1372,7 +1483,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:candido-carrera",
@@ -1396,7 +1510,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1408,7 +1522,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:daniel-sordo",
@@ -1432,7 +1549,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1444,7 +1561,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:diego-dominguez",
@@ -1468,7 +1588,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1480,7 +1600,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:rogelio-penate",
@@ -1504,7 +1627,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1516,7 +1639,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:alejandro-cachon",
@@ -1540,7 +1666,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1552,7 +1678,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:borja-rozada",
@@ -1576,7 +1705,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1588,7 +1717,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:fabrizio-zaldivar",
@@ -1612,7 +1744,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1624,7 +1756,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:marcelo-der-ohannesian",
@@ -1648,7 +1783,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1660,7 +1795,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:luca-guglielmetti",
@@ -1684,7 +1822,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1696,7 +1834,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:roberto-dapra",
@@ -1720,7 +1861,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1732,7 +1873,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:anssi-viinikka",
@@ -1756,7 +1900,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1768,7 +1912,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:roope-korhonen",
@@ -1792,7 +1939,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1804,7 +1951,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:andreas-mikkelsen",
@@ -1828,7 +1978,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1840,7 +1990,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:j-rn-listerud",
@@ -1864,7 +2017,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1876,7 +2029,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:jari-matti-latvala",
@@ -1900,7 +2056,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1912,7 +2068,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:juho-hanninen",
@@ -1936,7 +2095,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1948,7 +2107,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:alejandro-galanti",
@@ -1972,7 +2134,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -1984,7 +2146,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:james-fulton",
@@ -2008,7 +2173,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2020,7 +2185,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:arthur-pelamourgues",
@@ -2044,7 +2212,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2056,7 +2224,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:marcelo-toyotoshi",
@@ -2080,7 +2251,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2092,7 +2263,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:bastien-pouget",
@@ -2116,7 +2290,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2128,7 +2302,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:teemu-suninen",
@@ -2152,7 +2329,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2164,7 +2341,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:janni-hussi",
@@ -2188,7 +2368,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2200,7 +2380,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:matteo-fontana",
@@ -2224,7 +2407,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2236,7 +2419,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:alessandro-arnaboldi",
@@ -2260,7 +2446,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2272,7 +2458,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:eric-camilli",
@@ -2296,7 +2485,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2308,7 +2497,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:emil-lindholm",
@@ -2332,7 +2524,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2344,7 +2536,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:thibault-de-la-haye",
@@ -2368,7 +2563,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2380,7 +2575,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:gabriel-morales",
@@ -2404,7 +2602,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2416,7 +2614,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:taylor-gill",
@@ -2440,7 +2641,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2452,7 +2653,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:daniel-brkic",
@@ -2476,7 +2680,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2488,7 +2692,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:gregoire-munster",
@@ -2512,7 +2719,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2524,7 +2731,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:frederic-miclotte",
@@ -2548,7 +2758,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2560,7 +2770,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:jourdan-serderidis",
@@ -2584,7 +2797,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2596,7 +2809,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:julien-ingrassia",
@@ -2620,7 +2836,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2632,7 +2848,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:romet-jurgenson",
@@ -2656,7 +2875,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2668,7 +2887,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:driver:lorenzo-bertelli",
@@ -2692,7 +2914,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2704,7 +2926,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:simone-scattolin",
@@ -2728,7 +2953,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2740,7 +2965,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:louis-louka",
@@ -2764,7 +2992,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2776,7 +3004,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     },
     {
       "id": "competitor:wrc:co-driver:siim-oja",
@@ -2800,7 +3031,7 @@
       "logoDarkUrl": null,
       "headshotUrl": null,
       "eventRanks": [],
-      "rankingBasis": null,
+      "rankingBasis": "After Round 12",
       "sourceRefs": [
         "https://www.wrc.com/en/calendar",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
@@ -2812,7 +3043,10 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-      "sourceReviewAfter": null
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-04",
+      "rankingSourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
+      "competitionId": "competition:wrc-co-drivers-2026"
     }
   ]
 }

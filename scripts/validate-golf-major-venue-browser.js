@@ -43,7 +43,7 @@ const samples=require('../data/events.json').events.filter(e=>e.golfMajorCalenda
 
    await toggle.click();await page.waitForFunction(id=>userPreferences.followFirst.followedMajorEventIds.includes(id),id);await page.locator(`.follow-event-family[data-event-family-id="${id}"] .follow-event-family-toggle`).click();await page.waitForFunction(id=>!userPreferences.followFirst.followedMajorEventIds.includes(id),id);
   }
-  assert(await page.locator('footer .golf-attribution').isVisible());await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByRole('button',{name:/^About/}).click();assert(await page.locator('.settings-about .golf-attribution').isVisible());await page.close();
+  assert.equal(await page.locator('footer .golf-attribution').count(),0);await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByRole('button',{name:/^About/}).click();await page.locator('.about-acknowledgements>summary').click();await page.locator('.about-acknowledgements').evaluate(n=>n.querySelectorAll('details').forEach(d=>d.open=true));assert(await page.locator('.settings-about .golf-attribution').isVisible());await page.close();
  }}finally{await browser.close();}}
  assert.deepEqual(report.errors,[]);fs.writeFileSync(path.join(out,'browser-report.json'),JSON.stringify(report,null,2));console.log(`Golf majors: ${report.cases.length} card cases, Chromium/WebKit, four widths, both themes/states/surfaces, transparent fairways, fallback, Events parents, four independent Follow choices and credits passed.`);
 })().catch(e=>{console.error(e);process.exitCode=1;});

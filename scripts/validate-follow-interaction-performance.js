@@ -28,6 +28,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
  const containment=await page.locator('.follow-directory-row').first().evaluate(row=>getComputedStyle(row).contentVisibility);
  assert.equal(containment,'auto');
  await page.evaluate(()=>{saveFollowBrowse({sportId:'sport:football',categoryId:'sport:football',section:'teams-players'});renderFollowView();});
+ await page.getByRole('button',{name:'Teams',exact:true}).click();
  await page.locator('.football-club-row').first().waitFor({timeout:30000});
  const footballRows=await page.locator('.football-club-row').count();assert(footballRows<=40,'Football mounts a bounded first page');
  const footballPatch=await page.locator('.football-club-row').first().evaluate(row=>{const button=row.querySelector('.football-follow-toggle'),before=button.textContent;button.click();return{before,after:button.textContent,connected:row.isConnected};});

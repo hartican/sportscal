@@ -3,7 +3,7 @@
 // Local-only, compressed static QA server. No credentials and no API writes.
 const http=require("node:http"),fs=require("node:fs"),path=require("node:path"),zlib=require("node:zlib");
 const root=path.resolve(__dirname,".."),port=Number(process.env.NS_AUDIT_PORT || 33956);
-const types={".html":"text/html",".js":"application/javascript",".json":"application/json",".css":"text/css",".svg":"image/svg+xml",".png":"image/png",".webp":"image/webp",".jpg":"image/jpeg",".ico":"image/x-icon",".woff2":"font/woff2"};
+const types={".html":"text/html",".js":"application/javascript",".json":"application/json",".css":"text/css",".woff2":"font/woff2",".svg":"image/svg+xml",".png":"image/png",".webp":"image/webp",".jpg":"image/jpeg",".ico":"image/x-icon",".woff2":"font/woff2"};
 http.createServer(async(req,res)=>{
   const url=new URL(req.url,"http://localhost");
   if(req.method!=="GET"&&req.method!=="HEAD"){res.writeHead(405);return res.end();}

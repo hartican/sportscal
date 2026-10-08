@@ -68,7 +68,7 @@ function renderTennisJourneys(panel){
   details.addEventListener('toggle',()=>void mount());void mount();
 }
 function renderTennisTournamentSchedule(panel,fixtures){
-  renderTennisJourneys(panel);
+  // Participant year-ahead outlooks live in Follow profiles.
   if(!tennisTournamentCatalogue){
     const pending=document.createElement('p');pending.textContent='Loading tournament editions…';panel.append(pending);void loadTennisTournamentCatalogue().then(()=>{if(activeInspectorCodeId==='sport:tennis')renderCodeInspector();}).catch(()=>{pending.textContent='Tournament catalogue unavailable. Try opening Schedule again.';});return;
   }

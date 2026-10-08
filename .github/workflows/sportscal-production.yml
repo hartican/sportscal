@@ -58,6 +58,8 @@ jobs:
           node scripts/validate-release-maintenance.js
           node scripts/validate-startup-late-recovery.js
           node scripts/validate-feed-live-scores.js
+          node scripts/validate-find-your-sport.js
+          node scripts/build-follow-directories.js --check
           node scripts/validate-athletes.js
           node scripts/validate-tennis-scoreboard.js
           node scripts/validate-tennis-match-centre-live.js
