@@ -34398,7 +34398,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992102",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -34584,7 +34584,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142008",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8205",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -34699,7 +34699,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992103",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -34814,7 +34814,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142004",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8210",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35374,7 +35374,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142003",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8201",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35487,7 +35487,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992104",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -35730,7 +35730,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142006",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8206",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35845,7 +35845,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142005",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8208",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -36086,7 +36086,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992105",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -36201,7 +36201,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992106",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -36408,7 +36408,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142009",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8204",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -36900,7 +36900,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142002",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8203",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -37141,7 +37141,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992107",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -37256,7 +37256,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142007",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8207",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -37371,7 +37371,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992108",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39493,7 +39493,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142102",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8213",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -39598,7 +39598,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992201",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39863,7 +39863,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992202",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39978,7 +39978,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992203",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -40093,7 +40093,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142104",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8218",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40560,7 +40560,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142109",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8217",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40801,7 +40801,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142106",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8212",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40916,7 +40916,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992204",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -41246,7 +41246,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992205",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -41451,7 +41451,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142107",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8221",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -41566,7 +41566,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992206",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -41681,7 +41681,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142101",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8209",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42394,7 +42394,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142108",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8214",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42636,7 +42636,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992207",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -42751,7 +42751,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142105",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8215",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42992,7 +42992,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992208",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -43517,7 +43517,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142209",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8224",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -43634,7 +43634,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992301",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -43749,7 +43749,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992302",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -43864,7 +43864,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142202",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8223",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -43979,7 +43979,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992303",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -44484,7 +44484,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142205",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8220",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -44599,7 +44599,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992304",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -44840,7 +44840,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142207",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8222",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -44955,7 +44955,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142203",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8219",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -45197,7 +45197,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992305",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -45312,7 +45312,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992306",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -45427,7 +45427,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142201",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8230",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -46269,7 +46269,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142204",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8228",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -46510,7 +46510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992307",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -46627,7 +46627,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992308",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -46742,7 +46742,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142208",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8227",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -47115,7 +47115,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142206",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8225",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -47377,7 +47377,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-30T22:50:31.966Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "score": "Bangladesh beat Australia by 9 wickets",
@@ -47516,7 +47516,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992401",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47631,7 +47631,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992402",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47746,7 +47746,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992403",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47861,7 +47861,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142303",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8237",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -47976,7 +47976,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142308",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8238",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -48217,7 +48217,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992404",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -48551,7 +48551,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142306",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8231",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -48666,7 +48666,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142301",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8229",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -48907,7 +48907,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992405",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -49022,7 +49022,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992406",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -49137,7 +49137,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142305",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8244",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -49250,7 +49250,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142307",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8234",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -49491,7 +49491,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142304",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8233",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -49733,7 +49733,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992407",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -49848,7 +49848,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142309",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8232",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -49961,7 +49961,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992408",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -50076,7 +50076,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142302",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8226",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -50317,7 +50317,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142407",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8242",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -50432,7 +50432,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992501",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -50557,7 +50557,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992502",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -50662,7 +50662,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142402",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8239",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -50777,7 +50777,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992503",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -51024,7 +51024,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-30T22:50:31.966Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
@@ -51288,7 +51288,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142403",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8240",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -51403,7 +51403,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992504",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -51644,7 +51644,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142406",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8236",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -51885,7 +51885,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992505",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -52000,7 +52000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992506",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -52115,7 +52115,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142405",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8246",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -52230,7 +52230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142401",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8243",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -53414,7 +53414,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142404",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8235",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -53703,7 +53703,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992507",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -53861,7 +53861,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142408",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8245",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -54023,7 +54023,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992508",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -54307,7 +54307,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142409",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8241",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -55005,7 +55005,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceTrust": "unverified",
     "score": "1 Lando Norris; 2 Kimi Antonelli +11.536s; 3 George Russell +15.906s",
     "outcomeText": "Lando Norris won the Dutch Grand Prix ahead of Kimi Antonelli and George Russell.",
@@ -56513,7 +56513,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992601",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -56768,7 +56768,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992602",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -57051,7 +57051,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -57060,7 +57060,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142502",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9020",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -57324,7 +57324,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992603",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -57885,7 +57885,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640301",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8897",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -58129,7 +58129,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640302",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8899",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -58247,7 +58247,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992604",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -58535,7 +58535,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640303",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8902",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -58779,7 +58779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992605",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -59210,7 +59210,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992606",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -59365,7 +59365,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -59374,7 +59374,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142501",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9021",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -60834,7 +60834,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640304",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8900",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -60952,7 +60952,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640305",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8901",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -61196,7 +61196,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992607",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -61506,7 +61506,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640306",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8903",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -61624,7 +61624,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640307",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8904",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -61742,7 +61742,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992608",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -61906,7 +61906,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640308",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8908",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -62282,7 +62282,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640309",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8906",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -63809,7 +63809,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Merida tests his rapid rise against Rublev’s established New York record.",
     "fullSpiel": "Daniel Merida arrived in New York ranked 39th after beginning the year outside the top 160. Andrey Rublev brought four US Open quarterfinal appearances to this second-round meeting: a useful measure of whether the Spaniard’s first ATP title in July signalled a lasting step forward.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
     "outcomeText": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
@@ -64029,7 +64029,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Paul’s home campaign meets Prizmic’s challenge in the Grandstand.",
     "fullSpiel": "Tommy Paul brought the twentieth seed and local support into this second-round match against Dino Prizmic. Their Grandstand meeting put a place in the last 32 on the line, with the American trying to build a route towards the second week of his home major.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
     "outcomeText": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
@@ -64246,7 +64246,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Duckworth and Wu meet at the point where return pressure can change the match.",
     "fullSpiel": "James Duckworth’s second-round assignment was Yibing Wu, with a place in the last 32 at stake. Court 6 offered a close view of the serve-and-return contest between the Australian and Chinese players; the official match record makes those exchanges the useful starting point for the replay.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
     "outcomeText": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
@@ -64335,7 +64335,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -64344,7 +64344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992701",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -64502,7 +64502,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -64511,7 +64511,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142601",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9024",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -64989,7 +64989,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Popyrin faces seeded Tabilo with another Australian place in the last 32 at stake.",
     "fullSpiel": "Alexei Popyrin’s path through Grigor Dimitrov led to a second-round meeting against Alejandro Tabilo. The Chilean held the twenty-fifth seed, making this a test of whether Popyrin could carry that first-round progress further through the draw.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
     "outcomeText": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
@@ -65206,7 +65206,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Mensik and Rodionov arrive from straight-set opening wins.",
     "fullSpiel": "Jakub Mensik’s seventeenth seed met Jurij Rodionov’s opening-round momentum in this second-round match. Mensik had come through Shintaro Mochizuki in three sets, while Rodionov had done the same against Giovanni Mpetshi Perricard. The contest put two efficient starts against one another for a place in round three.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
     "outcomeText": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
@@ -65451,7 +65451,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Hunter and Krawczyk begin their seeded doubles campaign against an American pair.",
     "fullSpiel": "Storm Hunter and Desirae Krawczyk entered as the thirteenth seeds against DJ Bennett and Ava Esposito. The Australian-American pairing had an immediate opportunity to establish itself in a draw led by Siniakova and Townsend; Bennett and Esposito stood between them and round two.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
@@ -65537,7 +65537,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -65546,7 +65546,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992702",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -65704,7 +65704,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -65713,7 +65713,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142603",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9022",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -65970,7 +65970,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -65979,7 +65979,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992703",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -66384,7 +66384,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Duckworth and Peers stand on opposite sides of an Australian doubles interest.",
     "fullSpiel": "James Duckworth paired with Miomir Kecmanovic against Marcelo Melo and John Peers in the opening round. With an Australian on each side, this Court 15 meeting offered two different partnerships chasing the same place in round two.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
     "outcomeText": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
@@ -66601,7 +66601,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Paul and Bublik revisit the third-round rivalry that went the distance a year ago.",
     "fullSpiel": "Alexander Bublik ended Tommy Paul’s 2025 US Open in five sets at this same stage. Their rematch carried that history into Louis Armstrong Stadium, where Paul was again playing for the chance to take his home campaign into the second week.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
     "outcomeText": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
@@ -67008,7 +67008,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640401",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8905",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -67173,7 +67173,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640402",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8907",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -67338,7 +67338,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640403",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8910",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -67494,7 +67494,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -67503,7 +67503,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992704",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -67661,7 +67661,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -67670,7 +67670,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142602",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9029",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -68179,7 +68179,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -68188,7 +68188,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992705",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -68353,7 +68353,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640404",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8909",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -68509,7 +68509,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -68518,7 +68518,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992706",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -68676,7 +68676,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -68685,7 +68685,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142604",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9025",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -70919,7 +70919,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Hunter and Krawczyk face a pair fresh from the Cincinnati final.",
     "fullSpiel": "Magali Kempen and Alexandra Panova brought a Cincinnati doubles final into their second-round match with Storm Hunter and Desirae Krawczyk. The thirteenth seeds were trying to keep their own campaign moving towards a possible meeting with the top seeds.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
@@ -71445,7 +71445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Mensik and Tien bring a young rivalry into the pressure of a home major.",
     "fullSpiel": "Learner Tien faced Jakub Mensik in the third round with his best US Open run taking shape. Mensik arrived as the new mixed doubles champion alongside Karolina Muchova, giving the Czech a very different kind of New York momentum.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
     "outcomeText": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
@@ -71677,7 +71677,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640405",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8911",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -71842,7 +71842,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640406",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8912",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72124,7 +72124,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -72133,7 +72133,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992707",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -72321,7 +72321,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640407",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8914",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72486,7 +72486,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640408",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8916",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72642,7 +72642,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -72651,7 +72651,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992708",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -72839,7 +72839,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640409",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8913",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -73180,7 +73180,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-valencia-day-2",
@@ -73651,7 +73651,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:00:00.000Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceTrust": "unverified",
     "sourceType": "official",
     "startTimeUtc": "2026-09-06T13:00:00.000Z",
@@ -74625,7 +74625,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Paul tests the returning defending champion for a place in the quarterfinals.",
     "fullSpiel": "Carlos Alcaraz arrived with the stronger head-to-head record and a lighter workload through three rounds. Paul had taken the longer route, including a five-set encounter with Bublik. Their fourth-round meeting asked whether that match toughness could disrupt the defending champion’s increasingly assured return from a wrist injury.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
     "outcomeText": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
@@ -75922,7 +75922,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Hunter and Krawczyk stand in the path of Siniakova and Townsend’s missing major.",
     "fullSpiel": "Katerina Siniakova and Taylor Townsend entered this third-round meeting with three different Grand Slam titles together and the US Open still to add. Storm Hunter and Desirae Krawczyk, seeded thirteenth, were the immediate obstacle to the top seeds’ quarterfinal place.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceCheckedAt": "2026-10-04T05:49:58.152Z",
     "score": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
@@ -79758,7 +79758,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -79767,7 +79767,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142701",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9023",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -80745,7 +80745,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640501",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8915",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -80910,7 +80910,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640502",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8919",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -81075,7 +81075,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640503",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8917",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -81425,7 +81425,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640504",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8918",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -82127,7 +82127,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -82136,7 +82136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142702",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9030",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -84633,7 +84633,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640505",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8923",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -84798,7 +84798,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640506",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8921",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -85135,7 +85135,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640507",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8920",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -85300,7 +85300,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640508",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8922",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -85652,7 +85652,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640509",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8924",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -87216,7 +87216,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640601",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8925",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -87608,7 +87608,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
     "fullSpiel": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142802",
       "event-afl-cd_m20260142802"
@@ -87685,7 +87685,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142802",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9026",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "isInternational": false,
     "competitionScope": "domestic",
@@ -88090,7 +88090,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640602",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8926",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -88255,7 +88255,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640603",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8928",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -88420,7 +88420,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640604",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8927",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -88585,7 +88585,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640605",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8930",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -88845,7 +88845,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
     "fullSpiel": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142801",
       "event-afl-cd_m20260142801"
@@ -88922,7 +88922,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142801",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9027",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "isInternational": false,
     "competitionScope": "domestic",
@@ -91277,7 +91277,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640606",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8929",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -91452,7 +91452,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640607",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8931",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -91851,7 +91851,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640608",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8932",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -92446,7 +92446,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640609",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8933",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -95098,7 +95098,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640701",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8935",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -96291,7 +96291,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640702",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8934",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -96456,7 +96456,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640703",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8936",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -96621,7 +96621,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640704",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8939",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -97352,7 +97352,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640705",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8937",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -97806,7 +97806,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
     "fullSpiel": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:preliminary-final-2",
       "major-match-nrl-finals-2026-preliminary-final-2"
@@ -98024,7 +98024,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceTrust": "verified",
     "sourceCheckedAt": "2026-09-27T06:35:07.891Z",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "selectedSentence": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
     "fullSpiel": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
     "replayEligible": true,
@@ -98210,7 +98210,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "fixtureResults": {
       "schemaVersion": "fixture-results.v1",
       "columns": [
@@ -98790,7 +98790,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -98799,7 +98799,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142901",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9028",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -99189,7 +99189,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "fixtureResults": {
       "schemaVersion": "fixture-results.v1",
       "columns": [
@@ -99996,7 +99996,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640707",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8938",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -100161,7 +100161,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640706",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8941",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -100326,7 +100326,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640708",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8940",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -100921,7 +100921,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640709",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8942",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -101574,7 +101574,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceTrust": "verified",
     "sourceCheckedAt": "2026-09-29T23:26:24.078Z",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "selectedSentence": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
     "fullSpiel": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
     "replayEligible": true,
@@ -103006,7 +103006,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640801",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8943",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -104936,7 +104936,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640802",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8945",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -105838,7 +105838,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640803",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8946",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -106580,7 +106580,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640804",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8944",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -106884,7 +106884,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640805",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8947",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -107912,7 +107912,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640806",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8948",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -108571,7 +108571,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640807",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8949",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -108957,7 +108957,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640808",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8950",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -109540,7 +109540,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640809",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8953",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -110618,20 +110618,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-01T17:38:41.192Z",
       "researchDepth": 2
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
-      "needsPreviewRefresh": false
-    },
     "lastReviewedAt": "2026-10-01T17:38:41.192Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -110682,7 +110668,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "homeParticipantId": "team:nbl:adelaide-36ers",
     "awayParticipantId": "team:nbl:melbourne-united",
     "endTimeUtc": "2026-10-07T11:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "2026–27 NBL season — current path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_nbl_2026_27_37023ff5_58ad_11f1_88e1_6f9744c8d3ab",
@@ -110706,7 +110706,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -110716,7 +110716,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -110726,7 +110726,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -110735,7 +110735,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-10-08T08:30:00.000Z",
       "teams": [
         {
@@ -110774,14 +110774,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 4,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Cairns Taipans v Brisbane Bullets is set for Round 4 on 2026-10-08, one game in the official 165-match NBL27 regular season.",
-    "fullSpiel": "Cairns Taipans v Brisbane Bullets is published in the official NBL27 schedule for Round 4 on 2026-10-08 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
+    "selectedSentence": "Cairns Taipans v Brisbane Bullets is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Cairns Taipans v Brisbane Bullets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "upcoming",
+    "status": "completed",
     "sportDomainId": "sport:basketball",
     "discoverySportId": "sport:nbl",
     "competitionId": "competition:nbl",
@@ -110827,13 +110827,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 3,
       "intensity": 3,
-      "intensitySource": "manual",
-      "arcStage": "preview",
+      "intensitySource": "computed",
+      "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Cairns Taipans v Brisbane Bullets is set for Round 4 on 2026-10-08, one game in the official 165-match NBL27 regular season.",
-      "hookSpoilerOn": "Cairns Taipans v Brisbane Bullets is set for Round 4 on 2026-10-08, one game in the official 165-match NBL27 regular season.",
-      "synopsisSpoilerOff": "Cairns Taipans v Brisbane Bullets is published in the official NBL27 schedule for Round 4 on 2026-10-08 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
-      "synopsisSpoilerOn": "Cairns Taipans v Brisbane Bullets is published in the official NBL27 schedule for Round 4 on 2026-10-08 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
+      "hookSpoilerOff": "Cairns Taipans v Brisbane Bullets is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Cairns Taipans 97, Brisbane Bullets 91",
+      "synopsisSpoilerOff": "Cairns Taipans v Brisbane Bullets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-01T17:38:41.192Z",
       "researchDepth": 2
     },
@@ -110880,7 +110880,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -110888,7 +110888,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "consensusTags": [],
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "score": "97-91",
+    "outcomeText": "Cairns Taipans 97, Brisbane Bullets 91",
+    "recapText": "Official NBL result.",
+    "homeScore": 97,
+    "awayScore": 91,
+    "resultStatus": "official",
+    "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
+    "resultSourceCheckedAt": "2026-10-08T21:01:15.414Z",
+    "scoreCheckedAt": "2026-10-08T21:01:15.414Z",
+    "homeParticipantId": "team:nbl:cairns-taipans",
+    "awayParticipantId": "team:nbl:brisbane-bullets",
+    "endTimeUtc": "2026-10-08T11:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_indonesia_practice_1",
@@ -111387,7 +111400,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640901",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8951",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -111995,7 +112008,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640902",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8952",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -112422,7 +112435,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640903",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8955",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -112573,7 +112586,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640904",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8954",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -113002,7 +113015,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640905",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8958",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -113486,7 +113499,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640906",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8956",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -115129,7 +115142,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640907",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8957",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -115267,7 +115280,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640908",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8959",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -115755,7 +115768,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640909",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8960",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -115867,7 +115880,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -115877,7 +115890,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -115887,7 +115900,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -115896,7 +115909,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-10-11T06:00:00.000Z",
       "teams": [
         {
@@ -115909,8 +115922,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -115939,7 +115952,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Cairns Taipans is published in the official NBL27 schedule for Round 4 on 2026-10-11 at 17:00 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -116041,7 +116054,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -117241,7 +117254,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -117251,7 +117264,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -117261,7 +117274,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -117270,15 +117283,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-10-15T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:south-east-melbourne-phoenix",
@@ -117313,7 +117326,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 5 on 2026-10-15 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -117415,7 +117428,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -117611,7 +117624,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641001",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8961",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -118058,7 +118071,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641002",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8962",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -118196,7 +118209,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641003",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8964",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -118509,7 +118522,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641004",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8963",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -118621,7 +118634,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z"
+        "verifiedAt": "2026-10-08T21:01:15.414Z"
       },
       {
         "providerId": "disney",
@@ -118629,7 +118642,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -118639,7 +118652,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -118649,7 +118662,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -118658,7 +118671,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-10-17T06:30:00.000Z",
       "teams": [
         {
@@ -118671,8 +118684,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -118701,7 +118714,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Cairns Taipans is published in the official NBL27 schedule for Round 5 on 2026-10-17 at 17:30 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -118803,7 +118816,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -118861,7 +118874,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641005",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8966",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -120026,7 +120039,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641006",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8965",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -120177,7 +120190,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641007",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8967",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -120509,7 +120522,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641008",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8968",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -120853,7 +120866,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641009",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8969",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -121941,7 +121954,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -121951,7 +121964,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -121961,7 +121974,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -121970,7 +121983,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-10-21T08:30:00.000Z",
       "teams": [
         {
@@ -121983,9 +121996,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -122013,7 +122026,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Brisbane Bullets is published in the official NBL27 schedule for Round 6 on 2026-10-21 at 19:30 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -122115,7 +122128,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -122667,7 +122680,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641101",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8970",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -123723,7 +123736,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641102",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8971",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -124004,7 +124017,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641103",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8974",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -124142,7 +124155,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641104",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8972",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -124254,7 +124267,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z"
+        "verifiedAt": "2026-10-08T21:01:15.414Z"
       },
       {
         "providerId": "disney",
@@ -124262,7 +124275,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -124272,7 +124285,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -124282,7 +124295,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -124291,7 +124304,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-10-24T06:30:00.000Z",
       "teams": [
         {
@@ -124304,9 +124317,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -124334,7 +124347,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Brisbane Bullets is published in the official NBL27 schedule for Round 6 on 2026-10-24 at 17:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -124436,7 +124449,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -124494,7 +124507,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641105",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8973",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -125902,7 +125915,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641106",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8977",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -126040,7 +126053,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641107",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8979",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -126328,7 +126341,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -126338,7 +126351,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -126348,7 +126361,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -126357,14 +126370,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-10-25T04:00:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -126400,7 +126413,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v New Zealand Breakers is published in the official NBL27 schedule for Round 6 on 2026-10-25 at 15:00 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -126503,7 +126516,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -126561,7 +126574,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641108",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8976",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -126918,7 +126931,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641109",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8975",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -128415,7 +128428,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -128425,7 +128438,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -128435,7 +128448,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -128444,21 +128457,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-10-29T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -128487,7 +128500,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Cairns Taipans is published in the official NBL27 schedule for Round 7 on 2026-10-29 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -128589,7 +128602,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -129142,7 +129155,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641201",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8978",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -129746,7 +129759,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641202",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8984",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -130173,7 +130186,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641203",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8980",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -130311,7 +130324,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641204",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8981",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -130592,7 +130605,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641205",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8982",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -130704,7 +130717,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z"
+        "verifiedAt": "2026-10-08T21:01:15.414Z"
       },
       {
         "providerId": "disney",
@@ -130712,7 +130725,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -130722,7 +130735,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -130732,7 +130745,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -130741,14 +130754,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-10-31T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -130784,7 +130797,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Melbourne United is published in the official NBL27 schedule for Round 7 on 2026-10-31 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -130886,7 +130899,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -132924,7 +132937,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641206",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8983",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -133049,7 +133062,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641207",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8986",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -133537,7 +133550,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641208",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8985",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -133649,7 +133662,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -133659,7 +133672,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -133669,7 +133682,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -133678,7 +133691,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-11-01T06:00:00.000Z",
       "teams": [
         {
@@ -133691,9 +133704,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -133721,7 +133734,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Brisbane Bullets is published in the official NBL27 schedule for Round 7 on 2026-11-01 at 17:00 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -133823,7 +133836,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -133881,7 +133894,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641209",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8987",
-    "canonicalSourceCheckedAt": "2026-10-07T20:59:30.955Z",
+    "canonicalSourceCheckedAt": "2026-10-08T21:01:05.473Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -134832,7 +134845,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -134842,7 +134855,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -134852,7 +134865,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -134861,15 +134874,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-11-04T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:perth-wildcats",
@@ -134904,7 +134917,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Perth Wildcats is published in the official NBL27 schedule for Round 8 on 2026-11-04 at 19:30 Sydney time at Nissan Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -135006,7 +135019,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -135135,7 +135148,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -135145,7 +135158,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -135155,7 +135168,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -135164,14 +135177,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-11-05T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -135207,7 +135220,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Illawarra Hawks is published in the official NBL27 schedule for Round 8 on 2026-11-05 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -135309,7 +135322,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -136407,7 +136420,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z"
+        "verifiedAt": "2026-10-08T21:01:15.414Z"
       },
       {
         "providerId": "disney",
@@ -136415,7 +136428,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -136425,7 +136438,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -136435,7 +136448,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -136444,7 +136457,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-11-07T08:30:00.000Z",
       "teams": [
         {
@@ -136457,9 +136470,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -136487,7 +136500,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Brisbane Bullets is published in the official NBL27 schedule for Round 8 on 2026-11-07 at 19:30 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -136589,7 +136602,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -138104,7 +138117,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -138114,7 +138127,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -138124,7 +138137,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -138133,7 +138146,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-11-08T06:00:00.000Z",
       "teams": [
         {
@@ -138146,8 +138159,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -138176,7 +138189,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Perth Wildcats v Cairns Taipans is published in the official NBL27 schedule for Round 8 on 2026-11-08 at 17:00 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -138278,7 +138291,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -138503,14 +138516,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
-    "fullSpiel": "Brighton & Hove Albion v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+    "selectedSentence": "Brighton's goals-by-committee attack meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
+    "fullSpiel": "Brighton & Hove Albion arrives with 3W-1D-1L, while Brentford brings 2W-3D-0L. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a side that spread last season's goals across 19 players against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-04T05:51:11.197Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:11.197Z",
+    "lastReviewedAt": "2026-10-08T21:00:48.348Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -138537,6 +138550,60 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-21"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:epl-2026-27-129014",
+      "researchTier": "standard",
+      "hook": "Brighton's goals-by-committee attack meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
+      "synopsis": "Brighton & Hove Albion arrives with 3W-1D-1L, while Brentford brings 2W-3D-0L. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a side that spread last season's goals across 19 players against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-131:2026-27",
+        "thread:depth:epl:team-football-epl-130:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-131:season-arc",
+        "fact:depth:epl:team-football-epl-130:season-arc",
+        "fact:depth:epl:epl-2026-27-129014:team-football-epl-131:entry-form",
+        "fact:depth:epl:epl-2026-27-129014:team-football-epl-130:entry-form",
+        "fact:depth:epl:epl-2026-27-129014:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129014"
+      ],
+      "dimensions": [
+        "form",
+        "matchup"
+      ],
+      "researchedAt": "2026-10-08T21:00:48.348Z",
+      "refreshAfter": "2026-11-08T14:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Brighton & Hove Albion — 2026/27 identity under pressure",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:matchup"
+      ],
+      "sourceName": "Premier League current 2026/27 table",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Brighton's goals-by-committee attack meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
+      "hookSpoilerOn": "Brighton's goals-by-committee attack meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
+      "synopsisSpoilerOff": "Brighton & Hove Albion arrives with 3W-1D-1L, while Brentford brings 2W-3D-0L. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a side that spread last season's goals across 19 players against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Brighton & Hove Albion arrives with 3W-1D-1L, while Brentford brings 2W-3D-0L. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of a side that spread last season's goals across 19 players against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-10-08T21:00:48.348Z"
     }
   },
   {
@@ -138610,14 +138677,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
-    "fullSpiel": "Crystal Palace v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+    "selectedSentence": "Liverpool's high-press rebuild comes to Crystal Palace, directly testing Crystal Palace's Pierre Sage transition.",
+    "fullSpiel": "Crystal Palace arrives with 1W-1D-3L, while Liverpool brings 2W-3D-0L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-04T05:51:11.197Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:11.197Z",
+    "lastReviewedAt": "2026-10-08T21:00:48.348Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -138644,6 +138711,62 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-21"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:epl-2026-27-129015",
+      "researchTier": "standard",
+      "hook": "Liverpool's high-press rebuild comes to Crystal Palace, directly testing Crystal Palace's Pierre Sage transition.",
+      "synopsis": "Crystal Palace arrives with 1W-1D-3L, while Liverpool brings 2W-3D-0L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-6:2026-27",
+        "thread:depth:epl:team-football-epl-10:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-6:season-arc",
+        "fact:depth:epl:team-football-epl-10:season-arc",
+        "fact:depth:epl:epl-2026-27-129015:team-football-epl-6:entry-form",
+        "fact:depth:epl:epl-2026-27-129015:team-football-epl-10:entry-form",
+        "fact:depth:epl:epl-2026-27-129015:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129015"
+      ],
+      "dimensions": [
+        "form",
+        "history",
+        "matchup"
+      ],
+      "researchedAt": "2026-10-08T21:00:48.348Z",
+      "refreshAfter": "2026-11-08T14:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Crystal Palace — 2026/27 identity under pressure",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
+      ],
+      "sourceName": "Premier League current 2026/27 table",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Liverpool's high-press rebuild comes to Crystal Palace, directly testing Crystal Palace's Pierre Sage transition.",
+      "hookSpoilerOn": "Liverpool's high-press rebuild comes to Crystal Palace, directly testing Crystal Palace's Pierre Sage transition.",
+      "synopsisSpoilerOff": "Crystal Palace arrives with 1W-1D-3L, while Liverpool brings 2W-3D-0L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Crystal Palace arrives with 1W-1D-3L, while Liverpool brings 2W-3D-0L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-10-08T21:00:48.348Z"
     }
   },
   {
@@ -138717,14 +138840,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
-    "fullSpiel": "Ipswich Town v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+    "selectedSentence": "Ipswich's immediate top-flight return meets Bournemouth's first European-season balancing act; one fixture now moves both season-defining questions.",
+    "fullSpiel": "Ipswich Town arrives with 2W-0D-3L, while AFC Bournemouth brings 0W-3D-2L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-04T05:51:11.197Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:11.197Z",
+    "lastReviewedAt": "2026-10-08T21:00:48.348Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -138751,6 +138874,62 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-21"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:epl-2026-27-129018",
+      "researchTier": "standard",
+      "hook": "Ipswich's immediate top-flight return meets Bournemouth's first European-season balancing act; one fixture now moves both season-defining questions.",
+      "synopsis": "Ipswich Town arrives with 2W-0D-3L, while AFC Bournemouth brings 0W-3D-2L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-8:2026-27",
+        "thread:depth:epl:team-football-epl-127:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-8:season-arc",
+        "fact:depth:epl:team-football-epl-127:season-arc",
+        "fact:depth:epl:epl-2026-27-129018:team-football-epl-8:entry-form",
+        "fact:depth:epl:epl-2026-27-129018:team-football-epl-127:entry-form",
+        "fact:depth:epl:epl-2026-27-129018:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129018"
+      ],
+      "dimensions": [
+        "history",
+        "form",
+        "matchup"
+      ],
+      "researchedAt": "2026-10-08T21:00:48.348Z",
+      "refreshAfter": "2026-11-08T14:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Ipswich Town — 2026/27 identity under pressure",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
+      ],
+      "sourceName": "Premier League current 2026/27 table",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Ipswich's immediate top-flight return meets Bournemouth's first European-season balancing act; one fixture now moves both season-defining questions.",
+      "hookSpoilerOn": "Ipswich's immediate top-flight return meets Bournemouth's first European-season balancing act; one fixture now moves both season-defining questions.",
+      "synopsisSpoilerOff": "Ipswich Town arrives with 2W-0D-3L, while AFC Bournemouth brings 0W-3D-2L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Ipswich Town arrives with 2W-0D-3L, while AFC Bournemouth brings 0W-3D-2L. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-10-08T21:00:48.348Z"
     }
   },
   {
@@ -138824,14 +139003,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
-    "fullSpiel": "Sunderland v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+    "selectedSentence": "Chelsea's Xabi Alonso reset comes to Sunderland, directly testing Sunderland's Europe-and-league balancing act.",
+    "fullSpiel": "Sunderland arrives with 1W-1D-3L, while Chelsea brings 2W-1D-2L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of the defensive base behind last season's seventh place against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-04T05:51:11.197Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:11.197Z",
+    "lastReviewedAt": "2026-10-08T21:00:48.348Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -138858,6 +139037,62 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-21"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:epl-2026-27-129022",
+      "researchTier": "standard",
+      "hook": "Chelsea's Xabi Alonso reset comes to Sunderland, directly testing Sunderland's Europe-and-league balancing act.",
+      "synopsis": "Sunderland arrives with 1W-1D-3L, while Chelsea brings 2W-1D-2L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of the defensive base behind last season's seventh place against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-29:2026-27",
+        "thread:depth:epl:team-football-epl-4:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-29:season-arc",
+        "fact:depth:epl:team-football-epl-4:season-arc",
+        "fact:depth:epl:epl-2026-27-129022:team-football-epl-29:entry-form",
+        "fact:depth:epl:epl-2026-27-129022:team-football-epl-4:entry-form",
+        "fact:depth:epl:epl-2026-27-129022:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129022"
+      ],
+      "dimensions": [
+        "history",
+        "form",
+        "matchup"
+      ],
+      "researchedAt": "2026-10-08T21:00:48.348Z",
+      "refreshAfter": "2026-11-08T14:00:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Sunderland — 2026/27 identity under pressure",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
+      ],
+      "sourceName": "Premier League current 2026/27 table",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Chelsea's Xabi Alonso reset comes to Sunderland, directly testing Sunderland's Europe-and-league balancing act.",
+      "hookSpoilerOn": "Chelsea's Xabi Alonso reset comes to Sunderland, directly testing Sunderland's Europe-and-league balancing act.",
+      "synopsisSpoilerOff": "Sunderland arrives with 1W-1D-3L, while Chelsea brings 2W-1D-2L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of the defensive base behind last season's seventh place against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Sunderland arrives with 1W-1D-3L, while Chelsea brings 2W-1D-2L. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of the defensive base behind last season's seventh place against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-10-08T21:00:48.348Z"
     }
   },
   {
@@ -139012,14 +139247,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Premier League Matchweek 10 fixture, with the scheduled kickoff sourced from the league.",
-    "fullSpiel": "Manchester United v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
+    "selectedSentence": "Manchester United host Aston Villa with Manchester United's Carrick rebuild and Aston Villa's post-Europa rebuild both under examination.",
+    "fullSpiel": "Manchester United arrives with 1W-2D-2L, while Aston Villa brings 1W-1D-3L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against a new midfield and defensive spine, and the next result will advance both season threads.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "sourceCheckedAt": "2026-10-04T05:51:11.197Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:11.197Z",
+    "lastReviewedAt": "2026-10-08T21:00:48.348Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -139046,6 +139281,62 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-09-21"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:epl-2026-27-129020",
+      "researchTier": "standard",
+      "hook": "Manchester United host Aston Villa with Manchester United's Carrick rebuild and Aston Villa's post-Europa rebuild both under examination.",
+      "synopsis": "Manchester United arrives with 1W-2D-2L, while Aston Villa brings 1W-1D-3L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against a new midfield and defensive spine, and the next result will advance both season threads.",
+      "threadIds": [
+        "thread:depth:epl:team-football-epl-12:2026-27",
+        "thread:depth:epl:team-football-epl-2:2026-27"
+      ],
+      "factIds": [
+        "fact:depth:epl:team-football-epl-12:season-arc",
+        "fact:depth:epl:team-football-epl-2:season-arc",
+        "fact:depth:epl:epl-2026-27-129020:team-football-epl-12:entry-form",
+        "fact:depth:epl:epl-2026-27-129020:team-football-epl-2:entry-form",
+        "fact:depth:epl:epl-2026-27-129020:matchup"
+      ],
+      "sourceIds": [
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-129020"
+      ],
+      "dimensions": [
+        "history",
+        "form",
+        "matchup"
+      ],
+      "researchedAt": "2026-10-08T21:00:48.348Z",
+      "refreshAfter": "2026-11-08T16:30:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Manchester United — 2026/27 identity under pressure",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
+      ],
+      "sourceName": "Premier League current 2026/27 table",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "researchDepth": 2,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Manchester United host Aston Villa with Manchester United's Carrick rebuild and Aston Villa's post-Europa rebuild both under examination.",
+      "hookSpoilerOn": "Manchester United host Aston Villa with Manchester United's Carrick rebuild and Aston Villa's post-Europa rebuild both under examination.",
+      "synopsisSpoilerOff": "Manchester United arrives with 1W-2D-2L, while Aston Villa brings 1W-1D-3L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against a new midfield and defensive spine, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Manchester United arrives with 1W-2D-2L, while Aston Villa brings 1W-1D-3L. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against a new midfield and defensive spine, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-10-08T21:00:48.348Z"
     }
   },
   {
@@ -140712,7 +141003,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -140722,7 +141013,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -140732,7 +141023,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -140741,7 +141032,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-11-13T06:30:00.000Z",
       "teams": [
         {
@@ -140754,9 +141045,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -140784,7 +141075,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Brisbane Bullets is published in the official NBL27 schedule for Round 9 on 2026-11-13 at 17:30 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -140887,7 +141178,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -140919,7 +141210,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -140929,7 +141220,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -140939,7 +141230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -140948,14 +141239,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-11-13T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -140991,7 +141282,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Sydney Kings is published in the official NBL27 schedule for Round 9 on 2026-11-13 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -141093,7 +141384,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -141881,7 +142172,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -141891,7 +142182,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -141901,7 +142192,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -141910,15 +142201,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-11-15T06:00:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:tasmania-jackjumpers",
@@ -141953,7 +142244,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Tasmania JackJumpers is published in the official NBL27 schedule for Round 9 on 2026-11-15 at 17:00 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -142055,7 +142346,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -142893,7 +143184,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -142903,7 +143194,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -142913,7 +143204,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -142922,14 +143213,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-11-20T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -142965,7 +143256,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Perth Wildcats is published in the official NBL27 schedule for Round 10 on 2026-11-20 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -143067,7 +143358,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -145810,7 +146101,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -145820,7 +146111,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -145830,7 +146121,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -145839,7 +146130,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-11-22T04:00:00.000Z",
       "teams": [
         {
@@ -145852,8 +146143,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -145882,7 +146173,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "South East Melbourne Phoenix v Cairns Taipans is published in the official NBL27 schedule for Round 10 on 2026-11-22 at 15:00 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -145984,7 +146275,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -146016,7 +146307,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -146026,7 +146317,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -146036,7 +146327,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -146045,15 +146336,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-11-22T06:00:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:sydney-kings",
@@ -146088,7 +146379,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Sydney Kings is published in the official NBL27 schedule for Round 10 on 2026-11-22 at 17:00 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -146190,7 +146481,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -151607,7 +151898,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -151617,7 +151908,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -151627,7 +151918,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -151636,15 +151927,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-03T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:perth-wildcats",
@@ -151679,7 +151970,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Perth Wildcats is published in the official NBL27 schedule for Round 11 on 2026-12-03 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -151781,7 +152072,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -152420,7 +152711,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z"
+        "verifiedAt": "2026-10-08T21:01:15.414Z"
       },
       {
         "providerId": "disney",
@@ -152428,7 +152719,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -152438,7 +152729,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -152448,7 +152739,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -152457,14 +152748,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-05T06:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -152500,7 +152791,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 11 on 2026-12-05 at 17:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -152602,7 +152893,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -154052,7 +154343,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -154062,7 +154353,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -154072,7 +154363,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -154081,7 +154372,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-06T04:00:00.000Z",
       "teams": [
         {
@@ -154094,9 +154385,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -154124,7 +154415,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Brisbane Bullets is published in the official NBL27 schedule for Round 11 on 2026-12-06 at 15:00 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -154226,7 +154517,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -154793,7 +155084,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -154803,7 +155094,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -154813,7 +155104,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -154822,14 +155113,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-09T07:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -154865,7 +155156,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Adelaide 36ers is published in the official NBL27 schedule for Round 12 on 2026-12-09 at 18:30 Sydney time at TBC. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -154967,7 +155258,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -155412,7 +155703,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z"
+        "verifiedAt": "2026-10-08T21:01:15.414Z"
       },
       {
         "providerId": "disney",
@@ -155420,7 +155711,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -155430,7 +155721,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -155440,7 +155731,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -155449,22 +155740,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-12T06:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -155492,7 +155783,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Brisbane Bullets is published in the official NBL27 schedule for Round 12 on 2026-12-12 at 17:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -155594,7 +155885,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -157468,7 +157759,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -157478,7 +157769,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -157488,7 +157779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -157497,7 +157788,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-17T08:30:00.000Z",
       "teams": [
         {
@@ -157510,8 +157801,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -157540,7 +157831,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Cairns Taipans is published in the official NBL27 schedule for Round 13 on 2026-12-17 at 19:30 Sydney time at AIS Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -157642,7 +157933,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -157881,7 +158172,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z"
+        "verifiedAt": "2026-10-08T21:01:15.414Z"
       },
       {
         "providerId": "disney",
@@ -157889,7 +158180,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -157899,7 +158190,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -157909,7 +158200,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -157918,7 +158209,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-19T06:30:00.000Z",
       "teams": [
         {
@@ -157931,9 +158222,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -157961,7 +158252,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Adelaide 36ers v Brisbane Bullets is published in the official NBL27 schedule for Round 13 on 2026-12-19 at 17:30 Sydney time at Adelaide Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -158063,7 +158354,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -159525,7 +159816,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -159535,7 +159826,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -159545,7 +159836,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -159554,14 +159845,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-20T06:00:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -159597,7 +159888,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Perth Wildcats is published in the official NBL27 schedule for Round 13 on 2026-12-20 at 17:00 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -159699,7 +159990,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -159937,7 +160228,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -159947,7 +160238,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -159957,7 +160248,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -159966,7 +160257,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-22T06:30:00.000Z",
       "teams": [
         {
@@ -159979,9 +160270,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -160009,7 +160300,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Brisbane Bullets is published in the official NBL27 schedule for Round 13 on 2026-12-22 at 17:30 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -160112,7 +160403,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -160144,7 +160435,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -160154,7 +160445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -160164,7 +160455,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -160173,7 +160464,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-23T09:00:00.000Z",
       "teams": [
         {
@@ -160186,8 +160477,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -160216,7 +160507,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Cairns Taipans is published in the official NBL27 schedule for Round 14 on 2026-12-23 at 20:00 Sydney time at John Cain Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -160318,7 +160609,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -162032,7 +162323,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -162042,7 +162333,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -162052,7 +162343,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -162061,21 +162352,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-27T06:00:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -162104,7 +162395,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Cairns Taipans is published in the official NBL27 schedule for Round 14 on 2026-12-27 at 17:00 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -162206,7 +162497,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -163050,7 +163341,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -163060,7 +163351,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -163070,7 +163361,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -163079,15 +163370,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-30T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:adelaide-36ers",
@@ -163122,7 +163413,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Adelaide 36ers is published in the official NBL27 schedule for Round 15 on 2026-12-30 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -163224,7 +163515,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -164169,7 +164460,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -164179,7 +164470,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -164189,7 +164480,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -164198,14 +164489,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2026-12-31T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -164241,7 +164532,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v New Zealand Breakers is published in the official NBL27 schedule for Round 15 on 2026-12-31 at 19:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -164344,7 +164635,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -164790,7 +165081,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z"
+        "verifiedAt": "2026-10-08T21:01:15.414Z"
       },
       {
         "providerId": "disney",
@@ -164798,7 +165089,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -164808,7 +165099,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -164818,7 +165109,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -164827,7 +165118,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-02T06:30:00.000Z",
       "teams": [
         {
@@ -164840,8 +165131,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -164870,7 +165161,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Illawarra Hawks v Cairns Taipans is published in the official NBL27 schedule for Round 15 on 2027-01-02 at 17:30 Sydney time at WIN Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -164972,7 +165263,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -166239,7 +166530,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -166249,7 +166540,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -166259,7 +166550,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -166268,15 +166559,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-03T06:00:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:melbourne-united",
@@ -166311,7 +166602,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Melbourne United is published in the official NBL27 schedule for Round 15 on 2027-01-03 at 17:00 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -166413,7 +166704,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -169387,7 +169678,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -169397,7 +169688,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -169407,7 +169698,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -169416,15 +169707,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-08T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:sydney-kings",
@@ -169459,7 +169750,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Sydney Kings is published in the official NBL27 schedule for Round 16 on 2027-01-08 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -169561,7 +169852,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -169700,7 +169991,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z"
+        "verifiedAt": "2026-10-08T21:01:15.414Z"
       },
       {
         "providerId": "disney",
@@ -169708,7 +169999,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -169718,7 +170009,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -169728,7 +170019,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -169737,14 +170028,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-09T06:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -169780,7 +170071,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Tasmania JackJumpers is published in the official NBL27 schedule for Round 16 on 2027-01-09 at 17:30 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -169882,7 +170173,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -170862,7 +171153,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -170872,7 +171163,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -170882,7 +171173,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -170891,7 +171182,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-13T10:30:00.000Z",
       "teams": [
         {
@@ -170904,8 +171195,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -170934,7 +171225,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Melbourne United v Cairns Taipans is published in the official NBL27 schedule for Round 17 on 2027-01-13 at 21:30 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -171036,7 +171327,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -173034,7 +173325,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -173044,7 +173335,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -173054,7 +173345,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -173063,15 +173354,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-17T06:00:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:illawarra-hawks",
@@ -173106,7 +173397,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Illawarra Hawks is published in the official NBL27 schedule for Round 17 on 2027-01-17 at 17:00 Sydney time at RAC Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -173208,7 +173499,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -174037,7 +174328,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -174047,7 +174338,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -174057,7 +174348,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -174066,7 +174357,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-22T08:30:00.000Z",
       "teams": [
         {
@@ -174079,8 +174370,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -174109,7 +174400,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Cairns Taipans is published in the official NBL27 schedule for Round 18 on 2027-01-22 at 19:30 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -174211,7 +174502,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -174763,7 +175054,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z"
+        "verifiedAt": "2026-10-08T21:01:15.414Z"
       },
       {
         "providerId": "disney",
@@ -174771,7 +175062,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -174781,7 +175072,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -174791,7 +175082,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -174800,15 +175091,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-23T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:melbourne-united",
@@ -174843,7 +175134,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v Melbourne United is published in the official NBL27 schedule for Round 18 on 2027-01-23 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -174945,7 +175236,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -176087,7 +176378,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -176097,7 +176388,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -176107,7 +176398,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -176116,7 +176407,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-24T04:00:00.000Z",
       "teams": [
         {
@@ -176129,8 +176420,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -176159,7 +176450,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "New Zealand Breakers v Cairns Taipans is published in the official NBL27 schedule for Round 18 on 2027-01-24 at 15:00 Sydney time at Spark Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -176262,7 +176553,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -176500,7 +176791,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -176510,7 +176801,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -176520,7 +176811,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -176529,7 +176820,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-25T08:30:00.000Z",
       "teams": [
         {
@@ -176542,9 +176833,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -176572,7 +176863,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v Brisbane Bullets is published in the official NBL27 schedule for Round 18 on 2027-01-25 at 19:30 Sydney time at Afterpay Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -176674,7 +176965,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -176912,7 +177203,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -176922,7 +177213,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -176932,7 +177223,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -176941,14 +177232,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-27T07:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -176984,7 +177275,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v Sydney Kings is published in the official NBL27 schedule for Round 19 on 2027-01-27 at 18:30 Sydney time at TBC. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -177086,7 +177377,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -177118,7 +177409,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -177128,7 +177419,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -177138,7 +177429,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -177147,15 +177438,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-28T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:south-east-melbourne-phoenix",
@@ -177190,7 +177481,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 19 on 2027-01-28 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -177292,7 +177583,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -179175,7 +179466,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -179185,7 +179476,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -179195,7 +179486,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -179204,14 +179495,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-31T06:00:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -179247,7 +179538,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cairns Taipans v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 19 on 2027-01-31 at 17:00 Sydney time at Cairns Convention Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -179321,7 +179612,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-04T04:29:23.023Z",
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -179381,7 +179672,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -179391,7 +179682,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -179401,7 +179692,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -179410,7 +179701,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-01-31T08:30:00.000Z",
       "teams": [
         {
@@ -179423,9 +179714,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -179453,7 +179744,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tasmania JackJumpers v Brisbane Bullets is published in the official NBL27 schedule for Round 19 on 2027-01-31 at 19:30 Sydney time at MyState Bank Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -179527,7 +179818,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-04T04:29:23.023Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -179587,7 +179878,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -179597,7 +179888,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -179607,7 +179898,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -179616,7 +179907,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-02-04T08:30:00.000Z",
       "teams": [
         {
@@ -179629,9 +179920,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -179659,7 +179950,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 20 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -179730,7 +180021,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-04T05:50:24.161Z",
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -180113,7 +180404,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -180123,7 +180414,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -180133,7 +180424,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -180142,7 +180433,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-02-05T10:30:00.000Z",
       "teams": [
         {
@@ -180155,8 +180446,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         }
       ]
@@ -180185,7 +180476,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 20 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -180256,7 +180547,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-04T05:50:24.161Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -180288,7 +180579,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z"
+        "verifiedAt": "2026-10-08T21:01:15.414Z"
       },
       {
         "providerId": "disney",
@@ -180296,7 +180587,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -180306,7 +180597,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -180316,7 +180607,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -180325,15 +180616,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-02-06T06:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         },
         {
           "participantId": "team:nbl:adelaide-36ers",
@@ -180368,7 +180659,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 20 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -180439,7 +180730,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-04T05:50:24.161Z",
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -183650,7 +183941,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -183660,7 +183951,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -183670,7 +183961,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-07T20:59:39.392Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -183679,14 +183970,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-07T20:59:39.392Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-02-12T08:30:00.000Z",
       "teams": [
         {
           "participantId": "team:nbl:cairns-taipans",
           "name": "Cairns Taipans",
-          "played": 5,
-          "won": 2,
+          "played": 6,
+          "won": 3,
           "lost": 3
         },
         {
@@ -183722,7 +184013,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-07T20:59:39.392Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -183793,7 +184084,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-04T05:50:24.161Z",
-    "statusCheckedAt": "2026-10-07T20:59:39.392Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -183825,7 +184116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -183835,7 +184126,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -183845,7 +184136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T05:50:24.161Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -183854,7 +184145,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T05:50:24.161Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-02-12T10:30:00.000Z",
       "teams": [
         {
@@ -183867,9 +184158,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -183897,7 +184188,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T05:50:24.161Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -183968,7 +184259,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-04T05:50:24.161Z",
-    "statusCheckedAt": "2026-10-04T05:50:24.161Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -184542,7 +184833,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -184552,7 +184843,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       },
@@ -184562,7 +184853,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "territory": "AU",
         "liveOrReplay": "live",
         "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "verifiedAt": "2026-10-04T08:38:16.794Z",
+        "verifiedAt": "2026-10-08T21:01:15.414Z",
         "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
         "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
       }
@@ -184571,7 +184862,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "nbl-match-context.v1",
       "competitionId": "competition:nbl",
       "season": "2026-27",
-      "checkedAt": "2026-10-04T08:38:16.794Z",
+      "checkedAt": "2026-10-08T21:01:15.414Z",
       "beforeKickoff": "2027-02-14T06:00:00.000Z",
       "teams": [
         {
@@ -184584,9 +184875,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         {
           "participantId": "team:nbl:brisbane-bullets",
           "name": "Brisbane Bullets",
-          "played": 4,
+          "played": 5,
           "won": 2,
-          "lost": 2
+          "lost": 3
         }
       ]
     },
@@ -184614,7 +184905,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Official NBL27 Round 21 fixture.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-04T08:38:16.794Z",
+    "sourceCheckedAt": "2026-10-08T21:01:15.414Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "upcoming",
@@ -184685,7 +184976,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-04T05:50:24.161Z",
-    "statusCheckedAt": "2026-10-04T08:38:16.794Z",
+    "statusCheckedAt": "2026-10-08T21:01:15.414Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -210612,7 +210903,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Atlanta Braves v Philadelphia Phillies is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Philadelphia Phillies is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -210741,7 +211032,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Houston Astros v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Houston Astros v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -210870,7 +211161,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "New York Yankees v Boston Red Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "New York Yankees v Boston Red Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -210999,7 +211290,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "San Diego Padres v Chicago Cubs is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "San Diego Padres v Chicago Cubs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -211128,7 +211419,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Atlanta Braves v Philadelphia Phillies is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Philadelphia Phillies is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -211257,7 +211548,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Houston Astros v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Houston Astros v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -211386,7 +211677,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "New York Yankees v Boston Red Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "New York Yankees v Boston Red Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -211515,7 +211806,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "San Diego Padres v Chicago Cubs is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "San Diego Padres v Chicago Cubs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -211644,7 +211935,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Atlanta Braves v Philadelphia Phillies is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Philadelphia Phillies is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -211773,7 +212064,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Cleveland Guardians v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Cleveland Guardians v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -211902,7 +212193,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Los Angeles Dodgers v Atlanta Braves is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Los Angeles Dodgers v Atlanta Braves is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -212031,7 +212322,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Tampa Bay Rays v New York Yankees is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Tampa Bay Rays v New York Yankees is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -212160,7 +212451,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Milwaukee Brewers v San Diego Padres is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Milwaukee Brewers v San Diego Padres is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -212289,7 +212580,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Milwaukee Brewers v San Diego Padres is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Milwaukee Brewers v San Diego Padres is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -212418,7 +212709,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Los Angeles Dodgers v Atlanta Braves is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Los Angeles Dodgers v Atlanta Braves is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -212547,7 +212838,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Cleveland Guardians v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Cleveland Guardians v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -212676,7 +212967,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Tampa Bay Rays v New York Yankees is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Tampa Bay Rays v New York Yankees is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -212822,7 +213113,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-07T20:59:15.968Z",
     "selectedSentence": "Atlanta Braves v Los Angeles Dodgers is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -212951,7 +213242,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-07T20:59:15.968Z",
     "selectedSentence": "San Diego Padres v Milwaukee Brewers is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "San Diego Padres v Milwaukee Brewers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -213018,7 +213309,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeUtc": "2026-10-07T20:00:00.000Z",
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
-    "status": "live",
+    "status": "completed",
     "venue": "Rate Field",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -213059,14 +213350,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "label": "Chicago White Sox",
         "logoUrl": "https://www.mlbstatic.com/team-logos/145.svg",
         "homeAway": "home",
-        "score": 1
+        "score": 3
       },
       {
         "participantId": "team:mlb:114",
         "label": "Cleveland Guardians",
         "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
         "homeAway": "away",
-        "score": 4
+        "score": 9
       }
     ],
     "sourceName": "MLB",
@@ -213074,22 +213365,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.mlb.com/gameday/849833",
     "sourceRefs": [
       "https://www.mlb.com/gameday/849833",
-      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-30&endDate=2026-10-21&hydrate=team"
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
     ],
-    "sourceCheckedAt": "2026-10-07T20:59:15.968Z",
-    "statusCheckedAt": "2026-10-07T20:59:15.968Z",
-    "selectedSentence": "ALDS 'B' Game 3 at Rate Field. Check the official game page for updates.",
-    "fullSpiel": "ALDS 'B' Game 3 at Rate Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+    "selectedSentence": "Chicago White Sox v Cleveland Guardians is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Chicago White Sox v Cleveland Guardians is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
-      "hookSpoilerOff": "ALDS 'B' Game 3 at Rate Field. Check the official game page for updates.",
-      "synopsisSpoilerOff": "ALDS 'B' Game 3 at Rate Field. Check the official game page for updates.",
-      "hookSpoilerOn": "ALDS 'B' Game 3 at Rate Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "ALDS 'B' Game 3 at Rate Field. Check the official game page for updates.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Chicago White Sox v Cleveland Guardians is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Chicago White Sox v Cleveland Guardians is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Chicago White Sox 3–9 Cleveland Guardians",
+      "synopsisSpoilerOn": "ALDS 'B' Game 3: Chicago White Sox 3–9 Cleveland Guardians. MLB reports this game as final.",
       "expectedSpectacle": 1,
       "intensitySource": "computed"
     },
@@ -213115,12 +213406,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fixture-mlb-849833"
     ],
     "consensusTags": [],
-    "score": "Chicago White Sox 1–4 Cleveland Guardians",
-    "homeScore": 1,
-    "awayScore": 4,
-    "scoreCheckedAt": "2026-10-07T20:59:15.968Z",
+    "score": "Chicago White Sox 3–9 Cleveland Guardians",
+    "homeScore": 3,
+    "awayScore": 9,
+    "scoreCheckedAt": "2026-10-08T21:00:48.348Z",
     "resultSourceUrl": "https://www.mlb.com/gameday/849833",
-    "resultSourceCheckedAt": "2026-10-07T20:59:15.968Z"
+    "resultSourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "resultStatus": "official",
+    "outcomeText": "Chicago White Sox 3–9 Cleveland Guardians",
+    "recapText": "ALDS 'B' Game 3: Chicago White Sox 3–9 Cleveland Guardians. MLB reports this game as final.",
+    "winnerParticipantId": "team:mlb:114",
+    "endTimeUtc": "2026-10-08T02:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-mlb-849822",
@@ -213141,7 +213438,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeUtc": "2026-10-07T22:00:00.000Z",
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "venue": "Truist Park",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -213181,13 +213478,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "participantId": "team:mlb:144",
         "label": "Atlanta Braves",
         "logoUrl": "https://www.mlbstatic.com/team-logos/144.svg",
-        "homeAway": "home"
+        "homeAway": "home",
+        "score": 1
       },
       {
         "participantId": "team:mlb:119",
         "label": "Los Angeles Dodgers",
         "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
-        "homeAway": "away"
+        "homeAway": "away",
+        "score": 4
       }
     ],
     "sourceName": "MLB",
@@ -213195,22 +213494,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.mlb.com/gameday/849822",
     "sourceRefs": [
       "https://www.mlb.com/gameday/849822",
-      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-29&endDate=2026-10-20&hydrate=team"
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
     ],
-    "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
-    "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-    "selectedSentence": "NLDS 'B' Game 4 at Truist Park. Check the official game page for updates.",
-    "fullSpiel": "NLDS 'B' Game 4 at Truist Park. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+    "selectedSentence": "Atlanta Braves v Los Angeles Dodgers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Atlanta Braves v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
-      "hookSpoilerOff": "NLDS 'B' Game 4 at Truist Park. Check the official game page for updates.",
-      "synopsisSpoilerOff": "NLDS 'B' Game 4 at Truist Park. Check the official game page for updates.",
-      "hookSpoilerOn": "NLDS 'B' Game 4 at Truist Park. Check the official game page for updates.",
-      "synopsisSpoilerOn": "NLDS 'B' Game 4 at Truist Park. Check the official game page for updates.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Atlanta Braves v Los Angeles Dodgers is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Atlanta Braves v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Atlanta Braves 1–4 Los Angeles Dodgers",
+      "synopsisSpoilerOn": "NLDS 'B' Game 4: Atlanta Braves 1–4 Los Angeles Dodgers. MLB reports this game as final.",
       "expectedSpectacle": 1,
       "intensitySource": "computed"
     },
@@ -213235,7 +213534,19 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "fixture-mlb-849822"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "score": "Atlanta Braves 1–4 Los Angeles Dodgers",
+    "resultStatus": "official",
+    "outcomeText": "Atlanta Braves 1–4 Los Angeles Dodgers",
+    "recapText": "NLDS 'B' Game 4: Atlanta Braves 1–4 Los Angeles Dodgers. MLB reports this game as final.",
+    "winnerParticipantId": "team:mlb:119",
+    "homeScore": 1,
+    "awayScore": 4,
+    "scoreCheckedAt": "2026-10-08T21:00:48.348Z",
+    "resultSourceUrl": "https://www.mlb.com/gameday/849822",
+    "resultSourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "endTimeUtc": "2026-10-08T04:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-mlb-849838",
@@ -213256,7 +213567,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeUtc": "2026-10-08T00:00:00.000Z",
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "venue": "Yankee Stadium",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -213296,13 +213607,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "participantId": "team:mlb:147",
         "label": "New York Yankees",
         "logoUrl": "https://www.mlbstatic.com/team-logos/147.svg",
-        "homeAway": "home"
+        "homeAway": "home",
+        "score": 3
       },
       {
         "participantId": "team:mlb:139",
         "label": "Tampa Bay Rays",
         "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
-        "homeAway": "away"
+        "homeAway": "away",
+        "score": 4
       }
     ],
     "sourceName": "MLB",
@@ -213310,22 +213623,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.mlb.com/gameday/849838",
     "sourceRefs": [
       "https://www.mlb.com/gameday/849838",
-      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-29&endDate=2026-10-20&hydrate=team"
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
     ],
-    "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
-    "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-    "selectedSentence": "ALDS 'A' Game 3 at Yankee Stadium. Check the official game page for updates.",
-    "fullSpiel": "ALDS 'A' Game 3 at Yankee Stadium. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+    "selectedSentence": "New York Yankees v Tampa Bay Rays is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "New York Yankees v Tampa Bay Rays is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
-      "hookSpoilerOff": "ALDS 'A' Game 3 at Yankee Stadium. Check the official game page for updates.",
-      "synopsisSpoilerOff": "ALDS 'A' Game 3 at Yankee Stadium. Check the official game page for updates.",
-      "hookSpoilerOn": "ALDS 'A' Game 3 at Yankee Stadium. Check the official game page for updates.",
-      "synopsisSpoilerOn": "ALDS 'A' Game 3 at Yankee Stadium. Check the official game page for updates.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "New York Yankees v Tampa Bay Rays is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "New York Yankees v Tampa Bay Rays is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "New York Yankees 3–4 Tampa Bay Rays",
+      "synopsisSpoilerOn": "ALDS 'A' Game 3: New York Yankees 3–4 Tampa Bay Rays. MLB reports this game as final.",
       "expectedSpectacle": 1,
       "intensitySource": "computed"
     },
@@ -213350,7 +213663,19 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "fixture-mlb-849838"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "score": "New York Yankees 3–4 Tampa Bay Rays",
+    "resultStatus": "official",
+    "outcomeText": "New York Yankees 3–4 Tampa Bay Rays",
+    "recapText": "ALDS 'A' Game 3: New York Yankees 3–4 Tampa Bay Rays. MLB reports this game as final.",
+    "winnerParticipantId": "team:mlb:139",
+    "homeScore": 3,
+    "awayScore": 4,
+    "scoreCheckedAt": "2026-10-08T21:00:48.348Z",
+    "resultSourceUrl": "https://www.mlb.com/gameday/849838",
+    "resultSourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "endTimeUtc": "2026-10-08T06:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-mlb-849827",
@@ -213371,7 +213696,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeUtc": "2026-10-08T02:00:00.000Z",
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "venue": "Petco Park",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -213411,13 +213736,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "participantId": "team:mlb:135",
         "label": "San Diego Padres",
         "logoUrl": "https://www.mlbstatic.com/team-logos/135.svg",
-        "homeAway": "home"
+        "homeAway": "home",
+        "score": 1
       },
       {
         "participantId": "team:mlb:158",
         "label": "Milwaukee Brewers",
         "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
-        "homeAway": "away"
+        "homeAway": "away",
+        "score": 3
       }
     ],
     "sourceName": "MLB",
@@ -213425,22 +213752,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.mlb.com/gameday/849827",
     "sourceRefs": [
       "https://www.mlb.com/gameday/849827",
-      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-30&endDate=2026-10-21&hydrate=team"
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
     ],
-    "sourceCheckedAt": "2026-10-07T20:59:15.968Z",
-    "statusCheckedAt": "2026-10-07T20:59:15.968Z",
-    "selectedSentence": "NLDS 'A' Game 4  at Petco Park. Check the official game page for updates.",
-    "fullSpiel": "NLDS 'A' Game 4  at Petco Park. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+    "selectedSentence": "San Diego Padres v Milwaukee Brewers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "San Diego Padres v Milwaukee Brewers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
-      "hookSpoilerOff": "NLDS 'A' Game 4 at Petco Park. Check the official game page for updates.",
-      "synopsisSpoilerOff": "NLDS 'A' Game 4 at Petco Park. Check the official game page for updates.",
-      "hookSpoilerOn": "NLDS 'A' Game 4 at Petco Park. Check the official game page for updates.",
-      "synopsisSpoilerOn": "NLDS 'A' Game 4 at Petco Park. Check the official game page for updates.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "San Diego Padres v Milwaukee Brewers is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "San Diego Padres v Milwaukee Brewers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "San Diego Padres 1–3 Milwaukee Brewers",
+      "synopsisSpoilerOn": "NLDS 'A' Game 4 : San Diego Padres 1–3 Milwaukee Brewers. MLB reports this game as final.",
       "expectedSpectacle": 1,
       "intensitySource": "computed"
     },
@@ -213465,7 +213792,19 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "fixture-mlb-849827"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "score": "San Diego Padres 1–3 Milwaukee Brewers",
+    "resultStatus": "official",
+    "outcomeText": "San Diego Padres 1–3 Milwaukee Brewers",
+    "recapText": "NLDS 'A' Game 4 : San Diego Padres 1–3 Milwaukee Brewers. MLB reports this game as final.",
+    "winnerParticipantId": "team:mlb:158",
+    "homeScore": 1,
+    "awayScore": 3,
+    "scoreCheckedAt": "2026-10-08T21:00:48.348Z",
+    "resultSourceUrl": "https://www.mlb.com/gameday/849827",
+    "resultSourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "endTimeUtc": "2026-10-08T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-mlb-849832",
@@ -213482,10 +213821,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "ALDS 'B' Game 4",
     "stage": "ALDS 'B' Game 4",
     "date": "2026-10-09",
-    "time": null,
-    "startTimeUtc": null,
-    "timePrecision": "tbc",
-    "scheduleStatus": "conditional",
+    "time": "11:00",
+    "startTimeUtc": "2026-10-09T00:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
     "status": "upcoming",
     "venue": "Rate Field",
     "cardKind": "fixture",
@@ -213540,13 +213879,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.mlb.com/gameday/849832",
     "sourceRefs": [
       "https://www.mlb.com/gameday/849832",
-      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-29&endDate=2026-10-20&hydrate=team"
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
     ],
-    "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
-    "statusCheckedAt": "2026-10-06T04:12:36.040Z",
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
     "selectedSentence": "ALDS 'B' Game 4 at Rate Field. Check the official game page for updates.",
     "fullSpiel": "ALDS 'B' Game 4 at Rate Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -213661,7 +214000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
     "selectedSentence": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
     "fullSpiel": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -213776,7 +214115,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
     "selectedSentence": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
     "fullSpiel": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -213891,7 +214230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
     "selectedSentence": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
     "fullSpiel": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -214006,7 +214345,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
     "selectedSentence": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
     "fullSpiel": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -214121,7 +214460,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
     "selectedSentence": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
     "fullSpiel": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-07T21:00:08.860Z",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -222640,12 +222979,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T04:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -222680,13 +223019,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184840",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184840",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184840",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -222717,8 +223056,54 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 3
+      },
+      {
+        "home": 1,
+        "away": 6
+      },
+      {
+        "home": 4,
+        "away": 6
+      }
+    ],
+    "score": "7–6, 1–6, 4–6",
+    "scoreDisplay": "7–6, 1–6, 4–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184840",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:matteo-berrettini",
+    "loserParticipantId": "competitor:tennis:atp:aleksandar-kovacevic",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:aleksandar-kovacevic"
+    ],
+    "resultStatus": "published",
+    "result": "7–6, 1–6, 4–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Matteo Berrettini won. 7–6, 1–6, 4–6",
+    "recapText": "ESPN reports Matteo Berrettini as the winner of this round of 128 match. 7–6, 1–6, 4–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Aleksandar Kovacevic v Matteo Berrettini is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Aleksandar Kovacevic v Matteo Berrettini is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Matteo Berrettini won. 7–6, 1–6, 4–6",
+      "synopsisSpoilerOn": "ESPN reports Matteo Berrettini as the winner of this round of 128 match. 7–6, 1–6, 4–6"
+    },
+    "selectedSentence": "Aleksandar Kovacevic v Matteo Berrettini is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Aleksandar Kovacevic v Matteo Berrettini is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184880",
@@ -222753,12 +223138,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T04:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -222792,13 +223177,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184880",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184880",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184880",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -222829,8 +223214,54 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 3,
+        "awayTiebreak": 7
+      },
+      {
+        "home": 6,
+        "away": 1
+      },
+      {
+        "home": 6,
+        "away": 2
+      }
+    ],
+    "score": "6–7, 6–1, 6–2",
+    "scoreDisplay": "6–7, 6–1, 6–2",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184880",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:arthur-gea",
+    "loserParticipantId": "competitor:tennis:atp:jaime-faria",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:jaime-faria"
+    ],
+    "resultStatus": "published",
+    "result": "6–7, 6–1, 6–2",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Arthur Gea won. 6–7, 6–1, 6–2",
+    "recapText": "ESPN reports Arthur Gea as the winner of this round of 128 match. 6–7, 6–1, 6–2",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Arthur Gea v Jaime Faria is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Arthur Gea v Jaime Faria is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Arthur Gea won. 6–7, 6–1, 6–2",
+      "synopsisSpoilerOn": "ESPN reports Arthur Gea as the winner of this round of 128 match. 6–7, 6–1, 6–2"
+    },
+    "selectedSentence": "Arthur Gea v Jaime Faria is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Arthur Gea v Jaime Faria is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184889",
@@ -222865,12 +223296,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T04:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -222904,13 +223335,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184889",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184889",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184889",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -222941,8 +223372,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 2,
+        "away": 6
+      },
+      {
+        "home": 4,
+        "away": 6
+      }
+    ],
+    "score": "2–6, 4–6",
+    "scoreDisplay": "2–6, 4–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184889",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:miomir-kecmanovic",
+    "loserParticipantId": "competitor:tennis:atp:sho-shimabukuro",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:sho-shimabukuro"
+    ],
+    "resultStatus": "published",
+    "result": "2–6, 4–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Miomir Kecmanovic won. 2–6, 4–6",
+    "recapText": "ESPN reports Miomir Kecmanovic as the winner of this round of 128 match. 2–6, 4–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Sho Shimabukuro v Miomir Kecmanovic is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Sho Shimabukuro v Miomir Kecmanovic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Miomir Kecmanovic won. 2–6, 4–6",
+      "synopsisSpoilerOn": "ESPN reports Miomir Kecmanovic as the winner of this round of 128 match. 2–6, 4–6"
+    },
+    "selectedSentence": "Sho Shimabukuro v Miomir Kecmanovic is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sho Shimabukuro v Miomir Kecmanovic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184839",
@@ -222977,12 +223448,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T05:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T06:45:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -223016,13 +223487,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184839",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184839",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184839",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -223053,8 +223524,54 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 1
+      },
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 3,
+        "awayTiebreak": 7
+      },
+      {
+        "home": 2,
+        "away": 6
+      }
+    ],
+    "score": "6–1, 6–7, 2–6",
+    "scoreDisplay": "6–1, 6–7, 2–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184839",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:tomas-machac",
+    "loserParticipantId": "competitor:tennis:atp:zhang-zhizhen",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:zhang-zhizhen"
+    ],
+    "resultStatus": "published",
+    "result": "6–1, 6–7, 2–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Tomas Machac won. 6–1, 6–7, 2–6",
+    "recapText": "ESPN reports Tomas Machac as the winner of this round of 128 match. 6–1, 6–7, 2–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Zhang Zhizhen v Tomas Machac is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Zhang Zhizhen v Tomas Machac is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Tomas Machac won. 6–1, 6–7, 2–6",
+      "synopsisSpoilerOn": "ESPN reports Tomas Machac as the winner of this round of 128 match. 6–1, 6–7, 2–6"
+    },
+    "selectedSentence": "Zhang Zhizhen v Tomas Machac is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Zhang Zhizhen v Tomas Machac is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184878",
@@ -223089,12 +223606,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T05:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T06:40:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -223128,13 +223645,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184878",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184878",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184878",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -223165,8 +223682,58 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 4,
+        "awayTiebreak": 7
+      },
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 3
+      },
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 9,
+        "awayTiebreak": 7
+      }
+    ],
+    "score": "6–7, 7–6, 7–6",
+    "scoreDisplay": "6–7, 7–6, 7–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184878",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:yannick-hanfmann",
+    "loserParticipantId": "competitor:tennis:atp:kamil-majchrzak",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:kamil-majchrzak"
+    ],
+    "resultStatus": "published",
+    "result": "6–7, 7–6, 7–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Yannick Hanfmann won. 6–7, 7–6, 7–6",
+    "recapText": "ESPN reports Yannick Hanfmann as the winner of this round of 128 match. 6–7, 7–6, 7–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Yannick Hanfmann v Kamil Majchrzak is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Yannick Hanfmann v Kamil Majchrzak is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Yannick Hanfmann won. 6–7, 7–6, 7–6",
+      "synopsisSpoilerOn": "ESPN reports Yannick Hanfmann as the winner of this round of 128 match. 6–7, 7–6, 7–6"
+    },
+    "selectedSentence": "Yannick Hanfmann v Kamil Majchrzak is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Yannick Hanfmann v Kamil Majchrzak is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184881",
@@ -223201,12 +223768,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T05:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T05:40:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -223240,13 +223807,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184881",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184881",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184881",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -223277,8 +223844,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 2,
+        "away": 2
+      }
+    ],
+    "score": "6–3, 2–2",
+    "scoreDisplay": "6–3, 2–2",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184881",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:adrian-mannarino",
+    "loserParticipantId": "competitor:tennis:atp:nikoloz-basilashvili",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:nikoloz-basilashvili"
+    ],
+    "resultStatus": "published",
+    "result": "6–3, 2–2",
+    "resultLabels": [
+      "Retirement"
+    ],
+    "outcomeText": "Adrian Mannarino won. 6–3, 2–2",
+    "recapText": "ESPN reports Adrian Mannarino as the winner of this round of 128 match. 6–3, 2–2",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Adrian Mannarino v Nikoloz Basilashvili is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Adrian Mannarino v Nikoloz Basilashvili is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Adrian Mannarino won. 6–3, 2–2",
+      "synopsisSpoilerOn": "ESPN reports Adrian Mannarino as the winner of this round of 128 match. 6–3, 2–2"
+    },
+    "selectedSentence": "Adrian Mannarino v Nikoloz Basilashvili is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Adrian Mannarino v Nikoloz Basilashvili is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184854",
@@ -223313,12 +223920,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T06:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T06:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -223352,13 +223959,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184854",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184854",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184854",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -223389,8 +223996,52 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Court 4",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 4,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 1
+      },
+      {
+        "home": 6,
+        "away": 2
+      }
+    ],
+    "score": "4–6, 6–1, 6–2",
+    "scoreDisplay": "4–6, 6–1, 6–2",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184854",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:alex-molcan",
+    "loserParticipantId": "competitor:tennis:atp:federico-cina",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:federico-cina"
+    ],
+    "resultStatus": "published",
+    "result": "4–6, 6–1, 6–2",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Alex Molcan won. 4–6, 6–1, 6–2",
+    "recapText": "ESPN reports Alex Molcan as the winner of this round of 128 match. 4–6, 6–1, 6–2",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Alex Molcan v Federico Cina is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Alex Molcan v Federico Cina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Alex Molcan won. 4–6, 6–1, 6–2",
+      "synopsisSpoilerOn": "ESPN reports Alex Molcan as the winner of this round of 128 match. 4–6, 6–1, 6–2"
+    },
+    "selectedSentence": "Alex Molcan v Federico Cina is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Alex Molcan v Federico Cina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184842",
@@ -223425,12 +224076,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T07:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T07:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -223464,13 +224115,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184842",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184842",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184842",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -223501,8 +224152,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 5,
+        "away": 7
+      }
+    ],
+    "score": "3–6, 5–7",
+    "scoreDisplay": "3–6, 5–7",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184842",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:rei-sakamoto",
+    "loserParticipantId": "competitor:tennis:atp:marco-trungelliti",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:marco-trungelliti"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 5–7",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Rei Sakamoto won. 3–6, 5–7",
+    "recapText": "ESPN reports Rei Sakamoto as the winner of this round of 128 match. 3–6, 5–7",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Marco Trungelliti v Rei Sakamoto is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Marco Trungelliti v Rei Sakamoto is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Rei Sakamoto won. 3–6, 5–7",
+      "synopsisSpoilerOn": "ESPN reports Rei Sakamoto as the winner of this round of 128 match. 3–6, 5–7"
+    },
+    "selectedSentence": "Marco Trungelliti v Rei Sakamoto is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Marco Trungelliti v Rei Sakamoto is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184870",
@@ -223537,12 +224228,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T07:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T10:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -223576,13 +224267,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184870",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184870",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184870",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -223613,8 +224304,54 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 4,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 4,
+        "awayTiebreak": 7
+      }
+    ],
+    "score": "4–6, 6–3, 6–7",
+    "scoreDisplay": "4–6, 6–3, 6–7",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184870",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:zhou-yi",
+    "loserParticipantId": "competitor:tennis:atp:mattia-bellucci",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:mattia-bellucci"
+    ],
+    "resultStatus": "published",
+    "result": "4–6, 6–3, 6–7",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Zhou Yi won. 4–6, 6–3, 6–7",
+    "recapText": "ESPN reports Zhou Yi as the winner of this round of 128 match. 4–6, 6–3, 6–7",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Mattia Bellucci v Zhou Yi is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Mattia Bellucci v Zhou Yi is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Zhou Yi won. 4–6, 6–3, 6–7",
+      "synopsisSpoilerOn": "ESPN reports Zhou Yi as the winner of this round of 128 match. 4–6, 6–3, 6–7"
+    },
+    "selectedSentence": "Mattia Bellucci v Zhou Yi is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Mattia Bellucci v Zhou Yi is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184888",
@@ -223649,12 +224386,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T07:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T08:20:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -223689,13 +224426,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184888",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184888",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184888",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -223726,8 +224463,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Court 4",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 5,
+        "away": 7
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "score": "5–7, 3–6",
+    "scoreDisplay": "5–7, 3–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184888",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:roman-safiullin",
+    "loserParticipantId": "competitor:tennis:atp:rinky-hijikata",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:rinky-hijikata"
+    ],
+    "resultStatus": "published",
+    "result": "5–7, 3–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Roman Safiullin won. 5–7, 3–6",
+    "recapText": "ESPN reports Roman Safiullin as the winner of this round of 128 match. 5–7, 3–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Rinky Hijikata v Roman Safiullin is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Rinky Hijikata v Roman Safiullin is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Roman Safiullin won. 5–7, 3–6",
+      "synopsisSpoilerOn": "ESPN reports Roman Safiullin as the winner of this round of 128 match. 5–7, 3–6"
+    },
+    "selectedSentence": "Rinky Hijikata v Roman Safiullin is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Rinky Hijikata v Roman Safiullin is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184847",
@@ -223762,12 +224539,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T08:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T08:50:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -223802,13 +224579,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184847",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184847",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184847",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -223839,8 +224616,50 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 5
+      }
+    ],
+    "score": "6–4, 7–6",
+    "scoreDisplay": "6–4, 7–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184847",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:quentin-halys",
+    "loserParticipantId": "competitor:tennis:atp:chak-lam-coleman-wong",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:chak-lam-coleman-wong"
+    ],
+    "resultStatus": "published",
+    "result": "6–4, 7–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Quentin Halys won. 6–4, 7–6",
+    "recapText": "ESPN reports Quentin Halys as the winner of this round of 128 match. 6–4, 7–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Quentin Halys v Chak Lam Coleman Wong is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Quentin Halys v Chak Lam Coleman Wong is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Quentin Halys won. 6–4, 7–6",
+      "synopsisSpoilerOn": "ESPN reports Quentin Halys as the winner of this round of 128 match. 6–4, 7–6"
+    },
+    "selectedSentence": "Quentin Halys v Chak Lam Coleman Wong is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Quentin Halys v Chak Lam Coleman Wong is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184885",
@@ -223872,15 +224691,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Round of 128",
     "stage": "Round of 128",
     "name": "Holger Rune v Daniel Altmaier",
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T08:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T13:15:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -223914,13 +224733,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184885",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184885",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184885",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -223951,8 +224770,54 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 1
+      },
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 5,
+        "awayTiebreak": 7
+      },
+      {
+        "home": 4,
+        "away": 6
+      }
+    ],
+    "score": "6–1, 6–7, 4–6",
+    "scoreDisplay": "6–1, 6–7, 4–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184885",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:daniel-altmaier",
+    "loserParticipantId": "competitor:tennis:atp:holger-rune",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:holger-rune"
+    ],
+    "resultStatus": "published",
+    "result": "6–1, 6–7, 4–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Daniel Altmaier won. 6–1, 6–7, 4–6",
+    "recapText": "ESPN reports Daniel Altmaier as the winner of this round of 128 match. 6–1, 6–7, 4–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Holger Rune v Daniel Altmaier is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Holger Rune v Daniel Altmaier is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Daniel Altmaier won. 6–1, 6–7, 4–6",
+      "synopsisSpoilerOn": "ESPN reports Daniel Altmaier as the winner of this round of 128 match. 6–1, 6–7, 4–6"
+    },
+    "selectedSentence": "Holger Rune v Daniel Altmaier is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Holger Rune v Daniel Altmaier is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184862",
@@ -223987,12 +224852,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T10:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T10:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -224026,13 +224891,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184862",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184862",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184862",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -224063,8 +224928,50 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 8,
+        "awayTiebreak": 6
+      }
+    ],
+    "score": "6–3, 7–6",
+    "scoreDisplay": "6–3, 7–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184862",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:wu-yibing",
+    "loserParticipantId": "competitor:tennis:atp:michael-zheng",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:michael-zheng"
+    ],
+    "resultStatus": "published",
+    "result": "6–3, 7–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Wu Yibing won. 6–3, 7–6",
+    "recapText": "ESPN reports Wu Yibing as the winner of this round of 128 match. 6–3, 7–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Wu Yibing v Michael Zheng is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Wu Yibing v Michael Zheng is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Wu Yibing won. 6–3, 7–6",
+      "synopsisSpoilerOn": "ESPN reports Wu Yibing as the winner of this round of 128 match. 6–3, 7–6"
+    },
+    "selectedSentence": "Wu Yibing v Michael Zheng is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Wu Yibing v Michael Zheng is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184849",
@@ -224099,12 +225006,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T11:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T12:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -224139,13 +225046,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184849",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184849",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184849",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -224176,8 +225083,50 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 2
+      },
+      {
+        "home": 6,
+        "away": 1
+      }
+    ],
+    "score": "7–6, 6–1",
+    "scoreDisplay": "7–6, 6–1",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184849",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:arthur-fery",
+    "loserParticipantId": "competitor:tennis:atp:marin-cilic",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:marin-cilic"
+    ],
+    "resultStatus": "published",
+    "result": "7–6, 6–1",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Arthur Fery won. 7–6, 6–1",
+    "recapText": "ESPN reports Arthur Fery as the winner of this round of 128 match. 7–6, 6–1",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Arthur Fery v Marin Cilic is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Arthur Fery v Marin Cilic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Arthur Fery won. 7–6, 6–1",
+      "synopsisSpoilerOn": "ESPN reports Arthur Fery as the winner of this round of 128 match. 7–6, 6–1"
+    },
+    "selectedSentence": "Arthur Fery v Marin Cilic is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Arthur Fery v Marin Cilic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184841",
@@ -224212,12 +225161,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T09:35:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -224246,18 +225195,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:martin-landaluce",
     "awayParticipantId": "competitor:tennis:atp:jan-lennard-struff",
-    "venue": "Shanghai",
+    "venue": "Grandstand 2",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184841",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184841",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184841",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -224288,8 +225237,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 4,
+        "away": 6
+      },
+      {
+        "home": 4,
+        "away": 6
+      }
+    ],
+    "score": "4–6, 4–6",
+    "scoreDisplay": "4–6, 4–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184841",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:jan-lennard-struff",
+    "loserParticipantId": "competitor:tennis:atp:martin-landaluce",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:martin-landaluce"
+    ],
+    "resultStatus": "published",
+    "result": "4–6, 4–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Jan-Lennard Struff won. 4–6, 4–6",
+    "recapText": "ESPN reports Jan-Lennard Struff as the winner of this round of 128 match. 4–6, 4–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Martin Landaluce v Jan-Lennard Struff is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Martin Landaluce v Jan-Lennard Struff is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Jan-Lennard Struff won. 4–6, 4–6",
+      "synopsisSpoilerOn": "ESPN reports Jan-Lennard Struff as the winner of this round of 128 match. 4–6, 4–6"
+    },
+    "selectedSentence": "Martin Landaluce v Jan-Lennard Struff is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Martin Landaluce v Jan-Lennard Struff is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184843",
@@ -224324,12 +225313,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T06:00:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -224360,18 +225349,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:bernard-tomic",
     "awayParticipantId": "competitor:tennis:atp:matteo-arnaldi",
-    "venue": "Shanghai",
+    "venue": "Show Court 3",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184843",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184843",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184843",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -224402,8 +225391,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 1,
+        "away": 6
+      }
+    ],
+    "score": "3–6, 1–6",
+    "scoreDisplay": "3–6, 1–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184843",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:matteo-arnaldi",
+    "loserParticipantId": "competitor:tennis:atp:bernard-tomic",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:bernard-tomic"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 1–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Matteo Arnaldi won. 3–6, 1–6",
+    "recapText": "ESPN reports Matteo Arnaldi as the winner of this round of 128 match. 3–6, 1–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Bernard Tomic v Matteo Arnaldi is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Bernard Tomic v Matteo Arnaldi is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Matteo Arnaldi won. 3–6, 1–6",
+      "synopsisSpoilerOn": "ESPN reports Matteo Arnaldi as the winner of this round of 128 match. 3–6, 1–6"
+    },
+    "selectedSentence": "Bernard Tomic v Matteo Arnaldi is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Bernard Tomic v Matteo Arnaldi is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184850",
@@ -224438,12 +225467,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T06:50:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -224472,18 +225501,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:adolfo-daniel-vallejo",
     "awayParticipantId": "competitor:tennis:atp:valentin-royer",
-    "venue": "Shanghai",
+    "venue": "Court 7",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184850",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184850",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184850",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -224514,8 +225543,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Court 7",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 6,
+        "away": 1
+      }
+    ],
+    "score": "6–3, 6–1",
+    "scoreDisplay": "6–3, 6–1",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184850",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:adolfo-daniel-vallejo",
+    "loserParticipantId": "competitor:tennis:atp:valentin-royer",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:valentin-royer"
+    ],
+    "resultStatus": "published",
+    "result": "6–3, 6–1",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Adolfo Daniel Vallejo won. 6–3, 6–1",
+    "recapText": "ESPN reports Adolfo Daniel Vallejo as the winner of this round of 128 match. 6–3, 6–1",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Adolfo Daniel Vallejo v Valentin Royer is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Adolfo Daniel Vallejo v Valentin Royer is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Adolfo Daniel Vallejo won. 6–3, 6–1",
+      "synopsisSpoilerOn": "ESPN reports Adolfo Daniel Vallejo as the winner of this round of 128 match. 6–3, 6–1"
+    },
+    "selectedSentence": "Adolfo Daniel Vallejo v Valentin Royer is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Adolfo Daniel Vallejo v Valentin Royer is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184851",
@@ -224550,12 +225619,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T12:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -224585,18 +225654,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:cameron-norrie",
     "awayParticipantId": "competitor:tennis:atp:dalibor-svrcina",
-    "venue": "Shanghai",
+    "venue": "Stadium Court",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184851",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184851",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184851",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -224627,8 +225696,52 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 4,
+        "away": 6
+      }
+    ],
+    "score": "3–6, 6–3, 4–6",
+    "scoreDisplay": "3–6, 6–3, 4–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184851",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:dalibor-svrcina",
+    "loserParticipantId": "competitor:tennis:atp:cameron-norrie",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:cameron-norrie"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 6–3, 4–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Dalibor Svrcina won. 3–6, 6–3, 4–6",
+    "recapText": "ESPN reports Dalibor Svrcina as the winner of this round of 128 match. 3–6, 6–3, 4–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Cameron Norrie v Dalibor Svrcina is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Cameron Norrie v Dalibor Svrcina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Dalibor Svrcina won. 3–6, 6–3, 4–6",
+      "synopsisSpoilerOn": "ESPN reports Dalibor Svrcina as the winner of this round of 128 match. 3–6, 6–3, 4–6"
+    },
+    "selectedSentence": "Cameron Norrie v Dalibor Svrcina is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Cameron Norrie v Dalibor Svrcina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184855",
@@ -224663,12 +225776,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T04:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -224698,18 +225811,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:kimmer-coppejans",
     "awayParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
-    "venue": "Shanghai",
+    "venue": "Stadium Court",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184855",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184855",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184855",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -224740,8 +225853,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 5,
+        "away": 7
+      }
+    ],
+    "score": "3–6, 5–7",
+    "scoreDisplay": "3–6, 5–7",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184855",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
+    "loserParticipantId": "competitor:tennis:atp:kimmer-coppejans",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:kimmer-coppejans"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 5–7",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Stefanos Tsitsipas won. 3–6, 5–7",
+    "recapText": "ESPN reports Stefanos Tsitsipas as the winner of this round of 128 match. 3–6, 5–7",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Kimmer Coppejans v Stefanos Tsitsipas is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Kimmer Coppejans v Stefanos Tsitsipas is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Stefanos Tsitsipas won. 3–6, 5–7",
+      "synopsisSpoilerOn": "ESPN reports Stefanos Tsitsipas as the winner of this round of 128 match. 3–6, 5–7"
+    },
+    "selectedSentence": "Kimmer Coppejans v Stefanos Tsitsipas is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Kimmer Coppejans v Stefanos Tsitsipas is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184857",
@@ -224776,12 +225929,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T04:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -224811,18 +225964,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:nuno-borges",
     "awayParticipantId": "competitor:tennis:atp:facundo-diaz-acosta",
-    "venue": "Shanghai",
+    "venue": "Court 4",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184857",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184857",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184857",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -224853,8 +226006,50 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Court 4",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 5
+      },
+      {
+        "home": 6,
+        "away": 2
+      }
+    ],
+    "score": "7–6, 6–2",
+    "scoreDisplay": "7–6, 6–2",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184857",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:nuno-borges",
+    "loserParticipantId": "competitor:tennis:atp:facundo-diaz-acosta",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:facundo-diaz-acosta"
+    ],
+    "resultStatus": "published",
+    "result": "7–6, 6–2",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Nuno Borges won. 7–6, 6–2",
+    "recapText": "ESPN reports Nuno Borges as the winner of this round of 128 match. 7–6, 6–2",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Nuno Borges v Facundo Diaz Acosta is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Nuno Borges v Facundo Diaz Acosta is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Nuno Borges won. 7–6, 6–2",
+      "synopsisSpoilerOn": "ESPN reports Nuno Borges as the winner of this round of 128 match. 7–6, 6–2"
+    },
+    "selectedSentence": "Nuno Borges v Facundo Diaz Acosta is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Nuno Borges v Facundo Diaz Acosta is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184858",
@@ -224889,12 +226084,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T06:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -224923,18 +226118,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:thiago-agustin-tirante",
     "awayParticipantId": "competitor:tennis:atp:hamad-medjedovic",
-    "venue": "Shanghai",
+    "venue": "Court 4",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184858",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184858",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184858",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -224965,8 +226160,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Court 4",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 6,
+        "away": 2
+      }
+    ],
+    "score": "6–4, 6–2",
+    "scoreDisplay": "6–4, 6–2",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184858",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:thiago-agustin-tirante",
+    "loserParticipantId": "competitor:tennis:atp:hamad-medjedovic",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:hamad-medjedovic"
+    ],
+    "resultStatus": "published",
+    "result": "6–4, 6–2",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Thiago Agustin Tirante won. 6–4, 6–2",
+    "recapText": "ESPN reports Thiago Agustin Tirante as the winner of this round of 128 match. 6–4, 6–2",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Thiago Agustin Tirante v Hamad Medjedovic is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Thiago Agustin Tirante v Hamad Medjedovic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Thiago Agustin Tirante won. 6–4, 6–2",
+      "synopsisSpoilerOn": "ESPN reports Thiago Agustin Tirante as the winner of this round of 128 match. 6–4, 6–2"
+    },
+    "selectedSentence": "Thiago Agustin Tirante v Hamad Medjedovic is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Thiago Agustin Tirante v Hamad Medjedovic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184863",
@@ -225001,12 +226236,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T06:20:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -225036,18 +226271,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:mariano-navone",
     "awayParticipantId": "competitor:tennis:atp:pablo-carreno-busta",
-    "venue": "Shanghai",
+    "venue": "Grandstand 2",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184863",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184863",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184863",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -225078,8 +226313,52 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 5,
+        "away": 7
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "score": "6–4, 5–7, 3–6",
+    "scoreDisplay": "6–4, 5–7, 3–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184863",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:pablo-carreno-busta",
+    "loserParticipantId": "competitor:tennis:atp:mariano-navone",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:mariano-navone"
+    ],
+    "resultStatus": "published",
+    "result": "6–4, 5–7, 3–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Pablo Carreno Busta won. 6–4, 5–7, 3–6",
+    "recapText": "ESPN reports Pablo Carreno Busta as the winner of this round of 128 match. 6–4, 5–7, 3–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Mariano Navone v Pablo Carreno Busta is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Mariano Navone v Pablo Carreno Busta is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Pablo Carreno Busta won. 6–4, 5–7, 3–6",
+      "synopsisSpoilerOn": "ESPN reports Pablo Carreno Busta as the winner of this round of 128 match. 6–4, 5–7, 3–6"
+    },
+    "selectedSentence": "Mariano Navone v Pablo Carreno Busta is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Mariano Navone v Pablo Carreno Busta is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184864",
@@ -225114,12 +226393,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T04:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -225148,18 +226427,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:camilo-ugo-carabelli",
     "awayParticipantId": "competitor:tennis:atp:ilia-simakin",
-    "venue": "Shanghai",
+    "venue": "Court 7",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184864",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184864",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184864",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -225190,8 +226469,52 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Court 7",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 2,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 2
+      },
+      {
+        "home": 7,
+        "away": 5
+      }
+    ],
+    "score": "2–6, 6–2, 7–5",
+    "scoreDisplay": "2–6, 6–2, 7–5",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184864",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:camilo-ugo-carabelli",
+    "loserParticipantId": "competitor:tennis:atp:ilia-simakin",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:ilia-simakin"
+    ],
+    "resultStatus": "published",
+    "result": "2–6, 6–2, 7–5",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Camilo Ugo Carabelli won. 2–6, 6–2, 7–5",
+    "recapText": "ESPN reports Camilo Ugo Carabelli as the winner of this round of 128 match. 2–6, 6–2, 7–5",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Camilo Ugo Carabelli v Ilia Simakin is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Camilo Ugo Carabelli v Ilia Simakin is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Camilo Ugo Carabelli won. 2–6, 6–2, 7–5",
+      "synopsisSpoilerOn": "ESPN reports Camilo Ugo Carabelli as the winner of this round of 128 match. 2–6, 6–2, 7–5"
+    },
+    "selectedSentence": "Camilo Ugo Carabelli v Ilia Simakin is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Camilo Ugo Carabelli v Ilia Simakin is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184867",
@@ -225226,12 +226549,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T07:30:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -225260,18 +226583,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:fabian-marozsan",
     "awayParticipantId": "competitor:tennis:atp:zachary-svajda",
-    "venue": "Shanghai",
+    "venue": "Court 4",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184867",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184867",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184867",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -225302,8 +226625,50 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Court 4",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 2,
+        "awayTiebreak": 7
+      }
+    ],
+    "score": "3–6, 6–7",
+    "scoreDisplay": "3–6, 6–7",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184867",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:zachary-svajda",
+    "loserParticipantId": "competitor:tennis:atp:fabian-marozsan",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:fabian-marozsan"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 6–7",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Zachary Svajda won. 3–6, 6–7",
+    "recapText": "ESPN reports Zachary Svajda as the winner of this round of 128 match. 3–6, 6–7",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Fabian Marozsan v Zachary Svajda is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Fabian Marozsan v Zachary Svajda is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Zachary Svajda won. 3–6, 6–7",
+      "synopsisSpoilerOn": "ESPN reports Zachary Svajda as the winner of this round of 128 match. 3–6, 6–7"
+    },
+    "selectedSentence": "Fabian Marozsan v Zachary Svajda is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Fabian Marozsan v Zachary Svajda is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184868",
@@ -225338,12 +226703,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T10:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -225373,18 +226738,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:luca-van-assche",
     "awayParticipantId": "competitor:tennis:atp:bu-yunchaokete",
-    "venue": "Shanghai",
+    "venue": "Stadium Court",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184868",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184868",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184868",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -225415,8 +226780,50 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 3,
+        "awayTiebreak": 7
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "score": "6–7, 3–6",
+    "scoreDisplay": "6–7, 3–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184868",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:bu-yunchaokete",
+    "loserParticipantId": "competitor:tennis:atp:luca-van-assche",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:luca-van-assche"
+    ],
+    "resultStatus": "published",
+    "result": "6–7, 3–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Bu Yunchaokete won. 6–7, 3–6",
+    "recapText": "ESPN reports Bu Yunchaokete as the winner of this round of 128 match. 6–7, 3–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Luca Van Assche v Bu Yunchaokete is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Luca Van Assche v Bu Yunchaokete is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Bu Yunchaokete won. 6–7, 3–6",
+      "synopsisSpoilerOn": "ESPN reports Bu Yunchaokete as the winner of this round of 128 match. 6–7, 3–6"
+    },
+    "selectedSentence": "Luca Van Assche v Bu Yunchaokete is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Luca Van Assche v Bu Yunchaokete is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184869",
@@ -225451,12 +226858,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T05:45:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -225487,18 +226894,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:hubert-hurkacz",
     "awayParticipantId": "competitor:tennis:atp:james-duckworth",
-    "venue": "Shanghai",
+    "venue": "Stadium Court",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184869",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184869",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184869",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -225529,8 +226936,50 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 4
+      }
+    ],
+    "score": "6–3, 7–6",
+    "scoreDisplay": "6–3, 7–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184869",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:hubert-hurkacz",
+    "loserParticipantId": "competitor:tennis:atp:james-duckworth",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:james-duckworth"
+    ],
+    "resultStatus": "published",
+    "result": "6–3, 7–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Hubert Hurkacz won. 6–3, 7–6",
+    "recapText": "ESPN reports Hubert Hurkacz as the winner of this round of 128 match. 6–3, 7–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Hubert Hurkacz v James Duckworth is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Hubert Hurkacz v James Duckworth is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Hubert Hurkacz won. 6–3, 7–6",
+      "synopsisSpoilerOn": "ESPN reports Hubert Hurkacz as the winner of this round of 128 match. 6–3, 7–6"
+    },
+    "selectedSentence": "Hubert Hurkacz v James Duckworth is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Hubert Hurkacz v James Duckworth is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184874",
@@ -225565,12 +227014,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T04:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -225599,18 +227048,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:pavel-kotov",
     "awayParticipantId": "competitor:tennis:atp:tallon-griekspoor",
-    "venue": "Shanghai",
+    "venue": "Show Court 3",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184874",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184874",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184874",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -225641,8 +227090,50 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 4
+      }
+    ],
+    "score": "6–4, 7–6",
+    "scoreDisplay": "6–4, 7–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184874",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:pavel-kotov",
+    "loserParticipantId": "competitor:tennis:atp:tallon-griekspoor",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:tallon-griekspoor"
+    ],
+    "resultStatus": "published",
+    "result": "6–4, 7–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Pavel Kotov won. 6–4, 7–6",
+    "recapText": "ESPN reports Pavel Kotov as the winner of this round of 128 match. 6–4, 7–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Pavel Kotov v Tallon Griekspoor is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Pavel Kotov v Tallon Griekspoor is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Pavel Kotov won. 6–4, 7–6",
+      "synopsisSpoilerOn": "ESPN reports Pavel Kotov as the winner of this round of 128 match. 6–4, 7–6"
+    },
+    "selectedSentence": "Pavel Kotov v Tallon Griekspoor is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Pavel Kotov v Tallon Griekspoor is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184875",
@@ -225677,12 +227168,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T09:30:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -225713,18 +227204,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:botic-van-de-zandschulp",
     "awayParticipantId": "competitor:tennis:atp:daniel-merida",
-    "venue": "Shanghai",
+    "venue": "Show Court 3",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184875",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184875",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184875",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -225755,8 +227246,52 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 1,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 6,
+        "away": 4
+      }
+    ],
+    "score": "1–6, 6–3, 6–4",
+    "scoreDisplay": "1–6, 6–3, 6–4",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184875",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:botic-van-de-zandschulp",
+    "loserParticipantId": "competitor:tennis:atp:daniel-merida",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:daniel-merida"
+    ],
+    "resultStatus": "published",
+    "result": "1–6, 6–3, 6–4",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Botic van de Zandschulp won. 1–6, 6–3, 6–4",
+    "recapText": "ESPN reports Botic van de Zandschulp as the winner of this round of 128 match. 1–6, 6–3, 6–4",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Botic van de Zandschulp v Daniel Merida is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Botic van de Zandschulp v Daniel Merida is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Botic van de Zandschulp won. 1–6, 6–3, 6–4",
+      "synopsisSpoilerOn": "ESPN reports Botic van de Zandschulp as the winner of this round of 128 match. 1–6, 6–3, 6–4"
+    },
+    "selectedSentence": "Botic van de Zandschulp v Daniel Merida is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Botic van de Zandschulp v Daniel Merida is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184877",
@@ -225791,12 +227326,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T04:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -225825,18 +227360,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:jaume-munar",
     "awayParticipantId": "competitor:tennis:atp:jenson-brooksby",
-    "venue": "Shanghai",
+    "venue": "Grandstand 2",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184877",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184877",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184877",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -225867,8 +227402,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 5,
+        "away": 7
+      },
+      {
+        "home": 4,
+        "away": 6
+      }
+    ],
+    "score": "5–7, 4–6",
+    "scoreDisplay": "5–7, 4–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184877",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:jenson-brooksby",
+    "loserParticipantId": "competitor:tennis:atp:jaume-munar",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:jaume-munar"
+    ],
+    "resultStatus": "published",
+    "result": "5–7, 4–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Jenson Brooksby won. 5–7, 4–6",
+    "recapText": "ESPN reports Jenson Brooksby as the winner of this round of 128 match. 5–7, 4–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Jaume Munar v Jenson Brooksby is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Jaume Munar v Jenson Brooksby is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Jenson Brooksby won. 5–7, 4–6",
+      "synopsisSpoilerOn": "ESPN reports Jenson Brooksby as the winner of this round of 128 match. 5–7, 4–6"
+    },
+    "selectedSentence": "Jaume Munar v Jenson Brooksby is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Jaume Munar v Jenson Brooksby is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184882",
@@ -225903,12 +227478,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T07:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -225937,18 +227512,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:marcos-giron",
     "awayParticipantId": "competitor:tennis:atp:sebastian-baez",
-    "venue": "Shanghai",
+    "venue": "Show Court 3",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184882",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184882",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184882",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -225979,8 +227554,52 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 1
+      },
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 4,
+        "away": 6
+      }
+    ],
+    "score": "6–1, 3–6, 4–6",
+    "scoreDisplay": "6–1, 3–6, 4–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184882",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:sebastian-baez",
+    "loserParticipantId": "competitor:tennis:atp:marcos-giron",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:marcos-giron"
+    ],
+    "resultStatus": "published",
+    "result": "6–1, 3–6, 4–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Sebastian Baez won. 6–1, 3–6, 4–6",
+    "recapText": "ESPN reports Sebastian Baez as the winner of this round of 128 match. 6–1, 3–6, 4–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Marcos Giron v Sebastian Baez is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Marcos Giron v Sebastian Baez is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Sebastian Baez won. 6–1, 3–6, 4–6",
+      "synopsisSpoilerOn": "ESPN reports Sebastian Baez as the winner of this round of 128 match. 6–1, 3–6, 4–6"
+    },
+    "selectedSentence": "Marcos Giron v Sebastian Baez is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Marcos Giron v Sebastian Baez is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184892",
@@ -226015,12 +227634,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T11:30:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -226050,18 +227669,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:vit-kopriva",
     "awayParticipantId": "competitor:tennis:atp:zizou-bergs",
-    "venue": "Shanghai",
+    "venue": "Grandstand 2",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184892",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184892",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184892",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -226092,8 +227711,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 1,
+        "away": 6
+      }
+    ],
+    "score": "3–6, 1–6",
+    "scoreDisplay": "3–6, 1–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184892",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:zizou-bergs",
+    "loserParticipantId": "competitor:tennis:atp:vit-kopriva",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:vit-kopriva"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 1–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Zizou Bergs won. 3–6, 1–6",
+    "recapText": "ESPN reports Zizou Bergs as the winner of this round of 128 match. 3–6, 1–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Vit Kopriva v Zizou Bergs is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Vit Kopriva v Zizou Bergs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Zizou Bergs won. 3–6, 1–6",
+      "synopsisSpoilerOn": "ESPN reports Zizou Bergs as the winner of this round of 128 match. 3–6, 1–6"
+    },
+    "selectedSentence": "Vit Kopriva v Zizou Bergs is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Vit Kopriva v Zizou Bergs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184893",
@@ -226128,12 +227787,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T08:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -226162,18 +227821,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:juan-manuel-cerundolo",
     "awayParticipantId": "competitor:tennis:atp:nicolas-mejia",
-    "venue": "Shanghai",
+    "venue": "Court 7",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184893",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184893",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184893",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -226204,8 +227863,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Court 7",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 6,
+        "away": 4
+      }
+    ],
+    "score": "6–4, 6–4",
+    "scoreDisplay": "6–4, 6–4",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184893",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:juan-manuel-cerundolo",
+    "loserParticipantId": "competitor:tennis:atp:nicolas-mejia",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:nicolas-mejia"
+    ],
+    "resultStatus": "published",
+    "result": "6–4, 6–4",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Juan Manuel Cerundolo won. 6–4, 6–4",
+    "recapText": "ESPN reports Juan Manuel Cerundolo as the winner of this round of 128 match. 6–4, 6–4",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Juan Manuel Cerundolo v Nicolas Mejia is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Juan Manuel Cerundolo v Nicolas Mejia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Juan Manuel Cerundolo won. 6–4, 6–4",
+      "synopsisSpoilerOn": "ESPN reports Juan Manuel Cerundolo as the winner of this round of 128 match. 6–4, 6–4"
+    },
+    "selectedSentence": "Juan Manuel Cerundolo v Nicolas Mejia is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Juan Manuel Cerundolo v Nicolas Mejia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-184249",
@@ -238763,12 +240462,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T05:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T05:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -238804,13 +240503,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184345",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184345",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184345",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -238841,8 +240540,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Capital Group Diamond",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 1,
+        "away": 6
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "score": "1–6, 3–6",
+    "scoreDisplay": "1–6, 3–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184345",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:iga-swiatek",
+    "loserParticipantId": "competitor:tennis:wta:iva-jovic",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:iva-jovic"
+    ],
+    "resultStatus": "published",
+    "result": "1–6, 3–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Iga Swiatek won. 1–6, 3–6",
+    "recapText": "ESPN reports Iga Swiatek as the winner of this round of 16 match. 1–6, 3–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Iva Jovic v Iga Swiatek is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Iva Jovic v Iga Swiatek is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Iga Swiatek won. 1–6, 3–6",
+      "synopsisSpoilerOn": "ESPN reports Iga Swiatek as the winner of this round of 16 match. 1–6, 3–6"
+    },
+    "selectedSentence": "Iva Jovic v Iga Swiatek is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Iva Jovic v Iga Swiatek is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-184346",
@@ -238877,12 +240616,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T06:15:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T07:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -238918,13 +240657,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184346",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184346",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184346",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -238955,8 +240694,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Capital Group Diamond",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "score": "3–6, 3–6",
+    "scoreDisplay": "3–6, 3–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184346",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:elise-mertens",
+    "loserParticipantId": "competitor:tennis:wta:coco-gauff",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:coco-gauff"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 3–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Elise Mertens won. 3–6, 3–6",
+    "recapText": "ESPN reports Elise Mertens as the winner of this round of 16 match. 3–6, 3–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Coco Gauff v Elise Mertens is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Coco Gauff v Elise Mertens is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Elise Mertens won. 3–6, 3–6",
+      "synopsisSpoilerOn": "ESPN reports Elise Mertens as the winner of this round of 16 match. 3–6, 3–6"
+    },
+    "selectedSentence": "Coco Gauff v Elise Mertens is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Coco Gauff v Elise Mertens is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-184355",
@@ -238991,12 +240770,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-07",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T11:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T11:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -239030,13 +240809,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184355",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184355",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184355",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -239067,8 +240846,52 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Capital Group Diamond",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 1,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 2
+      },
+      {
+        "home": 4,
+        "away": 6
+      }
+    ],
+    "score": "1–6, 6–2, 4–6",
+    "scoreDisplay": "1–6, 6–2, 4–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184355",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:zheng-qinwen",
+    "loserParticipantId": "competitor:tennis:wta:alina-charaeva",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:alina-charaeva"
+    ],
+    "resultStatus": "published",
+    "result": "1–6, 6–2, 4–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Zheng Qinwen won. 1–6, 6–2, 4–6",
+    "recapText": "ESPN reports Zheng Qinwen as the winner of this round of 16 match. 1–6, 6–2, 4–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Alina Charaeva v Zheng Qinwen is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Alina Charaeva v Zheng Qinwen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Zheng Qinwen won. 1–6, 6–2, 4–6",
+      "synopsisSpoilerOn": "ESPN reports Zheng Qinwen as the winner of this round of 16 match. 1–6, 6–2, 4–6"
+    },
+    "selectedSentence": "Alina Charaeva v Zheng Qinwen is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Alina Charaeva v Zheng Qinwen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-184354",
@@ -239100,15 +240923,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Round of 16",
     "stage": "Round of 16",
     "name": "Ann Li v Elina Svitolina",
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-07T12:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-07T13:40:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -239144,13 +240967,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184354",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184354",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184354",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -239181,8 +241004,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Capital Group Diamond",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 2,
+        "away": 6
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "score": "2–6, 3–6",
+    "scoreDisplay": "2–6, 3–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184354",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:elina-svitolina",
+    "loserParticipantId": "competitor:tennis:wta:ann-li",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:ann-li"
+    ],
+    "resultStatus": "published",
+    "result": "2–6, 3–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Elina Svitolina won. 2–6, 3–6",
+    "recapText": "ESPN reports Elina Svitolina as the winner of this round of 16 match. 2–6, 3–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Ann Li v Elina Svitolina is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Ann Li v Elina Svitolina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Elina Svitolina won. 2–6, 3–6",
+      "synopsisSpoilerOn": "ESPN reports Elina Svitolina as the winner of this round of 16 match. 2–6, 3–6"
+    },
+    "selectedSentence": "Ann Li v Elina Svitolina is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Ann Li v Elina Svitolina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-184351",
@@ -239217,12 +241080,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T07:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -239253,18 +241116,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:karolina-muchova",
     "awayParticipantId": "competitor:tennis:wta:nikola-bartunkova",
-    "venue": "Beijing",
+    "venue": "Capital Group Diamond",
     "venueCity": "Beijing",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184351",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184351",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184351",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -239295,8 +241158,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Capital Group Diamond",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 0,
+        "away": 6
+      }
+    ],
+    "score": "3–6, 0–6",
+    "scoreDisplay": "3–6, 0–6",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184351",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:nikola-bartunkova",
+    "loserParticipantId": "competitor:tennis:wta:karolina-muchova",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:karolina-muchova"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 0–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Nikola Bartunkova won. 3–6, 0–6",
+    "recapText": "ESPN reports Nikola Bartunkova as the winner of this quarterfinal match. 3–6, 0–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Karolina Muchova v Nikola Bartunkova is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Karolina Muchova v Nikola Bartunkova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Nikola Bartunkova won. 3–6, 0–6",
+      "synopsisSpoilerOn": "ESPN reports Nikola Bartunkova as the winner of this quarterfinal match. 3–6, 0–6"
+    },
+    "selectedSentence": "Karolina Muchova v Nikola Bartunkova is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Karolina Muchova v Nikola Bartunkova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-184352",
@@ -239331,12 +241234,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-08",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-08T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-08T11:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -239367,18 +241270,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:ekaterina-alexandrova",
     "awayParticipantId": "competitor:tennis:wta:mirra-andreeva",
-    "venue": "Beijing",
+    "venue": "Capital Group Diamond",
     "venueCity": "Beijing",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184352",
-    "sourceCheckedAt": "2026-10-06T15:35:03.000Z",
-    "statusCheckedAt": "2026-10-06T15:35:03.000Z",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184352",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184352",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -239409,8 +241312,52 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "court": "Capital Group Diamond",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 4,
+        "awayTiebreak": 7
+      },
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 3,
+        "awayTiebreak": 7
+      }
+    ],
+    "score": "6–7, 6–7",
+    "scoreDisplay": "6–7, 6–7",
+    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184352",
+    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:mirra-andreeva",
+    "loserParticipantId": "competitor:tennis:wta:ekaterina-alexandrova",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:ekaterina-alexandrova"
+    ],
+    "resultStatus": "published",
+    "result": "6–7, 6–7",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Mirra Andreeva won. 6–7, 6–7",
+    "recapText": "ESPN reports Mirra Andreeva as the winner of this quarterfinal match. 6–7, 6–7",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Ekaterina Alexandrova v Mirra Andreeva is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Ekaterina Alexandrova v Mirra Andreeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Mirra Andreeva won. 6–7, 6–7",
+      "synopsisSpoilerOn": "ESPN reports Mirra Andreeva as the winner of this quarterfinal match. 6–7, 6–7"
+    },
+    "selectedSentence": "Ekaterina Alexandrova v Mirra Andreeva is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Ekaterina Alexandrova v Mirra Andreeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
@@ -240019,8 +241966,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "sourceEventIds": [
       "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
-      "fixture-tennis-atp-tokyo-2026-sf-alcaraz-munar",
-      "fixture:tennis:espn:atp:183512"
+      "fixture:tennis:espn:atp:183512",
+      "fixture-tennis-atp-tokyo-2026-sf-alcaraz-munar"
     ],
     "consensusTags": [
       {
@@ -240190,8 +242137,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "sourceEventIds": [
       "fixture:tennis:atp-beijing-2026:sf:de-minaur-hurkacz",
-      "fixture-tennis-atp-beijing-2026-sf-de-minaur-hurkacz",
-      "fixture:tennis:espn:atp:183466"
+      "fixture:tennis:espn:atp:183466",
+      "fixture-tennis-atp-beijing-2026-sf-de-minaur-hurkacz"
     ],
     "consensusTags": [
       {
@@ -240362,8 +242309,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "sourceEventIds": [
       "fixture:tennis:atp-beijing-2026:qf:djokovic-zverev",
-      "fixture-tennis-atp-beijing-2026-qf-djokovic-zverev",
-      "fixture:tennis:espn:atp:183465"
+      "fixture:tennis:espn:atp:183465",
+      "fixture-tennis-atp-beijing-2026-qf-djokovic-zverev"
     ],
     "consensusTags": [
       {
@@ -240554,8 +242501,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "sourceEventIds": [
       "fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka",
-      "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
-      "fixture:tennis:espn:atp:183514"
+      "fixture:tennis:espn:atp:183514",
+      "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka"
     ],
     "consensusTags": [
       {
@@ -241175,6 +243122,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "broadcasts": [],
     "sourceEventIds": [
       "fixture:tennis:atp-shanghai-2026:r64:de-minaur-molcan",
+      "fixture:tennis:espn:atp:184927",
       "fixture-tennis-atp-shanghai-2026-r64-de-minaur-molcan"
     ],
     "consensusTags": [
@@ -241193,6 +243141,4737 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
-    "catchupEligible": false
+    "catchupEligible": false,
+    "tennisProviderTour": "atp",
+    "tennisProviderMatchId": "184927",
+    "tennisProviderEventId": "315-2026",
+    "selectedSentence": "",
+    "fullSpiel": ""
+  },
+  {
+    "id": "fixture-mlb-849809",
+    "eventId": "fixture-mlb-849809",
+    "canonicalEventId": "fixture:mlb:849809",
+    "key": "baseball",
+    "sportDomainId": "sport:baseball",
+    "competitionId": "competition:mlb",
+    "competitionName": "MLB postseason",
+    "gender": "men",
+    "broadcaster": "Australian viewing unconfirmed",
+    "liveWindow": 6,
+    "season": 2026,
+    "name": "Milwaukee Brewers v Los Angeles Dodgers",
+    "roundLabel": "NLCS Game 1",
+    "stage": "NLCS Game 1",
+    "date": "2026-10-11",
+    "time": null,
+    "startTimeUtc": null,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "status": "upcoming",
+    "venue": "American Family Field",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "participantsConfirmed": true,
+    "participants": [
+      {
+        "id": "team:mlb:158",
+        "name": "Milwaukee Brewers",
+        "displayName": "Milwaukee Brewers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+      },
+      {
+        "id": "team:mlb:119",
+        "name": "Los Angeles Dodgers",
+        "displayName": "Los Angeles Dodgers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+      }
+    ],
+    "participantIds": [
+      "team:mlb:158",
+      "team:mlb:119"
+    ],
+    "homeParticipantId": "team:mlb:158",
+    "awayParticipantId": "team:mlb:119",
+    "participantSlots": [
+      {
+        "participantId": "team:mlb:158",
+        "label": "Milwaukee Brewers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+        "homeAway": "home"
+      },
+      {
+        "participantId": "team:mlb:119",
+        "label": "Los Angeles Dodgers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+        "homeAway": "away"
+      }
+    ],
+    "sourceName": "MLB",
+    "sourceType": "official",
+    "sourceUrl": "https://www.mlb.com/gameday/849809",
+    "sourceRefs": [
+      "https://www.mlb.com/gameday/849809",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+    ],
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+    "selectedSentence": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
+    "stakesScore": 4,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "hookSpoilerOff": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed"
+    },
+    "sourceTrust": "verified",
+    "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "round": "all",
+    "narrativeType": "all",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "fixture-mlb-849809"
+    ],
+    "consensusTags": []
+  },
+  {
+    "id": "fixture-mlb-849812",
+    "eventId": "fixture-mlb-849812",
+    "canonicalEventId": "fixture:mlb:849812",
+    "key": "baseball",
+    "sportDomainId": "sport:baseball",
+    "competitionId": "competition:mlb",
+    "competitionName": "MLB postseason",
+    "gender": "men",
+    "broadcaster": "Australian viewing unconfirmed",
+    "liveWindow": 6,
+    "season": 2026,
+    "name": "Milwaukee Brewers v Los Angeles Dodgers",
+    "roundLabel": "NLCS Game 2",
+    "stage": "NLCS Game 2",
+    "date": "2026-10-12",
+    "time": null,
+    "startTimeUtc": null,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "status": "upcoming",
+    "venue": "American Family Field",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "participantsConfirmed": true,
+    "participants": [
+      {
+        "id": "team:mlb:158",
+        "name": "Milwaukee Brewers",
+        "displayName": "Milwaukee Brewers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+      },
+      {
+        "id": "team:mlb:119",
+        "name": "Los Angeles Dodgers",
+        "displayName": "Los Angeles Dodgers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+      }
+    ],
+    "participantIds": [
+      "team:mlb:158",
+      "team:mlb:119"
+    ],
+    "homeParticipantId": "team:mlb:158",
+    "awayParticipantId": "team:mlb:119",
+    "participantSlots": [
+      {
+        "participantId": "team:mlb:158",
+        "label": "Milwaukee Brewers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+        "homeAway": "home"
+      },
+      {
+        "participantId": "team:mlb:119",
+        "label": "Los Angeles Dodgers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+        "homeAway": "away"
+      }
+    ],
+    "sourceName": "MLB",
+    "sourceType": "official",
+    "sourceUrl": "https://www.mlb.com/gameday/849812",
+    "sourceRefs": [
+      "https://www.mlb.com/gameday/849812",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+    ],
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+    "selectedSentence": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
+    "stakesScore": 4,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "hookSpoilerOff": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed"
+    },
+    "sourceTrust": "verified",
+    "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "round": "all",
+    "narrativeType": "all",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "fixture-mlb-849812"
+    ],
+    "consensusTags": []
+  },
+  {
+    "id": "fixture-mlb-849811",
+    "eventId": "fixture-mlb-849811",
+    "canonicalEventId": "fixture:mlb:849811",
+    "key": "baseball",
+    "sportDomainId": "sport:baseball",
+    "competitionId": "competition:mlb",
+    "competitionName": "MLB postseason",
+    "gender": "men",
+    "broadcaster": "Australian viewing unconfirmed",
+    "liveWindow": 6,
+    "season": 2026,
+    "name": "Los Angeles Dodgers v Milwaukee Brewers",
+    "roundLabel": "NLCS Game 3",
+    "stage": "NLCS Game 3",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "status": "upcoming",
+    "venue": "UNIQLO Field at Dodger Stadium",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "participantsConfirmed": true,
+    "participants": [
+      {
+        "id": "team:mlb:119",
+        "name": "Los Angeles Dodgers",
+        "displayName": "Los Angeles Dodgers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+      },
+      {
+        "id": "team:mlb:158",
+        "name": "Milwaukee Brewers",
+        "displayName": "Milwaukee Brewers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+      }
+    ],
+    "participantIds": [
+      "team:mlb:119",
+      "team:mlb:158"
+    ],
+    "homeParticipantId": "team:mlb:119",
+    "awayParticipantId": "team:mlb:158",
+    "participantSlots": [
+      {
+        "participantId": "team:mlb:119",
+        "label": "Los Angeles Dodgers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+        "homeAway": "home"
+      },
+      {
+        "participantId": "team:mlb:158",
+        "label": "Milwaukee Brewers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+        "homeAway": "away"
+      }
+    ],
+    "sourceName": "MLB",
+    "sourceType": "official",
+    "sourceUrl": "https://www.mlb.com/gameday/849811",
+    "sourceRefs": [
+      "https://www.mlb.com/gameday/849811",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+    ],
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+    "selectedSentence": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
+    "stakesScore": 4,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "hookSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed"
+    },
+    "sourceTrust": "verified",
+    "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "round": "all",
+    "narrativeType": "all",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "fixture-mlb-849811"
+    ],
+    "consensusTags": []
+  },
+  {
+    "id": "fixture-mlb-849810",
+    "eventId": "fixture-mlb-849810",
+    "canonicalEventId": "fixture:mlb:849810",
+    "key": "baseball",
+    "sportDomainId": "sport:baseball",
+    "competitionId": "competition:mlb",
+    "competitionName": "MLB postseason",
+    "gender": "men",
+    "broadcaster": "Australian viewing unconfirmed",
+    "liveWindow": 6,
+    "season": 2026,
+    "name": "Los Angeles Dodgers v Milwaukee Brewers",
+    "roundLabel": "NLCS Game 4",
+    "stage": "NLCS Game 4",
+    "date": "2026-10-15",
+    "time": null,
+    "startTimeUtc": null,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "status": "upcoming",
+    "venue": "UNIQLO Field at Dodger Stadium",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "participantsConfirmed": true,
+    "participants": [
+      {
+        "id": "team:mlb:119",
+        "name": "Los Angeles Dodgers",
+        "displayName": "Los Angeles Dodgers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+      },
+      {
+        "id": "team:mlb:158",
+        "name": "Milwaukee Brewers",
+        "displayName": "Milwaukee Brewers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+      }
+    ],
+    "participantIds": [
+      "team:mlb:119",
+      "team:mlb:158"
+    ],
+    "homeParticipantId": "team:mlb:119",
+    "awayParticipantId": "team:mlb:158",
+    "participantSlots": [
+      {
+        "participantId": "team:mlb:119",
+        "label": "Los Angeles Dodgers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+        "homeAway": "home"
+      },
+      {
+        "participantId": "team:mlb:158",
+        "label": "Milwaukee Brewers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+        "homeAway": "away"
+      }
+    ],
+    "sourceName": "MLB",
+    "sourceType": "official",
+    "sourceUrl": "https://www.mlb.com/gameday/849810",
+    "sourceRefs": [
+      "https://www.mlb.com/gameday/849810",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+    ],
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+    "selectedSentence": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
+    "stakesScore": 4,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "hookSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed"
+    },
+    "sourceTrust": "verified",
+    "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "round": "all",
+    "narrativeType": "all",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "fixture-mlb-849810"
+    ],
+    "consensusTags": []
+  },
+  {
+    "id": "fixture-mlb-849808",
+    "eventId": "fixture-mlb-849808",
+    "canonicalEventId": "fixture:mlb:849808",
+    "key": "baseball",
+    "sportDomainId": "sport:baseball",
+    "competitionId": "competition:mlb",
+    "competitionName": "MLB postseason",
+    "gender": "men",
+    "broadcaster": "Australian viewing unconfirmed",
+    "liveWindow": 6,
+    "season": 2026,
+    "name": "Los Angeles Dodgers v Milwaukee Brewers",
+    "roundLabel": "NLCS Game 5",
+    "stage": "NLCS Game 5",
+    "date": "2026-10-16",
+    "time": null,
+    "startTimeUtc": null,
+    "timePrecision": "tbc",
+    "scheduleStatus": "conditional",
+    "status": "upcoming",
+    "venue": "UNIQLO Field at Dodger Stadium",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "participantsConfirmed": true,
+    "participants": [
+      {
+        "id": "team:mlb:119",
+        "name": "Los Angeles Dodgers",
+        "displayName": "Los Angeles Dodgers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+      },
+      {
+        "id": "team:mlb:158",
+        "name": "Milwaukee Brewers",
+        "displayName": "Milwaukee Brewers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+      }
+    ],
+    "participantIds": [
+      "team:mlb:119",
+      "team:mlb:158"
+    ],
+    "homeParticipantId": "team:mlb:119",
+    "awayParticipantId": "team:mlb:158",
+    "participantSlots": [
+      {
+        "participantId": "team:mlb:119",
+        "label": "Los Angeles Dodgers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+        "homeAway": "home"
+      },
+      {
+        "participantId": "team:mlb:158",
+        "label": "Milwaukee Brewers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+        "homeAway": "away"
+      }
+    ],
+    "sourceName": "MLB",
+    "sourceType": "official",
+    "sourceUrl": "https://www.mlb.com/gameday/849808",
+    "sourceRefs": [
+      "https://www.mlb.com/gameday/849808",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+    ],
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+    "selectedSentence": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
+    "stakesScore": 4,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "hookSpoilerOff": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed"
+    },
+    "sourceTrust": "verified",
+    "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "round": "all",
+    "narrativeType": "all",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "fixture-mlb-849808"
+    ],
+    "consensusTags": []
+  },
+  {
+    "id": "fixture-mlb-849806",
+    "eventId": "fixture-mlb-849806",
+    "canonicalEventId": "fixture:mlb:849806",
+    "key": "baseball",
+    "sportDomainId": "sport:baseball",
+    "competitionId": "competition:mlb",
+    "competitionName": "MLB postseason",
+    "gender": "men",
+    "broadcaster": "Australian viewing unconfirmed",
+    "liveWindow": 6,
+    "season": 2026,
+    "name": "Milwaukee Brewers v Los Angeles Dodgers",
+    "roundLabel": "NLCS Game 6",
+    "stage": "NLCS Game 6",
+    "date": "2026-10-18",
+    "time": null,
+    "startTimeUtc": null,
+    "timePrecision": "tbc",
+    "scheduleStatus": "conditional",
+    "status": "upcoming",
+    "venue": "American Family Field",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "participantsConfirmed": true,
+    "participants": [
+      {
+        "id": "team:mlb:158",
+        "name": "Milwaukee Brewers",
+        "displayName": "Milwaukee Brewers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+      },
+      {
+        "id": "team:mlb:119",
+        "name": "Los Angeles Dodgers",
+        "displayName": "Los Angeles Dodgers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+      }
+    ],
+    "participantIds": [
+      "team:mlb:158",
+      "team:mlb:119"
+    ],
+    "homeParticipantId": "team:mlb:158",
+    "awayParticipantId": "team:mlb:119",
+    "participantSlots": [
+      {
+        "participantId": "team:mlb:158",
+        "label": "Milwaukee Brewers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+        "homeAway": "home"
+      },
+      {
+        "participantId": "team:mlb:119",
+        "label": "Los Angeles Dodgers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+        "homeAway": "away"
+      }
+    ],
+    "sourceName": "MLB",
+    "sourceType": "official",
+    "sourceUrl": "https://www.mlb.com/gameday/849806",
+    "sourceRefs": [
+      "https://www.mlb.com/gameday/849806",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+    ],
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+    "selectedSentence": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
+    "stakesScore": 4,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "hookSpoilerOff": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed"
+    },
+    "sourceTrust": "verified",
+    "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "round": "all",
+    "narrativeType": "all",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "fixture-mlb-849806"
+    ],
+    "consensusTags": []
+  },
+  {
+    "id": "fixture-mlb-849807",
+    "eventId": "fixture-mlb-849807",
+    "canonicalEventId": "fixture:mlb:849807",
+    "key": "baseball",
+    "sportDomainId": "sport:baseball",
+    "competitionId": "competition:mlb",
+    "competitionName": "MLB postseason",
+    "gender": "men",
+    "broadcaster": "Australian viewing unconfirmed",
+    "liveWindow": 6,
+    "season": 2026,
+    "name": "Milwaukee Brewers v Los Angeles Dodgers",
+    "roundLabel": "NLCS Game 7",
+    "stage": "NLCS Game 7",
+    "date": "2026-10-19",
+    "time": null,
+    "startTimeUtc": null,
+    "timePrecision": "tbc",
+    "scheduleStatus": "conditional",
+    "status": "upcoming",
+    "venue": "American Family Field",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "participantsConfirmed": true,
+    "participants": [
+      {
+        "id": "team:mlb:158",
+        "name": "Milwaukee Brewers",
+        "displayName": "Milwaukee Brewers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+      },
+      {
+        "id": "team:mlb:119",
+        "name": "Los Angeles Dodgers",
+        "displayName": "Los Angeles Dodgers",
+        "entityType": "team",
+        "type": "team",
+        "sportDomainId": "sport:baseball",
+        "competitionId": "competition:mlb",
+        "countryCode": "US",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+      }
+    ],
+    "participantIds": [
+      "team:mlb:158",
+      "team:mlb:119"
+    ],
+    "homeParticipantId": "team:mlb:158",
+    "awayParticipantId": "team:mlb:119",
+    "participantSlots": [
+      {
+        "participantId": "team:mlb:158",
+        "label": "Milwaukee Brewers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+        "homeAway": "home"
+      },
+      {
+        "participantId": "team:mlb:119",
+        "label": "Los Angeles Dodgers",
+        "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+        "homeAway": "away"
+      }
+    ],
+    "sourceName": "MLB",
+    "sourceType": "official",
+    "sourceUrl": "https://www.mlb.com/gameday/849807",
+    "sourceRefs": [
+      "https://www.mlb.com/gameday/849807",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+    ],
+    "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
+    "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+    "selectedSentence": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-08T21:01:42.917Z",
+    "stakesScore": 4,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "hookSpoilerOff": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed"
+    },
+    "sourceTrust": "verified",
+    "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "round": "all",
+    "narrativeType": "all",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "fixture-mlb-849807"
+    ],
+    "consensusTags": []
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184914",
+    "eventId": "fixture-tennis-espn-atp-184914",
+    "canonicalEventId": "fixture:tennis:espn:atp:184914",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184914",
+      "fixture-tennis-espn-atp-184914"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184914",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Rei Sakamoto v Andrey Rublev",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:rei-sakamoto",
+      "competitor:tennis:atp:andrey-rublev"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:rei-sakamoto",
+        "name": "Rei Sakamoto",
+        "displayName": "Rei Sakamoto",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:andrey-rublev",
+        "name": "Andrey Rublev",
+        "displayName": "Andrey Rublev",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "RU"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:rei-sakamoto",
+    "awayParticipantId": "competitor:tennis:atp:andrey-rublev",
+    "venue": "Show Court 3",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184914",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184914",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184914",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Rei Sakamoto v Andrey Rublev",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184914"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184916",
+    "eventId": "fixture-tennis-espn-atp-184916",
+    "canonicalEventId": "fixture:tennis:espn:atp:184916",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184916",
+      "fixture-tennis-espn-atp-184916"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184916",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Adrian Mannarino v Flavio Cobolli",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:adrian-mannarino",
+      "competitor:tennis:atp:flavio-cobolli"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:adrian-mannarino",
+        "name": "Adrian Mannarino",
+        "displayName": "Adrian Mannarino",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:flavio-cobolli",
+        "name": "Flavio Cobolli",
+        "displayName": "Flavio Cobolli",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "IT"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:adrian-mannarino",
+    "awayParticipantId": "competitor:tennis:atp:flavio-cobolli",
+    "venue": "Grandstand 2",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184916",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184916",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184916",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Adrian Mannarino v Flavio Cobolli",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184916"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184920",
+    "eventId": "fixture-tennis-espn-atp-184920",
+    "canonicalEventId": "fixture:tennis:espn:atp:184920",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184920",
+      "fixture-tennis-espn-atp-184920"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184920",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Ben Shelton v Daniel Altmaier",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:ben-shelton",
+      "competitor:tennis:atp:daniel-altmaier"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:ben-shelton",
+        "name": "Ben Shelton",
+        "displayName": "Ben Shelton",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      },
+      {
+        "id": "competitor:tennis:atp:daniel-altmaier",
+        "name": "Daniel Altmaier",
+        "displayName": "Daniel Altmaier",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:ben-shelton",
+    "awayParticipantId": "competitor:tennis:atp:daniel-altmaier",
+    "venue": "Stadium Court",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184920",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184920",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184920",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Ben Shelton v Daniel Altmaier",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184920"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184921",
+    "eventId": "fixture-tennis-espn-atp-184921",
+    "canonicalEventId": "fixture:tennis:espn:atp:184921",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184921",
+      "fixture-tennis-espn-atp-184921"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184921",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Arthur Gea v Ugo Humbert",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:arthur-gea",
+      "competitor:tennis:atp:ugo-humbert"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:arthur-gea",
+        "name": "Arthur Gea",
+        "displayName": "Arthur Gea",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:ugo-humbert",
+        "name": "Ugo Humbert",
+        "displayName": "Ugo Humbert",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "FR"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:arthur-gea",
+    "awayParticipantId": "competitor:tennis:atp:ugo-humbert",
+    "venue": "Court 4",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184921",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184921",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184921",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Court 4",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Arthur Gea v Ugo Humbert",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184921"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184904",
+    "eventId": "fixture-tennis-espn-atp-184904",
+    "canonicalEventId": "fixture:tennis:espn:atp:184904",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184904",
+      "fixture-tennis-espn-atp-184904"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184904",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Yannick Hanfmann v Frances Tiafoe",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T05:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:yannick-hanfmann",
+      "competitor:tennis:atp:frances-tiafoe"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:yannick-hanfmann",
+        "name": "Yannick Hanfmann",
+        "displayName": "Yannick Hanfmann",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:frances-tiafoe",
+        "name": "Frances Tiafoe",
+        "displayName": "Frances Tiafoe",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:yannick-hanfmann",
+    "awayParticipantId": "competitor:tennis:atp:frances-tiafoe",
+    "venue": "Grandstand 2",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184904",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184904",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184904",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Yannick Hanfmann v Frances Tiafoe",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184904"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184924",
+    "eventId": "fixture-tennis-espn-atp-184924",
+    "canonicalEventId": "fixture:tennis:espn:atp:184924",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184924",
+      "fixture-tennis-espn-atp-184924"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184924",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Quentin Halys v Alexander Blockx",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T05:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:quentin-halys",
+      "competitor:tennis:atp:alexander-blockx"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:quentin-halys",
+        "name": "Quentin Halys",
+        "displayName": "Quentin Halys",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:tennis:atp:alexander-blockx",
+        "name": "Alexander Blockx",
+        "displayName": "Alexander Blockx",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "BE"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:quentin-halys",
+    "awayParticipantId": "competitor:tennis:atp:alexander-blockx",
+    "venue": "Court 4",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184924",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184924",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184924",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Court 4",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Quentin Halys v Alexander Blockx",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184924"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184926",
+    "eventId": "fixture-tennis-espn-atp-184926",
+    "canonicalEventId": "fixture:tennis:espn:atp:184926",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184926",
+      "fixture-tennis-espn-atp-184926"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184926",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Matteo Berrettini v Brandon Nakashima",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T05:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:matteo-berrettini",
+      "competitor:tennis:atp:brandon-nakashima"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:matteo-berrettini",
+        "name": "Matteo Berrettini",
+        "displayName": "Matteo Berrettini",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:tennis:atp:brandon-nakashima",
+        "name": "Brandon Nakashima",
+        "displayName": "Brandon Nakashima",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:matteo-berrettini",
+    "awayParticipantId": "competitor:tennis:atp:brandon-nakashima",
+    "venue": "Show Court 3",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184926",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184926",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184926",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Matteo Berrettini v Brandon Nakashima",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184926"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184928",
+    "eventId": "fixture-tennis-espn-atp-184928",
+    "canonicalEventId": "fixture:tennis:espn:atp:184928",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184928",
+      "fixture-tennis-espn-atp-184928"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184928",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Alexander Zverev v Wu Yibing",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T05:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:alexander-zverev",
+      "competitor:tennis:atp:wu-yibing"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:alexander-zverev",
+        "name": "Alexander Zverev",
+        "displayName": "Alexander Zverev",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "DE"
+      },
+      {
+        "id": "competitor:tennis:atp:wu-yibing",
+        "name": "Wu Yibing",
+        "displayName": "Wu Yibing",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:alexander-zverev",
+    "awayParticipantId": "competitor:tennis:atp:wu-yibing",
+    "venue": "Stadium Court",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184928",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184928",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184928",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Alexander Zverev v Wu Yibing",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184928"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184915",
+    "eventId": "fixture-tennis-espn-atp-184915",
+    "canonicalEventId": "fixture:tennis:espn:atp:184915",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184915",
+      "fixture-tennis-espn-atp-184915"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184915",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Karen Khachanov v Arthur Fery",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T07:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:karen-khachanov",
+      "competitor:tennis:atp:arthur-fery"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:karen-khachanov",
+        "name": "Karen Khachanov",
+        "displayName": "Karen Khachanov",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "RU"
+      },
+      {
+        "id": "competitor:tennis:atp:arthur-fery",
+        "name": "Arthur Fery",
+        "displayName": "Arthur Fery",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "GB"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:karen-khachanov",
+    "awayParticipantId": "competitor:tennis:atp:arthur-fery",
+    "venue": "Show Court 3",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184915",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184915",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184915",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Karen Khachanov v Arthur Fery",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184915"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184919",
+    "eventId": "fixture-tennis-espn-atp-184919",
+    "canonicalEventId": "fixture:tennis:espn:atp:184919",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184919",
+      "fixture-tennis-espn-atp-184919"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184919",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Alejandro Davidovich Fokina v Jenson Brooksby",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T07:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:alejandro-davidovich-fokina",
+      "competitor:tennis:atp:jenson-brooksby"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:alejandro-davidovich-fokina",
+        "name": "Alejandro Davidovich Fokina",
+        "displayName": "Alejandro Davidovich Fokina",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "ES"
+      },
+      {
+        "id": "competitor:tennis:atp:jenson-brooksby",
+        "name": "Jenson Brooksby",
+        "displayName": "Jenson Brooksby",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
+    "awayParticipantId": "competitor:tennis:atp:jenson-brooksby",
+    "venue": "Court 4",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184919",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184919",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184919",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Court 4",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Alejandro Davidovich Fokina v Jenson Brooksby",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184919"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184922",
+    "eventId": "fixture-tennis-espn-atp-184922",
+    "canonicalEventId": "fixture:tennis:espn:atp:184922",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184922",
+      "fixture-tennis-espn-atp-184922"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184922",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Francisco Cerundolo v Roman Safiullin",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T08:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:francisco-cerundolo",
+      "competitor:tennis:atp:roman-safiullin"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:francisco-cerundolo",
+        "name": "Francisco Cerundolo",
+        "displayName": "Francisco Cerundolo",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "AR"
+      },
+      {
+        "id": "competitor:tennis:atp:roman-safiullin",
+        "name": "Roman Safiullin",
+        "displayName": "Roman Safiullin",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:francisco-cerundolo",
+    "awayParticipantId": "competitor:tennis:atp:roman-safiullin",
+    "venue": "Court 4",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184922",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184922",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184922",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Court 4",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Francisco Cerundolo v Roman Safiullin",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184922"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184923",
+    "eventId": "fixture-tennis-espn-atp-184923",
+    "canonicalEventId": "fixture:tennis:espn:atp:184923",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184923",
+      "fixture-tennis-espn-atp-184923"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184923",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Miomir Kecmanovic v Jakub Mensik",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T08:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:miomir-kecmanovic",
+      "competitor:tennis:atp:jakub-mensik"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:miomir-kecmanovic",
+        "name": "Miomir Kecmanovic",
+        "displayName": "Miomir Kecmanovic",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:jakub-mensik",
+        "name": "Jakub Mensik",
+        "displayName": "Jakub Mensik",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CZ"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:miomir-kecmanovic",
+    "awayParticipantId": "competitor:tennis:atp:jakub-mensik",
+    "venue": "Show Court 3",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184923",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184923",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184923",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Show Court 3",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Miomir Kecmanovic v Jakub Mensik",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184923"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184925",
+    "eventId": "fixture-tennis-espn-atp-184925",
+    "canonicalEventId": "fixture:tennis:espn:atp:184925",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184925",
+      "fixture-tennis-espn-atp-184925"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184925",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Alexander Bublik v Tomas Machac",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T08:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:alexander-bublik",
+      "competitor:tennis:atp:tomas-machac"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:alexander-bublik",
+        "name": "Alexander Bublik",
+        "displayName": "Alexander Bublik",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "KZ"
+      },
+      {
+        "id": "competitor:tennis:atp:tomas-machac",
+        "name": "Tomas Machac",
+        "displayName": "Tomas Machac",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:alexander-bublik",
+    "awayParticipantId": "competitor:tennis:atp:tomas-machac",
+    "venue": "Grandstand 2",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184925",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184925",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184925",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Alexander Bublik v Tomas Machac",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184925"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184917",
+    "eventId": "fixture-tennis-espn-atp-184917",
+    "canonicalEventId": "fixture:tennis:espn:atp:184917",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184917",
+      "fixture-tennis-espn-atp-184917"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184917",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Novak Djokovic v Hubert Hurkacz",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T10:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:novak-djokovic",
+      "competitor:tennis:atp:hubert-hurkacz"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:novak-djokovic",
+        "name": "Novak Djokovic",
+        "displayName": "Novak Djokovic",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "RS"
+      },
+      {
+        "id": "competitor:tennis:atp:hubert-hurkacz",
+        "name": "Hubert Hurkacz",
+        "displayName": "Hubert Hurkacz",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "PL"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:novak-djokovic",
+    "awayParticipantId": "competitor:tennis:atp:hubert-hurkacz",
+    "venue": "Stadium Court",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184917",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184917",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184917",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Novak Djokovic v Hubert Hurkacz",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184917"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184918",
+    "eventId": "fixture-tennis-espn-atp-184918",
+    "canonicalEventId": "fixture:tennis:espn:atp:184918",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184918",
+      "fixture-tennis-espn-atp-184918"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184918",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Zhou Yi v Lorenzo Musetti",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T11:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:zhou-yi",
+      "competitor:tennis:atp:lorenzo-musetti"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:zhou-yi",
+        "name": "Zhou Yi",
+        "displayName": "Zhou Yi",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:lorenzo-musetti",
+        "name": "Lorenzo Musetti",
+        "displayName": "Lorenzo Musetti",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "IT"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:zhou-yi",
+    "awayParticipantId": "competitor:tennis:atp:lorenzo-musetti",
+    "venue": "Stadium Court",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184918",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184918",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184918",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Zhou Yi v Lorenzo Musetti",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184918"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184897",
+    "eventId": "fixture-tennis-espn-atp-184897",
+    "canonicalEventId": "fixture:tennis:espn:atp:184897",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184897",
+      "fixture-tennis-espn-atp-184897"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184897",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Luciano Darderi v Stefanos Tsitsipas",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:luciano-darderi",
+      "competitor:tennis:atp:stefanos-tsitsipas"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:luciano-darderi",
+        "name": "Luciano Darderi",
+        "displayName": "Luciano Darderi",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:tennis:atp:stefanos-tsitsipas",
+        "name": "Stefanos Tsitsipas",
+        "displayName": "Stefanos Tsitsipas",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "GR"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:luciano-darderi",
+    "awayParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184897",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184897",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184897",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Luciano Darderi v Stefanos Tsitsipas",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184897"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184898",
+    "eventId": "fixture-tennis-espn-atp-184898",
+    "canonicalEventId": "fixture:tennis:espn:atp:184898",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184898",
+      "fixture-tennis-espn-atp-184898"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184898",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Matteo Arnaldi v Taylor Fritz",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:matteo-arnaldi",
+      "competitor:tennis:atp:taylor-fritz"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:matteo-arnaldi",
+        "name": "Matteo Arnaldi",
+        "displayName": "Matteo Arnaldi",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:tennis:atp:taylor-fritz",
+        "name": "Taylor Fritz",
+        "displayName": "Taylor Fritz",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:matteo-arnaldi",
+    "awayParticipantId": "competitor:tennis:atp:taylor-fritz",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184898",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184898",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184898",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Matteo Arnaldi v Taylor Fritz",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184898"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184899",
+    "eventId": "fixture-tennis-espn-atp-184899",
+    "canonicalEventId": "fixture:tennis:espn:atp:184899",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184899",
+      "fixture-tennis-espn-atp-184899"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184899",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Tommy Paul v Adolfo Daniel Vallejo",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:tommy-paul",
+      "competitor:tennis:atp:adolfo-daniel-vallejo"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:tommy-paul",
+        "name": "Tommy Paul",
+        "displayName": "Tommy Paul",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      },
+      {
+        "id": "competitor:tennis:atp:adolfo-daniel-vallejo",
+        "name": "Adolfo Daniel Vallejo",
+        "displayName": "Adolfo Daniel Vallejo",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:tommy-paul",
+    "awayParticipantId": "competitor:tennis:atp:adolfo-daniel-vallejo",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184899",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184899",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184899",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Tommy Paul v Adolfo Daniel Vallejo",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184899"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184900",
+    "eventId": "fixture-tennis-espn-atp-184900",
+    "canonicalEventId": "fixture:tennis:espn:atp:184900",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184900",
+      "fixture-tennis-espn-atp-184900"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184900",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Sebastian Baez v Valentin Vacherot",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:sebastian-baez",
+      "competitor:tennis:atp:valentin-vacherot"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:sebastian-baez",
+        "name": "Sebastian Baez",
+        "displayName": "Sebastian Baez",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:valentin-vacherot",
+        "name": "Valentin Vacherot",
+        "displayName": "Valentin Vacherot",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "MC"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:sebastian-baez",
+    "awayParticipantId": "competitor:tennis:atp:valentin-vacherot",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184900",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184900",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184900",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Sebastian Baez v Valentin Vacherot",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184900"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184901",
+    "eventId": "fixture-tennis-espn-atp-184901",
+    "canonicalEventId": "fixture:tennis:espn:atp:184901",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184901",
+      "fixture-tennis-espn-atp-184901"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184901",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Dalibor Svrcina v Tomas Martin Etcheverry",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:dalibor-svrcina",
+      "competitor:tennis:atp:tomas-martin-etcheverry"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:dalibor-svrcina",
+        "name": "Dalibor Svrcina",
+        "displayName": "Dalibor Svrcina",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:tomas-martin-etcheverry",
+        "name": "Tomas Martin Etcheverry",
+        "displayName": "Tomas Martin Etcheverry",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "AR"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:dalibor-svrcina",
+    "awayParticipantId": "competitor:tennis:atp:tomas-martin-etcheverry",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184901",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184901",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184901",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Dalibor Svrcina v Tomas Martin Etcheverry",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184901"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184902",
+    "eventId": "fixture-tennis-espn-atp-184902",
+    "canonicalEventId": "fixture:tennis:espn:atp:184902",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184902",
+      "fixture-tennis-espn-atp-184902"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184902",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Ignacio Buse v Zizou Bergs",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:ignacio-buse",
+      "competitor:tennis:atp:zizou-bergs"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:ignacio-buse",
+        "name": "Ignacio Buse",
+        "displayName": "Ignacio Buse",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "PE"
+      },
+      {
+        "id": "competitor:tennis:atp:zizou-bergs",
+        "name": "Zizou Bergs",
+        "displayName": "Zizou Bergs",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "BE"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:ignacio-buse",
+    "awayParticipantId": "competitor:tennis:atp:zizou-bergs",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184902",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184902",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184902",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Ignacio Buse v Zizou Bergs",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184902"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184903",
+    "eventId": "fixture-tennis-espn-atp-184903",
+    "canonicalEventId": "fixture:tennis:espn:atp:184903",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184903",
+      "fixture-tennis-espn-atp-184903"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184903",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Juan Manuel Cerundolo v Carlos Alcaraz",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:juan-manuel-cerundolo",
+      "competitor:tennis:atp:carlos-alcaraz"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:juan-manuel-cerundolo",
+        "name": "Juan Manuel Cerundolo",
+        "displayName": "Juan Manuel Cerundolo",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:carlos-alcaraz",
+        "name": "Carlos Alcaraz",
+        "displayName": "Carlos Alcaraz",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "ES"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:juan-manuel-cerundolo",
+    "awayParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184903",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184903",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184903",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Juan Manuel Cerundolo v Carlos Alcaraz",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184903"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184905",
+    "eventId": "fixture-tennis-espn-atp-184905",
+    "canonicalEventId": "fixture:tennis:espn:atp:184905",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184905",
+      "fixture-tennis-espn-atp-184905"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184905",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Arthur Fils v Pavel Kotov",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:arthur-fils",
+      "competitor:tennis:atp:pavel-kotov"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:arthur-fils",
+        "name": "Arthur Fils",
+        "displayName": "Arthur Fils",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:tennis:atp:pavel-kotov",
+        "name": "Pavel Kotov",
+        "displayName": "Pavel Kotov",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:arthur-fils",
+    "awayParticipantId": "competitor:tennis:atp:pavel-kotov",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184905",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184905",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184905",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Arthur Fils v Pavel Kotov",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184905"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184906",
+    "eventId": "fixture-tennis-espn-atp-184906",
+    "canonicalEventId": "fixture:tennis:espn:atp:184906",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184906",
+      "fixture-tennis-espn-atp-184906"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184906",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Botic van de Zandschulp v Alex Michelsen",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:botic-van-de-zandschulp",
+      "competitor:tennis:atp:alex-michelsen"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:botic-van-de-zandschulp",
+        "name": "Botic van de Zandschulp",
+        "displayName": "Botic van de Zandschulp",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "NL"
+      },
+      {
+        "id": "competitor:tennis:atp:alex-michelsen",
+        "name": "Alex Michelsen",
+        "displayName": "Alex Michelsen",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:botic-van-de-zandschulp",
+    "awayParticipantId": "competitor:tennis:atp:alex-michelsen",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184906",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184906",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184906",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Botic van de Zandschulp v Alex Michelsen",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184906"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184907",
+    "eventId": "fixture-tennis-espn-atp-184907",
+    "canonicalEventId": "fixture:tennis:espn:atp:184907",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184907",
+      "fixture-tennis-espn-atp-184907"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184907",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Jiri Lehecka v Nuno Borges",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:jiri-lehecka",
+      "competitor:tennis:atp:nuno-borges"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:jiri-lehecka",
+        "name": "Jiri Lehecka",
+        "displayName": "Jiri Lehecka",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CZ"
+      },
+      {
+        "id": "competitor:tennis:atp:nuno-borges",
+        "name": "Nuno Borges",
+        "displayName": "Nuno Borges",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "PT"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:jiri-lehecka",
+    "awayParticipantId": "competitor:tennis:atp:nuno-borges",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184907",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184907",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184907",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Jiri Lehecka v Nuno Borges",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184907"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184908",
+    "eventId": "fixture-tennis-espn-atp-184908",
+    "canonicalEventId": "fixture:tennis:espn:atp:184908",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184908",
+      "fixture-tennis-espn-atp-184908"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184908",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Camilo Ugo Carabelli v Felix Auger Aliassime",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:camilo-ugo-carabelli",
+      "competitor:tennis:atp:felix-auger-aliassime"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:camilo-ugo-carabelli",
+        "name": "Camilo Ugo Carabelli",
+        "displayName": "Camilo Ugo Carabelli",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:felix-auger-aliassime",
+        "name": "Felix Auger Aliassime",
+        "displayName": "Felix Auger Aliassime",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CA"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:camilo-ugo-carabelli",
+    "awayParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184908",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184908",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184908",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Camilo Ugo Carabelli v Felix Auger Aliassime",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184908"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184909",
+    "eventId": "fixture-tennis-espn-atp-184909",
+    "canonicalEventId": "fixture:tennis:espn:atp:184909",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184909",
+      "fixture-tennis-espn-atp-184909"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184909",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Daniil Medvedev v Jan-Lennard Struff",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:daniil-medvedev",
+      "competitor:tennis:atp:jan-lennard-struff"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:daniil-medvedev",
+        "name": "Daniil Medvedev",
+        "displayName": "Daniil Medvedev",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "RU"
+      },
+      {
+        "id": "competitor:tennis:atp:jan-lennard-struff",
+        "name": "Jan-Lennard Struff",
+        "displayName": "Jan-Lennard Struff",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:daniil-medvedev",
+    "awayParticipantId": "competitor:tennis:atp:jan-lennard-struff",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184909",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184909",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184909",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Daniil Medvedev v Jan-Lennard Struff",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184909"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184910",
+    "eventId": "fixture-tennis-espn-atp-184910",
+    "canonicalEventId": "fixture:tennis:espn:atp:184910",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184910",
+      "fixture-tennis-espn-atp-184910"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184910",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Thiago Agustin Tirante v Rafael Jodar",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:thiago-agustin-tirante",
+      "competitor:tennis:atp:rafael-jodar"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:thiago-agustin-tirante",
+        "name": "Thiago Agustin Tirante",
+        "displayName": "Thiago Agustin Tirante",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:rafael-jodar",
+        "name": "Rafael Jodar",
+        "displayName": "Rafael Jodar",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "ES"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:thiago-agustin-tirante",
+    "awayParticipantId": "competitor:tennis:atp:rafael-jodar",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184910",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184910",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184910",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Thiago Agustin Tirante v Rafael Jodar",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184910"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184911",
+    "eventId": "fixture-tennis-espn-atp-184911",
+    "canonicalEventId": "fixture:tennis:espn:atp:184911",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184911",
+      "fixture-tennis-espn-atp-184911"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184911",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Learner Tien v Zachary Svajda",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:learner-tien",
+      "competitor:tennis:atp:zachary-svajda"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:learner-tien",
+        "name": "Learner Tien",
+        "displayName": "Learner Tien",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      },
+      {
+        "id": "competitor:tennis:atp:zachary-svajda",
+        "name": "Zachary Svajda",
+        "displayName": "Zachary Svajda",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:learner-tien",
+    "awayParticipantId": "competitor:tennis:atp:zachary-svajda",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184911",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184911",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184911",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Learner Tien v Zachary Svajda",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184911"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184912",
+    "eventId": "fixture-tennis-espn-atp-184912",
+    "canonicalEventId": "fixture:tennis:espn:atp:184912",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184912",
+      "fixture-tennis-espn-atp-184912"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184912",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Bu Yunchaokete v Casper Ruud",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:bu-yunchaokete",
+      "competitor:tennis:atp:casper-ruud"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:bu-yunchaokete",
+        "name": "Bu Yunchaokete",
+        "displayName": "Bu Yunchaokete",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:casper-ruud",
+        "name": "Casper Ruud",
+        "displayName": "Casper Ruud",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "NO"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:bu-yunchaokete",
+    "awayParticipantId": "competitor:tennis:atp:casper-ruud",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184912",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184912",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184912",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Bu Yunchaokete v Casper Ruud",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184912"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184913",
+    "eventId": "fixture-tennis-espn-atp-184913",
+    "canonicalEventId": "fixture:tennis:espn:atp:184913",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184913",
+      "fixture-tennis-espn-atp-184913"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184913",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 64",
+    "stage": "Round of 64",
+    "name": "Alejandro Tabilo v Pablo Carreno Busta",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:alejandro-tabilo",
+      "competitor:tennis:atp:pablo-carreno-busta"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:alejandro-tabilo",
+        "name": "Alejandro Tabilo",
+        "displayName": "Alejandro Tabilo",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CL"
+      },
+      {
+        "id": "competitor:tennis:atp:pablo-carreno-busta",
+        "name": "Pablo Carreno Busta",
+        "displayName": "Pablo Carreno Busta",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:alejandro-tabilo",
+    "awayParticipantId": "competitor:tennis:atp:pablo-carreno-busta",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184913",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184913",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184913",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Alejandro Tabilo v Pablo Carreno Busta",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184913"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-184347",
+    "eventId": "fixture-tennis-espn-wta-184347",
+    "canonicalEventId": "fixture:tennis:espn:wta:184347",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:184347",
+      "fixture-tennis-espn-wta-184347"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "China Open",
+    "tournamentId": "tournament:tennis:wta-beijing-2026",
+    "tennisTournamentId": "tournament:tennis:wta-beijing-2026",
+    "tournamentName": "China Open",
+    "eventFamilyId": "china-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184347",
+    "tennisProviderEventId": "959-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Quarterfinal",
+    "stage": "Quarterfinal",
+    "name": "Zheng Qinwen v Elina Svitolina",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T07:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:zheng-qinwen",
+      "competitor:tennis:wta:elina-svitolina"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:zheng-qinwen",
+        "name": "Zheng Qinwen",
+        "displayName": "Zheng Qinwen",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:wta:elina-svitolina",
+        "name": "Elina Svitolina",
+        "displayName": "Elina Svitolina",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "UA"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:zheng-qinwen",
+    "awayParticipantId": "competitor:tennis:wta:elina-svitolina",
+    "venue": "Capital Group Diamond",
+    "venueCity": "Beijing",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184347",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184347",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184347",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Capital Group Diamond",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Zheng Qinwen v Elina Svitolina",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184347"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-184353",
+    "eventId": "fixture-tennis-espn-wta-184353",
+    "canonicalEventId": "fixture:tennis:espn:wta:184353",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:184353",
+      "fixture-tennis-espn-wta-184353"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "China Open",
+    "tournamentId": "tournament:tennis:wta-beijing-2026",
+    "tennisTournamentId": "tournament:tennis:wta-beijing-2026",
+    "tournamentName": "China Open",
+    "eventFamilyId": "china-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184353",
+    "tennisProviderEventId": "959-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Quarterfinal",
+    "stage": "Quarterfinal",
+    "name": "Elise Mertens v Iga Swiatek",
+    "date": "2026-10-09",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-09T11:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:elise-mertens",
+      "competitor:tennis:wta:iga-swiatek"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:elise-mertens",
+        "name": "Elise Mertens",
+        "displayName": "Elise Mertens",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "BE"
+      },
+      {
+        "id": "competitor:tennis:wta:iga-swiatek",
+        "name": "Iga Swiatek",
+        "displayName": "Iga Swiatek",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "PL"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:elise-mertens",
+    "awayParticipantId": "competitor:tennis:wta:iga-swiatek",
+    "venue": "Capital Group Diamond",
+    "venueCity": "Beijing",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184353",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184353",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184353",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Capital Group Diamond",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Elise Mertens v Iga Swiatek",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184353"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-184357",
+    "eventId": "fixture-tennis-espn-wta-184357",
+    "canonicalEventId": "fixture:tennis:espn:wta:184357",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:184357",
+      "fixture-tennis-espn-wta-184357"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "China Open",
+    "tournamentId": "tournament:tennis:wta-beijing-2026",
+    "tennisTournamentId": "tournament:tennis:wta-beijing-2026",
+    "tournamentName": "China Open",
+    "eventFamilyId": "china-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184357",
+    "tennisProviderEventId": "959-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Semifinal",
+    "stage": "Semifinal",
+    "name": "Mirra Andreeva v Nikola Bartunkova",
+    "date": "2026-10-10",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-10T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:mirra-andreeva",
+      "competitor:tennis:wta:nikola-bartunkova"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:mirra-andreeva",
+        "name": "Mirra Andreeva",
+        "displayName": "Mirra Andreeva",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "RU"
+      },
+      {
+        "id": "competitor:tennis:wta:nikola-bartunkova",
+        "name": "Nikola Bartunkova",
+        "displayName": "Nikola Bartunkova",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CZ"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:mirra-andreeva",
+    "awayParticipantId": "competitor:tennis:wta:nikola-bartunkova",
+    "venue": "Beijing",
+    "venueCity": "Beijing",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184357",
+    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184357",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184357",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Mirra Andreeva v Nikola Bartunkova",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184357"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
   }
 ];

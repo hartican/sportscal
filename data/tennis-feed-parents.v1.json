@@ -14633,69 +14633,68 @@
       "participantIds": [
         "athlete:tennis:alex-de-minaur",
         "competitor:tennis:atp:alex-molcan",
-        "competitor:tennis:atp:zhang-zhizhen",
         "competitor:tennis:atp:tomas-machac",
-        "competitor:tennis:atp:aleksandar-kovacevic",
         "competitor:tennis:atp:matteo-berrettini",
-        "competitor:tennis:atp:marco-trungelliti",
         "competitor:tennis:atp:rei-sakamoto",
         "competitor:tennis:atp:quentin-halys",
-        "competitor:tennis:atp:chak-lam-coleman-wong",
         "competitor:tennis:atp:arthur-fery",
-        "competitor:tennis:atp:marin-cilic",
-        "competitor:tennis:atp:federico-cina",
         "competitor:tennis:atp:wu-yibing",
-        "competitor:tennis:atp:michael-zheng",
-        "competitor:tennis:atp:mattia-bellucci",
         "competitor:tennis:atp:zhou-yi",
         "competitor:tennis:atp:yannick-hanfmann",
-        "competitor:tennis:atp:kamil-majchrzak",
         "competitor:tennis:atp:arthur-gea",
-        "competitor:tennis:atp:jaime-faria",
         "competitor:tennis:atp:adrian-mannarino",
-        "competitor:tennis:atp:nikoloz-basilashvili",
-        "competitor:tennis:atp:holger-rune",
-        "competitor:tennis:atp:daniel-altmaier",
-        "competitor:tennis:atp:rinky-hijikata",
         "competitor:tennis:atp:roman-safiullin",
-        "competitor:tennis:atp:sho-shimabukuro",
         "competitor:tennis:atp:miomir-kecmanovic",
-        "competitor:tennis:atp:martin-landaluce",
         "competitor:tennis:atp:jan-lennard-struff",
-        "competitor:tennis:atp:bernard-tomic",
         "competitor:tennis:atp:matteo-arnaldi",
         "competitor:tennis:atp:adolfo-daniel-vallejo",
-        "competitor:tennis:atp:valentin-royer",
-        "competitor:tennis:atp:cameron-norrie",
         "competitor:tennis:atp:dalibor-svrcina",
-        "competitor:tennis:atp:kimmer-coppejans",
         "competitor:tennis:atp:stefanos-tsitsipas",
         "competitor:tennis:atp:nuno-borges",
-        "competitor:tennis:atp:facundo-diaz-acosta",
         "competitor:tennis:atp:thiago-agustin-tirante",
-        "competitor:tennis:atp:hamad-medjedovic",
-        "competitor:tennis:atp:mariano-navone",
         "competitor:tennis:atp:pablo-carreno-busta",
         "competitor:tennis:atp:camilo-ugo-carabelli",
-        "competitor:tennis:atp:ilia-simakin",
-        "competitor:tennis:atp:fabian-marozsan",
         "competitor:tennis:atp:zachary-svajda",
-        "competitor:tennis:atp:luca-van-assche",
         "competitor:tennis:atp:bu-yunchaokete",
         "competitor:tennis:atp:hubert-hurkacz",
-        "competitor:tennis:atp:james-duckworth",
         "competitor:tennis:atp:pavel-kotov",
-        "competitor:tennis:atp:tallon-griekspoor",
         "competitor:tennis:atp:botic-van-de-zandschulp",
-        "competitor:tennis:atp:daniel-merida",
-        "competitor:tennis:atp:jaume-munar",
         "competitor:tennis:atp:jenson-brooksby",
-        "competitor:tennis:atp:marcos-giron",
         "competitor:tennis:atp:sebastian-baez",
-        "competitor:tennis:atp:vit-kopriva",
+        "competitor:tennis:atp:daniel-altmaier",
         "competitor:tennis:atp:zizou-bergs",
         "competitor:tennis:atp:juan-manuel-cerundolo",
-        "competitor:tennis:atp:nicolas-mejia"
+        "competitor:tennis:atp:frances-tiafoe",
+        "competitor:tennis:atp:andrey-rublev",
+        "competitor:tennis:atp:karen-khachanov",
+        "competitor:tennis:atp:flavio-cobolli",
+        "competitor:tennis:atp:novak-djokovic",
+        "competitor:tennis:atp:lorenzo-musetti",
+        "competitor:tennis:atp:alejandro-davidovich-fokina",
+        "competitor:tennis:atp:ben-shelton",
+        "competitor:tennis:atp:ugo-humbert",
+        "competitor:tennis:atp:francisco-cerundolo",
+        "competitor:tennis:atp:jakub-mensik",
+        "competitor:tennis:atp:alexander-blockx",
+        "competitor:tennis:atp:alexander-bublik",
+        "competitor:tennis:atp:brandon-nakashima",
+        "competitor:tennis:atp:alexander-zverev",
+        "competitor:tennis:atp:luciano-darderi",
+        "competitor:tennis:atp:taylor-fritz",
+        "competitor:tennis:atp:tommy-paul",
+        "competitor:tennis:atp:valentin-vacherot",
+        "competitor:tennis:atp:tomas-martin-etcheverry",
+        "competitor:tennis:atp:ignacio-buse",
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:arthur-fils",
+        "competitor:tennis:atp:alex-michelsen",
+        "competitor:tennis:atp:jiri-lehecka",
+        "competitor:tennis:atp:felix-auger-aliassime",
+        "competitor:tennis:atp:daniil-medvedev",
+        "competitor:tennis:atp:rafael-jodar",
+        "competitor:tennis:atp:learner-tien",
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:alejandro-tabilo"
       ],
       "expected": 5,
       "sourceParticipation": [
@@ -14712,7 +14711,7 @@
         {
           "participantId": "competitor:tennis:atp:zhang-zhizhen",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:tomas-machac",
@@ -14722,7 +14721,7 @@
         {
           "participantId": "competitor:tennis:atp:aleksandar-kovacevic",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:matteo-berrettini",
@@ -14732,7 +14731,7 @@
         {
           "participantId": "competitor:tennis:atp:marco-trungelliti",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:rei-sakamoto",
@@ -14747,7 +14746,7 @@
         {
           "participantId": "competitor:tennis:atp:chak-lam-coleman-wong",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:arthur-fery",
@@ -14757,12 +14756,12 @@
         {
           "participantId": "competitor:tennis:atp:marin-cilic",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:federico-cina",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:wu-yibing",
@@ -14772,12 +14771,12 @@
         {
           "participantId": "competitor:tennis:atp:michael-zheng",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:mattia-bellucci",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:zhou-yi",
@@ -14792,7 +14791,7 @@
         {
           "participantId": "competitor:tennis:atp:kamil-majchrzak",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:arthur-gea",
@@ -14802,7 +14801,7 @@
         {
           "participantId": "competitor:tennis:atp:jaime-faria",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:adrian-mannarino",
@@ -14812,22 +14811,12 @@
         {
           "participantId": "competitor:tennis:atp:nikoloz-basilashvili",
           "draw": "mens-singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:holger-rune",
-          "draw": "mens-singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:daniel-altmaier",
-          "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:rinky-hijikata",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:roman-safiullin",
@@ -14837,7 +14826,7 @@
         {
           "participantId": "competitor:tennis:atp:sho-shimabukuro",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:miomir-kecmanovic",
@@ -14847,7 +14836,7 @@
         {
           "participantId": "competitor:tennis:atp:martin-landaluce",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:jan-lennard-struff",
@@ -14857,7 +14846,7 @@
         {
           "participantId": "competitor:tennis:atp:bernard-tomic",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:matteo-arnaldi",
@@ -14872,12 +14861,12 @@
         {
           "participantId": "competitor:tennis:atp:valentin-royer",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:cameron-norrie",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:dalibor-svrcina",
@@ -14887,7 +14876,7 @@
         {
           "participantId": "competitor:tennis:atp:kimmer-coppejans",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:stefanos-tsitsipas",
@@ -14902,7 +14891,7 @@
         {
           "participantId": "competitor:tennis:atp:facundo-diaz-acosta",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:thiago-agustin-tirante",
@@ -14912,12 +14901,12 @@
         {
           "participantId": "competitor:tennis:atp:hamad-medjedovic",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:mariano-navone",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:pablo-carreno-busta",
@@ -14932,12 +14921,12 @@
         {
           "participantId": "competitor:tennis:atp:ilia-simakin",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:fabian-marozsan",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:zachary-svajda",
@@ -14947,7 +14936,7 @@
         {
           "participantId": "competitor:tennis:atp:luca-van-assche",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:bu-yunchaokete",
@@ -14962,7 +14951,7 @@
         {
           "participantId": "competitor:tennis:atp:james-duckworth",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:pavel-kotov",
@@ -14972,7 +14961,7 @@
         {
           "participantId": "competitor:tennis:atp:tallon-griekspoor",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:botic-van-de-zandschulp",
@@ -14982,12 +14971,12 @@
         {
           "participantId": "competitor:tennis:atp:daniel-merida",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:jaume-munar",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:jenson-brooksby",
@@ -14997,7 +14986,7 @@
         {
           "participantId": "competitor:tennis:atp:marcos-giron",
           "draw": "mens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:sebastian-baez",
@@ -15005,9 +14994,19 @@
           "active": true
         },
         {
-          "participantId": "competitor:tennis:atp:vit-kopriva",
+          "participantId": "competitor:tennis:atp:holger-rune",
+          "draw": "mens-singles",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:atp:daniel-altmaier",
           "draw": "mens-singles",
           "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:vit-kopriva",
+          "draw": "mens-singles",
+          "active": false
         },
         {
           "participantId": "competitor:tennis:atp:zizou-bergs",
@@ -15022,6 +15021,161 @@
         {
           "participantId": "competitor:tennis:atp:nicolas-mejia",
           "draw": "mens-singles",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:atp:frances-tiafoe",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:andrey-rublev",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:karen-khachanov",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:flavio-cobolli",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:novak-djokovic",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:lorenzo-musetti",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:ben-shelton",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:ugo-humbert",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:francisco-cerundolo",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:jakub-mensik",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexander-blockx",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexander-bublik",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:brandon-nakashima",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexander-zverev",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:luciano-darderi",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:taylor-fritz",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:tommy-paul",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:valentin-vacherot",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:tomas-martin-etcheverry",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:ignacio-buse",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:carlos-alcaraz",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:arthur-fils",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alex-michelsen",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:jiri-lehecka",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:felix-auger-aliassime",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:daniil-medvedev",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:rafael-jodar",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:learner-tien",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:casper-ruud",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:atp:alejandro-tabilo",
+          "draw": "mens-singles",
           "active": true
         }
       ],
@@ -15029,71 +15183,70 @@
       "sourceParticipantIds": [
         "athlete:tennis:alex-de-minaur",
         "competitor:tennis:atp:alex-molcan",
-        "competitor:tennis:atp:zhang-zhizhen",
         "competitor:tennis:atp:tomas-machac",
-        "competitor:tennis:atp:aleksandar-kovacevic",
         "competitor:tennis:atp:matteo-berrettini",
-        "competitor:tennis:atp:marco-trungelliti",
         "competitor:tennis:atp:rei-sakamoto",
         "competitor:tennis:atp:quentin-halys",
-        "competitor:tennis:atp:chak-lam-coleman-wong",
         "competitor:tennis:atp:arthur-fery",
-        "competitor:tennis:atp:marin-cilic",
-        "competitor:tennis:atp:federico-cina",
         "competitor:tennis:atp:wu-yibing",
-        "competitor:tennis:atp:michael-zheng",
-        "competitor:tennis:atp:mattia-bellucci",
         "competitor:tennis:atp:zhou-yi",
         "competitor:tennis:atp:yannick-hanfmann",
-        "competitor:tennis:atp:kamil-majchrzak",
         "competitor:tennis:atp:arthur-gea",
-        "competitor:tennis:atp:jaime-faria",
         "competitor:tennis:atp:adrian-mannarino",
-        "competitor:tennis:atp:nikoloz-basilashvili",
-        "competitor:tennis:atp:holger-rune",
-        "competitor:tennis:atp:daniel-altmaier",
-        "competitor:tennis:atp:rinky-hijikata",
         "competitor:tennis:atp:roman-safiullin",
-        "competitor:tennis:atp:sho-shimabukuro",
         "competitor:tennis:atp:miomir-kecmanovic",
-        "competitor:tennis:atp:martin-landaluce",
         "competitor:tennis:atp:jan-lennard-struff",
-        "competitor:tennis:atp:bernard-tomic",
         "competitor:tennis:atp:matteo-arnaldi",
         "competitor:tennis:atp:adolfo-daniel-vallejo",
-        "competitor:tennis:atp:valentin-royer",
-        "competitor:tennis:atp:cameron-norrie",
         "competitor:tennis:atp:dalibor-svrcina",
-        "competitor:tennis:atp:kimmer-coppejans",
         "competitor:tennis:atp:stefanos-tsitsipas",
         "competitor:tennis:atp:nuno-borges",
-        "competitor:tennis:atp:facundo-diaz-acosta",
         "competitor:tennis:atp:thiago-agustin-tirante",
-        "competitor:tennis:atp:hamad-medjedovic",
-        "competitor:tennis:atp:mariano-navone",
         "competitor:tennis:atp:pablo-carreno-busta",
         "competitor:tennis:atp:camilo-ugo-carabelli",
-        "competitor:tennis:atp:ilia-simakin",
-        "competitor:tennis:atp:fabian-marozsan",
         "competitor:tennis:atp:zachary-svajda",
-        "competitor:tennis:atp:luca-van-assche",
         "competitor:tennis:atp:bu-yunchaokete",
         "competitor:tennis:atp:hubert-hurkacz",
-        "competitor:tennis:atp:james-duckworth",
         "competitor:tennis:atp:pavel-kotov",
-        "competitor:tennis:atp:tallon-griekspoor",
         "competitor:tennis:atp:botic-van-de-zandschulp",
-        "competitor:tennis:atp:daniel-merida",
-        "competitor:tennis:atp:jaume-munar",
         "competitor:tennis:atp:jenson-brooksby",
-        "competitor:tennis:atp:marcos-giron",
         "competitor:tennis:atp:sebastian-baez",
-        "competitor:tennis:atp:vit-kopriva",
+        "competitor:tennis:atp:daniel-altmaier",
         "competitor:tennis:atp:zizou-bergs",
         "competitor:tennis:atp:juan-manuel-cerundolo",
-        "competitor:tennis:atp:nicolas-mejia"
+        "competitor:tennis:atp:frances-tiafoe",
+        "competitor:tennis:atp:andrey-rublev",
+        "competitor:tennis:atp:karen-khachanov",
+        "competitor:tennis:atp:flavio-cobolli",
+        "competitor:tennis:atp:novak-djokovic",
+        "competitor:tennis:atp:lorenzo-musetti",
+        "competitor:tennis:atp:alejandro-davidovich-fokina",
+        "competitor:tennis:atp:ben-shelton",
+        "competitor:tennis:atp:ugo-humbert",
+        "competitor:tennis:atp:francisco-cerundolo",
+        "competitor:tennis:atp:jakub-mensik",
+        "competitor:tennis:atp:alexander-blockx",
+        "competitor:tennis:atp:alexander-bublik",
+        "competitor:tennis:atp:brandon-nakashima",
+        "competitor:tennis:atp:alexander-zverev",
+        "competitor:tennis:atp:luciano-darderi",
+        "competitor:tennis:atp:taylor-fritz",
+        "competitor:tennis:atp:tommy-paul",
+        "competitor:tennis:atp:valentin-vacherot",
+        "competitor:tennis:atp:tomas-martin-etcheverry",
+        "competitor:tennis:atp:ignacio-buse",
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:arthur-fils",
+        "competitor:tennis:atp:alex-michelsen",
+        "competitor:tennis:atp:jiri-lehecka",
+        "competitor:tennis:atp:felix-auger-aliassime",
+        "competitor:tennis:atp:daniil-medvedev",
+        "competitor:tennis:atp:rafael-jodar",
+        "competitor:tennis:atp:learner-tien",
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:alejandro-tabilo"
       ],
-      "contestCount": 33
+      "contestCount": 64
     },
     {
       "id": "tennis-parent:paris-masters:2026:main",
@@ -15642,16 +15795,10 @@
         "competitor:tennis:wta:aryna-sabalenka",
         "competitor:tennis:wta:nikola-bartunkova",
         "competitor:tennis:wta:zheng-qinwen",
-        "competitor:tennis:wta:alina-charaeva",
-        "competitor:tennis:wta:ekaterina-alexandrova",
         "competitor:tennis:wta:mirra-andreeva",
-        "competitor:tennis:wta:karolina-muchova",
-        "competitor:tennis:wta:coco-gauff",
         "competitor:tennis:wta:elina-svitolina",
-        "competitor:tennis:wta:iva-jovic",
         "competitor:tennis:wta:elise-mertens",
-        "competitor:tennis:wta:iga-swiatek",
-        "competitor:tennis:wta:ann-li"
+        "competitor:tennis:wta:iga-swiatek"
       ],
       "expected": 5,
       "sourceParticipation": [
@@ -15973,7 +16120,7 @@
         {
           "participantId": "competitor:tennis:wta:alina-charaeva",
           "draw": "womens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:marina-bassols-ribera",
@@ -16018,7 +16165,7 @@
         {
           "participantId": "competitor:tennis:wta:ekaterina-alexandrova",
           "draw": "womens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:peyton-stearns",
@@ -16058,7 +16205,7 @@
         {
           "participantId": "competitor:tennis:wta:karolina-muchova",
           "draw": "womens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:linda-noskova",
@@ -16073,7 +16220,7 @@
         {
           "participantId": "competitor:tennis:wta:coco-gauff",
           "draw": "womens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:elina-svitolina",
@@ -16093,7 +16240,7 @@
         {
           "participantId": "competitor:tennis:wta:iva-jovic",
           "draw": "womens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:elise-mertens",
@@ -16138,7 +16285,7 @@
         {
           "participantId": "competitor:tennis:wta:ann-li",
           "draw": "womens-singles",
-          "active": true
+          "active": false
         },
         {
           "participantId": "competitor:tennis:wta:belinda-bencic",
@@ -16151,18 +16298,12 @@
         "competitor:tennis:wta:aryna-sabalenka",
         "competitor:tennis:wta:nikola-bartunkova",
         "competitor:tennis:wta:zheng-qinwen",
-        "competitor:tennis:wta:alina-charaeva",
-        "competitor:tennis:wta:ekaterina-alexandrova",
         "competitor:tennis:wta:mirra-andreeva",
-        "competitor:tennis:wta:karolina-muchova",
-        "competitor:tennis:wta:coco-gauff",
         "competitor:tennis:wta:elina-svitolina",
-        "competitor:tennis:wta:iva-jovic",
         "competitor:tennis:wta:elise-mertens",
-        "competitor:tennis:wta:iga-swiatek",
-        "competitor:tennis:wta:ann-li"
+        "competitor:tennis:wta:iga-swiatek"
       ],
-      "contestCount": 90,
+      "contestCount": 93,
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02",

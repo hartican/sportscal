@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20261007210011048-20261007224506477-20261007225114392-20261007231441328-20261007231618018",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261008210144386",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-07T23:16:18.018Z",
+  "publishedAt": "2026-10-08T21:01:44.386Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -41,7 +41,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-10-07",
+    "basisDate": "2026-10-08",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -49,7 +49,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-03",
     "lastEventDate": "2027-10-01",
-    "daysAhead": 359,
+    "daysAhead": 358,
     "coversStandardPreloadWindow": true,
     "sports": {
       "dakar": {
@@ -173,9 +173,9 @@
         "lastEventDate": "2026-11-01"
       },
       "tennis": {
-        "count": 201,
+        "count": 235,
         "firstEventDate": "2026-09-03",
-        "lastEventDate": "2026-10-08"
+        "lastEventDate": "2026-10-10"
       },
       "fiba-women": {
         "count": 17,
@@ -198,9 +198,9 @@
         "lastEventDate": "2027-03-20"
       },
       "baseball": {
-        "count": 29,
+        "count": 36,
         "firstEventDate": "2026-09-30",
-        "lastEventDate": "2026-10-11"
+        "lastEventDate": "2026-10-19"
       }
     }
   }
