@@ -10,7 +10,13 @@
   return !['tennis_parent','tennis_rubber'].includes(e.cardType)&&!e.parentTieId&&!(e.tieId&&e.contestUnit!=='tie')&&e.contestUnit!=='rubber'&&!['major_event','tournament','ticket_sale','rubber'].includes(e.kind);
  }
 
- function completion(e){return Date.parse(e.actualEndTimeUtc||e.completedAt||e.firstConfirmedCompleteAt||e.resultPublishedAt||'');}
+ function completion(e){
+  const actual=Date.parse(e.actualEndTimeUtc||e.completedAt||'');if(Number.isFinite(actual))return actual;
+  // Importing an already-final fixture is not a new sporting completion.
+  // The independent status-fact clock survives later verification receipts.
+  const known=[e.firstConfirmedCompleteAt,e.resultPublishedAt,final(e)?e.statusFactObservedAt:null].map(v=>Date.parse(v||'')).filter(Number.isFinite);
+  return known.length?Math.min(...known):NaN;
+ }
  function observed(e){return Date.parse(e.statusCheckedAt||e.livePlayObservedAt||'');}
  function liveState(e,now=Date.now()){
   const paused=interrupted(e)||e.status==='ongoing';

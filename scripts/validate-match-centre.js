@@ -12,6 +12,10 @@ assert(m.eligible({...base,status:'stumps',statusCheckedAt:new Date(now).toISOSt
 assert(!m.eligible({...base,status:'completed',endTimeUtc:new Date(now).toISOString()},now),'scheduled end is not completion');
 assert(m.eligible({...base,status:'completed',completedAt:new Date(now-3600000).toISOString()},now));
 assert(!m.eligible({...base,status:'completed',completedAt:new Date(now-3600001).toISOString()},now));
+assert(!m.eligible({...base,status:'completed',firstConfirmedCompleteAt:new Date(now).toISOString(),statusFactObservedAt:new Date(now-5*86400000).toISOString(),statusCheckedAt:new Date(now).toISOString()},now),'A database import or verification receipt cannot reopen an old final');
+assert(!m.eligible({...base,status:'completed',firstConfirmedCompleteAt:new Date(now).toISOString(),resultPublishedAt:new Date(now-5*86400000).toISOString()},now),'A known old result publication precedes its later import');
+assert(m.eligible({...base,status:'completed',firstConfirmedCompleteAt:new Date(now).toISOString(),statusFactObservedAt:new Date(now-60000).toISOString()},now),'A genuine newly observed result retains its one-hour window');
+assert(m.eligible({...base,status:'completed',completedAt:new Date(now-60000).toISOString(),statusFactObservedAt:new Date(now-5*86400000).toISOString()},now),'An explicit actual completion remains authoritative');
 assert.equal(m.interval({...base,status:'suspended'}),1800000);
 assert.deepEqual(m.select([{...base,id:'b'},{...base,id:'a'}],now).map(m.id),['a','b']);
 assert(!JSON.stringify(m.compact({...base,key:'tennis',points:'40-30',games:{home:3,away:2}})).includes('40-30'));
