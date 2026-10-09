@@ -510,6 +510,7 @@ function codeStandings(code,canonicalDocumentOverride){
 }
 
 function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
+  const publishCompanions=path.resolve(outputDir)===path.resolve(OUTPUT_DIR);
   const previous=codeSlugs && fs.existsSync(path.join(outputDir,'manifest.json'))
     ? JSON.parse(fs.readFileSync(path.join(outputDir,'manifest.json'),'utf8')) : null;
   const retained=new Map((previous?.codes || []).map(code=>[code.slug,code]));
@@ -582,9 +583,11 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
       ...(code.id==='competition:dakar'?{scheduleNotes:require('../data/canonical/dakar-calendar.v1.json').editions.flatMap(e=>e.restDays.map(r=>({...r,name:'Rest day',season:String(e.year),tournamentName:e.name})))}:{}),
       standings:codeStandings(code),
     })}\n`);
-    const scheduleDir=path.join(path.dirname(outputDir),"follow-schedule");fs.mkdirSync(scheduleDir,{recursive:true});
-    const scheduleFixtures=fixtures.map(fixture=>{const {storyline,editorialNarrative,...core}=fixture;return editorialNarrative?.generationMode==="researched" ? {...core,storyline,editorialNarrative} : core;});
-    fs.writeFileSync(path.join(scheduleDir,fileName),JSON.stringify({schemaVersion:"code-inspector-chunk.v1",code:{id:code.id,slug:code.slug},fixtures:scheduleFixtures,...(code.id==='competition:dakar'?{scheduleNotes:require('../data/canonical/dakar-calendar.v1.json').editions.flatMap(e=>e.restDays.map(r=>({...r,name:'Rest day',season:String(e.year),tournamentName:e.name})))}:{})})+"\n");
+    if(publishCompanions){
+      const scheduleDir=path.join(path.dirname(outputDir),"follow-schedule");fs.mkdirSync(scheduleDir,{recursive:true});
+      const scheduleFixtures=fixtures.map(fixture=>{const {storyline,editorialNarrative,...core}=fixture;return editorialNarrative?.generationMode==="researched" ? {...core,storyline,editorialNarrative} : core;});
+      fs.writeFileSync(path.join(scheduleDir,fileName),JSON.stringify({schemaVersion:"code-inspector-chunk.v1",code:{id:code.id,slug:code.slug},fixtures:scheduleFixtures,...(code.id==='competition:dakar'?{scheduleNotes:require('../data/canonical/dakar-calendar.v1.json').editions.flatMap(e=>e.restDays.map(r=>({...r,name:'Rest day',season:String(e.year),tournamentName:e.name})))}:{})})+"\n");
+      }
     return {
       followSchedulePath:`data/follow-schedule/${fileName}`,
       id: code.id,
@@ -605,10 +608,12 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
   const expected = new Set(codes.map(code => `${code.slug}.json`));
   fs.readdirSync(OUTPUT_DIR).filter(name => name.endsWith(".json") && name !== "manifest.json" && !expected.has(name))
     .forEach(name => fs.unlinkSync(path.join(outputDir, name)));
-  // Programme summaries remain Events metadata even when excluded from individual Schedule fixtures.
-  const legacyOverviews=feed.events.filter(event=>event.cardType==='tournament_overview'&&obsoleteProgramme(event)).map(event=>normalizeFixture(event,'sport:tennis'));
-  const overviewFixtures=[...new Map([...codes.flatMap(code=>JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR,path.basename(code.chunkPath)),'utf8')).fixtures||[]),...legacyOverviews].map(f=>[f.id,f])).values()];
-  fs.writeFileSync(path.join(ROOT,'data/event-overviews.v1.json'),JSON.stringify({schemaVersion:'event-overviews.v1',events:require('../lib/event-overviews').build(overviewFixtures)})+'\n');
+  if(publishCompanions){
+    // Programme summaries remain Events metadata even when excluded from individual Schedule fixtures.
+    const legacyOverviews=feed.events.filter(event=>event.cardType==='tournament_overview'&&obsoleteProgramme(event)).map(event=>normalizeFixture(event,'sport:tennis'));
+    const overviewFixtures=[...new Map([...codes.flatMap(code=>JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR,path.basename(code.chunkPath)),'utf8')).fixtures||[]),...legacyOverviews].map(f=>[f.id,f])).values()];
+    fs.writeFileSync(path.join(ROOT,'data/event-overviews.v1.json'),JSON.stringify({schemaVersion:'event-overviews.v1',events:require('../lib/event-overviews').build(overviewFixtures)})+'\n');
+    }
   const coverageNotes={
     'sport:motorsport':'Motorsport coverage is partial. Goodwood is an organiser calendar window with UK-local dates, not a scheduled competitive fixture. Sydney session starts and Australian viewing are unconfirmed.',
     'sport:surf':'Surfing coverage is partial: two saved listings have no verified event identities, dates, starts or Australian viewing. These notes are not scheduled fixtures. The separate WSL calendar requires its own follow choice.',
@@ -619,7 +624,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
   for(const id of ['competition:tour-de-france','competition:giro-ditalia','competition:vuelta-a-espana'])coverageNotes[id]='Men’s Grand Tours: all published 2026 stages. For 2027, the Tour has three published opening stages (2–4 July); its remaining stages are unconfirmed. Giro: 8–30 May; La Vuelta: 4–26 September, edition dates only. Entries, start times, results and detailed route geometry remain partial.';
   const manifest = { schemaVersion: "code-inspector.v1", generatedAt: feed.publishedAt || null, codes:codes.map(code=>coverageNotes[code.id]?{...code,coverageNote:coverageNotes[code.id]}:code) };
   fs.writeFileSync(path.join(outputDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
-  require("./build-chat-fixture-registry").writeRegistry({ rootDir:ROOT });
+  if(publishCompanions)require("./build-chat-fixture-registry").writeRegistry({ rootDir:ROOT });
   return manifest;
 }
 
