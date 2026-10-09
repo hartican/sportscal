@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-08T21:01:44.386Z",
+  "generatedAt": "2026-10-09T00:22:23.321Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/baseball.json",
@@ -23,7 +23,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T22:12:49.067Z",
+      "freshAt": "2026-10-09T00:22:23.321Z",
       "chunkPath": "data/code-inspector/supercars.json"
     },
     {
@@ -87,7 +87,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:22:23.321Z",
       "chunkPath": "data/code-inspector/motorsport.json",
       "coverageNote": "Motorsport coverage is partial. Goodwood is an organiser calendar window with UK-local dates, not a scheduled competitive fixture. Sydney session starts and Australian viewing are unconfirmed."
     },
@@ -201,7 +201,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:22:23.321Z",
       "chunkPath": "data/code-inspector/cricket.json"
     },
     {
@@ -444,7 +444,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:22:23.321Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/motogp.json"
     },

@@ -2313,107 +2313,6 @@
       ]
     },
     {
-      "id": "fixture:cricket:espn:1525660",
-      "title": "South Africa v Australia - Second Test",
-      "hook": "St George's Park is where Australia's return to South Africa becomes a fight for the series, not simply a reunion of Test champions.",
-      "formCopy": "Australia have backed Marnus Labuschagne despite pressure on his recent Test batting, retaining a familiar core and adding Cooper Connolly, Matthew Kuhnemann and Michael Neser to the touring squad. South Africa's preliminary first-Test group brings pace and spin options, but neither that list nor Australia's touring party settles the second-Test XI. Durban will supply the relevant immediate form; until it is played, no first-Test momentum should be assumed.",
-      "closingCopy": "For Australian fans, this tour carries the weight of the first Test return to South Africa since 2018, but this match needs its own story rather than living entirely in that history. Labuschagne's selection puts trust and performance in sharp focus. For South Africa, facing another recent world champion at home is an opportunity to make status tangible across a series. The contest is about whose batting and bowling hold up under repeated pressure, not a prediction of personal redemption.",
-      "synopsis": "The second Test is scheduled for 18-22 October at St George's Park in Gqeberha, between Durban and the Cape Town finale. In a three-Test series, this is the hinge: its exact stakes depend on the opener. A lead could become decisive; a deficit could be repaired; a drawn opener would leave both sides pursuing control. The World Test Championship adds a wider consequence, while confirmed lineups and the first-Test result must inform the next preview check.",
-      "sources": [
-        "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
-        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
-        "https://www.cricket.com.au/news/4584247"
-      ],
-      "researchDepth": 5,
-      "changeReason": "Complete missing Form and Storyline using announced touring squads; keep the unplayed opener and second-Test selection explicitly unresolved.",
-      "facts": [
-        {
-          "dimension": "schedule",
-          "statement": "The second Test is scheduled for 18-22 October at St George's Park, Gqeberha; Durban precedes it and Cape Town follows.",
-          "sourceIndexes": [
-            0,
-            1
-          ]
-        },
-        {
-          "dimension": "history",
-          "statement": "This is Australia's first Test tour of South Africa since 2018, between the last two World Test Championship winners.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Labuschagne retains his Test squad place despite pressure on his recent batting; Connolly, Kuhnemann and Neser join the touring group.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "matchup",
-          "statement": "Australia have named a 16-player Test squad; South Africa's published preliminary group is for the first Test, not a confirmed second-Test XI.",
-          "sourceIndexes": [
-            1,
-            2
-          ]
-        },
-        {
-          "dimension": "consequence",
-          "statement": "The three-Test tour contributes to the World Test Championship campaign.",
-          "sourceIndexes": [
-            0
-          ]
-        }
-      ],
-      "researchedAt": "2026-10-03T22:23:28.930Z"
-    },
-    {
-      "id": "rugby-new-zealand-australia-2026-10-10",
-      "title": "All Blacks v Wallabies",
-      "hook": "Australia bring belief to Eden Park, but missing overseas forwards make the challenge more than breaking a famous home-ground spell.",
-      "formCopy": "The Wallabies carry momentum from their recent South Africa meeting, with Les Kiss retaining the core of his squad. Tom Hooper and Taniela Tupou are unavailable because these Tests fall outside the international release window; uncapped Toby Macpherson and recalled Massimo de Lutiis enter the group. New Zealand bring a different adjustment: Codie Taylor leads, Scott Barrett returns from injury and Shannon Frizell rejoins after time in Japan. These are squad options, not a confirmed starting XV.",
-      "closingCopy": "For Australian supporters, the question is whether growing confidence survives the pressure of Auckland without two overseas forwards. Macpherson's call-up gives that challenge a new face, but a squad place is not a promised debut. For New Zealand, returning experience and Taylor's leadership offer a way to reset after the South Africa tour. The emotional contrast is between a challenger trying to make progress stick and a holder protecting a rivalry that still defines expectations.",
-      "synopsis": "The first Bledisloe Test is at Eden Park on 10 October, followed by Sydney a week later. New Zealand have held the cup since 2003. Australia need to keep a two-match contest alive on a ground that has repeatedly frustrated them; the All Blacks need their returning players and new captain to turn familiarity into authority. Final selections and any disciplinary availability changes still need confirmation before kickoff.",
-      "sources": [
-        "https://www.rugby.com.au/wallabies/news/wallabies-squad-update-for-bledisloe-cup-series-2026930",
-        "https://www.allblacks.com/news/all-blacks/all-blacks-squad-confirmed-for-bledisloe-cup",
-        "https://www.rugby.com.au/wallabies/news/macpherson-drawing-off-bledisloe-greats-ahead-of-potential-test-debut-2026105"
-      ],
-      "researchDepth": 5,
-      "changeReason": "Current official squad reports still support the published narrative. Macpherson's new profile adds background, not a confirmed selection or material change. Retain the exact published four sections.",
-      "facts": [
-        {
-          "dimension": "form",
-          "statement": "Hooper and Tupou are unavailable outside the international release window; Macpherson is called up and de Lutiis recalled.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Taylor captains the All Blacks squad; Barrett returns from injury and Frizell returns from Japan.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "history",
-          "statement": "New Zealand have held the Bledisloe Cup since 2003.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "Macpherson's Toyota Verblitz experience included mentoring from Michael Hooper and Aaron Smith; his possible Test debut is not a confirmed starting selection.",
-          "sourceIndexes": [
-            2
-          ]
-        }
-      ],
-      "researchedAt": "2026-10-06T02:47:49.275Z"
-    },
-    {
       "id": "epl-2026-27-128980",
       "title": "Liverpool v Manchester City",
       "hook": "Anfield tests Liverpool's rebuild against City's winning run, with City's financial-breach appeal hanging over the rivalry.",
@@ -2575,74 +2474,391 @@
       "researchedAt": "2026-10-06T02:59:54.194Z"
     },
     {
-      "id": "supercars-bathurst-1000-2026",
-      "title": "Bathurst 1000",
-      "hook": "Toyota brings endurance momentum, Chevrolet a technical reset. Kostecki's Ford crew must also adapt to a late engineer change before the Mountain.",
-      "formCopy": "Chaz Mostert and Fabian Coulthard won at The Bend, with Ryan Wood and Jaxon Evans also reaching the podium. All five Toyotas finished that first endurance test, giving the new manufacturer evidence beyond short-race speed. Chevrolet arrives with a separate change: Supercars has approved reduced roll-cage centre-of-gravity ballast for the Camaro from Bathurst, with no corresponding Mustang or Supra adjustment. That changes the technical backdrop, not a guaranteed finishing order.",
-      "closingCopy": "Brodie Kostecki and Todd Hazelwood will race without George Commins, the engineer behind Kostecki's 2024 Bathurst win. A mountain-biking injury has ruled Commins out; DJR team manager Tom Moore takes over. Moore already knows Kostecki from their years in the same teams, so this is not a partnership built from scratch. For Ford supporters, the new tension is whether a proven contender can keep its familiar rhythm with a different voice on the radio. Toyota's first Great Race campaign and Chevrolet's revised ballast add rival ambitions, not a guarantee that any badge has the answer.",
-      "synopsis": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend tested reliability over 500km; Bathurst doubles that demand and adds the consequence of every handover and pit call. Supercars' forecast, updated on 6 October, raises the possibility of Saturday and Sunday showers, not a confirmed wet race. Changing conditions would make tyre calls another pressure point for crews already balancing endurance and outright speed.",
+      "id": "fixture:cricket:espn:1525660",
+      "title": "South Africa v Australia - Second Test",
+      "hook": "St George's Park brings spin selection into sharper focus as Australia and South Africa reach the middle Test of a three-match contest.",
+      "formCopy": "Australia selected Kuhnemann alongside Lyon for this tour. Cricket Australia's squad analysis highlights St George's Park as South Africa's only venue where spin has taken more wickets than pace since the pandemic. The hosts named Maharaj and Harmer for Durban; their second-Test combination remains unannounced.",
+      "closingCopy": "For Australian fans, this is a different measure of confidence from a fast-bowling contest: how the batting responds to spin, and whether selection matches the ground. South Africa's advantage is familiarity, not an automatic result. The rivalry pairs the last two Test champions without pretending the opening match has already settled the series.",
+      "synopsis": "Gqeberha hosts the second Test on 18-22 October, before the Cape Town finale. It is the middle match, not yet a verified clincher or comeback: Durban's result must be confirmed before either description is used. The announced Australian squad offers spin options, but no second-Test XI, pitch behaviour or Rabada return has been assumed.",
       "sources": [
-        "https://www.supercars.com/events/2026-bathurst-1000",
-        "https://www.supercars.com/news/supercars-news-2026-chaz-mostert-walkinshaw-twg-racing-toyota-bathurst-chances-engine-reliability",
-        "https://www.supercars.com/news/supercars-news-2026-centre-of-gravity-adjustments-ford-toyota-chevrolet-gen3-parity-bathurst-1000",
-        "https://www.supercars.com/news/supercars-new-2026-djr-brodie-kostecki-change-george-commins-engineer-injury-bathurst-1000",
-        "https://www.supercars.com/news/supercars-news-2026-bathurst-1000-weather-prediction-forecast-race-start-time"
+        "https://www.cricket.com.au/news/4588660/south-africa-xi-team-line-up-side-temba-bavuma-kagiso-rabada-hamstring-injury-anrich-nortje?tags=9037",
+        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+        "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg"
       ],
-      "researchDepth": 5,
-      "changeReason": "DJR's confirmed engineer substitution materially changes the pre-race storyline for Kostecki/Hazelwood. Retain the established Toyota/Chevrolet Form, replace the wildcard-focused Storyline with that development, and qualify the dated weekend shower forecast in Match Context.",
       "facts": [
         {
           "dimension": "form",
-          "statement": "Mostert/Coulthard won at The Bend, Wood/Evans were third, and all five Toyota Supras finished.",
+          "statement": "Australia's touring squad includes Lyon and Kuhnemann.",
           "sourceIndexes": [
             1
           ]
         },
         {
-          "dimension": "form",
-          "statement": "Supercars reduced Camaro roll-cage centre-of-gravity ballast from Bathurst, without corresponding Mustang or Supra changes.",
+          "dimension": "matchup",
+          "statement": "Since the pandemic, St George's Park has seen more wickets to spin than pace.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "The series pairs the last two World Test Championship winners.",
           "sourceIndexes": [
             2
           ]
         },
         {
-          "dimension": "history",
-          "statement": "Commins engineered Kostecki's 2024 Bathurst victory; Moore and Kostecki have worked in the same full-time teams since 2021.",
-          "sourceIndexes": [
-            3
-          ]
-        },
-        {
           "dimension": "path",
-          "statement": "Commins will miss Bathurst after a mountain-biking injury; DJR team manager Tom Moore takes over engineering for Kostecki and Hazelwood.",
+          "statement": "The second Test is scheduled for 18-22 October, followed by Cape Town.",
           "sourceIndexes": [
-            3
+            2
           ]
         },
         {
-          "dimension": "schedule",
-          "statement": "Race 30 is scheduled for 11 October at 11:30am at Mount Panorama, over 161 laps of the 6.213km circuit.",
+          "dimension": "form",
+          "statement": "South Africa named Maharaj and Harmer for the first Test, not the second.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture:cricket:espn:1525659",
+      "title": "South Africa v Australia - First Test",
+      "hook": "Rabada's absence and two South African spinners make Durban a test of Australia's batting adaptability, not simply its pace attack.",
+      "formCopy": "South Africa have named Maharaj and Harmer together, with Nortje returning alongside Jansen. Rabada remains unavailable for the opener. Australia's batting faces its own scrutiny after the drawn Bangladesh series; Labuschagne retained his place, while the touring squad includes Kuhnemann as a second specialist spin option.",
+      "closingCopy": "This is Australia's first Test tour here since 2018. The legacy belongs to the series, but Durban's immediate argument is cricketing: can the visitors establish authority against a home attack built around more than fast bowling? For the Proteas, depth has to replace a missing spearhead.",
+      "synopsis": "Kingsmead begins a three-Test contest between the last two World Test Championship winners, before Gqeberha and Cape Town. South Africa's announced XI is confirmed; Australia's touring options are not a promised playing XI. Kayo and Fox Cricket carry the series in Australia. No first-Test result has been assumed.",
+      "sources": [
+        "https://www.cricket.com.au/news/4588660/south-africa-xi-team-line-up-side-temba-bavuma-kagiso-rabada-hamstring-injury-anrich-nortje?tags=9037",
+        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+        "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Rabada is unavailable for the first Test.",
           "sourceIndexes": [
             0
           ]
         },
         {
-          "dimension": "consequence",
-          "statement": "Bathurst concludes the Enduro Cup before the championship Finals.",
+          "dimension": "matchup",
+          "statement": "Maharaj and Harmer are named alongside returning Nortje and Jansen.",
           "sourceIndexes": [
-            0,
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Australia retained Labuschagne after a drawn Bangladesh Test series and selected Kuhnemann.",
+          "sourceIndexes": [
             1
           ]
         },
         {
+          "dimension": "history",
+          "statement": "This is Australia's first South African Test tour since 2018.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
           "dimension": "path",
-          "statement": "Supercars' forecast updated on 6 October indicates possible Saturday and Sunday showers; rain during the race is not confirmed.",
+          "statement": "Durban opens a three-Test tour, followed by Gqeberha and Cape Town.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "rugby-new-zealand-australia-2026-10-10",
+      "title": "All Blacks v Wallabies",
+      "hook": "Isaac Henry steps into Australia's midfield as Eden Park tests whether renewed belief can survive New Zealand's returning experience.",
+      "formCopy": "Henry replaces suspended Hunter Paisami beside Len Ikitau, now cleared of his ankle concern. Australia otherwise keep the starting side that beat South Africa in Perth. New Zealand restore Scott Barrett at lock and give Damian McKenzie his first start at flyhalf this season, with Codie Taylor captaining and Beauden Barrett at fullback.",
+      "closingCopy": "For Wallabies supporters, Henry's selection turns a broad hope into a specific contest: a changed midfield has to make familiar attacking combinations work under Auckland pressure. New Zealand's response is experience down the spine. This is progress against expectation, not a promised breakthrough or a debut manufactured from a squad list.",
+      "synopsis": "Eden Park hosts the opening Test before the rivalry moves to Sydney a week later. Australia's last win at this ground was in 1986; New Zealand have retained the Bledisloe since 2003. Those records explain the weight of the occasion, but the named sides give it a present-tense question: can Australia's continuity elsewhere outweigh a forced centre change?",
+      "sources": [
+        "https://www.rugby.com.au/wallabies/news/wallabies-team-confirmed-to-play-new-zealand-in-auckland-bledisloe-cup-2026107",
+        "https://www.allblacks.com/news/all-blacks/all-blacks-team-named-for-first-bledisloe-cup-test",
+        "https://www.rugby.com.au/wallabies/news/wallabies-side-bledisloe-cup-all-blacks-len-ikitau-rugby-union-2026108"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Henry replaces suspended Paisami; the remaining Australian starting XV is unchanged from Perth.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Ikitau has been cleared to partner Henry in midfield.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Taylor captains New Zealand; Scott Barrett returns and McKenzie starts at flyhalf.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Australia last won at Eden Park in 1986; New Zealand have held the Bledisloe since 2003.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "evt_motogp_2026_indonesia_qualifying",
+      "title": "MotoGP Indonesia - Qualifying",
+      "hook": "Mandalika's grid is the first pressure point for Martin and Marquez with just two championship points between them.",
+      "formCopy": "Marquez took both races in Japan; Martin held the championship lead. Bezzecchi remains in contention, arriving at a circuit where he took pole last year.",
+      "closingCopy": "A front-row place cannot win the title, but it can keep a rival within reach from the opening corner. That makes this session more than a lap-time contest.",
+      "synopsis": "Friday Practice sends its top ten straight to Q2. Saturday qualifying follows the final free practice and comes before the Sprint. Separate Sprint qualifying is a 2027 change, not this weekend's format.",
+      "sources": [
+        "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
+        "https://www.motogp.com/en/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007",
+        "https://www.motogp.com/en/news/2026/10/06/mandalika-misfortunes-marc-marquez-ready-to-turn-the-page/1171112",
+        "https://www.motogp.com/en/news/2026/10/08/media-day-dispatch-motogp-ready-to-rock-on-lombok/1174852",
+        "https://www.motogp.com/en/news/2026/10/07/two-points-the-gap-as-motogps-2026-thriller-lands-in-lombok/1171109"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Martin leads Marquez by two points after Japan.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Friday Practice admits its top ten directly to Q2.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Marquez has not completed a Sunday Grand Prix at Mandalika.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Qualifying precedes Saturday's Sprint, with the Grand Prix on Sunday.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Bezzecchi took Indonesian pole in 2025.",
           "sourceIndexes": [
             4
           ]
         }
       ],
-      "researchedAt": "2026-10-06T22:12:30Z"
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "evt_motogp_2026_indonesia_sprint",
+      "title": "MotoGP Indonesia - Sprint",
+      "hook": "Saturday offers Martin and Marquez another title swing before Sunday's longer Mandalika test.",
+      "formCopy": "Japan tightened the duel rather than breaking it open: Marquez swept the weekend while Martin retained a narrow lead. Bezzecchi's recent podium run keeps a third challenger in view.",
+      "closingCopy": "For Aprilia and Ducati supporters, the short race is a chance to change the balance before the main event. Aggression still has to leave a Sunday campaign intact.",
+      "synopsis": "The Sprint follows Saturday qualifying at Mandalika. Its result is not Sunday's outcome, and neither has been forecast here. Marquez has previously reached the Indonesian Sprint podium despite his difficult Grand Prix history.",
+      "sources": [
+        "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
+        "https://www.motogp.com/en/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007",
+        "https://www.motogp.com/en/news/2026/10/06/mandalika-misfortunes-marc-marquez-ready-to-turn-the-page/1171112",
+        "https://www.motogp.com/en/news/2026/10/08/media-day-dispatch-motogp-ready-to-rock-on-lombok/1174852",
+        "https://www.motogp.com/en/news/2026/10/07/two-points-the-gap-as-motogps-2026-thriller-lands-in-lombok/1171109"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Martin leads Marquez by two points after Japan.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Friday Practice admits its top ten directly to Q2.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Marquez has not completed a Sunday Grand Prix at Mandalika.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Qualifying precedes Saturday's Sprint, with the Grand Prix on Sunday.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Marquez finished third in the Indonesian Sprint in 2024.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Bezzecchi has taken four third places in the last five Sunday races.",
+          "sourceIndexes": [
+            4
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "supercars-bathurst-1000-2026",
+      "title": "Bathurst 1000",
+      "hook": "Ford gets a Bathurst-only engine adjustment as Toyota tests its endurance breakthrough against the Mountain's full distance.",
+      "formCopy": "Kai Allen set the fastest lap in Thursday's opening practice, an early signal rather than a qualifying verdict. Toyota arrive after Chaz Mostert and Fabian Coulthard's Bend 500 win and a clean finish for all five Supras. Supercars has now approved a Mustang engine adjustment after testing identified power loss at lower barometric pressure; it applies here only, with Chevrolet and Toyota engines unchanged.",
+      "closingCopy": "Toyota supporters have a reason to believe the new badge can challenge established rivals, but 1000 kilometres asks more than The Bend did. Ford's engine change adds another layer to the parity debate without predicting a winner. Brodie Kostecki and Todd Hazelwood also have a human adjustment: Tom Moore replaces injured engineer George Commins, drawing on an existing working relationship rather than starting from zero.",
+      "synopsis": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Chevrolet's separately approved centre-of-gravity ballast change remains part of the technical backdrop; it is not the same measure as Ford's engine correction. The decisive test is how crews combine pace, reliability and driver handovers over the full distance. Practice can identify contenders, not settle that argument.",
+      "sources": [
+        "https://www.supercars.com/news/supercars-news-2026-ford-engine-change-bathurst-1000-barometric-pressure-testing-investigation-gen3",
+        "https://www.supercars.com/news/supercars-news-2026-ryan-walkinshaw-toyota-bathurst-1000-reliability-engine-gen3-the-bend-500-enduro",
+        "https://www.v8sleuth.com.au/allen-tops-interrupted-first-bathurst-1000-practice/",
+        "https://www.supercars.com/news/supercars-new-2026-djr-brodie-kostecki-change-george-commins-engineer-injury-bathurst-1000",
+        "https://www.supercars.com/news/supercars-news-2026-centre-of-gravity-adjustments-ford-toyota-chevrolet-gen3-parity-bathurst-1000",
+        "https://www.supercars.com/events/2026-bathurst-1000"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Allen topped Thursday's opening practice, not qualifying.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "The Mustang engine adjustment is approved for Bathurst only after altitude-related power-loss testing.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Mostert and Coulthard won The Bend; all five Toyotas completed that endurance event.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Tom Moore replaces injured engineer George Commins for Kostecki and Hazelwood.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Bathurst closes the Enduro Cup before the Finals over 161 laps.",
+          "sourceIndexes": [
+            5
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Chevrolet's ballast revision is separate from Ford's engine adjustment.",
+          "sourceIndexes": [
+            4
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "evt_motogp_2026_indonesia",
+      "title": "MotoGP Indonesia Grand Prix",
+      "hook": "Marquez brings winning momentum to the one Sunday finish Mandalika has never given him; Martin brings a two-point lead.",
+      "formCopy": "Japan's double put the reigning champion almost level with Martin. Bezzecchi is 49 points behind his Aprilia teammate, close enough to keep the contest from becoming an exclusive duel.",
+      "closingCopy": "Martin knows he can win here, having done so in 2024. Marquez needs to turn speed into a finish at a venue associated with injuries and mechanical trouble. That contrast gives this championship chapter its own emotional weight.",
+      "synopsis": "The Grand Prix closes the Indonesia weekend after qualifying and the Sprint. Saturday can change the standings before Sunday begins, so the two-point gap describes arrival, not a promised race-day position. The longer race asks whether attacking pace can survive the whole distance.",
+      "sources": [
+        "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
+        "https://www.motogp.com/en/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007",
+        "https://www.motogp.com/en/news/2026/10/06/mandalika-misfortunes-marc-marquez-ready-to-turn-the-page/1171112",
+        "https://www.motogp.com/en/news/2026/10/08/media-day-dispatch-motogp-ready-to-rock-on-lombok/1174852",
+        "https://www.motogp.com/en/news/2026/10/07/two-points-the-gap-as-motogps-2026-thriller-lands-in-lombok/1171109"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Martin leads Marquez by two points after Japan.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Friday Practice admits its top ten directly to Q2.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Marquez has not completed a Sunday Grand Prix at Mandalika.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Qualifying precedes Saturday's Sprint, with the Grand Prix on Sunday.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Martin won the Indonesian Grand Prix in 2024.",
+          "sourceIndexes": [
+            4
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Bezzecchi trails Martin by 49 points entering the weekend.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "researchDepth": 5
     }
   ]
 }

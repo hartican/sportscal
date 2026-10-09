@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-official-results-2026-09-15-v1-20261008210144386",
-  "publishedAt": "2026-10-08T21:01:44.386Z",
+  "version": "weekend-editorial-20261009002223321",
+  "publishedAt": "2026-10-09T00:22:23.321Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -111208,8 +111208,8 @@
       "id": "fixture:cricket:espn:1525659",
       "eventId": "fixture:cricket:espn:1525659",
       "displayTitleCompact": "South Africa v Australia — First Test",
-      "selectedSentence": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
-      "fullSpiel": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
+      "selectedSentence": "Rabada's absence and two South African spinners make Durban a test of Australia's batting adaptability, not simply its pace attack.",
+      "fullSpiel": "Kingsmead begins a three-Test contest between the last two World Test Championship winners, before Gqeberha and Cape Town. South Africa's announced XI is confirmed; Australia's touring options are not a promised playing XI. Kayo and Fox Cricket carry the series in Australia. No first-Test result has been assumed.",
       "sourceName": "Cricket Australia",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
       "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
@@ -111223,17 +111223,17 @@
       "status": "upcoming",
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Cricket — south africa persistent series",
+        "angle": "South Africa v Australia - First Test",
         "contextSignals": [
           "event-specific",
-          "narrative:history",
+          "narrative:form",
           "narrative:matchup",
-          "narrative:consequence",
+          "narrative:history",
           "narrative:path"
         ],
-        "sourceName": "Cricket Australia South Africa Test tour guide",
-        "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
-        "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
+        "sourceName": "South Africa v Australia - First Test — official research 1",
+        "sourceUrl": "https://www.cricket.com.au/news/4588660/south-africa-xi-team-line-up-side-temba-bavuma-kagiso-rabada-hamstring-injury-anrich-nortje?tags=9037",
+        "sourceCheckedAt": "2026-10-09T00:20:09.386Z",
         "needsPreviewRefresh": false
       },
       "participants": [
@@ -111255,14 +111255,14 @@
         "expectedSpectacle": 7,
         "intensitySource": "computed",
         "archetype": "international test",
-        "hookSpoilerOff": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
-        "hookSpoilerOn": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
-        "synopsisSpoilerOff": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
-        "synopsisSpoilerOn": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
-        "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+        "hookSpoilerOff": "Rabada's absence and two South African spinners make Durban a test of Australia's batting adaptability, not simply its pace attack.",
+        "hookSpoilerOn": "Rabada's absence and two South African spinners make Durban a test of Australia's batting adaptability, not simply its pace attack.",
+        "synopsisSpoilerOff": "Kingsmead begins a three-Test contest between the last two World Test Championship winners, before Gqeberha and Cape Town. South Africa's announced XI is confirmed; Australia's touring options are not a promised playing XI. Kayo and Fox Cricket carry the series in Australia. No first-Test result has been assumed.",
+        "synopsisSpoilerOn": "Kingsmead begins a three-Test contest between the last two World Test Championship winners, before Gqeberha and Cape Town. South Africa's announced XI is confirmed; Australia's touring options are not a promised playing XI. Kayo and Fox Cricket carry the series in Australia. No first-Test result has been assumed.",
+        "lastReviewedAt": "2026-10-09T00:20:09.386Z",
         "researchDepth": 5
       },
-      "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+      "lastReviewedAt": "2026-10-09T00:20:09.386Z",
       "sourceTrust": "verified",
       "startTimeUtc": "2026-10-09T07:30:00.000Z",
       "sourceType": "official",
@@ -111280,29 +111280,32 @@
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:sport-depth:fixture-cricket-espn-1525659",
         "researchTier": "marquee",
-        "hook": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
-        "synopsis": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
+        "hook": "Rabada's absence and two South African spinners make Durban a test of Australia's batting adaptability, not simply its pace attack.",
+        "synopsis": "Kingsmead begins a three-Test contest between the last two World Test Championship winners, before Gqeberha and Cape Town. South Africa's announced XI is confirmed; Australia's touring options are not a promised playing XI. Kayo and Fox Cricket carry the series in Australia. No first-Test result has been assumed.",
+        "formCopy": "South Africa have named Maharaj and Harmer together, with Nortje returning alongside Jansen. Rabada remains unavailable for the opener. Australia's batting faces its own scrutiny after the drawn Bangladesh series; Labuschagne retained his place, while the touring squad includes Kuhnemann as a second specialist spin option.",
+        "closingCopy": "This is Australia's first Test tour here since 2018. The legacy belongs to the series, but Durban's immediate argument is cricketing: can the visitors establish authority against a home attack built around more than fast bowling? For the Proteas, depth has to replace a missing spearhead.",
         "threadIds": [
-          "thread:depth:cricket:south-africa"
+          "thread:fixture-research:fixture:cricket:espn:1525659:revision-661a2ae6c8649f9bc49be34564a84b54b9df076825e0dae506a8d30398e0b023"
         ],
         "factIds": [
-          "fact:depth:cricket:fixture-cricket-espn-1525659:1",
-          "fact:depth:cricket:fixture-cricket-espn-1525659:2",
-          "fact:depth:cricket:fixture-cricket-espn-1525659:3",
-          "fact:depth:cricket:fixture-cricket-espn-1525660:1"
+          "fact:fixture-research:fixture:cricket:espn:1525659:revision-661a2ae6c8649f9bc49be34564a84b54b9df076825e0dae506a8d30398e0b023:0",
+          "fact:fixture-research:fixture:cricket:espn:1525659:revision-661a2ae6c8649f9bc49be34564a84b54b9df076825e0dae506a8d30398e0b023:1",
+          "fact:fixture-research:fixture:cricket:espn:1525659:revision-661a2ae6c8649f9bc49be34564a84b54b9df076825e0dae506a8d30398e0b023:2",
+          "fact:fixture-research:fixture:cricket:espn:1525659:revision-661a2ae6c8649f9bc49be34564a84b54b9df076825e0dae506a8d30398e0b023:3",
+          "fact:fixture-research:fixture:cricket:espn:1525659:revision-661a2ae6c8649f9bc49be34564a84b54b9df076825e0dae506a8d30398e0b023:4"
         ],
         "sourceIds": [
-          "source:depth:cricket:south-africa",
-          "source:depth:cricket:season",
-          "source:depth:cricket:test-workload"
+          "source:fixture-research:fixture:cricket:espn:1525659:revision-661a2ae6c8649f9bc49be34564a84b54b9df076825e0dae506a8d30398e0b023:0",
+          "source:fixture-research:fixture:cricket:espn:1525659:revision-661a2ae6c8649f9bc49be34564a84b54b9df076825e0dae506a8d30398e0b023:1",
+          "source:fixture-research:fixture:cricket:espn:1525659:revision-661a2ae6c8649f9bc49be34564a84b54b9df076825e0dae506a8d30398e0b023:2"
         ],
         "dimensions": [
-          "history",
+          "form",
           "matchup",
-          "consequence",
+          "history",
           "path"
         ],
-        "researchedAt": "2026-09-30T22:50:31.966Z",
+        "researchedAt": "2026-10-09T00:20:09.386Z",
         "refreshAfter": "2026-10-09T07:30:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
@@ -112302,8 +112305,8 @@
       "roundNumber": 17,
       "stage": "Qualifying (Q1 + Q2)",
       "narrativeType": "all",
-      "selectedSentence": "Qualifying (Q1 + Q2) at Pertamina Mandalika International Circuit.",
-      "fullSpiel": "The official MotoGP timetable confirms qualifying (q1 + q2) for the premier class at Pertamina Mandalika International Circuit.",
+      "selectedSentence": "Mandalika's grid is the first pressure point for Martin and Marquez with just two championship points between them.",
+      "fullSpiel": "Friday Practice sends its top ten straight to Q2. Saturday qualifying follows the final free practice and comes before the Sprint. Separate Sprint qualifying is a 2027 change, not this weekend's format.",
       "sourceName": "MotoGP official calendar and premier-class timetable",
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
       "sourceCheckedAt": "2026-10-04T05:50:21.280Z",
@@ -112362,25 +112365,29 @@
         "intensitySource": "computed",
         "arcStage": "preview",
         "expectedSpectacle": 7,
-        "hookSpoilerOff": "Qualifying (Q1 + Q2) at Pertamina Mandalika International Circuit.",
-        "hookSpoilerOn": "Qualifying (Q1 + Q2) at Pertamina Mandalika International Circuit.",
-        "synopsisSpoilerOff": "The official MotoGP timetable confirms qualifying (q1 + q2) for the premier class at Pertamina Mandalika International Circuit.",
-        "synopsisSpoilerOn": "The official MotoGP timetable confirms qualifying (q1 + q2) for the premier class at Pertamina Mandalika International Circuit.",
-        "lastReviewedAt": "2026-10-04T05:50:21.280Z"
+        "hookSpoilerOff": "Mandalika's grid is the first pressure point for Martin and Marquez with just two championship points between them.",
+        "hookSpoilerOn": "Mandalika's grid is the first pressure point for Martin and Marquez with just two championship points between them.",
+        "synopsisSpoilerOff": "Friday Practice sends its top ten straight to Q2. Saturday qualifying follows the final free practice and comes before the Sprint. Separate Sprint qualifying is a 2027 change, not this weekend's format.",
+        "synopsisSpoilerOn": "Friday Practice sends its top ten straight to Q2. Saturday qualifying follows the final free practice and comes before the Sprint. Separate Sprint qualifying is a 2027 change, not this weekend's format.",
+        "lastReviewedAt": "2026-10-09T00:20:09.386Z",
+        "researchDepth": 5
       },
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Qualifying (Q1 + Q2)",
+        "angle": "MotoGP Indonesia - Qualifying",
         "contextSignals": [
-          "official-schedule",
-          "Qualifying (Q1 + Q2)"
+          "event-specific",
+          "narrative:form",
+          "narrative:matchup",
+          "narrative:history",
+          "narrative:path"
         ],
-        "sourceName": "MotoGP official calendar and premier-class timetable",
-        "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
-        "sourceCheckedAt": "2026-10-04T05:50:21.280Z",
+        "sourceName": "MotoGP Indonesia - Qualifying — official research 1",
+        "sourceUrl": "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
+        "sourceCheckedAt": "2026-10-09T00:20:09.386Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-10-04T05:51:15.056Z",
+      "lastReviewedAt": "2026-10-09T00:20:09.386Z",
       "statusCheckedAt": "2026-10-03T07:03:56.198Z",
       "participantSlots": [],
       "participantCountryCodes": [],
@@ -112389,7 +112396,43 @@
       "sourceEventIds": [
         "evt_motogp_2026_indonesia_qualifying"
       ],
-      "consensusTags": []
+      "consensusTags": [],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:fixture-research:evt_motogp_2026_indonesia_qualifying",
+        "researchTier": "marquee",
+        "hook": "Mandalika's grid is the first pressure point for Martin and Marquez with just two championship points between them.",
+        "synopsis": "Friday Practice sends its top ten straight to Q2. Saturday qualifying follows the final free practice and comes before the Sprint. Separate Sprint qualifying is a 2027 change, not this weekend's format.",
+        "formCopy": "Marquez took both races in Japan; Martin held the championship lead. Bezzecchi remains in contention, arriving at a circuit where he took pole last year.",
+        "closingCopy": "A front-row place cannot win the title, but it can keep a rival within reach from the opening corner. That makes this session more than a lap-time contest.",
+        "threadIds": [
+          "thread:fixture-research:evt_motogp_2026_indonesia_qualifying:revision-2b3d3a2ca759b0e8df8b20d62abb01cce15d8b5f90d1cf5c5dee45aad7334ed0"
+        ],
+        "factIds": [
+          "fact:fixture-research:evt_motogp_2026_indonesia_qualifying:revision-2b3d3a2ca759b0e8df8b20d62abb01cce15d8b5f90d1cf5c5dee45aad7334ed0:0",
+          "fact:fixture-research:evt_motogp_2026_indonesia_qualifying:revision-2b3d3a2ca759b0e8df8b20d62abb01cce15d8b5f90d1cf5c5dee45aad7334ed0:1",
+          "fact:fixture-research:evt_motogp_2026_indonesia_qualifying:revision-2b3d3a2ca759b0e8df8b20d62abb01cce15d8b5f90d1cf5c5dee45aad7334ed0:2",
+          "fact:fixture-research:evt_motogp_2026_indonesia_qualifying:revision-2b3d3a2ca759b0e8df8b20d62abb01cce15d8b5f90d1cf5c5dee45aad7334ed0:3",
+          "fact:fixture-research:evt_motogp_2026_indonesia_qualifying:revision-2b3d3a2ca759b0e8df8b20d62abb01cce15d8b5f90d1cf5c5dee45aad7334ed0:4"
+        ],
+        "sourceIds": [
+          "source:fixture-research:evt_motogp_2026_indonesia_qualifying:revision-2b3d3a2ca759b0e8df8b20d62abb01cce15d8b5f90d1cf5c5dee45aad7334ed0:0",
+          "source:fixture-research:evt_motogp_2026_indonesia_qualifying:revision-2b3d3a2ca759b0e8df8b20d62abb01cce15d8b5f90d1cf5c5dee45aad7334ed0:1",
+          "source:fixture-research:evt_motogp_2026_indonesia_qualifying:revision-2b3d3a2ca759b0e8df8b20d62abb01cce15d8b5f90d1cf5c5dee45aad7334ed0:2",
+          "source:fixture-research:evt_motogp_2026_indonesia_qualifying:revision-2b3d3a2ca759b0e8df8b20d62abb01cce15d8b5f90d1cf5c5dee45aad7334ed0:3",
+          "source:fixture-research:evt_motogp_2026_indonesia_qualifying:revision-2b3d3a2ca759b0e8df8b20d62abb01cce15d8b5f90d1cf5c5dee45aad7334ed0:4"
+        ],
+        "dimensions": [
+          "form",
+          "matchup",
+          "history",
+          "path"
+        ],
+        "researchedAt": "2026-10-09T00:20:09.386Z",
+        "refreshAfter": "2026-10-10T02:50:00.000Z",
+        "generationMode": "researched",
+        "phase": "preview"
+      }
     },
     {
       "id": "event-aflw-cd_m20262640903",
@@ -112684,8 +112727,8 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "test",
-      "selectedSentence": "Australia bring belief to Eden Park, but missing overseas forwards make the challenge more than breaking a famous home-ground spell.",
-      "fullSpiel": "The first Bledisloe Test is at Eden Park on 10 October, followed by Sydney a week later. New Zealand have held the cup since 2003. Australia need to keep a two-match contest alive on a ground that has repeatedly frustrated them; the All Blacks need their returning players and new captain to turn familiarity into authority. Final selections and any disciplinary availability changes still need confirmation before kickoff.",
+      "selectedSentence": "Isaac Henry steps into Australia's midfield as Eden Park tests whether renewed belief can survive New Zealand's returning experience.",
+      "fullSpiel": "Eden Park hosts the opening Test before the rivalry moves to Sydney a week later. Australia's last win at this ground was in 1986; New Zealand have retained the Bledisloe since 2003. Those records explain the weight of the occasion, but the named sides give it a present-tense question: can Australia's continuity elsewhere outweigh a forced centre change?",
       "sourceName": "Eden Park",
       "sourceUrl": "https://edenpark.co.nz/events/all-blacks-v-australia-saturday-10-october-2026/",
       "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
@@ -112711,28 +112754,28 @@
         "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "Australia bring belief to Eden Park, but missing overseas forwards make the challenge more than breaking a famous home-ground spell.",
-        "hookSpoilerOn": "Australia bring belief to Eden Park, but missing overseas forwards make the challenge more than breaking a famous home-ground spell.",
-        "synopsisSpoilerOff": "The first Bledisloe Test is at Eden Park on 10 October, followed by Sydney a week later. New Zealand have held the cup since 2003. Australia need to keep a two-match contest alive on a ground that has repeatedly frustrated them; the All Blacks need their returning players and new captain to turn familiarity into authority. Final selections and any disciplinary availability changes still need confirmation before kickoff.",
-        "synopsisSpoilerOn": "The first Bledisloe Test is at Eden Park on 10 October, followed by Sydney a week later. New Zealand have held the cup since 2003. Australia need to keep a two-match contest alive on a ground that has repeatedly frustrated them; the All Blacks need their returning players and new captain to turn familiarity into authority. Final selections and any disciplinary availability changes still need confirmation before kickoff.",
+        "hookSpoilerOff": "Isaac Henry steps into Australia's midfield as Eden Park tests whether renewed belief can survive New Zealand's returning experience.",
+        "hookSpoilerOn": "Isaac Henry steps into Australia's midfield as Eden Park tests whether renewed belief can survive New Zealand's returning experience.",
+        "synopsisSpoilerOff": "Eden Park hosts the opening Test before the rivalry moves to Sydney a week later. Australia's last win at this ground was in 1986; New Zealand have retained the Bledisloe since 2003. Those records explain the weight of the occasion, but the named sides give it a present-tense question: can Australia's continuity elsewhere outweigh a forced centre change?",
+        "synopsisSpoilerOn": "Eden Park hosts the opening Test before the rivalry moves to Sydney a week later. Australia's last win at this ground was in 1986; New Zealand have retained the Bledisloe since 2003. Those records explain the weight of the occasion, but the named sides give it a present-tense question: can Australia's continuity elsewhere outweigh a forced centre change?",
         "intensitySource": "computed",
         "archetype": "international test",
         "researchDepth": 5,
-        "lastReviewedAt": "2026-10-06T02:47:49.275Z"
+        "lastReviewedAt": "2026-10-09T00:20:09.386Z"
       },
-      "lastReviewedAt": "2026-10-06T02:47:49.275Z",
+      "lastReviewedAt": "2026-10-09T00:20:09.386Z",
       "editorialPreview": {
         "status": "journalistic",
         "angle": "All Blacks v Wallabies",
         "contextSignals": [
           "event-specific",
           "narrative:form",
-          "narrative:history",
-          "narrative:path"
+          "narrative:matchup",
+          "narrative:history"
         ],
         "sourceName": "All Blacks v Wallabies — official research 1",
-        "sourceUrl": "https://www.rugby.com.au/wallabies/news/wallabies-squad-update-for-bledisloe-cup-series-2026930",
-        "sourceCheckedAt": "2026-10-06T02:47:49.275Z",
+        "sourceUrl": "https://www.rugby.com.au/wallabies/news/wallabies-team-confirmed-to-play-new-zealand-in-auckland-bledisloe-cup-2026107",
+        "sourceCheckedAt": "2026-10-09T00:20:09.386Z",
         "needsPreviewRefresh": false
       },
       "sourceTrust": "unverified",
@@ -112799,30 +112842,30 @@
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:fixture-research:rugby-new-zealand-australia-2026-10-10",
         "researchTier": "marquee",
-        "hook": "Australia bring belief to Eden Park, but missing overseas forwards make the challenge more than breaking a famous home-ground spell.",
-        "synopsis": "The first Bledisloe Test is at Eden Park on 10 October, followed by Sydney a week later. New Zealand have held the cup since 2003. Australia need to keep a two-match contest alive on a ground that has repeatedly frustrated them; the All Blacks need their returning players and new captain to turn familiarity into authority. Final selections and any disciplinary availability changes still need confirmation before kickoff.",
-        "formCopy": "The Wallabies carry momentum from their recent South Africa meeting, with Les Kiss retaining the core of his squad. Tom Hooper and Taniela Tupou are unavailable because these Tests fall outside the international release window; uncapped Toby Macpherson and recalled Massimo de Lutiis enter the group. New Zealand bring a different adjustment: Codie Taylor leads, Scott Barrett returns from injury and Shannon Frizell rejoins after time in Japan. These are squad options, not a confirmed starting XV.",
-        "closingCopy": "For Australian supporters, the question is whether growing confidence survives the pressure of Auckland without two overseas forwards. Macpherson's call-up gives that challenge a new face, but a squad place is not a promised debut. For New Zealand, returning experience and Taylor's leadership offer a way to reset after the South Africa tour. The emotional contrast is between a challenger trying to make progress stick and a holder protecting a rivalry that still defines expectations.",
+        "hook": "Isaac Henry steps into Australia's midfield as Eden Park tests whether renewed belief can survive New Zealand's returning experience.",
+        "synopsis": "Eden Park hosts the opening Test before the rivalry moves to Sydney a week later. Australia's last win at this ground was in 1986; New Zealand have retained the Bledisloe since 2003. Those records explain the weight of the occasion, but the named sides give it a present-tense question: can Australia's continuity elsewhere outweigh a forced centre change?",
+        "formCopy": "Henry replaces suspended Hunter Paisami beside Len Ikitau, now cleared of his ankle concern. Australia otherwise keep the starting side that beat South Africa in Perth. New Zealand restore Scott Barrett at lock and give Damian McKenzie his first start at flyhalf this season, with Codie Taylor captaining and Beauden Barrett at fullback.",
+        "closingCopy": "For Wallabies supporters, Henry's selection turns a broad hope into a specific contest: a changed midfield has to make familiar attacking combinations work under Auckland pressure. New Zealand's response is experience down the spine. This is progress against expectation, not a promised breakthrough or a debut manufactured from a squad list.",
         "threadIds": [
-          "thread:fixture-research:rugby-new-zealand-australia-2026-10-10"
+          "thread:fixture-research:rugby-new-zealand-australia-2026-10-10:revision-d26a7a096edc2f88f1ae87ac62fe5daddaebda5392b0dad8e938abcbd796e9ce"
         ],
         "factIds": [
-          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
-          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
-          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:2",
-          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:3"
+          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:revision-d26a7a096edc2f88f1ae87ac62fe5daddaebda5392b0dad8e938abcbd796e9ce:0",
+          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:revision-d26a7a096edc2f88f1ae87ac62fe5daddaebda5392b0dad8e938abcbd796e9ce:1",
+          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:revision-d26a7a096edc2f88f1ae87ac62fe5daddaebda5392b0dad8e938abcbd796e9ce:2",
+          "fact:fixture-research:rugby-new-zealand-australia-2026-10-10:revision-d26a7a096edc2f88f1ae87ac62fe5daddaebda5392b0dad8e938abcbd796e9ce:3"
         ],
         "sourceIds": [
-          "source:fixture-research:rugby-new-zealand-australia-2026-10-10:0",
-          "source:fixture-research:rugby-new-zealand-australia-2026-10-10:1",
-          "source:fixture-research:rugby-new-zealand-australia-2026-10-10:2"
+          "source:fixture-research:rugby-new-zealand-australia-2026-10-10:revision-d26a7a096edc2f88f1ae87ac62fe5daddaebda5392b0dad8e938abcbd796e9ce:0",
+          "source:fixture-research:rugby-new-zealand-australia-2026-10-10:revision-d26a7a096edc2f88f1ae87ac62fe5daddaebda5392b0dad8e938abcbd796e9ce:1",
+          "source:fixture-research:rugby-new-zealand-australia-2026-10-10:revision-d26a7a096edc2f88f1ae87ac62fe5daddaebda5392b0dad8e938abcbd796e9ce:2"
         ],
         "dimensions": [
           "form",
-          "history",
-          "path"
+          "matchup",
+          "history"
         ],
-        "researchedAt": "2026-10-06T02:47:49.275Z",
+        "researchedAt": "2026-10-09T00:20:09.386Z",
         "refreshAfter": "2026-10-10T06:10:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
@@ -112882,8 +112925,8 @@
       "roundNumber": 17,
       "stage": "Sprint",
       "narrativeType": "all",
-      "selectedSentence": "Sprint at Pertamina Mandalika International Circuit.",
-      "fullSpiel": "The official MotoGP timetable confirms sprint for the premier class at Pertamina Mandalika International Circuit.",
+      "selectedSentence": "Saturday offers Martin and Marquez another title swing before Sunday's longer Mandalika test.",
+      "fullSpiel": "The Sprint follows Saturday qualifying at Mandalika. Its result is not Sunday's outcome, and neither has been forecast here. Marquez has previously reached the Indonesian Sprint podium despite his difficult Grand Prix history.",
       "sourceName": "MotoGP official calendar and premier-class timetable",
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
       "sourceCheckedAt": "2026-10-04T05:50:21.280Z",
@@ -112942,25 +112985,29 @@
         "intensitySource": "computed",
         "arcStage": "preview",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "Sprint at Pertamina Mandalika International Circuit.",
-        "hookSpoilerOn": "Sprint at Pertamina Mandalika International Circuit.",
-        "synopsisSpoilerOff": "The official MotoGP timetable confirms sprint for the premier class at Pertamina Mandalika International Circuit.",
-        "synopsisSpoilerOn": "The official MotoGP timetable confirms sprint for the premier class at Pertamina Mandalika International Circuit.",
-        "lastReviewedAt": "2026-10-04T05:50:21.280Z"
+        "hookSpoilerOff": "Saturday offers Martin and Marquez another title swing before Sunday's longer Mandalika test.",
+        "hookSpoilerOn": "Saturday offers Martin and Marquez another title swing before Sunday's longer Mandalika test.",
+        "synopsisSpoilerOff": "The Sprint follows Saturday qualifying at Mandalika. Its result is not Sunday's outcome, and neither has been forecast here. Marquez has previously reached the Indonesian Sprint podium despite his difficult Grand Prix history.",
+        "synopsisSpoilerOn": "The Sprint follows Saturday qualifying at Mandalika. Its result is not Sunday's outcome, and neither has been forecast here. Marquez has previously reached the Indonesian Sprint podium despite his difficult Grand Prix history.",
+        "lastReviewedAt": "2026-10-09T00:20:09.386Z",
+        "researchDepth": 5
       },
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Sprint",
+        "angle": "MotoGP Indonesia - Sprint",
         "contextSignals": [
-          "official-schedule",
-          "Sprint"
+          "event-specific",
+          "narrative:form",
+          "narrative:matchup",
+          "narrative:history",
+          "narrative:path"
         ],
-        "sourceName": "MotoGP official calendar and premier-class timetable",
-        "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
-        "sourceCheckedAt": "2026-10-04T05:50:21.280Z",
+        "sourceName": "MotoGP Indonesia - Sprint — official research 1",
+        "sourceUrl": "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
+        "sourceCheckedAt": "2026-10-09T00:20:09.386Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-10-04T05:51:15.056Z",
+      "lastReviewedAt": "2026-10-09T00:20:09.386Z",
       "statusCheckedAt": "2026-10-03T07:03:56.198Z",
       "participantSlots": [],
       "participantCountryCodes": [],
@@ -112969,7 +113016,44 @@
       "sourceEventIds": [
         "evt_motogp_2026_indonesia_sprint"
       ],
-      "consensusTags": []
+      "consensusTags": [],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:fixture-research:evt_motogp_2026_indonesia_sprint",
+        "researchTier": "marquee",
+        "hook": "Saturday offers Martin and Marquez another title swing before Sunday's longer Mandalika test.",
+        "synopsis": "The Sprint follows Saturday qualifying at Mandalika. Its result is not Sunday's outcome, and neither has been forecast here. Marquez has previously reached the Indonesian Sprint podium despite his difficult Grand Prix history.",
+        "formCopy": "Japan tightened the duel rather than breaking it open: Marquez swept the weekend while Martin retained a narrow lead. Bezzecchi's recent podium run keeps a third challenger in view.",
+        "closingCopy": "For Aprilia and Ducati supporters, the short race is a chance to change the balance before the main event. Aggression still has to leave a Sunday campaign intact.",
+        "threadIds": [
+          "thread:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5"
+        ],
+        "factIds": [
+          "fact:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5:0",
+          "fact:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5:1",
+          "fact:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5:2",
+          "fact:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5:3",
+          "fact:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5:4",
+          "fact:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5:5"
+        ],
+        "sourceIds": [
+          "source:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5:0",
+          "source:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5:1",
+          "source:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5:2",
+          "source:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5:3",
+          "source:fixture-research:evt_motogp_2026_indonesia_sprint:revision-0106dace2ccc3827251a6e892d1f034507a82ab1e0c0fb3d7c5454a32d6ea5c5:4"
+        ],
+        "dimensions": [
+          "form",
+          "matchup",
+          "history",
+          "path"
+        ],
+        "researchedAt": "2026-10-09T00:20:09.386Z",
+        "refreshAfter": "2026-10-10T07:00:00.000Z",
+        "generationMode": "researched",
+        "phase": "preview"
+      }
     },
     {
       "id": "event-aflw-cd_m20262640905",
@@ -114931,12 +115015,12 @@
         "stakes": 5,
         "intensity": 5,
         "arcStage": "preview",
-        "hookSpoilerOff": "Toyota brings endurance momentum, Chevrolet a technical reset. Kostecki's Ford crew must also adapt to a late engineer change before the Mountain.",
-        "hookSpoilerOn": "Toyota brings endurance momentum, Chevrolet a technical reset. Kostecki's Ford crew must also adapt to a late engineer change before the Mountain.",
-        "synopsisSpoilerOff": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend tested reliability over 500km; Bathurst doubles that demand and adds the consequence of every handover and pit call. Supercars' forecast, updated on 6 October, raises the possibility of Saturday and Sunday showers, not a confirmed wet race. Changing conditions would make tyre calls another pressure point for crews already balancing endurance and outright speed.",
-        "synopsisSpoilerOn": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend tested reliability over 500km; Bathurst doubles that demand and adds the consequence of every handover and pit call. Supercars' forecast, updated on 6 October, raises the possibility of Saturday and Sunday showers, not a confirmed wet race. Changing conditions would make tyre calls another pressure point for crews already balancing endurance and outright speed.",
+        "hookSpoilerOff": "Ford gets a Bathurst-only engine adjustment as Toyota tests its endurance breakthrough against the Mountain's full distance.",
+        "hookSpoilerOn": "Ford gets a Bathurst-only engine adjustment as Toyota tests its endurance breakthrough against the Mountain's full distance.",
+        "synopsisSpoilerOff": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Chevrolet's separately approved centre-of-gravity ballast change remains part of the technical backdrop; it is not the same measure as Ford's engine correction. The decisive test is how crews combine pace, reliability and driver handovers over the full distance. Practice can identify contenders, not settle that argument.",
+        "synopsisSpoilerOn": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Chevrolet's separately approved centre-of-gravity ballast change remains part of the technical backdrop; it is not the same measure as Ford's engine correction. The decisive test is how crews combine pace, reliability and driver handovers over the full distance. Practice can identify contenders, not settle that argument.",
         "researchDepth": 5,
-        "lastReviewedAt": "2026-10-06T22:12:30Z",
+        "lastReviewedAt": "2026-10-09T00:20:09.386Z",
         "expectedSpectacle": 10,
         "intensitySource": "computed"
       },
@@ -115020,43 +115104,42 @@
         ],
         "reason": "Bathurst 1000 and Enduro Cup finale"
       },
-      "selectedSentence": "Toyota brings endurance momentum, Chevrolet a technical reset. Kostecki's Ford crew must also adapt to a late engineer change before the Mountain.",
-      "fullSpiel": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend tested reliability over 500km; Bathurst doubles that demand and adds the consequence of every handover and pit call. Supercars' forecast, updated on 6 October, raises the possibility of Saturday and Sunday showers, not a confirmed wet race. Changing conditions would make tyre calls another pressure point for crews already balancing endurance and outright speed.",
+      "selectedSentence": "Ford gets a Bathurst-only engine adjustment as Toyota tests its endurance breakthrough against the Mountain's full distance.",
+      "fullSpiel": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Chevrolet's separately approved centre-of-gravity ballast change remains part of the technical backdrop; it is not the same measure as Ford's engine correction. The decisive test is how crews combine pace, reliability and driver handovers over the full distance. Practice can identify contenders, not settle that argument.",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:fixture-research:supercars-bathurst-1000-2026",
         "researchTier": "marquee",
-        "hook": "Toyota brings endurance momentum, Chevrolet a technical reset. Kostecki's Ford crew must also adapt to a late engineer change before the Mountain.",
-        "synopsis": "Race 30 starts at 11:30am Sydney time on Sunday 11 October at Mount Panorama: 161 laps of the 6.213km circuit, roughly 1000 kilometres. It closes the Ryco Enduro Cup before the championship Finals. The Bend tested reliability over 500km; Bathurst doubles that demand and adds the consequence of every handover and pit call. Supercars' forecast, updated on 6 October, raises the possibility of Saturday and Sunday showers, not a confirmed wet race. Changing conditions would make tyre calls another pressure point for crews already balancing endurance and outright speed.",
-        "formCopy": "Chaz Mostert and Fabian Coulthard won at The Bend, with Ryan Wood and Jaxon Evans also reaching the podium. All five Toyotas finished that first endurance test, giving the new manufacturer evidence beyond short-race speed. Chevrolet arrives with a separate change: Supercars has approved reduced roll-cage centre-of-gravity ballast for the Camaro from Bathurst, with no corresponding Mustang or Supra adjustment. That changes the technical backdrop, not a guaranteed finishing order.",
-        "closingCopy": "Brodie Kostecki and Todd Hazelwood will race without George Commins, the engineer behind Kostecki's 2024 Bathurst win. A mountain-biking injury has ruled Commins out; DJR team manager Tom Moore takes over. Moore already knows Kostecki from their years in the same teams, so this is not a partnership built from scratch. For Ford supporters, the new tension is whether a proven contender can keep its familiar rhythm with a different voice on the radio. Toyota's first Great Race campaign and Chevrolet's revised ballast add rival ambitions, not a guarantee that any badge has the answer.",
+        "hook": "Ford gets a Bathurst-only engine adjustment as Toyota tests its endurance breakthrough against the Mountain's full distance.",
+        "synopsis": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Chevrolet's separately approved centre-of-gravity ballast change remains part of the technical backdrop; it is not the same measure as Ford's engine correction. The decisive test is how crews combine pace, reliability and driver handovers over the full distance. Practice can identify contenders, not settle that argument.",
+        "formCopy": "Kai Allen set the fastest lap in Thursday's opening practice, an early signal rather than a qualifying verdict. Toyota arrive after Chaz Mostert and Fabian Coulthard's Bend 500 win and a clean finish for all five Supras. Supercars has now approved a Mustang engine adjustment after testing identified power loss at lower barometric pressure; it applies here only, with Chevrolet and Toyota engines unchanged.",
+        "closingCopy": "Toyota supporters have a reason to believe the new badge can challenge established rivals, but 1000 kilometres asks more than The Bend did. Ford's engine change adds another layer to the parity debate without predicting a winner. Brodie Kostecki and Todd Hazelwood also have a human adjustment: Tom Moore replaces injured engineer George Commins, drawing on an existing working relationship rather than starting from zero.",
         "threadIds": [
-          "thread:fixture-research:supercars-bathurst-1000-2026"
+          "thread:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df"
         ],
         "factIds": [
-          "fact:fixture-research:supercars-bathurst-1000-2026:0",
-          "fact:fixture-research:supercars-bathurst-1000-2026:1",
-          "fact:fixture-research:supercars-bathurst-1000-2026:2",
-          "fact:fixture-research:supercars-bathurst-1000-2026:3",
-          "fact:fixture-research:supercars-bathurst-1000-2026:4",
-          "fact:fixture-research:supercars-bathurst-1000-2026:5",
-          "fact:fixture-research:supercars-bathurst-1000-2026:6"
+          "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:0",
+          "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:1",
+          "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:2",
+          "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:3",
+          "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:4",
+          "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:5"
         ],
         "sourceIds": [
-          "source:fixture-research:supercars-bathurst-1000-2026:0",
-          "source:fixture-research:supercars-bathurst-1000-2026:1",
-          "source:fixture-research:supercars-bathurst-1000-2026:2",
-          "source:fixture-research:supercars-bathurst-1000-2026:3",
-          "source:fixture-research:supercars-bathurst-1000-2026:4"
+          "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:0",
+          "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:1",
+          "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:2",
+          "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:3",
+          "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:4",
+          "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:5"
         ],
         "dimensions": [
           "form",
-          "history",
-          "path",
-          "schedule",
-          "consequence"
+          "matchup",
+          "consequence",
+          "path"
         ],
-        "researchedAt": "2026-10-06T22:12:30Z",
+        "researchedAt": "2026-10-09T00:20:09.386Z",
         "refreshAfter": "2026-10-11T00:30:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
@@ -115067,14 +115150,13 @@
         "contextSignals": [
           "event-specific",
           "narrative:form",
-          "narrative:history",
-          "narrative:path",
-          "narrative:schedule",
-          "narrative:consequence"
+          "narrative:matchup",
+          "narrative:consequence",
+          "narrative:path"
         ],
         "sourceName": "Bathurst 1000 — official research 1",
-        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
-        "sourceCheckedAt": "2026-10-06T22:12:30Z",
+        "sourceUrl": "https://www.supercars.com/news/supercars-news-2026-ford-engine-change-bathurst-1000-barometric-pressure-testing-investigation-gen3",
+        "sourceCheckedAt": "2026-10-09T00:20:09.386Z",
         "needsPreviewRefresh": false
       },
       "replayEligible": true,
@@ -115084,7 +115166,7 @@
       "timePrecision": "exact",
       "narrativeType": "all",
       "briefingEligible": true,
-      "lastReviewedAt": "2026-10-06T22:12:30Z",
+      "lastReviewedAt": "2026-10-09T00:20:09.386Z",
       "statusCheckedAt": "2026-09-24T01:50:44.155Z",
       "participantSlots": [],
       "participantCountryCodes": [],
@@ -116122,8 +116204,8 @@
       "roundNumber": 17,
       "stage": "Grand Prix",
       "narrativeType": "all",
-      "selectedSentence": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
-      "fullSpiel": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends. Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
+      "selectedSentence": "Marquez brings winning momentum to the one Sunday finish Mandalika has never given him; Martin brings a two-point lead.",
+      "fullSpiel": "The Grand Prix closes the Indonesia weekend after qualifying and the Sprint. Saturday can change the standings before Sunday begins, so the two-point gap describes arrival, not a promised race-day position. The longer race asks whether attacking pace can survive the whole distance.",
       "sourceName": "MotoGP official calendar and premier-class timetable",
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
       "sourceCheckedAt": "2026-10-04T05:50:21.280Z",
@@ -116182,28 +116264,29 @@
         "intensitySource": "computed",
         "arcStage": "preview",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
-        "hookSpoilerOn": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
-        "synopsisSpoilerOff": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends. Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
-        "synopsisSpoilerOn": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends. Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
-        "lastReviewedAt": "2026-10-01T17:38:41.192Z",
+        "hookSpoilerOff": "Marquez brings winning momentum to the one Sunday finish Mandalika has never given him; Martin brings a two-point lead.",
+        "hookSpoilerOn": "Marquez brings winning momentum to the one Sunday finish Mandalika has never given him; Martin brings a two-point lead.",
+        "synopsisSpoilerOff": "The Grand Prix closes the Indonesia weekend after qualifying and the Sprint. Saturday can change the standings before Sunday begins, so the two-point gap describes arrival, not a promised race-day position. The longer race asks whether attacking pace can survive the whole distance.",
+        "synopsisSpoilerOn": "The Grand Prix closes the Indonesia weekend after qualifying and the Sprint. Saturday can change the standings before Sunday begins, so the two-point gap describes arrival, not a promised race-day position. The longer race asks whether attacking pace can survive the whole distance.",
+        "lastReviewedAt": "2026-10-09T00:20:09.386Z",
         "researchDepth": 5
       },
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "2026 MotoGP season — current path",
+        "angle": "MotoGP Indonesia Grand Prix",
         "contextSignals": [
           "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
+          "narrative:form",
+          "narrative:matchup",
+          "narrative:history",
+          "narrative:path"
         ],
-        "sourceName": "MotoGP 2026 calendar",
-        "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-        "sourceCheckedAt": "2026-10-01T17:37:45.716Z",
+        "sourceName": "MotoGP Indonesia Grand Prix — official research 1",
+        "sourceUrl": "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
+        "sourceCheckedAt": "2026-10-09T00:20:09.386Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-10-01T17:38:41.192Z",
+      "lastReviewedAt": "2026-10-09T00:20:09.386Z",
       "statusCheckedAt": "2026-10-03T07:03:56.198Z",
       "participantSlots": [],
       "participantCountryCodes": [],
@@ -116217,29 +116300,36 @@
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-motogp-2026-indonesia",
         "researchTier": "marquee",
-        "hook": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
-        "synopsis": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends. Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
+        "hook": "Marquez brings winning momentum to the one Sunday finish Mandalika has never given him; Martin brings a two-point lead.",
+        "synopsis": "The Grand Prix closes the Indonesia weekend after qualifying and the Sprint. Saturday can change the standings before Sunday begins, so the two-point gap describes arrival, not a promised race-day position. The longer race asks whether attacking pace can survive the whole distance.",
+        "formCopy": "Japan's double put the reigning champion almost level with Martin. Bezzecchi is 49 points behind his Aprilia teammate, close enough to keep the contest from becoming an exclusive duel.",
+        "closingCopy": "Martin knows he can win here, having done so in 2024. Marquez needs to turn speed into a finish at a venue associated with injuries and mechanical trouble. That contrast gives this championship chapter its own emotional weight.",
         "threadIds": [
-          "thread:rolling:motogp:2026"
+          "thread:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674"
         ],
         "factIds": [
-          "fact:rolling:event-motogp-2026-indonesia:schedule",
-          "fact:rolling:event-motogp-2026-indonesia:field",
-          "fact:rolling:event-motogp-2026-indonesia:viewing",
-          "fact:rolling:event-motogp-2026-indonesia:consequence"
+          "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:0",
+          "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:1",
+          "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:2",
+          "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:3",
+          "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:4",
+          "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:5"
         ],
         "sourceIds": [
-          "source:rolling:motogp:motogp-calendar",
-          "source:rolling:motogp:motogp-riders",
-          "source:rolling:motogp:motogp-broadcast-au"
+          "source:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:0",
+          "source:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:1",
+          "source:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:2",
+          "source:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:3",
+          "source:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:4"
         ],
         "dimensions": [
-          "schedule",
-          "format",
-          "consequence"
+          "form",
+          "matchup",
+          "history",
+          "path"
         ],
-        "researchedAt": "2026-10-01T17:38:41.192Z",
-        "refreshAfter": null,
+        "researchedAt": "2026-10-09T00:20:09.386Z",
+        "refreshAfter": "2026-10-11T07:00:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
       }
@@ -120973,8 +121063,8 @@
       "id": "fixture:cricket:espn:1525660",
       "eventId": "fixture:cricket:espn:1525660",
       "displayTitleCompact": "South Africa v Australia — Second Test",
-      "selectedSentence": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
-      "fullSpiel": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
+      "selectedSentence": "St George's Park brings spin selection into sharper focus as Australia and South Africa reach the middle Test of a three-match contest.",
+      "fullSpiel": "Gqeberha hosts the second Test on 18-22 October, before the Cape Town finale. It is the middle match, not yet a verified clincher or comeback: Durban's result must be confirmed before either description is used. The announced Australian squad offers spin options, but no second-Test XI, pitch behaviour or Rabada return has been assumed.",
       "sourceName": "Cricket Australia",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
       "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
@@ -120992,15 +121082,15 @@
         "arcStage": "preview",
         "expectedSpectacle": 8,
         "archetype": "international test",
-        "hookSpoilerOff": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
-        "hookSpoilerOn": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
-        "synopsisSpoilerOff": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
-        "synopsisSpoilerOn": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
+        "hookSpoilerOff": "St George's Park brings spin selection into sharper focus as Australia and South Africa reach the middle Test of a three-match contest.",
+        "hookSpoilerOn": "St George's Park brings spin selection into sharper focus as Australia and South Africa reach the middle Test of a three-match contest.",
+        "synopsisSpoilerOff": "Gqeberha hosts the second Test on 18-22 October, before the Cape Town finale. It is the middle match, not yet a verified clincher or comeback: Durban's result must be confirmed before either description is used. The announced Australian squad offers spin options, but no second-Test XI, pitch behaviour or Rabada return has been assumed.",
+        "synopsisSpoilerOn": "Gqeberha hosts the second Test on 18-22 October, before the Cape Town finale. It is the middle match, not yet a verified clincher or comeback: Durban's result must be confirmed before either description is used. The announced Australian squad offers spin options, but no second-Test XI, pitch behaviour or Rabada return has been assumed.",
         "intensitySource": "computed",
-        "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+        "lastReviewedAt": "2026-10-09T00:20:09.386Z",
         "researchDepth": 5
       },
-      "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+      "lastReviewedAt": "2026-10-09T00:20:09.386Z",
       "participants": [
         {
           "id": "team:cricket:south-africa",
@@ -121015,17 +121105,17 @@
       ],
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Cricket — south africa persistent series",
+        "angle": "South Africa v Australia - Second Test",
         "contextSignals": [
           "event-specific",
-          "narrative:path",
-          "narrative:consequence",
+          "narrative:form",
           "narrative:matchup",
-          "narrative:history"
+          "narrative:history",
+          "narrative:path"
         ],
-        "sourceName": "Cricket Australia South Africa Test tour guide",
-        "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
-        "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
+        "sourceName": "South Africa v Australia - Second Test — official research 1",
+        "sourceUrl": "https://www.cricket.com.au/news/4588660/south-africa-xi-team-line-up-side-temba-bavuma-kagiso-rabada-hamstring-injury-anrich-nortje?tags=9037",
+        "sourceCheckedAt": "2026-10-09T00:20:09.386Z",
         "needsPreviewRefresh": false
       },
       "sourceTrust": "verified",
@@ -121045,31 +121135,32 @@
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:sport-depth:fixture-cricket-espn-1525660",
         "researchTier": "marquee",
-        "hook": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
-        "synopsis": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
+        "hook": "St George's Park brings spin selection into sharper focus as Australia and South Africa reach the middle Test of a three-match contest.",
+        "synopsis": "Gqeberha hosts the second Test on 18-22 October, before the Cape Town finale. It is the middle match, not yet a verified clincher or comeback: Durban's result must be confirmed before either description is used. The announced Australian squad offers spin options, but no second-Test XI, pitch behaviour or Rabada return has been assumed.",
+        "formCopy": "Australia selected Kuhnemann alongside Lyon for this tour. Cricket Australia's squad analysis highlights St George's Park as South Africa's only venue where spin has taken more wickets than pace since the pandemic. The hosts named Maharaj and Harmer for Durban; their second-Test combination remains unannounced.",
+        "closingCopy": "For Australian fans, this is a different measure of confidence from a fast-bowling contest: how the batting responds to spin, and whether selection matches the ground. South Africa's advantage is familiarity, not an automatic result. The rivalry pairs the last two Test champions without pretending the opening match has already settled the series.",
         "threadIds": [
-          "thread:depth:cricket:south-africa"
+          "thread:fixture-research:fixture:cricket:espn:1525660:revision-d796355700f9bdd4907ea39f0e77083b5431f81d48ecfd63b46d8320be452a1d"
         ],
         "factIds": [
-          "fact:depth:cricket:fixture-cricket-espn-1525660:1",
-          "fact:depth:cricket:fixture-cricket-espn-1525660:2",
-          "fact:depth:cricket:fixture-cricket-espn-1525660:3",
-          "fact:depth:cricket:fixture-cricket-espn-1525659:1",
-          "fact:depth:cricket:fixture-cricket-espn-1525659:2",
-          "fact:depth:cricket:fixture-cricket-espn-1525659:3"
+          "fact:fixture-research:fixture:cricket:espn:1525660:revision-d796355700f9bdd4907ea39f0e77083b5431f81d48ecfd63b46d8320be452a1d:0",
+          "fact:fixture-research:fixture:cricket:espn:1525660:revision-d796355700f9bdd4907ea39f0e77083b5431f81d48ecfd63b46d8320be452a1d:1",
+          "fact:fixture-research:fixture:cricket:espn:1525660:revision-d796355700f9bdd4907ea39f0e77083b5431f81d48ecfd63b46d8320be452a1d:2",
+          "fact:fixture-research:fixture:cricket:espn:1525660:revision-d796355700f9bdd4907ea39f0e77083b5431f81d48ecfd63b46d8320be452a1d:3",
+          "fact:fixture-research:fixture:cricket:espn:1525660:revision-d796355700f9bdd4907ea39f0e77083b5431f81d48ecfd63b46d8320be452a1d:4"
         ],
         "sourceIds": [
-          "source:depth:cricket:south-africa",
-          "source:depth:cricket:season",
-          "source:depth:cricket:test-workload"
+          "source:fixture-research:fixture:cricket:espn:1525660:revision-d796355700f9bdd4907ea39f0e77083b5431f81d48ecfd63b46d8320be452a1d:0",
+          "source:fixture-research:fixture:cricket:espn:1525660:revision-d796355700f9bdd4907ea39f0e77083b5431f81d48ecfd63b46d8320be452a1d:1",
+          "source:fixture-research:fixture:cricket:espn:1525660:revision-d796355700f9bdd4907ea39f0e77083b5431f81d48ecfd63b46d8320be452a1d:2"
         ],
         "dimensions": [
-          "path",
-          "consequence",
+          "form",
           "matchup",
-          "history"
+          "history",
+          "path"
         ],
-        "researchedAt": "2026-09-30T22:50:31.966Z",
+        "researchedAt": "2026-10-09T00:20:09.386Z",
         "refreshAfter": "2026-10-18T08:00:00.000Z",
         "generationMode": "researched",
         "phase": "preview"

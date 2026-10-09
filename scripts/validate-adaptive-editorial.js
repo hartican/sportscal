@@ -42,3 +42,30 @@ assert.equal(select([card(full,{},true)],[full]).length,1,'Existing real-rating 
 const completedFixture={...fixture,status:'completed',outcomeText:'Player A won',recapText:'Result recap'};
 assert(!display.needsDisplayCopy(completedFixture,now));assert(!display.displayCopy(completedFixture,false,now).hook.includes('won'));
 console.log('Adaptive editorial: real-only eligibility, cadence, holds, full-copy comparison, NRL protection, isolated failure and automatic required-copy repair passed.');
+// Refreshing one fixture must not rewrite evidence retained by sibling projections.
+const fs=require('node:fs'),narrative=require('./lib/editorial-narrative'),{apply}=require('./apply-fixture-research');
+const knowledge=JSON.parse(fs.readFileSync('data/editorial-knowledge.v1.json','utf8'));
+const researchEntry={...entry,id:'revision-fixture',title:'Revision fixture',researchDepth:5,
+  hook:'A distinct fixture hook with independently sourced evidence.',
+  synopsis:'This fixture has its own complete match context, supported by independently checked sources and kept separate from every sibling projection.',
+  facts:facts.map(fact=>({...fact,statement:'Independently sourced fixture evidence about '+fact.dimension})),
+  formCopy:'Source-backed form for this particular fixture.',
+  closingCopy:'Source-backed history gives this fixture its own stakes.'};
+const feed={events:[{id:researchEntry.id,key:'rugby',status:'scheduled'}]},major={events:[]};
+apply(knowledge,feed,major,{entries:[researchEntry]});
+const original=structuredClone(narrative.projectionForTarget(knowledge,'feed-event',{id:researchEntry.id}));
+const sibling={...structuredClone(original),id:'projection:revision-sibling',targetIds:['revision-sibling'],hook:'A separate sibling keeps its independently established narrative.'};
+knowledge.eventProjections.push(sibling);
+const retained={sources:structuredClone(knowledge.sources),facts:structuredClone(knowledge.narrativeFacts),threads:structuredClone(knowledge.narrativeThreads)};
+const refresh={...researchEntry,hook:'Updated fixture evidence leaves every sibling reference intact.',
+  sources:[...researchEntry.sources,'https://d.test'],facts:researchEntry.facts.map(fact=>({...fact,sourceIndexes:[3]}))};
+apply(knowledge,feed,major,{entries:[refresh]});
+assert.deepEqual(narrative.validateKnowledge(knowledge),[]);
+assert.deepEqual(knowledge.eventProjections.find(projection=>projection.id===sibling.id),sibling);
+assert.equal(narrative.projectionForTarget(knowledge,'feed-event',{id:researchEntry.id}).id,original.id);
+for(const [field,rows] of [['sources',retained.sources],['narrativeFacts',retained.facts],['narrativeThreads',retained.threads]])for(const row of rows)assert.deepEqual(knowledge[field].find(value=>value.id===row.id),row);
+const counts=['subjects','sources','narrativeFacts','narrativeThreads','eventProjections'].map(field=>knowledge[field].length);
+apply(knowledge,feed,major,{entries:[refresh]});
+assert.deepEqual(['subjects','sources','narrativeFacts','narrativeThreads','eventProjections'].map(field=>knowledge[field].length),counts);
+assert.deepEqual(narrative.validateKnowledge(knowledge),[]);
+console.log('Adaptive provenance: immutable sibling evidence, stable projection identity and idempotent retries passed.');

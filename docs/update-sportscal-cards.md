@@ -1,5 +1,23 @@
 # Update Sportscal cards
 
+## Immutable research evidence and authorised connector recovery - 9 October 2026
+
+Research source, fact and thread IDs are content-revisioned. Preserve older evidence
+while any sibling or alias projection references it; refreshing one fixture must
+not overwrite positional evidence owned by another projection. Keep exclusively
+owned projection IDs stable and identical research retries idempotent. The
+mandatory adaptive regression covers changed source indexes and retained sibling
+references. Repair this documented provenance failure without another prompt,
+then rerun intact integrity, spoiler and release gates; never erase references or
+weaken assertions to make publication pass.
+
+Supabase account authorisation and this run's callable tools are distinct. Discover
+available connector tools before reporting an authority outage; reuse the Owner's
+authorised connection for aggregate snapshots and revision-CAS writes. Rediscover
+after connection availability changes. Do not request tokens or repeatedly offer
+installation of an already available connection. If no authorised tool or service
+environment is actually callable, retain work and report the precise blocker.
+
 ## Autonomous release recovery - 6 October 2026
 
 The Owner authorises diagnosing and repairing known recoverable deployment blockers without another prompt. Before publication, and after integrating advancing main, rebuild the existing editorial maintenance sources and run canonical `node scripts/update-cards.js --adaptive-editorial --list` with a fresh private check report and matching authorised control snapshot. It now identifies missing required display copy on existing 4+/5 public fixtures independently of rating selection. Research and apply original, participant-focused, spoiler-safe full copy through canonical `--adaptive-editorial --research`; preserve all sporting fields and unrelated copy. Never insert generic filler just to silence QA. Retain prior staged valid work and record any individual research failures with evidence and next action.
@@ -11,6 +29,11 @@ Private revision/hold conflicts, protected copy, missing authoritative facts, un
 Use `node scripts/update-cards.js` and its existing scoped modes. An update includes scoped GitHub main publication and exact-commit production deployment unless explicitly local-only. Keep the existing refresh owner, source budgets, editorial holds, spoiler controls and release gates; never access preferences to refresh sporting facts.
 
 ## Non-expiring editorial regression dates - 5 October 2026
+
+Dated approved tournament-contract replays must keep their injected observation
+clock and the isolated test process's wall clock consistent. Restore the real
+clock after the test and retain an explicit stale-receipt rejection assertion.
+Never relax production freshness limits to make a historical fake fetch pass.
 
 The mandatory publication regression derives older research, a newer sporting fetch and newer editorial timestamps from the current published research timestamp. Never use fixed calendar dates to simulate relative freshness: real updates eventually overtake them. This applies automatically on every normal validation run, across days, months and years; it changes neither production timestamps nor editorial precedence.
 

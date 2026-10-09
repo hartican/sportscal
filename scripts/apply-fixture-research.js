@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 const fs=require('node:fs');
+const crypto=require('node:crypto');
 const narrative=require('./lib/editorial-narrative');
 function apply(knowledge,feed,majorEvents,research,catalogue=[]){
   const retention=require('../data/canonical/cricket-retention.v1.json');
@@ -10,7 +11,11 @@ function apply(knowledge,feed,majorEvents,research,catalogue=[]){
   for(const entry of research.entries){
     if(retired.has(entry.id))continue;
     if(require('../config/coverage-pauses').womensT20({key:'cricket',name:entry.title}))continue;
-    const prefix=`fixture-research:${entry.id.replace(/[^a-z0-9:._-]/g,'-')}`;
+    const fixturePrefix=`fixture-research:${entry.id.replace(/[^a-z0-9:._-]/g,'-')}`;
+    // Evidence is immutable: sibling projections can still reference an older
+    // research revision after this fixture is refreshed. Identical retries reuse it.
+    const revision=crypto.createHash('sha256').update(JSON.stringify(entry)).digest('hex');
+    const prefix=`${fixturePrefix}:revision-${revision}`;
     const overview=entry.id.match(/^tennis-tournament-(.+)-\d{4}-\d{2}-\d{2}$/);
     const targets=[...feed.events,...catalogue];
     const targetIds=[...new Set(targets.filter(event=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(entry.id) || overview && event.tennisTournamentId===`tournament:tennis:${overview[1]}` && ['tournament_overview','tennis_parent'].includes(event.cardType)).map(event=>event.id))];
@@ -18,7 +23,7 @@ function apply(knowledge,feed,majorEvents,research,catalogue=[]){
     // A copy refresh must not rename an exclusively owned projection. Shared
     // projections are split without rewriting their unrelated targets.
     const existing=narrative.projectionForTarget(knowledge,'feed-event',{id:entry.id}) || knowledge.eventProjections.find(p=>p.targetType==='feed-event'&&p.targetIds.some(id=>targetIds.includes(id)));
-    const fallback=`projection:${prefix}`;
+    const fallback=`projection:${fixturePrefix}`;
     let projectionId=existing&&existing.targetIds.every(id=>targetIds.includes(id))?existing.id:fallback;
     let suffix=0;
     while(knowledge.eventProjections.some(p=>p.id===projectionId&&(p.targetType!=='feed-event'||p.targetIds.some(id=>!targetIds.includes(id)))))projectionId=`${fallback}:scope-${++suffix}`;

@@ -1,0 +1,88 @@
+{
+  "weekend": {
+    "from": "2026-10-09",
+    "to": "2026-10-12"
+  },
+  "acceptedIds": [
+    "fixture:cricket:espn:1525659",
+    "rugby-new-zealand-australia-2026-10-10",
+    "evt_motogp_2026_indonesia_qualifying",
+    "evt_motogp_2026_indonesia_sprint",
+    "supercars-bathurst-1000-2026",
+    "evt_motogp_2026_indonesia"
+  ],
+  "deferred": [
+    {
+      "id": "fixture-mlb-849832",
+      "sources": [
+        "https://statsapi.mlb.com/api/v1/schedule?gamePks=849832,849837,849824,849821,849831,849836,849809,849812",
+        "https://www.mlb.com/postseason"
+      ],
+      "reason": "Official Game 4 is already in progress; pre-kickoff editorial boundary applies.",
+      "nextAction": "Use the normal canonical MLB refresh to reconcile current fixtures, then research eligible pre-kickoff cards from three verified sources; retain last-known copy meanwhile."
+    },
+    {
+      "id": "fixture-mlb-849837",
+      "sources": [
+        "https://statsapi.mlb.com/api/v1/schedule?gamePks=849832,849837,849824,849821,849831,849836,849809,849812",
+        "https://www.mlb.com/postseason"
+      ],
+      "reason": "Official schedule no longer returns this conditional game; calendar/status reconciliation is required before previewing it.",
+      "nextAction": "Use the normal canonical MLB refresh to reconcile current fixtures, then research eligible pre-kickoff cards from three verified sources; retain last-known copy meanwhile."
+    },
+    {
+      "id": "fixture-mlb-849824",
+      "sources": [
+        "https://statsapi.mlb.com/api/v1/schedule?gamePks=849832,849837,849824,849821,849831,849836,849809,849812",
+        "https://www.mlb.com/postseason"
+      ],
+      "reason": "Official schedule no longer returns this conditional game; calendar/status reconciliation is required before previewing it.",
+      "nextAction": "Use the normal canonical MLB refresh to reconcile current fixtures, then research eligible pre-kickoff cards from three verified sources; retain last-known copy meanwhile."
+    },
+    {
+      "id": "fixture-mlb-849821",
+      "sources": [
+        "https://statsapi.mlb.com/api/v1/schedule?gamePks=849832,849837,849824,849821,849831,849836,849809,849812",
+        "https://www.mlb.com/postseason"
+      ],
+      "reason": "Official schedule no longer returns this conditional game; calendar/status reconciliation is required before previewing it.",
+      "nextAction": "Use the normal canonical MLB refresh to reconcile current fixtures, then research eligible pre-kickoff cards from three verified sources; retain last-known copy meanwhile."
+    },
+    {
+      "id": "fixture-mlb-849831",
+      "sources": [
+        "https://statsapi.mlb.com/api/v1/schedule?gamePks=849832,849837,849824,849821,849831,849836,849809,849812",
+        "https://www.mlb.com/postseason"
+      ],
+      "reason": "Game 5 remains conditional on in-progress Game 4; fresh independent matchup research is not yet complete.",
+      "nextAction": "Use the normal canonical MLB refresh to reconcile current fixtures, then research eligible pre-kickoff cards from three verified sources; retain last-known copy meanwhile."
+    },
+    {
+      "id": "fixture-mlb-849836",
+      "sources": [
+        "https://statsapi.mlb.com/api/v1/schedule?gamePks=849832,849837,849824,849821,849831,849836,849809,849812",
+        "https://www.mlb.com/postseason"
+      ],
+      "reason": "Official schedule no longer returns this conditional game; calendar/status reconciliation is required before previewing it.",
+      "nextAction": "Use the normal canonical MLB refresh to reconcile current fixtures, then research eligible pre-kickoff cards from three verified sources; retain last-known copy meanwhile."
+    },
+    {
+      "id": "fixture-mlb-849809",
+      "sources": [
+        "https://statsapi.mlb.com/api/v1/schedule?gamePks=849832,849837,849824,849821,849831,849836,849809,849812",
+        "https://www.mlb.com/postseason"
+      ],
+      "reason": "Official starts map to 12/13 October in Sydney, differing from listed 11/12 October; reconcile canonical calendar before weekend publication.",
+      "nextAction": "Use the normal canonical MLB refresh to reconcile current fixtures, then research eligible pre-kickoff cards from three verified sources; retain last-known copy meanwhile."
+    },
+    {
+      "id": "fixture-mlb-849812",
+      "sources": [
+        "https://statsapi.mlb.com/api/v1/schedule?gamePks=849832,849837,849824,849821,849831,849836,849809,849812",
+        "https://www.mlb.com/postseason"
+      ],
+      "reason": "Official starts map to 12/13 October in Sydney, differing from listed 11/12 October; reconcile canonical calendar before weekend publication.",
+      "nextAction": "Use the normal canonical MLB refresh to reconcile current fixtures, then research eligible pre-kickoff cards from three verified sources; retain last-known copy meanwhile."
+    }
+  ]
+}

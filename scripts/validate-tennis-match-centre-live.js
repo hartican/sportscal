@@ -2,6 +2,10 @@
 const assert=require('node:assert/strict');
 const source=require('../lib/tennis-scoreboard'),receipt=require('../feeds/provider-exports/tennis/scoreboard-contract.v1.json'),catalogue=require('../data/canonical/tennis-catalogue-2026.json');
 const now=new Date('2026-10-08T05:00:00Z');
+// This contract replays an approved dated tournament receipt. Freeze only this
+// isolated test process so the live adapter's wall clock matches its fake source.
+const realNow=Date.now;
+Date.now=()=>+now;
 const scheduled=source.parse(receipt.payloads.wta,{tour:'wta',catalogue,checkedAt:receipt.checkedAt,now:new Date(receipt.checkedAt)}).fixtures.find(f=>f.tennisProviderMatchId==='184351');
 const live={...scheduled,status:'live',sets:[{home:3,away:2}],score:'3–2',scoreDisplay:'3–2',scoreCheckedAt:now.toISOString(),statusCheckedAt:now.toISOString(),fixtureObservationSchema:'fixture-observations.v1'};
 const snapshot={sources:[{source_id:'live-tennis-wta',checked_at:now.toISOString(),fixtures:[live]}],stale:false};
@@ -17,10 +21,11 @@ const res=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},status(n){this.cod
  const oldFinal=source.parse(receipt.payloads.wta,{tour:'wta',catalogue,checkedAt:receipt.checkedAt,now:new Date(receipt.checkedAt)}).fixtures.find(f=>f.tennisProviderMatchId==='184349');
  const adapter=require('../lib/live-tennis-scoreboard').sources({fetchImpl,published:[scheduled,oldFinal]}).find(s=>s.id==='live-tennis-wta');assert.equal(adapter.seed.length,1,'Initial live seed excludes already published historical finals');
  const observed=await adapter.fetch({now,previous:adapter.seed});assert.equal(sourceCalls,1);assert.equal(observed.find(f=>f.tennisProviderMatchId==='184351').status,'live');assert(!observed.some(f=>f.tennisProviderMatchId==='184349'),'An initial historical final cannot gain a fresh completion window');assert(observed.every(f=>f.fixtureObservationSchema));
+ assert.throws(()=>source.parse(payload,{tour:'wta',catalogue,checkedAt:now.toISOString(),now:new Date(+now+6*3600000+1)}),/invalid or stale observation/,'A successful stale receipt remains rejected.');
  const keys=require('../lib/live-fixtures').splitScores(observed,{observedFixtures:observed,now});const score=keys.scores.find(f=>f.id===scheduled.id);assert(score.scoreObserved&&score.statusObserved);assert.equal(score.scoreCheckedAt,now.toISOString());
  await adapter.fetch({now:new Date('2026-12-01T00:00:00Z'),previous:observed});assert.equal(sourceCalls,1,'Outside approved editions, the source does not poll');assert.equal(adapter.refreshInterval(observed,Date.parse('2026-12-01T00:00:00Z')),1800000,'The inactive owner retains the quiet store cadence');assert.equal(adapter.refreshInterval(observed,+now),120000,'Current daytime source checking remains bounded at two minutes');
  const finals=source.merge([oldFinal],[oldFinal],{now});const stripped={...finals[0]};delete stripped.score;delete stripped.scoreDisplay;delete stripped.sets;const replay=source.merge([stripped],[{...oldFinal,scoreCheckedAt:now.toISOString(),statusCheckedAt:now.toISOString()}],{now})[0];assert.equal(replay.scoreCheckedAt,oldFinal.scoreCheckedAt,'Compact source replay preserves unchanged final observations');
  let publications=0,failures=0;const broken={...adapter,fetch:async()=>{throw Error('source unavailable');}};const store={dueIds:async()=>[],claim:async()=>({fixtures:observed}),publish:async()=>{publications++;},fail:async()=>{failures++;}};const outcome=await require('../lib/live-fixtures').refreshDueSources({sources:[broken],store,now});assert.equal(outcome.failed.length,1);assert.equal(publications,0);assert.equal(failures,1);
  const missing=res();await require('../lib/match-centre-handler').createMatchCentreHandler({request:async()=>[],published:()=>[live],enabled:()=>true,clock:()=>+now,snapshotRead:async()=>{throw Error('offline');}})({url:'/api/match-centre?membership=everything'},missing);assert(missing.body.membershipStale&&missing.body.fixtures[0].stale,'A shared-store failure keeps known matches with explicit degraded freshness');
  console.log('Current tennis live owner and Match Centre membership-before-selection verified.');
-})().catch(e=>{console.error(e);process.exitCode=1;});
+})().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>{Date.now=realNow;});
