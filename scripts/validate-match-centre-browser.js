@@ -1,5 +1,29 @@
 'use strict';
 const assert=require('node:assert/strict'),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+async function recoveryScenario(browser,engine){
+ const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'}),errors=[];let phase='fresh',membershipReads=0;
+ page.on('pageerror',e=>errors.push(e.message));
+ const stamp=new Date(Date.now()-65000).toISOString(),fixtures=Array.from({length:7},(_,i)=>({id:'fixture:nrl:recovery:'+i,eventId:'fixture:nrl:recovery:'+i,key:'nrl',sport:'NRL',name:'Recovery Panthers '+i+' v Storm '+i,status:'live',statusCheckedAt:stamp,sourceCheckedAt:stamp,startTimeUtc:new Date(Date.now()-600000).toISOString(),homeParticipantId:'team:nrl:recovery-home-'+i,awayParticipantId:'team:nrl:recovery-away-'+i,participantIds:['team:nrl:recovery-home-'+i,'team:nrl:recovery-away-'+i]}));
+ await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:26,onboardingComplete:true,showSpoilers:false,followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]}})));
+ await page.route('**/api/**',route=>{
+  const url=route.request().url();
+  if(url.includes('membership=everything')){membershipReads++;return route.fulfill({json:{enabled:true,membershipStale:phase==='degraded',events:phase==='degraded'?fixtures.slice(0,1):phase==='fresh'?fixtures.slice(0,6):fixtures,fixtures:[],pagination:{nextCursor:null}}});}
+  if(url.includes('/api/match-centre?'))return route.fulfill({json:{enabled:true,fixtures:[]}});
+  if(url.includes('scope=match-centre'))return route.fulfill({json:{events:[],pagination:{nextCursor:null}}});
+  return route.fulfill({status:503,json:{}});
+ });
+ await page.goto(process.env.MATCH_CENTRE_QA_URL||'http://127.0.0.1:34109',{waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>typeof activateTopLevelTab==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());await page.locator('#startupLaunch').waitFor({state:'hidden'});await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();});
+ await page.locator('.tabs [data-tab=match-centre]').click();await page.waitForFunction(()=>document.querySelectorAll('.match-centre-card').length===6);
+ const originalClock=await page.locator('.mc-row-freshness').first().innerText();phase='degraded';
+ await page.getByRole('button',{name:'Refresh Match Centre',exact:true}).click();await page.getByText('Match list needs rechecking. Showing last available fixtures. Rechecking shortly.',{exact:true}).waitFor();
+ assert.equal(await page.locator('.match-centre-card').count(),6,'A partial degraded list retains the six known source fixtures');assert.equal(await page.locator('.mc-row-freshness').first().innerText(),originalClock,'Retaining a fixture cannot renew its source clock');assert.equal(membershipReads,2);
+ await page.getByRole('tab',{name:'Followed',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.match-centre-card').length===0);await page.getByRole('tab',{name:'Everything',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.match-centre-card').length===6);
+ phase='recovered';await page.waitForTimeout(10000);assert.equal(membershipReads,2,'A degraded response does not cause an immediate repeated request');
+ await page.waitForFunction(()=>document.querySelectorAll('.match-centre-card').length===7,{},{timeout:25000});assert.equal(membershipReads,3,'The existing timer retries once after thirty seconds, including after a sub-tab return');
+ assert.equal(await page.evaluate(()=>userPreferences.followedSports?.length||0),0);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);
+ console.log(JSON.stringify({engine,degradedRecovery:true,retainedFixtures:6,recoveredFixtures:7,originalClocks:true,publicOnly:true,membershipReads,errors}));await page.close();
+}
 (async()=>{for(const engine of ['chromium','webkit']){const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:'chrome'}:{})});try{
  for(const width of [320,390,1280])for(const colorScheme of ['light','dark']){
  const page=await browser.newPage({viewport:{width,height:844},colorScheme,serviceWorkers:'block'}),errors=[],requests=[];let fail=false,added=false;page.on('pageerror',e=>errors.push(e.message));
@@ -26,4 +50,5 @@ const assert=require('node:assert/strict'),pw=require(process.env.PLAYWRIGHT_MOD
  assert.equal(await page.locator('.match-centre-card').count(),6);assert.deepEqual(errors,[]);
  console.log(JSON.stringify({engine,width,colorScheme,allFixtures:6,followedPin:1,inlineExpansion:true,resultsControls:true,sideIdentity:true,compact:true,boundedReads:true,errors}));await page.close();
  }
+ await recoveryScenario(browser,engine);
  }finally{await browser.close();}}})().catch(e=>{console.error(e);process.exitCode=1;});

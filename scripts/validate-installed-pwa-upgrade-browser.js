@@ -183,6 +183,9 @@ async function assertCachedFootballStatus(page){
   assert.deepEqual(nrlwLadder.ranks,Array.from({length:12},(_,i)=>i+1));
   assert.deepEqual(nrlwLadder.codeClocks,[nrlwLadder.checkedAt],'upgraded/offline Code and card ranks retain the actual dated source clock');
   await page.evaluate(async url=>{await loadDeferredScript(url);},candidateMatchCentrePath);
+  const centreUi=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/loadDeferredScript\('([^']*assets\/js\/match-centre-ui\.js\?v=\d+)'\)/)[1];
+  await page.evaluate(async url=>{await loadDeferredScript(url);},centreUi);
+  assert.equal(await page.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),centreUi),fs.readFileSync(path.join(root,'assets/js/match-centre-ui.js'),'utf8'),'Upgraded and offline Match Centre uses the exact current recovery module');
   const status=await page.evaluate(fixture=>{
     const event={...fixture,status:'upcoming',scheduleStatus:'upcoming',statusCheckedAt:null,statusSource:null,timingSource:null};
     return globalThis.NOTHINGSPORTS_CARD_TIMING.presentation(event,new Date(Date.parse(event.startTimeUtc)+30*60000)).status;
