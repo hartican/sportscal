@@ -1,7 +1,7 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "weekend-editorial-20261009002859042-20261009004702148-20261009005050730-20261009005934409-20261009010111984",
-  "sourcePublishedAt": "2026-10-09T01:01:11.984Z",
+  "sourceVersion": "weekend-editorial-20261009002859042-20261009004702148-20261009005050730-20261009005934409-20261009010111984-20261009065224757",
+  "sourcePublishedAt": "2026-10-09T06:52:24.757Z",
   "pageSize": 20,
   "retentionDays": 14,
   "inputEventCount": 1756,
@@ -33,13 +33,13 @@
       "path": "data/feed/page-004.json",
       "eventCount": 20,
       "firstEventId": "event:premier-league:128974",
-      "lastEventId": "event:premier-league:128980"
+      "lastEventId": "fixture:mlb:849809"
     },
     {
       "index": 4,
       "path": "data/feed/page-005.json",
       "eventCount": 20,
-      "firstEventId": "fixture:mlb:849812",
+      "firstEventId": "event:premier-league:128976",
       "lastEventId": "event:premier-league:128984"
     },
     {

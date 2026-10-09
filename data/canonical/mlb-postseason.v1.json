@@ -2413,7 +2413,7 @@
       "startTimeUtc": "2026-10-09T00:00:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "venue": "Rate Field",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -2453,13 +2453,15 @@
           "participantId": "team:mlb:145",
           "label": "Chicago White Sox",
           "logoUrl": "https://www.mlbstatic.com/team-logos/145.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 5
         },
         {
           "participantId": "team:mlb:114",
           "label": "Cleveland Guardians",
           "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 9
         }
       ],
       "sourceName": "MLB",
@@ -2467,22 +2469,32 @@
       "sourceUrl": "https://www.mlb.com/gameday/849832",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849832",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
-      "statusCheckedAt": "2026-10-08T21:00:48.348Z",
-      "selectedSentence": "ALDS 'B' Game 4 at Rate Field. Check the official game page for updates.",
-      "fullSpiel": "ALDS 'B' Game 4 at Rate Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+      "score": "Chicago White Sox 5–9 Cleveland Guardians",
+      "resultStatus": "official",
+      "outcomeText": "Chicago White Sox 5–9 Cleveland Guardians",
+      "recapText": "ALDS 'B' Game 4: Chicago White Sox 5–9 Cleveland Guardians. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:114",
+      "homeScore": 5,
+      "awayScore": 9,
+      "scoreCheckedAt": "2026-10-09T06:52:22.809Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849832",
+      "resultSourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "selectedSentence": "ALDS 'B' Game 4 is complete. Reveal results for the outcome.",
+      "fullSpiel": "ALDS 'B' Game 4 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "ALDS 'B' Game 4 at Rate Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "ALDS 'B' Game 4 at Rate Field. Check the official game page for updates.",
-        "hookSpoilerOn": "ALDS 'B' Game 4 at Rate Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "ALDS 'B' Game 4 at Rate Field. Check the official game page for updates."
+        "arcStage": "recap",
+        "hookSpoilerOff": "ALDS 'B' Game 4 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "ALDS 'B' Game 4 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Chicago White Sox 5–9 Cleveland Guardians",
+        "synopsisSpoilerOn": "Chicago White Sox 5–9 Cleveland Guardians"
       }
     },
     {
@@ -2770,16 +2782,17 @@
       "competitionId": "competition:mlb",
       "competitionName": "MLB postseason",
       "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
       "liveWindow": 6,
       "season": 2026,
       "name": "Cleveland Guardians v Chicago White Sox",
       "roundLabel": "ALDS 'B' Game 5",
       "stage": "ALDS 'B' Game 5",
       "date": "2026-10-11",
-      "time": null,
-      "startTimeUtc": null,
-      "timePrecision": "tbc",
-      "scheduleStatus": "conditional",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-11T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
       "status": "upcoming",
       "venue": "Progressive Field",
       "cardKind": "fixture",
@@ -2834,13 +2847,13 @@
       "sourceUrl": "https://www.mlb.com/gameday/849831",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849831",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-29&endDate=2026-10-20&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
-      "statusCheckedAt": "2026-10-06T04:12:36.040Z",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
       "selectedSentence": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
       "fullSpiel": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-06T04:12:36.040Z",
+      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
@@ -2850,8 +2863,7 @@
         "synopsisSpoilerOff": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
         "hookSpoilerOn": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
         "synopsisSpoilerOn": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates."
-      },
-      "broadcaster": "Australian viewing unconfirmed"
+      }
     },
     {
       "id": "fixture:mlb:849836",
@@ -2960,11 +2972,11 @@
       "name": "Milwaukee Brewers v Los Angeles Dodgers",
       "roundLabel": "NLCS Game 1",
       "stage": "NLCS Game 1",
-      "date": "2026-10-11",
-      "time": null,
-      "startTimeUtc": null,
-      "timePrecision": "tbc",
-      "scheduleStatus": "tbc",
+      "date": "2026-10-12",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-12T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
       "status": "upcoming",
       "venue": "American Family Field",
       "cardKind": "fixture",
@@ -3019,13 +3031,13 @@
       "sourceUrl": "https://www.mlb.com/gameday/849809",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849809",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
-      "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
       "selectedSentence": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
       "fullSpiel": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
@@ -3052,11 +3064,11 @@
       "name": "Milwaukee Brewers v Los Angeles Dodgers",
       "roundLabel": "NLCS Game 2",
       "stage": "NLCS Game 2",
-      "date": "2026-10-12",
-      "time": null,
-      "startTimeUtc": null,
-      "timePrecision": "tbc",
-      "scheduleStatus": "tbc",
+      "date": "2026-10-13",
+      "time": "08:00",
+      "startTimeUtc": "2026-10-12T21:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
       "status": "upcoming",
       "venue": "American Family Field",
       "cardKind": "fixture",
@@ -3111,13 +3123,13 @@
       "sourceUrl": "https://www.mlb.com/gameday/849812",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849812",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
-      "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
       "selectedSentence": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
       "fullSpiel": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
@@ -3144,11 +3156,11 @@
       "name": "Los Angeles Dodgers v Milwaukee Brewers",
       "roundLabel": "NLCS Game 3",
       "stage": "NLCS Game 3",
-      "date": "2026-10-14",
-      "time": null,
-      "startTimeUtc": null,
-      "timePrecision": "tbc",
-      "scheduleStatus": "tbc",
+      "date": "2026-10-15",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-15T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
       "status": "upcoming",
       "venue": "UNIQLO Field at Dodger Stadium",
       "cardKind": "fixture",
@@ -3203,13 +3215,13 @@
       "sourceUrl": "https://www.mlb.com/gameday/849811",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849811",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
-      "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
       "selectedSentence": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
       "fullSpiel": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
@@ -3236,11 +3248,11 @@
       "name": "Los Angeles Dodgers v Milwaukee Brewers",
       "roundLabel": "NLCS Game 4",
       "stage": "NLCS Game 4",
-      "date": "2026-10-15",
-      "time": null,
-      "startTimeUtc": null,
-      "timePrecision": "tbc",
-      "scheduleStatus": "tbc",
+      "date": "2026-10-16",
+      "time": "12:00",
+      "startTimeUtc": "2026-10-16T01:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
       "status": "upcoming",
       "venue": "UNIQLO Field at Dodger Stadium",
       "cardKind": "fixture",
@@ -3295,13 +3307,13 @@
       "sourceUrl": "https://www.mlb.com/gameday/849810",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849810",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
-      "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
       "selectedSentence": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
       "fullSpiel": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
@@ -3328,7 +3340,7 @@
       "name": "Los Angeles Dodgers v Milwaukee Brewers",
       "roundLabel": "NLCS Game 5",
       "stage": "NLCS Game 5",
-      "date": "2026-10-16",
+      "date": "2026-10-17",
       "time": null,
       "startTimeUtc": null,
       "timePrecision": "tbc",
@@ -3387,13 +3399,13 @@
       "sourceUrl": "https://www.mlb.com/gameday/849808",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849808",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
-      "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
       "selectedSentence": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
       "fullSpiel": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
@@ -3420,7 +3432,7 @@
       "name": "Milwaukee Brewers v Los Angeles Dodgers",
       "roundLabel": "NLCS Game 6",
       "stage": "NLCS Game 6",
-      "date": "2026-10-18",
+      "date": "2026-10-19",
       "time": null,
       "startTimeUtc": null,
       "timePrecision": "tbc",
@@ -3479,13 +3491,13 @@
       "sourceUrl": "https://www.mlb.com/gameday/849806",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849806",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
-      "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
       "selectedSentence": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
       "fullSpiel": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
@@ -3512,7 +3524,7 @@
       "name": "Milwaukee Brewers v Los Angeles Dodgers",
       "roundLabel": "NLCS Game 7",
       "stage": "NLCS Game 7",
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "time": null,
       "startTimeUtc": null,
       "timePrecision": "tbc",
@@ -3571,13 +3583,13 @@
       "sourceUrl": "https://www.mlb.com/gameday/849807",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849807",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-08T21:00:48.348Z",
-      "statusCheckedAt": "2026-10-08T21:00:48.348Z",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
       "selectedSentence": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
       "fullSpiel": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
@@ -3590,6 +3602,6 @@
       }
     }
   ],
-  "checkedAt": "2026-10-08T21:00:48.348Z",
-  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-22&hydrate=team"
+  "checkedAt": "2026-10-09T06:52:22.809Z",
+  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
 }
