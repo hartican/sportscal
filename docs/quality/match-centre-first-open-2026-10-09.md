@@ -2,7 +2,7 @@
 
 The first opening of Everything sometimes waits several seconds. Fresh-browser traces measured 4.9–6.4 seconds, mostly waiting for the server; a later cached visit took about 0.3 seconds. Server cold starts were not controlled. The small local catalogue-loading prototype saved only about thirty milliseconds and was rejected.
 
-The scoped repair starts the existing remote membership read before building the local fallback, then uses already-projected fresh score/status observations. Missing or old information still gets the same bounded selected check. A separately reviewed repair on main also makes new live-source matches remain readable when their scores are polled before the next daily catalogue update.
+The scoped repair uses already-projected fresh score/status observations after assembling the local fallback. The initial overlapping-read version passed release gates but failed fresh public membership checks, returning only two saved cards. Withdraw that ordering conservatively; the exact cause remains unconfirmed, and a separate database projection check exceeded 2.5 seconds. Missing or old information still gets the same bounded selected check. A separately reviewed repair on main also makes new live-source matches remain readable when their scores are polled before the next daily catalogue update.
 
 ## Verified locally
 
