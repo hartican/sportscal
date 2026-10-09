@@ -11,6 +11,14 @@ const footballStatusFixture=require('../data/code-inspector/football.json').fixt
 async function assertCachedFonts(page){
   for(const file of ['assets/fonts/dm-sans-latin.woff2','assets/fonts/dm-sans-latin-ext.woff2']){const digest=await page.evaluate(async file=>{const response=await caches.match('/'+file);if(!response)throw Error('Missing cached font: '+file);const bytes=await response.arrayBuffer();return [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(b=>b.toString(16).padStart(2,'0')).join('');},file);assert.equal(digest,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),'Bundled font survives upgrade/offline exactly');}
 }
+async function assertCachedParticipantCalendar(page){
+  const html=fs.readFileSync(path.join(root,'index.html'),'utf8'),modelPath=html.match(/config\/athletes\.js\?v=\d+/)?.[0],uiPath=html.match(/assets\/js\/athletes-ui\.js\?v=\d+/)?.[0];
+  assert(modelPath&&uiPath,'Current participant cache URLs are explicit');
+  for(const file of [modelPath,uiPath])assert.equal(await page.evaluate(file=>caches.match('/'+file).then(r=>r?.text()),file),fs.readFileSync(path.join(root,file.split('?')[0]),'utf8'),'Updated participant calendar bytes remain cached exactly');
+  const parent=require('../lib/calendar-catalogue').catalogue().find(e=>e.tournamentId==='R2026527'&&e.cardType==='golf_tournament');
+  const result=await page.evaluate(async({modelPath,parent})=>{await loadDeferredScript(modelPath);return {included:NOTHINGSPORTS_ATHLETES.spansCurrentCalendarDay(parent,'2026-10-09','2027-10-09'),label:NOTHINGSPORTS_ATHLETES.calendarTiming(parent,Date.parse('2026-10-09T08:45:00Z'))};},{modelPath,parent});
+  assert(result.included);assert.match(result.label,/Tournament dates: 8–11 Oct 2026/);assert.match(result.label,/Next tee time not verified/);
+}
 async function assertCachedMultidayRetention(page){
   const raw=require('../data/code-inspector/cricket.json').fixtures.find(f=>f.id==='evt_91');
   const normalized=require('../lib/server-feed-pipeline').normalizeEvent(raw,new Date('2027-01-14T01:00Z'));
@@ -444,7 +452,7 @@ const server=http.createServer((req,res)=>{
       await assertCachedFootballStatus(upgraded);
       await assertCachedCanonicalResults(upgraded);
       await assertCachedMultidayRetention(upgraded);
-    await assertCachedFonts(upgraded);
+    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);
       await assertCachedReviewedCalendarNotes(upgraded);
     }
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
@@ -493,7 +501,7 @@ const server=http.createServer((req,res)=>{
     await assertCachedFootballStatus(upgraded);
     await assertCachedCanonicalResults(upgraded);
     await assertCachedMultidayRetention(upgraded);
-    await assertCachedFonts(upgraded);
+    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);
     await assertCachedReviewedCalendarNotes(upgraded);
     await assertSavedNativeChoices(upgraded);
     if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){

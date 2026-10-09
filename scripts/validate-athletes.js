@@ -60,3 +60,5 @@ const handler=createFeedHandler({load:()=>deps,authenticate:()=>deps,clock:()=>n
  const ui=fs.readFileSync('assets/js/athletes-ui.js','utf8');assert(!ui.includes('setInterval('),'reuse the sole visible sporting refresh coordinator');assert(!ui.includes('requestPermission('),'profile navigation never asks notification permission');
  console.log('Athletes: effective individual follows, roles, aliases, dismissal, source state, bounded feed scope and account/erasure isolation passed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
+
+require('./validate-participant-calendar-window');

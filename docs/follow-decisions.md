@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## Current Golf calendars in participant Fixtures — 9 October 2026
+
+The approved twelve-month outlook includes a non-terminal tournament whose published date range overlaps today, even after its opening day. Preserve its original displayed range and group it under the current outlook month. Expired, invalid and terminal past-start windows stay outside the outlook. This repairs calendar display; Feed admission, sporting state, retention and reminders retain their existing rules.
+
+A Golf participant profile may receive date-only tournament context only with confirmed entry, a valid range and a genuine non-future observation at an HTTPS source. Other records and ordinary favourites retain their sporting-fixture check. The native profile labels this section Tournament, shows its dates and keeps the next tee time explicitly unverified. Fresh explicit ongoing status may say In progress; older status says Last reported in progress. Missing or future status evidence cannot claim play. A terminal calendar cannot suggest another tee time. Original source dates, exclusions, dismissal/archive, Results and Remind OFF remain authoritative.
+
+This repairs the actual Baycurrent/Adam Scott profile, not complete Golf coverage. Regression: validate-participant-calendar-window.js through the existing Athletes gate, native profile/server browser checks and both cache-upgrade rehearsals. No source request, polling, owner routine or service is added.
+
 ## Find Your Sport — 8 October 2026
 
 The approved plan supersedes the 3 October favourites-first landing and next-appearance-only profiles. Follow opens the last selected sport's Players & Teams directory; a new account uses its first followed sport, then Tennis as a browsing fallback without consent. Browse sports is labelled Sports. One-tap sport selection closes only the sport menu; Players & Teams, Schedule, Ladder/Standings and Major Events remain in a separate sticky strip. Favourites group by sport and competition/tour, ordered by sourced standings rather than follow state or next-match time. Follow changes patch the same row and retain focus/scroll. Missing schedules use one panel message rather than repeated technical placeholders.
