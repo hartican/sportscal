@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-09T04:24:17.000Z",
+  "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261016",
+  "fullResponseSha256": "102ca25dd3ae36a3720bffe16dca7898cc4f037a1dfdc1658c1fbe468a125ed5",
+  "selection": "Real edition identity and first unassigned singles contest retained for the name/placeholder guard. Complete 63-contest response stays in local evidence. This reduced fixture is not tournament completeness proof.",
+  "payload": {
+    "leagues": [
+      {
+        "slug": "wta"
+      }
+    ],
+    "events": [
+      {
+        "id": "381-2026",
+        "name": "Dongfeng Voyah Wuhan Open",
+        "season": {
+          "year": 2026
+        },
+        "groupings": [
+          {
+            "grouping": {
+              "slug": "womens-singles"
+            },
+            "competitions": [
+              {
+                "id": "185344",
+                "competitors": [
+                  {
+                    "id": "-4",
+                    "order": 2,
+                    "athlete": {
+                      "displayName": "TBD"
+                    }
+                  },
+                  {
+                    "id": "-3",
+                    "order": 1,
+                    "athlete": {
+                      "displayName": "TBD"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

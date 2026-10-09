@@ -5,6 +5,17 @@ const owner=require('../lib/tennis-scoreboard');
 const now=new Date(source.checkedAt),catalogue=require('../data/canonical/tennis-catalogue-2026.json');
 const parse=(payload,tour)=>owner.parse(payload,{tour,checkedAt:source.checkedAt,now,catalogue});
 const wta=parse(source.payloads.wta,'wta'),atp=parse(source.payloads.atp,'atp');
+const wuhanReceipt=require('./fixtures/wta-wuhan-identity-20261009.json'),wuhanClock=new Date(wuhanReceipt.checkedAt);
+const parseWuhan=payload=>owner.parse(payload,{tour:'wta',checkedAt:wuhanReceipt.checkedAt,now:wuhanClock,catalogue,requestUrl:wuhanReceipt.sourceUrl});
+const wuhan=parseWuhan(wuhanReceipt.payload);
+assert.equal(wuhan.editions[0].tournamentId,'tournament:tennis:wta-wuhan-2026','The captured sponsored name must reach the existing approved Wuhan edition');
+assert.equal(wuhan.fixtures.length,0,'A real TBD draw slot cannot create a match');assert.equal(wuhan.gaps[0].reason,'unassigned-participant');
+const legacyWuhan=structuredClone(wuhanReceipt.payload);legacyWuhan.events[0].name='Wuhan Open';assert.deepEqual(parseWuhan(legacyWuhan),wuhan,'The prior exact name remains supported');
+for(const name of ['Dongfeng Voyah China Open','Wuhan Open Doubles','Dongfeng Wuhan Open']){const wrong=structuredClone(wuhanReceipt.payload);wrong.events[0].name=name;assert.throws(()=>parseWuhan(wrong),/edition mismatch/,'Only the two reviewed exact Wuhan names are accepted');}
+const wrongDraw=structuredClone(wuhanReceipt.payload);wrongDraw.events[0].groupings[0].grouping.slug='mens-singles';assert.throws(()=>parseWuhan(wrongDraw),/singles collection/,'The sponsor name cannot cross tour/draw identity');
+const missingDraw=structuredClone(wuhanReceipt.payload);delete missingDraw.events[0].groupings;assert.throws(()=>parseWuhan(missingDraw),/edition mismatch/,'Partial edition responses remain rejected');
+const anotherEdition=structuredClone(wuhanReceipt.payload);anotherEdition.events[0].id='959-2026';assert.throws(()=>parseWuhan(anotherEdition),/edition mismatch/,'Wuhan name cannot be reused for the other reviewed edition');
+
 const next=wta.fixtures.find(f=>f.tennisProviderMatchId==='184351');
 assert(next&&next.participantIds.includes('competitor:tennis:wta:karolina-muchova'),'Automatically discover the next published Muchova match');
 assert(next.participantIds.includes('competitor:tennis:wta:nikola-bartunkova'));
@@ -45,8 +56,8 @@ assert.throws(()=>owner.parse(source.payloads.wta,{tour:'wta',checkedAt:source.c
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'ns-tennis-source-')),realNow=Date.now;
  Date.now=()=>+now;try{
   for(const file of ['data/events.json','feeds/incoming/events.json']){fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),JSON.stringify({...require('../data/events.json'),events:[muchova]}));}
-  let calls=0;const fetchImpl=async url=>{calls++;return {ok:true,status:200,headers:new Headers({date:source.checkedAt}),json:async()=>source.payloads[url.includes('/atp/')?'atp':'wta']};};
-  const result=await owner.refresh({root,now,fetchImpl,catalogue});assert.equal(calls,4);assert(result.changed);assert(JSON.parse(fs.readFileSync(path.join(root,'data/events.json'))).events.some(e=>e.tennisProviderMatchId==='184351'));
+  let calls=0;const futureDate=new Date(+now+7*86400000).toISOString().slice(0,10).replace(/-/g,'');const fetchImpl=async url=>{calls++;return {ok:true,status:200,headers:new Headers({date:source.checkedAt}),json:async()=>url.includes('/wta/')&&url.includes('dates='+futureDate)?wuhanReceipt.payload:source.payloads[url.includes('/atp/')?'atp':'wta']};};
+  const result=await owner.refresh({root,now,fetchImpl,catalogue});assert.equal(calls,4);assert.equal(result.failures.length,0,'The actual four-resource owner accepts the sponsored future Wuhan response');assert(result.editions.some(e=>e.tournamentId==='tournament:tennis:wta-wuhan-2026'));assert(result.gaps.some(g=>g.id==='185344'&&g.reason==='unassigned-participant'));assert(result.changed);assert(JSON.parse(fs.readFileSync(path.join(root,'data/events.json'))).events.some(e=>e.tennisProviderMatchId==='184351'));
   const later=new Date(+now+60000);const unchanged=owner.merge(merged,owner.parse(source.payloads.wta,{tour:'wta',checkedAt:later.toISOString(),now:later,catalogue}).fixtures,{now:later}).find(f=>f.id===updated.id);assert.equal(unchanged.scoreCheckedAt,updated.scoreCheckedAt,'Repeated source checks cannot renew unchanged official result clocks');
   const settled=owner.merge([updated],[{...final,status:'live',score:'0–0'}],{now})[0];assert.equal(settled.status,'completed','A provider replay cannot reopen a final');
   const before=fs.readFileSync(path.join(root,'data/events.json'),'utf8');await owner.refresh({root,now,fetchImpl:async()=>{throw Error('Unavailable');},catalogue});assert.equal(fs.readFileSync(path.join(root,'data/events.json'),'utf8'),before,'Outages preserve last-good fixtures');
