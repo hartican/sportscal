@@ -15,7 +15,13 @@
   // Importing an already-final fixture is not a new sporting completion.
   // The independent status-fact clock survives later verification receipts.
   const known=[e.firstConfirmedCompleteAt,e.resultPublishedAt,final(e)?e.statusFactObservedAt:null].map(v=>Date.parse(v||'')).filter(Number.isFinite);
-  return known.length?Math.min(...known):NaN;
+  if(!known.length)return NaN;const first=Math.min(...known);
+  // A first import of an old result cannot prove that it finished recently.
+  // Calendar bounds only withhold membership; they never establish a result.
+  let lastDay=e.endDate||e.date;
+  if(!e.endDate&&Number.isFinite(Date.parse(e.date||''))&&Number.isSafeInteger(e.numberOfDays)&&e.numberOfDays>1)lastDay=new Date(Date.parse(e.date)+Math.min(14,e.numberOfDays-1)*86400000).toISOString().slice(0,10);
+  const windowEnd=typeof lastDay==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(lastDay)?Date.parse(lastDay+'T23:59:59Z'):NaN;
+  return Number.isFinite(windowEnd)&&first>windowEnd+86400000?NaN:first;
  }
  function observed(e){return Date.parse(e.statusCheckedAt||e.livePlayObservedAt||'');}
  function liveState(e,now=Date.now()){
@@ -36,14 +42,17 @@
   return Number.isFinite(start)&&start>=now&&start<=now+1800000?'starting-soon':null;
  }
  const eligible=(e,now=Date.now())=>Boolean(section(e,now));
- function contest(e){const sides=[e.homeParticipantId,e.awayParticipantId].filter(Boolean).sort();return sides.length===2?[sport(e),e.tournamentId||e.tennisTournamentId||'',e.roundLabel||e.round||'',e.startTimeUtc||e.date||'',...sides].join('|'):id(e);}
+ // Verified same-kickoff CA/ESPN Shield and Australia A records, 9 October.
+ // Display grouping only: provider/action IDs and saved personal state survive.
+ const publicCricketTeams={'team:cricket:espn-584':'team:cricket:ca-82','team:cricket:espn-520':'team:cricket:ca-1214','team:cricket:espn-387':'team:cricket:ca-674','team:cricket:espn-560':'team:cricket:ca-85','team:cricket:espn-602':'team:cricket:ca-83','team:cricket:espn-459':'team:cricket:ca-1205','team:cricket:espn-1781':'team:cricket:ca-63','team:cricket:espn-49':'team:cricket:ca-64'};
+ function contest(e){const sides=[e.homeParticipantId,e.awayParticipantId].filter(Boolean).sort();if(sport(e)==='cricket'&&sides.length===2&&Number.isFinite(Date.parse(e.startTimeUtc||'')))return ['cricket',Date.parse(e.startTimeUtc),...sides.map(s=>publicCricketTeams[s]||s).sort()].join('|');return sides.length===2?[sport(e),e.tournamentId||e.tennisTournamentId||'',e.roundLabel||e.round||'',e.startTimeUtc||e.date||'',...sides].join('|'):id(e);}
  function courtKey(e){const court=e.courtId||e.court,tournament=e.tournamentId||e.tennisTournamentId;return sport(e)==='tennis'&&tournament&&court?`${tournament}|${e.tournamentEditionId||e.editionId||e.season||''}|${String(court).normalize('NFKD').trim().toLowerCase().replace(/\s+/g,' ')}`:null;}
  function conflicts(events,now=Date.now()){
   const groups=new Map();for(const e of events){const key=courtKey(e);if(!key||liveState(e,now)!=='playing')continue;const group=groups.get(key)||new Map();group.set(contest(e),e);groups.set(key,group);}
   return [...groups].filter(([,g])=>g.size>1).map(([court,g])=>({court,events:[...g.values()]}));
  }
  function select(events,now=Date.now()){
-  const seen=new Set(),members=[...new Map(events.filter(e=>eligible(e,now)).filter(e=>{const key=contest(e);if(seen.has(key))return false;seen.add(key);return true;}).map(e=>[id(e),e])).values()],suppressed=new Set();
+  const contests=new Map();for(const e of events.filter(e=>eligible(e,now))){const key=contest(e),prior=contests.get(key);if(!prior||sport(e)==='cricket'&&e.sourceType==='official'&&prior.sourceType!=='official')contests.set(key,e);}const members=[...new Map([...contests.values()].map(e=>[id(e),e])).values()],suppressed=new Set();
   for(const group of conflicts(members,now)){
    const official=group.events.filter(e=>e.statusSourceType==='official'),playing=group.events.filter(e=>Number.isFinite(Date.parse(e.livePlayObservedAt)));
    const winner=official.length===1?official[0]:!official.length&&playing.length===1?playing[0]:null;

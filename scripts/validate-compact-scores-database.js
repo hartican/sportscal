@@ -29,11 +29,28 @@ const {createMatchCentreHandler}=require('../lib/match-centre-handler');
   const read=async(id='match')=>(await request('/rpc/nothingsports_read_match_scores',{body:{p_fixture_ids:[id]}}))[0].fixture;
   const rows=async source=>(await db.query("select fixture_id,ctid::text,score,first_completed_at from public.nothingsports_live_scores where source_id=$1 order by fixture_id",[source])).rows;
   try{
+   // Reproduce the actual production domestic-source failure with the legacy
+   // database guard, rather than testing an empty database without that guard.
+   const legacyGuardSql=fs.readFileSync('supabase/migrations/20260930100449_cricket_coverage_v1.sql','utf8');
+   const legacyFunction=name=>{const start=legacyGuardSql.indexOf('create or replace function nothingsports_recovery.'+name),end=legacyGuardSql.indexOf('$$;',start)+3;assert(start>=0&&end>start);return legacyGuardSql.slice(start,end);};
+   await db.exec('reset role;create schema nothingsports_recovery;create table nothingsports_recovery.cricket_protected_fixtures(fixture_id text primary key);create table public.nothingsports_user_state(user_id text primary key,preferences jsonb);');
+   for(const name of ['cricket_allowed_v1','cricket_guard_v1','cricket_preferences_v1','preferences_guard_v1'])await db.exec(legacyFunction(name));
+   await db.exec("create trigger cricket_coverage_v1 before insert or update on public.nothingsports_fixture_current for each row execute function nothingsports_recovery.cricket_guard_v1();create trigger cricket_preferences_v1 before insert or update of preferences on public.nothingsports_user_state for each row execute function nothingsports_recovery.preferences_guard_v1();set role service_role;");
+   const shield={id:'fixture:cricket:CA:40666',key:'cricket',competitionId:'competition:cricket:sheffield-shield',competitionName:'Sheffield Shield',isInternational:false,status:'live',startTimeUtc:new Date(Date.now()-600000).toISOString(),sourceCheckedAt:new Date().toISOString(),participantIds:['team:cricket:ca-7','team:cricket:ca-8'],homeParticipantId:'team:cricket:ca-7',awayParticipantId:'team:cricket:ca-8',homeScore:1,awayScore:0};
+   await assert.rejects(()=>publish([shield],[shield],'cricket-ca-current'),/foreign key constraint/,'The old store-level personal guard rolls back legitimate compact scores');
+   assert.equal((await db.query("select count(*) n from public.nothingsports_fixture_current where source_id='cricket-ca-current'")).rows[0].n,0);
+   await db.query("update public.nothingsports_fixture_sources set failure_count=3,lease_token=null,lease_until=null,next_due_at=now()+interval '1 hour' where source_id='cricket-ca-current'");await lease('discovery-cricket-near');await db.query("update public.nothingsports_fixture_sources set failure_count=3,next_due_at=now()+interval '1 hour' where source_id='discovery-cricket-near'");
+   await db.exec('reset role');await db.exec(fs.readFileSync('supabase/migrations/20261009044218_allow_public_cricket_fixture_store.sql','utf8'));
+   assert.equal((await db.query("select count(*) n from pg_trigger where tgname='cricket_preferences_v1'")).rows[0].n,1,'Personal preference guard remains installed');await db.exec('set role service_role');
+   assert.equal((await db.query("select next_due_at<=clock_timestamp() as due,failure_count from public.nothingsports_fixture_sources where source_id='cricket-ca-current'")).rows[0].due,true,'Repaired failed source can retry on the existing owner');assert.equal((await db.query("select next_due_at>clock_timestamp() as held from public.nothingsports_fixture_sources where source_id='discovery-cricket-near'")).rows[0].held,true,'Active lease is untouched');
+   await publish([shield],[shield],'cricket-ca-current');const publicShield=await read(shield.id);assert.equal(publicShield.status,'live');assert.equal(publicShield.homeScore,1);assert.equal(require('../config/cricket-coverage').allowed(publicShield),false,'Public persistence grants no personal Feed eligibility');
+   assert.equal(require('../config/match-centre').section(publicShield,Date.now()),'live');assert.equal((await db.query("select has_table_privilege('anon','public.nothingsports_fixture_current','select') allowed")).rows[0].allowed,false);
+   evidence.scenarios.push('actual legacy domestic Cricket guard/FK rollback reproduced; public source repair retains personal guards and service-only RLS');
    await publish([event]);const initial=await rows('test');const firstComplete=initial[0].first_completed_at;
    const rechecked={...event,sourceCheckedAt:at(13)};await publish([rechecked]);
    assert.equal((await rows('test'))[0].ctid,initial[0].ctid,'verification-only tick never writes compact row');
    let fixture=await read();assert.equal(fixture.scoreCheckedAt,at(13));assert.equal(fixture.scoreFactObservedAt,at(12));assert.equal(fixture.awayScore,0);
-   assert.equal((await db.query('select count(*) n from public.nothingsports_fixture_snapshots')).rows[0].n,1);
+   assert.equal((await db.query("select count(*) n from public.nothingsports_fixture_snapshots where source_id='test'")).rows[0].n,1);
    const correction={...rechecked,homeScore:2,sourceCheckedAt:at(14)};await publish([correction]);
    fixture=await read();assert.equal(fixture.homeScore,2);assert.equal(fixture.scoreFactObservedAt,at(14));
    const base={...event,sourceCheckedAt:at(13)};
