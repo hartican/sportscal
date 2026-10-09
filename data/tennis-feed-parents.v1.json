@@ -14631,13 +14631,12 @@
       "participationEvidence": [],
       "excludedParticipantIds": [],
       "participantIds": [
-        "athlete:tennis:alex-de-minaur",
-        "competitor:tennis:atp:alex-molcan",
         "competitor:tennis:atp:tomas-machac",
         "competitor:tennis:atp:matteo-berrettini",
         "competitor:tennis:atp:rei-sakamoto",
         "competitor:tennis:atp:quentin-halys",
         "competitor:tennis:atp:arthur-fery",
+        "competitor:tennis:atp:alex-molcan",
         "competitor:tennis:atp:wu-yibing",
         "competitor:tennis:atp:zhou-yi",
         "competitor:tennis:atp:yannick-hanfmann",
@@ -14664,11 +14663,12 @@
         "competitor:tennis:atp:daniel-altmaier",
         "competitor:tennis:atp:zizou-bergs",
         "competitor:tennis:atp:juan-manuel-cerundolo",
+        "athlete:tennis:novak-djokovic",
+        "athlete:tennis:alex-de-minaur",
         "competitor:tennis:atp:frances-tiafoe",
         "competitor:tennis:atp:andrey-rublev",
         "competitor:tennis:atp:karen-khachanov",
         "competitor:tennis:atp:flavio-cobolli",
-        "competitor:tennis:atp:novak-djokovic",
         "competitor:tennis:atp:lorenzo-musetti",
         "competitor:tennis:atp:alejandro-davidovich-fokina",
         "competitor:tennis:atp:ben-shelton",
@@ -14698,16 +14698,6 @@
       ],
       "expected": 5,
       "sourceParticipation": [
-        {
-          "participantId": "athlete:tennis:alex-de-minaur",
-          "draw": "mens-singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:alex-molcan",
-          "draw": "mens-singles",
-          "active": true
-        },
         {
           "participantId": "competitor:tennis:atp:zhang-zhizhen",
           "draw": "mens-singles",
@@ -14757,6 +14747,11 @@
           "participantId": "competitor:tennis:atp:marin-cilic",
           "draw": "mens-singles",
           "active": false
+        },
+        {
+          "participantId": "competitor:tennis:atp:alex-molcan",
+          "draw": "mens-singles",
+          "active": true
         },
         {
           "participantId": "competitor:tennis:atp:federico-cina",
@@ -15024,6 +15019,16 @@
           "active": false
         },
         {
+          "participantId": "athlete:tennis:novak-djokovic",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
+          "participantId": "athlete:tennis:alex-de-minaur",
+          "draw": "mens-singles",
+          "active": true
+        },
+        {
           "participantId": "competitor:tennis:atp:frances-tiafoe",
           "draw": "mens-singles",
           "active": true
@@ -15040,11 +15045,6 @@
         },
         {
           "participantId": "competitor:tennis:atp:flavio-cobolli",
-          "draw": "mens-singles",
-          "active": true
-        },
-        {
-          "participantId": "competitor:tennis:atp:novak-djokovic",
           "draw": "mens-singles",
           "active": true
         },
@@ -15181,13 +15181,12 @@
       ],
       "participantsConfirmed": true,
       "sourceParticipantIds": [
-        "athlete:tennis:alex-de-minaur",
-        "competitor:tennis:atp:alex-molcan",
         "competitor:tennis:atp:tomas-machac",
         "competitor:tennis:atp:matteo-berrettini",
         "competitor:tennis:atp:rei-sakamoto",
         "competitor:tennis:atp:quentin-halys",
         "competitor:tennis:atp:arthur-fery",
+        "competitor:tennis:atp:alex-molcan",
         "competitor:tennis:atp:wu-yibing",
         "competitor:tennis:atp:zhou-yi",
         "competitor:tennis:atp:yannick-hanfmann",
@@ -15214,11 +15213,12 @@
         "competitor:tennis:atp:daniel-altmaier",
         "competitor:tennis:atp:zizou-bergs",
         "competitor:tennis:atp:juan-manuel-cerundolo",
+        "athlete:tennis:novak-djokovic",
+        "athlete:tennis:alex-de-minaur",
         "competitor:tennis:atp:frances-tiafoe",
         "competitor:tennis:atp:andrey-rublev",
         "competitor:tennis:atp:karen-khachanov",
         "competitor:tennis:atp:flavio-cobolli",
-        "competitor:tennis:atp:novak-djokovic",
         "competitor:tennis:atp:lorenzo-musetti",
         "competitor:tennis:atp:alejandro-davidovich-fokina",
         "competitor:tennis:atp:ben-shelton",

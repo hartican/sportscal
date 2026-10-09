@@ -41,12 +41,12 @@
       "tour": "ATP",
       "scheduleReview": {
         "player": "Novak Djokovic",
-        "outcome": "Verified named final and official not-before clock. ATP500 remains manual Feed/reminder only.",
-        "checkedAt": "2026-10-06T02:10:05.381842+00:00",
-        "summary": "China Open final v Alex de Minaur · not before 22:00 Sydney, 6 October",
-        "sourceUrl": "https://www.protennislive.com/posting/2026/747/op.pdf",
-        "validUntil": "2026-10-06",
-        "sourceLabel": "Official order of play"
+        "outcome": "Official draw and order of play confirm the existing Djokovic–Hurkacz Round of 64 match on 9 October, not before 18:00 Shanghai (21:00 Sydney). Existing fixture identity and reminder OFF controls remain.",
+        "checkedAt": "2026-10-09T00:25:46.204783+00:00",
+        "summary": "Shanghai Masters v Hubert Hurkacz · not before 21:00 Sydney, 9 October",
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+        "sourceLabel": "Official order of play",
+        "validUntil": "2026-10-09"
       }
     },
     {
@@ -55,12 +55,12 @@
       "tour": "ATP",
       "scheduleReview": {
         "player": "Alex de Minaur",
-        "outcome": "Verified named final and official not-before clock. ATP500 remains manual Feed/reminder only.",
-        "checkedAt": "2026-10-06T02:10:05.381842+00:00",
-        "summary": "China Open final v Novak Djokovic · not before 22:00 Sydney, 6 October",
-        "sourceUrl": "https://www.protennislive.com/posting/2026/747/op.pdf",
-        "validUntil": "2026-10-06",
-        "sourceLabel": "Official order of play"
+        "outcome": "Official 9 October order of play names de Minaur–Molcan as the third Grandstand 2 match, Followed By. The individual start remains unverified and cannot schedule a reminder.",
+        "checkedAt": "2026-10-09T00:25:46.204783+00:00",
+        "summary": "Shanghai Masters v Alex Molcan · 9 October Shanghai order of play · followed by, start time unconfirmed",
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+        "sourceLabel": "Official order of play",
+        "validUntil": "2026-10-09"
       }
     },
     {
@@ -2051,8 +2051,8 @@
     }
   ],
   "window": {
-    "from": "2026-10-08",
-    "through": "2027-10-08"
+    "from": "2026-10-09",
+    "through": "2027-10-09"
   },
   "contextOnly": true,
   "windowEditionIds": [

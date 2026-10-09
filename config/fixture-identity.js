@@ -269,6 +269,14 @@
             if(base[field]!==undefined)event[field]=base[field];
           }
         }
+        // An unresolved score-provider planning row cannot retract an independently
+        // reviewed organiser schedule. Keep its provenance with the retained clock;
+        // genuine status/score observations still reconcile independently above.
+        if(update.fixtureObservationSchema&&!update.scheduleEvidence&&!update.startTimeUtc&&base.scheduleEvidence?.kind==='official-order-of-play'&&aliases(base).includes(base.scheduleEvidence.fixtureId)&&!['postponed','cancelled','abandoned'].includes(event.status)){
+          for(const field of ['date','time','startTimeUtc','timePrecision','schedulePrecision','scheduleStatus','timeTbc','startTimeTbc','dateOnly','scheduleNote','scheduleSourceUrl','sourceUrl','sourceName','sourceType','sourceCheckedAt','court'])if(base[field]!==undefined)event[field]=base[field];
+          if(update.timingVerified!==false&&base.timingVerified!==undefined)event.timingVerified=base.timingVerified;
+        }
+        if(base.scheduleEvidence&&!update.scheduleEvidence&&update.startTimeUtc&&update.startTimeUtc!==base.startTimeUtc){event.scheduleEvidence=null;event.timingEvidence=null;}
         if(/^won by\b/i.test(event.scoreDisplay||'') && String(base.scoreDisplay||'').endsWith(event.scoreDisplay))event.scoreDisplay=base.scoreDisplay;
       }
       // A cached draw placeholder cannot erase a subsequently published fixture.

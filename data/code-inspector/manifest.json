@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-09T00:28:59.043Z",
+  "generatedAt": "2026-10-09T01:01:11.984Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/baseball.json",
@@ -165,7 +165,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T00:28:59.043Z",
+      "freshAt": "2026-10-09T01:01:11.984Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {

@@ -6,6 +6,24 @@ const document=require('../feeds/provider-exports/tennis/participant-fixtures-re
 function validate(doc=document){
  assert.equal(doc.schemaVersion,'reviewed-participant-fixtures.v1');const seen=new Set();
  for(const e of doc.events){assert(!seen.has(e.id));seen.add(e.id);assert.equal(e.participantsConfirmed,true);assert.equal(e.contestUnit,'match');assert.equal(e.participantIds.length,2);assert(e.participantIds.every(id=>/^(athlete|competitor):tennis:/.test(id)));assert(/^https:\/\//.test(e.sourceUrl));assert(Number.isFinite(Date.parse(e.sourceCheckedAt))&&Date.parse(e.sourceCheckedAt)<=Date.now());assert(['exact','not-before','followed-by','unresolved'].includes(e.timePrecision));if(['exact','not-before'].includes(e.timePrecision))assert(Number.isFinite(Date.parse(e.startTimeUtc)));else assert(!e.startTimeUtc);assert(e.timingEvidence?.matchRow&&e.timingEvidence?.clockAssociation);}
+ for(const e of doc.events.filter(e=>e.scheduleEvidence)){
+  const proof=e.scheduleEvidence;
+  assert(proof.kind==='official-order-of-play'&&proof.fixtureId===e.id&&proof.tournamentId===e.tournamentId&&proof.roundLabel===e.roundLabel,'official timing must bind the existing fixture, edition and round');
+  assert.deepEqual(proof.participantIds,[e.homeParticipantId,e.awayParticipantId],'official timing must bind the ordered named participants');
+  assert(proof.sourceUrl===e.sourceUrl&&/^https:\/\/www\.protennislive\.com\/posting\/\d{4}\/\d+\/op\.pdf$/.test(proof.sourceUrl)&&proof.checkedAt===e.sourceCheckedAt&&/^[a-f0-9]{64}$/.test(proof.sourceSha256)&&proof.sourceSha256===e.timingEvidence.sourceSha256,'official timing requires its independently dated complete order-of-play receipt');
+  assert(Number.isFinite(Date.parse(proof.sourcePublishedAtLocal))&&Date.parse(proof.sourcePublishedAtLocal)<=Date.parse(proof.checkedAt),'a future publication cannot establish a verified clock');
+  assert(proof.court===e.court&&Number.isInteger(proof.playOrder)&&proof.playOrder>0&&proof.playOrder<=20&&proof.matchRow===e.timingEvidence.matchRow&&proof.clockAssociation===e.timingEvidence.clockAssociation,'the named court row owns its clock association');
+  assert(proof.timePrecision===e.timePrecision&&/^\d{4}-\d{2}-\d{2}$/.test(proof.matchDateLocal));
+  if(['exact','not-before'].includes(proof.timePrecision)){
+   assert(proof.startsAt===e.startTimeUtc&&/^\d{2}:\d{2}$/.test(proof.localTime)&&e.scheduleStatus==='confirmed'&&e.timingVerified===true&&e.timeTbc===false&&e.startTimeTbc===false,'verified exact/not-before timing must clear all provisional flags');
+   const parts=zone=>Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date(e.startTimeUtc)).map(p=>[p.type,p.value]));
+   const local=parts(proof.timeZone),sydney=parts('Australia/Sydney');
+   assert.equal(`${local.year}-${local.month}-${local.day}`,proof.matchDateLocal);assert.equal(`${local.hour}:${local.minute}`,proof.localTime,'another court/session clock cannot time this row');
+   assert.equal(`${sydney.year}-${sydney.month}-${sydney.day}`,e.date);assert.equal(`${sydney.hour}:${sydney.minute}`,e.time,'Sydney daylight saving must preserve the published instant');
+  }else{
+   assert(proof.timePrecision==='followed-by'&&proof.startsAt===null&&proof.localTime===null&&!e.startTimeUtc&&!e.time&&e.timeTbc===true&&e.timingVerified===false&&e.scheduleStatus==='unresolved'&&e.date===proof.matchDateLocal,'play order establishes a local schedule day, never an automatic reminder clock');
+  }
+ }
  for(const e of doc.events.filter(e=>e.drawEvidence)){
   const proof=e.drawEvidence;
   assert(proof.kind==='official-draw-pairing'&&proof.fixtureId===e.id&&proof.sourceUrl===e.timingEvidence.drawSourceUrl&&proof.checkedAt===e.timingEvidence.drawCheckedAt&&/^[a-f0-9]{64}$/.test(proof.sourceSha256)&&proof.sourceSha256===e.timingEvidence.drawSourceSha256,'reviewed pairing requires the exact dated organiser draw receipt');
