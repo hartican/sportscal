@@ -513,6 +513,18 @@ async function runMain() {
     runStep(['scripts/quick-results.js',sources[0]]);
     return;
   }
+  if(process.argv.includes('--aflw-final-date')){
+    for(const args of [
+      ['scripts/apply-reviewed-aflw-final-date.js'],
+      ['scripts/build-canonical-context-bundle.js'],
+      ['scripts/build-code-inspector.js','--codes=aflw'],
+      ['scripts/build-app-shell-runtime.js'],
+      ['scripts/version-generated-shell.js'],
+      ['scripts/validate-aflw-final-date.js','--published'],
+      ['scripts/validate-canonical-sports.js'],
+    ])runStep(args);
+    console.log('Existing AFLW final date projected through the canonical owner; no clock, finalist or provider refresh added.');return;
+  }
   if(process.argv.includes('--shallow-directories')){
     runStep(['scripts/prune-retained-player-background.js']);
     runStep(['scripts/build-follow-directories.js','--codes=football,afl,aflw']);

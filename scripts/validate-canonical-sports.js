@@ -212,5 +212,6 @@ assert.strictEqual(
   "a genuinely newer completed round must be accepted even when the provider timestamp is unusual"
 );
 
+require('./validate-aflw-final-date');
 console.log(`Canonical sports valid: ${aflFixtures.length} AFL fixtures, ${aflwFixtures.length} AFLW fixtures, ${nrlFixtures.length} NRL fixtures.`);
 console.log(`Queryable ladders: AFL ${aflLadder.entries.length} teams; AFLW ${aflwLadder.entries.length} teams; NRL ${nrlLadder.entries.length} teams.`);

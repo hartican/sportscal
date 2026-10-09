@@ -541,7 +541,8 @@ function buildAflEvent(match, checkedAt, createdAtById, { code = "afl", competit
   };
   const result = resultSummary(event, match.home?.score?.totalScore, match.away?.score?.totalScore);
   if (result) event.result = result;
-  return { event, participants: [home, away] };
+  const reviewedDate = code === 'aflw' ? require('./lib/aflw-final-date').apply(event, checkedAt) : { event };
+  return { event:reviewedDate.event, participants: [home, away] };
 }
 
 function nrlVenueTimezone(match){

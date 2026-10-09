@@ -177,6 +177,7 @@ jobs:
           node scripts/validate-european-football-continuity.js
           node scripts/validate-european-football-standings.js
           node scripts/validate-coverage-quality.js
+          node scripts/validate-aflw-final-date.js --published
           node scripts/validate-ucl-stage-calendar.js --published
           node scripts/audit-coverage-quality.js "$NS_DEPLOY_REPORT_DIR/coverage-quality.json"
           node scripts/validate-dispatch-bundle.js

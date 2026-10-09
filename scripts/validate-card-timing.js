@@ -2,6 +2,11 @@
 'use strict';
 const assert=require('node:assert/strict');
 const {presentation:p}=require('../config/card-timing');
+const {dateOnlyLabel}=require('../config/card-timing');
+assert.equal(dateOnlyLabel({eventType:'match',dateOnly:true}),'Time TBC','A dated single match cannot claim multiple session times');
+assert.equal(dateOnlyLabel({cardType:'golf_tournament',dateOnly:true}),'Session times vary');
+assert.equal(dateOnlyLabel({eventType:'match',status:'completed'}),'Completed');
+assert.equal(dateOnlyLabel({timingProvenance:{precision:'venue-calendar'}}),'Time TBC');
 const now='2026-09-21T14:30:00Z'; // Tuesday 00:30 Sydney
 const fixture={date:'2026-09-25',startTimeUtc:'2026-09-24T16:30:00Z'};
 assert.equal(p(fixture,now).label,'FRI 2:30 AM');

@@ -164,7 +164,7 @@ assertShellModule(html, "config/au-broadcast-weights.js");
 assertShellModule(html, "config/selector-taxonomy.js");
 assertShellModule(html, "config/canonical-sports-taxonomy.js");
 assertShellModule(html, "config/sport-context.js");
-assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=218")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
+assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=219")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
 assertShellModule(html, "config/brand-copy.js");
 assertShellModule(html, "config/vector-assets.js");
 assertShellModule(html, "config/sport-domain-registry.js");

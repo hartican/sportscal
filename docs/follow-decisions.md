@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## AFLW Grand Final announced day — 9 October 2026
+
+The existing official 2026 Grand Final identity has a separately verified announced date, 27 November, while its primary match record still has no kickoff or actual finalists. Display that day with date-only precision and timing TBC. Preserve its published winner-of slots, all saved choices and existing eligibility rules. This is one existing match with an announced day, distinct from a general competition-stage programme. Neither the announcement nor its Friday-night wording establishes a UTC sporting clock, actual host, live status, result or reminder. The eight other undated finals remain undated. A validated primary clock or different primary day takes priority; the announcement cannot replace it. Regression: validate-aflw-final-date.js through the existing canonical-sports gate and affected native Schedule/cache checks.
+
 ## Published programme dates are calendar context — 9 October 2026
 
 Clarifies the existing fixtures-only rule. Source-backed competition-stage calendars with unannounced matchups or kickoff cannot enter the personal match Feed, including through broad sport/knockout eligibility. Keep their original IDs, source facts, stored activity and useful non-actionable Schedule notes. CHL's twelve programme notes and UCL's five stage calendars remain distinct from actual fixtures.

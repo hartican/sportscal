@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="472">
+<meta name="app-shell-version" content="473">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=472" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=473" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7183,7 +7183,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=472"></script>
+<script src="assets/js/app-shell-runtime.js?v=473"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8115,7 +8115,7 @@ let SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
 let sportHubsLoad = null;
 function loadSportHubs(){
   if (SPORT_HUBS) return Promise.resolve(SPORT_HUBS);
-  sportHubsLoad ||= loadDeferredScript("config/sport-hubs.js?v=218").then(() => {
+  sportHubsLoad ||= loadDeferredScript("config/sport-hubs.js?v=219").then(() => {
     SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
     if (!SPORT_HUBS) throw new Error("Schedule could not load.");
     return SPORT_HUBS;
@@ -13186,7 +13186,7 @@ function eventLocationLabel(ev){
 function eventTimeLabel(ev){
   if(ev.timePrecision==="estimated")return `Approx. ${fmtTime12(ev.time)} · ${eventLocationLabel(ev)}`;
   if(ev.timePrecision==="follows")return "Follows prior match";
-  if(ev.dateOnly)return `${["completed","finished","final"].includes(ev.status)?"Completed":ev.timingProvenance?.precision==='venue-calendar'?'Time TBC':ev.displayTime || "Session times vary"} · ${eventLocationLabel(ev)}`;
+  if(ev.dateOnly)return `${NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel(ev)} · ${eventLocationLabel(ev)}`;
   if(ev.timePrecision==='not-before'){
     const timing=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
     return timing.time==='TIME TBC'?'Time TBC':`${timing.time} (Sydney time) · ${eventLocationLabel(ev)}`;

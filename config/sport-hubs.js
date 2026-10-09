@@ -209,7 +209,7 @@
       time: start.time,
       dateOnly: fixture.dateOnly === true,
       timePrecision: fixture.timePrecision,
-      displayTime: fixture.dateOnly ? (fixtureIsFinished(fixture) ? "Completed" : fixture.timingProvenance?.precision==='venue-calendar' ? 'Time TBC' : "Session times vary") : null,
+      displayTime: fixture.dateOnly ? (typeof module==='object'&&module.exports?require('./card-timing'):globalThis.NOTHINGSPORTS_CARD_TIMING).dateOnlyLabel(fixture) : null,
       startTimeUtc: fixture.startTimeUtc,
       status: fixtureIsFinished(fixture) ? "completed" : "upcoming",
       scheduleStatus: fixture.scheduleStatus,

@@ -71,5 +71,9 @@
     if(observed?.key==='awaiting-update')status=observed.label;
     return Object.freeze({day:venueCalendar?day:date?(range?day:dated(date)):'DATE TBC',time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:scheduleLabel, fullSchedule, ariaLabel:status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule});
   }
-  return Object.freeze({presentation,tournamentPhase});
+  function dateOnlyLabel(event){
+    if(['completed','finished','final'].includes(event.status))return 'Completed';
+    return event.eventType==='match'||event.timingProvenance?.precision==='venue-calendar'?'Time TBC':event.displayTime||'Session times vary';
+  }
+  return Object.freeze({presentation,tournamentPhase,dateOnlyLabel});
 });

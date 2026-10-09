@@ -24,6 +24,11 @@ async function assertCachedStageCalendarPolicy(page){
   assert.equal(notes.length,17);
   assert(await page.evaluate(notes=>NOTHINGSPORTS_FOLLOW_FEED_POLICY.SCHEMA_VERSION==='follow-feed-policy.v13'&&notes.every(f=>!NOTHINGSPORTS_FOLLOW_FEED_POLICY.sportingFixture(f)&&!NOTHINGSPORTS_FOLLOW_FEED_POLICY.eligibleForFollow(f,{sportFollow:true})),notes),'Updated cached policy cannot treat programme dates as followed matches');
 }
+async function assertCachedAflwFinalDate(page){
+  const id='event:aflw:cd_m20262641601',expected=require('../data/code-inspector/aflw.json').fixtures.find(f=>f.id===id);
+  const result=await page.evaluate(async id=>{const fixture=(await(await fetch('/data/code-inspector/aflw.json')).json()).fixtures.find(f=>f.id===id);return {fixture,label:NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel(fixture)};},id);
+  assert.deepEqual(result.fixture,expected,'Updated/offline Schedule keeps the exact reviewed date and original primary facts');assert.equal(result.label,'Time TBC');assert.equal(result.fixture.startTimeUtc,null);assert.equal(result.fixture.time,null);
+}
 async function assertCachedMultidayRetention(page){
   const raw=require('../data/code-inspector/cricket.json').fixtures.find(f=>f.id==='evt_91');
   const normalized=require('../lib/server-feed-pipeline').normalizeEvent(raw,new Date('2027-01-14T01:00Z'));
@@ -457,7 +462,7 @@ const server=http.createServer((req,res)=>{
       await assertCachedFootballStatus(upgraded);
       await assertCachedCanonicalResults(upgraded);
       await assertCachedMultidayRetention(upgraded);
-    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);await assertCachedStageCalendarPolicy(upgraded);
+    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);await assertCachedStageCalendarPolicy(upgraded);await assertCachedAflwFinalDate(upgraded);
       await assertCachedReviewedCalendarNotes(upgraded);
     }
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
@@ -506,7 +511,7 @@ const server=http.createServer((req,res)=>{
     await assertCachedFootballStatus(upgraded);
     await assertCachedCanonicalResults(upgraded);
     await assertCachedMultidayRetention(upgraded);
-    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);await assertCachedStageCalendarPolicy(upgraded);
+    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);await assertCachedStageCalendarPolicy(upgraded);await assertCachedAflwFinalDate(upgraded);
     await assertCachedReviewedCalendarNotes(upgraded);
     await assertSavedNativeChoices(upgraded);
     if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){

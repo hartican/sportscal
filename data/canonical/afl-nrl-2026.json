@@ -20272,6 +20272,23 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/9081",
         "sourceType": "official",
         "checkedAt": "2026-10-08T21:01:05.473Z"
+      },
+      "date": "2026-11-27",
+      "dateOnly": true,
+      "timePrecision": "date-only",
+      "time": null,
+      "timeTbc": true,
+      "startTimeTbc": true,
+      "scheduleNote": "Friday night. Kickoff time and host venue to be confirmed.",
+      "timingProvenance": {
+        "precision": "date-only",
+        "kind": "official-announcement",
+        "sourceUrl": "https://www.afl.com.au/news/1596264/friday-night-lights-prime-time-stage-set-for-2026-nab-aflw-grand-final",
+        "sourceName": "AFL official Grand Final announcement",
+        "publishedAt": "2026-08-28T11:15:00.000Z",
+        "observedAt": "2026-10-09T10:51:48.755Z",
+        "sourceDate": "2026-11-27",
+        "sourceSha256": "b56a53636e88a7d8ee1624d0422f2bce03803026ae374b40108d46bf8155799d"
       }
     },
     {
