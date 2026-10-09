@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-10-07T23:14:37.555Z",
+  "generatedAt": "2026-10-08T21:00:48.348Z",
   "sports": [
     {
       "key": "afl",
@@ -206,7 +206,7 @@
       "key": "rugby-women",
       "label": "Rugby Union Women",
       "status": "available",
-      "recordCount": 42,
+      "recordCount": 48,
       "jsonUrl": "data/follow-directory/rugby-women.v1.json",
       "scriptUrl": "data/follow-directory/rugby-women.v1.js"
     },

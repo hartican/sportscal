@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="464">
+<meta name="app-shell-version" content="465">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=464" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=465" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7182,7 +7182,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=464"></script>
+<script src="assets/js/app-shell-runtime.js?v=465"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16890,6 +16890,7 @@ function buildOngoingTournamentParent(ev){
 function buildEuropeanDetail(ev,kind){
   const node=document.createElement('div');
   if(kind==='attribution'){
+    node.className='fixture-source-attribution fixture-source-links';
     if(ev.sourceAttribution?.provider==='OpenLigaDB'){const link=document.createElement('a');link.href='/data/providers/openligadb/football-2026-27.json';link.textContent='OpenLigaDB data · ODbL';node.append(link);}
     if(ev.delayedResultSource){const note=document.createElement('p'),link=document.createElement('a');link.href='https://www.football-data.org/';link.textContent='Football data provided by the Football-Data.org API';note.append(link,document.createTextNode('. Delayed final result; primary source unavailable at recovery.'));node.append(note);}
   }

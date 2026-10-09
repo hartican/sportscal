@@ -276,6 +276,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-paged-feed.js"],
   ["scripts/prepare-nsc-forecasts.js"],
   ["scripts/build-code-inspector.js"],
+  ["scripts/build-follow-directories.js"],
+  ["scripts/build-follow-directories.js", "--check"],
   ["scripts/validate-football-classification.js","--published"],
   ["scripts/build-tennis-feed-parents.js"],
   ["scripts/build-tournament-horizon.js"],

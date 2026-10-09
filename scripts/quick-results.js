@@ -23,13 +23,17 @@ function retainReviewedResultEditorial(events,previous){
  });
 }
 function runProjectionSteps(steps,{editorialBaseline}={}){
+ if(!steps.length)return;
  for(const [file,...args] of steps){
+  if(file==='scripts/build-follow-directories.js')continue;
   if(file==='scripts/publish-feed.js'&&editorialBaseline)for(const [name,previous] of editorialBaseline){
    const document=read(name),events=require('./lib/editorial-publication').reconcileFullPreviews(retainReviewedResultEditorial(document.events,previous),read('data/editorial-knowledge.v1.json'));
    if(JSON.stringify(events)!==JSON.stringify(document.events))write(name,{...document,events});
   }
   run(file,...args);
  }
+ run('scripts/build-follow-directories.js');
+ run('scripts/build-follow-directories.js','--check');
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{Origin:'https://www.afl.com.au',Referer:'https://www.afl.com.au/'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.json();}
 function run(file,...args){

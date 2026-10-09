@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-08T21:01:44.386Z",
+  "generatedAt": "2026-10-09T00:05:12.359Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/baseball.json",
@@ -11,7 +11,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/baseball.json"
     },
     {
@@ -23,7 +23,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T22:12:49.067Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/supercars.json"
     },
     {
@@ -35,7 +35,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/afl.json"
     },
     {
@@ -47,7 +47,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:afl",
       "chunkPath": "data/code-inspector/aflw.json"
     },
@@ -60,7 +60,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -72,7 +72,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:nrl",
       "chunkPath": "data/code-inspector/nrlw.json"
     },
@@ -87,7 +87,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/motorsport.json",
       "coverageNote": "Motorsport coverage is partial. Goodwood is an organiser calendar window with UK-local dates, not a scheduled competitive fixture. Sydney session starts and Australian viewing are unconfirmed."
     },
@@ -113,7 +113,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/f1.json"
     },
@@ -126,7 +126,7 @@
       "hasStandings": false,
       "groupingMode": "competition-date",
       "coverageStatus": "unavailable",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/extreme.json"
     },
     {
@@ -140,7 +140,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/surf.json",
       "coverageNote": "Surfing coverage is partial: two saved listings have no verified event identities, dates, starts or Australian viewing. These notes are not scheduled fixtures. The separate WSL calendar requires its own follow choice."
     },
@@ -153,7 +153,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/rugby-union.json"
     },
     {
@@ -165,7 +165,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -177,7 +177,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {
@@ -189,7 +189,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/cycling.json"
     },
     {
@@ -201,7 +201,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/cricket.json"
     },
     {
@@ -213,7 +213,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/basketball.json"
     },
     {
@@ -225,7 +225,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/nbl.json"
     },
@@ -238,7 +238,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-07T23:16:18.018Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/golf.json"
     },
     {
@@ -251,7 +251,7 @@
       "coverageNote": "NFL: all 272 current regular-season fixtures plus preseason and retained history; source-supplied conference standings. Provisional kickoffs, viewing and wider quality checks remain partial.",
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:59:55.005Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/american-football.json"
     },
     {
@@ -264,7 +264,7 @@
       "coverageNote": "NHL and CHL: published match windows and sourced records. CHL knockout dates are programme context until teams and kickoffs are announced; viewing and wider quality checks remain partial.",
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-07T21:00:11.048Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/ice-hockey.json"
     },
     {
@@ -276,7 +276,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/skiing.json",
       "coverageNote": "Snow coverage is partial: four selected 2026/27 appointments. Dates are local to the venue; race starts, entries, results and Australian viewing are unconfirmed."
     },
@@ -289,7 +289,7 @@
       "hasStandings": false,
       "groupingMode": "competition-date",
       "coverageStatus": "unavailable",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/athletics.json"
     },
     {
@@ -301,7 +301,7 @@
       "hasStandings": false,
       "groupingMode": "competition-date",
       "coverageStatus": "unavailable",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/swimming.json"
     },
     {
@@ -313,7 +313,7 @@
       "hasStandings": false,
       "groupingMode": "competition-date",
       "coverageStatus": "unavailable",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/netball.json"
     },
     {
@@ -325,7 +325,7 @@
       "hasStandings": false,
       "groupingMode": "competition-date",
       "coverageStatus": "unavailable",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/boxing.json"
     },
     {
@@ -337,7 +337,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "chunkPath": "data/code-inspector/multi-sport.json"
     },
     {
@@ -362,7 +362,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:cycling",
       "chunkPath": "data/code-inspector/tour-de-france.json",
       "coverageNote": "Men’s Grand Tours: all published 2026 stages. For 2027, the Tour has three published opening stages (2–4 July); its remaining stages are unconfirmed. Giro: 8–30 May; La Vuelta: 4–26 September, edition dates only. Entries, start times, results and detailed route geometry remain partial."
@@ -376,7 +376,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:cycling",
       "chunkPath": "data/code-inspector/giro-ditalia.json",
       "coverageNote": "Men’s Grand Tours: all published 2026 stages. For 2027, the Tour has three published opening stages (2–4 July); its remaining stages are unconfirmed. Giro: 8–30 May; La Vuelta: 4–26 September, edition dates only. Entries, start times, results and detailed route geometry remain partial."
@@ -390,7 +390,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:cycling",
       "chunkPath": "data/code-inspector/vuelta-a-espana.json",
       "coverageNote": "Men’s Grand Tours: all published 2026 stages. For 2027, the Tour has three published opening stages (2–4 July); its remaining stages are unconfirmed. Giro: 8–30 May; La Vuelta: 4–26 September, edition dates only. Entries, start times, results and detailed route geometry remain partial."
@@ -404,7 +404,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:surf",
       "chunkPath": "data/code-inspector/wsl.json",
       "coverageNote": "WSL: published 2026 event windows. New coverage is men’s; the existing mixed Margaret River result is retained. Daily times, entries, results and break shapes remain partial. Raglan returns in 2027; dates are unconfirmed."
@@ -418,7 +418,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/lemans.json"
     },
@@ -431,7 +431,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/dakar.json"
     },
@@ -444,7 +444,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/motogp.json"
     },
@@ -457,7 +457,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-06T02:49:53.447Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:sailing",
       "chunkPath": "data/code-inspector/sailgp.json",
       "coverageNote": "SailGP coverage is partial: published race days only. Season teams may be listed; individual event entries and future session times may be unconfirmed."
@@ -471,7 +471,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-08T21:01:44.386Z",
+      "freshAt": "2026-10-09T00:05:12.359Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/fiba-women.json"
     }

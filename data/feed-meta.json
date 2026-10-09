@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20261008210144386",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261009000512359",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-08T21:01:44.386Z",
+  "publishedAt": "2026-10-09T00:05:12.359Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -41,7 +41,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-10-08",
+    "basisDate": "2026-10-09",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -49,7 +49,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-03",
     "lastEventDate": "2027-10-01",
-    "daysAhead": 358,
+    "daysAhead": 357,
     "coversStandardPreloadWindow": true,
     "sports": {
       "dakar": {
