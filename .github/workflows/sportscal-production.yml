@@ -63,6 +63,7 @@ jobs:
           node scripts/validate-athletes.js
           node scripts/validate-tennis-scoreboard.js
           node scripts/validate-tennis-match-centre-live.js
+          node scripts/validate-match-centre.js
           node scripts/validate-current-fixture-bundle.js
           node scripts/validate-reviewed-tennis-live.js
           node scripts/validate-follow-first.js
