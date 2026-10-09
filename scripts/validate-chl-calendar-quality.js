@@ -1,0 +1,40 @@
+'use strict';
+const assert=require('node:assert/strict'),{audit,projectionDigest}=require('./audit-coverage-quality');
+const contract=require('../config/quality/coverage-contract.json'),fixtureData=require('../data/code-inspector/ice-hockey.json'),fixtures=fixtureData.fixtures.filter(f=>f.competitionId==='competition:chl'),notes=fixtures.filter(f=>f.timingProvenance?.precision==='competition-stage-calendar'),now='2026-10-09T10:00:00Z';
+const baseline=audit({now}),hockey=baseline.families.find(f=>f.id==='ice-hockey').competitions.find(c=>c.id==='competition:chl');
+assert.equal(hockey.calendarContexts,12,'Actual reviewed hockey programme notes are counted separately');assert.equal(hockey.nonCalendarRecords,72);assert.equal(hockey.undated,12,'Raw date gaps stay visible');assert.equal(hockey.undatedFixtures,0);assert.deepEqual(hockey.calendarContextFailures,[]);assert.equal(hockey.status,'unverified');assert.equal(baseline.summary.pilotTotal,3);assert.equal(baseline.summary.pilotCertified,0);
+const policy=require('../config/follow-feed-policy'),reminders=require('../config/fixture-reminder-policy');
+for(const note of notes){assert.equal(policy.sportingFixture(note),false);assert.equal(reminders.timing(note,new Date(now)),null);}
+const pipeline=require('../lib/server-feed-pipeline'),preferences={version:26,showSpoilers:false,preferenceGraph:{domainPreferences:[{sportDomainId:'sport:ice-hockey',enabled:true,includeAllFixtures:true,includeMajorEvents:true}],competitionPreferences:[],entityFollows:[]}};
+const match=fixtures.find(f=>f.date>'2026-10-09'&&f.participantSlots.length===2);assert(match,'Genuine published upcoming match retained');
+const feed=pipeline.buildServerFeed({events:[...notes,match],userId:'calendar-qa',userState:{preferences:{...preferences,preferenceGraph:{...preferences.preferenceGraph,entityFollows:[{participantId:match.participantSlots[0].participantId,followLevel:'follow'}]}},event_user_state:{}},now:new Date(now),limit:50,tennisProjection:{parents:[],contests:[]}});
+assert.deepEqual(feed.events.map(f=>f.id),[match.id],'Actual broad hockey Feed contains the match, not programme summaries');
+for(const note of notes)assert(policy.scheduleVisible(note,preferences),'Programme context remains in its Schedule');
+const recovered={...notes[0],date:match.date,startTimeUtc:match.startTimeUtc,timePrecision:'exact',scheduleStatus:'confirmed',timeTbc:false,startTimeTbc:false,participantsConfirmed:true,participantSlots:match.participantSlots};assert(policy.sportingFixture(recovered),'Genuine source-confirmed clock and matchup can replace old calendar context');
+for(const change of [{startTimeUtc:'2026-02-30T11:59:00Z'},{startTimeUtc:'2026-11-10T11:59:00'},{timeTbc:true},{startTimeTbc:true},{participantsConfirmed:false},{participantSlots:[]},{scheduleStatus:'provisional'}])assert(!policy.sportingFixture({...recovered,...change}),'Calendar transition requires confirmed actual fixture facts');
+const scoped={...structuredClone(contract),families:contract.families.filter(f=>f.id==='ice-hockey'),pilotCompetitions:[],reviewedCalendarContexts:contract.reviewedCalendarContexts.filter(r=>r.competitionId==='competition:chl'),certifications:[]};
+const row=r=>r.families[0].competitions.find(c=>c.id==='competition:chl');
+function run(records=fixtures,{changeContract=()=>{},copies=[]}={}){
+ const c=structuredClone(scoped),m={codes:[{slug:'ice-hockey'}]};changeContract(c);if(copies.length){c.families[0].codes=[...c.families[0].codes,'overlap'];m.codes.push({slug:'overlap'});}
+ c.certifications=[{competitionId:'competition:chl',window:c.window,releaseSha:'a'.repeat(40),liveVerifiedAt:'2026-10-09T09:00:00Z',expectedFixtures:new Set(records.map(f=>f.id)).size,expectedCalendarContexts:records.filter(f=>notes.some(n=>n.id===f.id)).length,expectedMatchFixtures:records.filter(f=>!notes.some(n=>n.id===f.id)).length,projectionDigest:projectionDigest([...records,...copies]),gates:Object.fromEntries(c.requiredGates.map(g=>[g,{status:'pass',evidence:['docs/quality/chl-calendar-review-2026-10-09.md']}]))}];
+ return audit({contract:c,manifest:m,read:slug=>({fixtures:slug==='overlap'?copies:records}),now});
+}
+assert.equal(run().summary.certifiedFamilies,1,'Controlled full proof can pass the real auditor; production proof remains absent');
+const changed=change=>fixtures.map(f=>f.id===notes[0].id?{...f,...change}:f),p=notes[0].timingProvenance,w=notes[0].schedulingWindow;let rejected=0;
+for(const change of [
+ {timingProvenance:{...p,sourceStartTimeUtc:'2026-02-30T11:59:00Z'}},{timingProvenance:{...p,sourceStartTimeUtc:'2026-11-10T11:59:00+01:00'}},{timingProvenance:{...p,sourceStartTimeUtc:'2026-11-10T24:00:00Z'}},{timingProvenance:{...p,sourceDateLabel:'2026-11-11'}},{timingProvenance:{...p,timeZone:'Europe/Zurich'}},{timingProvenance:{...p,observedAt:'2026-10-10T00:00:00Z'}},{timingProvenance:{...p,observedAt:'2026-02-30T00:00:00Z'}},{timingProvenance:{...p,observedAt:'bad'}},{timingProvenance:null},
+ {schedulingWindow:{...w,startsOn:'2026-11-11'}},{schedulingWindow:{...w,endsOn:'2026-11-11'}},{schedulingWindow:{...w,timeZone:'Europe/Zurich'}},{sourceUrl:'https://example.com/unreviewed'},
+ {participantIds:['home','away']},{participantSlots:[{participantId:'TBA'}]},{participants:[{id:'TBA'}]},{date:'2026-11-10'},{time:'12:59'},{startTimeUtc:'2026-11-10T11:59:00Z'},{homeScore:0,awayScore:0},{scoreDisplay:'0–0'},{status:'completed'},{competitionId:'unreviewed'}
+]){const r=run(changed(change));assert.equal(r.summary.certifiedFamilies,0);assert(r.families[0].competitions.some(c=>c.certificationFailures.includes('invalid-calendar-context')||c.certificationFailures.includes('missing-reviewed-calendar-context')));rejected++;}
+assert(row(run(fixtures.slice(1))).certificationFailures.includes('minimum-match-fixtures'),'Calendar notes cannot cover a missing regular-season match');
+assert(row(run(notes)).certificationFailures.includes('minimum-match-fixtures'),'Twelve calendar dates cannot certify a match competition');
+assert(row(run(fixtures.filter(f=>f.id!==notes[0].id))).certificationFailures.includes('missing-reviewed-calendar-context'));
+assert.equal(row(run([])).missingReviewedCalendarContexts.length,12,'Removing every record cannot hide the reviewed competition');
+assert(row(run(changed({id:'unknown-calendar'}))).certificationFailures.includes('invalid-calendar-context'));
+assert(row(run(fixtures,{copies:[{...notes[0],displayDateLabel:'Changed date'}]})).certificationFailures.includes('conflicting-projections'));
+assert(row(run(fixtures,{copies:[{...notes[0],homeScore:0}]})).certificationFailures.includes('invalid-calendar-context'),'Added score fields cannot hide in an overlapping copy');
+for(const mutate of [c=>c.reviewedCalendarContexts[0].recordIds.push(c.reviewedCalendarContexts[0].recordIds[0]),c=>c.reviewedCalendarContexts[0].sourceDate='2026-02-30',c=>c.reviewedCalendarContexts[0].sourceDateConvention='local-clock',c=>c.reviewedCalendarContexts[0].family='football',c=>c.reviewedCalendarCompetitions[0].family='football',c=>c.reviewedCalendarCompetitions[0].minimumMatchFixtures=0,c=>c.reviewedCalendarCompetitions[0].evidence=['missing.md'],c=>c.reviewedCalendarCompetitions.push(c.reviewedCalendarCompetitions[0]),c=>c.reviewedCalendarContexts=[],c=>c.reviewedCalendarCompetitions=[]]){assert.throws(()=>run(fixtures,{changeContract:mutate}));rejected++;}
+assert(row(run(fixtures,{changeContract:c=>{c.reviewedCalendarContexts[0].sourceDate='2026-11-11';}})).certificationFailures.includes('invalid-calendar-context'));
+assert(row(run(fixtures,{changeContract:c=>{c.reviewedCalendarContexts[0].evidence=['missing.md'];}})).certificationFailures.includes('invalid-calendar-context'));
+const before=JSON.stringify(fixtureData);run();assert.equal(JSON.stringify(fixtureData),before,'Real sporting fields and original observations stay exact');
+console.log(`Hockey calendar quality: 12 dated programme records, 72 required matches, ${rejected} malformed controls, missing/overlap/family evidence, unchanged facts, Feed/reminder isolation and full-certification boundaries passed.`);

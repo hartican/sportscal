@@ -1,6 +1,6 @@
 {
   "version": "2026-09-27",
-  "evidenceUpdatedAt": "2026-10-04",
+  "evidenceUpdatedAt": "2026-10-09",
   "frozenAt": "2026-09-27",
   "minimumCarriedFamilyPassRate": 0.8,
   "window": {
@@ -204,6 +204,186 @@
         "major-stage:uefa-champions-league-2026-27:final"
       ],
       "meaning": "Reviewed competition-stage planning calendars, not actual match fixtures. Retain all records and raw missing-date/identity diagnostics; validate their own source window. No exemption for unreviewed records, no fixture-count credit and no quality certification."
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/94df75e7ae102284b2b95695/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:94df75e7ae102284b2b95695"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-11-10",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-11-10 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/284f142724ad0f43d269e363/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:284f142724ad0f43d269e363"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-11-11",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-11-11 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/c58e8f2d5e89800d5042ccb9/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:c58e8f2d5e89800d5042ccb9"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-11-17",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-11-17 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/112eccead43b23e1d20d4053/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:112eccead43b23e1d20d4053"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-11-18",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-11-18 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/81c5d3154ec314503c7d72c7/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:81c5d3154ec314503c7d72c7"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-12-01",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-12-01 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/9a629dc9157bba8087dbfa40/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:9a629dc9157bba8087dbfa40"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-12-02",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-12-02 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/56b19b00847200a7f6dcfbff/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:56b19b00847200a7f6dcfbff"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2026-12-15",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2026-12-15 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/8bbc1194c380cbf089f32a94/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:8bbc1194c380cbf089f32a94"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2027-01-12",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2027-01-12 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/2e4c58c98cf285542aa51969/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:2e4c58c98cf285542aa51969"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2027-01-13",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2027-01-13 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/38199720f3500fd9e53111cb/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:38199720f3500fd9e53111cb"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2027-01-19",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2027-01-19 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/fec278bcc7a0fb9f70be26ba/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:fec278bcc7a0fb9f70be26ba"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2027-01-20",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2027-01-20 (CHL programme date)"
+    },
+    {
+      "competitionId": "competition:chl",
+      "family": "ice-hockey",
+      "sourceUrl": "https://www.chl.hockey/en/matches/ca82ffc10d24686e46779890/tba-vs-tba",
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "recordIds": [
+        "fixture:chl:ca82ffc10d24686e46779890"
+      ],
+      "sourceDateConvention": "utc-programme",
+      "sourceDate": "2027-02-23",
+      "meaning": "One reviewed publisher programme date, derived from its explicitly UTC unconfirmed timestamp. No known teams, kickoff, result or match-count credit; the original source observation is retained.",
+      "displayDateLabel": "2027-02-23 (CHL programme date)"
     }
   ],
   "pilotCompetitions": [
@@ -343,5 +523,16 @@
       "progressMeaning": "Dated snapshot evidence, not certification or ongoing source truth; recheck after material source changes."
     }
   ],
-  "certifications": []
+  "certifications": [],
+  "reviewedCalendarCompetitions": [
+    {
+      "id": "competition:chl",
+      "family": "ice-hockey",
+      "minimumMatchFixtures": 72,
+      "evidence": [
+        "docs/quality/chl-calendar-review-2026-10-09.md"
+      ],
+      "meaning": "Existing six-round 24-club regular season requires 72 actual matches. Twelve separately reviewed knockout programme dates cannot replace them or certify the competition."
+    }
+  ]
 }

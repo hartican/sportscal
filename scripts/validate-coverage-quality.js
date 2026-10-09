@@ -170,3 +170,4 @@ assert.throws(()=>calendarsRun([...league,calendar],{reviewChange:r=>{r.recordId
 assert.throws(()=>calendarsRun([...league,calendar],{reviewChange:r=>{r.competitionId='unreviewed';}}),/explicitly reviewed pilot/);
 assert(calendarRow(calendarsRun([...league,calendar],{copies:[{...calendar,participantIds:['home','away']}]})).certificationFailures.includes('conflicting-projections'),'all overlapping views remain bound');
 console.log('Record semantics: 151 actual UCL matches and five retained calendars; raw gaps, strict context validation, explicit counts and full certification gates preserved.');
+require('./validate-chl-calendar-quality');

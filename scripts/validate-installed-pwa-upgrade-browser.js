@@ -19,6 +19,11 @@ async function assertCachedParticipantCalendar(page){
   const result=await page.evaluate(async({modelPath,parent})=>{await loadDeferredScript(modelPath);return {included:NOTHINGSPORTS_ATHLETES.spansCurrentCalendarDay(parent,'2026-10-09','2027-10-09'),label:NOTHINGSPORTS_ATHLETES.calendarTiming(parent,Date.parse('2026-10-09T08:45:00Z'))};},{modelPath,parent});
   assert(result.included);assert.match(result.label,/Tournament dates: 8–11 Oct 2026/);assert.match(result.label,/Next tee time not verified/);
 }
+async function assertCachedStageCalendarPolicy(page){
+  const notes=['ice-hockey','champions-league'].flatMap(code=>require('../data/code-inspector/'+code+'.json').fixtures.filter(f=>f.timingProvenance?.precision==='competition-stage-calendar'));
+  assert.equal(notes.length,17);
+  assert(await page.evaluate(notes=>NOTHINGSPORTS_FOLLOW_FEED_POLICY.SCHEMA_VERSION==='follow-feed-policy.v13'&&notes.every(f=>!NOTHINGSPORTS_FOLLOW_FEED_POLICY.sportingFixture(f)&&!NOTHINGSPORTS_FOLLOW_FEED_POLICY.eligibleForFollow(f,{sportFollow:true})),notes),'Updated cached policy cannot treat programme dates as followed matches');
+}
 async function assertCachedMultidayRetention(page){
   const raw=require('../data/code-inspector/cricket.json').fixtures.find(f=>f.id==='evt_91');
   const normalized=require('../lib/server-feed-pipeline').normalizeEvent(raw,new Date('2027-01-14T01:00Z'));
@@ -452,7 +457,7 @@ const server=http.createServer((req,res)=>{
       await assertCachedFootballStatus(upgraded);
       await assertCachedCanonicalResults(upgraded);
       await assertCachedMultidayRetention(upgraded);
-    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);
+    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);await assertCachedStageCalendarPolicy(upgraded);
       await assertCachedReviewedCalendarNotes(upgraded);
     }
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');
@@ -501,7 +506,7 @@ const server=http.createServer((req,res)=>{
     await assertCachedFootballStatus(upgraded);
     await assertCachedCanonicalResults(upgraded);
     await assertCachedMultidayRetention(upgraded);
-    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);
+    await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);await assertCachedStageCalendarPolicy(upgraded);
     await assertCachedReviewedCalendarNotes(upgraded);
     await assertSavedNativeChoices(upgraded);
     if(fs.existsSync(path.join(root,'assets/js/follow-presentation-ui.js'))){

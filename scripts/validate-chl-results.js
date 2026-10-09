@@ -5,7 +5,8 @@ const facts=require('./lib/chl-results'),sample=require('./fixtures/chl-results-
 const current=require('../data/canonical/ice-hockey-directory.v1.json'),teams=current.teams.filter(t=>t.leagueId==='competition:chl'),clone=v=>structuredClone(v);
 const checkedAt='2026-10-04T11:40:00.000Z',now=new Date(checkedAt);
 const page=`"currentSeason":{"_entityId":"${facts.SEASON_ID}","name":"2026/27"} https://www.chl.hockey/api/s3?q=schedule-21ec9dad81abe2e0240460d0-${facts.SEASON_ID}.json`;
-const resources=facts.discover(page),options={teams,checkedAt,now,previousFixtures:current.fixtures.filter(f=>f.competitionId==='competition:chl')},parsed=facts.parseSchedule(sample.schedule,options);
+const resources=facts.discover(page),options={teams,checkedAt,now,previousFixtures:[]},parsed=facts.parseSchedule(sample.schedule,options);
+options.previousFixtures=parsed;
 const finals=parsed.filter(f=>f.status==='completed'),calendars=parsed.filter(f=>f.participantSlots.length===0);
 assert.equal(parsed.length,84);assert.equal(finals.length,48);assert.equal(calendars.length,12);
 const named=finals.find(f=>f.id==='fixture:chl:0636729f7d82ee17686c2f79');
@@ -38,11 +39,13 @@ module.exports=(async()=>{
  try{
   // Controlled legacy state from actual fixtures: remove result provenance and
   // restore the original score-loss pattern. All other sports remain real.
-  const baseline=clone(current);baseline.fixtures=baseline.fixtures.map(f=>{
-   if(f.competitionId!=='competition:chl')return f;
+  // The archived 4 October response must start from its complete historical
+  // facts. Current fixtures can already contain later finals or reschedules;
+  // replaying the old response over those correctly fails continuity.
+  const baseline=clone(current);baseline.fixtures=[...baseline.fixtures.filter(f=>f.competitionId!=='competition:chl'),...parsed.map(f=>{
    const match=sample.schedule.data.find(m=>'fixture:chl:'+m._entityId===f.id),legacy={...f,participantSlots:['away','home'].map(side=>({participantId:'team:chl:'+match.teams[side]._entityId,label:match.teams[side].name,homeAway:side,logoUrl:`https://res.cloudinary.com/chl-production/image/upload/c_fit,g_center,h_300,w_300/chl-prod/assets/teams/${match.teams[side].externalId}`}))};
    for(const key of ['sourceName','sourceType','sourceCheckedAt','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','resultLabels'])delete legacy[key];return legacy;
-  });
+  })];
   baseline.standings=baseline.standings.map((r,index)=>{if(!String(r.participantId).startsWith('team:chl:'))return r;const legacy={participantId:r.participantId,rank:index+1,gamesPlayed:r.gamesPlayed,wins:r.wins,losses:r.losses,goalsFor:r.goalsFor,goalsAgainst:r.goalsAgainst};return legacy;});
   const filePath=path.join(temp,'directory.json');fs.writeFileSync(filePath,JSON.stringify(baseline,null,2)+'\n');let calls=[];
   const fetchJson=async url=>{calls.push(url);if(url===resources.scheduleUrl)return clone(sample.schedule);if(url===resources.recordsUrl)return clone(sample.records);throw Error('unexpected request');},fetchText=async url=>{calls.push(url);assert.equal(url,facts.PAGE_URL);return page;};
@@ -59,6 +62,7 @@ module.exports=(async()=>{
   assert.throws(()=>facts.parseSchedule(newFinal,options),/future final observation/);
   const observed=new Date(Date.parse(nextMatch.startDate)+3600000).toISOString();const freshFinals=facts.parseSchedule(newFinal,{...options,checkedAt:observed,now:new Date(observed)});
   assert.equal(freshFinals.filter(f=>f.status==='completed').length,49);assert.equal(freshFinals.find(f=>f.id==='fixture:chl:'+nextMatch._entityId).participantSlots.find(s=>s.homeAway==='home').score,0);
+  assert.throws(()=>facts.merge({...baseline,fixtures:freshFinals},{fixtures:parsed,standings:rows}),/cannot regress a completed match/,'Historical test isolation cannot weaken real final continuity');
   const correctedBytes=fs.readFileSync(filePath,'utf8');await assert.rejects(facts.refreshFile({filePath,fetchJson,fetchText,clock:()=>now}),/stale or conflicting/);assert.equal(fs.readFileSync(filePath,'utf8'),correctedBytes);
   // The real full owner uses the same validation and retention seam. Rosters
   // are empty controlled responses; this test makes no roster-readiness claim.

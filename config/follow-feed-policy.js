@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildFollowFeedPolicy(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-feed-policy.v12";
+  const SCHEMA_VERSION = "follow-feed-policy.v13";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const SYDNEY_DATE = new Intl.DateTimeFormat('en-CA',{timeZone:SYDNEY_TIME_ZONE,year:'numeric',month:'2-digit',day:'2-digit'});
 
@@ -52,6 +52,11 @@
 
   function aggregateEvent(event){
     if (!event) return true;
+    if(event.timingProvenance?.precision==='competition-stage-calendar'){
+      const clock=event.startTimeUtc,instant=new Date(clock||'');
+      const exact=typeof clock==='string'&&Number.isFinite(+instant)&&instant.toISOString().replace('.000Z','Z')===clock.replace('.000Z','Z');
+      if(!exact||event.timePrecision!=='exact'||event.scheduleStatus!=='confirmed'||event.timeTbc===true||event.startTimeTbc===true||event.participantsConfirmed===false||!hasReleasedMatchup(event))return true;
+    }
     if(['golf','golf-women','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return multiDayMarker(event);
     if (event.majorEventMarker || event.tournamentParent || event.narrativeType === "tennis-tournament-overview" || event.cardKind === "event" || ["tournament","major_event","ticket_sale"].includes(event.kind)) return true;
     // Legacy published summaries have no typed kind. Do not confuse a dated

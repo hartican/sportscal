@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## Published programme dates are calendar context — 9 October 2026
+
+Clarifies the existing fixtures-only rule. Source-backed competition-stage calendars with unannounced matchups or kickoff cannot enter the personal match Feed, including through broad sport/knockout eligibility. Keep their original IDs, source facts, stored activity and useful non-actionable Schedule notes. CHL's twelve programme notes and UCL's five stage calendars remain distinct from actual fixtures.
+
+An existing calendar can become a fixture only with a valid explicit UTC sporting instant, confirmed exact timing, no uncertain timing/participation flag and a released matchup. Existing ordinary published matches, including winner-of slots without calendar provenance, retain their eligibility. Mere programme dates, placeholder clocks or TBA identities cannot establish play, completion or a reminder. The actual broad hockey Feed reproduced eight programme summaries before this repair; server and browser regression now excludes all twelve while a followed actual club match remains. No follow, exclusion, Results, reminder or retention choice is added or erased.
+
+Regression: validate-chl-calendar-quality.js through the existing quality release gate, actual client Feed reason and Schedule notes in both browsers, and cached shell471-to472 upgrade/offline rehearsals. Full sport certification remains separate.
+
 ## Current Golf calendars in participant Fixtures — 9 October 2026
 
 The approved twelve-month outlook includes a non-terminal tournament whose published date range overlaps today, even after its opening day. Preserve its original displayed range and group it under the current outlook month. Expired, invalid and terminal past-start windows stay outside the outlook. This repairs calendar display; Feed admission, sporting state, retention and reminders retain their existing rules.
