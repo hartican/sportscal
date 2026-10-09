@@ -70,3 +70,5 @@ The active goal counter reported 4,035,404 cumulative tokens and 33,605 goal-acc
 
 
 Local browser acceptance — 5 October: run heavy browser rehearsals in sequence on this Mac. Keep existing deadlines and record any failed startup before rerunning; capture only public critical-asset timings and native errors, not credentials or API bodies. The observed concurrent startup stall remains unproved; isolated passing checks are evidence for their own run, not proof that startup flakiness is resolved. This replaces ambiguous parallel work, adds no owner tracker, and does not waive CI or browser gates.
+
+Report excerpts — 9 October: derive the entire executive section, current banner and short brief from the authoritative queue. Check the actual anchored HTML section, including its delivered paragraph, quality table and next actions. A matching first paragraph does not prove the rest of the summary is current. Preserve the full audit chapters and diagrams. This replaces partial sentence edits and creates no owner task or extra app release.

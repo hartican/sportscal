@@ -1,0 +1,42 @@
+# Football times and automatic updates — 9 October 2026
+
+Ten additional Premier League matches agree with current Australian broadcaster listings and both Football views on the live site. No match-time or viewing-link correction is needed in this sample. The latest daily publication failure is at a finishing step already repaired in the current live app; the next ordinary automatic run still needs to prove recovery.
+
+The full audit’s HTML summary contained an older delivered paragraph, table and next actions beneath a current first paragraph. Those excerpts now come from the entire authoritative queue. The 51 numbered chapters and three diagrams remain. This is a report correction, not another app deployment or evidence of new customer behaviour.
+
+## Football evidence and user effect
+
+The [official Stan EPL page](https://www.stan.com.au/watch/sport/football/premier-league) was manually inspected for all ten paired-team Matchweek 8 listings, with sporting kickoffs on **24–26 October in Sydney**. Two duplicate broadcasts and three studio/multi-match shows are excluded. Programme start and sporting kickoff remain separate.
+
+All **20 fixture/projection comparisons** pass unique competition/match identity, date, kickoff time, derived UTC, exact-time status, the Stan AU competition destination, subscription labelling and `replayVerified:false`. Both served product files were downloaded at **06:30:35–36 UTC on 9 October** and match the local files byte for byte. The served version file reports shell **470**. This sample extends the earlier [3 October window](football-viewing-window-assessment-2026-10-03.md); that older evidence keeps its own date.
+
+For users, this supports trusting the displayed start time when deciding when to watch. It does not prove authenticated playback, a replay’s availability, every later round or a whole Football pilot. The public listing had no explicit observed timezone label: its Sydney interpretation and UTC conversion are **inferred**, using IANA daylight-saving rules. No provider `verifiedAt` or fixture observation is renewed by this review. No source adapter, scheduler, credential, account, purchase or sporting-data write was used.
+
+The initial comparison shortened two club names unnecessarily and failed to find those matches. The final comparison uses the exact published names and the same hash-proved live inputs, without another download. The initial observer result is retained. Python’s local certificate-chain failure was resolved by using native curl with TLS verification still enabled; no certificate check was disabled.
+
+## Ordinary publication: past success and current remaining proof
+
+Dates in the workflow comparison below are UTC; the 5 October run occurred on 6 October in Sydney, and the latest 8 October run occurred on 9 October in Sydney.
+
+| Evidence | Verified result | Limit |
+| --- | --- | --- |
+| [Ordinary 5 October run 37381586698](https://github.com/hartican/sportscal/actions/runs/37381586698) | Successful source refresh, publication and serialized release; actual NRL/WRC checks retained unchanged validated finals | NHL source observation failed and was visibly retained; success was not every source being healthy |
+| [Its release 37381843931](https://github.com/hartican/sportscal/actions/runs/37381843931) | Archived proof at 22:25:45 UTC: SHA `209e52621f370c13fdfdc16c6bba43e8e6fd49ea`, READY deployment `dpl_DEy7epSLgDRUJSoYPEoKyz4T4eba`, five served hashes; ordinary wrapper also confirmed live content agreement | Historical deployment proof, not a new current-production check |
+| Ordinary 6, 7 and 8 October runs | GitHub records all three as failed | This review inspected the latest failure deeply; it does not infer identical causes for the other two |
+| [8 October refresh 37843596977](https://github.com/hartican/sportscal/actions/runs/37843596977) and [child release 37843905378](https://github.com/hartican/sportscal/actions/runs/37843905378) | Candidate `a84fe50d` stopped before deployment because `data/follow-directory/manifest.v1.json` was stale | Source exceptions were NHL future observation, WRC timeout and WTA edition mismatch; these warnings were separate from the release-blocking directory error |
+| Existing [9 October finishing-step repair](nhl-result-recovery-2026-10-09.md) | `c269d424` makes actual quick/scoped callers finish the complete Follow/search projection and check it. Its regression reproduces the stale-sibling failure and repairs it while retaining unchanged bytes. This repair is included in live `ca2b9bae` | It is already delivered; no duplicate patch or manual run was made. The next ordinary scheduled success after this repair remains pending |
+
+The historical successful run closes the old question of whether the 5 October result repair ever reached an unattended publication. It does not erase later failures or prove today’s unattended recovery. The corrected Wuhan source-name evidence and current NHL result agreement are recorded separately. The original NHL future-observation cause was not reproduced; the latest WRC timeout still needs a current check through its existing owner. Preserve last-good facts and honest exceptions rather than labelling all sources healthy.
+
+## Recommended course and acceptance
+
+| Action | Business value and evidence | Effort, dependencies and cash | Owner time, acceptance and why |
+| --- | --- | --- | --- |
+| Keep the existing publishing repair; observe the next ordinary run | Current information reaches users without repeated rescue; latest actual failure stops before deployment | Already implemented and live through the existing canonical owner. No duplicate release, retry, scheduler or new cash commitment | No new routine. Accept a real subsequent scheduled publication with exact release proof and explicit remaining source exceptions. Act on meaningful failure only |
+| Retain the additional Football window evidence | Supports trusted times and useful viewing links; ten matches reconcile with both actual live views | Completed read-only comparison using retained aliases, current public listings and two product downloads. No new service or cash commitment | No owner decision. Accept unique fixture, correct sporting clock/date and honest viewing/replay labels. Further work targets demonstrated gaps rather than repeating unchanged seasons |
+| Generate the whole report summary from the queue | Removes conflicting status that adds owner decisions and rework; actual anchored HTML contained old delivery wording | Small report/process correction, existing renderer and authoritative queue; no app deployment | No owner routine. Accept agreement across the banner, entire anchored executive, Markdown and brief, preserving the full report and diagrams |
+| Continue Football and weaker carried sports | Converts individual repairs into the agreed repeat-use experience | Existing ordered 90-day programme, verified source contracts and prepared device/cohort work. Rights, viewing and actual-phone proof remain dependencies | No repeated questions. Full acceptance remains **0/16 families and 0/3 Football pilots**, destination **at least 13/16 families**. These are all-gate counts, not a claim that delivered improvements have no value |
+
+App remains **ca2b9bae / shell 470**, with its separately retained [normal release and hosted evidence](match-centre-first-open-2026-10-09.md). The first hosted opening still took about six seconds in one sample; a later cached visit cannot establish cold-opening speed. Passwords/iCloud remains parked. Purchases, invitations, outreach, commercial launch, reminder replay and customer writes remain outside this review. No fixed whole-programme finish date or invented percentage is given.
+
+Detailed JSON, failed observer evidence, workflow logs, the historical immutable release artifact, HTML checks and the updated readable report are saved under `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/football-current-window-20261009`. Eighteen report-browser checks pass across Chromium/WebKit and 320/390/1280 widths, including the entire anchored executive. The queue, checkpoint, brief and audit Markdown agree; audit chapters 2–51 remain byte-identical. These are document readability/consistency checks, not fresh product or physical-device acceptance. Existing model, runtime and hosting costs are unpriced; no cash savings or free assistant work are claimed.
