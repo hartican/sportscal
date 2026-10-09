@@ -225,6 +225,7 @@ jobs:
       - name: Verify public release
         run: |
           node scripts/verify-production-release.js
+          node scripts/verify-match-centre-public.js
           node scripts/validate-security-headers.js https://nothingsport.vercel.app
       - uses: actions/upload-artifact@v4
         if: always()
