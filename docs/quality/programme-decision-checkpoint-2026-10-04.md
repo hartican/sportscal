@@ -1,28 +1,26 @@
-# CTO current decision checkpoint — 5 October 2026
+# CTO current decision checkpoint — 9 October 2026
 
-**Current decision — 5 October 2026:** NBL scores are clearer and its current table is corrected. F1 now shows the official Bahrain/Malaysia race result and keeps older schedule notes from overwriting result sources or dates. This update is live at 30ccac9e/shell445. Earlier Football, saved-team and keyboard repairs remain live. Next, finish the three existing Football pilots and weaker carried sports. Full readiness remains 0/16 sport families and 0/3 Football pilots, with a target of at least 13/16. Viewing and permissions, ordinary unattended operation, wider accessibility, the physical phone, independent recovery and real invited-user returns still need proof. Some real NFL/NHL games moving from live to finished were observed; this does not settle Football's missing live-state evidence. The separate intermittent local startup stall remains unresolved. Five–six further days is a low-confidence allowance for engineering work, not a promise that the whole goal will be finished. Passwords/iCloud stays parked. No new subscription or owner routine. Updates use lay terms by default.
+**Current decision — 9 October 2026:** The latest repair is live. Automatic updates now rebuild the complete Follow list and search index together, and Football source links are easier to tap when details fail to load. This removes a demonstrated cause of failed releases; the next ordinary automatic run still needs to prove itself. Keep working through the three existing Football pilots and weaker carried sports. No whole sport yet passes every agreed readiness test: 0/16 families and 0/3 Football pilots are fully certified, with a destination of at least 13/16 families. These counts do not erase the improvements already delivered. Actual phone use, returning invitees, viewing destinations, commercial permissions and independent recovery still need proof. Passwords/iCloud remains parked. No new subscription or owner routine. Updates stay brief and in plain language.
 
-**What is live:** [Normal release 37292926819](https://github.com/hartican/sportscal/actions/runs/37292926819) delivers the NBL score/table and F1 result-date repairs. All 147 local/cloud release checks pass. Both browser engines pass the affected card, privacy, table and cached-update checks; independent checks confirm the exact live version, all three addresses and 115 served-file hashes. The corrected Adelaide–New Zealand score is 72–88. All 1,504 published fixture IDs remain; 20 unchanged NBL final dates and four F1 session tables keep their original observations. Existing NFL/NHL sources also supplied genuine new final states. These are scoped improvements, not full sport certification. [Evidence and remaining work](https://github.com/hartican/sportscal/blob/main/docs/quality/nbl-f1-result-observations-2026-10-05.md).
+**What is live:** The repair was published and deployed by [normal release 37864234359](https://github.com/hartican/sportscal/actions/runs/37864234359), with all 160 local and cloud release checks passing. Later independently released updates retain it. Current verified production is e1a61fe2/shell466, supported by [release 37868201886](https://github.com/hartican/sportscal/actions/runs/37868201886). Independent checks confirm all three site addresses and 149 affected served files; affected Football checks pass in both browser engines. The Follow list includes six previously omitted women’s rugby entries and retained NRL/NBL facts. All 1,756 reviewed current-main fixture IDs and core facts survived this repair; subsequent sporting updates are separate. The repair’s saved-app upgrade rehearsal also passes. [Dated evidence and limits](https://github.com/hartican/sportscal/blob/main/docs/quality/refresh-directory-recovery-2026-10-09.md).
 
-| Quality gate | Current evidence and remaining proof |
+| Quality gate | Evidence and remaining proof |
 | --- | --- |
-| Fixture truth | Dated EPL/UCL/Europa comparisons agree in their reviewed scopes; this does not certify every carried competition |
-| Timing and results | Published phases, finals, multi-day retention, provisional clocks, zero scores and original dates pass; genuine future live/non-playing observations remain |
-| Australian viewing | Retained service/window evidence exists; actual destinations/playback and missing scopes need acceptance |
-| Context and editorial | Current pilot tables/context reconcile in dated reviews; decisive missing inputs remain unknown |
-| Presentation and behaviour | Compact finals, guest profiles, interrupted loading, current keyboard journeys and complete live signed-account journeys pass in both browser engines. Separate local startup-stall diagnosis, wider accessibility and physical-phone acceptance remain open |
-| Operations and rights | Exact manual releases pass; ordinary scheduled publication, independent recovery and material commercial permissions remain open |
+| Match accuracy | Dated EPL/UCL/Europa checks remain useful; they do not certify every match or competition |
+| Times and results | IDs, retained facts and original observations survive this rebuild; genuine missing live/non-playing evidence remains |
+| Australian viewing | Some reviewed service/window evidence exists; missing scopes and actual destinations/playback remain open |
+| Context and editorial | Reviewed tables/context remain; rebuilding old inputs is not fresh source research |
+| Presentation | Football slow/failure and loaded links, keyboard use, Results OFF and saved-app upgrades pass in both engines; wider accessibility, the local startup stall and actual-phone acceptance remain open |
+| Reliable operation and rights | This exact release passes; the next ordinary automatic run, three dated source exceptions still needing a current recheck, independent recovery and material commercial permissions remain open |
 
 **Next five actions, in order:**
 
-- Finish the three existing Football pilots, reusing the saved-team, signed-in, keyboard and source/privacy evidence. Repair demonstrated gaps. Keep rights-safe monograms and add no competition or provider by default.
-- Apply the same gates to weak carried windows, aiming for at least 13/16 families.
-- Observe the existing canonical owner's next ordinary run and retain last-good recovery. Keep Passwords/iCloud retries parked; escalate exceptions only.
-- Complete one prepared 15–20 minute owner phone session when available, then obtain authority for invited-cohort testing. Owner/QA activity cannot count as real repeat use.
-- Keep the fixed-fee sponsor experiment prepared. Launch waits for quality, permissions, hosting entitlement and audience evidence; no purchase or outreach now.
+- Finish the existing Football pilots. Repair demonstrated source, viewing and presentation gaps; reuse prior evidence and add no competition or provider by default.
+- Apply the same acceptance tests to weaker carried sports, working toward at least 13/16 families.
+- Verify the next ordinary run of the existing update service and investigate its current exceptions. Keep old usable data and report only meaningful failures.
+- Complete the prepared 15–20 minute phone session when available, then obtain authority for invited-user testing. Owner and test activity cannot count as genuine repeat use.
+- Keep the fixed-fee sponsor experiment prepared. Launch waits for quality, rights, hosting entitlement and audience evidence; no purchase or outreach now.
 
-[Current signed-in evidence and remaining readiness work](https://github.com/hartican/sportscal/blob/main/docs/quality/football-keyboard-position-2026-10-05.md).
+**Operating default:** one ordered queue, small task briefs and detailed evidence kept out of routine updates. Keep normal safety checks and exact live-version proof. This module adds A$0 in cash commitments and no weekly owner decision or service routine; existing model, CI and hosting costs are not separately priced. Future commercial administration stays capped at 30 minutes/week if authorised. There is no credible whole-goal completion percentage or fixed finish date yet.
 
-**Operating default:** one concise queue and bounded task briefs; detailed receipts stay in dated evidence. Normal gates and exact deployment proof remain. A$0 new cash commitments and no additional weekly decision or service routine from this delivery; existing model/CI/hosting costs remain unpriced. Commercial administration stays capped at 30 minutes/week if later authorised. No credible overall completion percentage follows from counts of fixes or render cases.
-
-[Preserved earlier checkpoint and evidence history](programme-evidence-history-before-2026-10-05.md).
+[Preserved prior receipts](programme-evidence-history-before-2026-10-05.md).
