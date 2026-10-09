@@ -70,6 +70,7 @@ jobs:
           node scripts/validate-follow-collection-loading.js
           node scripts/validate-feed-performance.js
           node scripts/validate-nfl-results.js
+          node scripts/validate-nhl-results.js
           node scripts/validate-mlb-postseason.js
           node scripts/validate-follow-decisions.js
           node scripts/validate-automatic-reminders.js

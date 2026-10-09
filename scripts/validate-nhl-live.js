@@ -11,7 +11,14 @@ let rejected=0;
 for(const change of [g=>g.awayTeam.score=null,g=>g.homeTeam.score='',g=>g.homeTeam.score='0',g=>g.homeTeam.score=-1,g=>g.homeTeam.score=1.1,g=>delete g.awayTeam.score,g=>g.gameState='CRIT',g=>g.gameScheduleState='PPD',g=>g.startTimeUTC='2026-10-04T18:00:00Z']){const game=clone(sample.game);change(game);assert.throws(()=>facts.fixture(game,{checkedAt:at,now}),/NHL:/);rejected++;}
 assert.throws(()=>facts.fixture(sample.game),/observation/);rejected++;
 const routes=facts.resources(now),weeks=clone(season.weeks);for(const day of weeks[0].gameWeek)day.games=day.games.map(g=>g.id===sample.game.id?clone(sample.game):g);
-const baseline=clone(current);baseline.fixtures=baseline.fixtures.map(f=>f.id===id?{...facts.fixture(season.pregame.game,{checkedAt:season.pregame.checkedAt,now:new Date(season.pregame.checkedAt)}),ticketUrl:f.ticketUrl}:f);
+// Replay the complete retained window at its own observation time. Today's
+// later finals/table cannot be the starting state of this earlier live sample.
+const seasonNow=new Date(season.capturedAt),seasonRoutes=facts.resources(seasonNow);
+const historical=new Map(season.weeks.flatMap((week,i)=>facts.parseWeek(week,{...seasonRoutes[i],teams,checkedAt:season.capturedAt,now:seasonNow})).map(f=>[f.id,f]));
+const baseline=clone(current);baseline.fixtures=baseline.fixtures.map(f=>historical.has(f.id)?{...historical.get(f.id),ticketUrl:f.ticketUrl}:f);
+baseline.fixtures=baseline.fixtures.map(f=>f.id===id?{...facts.fixture(season.pregame.game,{checkedAt:season.pregame.checkedAt,now:new Date(season.pregame.checkedAt)}),ticketUrl:f.ticketUrl}:f);
+const historicalTable=new Map(facts.parseStandings(season.standings,{teams,fixtures:baseline.fixtures,checkedAt:season.capturedAt,now:seasonNow}).map(r=>[r.participantId,r]));
+baseline.standings=[...historicalTable.values(),...baseline.standings.filter(r=>r.competitionId!=='competition:nhl')];
 module.exports=(async()=>{
  const temp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-nhl-live-')),filePath=path.join(temp,'directory.json');
  try{

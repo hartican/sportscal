@@ -117,7 +117,7 @@ async function refreshFootball({now=new Date()}={}){
  try{const result=await require('./refresh-openligadb-football').refresh({now});if(result.wrote)changes.push('European Football source check');failures.push(...result.failures.map(f=>`European Football ${f.league}: ${f.message}`));}catch(error){failures.push(`European Football: ${error.message}`);}
  try{await refreshPremierLeagueTable(changes,{now});}catch(error){failures.push(`EPL standings: ${error.message}`);}
  try{const doc=read('feeds/incoming/events.json'),cards=await pl.loadCards(doc.events.filter(e=>e.key==='premier-league'),{checkedAt:now.toISOString()});let count=0;for(const file of ['feeds/incoming/events.json','data/events.json']){const current=read(file),result=patchKnown(current.events,cards);count+=result.count;if(result.count)write(file,{...current,events:result.events});}if(count)changes.push(`Premier League ${count}`);}catch(error){failures.push(`Premier League: ${error.message}`);}
- for(const [file,...args] of retainedFeedProjectionSteps(changes))run(file,...args);
+ runProjectionSteps(retainedFeedProjectionSteps(changes));
  const report={mode:'quick',source:'football',checkedAt:now.toISOString(),changed:changes,failures,aiCalls:0};
  if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
  console.log(JSON.stringify(report));
@@ -142,7 +142,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  if(source){
   if(source==='mlb'&&!offline){
    const mlb=await require('../lib/mlb-postseason').refresh({now});
-   for(const args of retainedFeedProjectionSteps(mlb.changed?['MLB postseason source check']:[]))run(...args);
+   runProjectionSteps(retainedFeedProjectionSteps(mlb.changed?['MLB postseason source check']:[]));
    run('scripts/validate-mlb-postseason.js');
    return {mode:'quick',source,checkedAt:mlb.checkedAt,changed:mlb.changed?['MLB postseason source check']:[],failures:[],mlb,aiCalls:0};
   }
@@ -153,7 +153,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    const changes=[...new Set([...finalResults.changed.map(c=>c.startsWith('NRL')?'NRL':'WRC'),...projected.changes])].map(c=>`Known finals ${c}`);
    const report={mode:'quick',source,checkedAt:now.toISOString(),changed:changes,failures:finalResults.failures.map(f=>`Known final ${f.fixtureId}: ${f.message}`),finalResults,aiCalls:0,publicationState:'candidate'};
    if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
-   for(const args of retainedFeedProjectionSteps(changes))run(...args);
+   runProjectionSteps(retainedFeedProjectionSteps(changes));
    run('scripts/verify-result-completeness.js','data/events.json');
    if(finalResults.failures.length)throw new Error('Known final source checks failed; retained last-good facts.');
    return report;
@@ -163,7 +163,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    let nhl;
    try{nhl=await refreshNhl();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`NHL: ${error.message}`],aiCalls:0};if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);console.log(JSON.stringify(report));throw error;}
    const changes=nhl.changed||nhl.projectionNeedsRepair?[`NHL results and standings ${nhl.finals}`]:[];
-   for(const args of projectionSteps(changes))run(...args);
+   runProjectionSteps(projectionSteps(changes));
    const report={mode:'quick',source,checkedAt:nhl.checkedAt,changed:changes,failures:[],nhl,aiCalls:0};
    if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
    return report;
@@ -172,7 +172,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    let chl;
    try{chl=await refreshChl();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`CHL: ${error.message}`],aiCalls:0};if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);console.log(JSON.stringify(report));throw error;}
    const changes=chl.changed||chl.projectionNeedsRepair?[`CHL results and club records ${chl.finals}`]:[];
-   for(const args of projectionSteps(changes))run(...args);
+   runProjectionSteps(projectionSteps(changes));
    const report={mode:'quick',source,checkedAt:chl.checkedAt,changed:changes,failures:[],chl,aiCalls:0};
    if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
    return report;
@@ -181,7 +181,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    let nfl;try{nfl=await refreshNflResults();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`NFL: ${error.message}`],aiCalls:0};if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);console.log(JSON.stringify(report));throw error;}
    const changes=nfl.changed||nfl.projectionNeedsRepair?['NFL current-season source check']:[],failures=[];let nflStandings=null;
    try{nflStandings=await refreshNflStandings();if(nflStandings.changed)changes.push(`NFL standings ${nflStandings.rows}`);}catch(error){failures.push(`NFL standings: ${error.message}`);}
-   for(const args of projectionSteps(changes))run(...args);
+   runProjectionSteps(projectionSteps(changes));
    const report={mode:'quick',source,checkedAt:nfl.checkedAt,changed:changes,failures,nfl,nflStandings,aiCalls:0};
    if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);
    if(failures.length&&!changes.length)throw new Error('NFL checks failed; retained last-good facts.');
@@ -189,12 +189,12 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
   }
   if(source==='nfl-standings'&&!offline){
    const nflStandings=await refreshNflStandings(),changes=nflStandings.changed?[`NFL standings ${nflStandings.rows}`]:[];
-   for(const args of projectionSteps(changes))run(...args);
+   runProjectionSteps(projectionSteps(changes));
    return {mode:'quick',source,checkedAt:nflStandings.checkedAt,changed:changes,failures:[],nflStandings,aiCalls:0};
   }
   if(source!=='nbl'||offline)throw new Error('Scoped quick refresh supports --source=nbl with live source access only');
   const changes=[];refreshNbl(changes,{published:true});
-  for(const args of nblProjectionSteps(changes))run(...args);
+  runProjectionSteps(nblProjectionSteps(changes));
   return {mode:'quick',source,checkedAt:now.toISOString(),changed:changes,failures:[],aiCalls:0};
  }
  let liveCoverage=null;
