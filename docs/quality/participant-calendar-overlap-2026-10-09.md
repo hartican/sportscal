@@ -16,6 +16,17 @@ The repair keeps a non-terminal tournament while its published dates overlap tod
 
 This keeps a followed or browsed golfer's current tournament understandable during the days it runs, without pretending a future tee time is known. The implementation reuses the existing profile, shared model and API. No source call, service, subscription, scheduler, polling, retry, database migration/write or owner routine is added. Existing assistant/hosting costs remain unpriced. Accept the actual current profile and public API, preserved facts/settings, both cache-upgrade rehearsals and exact scoped live release. Full Golf, Football and cross-sport certification remain incomplete.
 
-GitHub publication and production verification are pending at this commit. The current site remains the earlier verified match-list repair until the new passing snapshot is deployed.
+Published on GitHub main and independently verified live at **e8dcd277dd77e3893a073fff75d4a1ba13b63432**, shell471. Normal run **37910356194** passed all release gates on its first attempt. READY deployment **dpl_ADLbVtmLMDCNCTx2Eg5dcQUrfKae** serves all three production aliases. Ten served-artifact checks pass; only the six expected app inputs changed, with every deployed sporting-data file and generated core runtime unchanged. The later documentation closeout needs no further app deployment.
 
 Detailed evidence: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/football-next-gap-20261009`.
+
+
+## Final live and cache evidence
+
+The real anonymous public profile returns the current tournament with its original ID, range, participant confirmation and source/status timestamps. Chromium and WebKit each render the real hosted profile response at 390px, including the current tournament, published range and unverified next tee time. These checks isolate other APIs and use saved Results/reminders OFF and zero personal follows; no customer state is written. The separate twelve-case browser matrix uses actual retained records through the real server projection with fixed date and controlled APIs. Both old-shell470 to new-shell471 upgrade rehearsals pass required/optional asset failures, exact model/UI cache bytes, offline restart and preserved saved choices. None is physical-phone or signed-in-account proof.
+
+The initial current-state scan found 668 retained Football pilot fixtures and 86 finals, with zero overdue uncompleted records at the 08:40 UTC review. This is a dated catalogue check, not a new organiser comparison or evidence of complete sport readiness. No source refresh was run. Actual live/non-playing observations, playback, source permissions, ordinary unattended updates and phone/cohort use remain separate requirements.
+
+The hosted defect was reproduced by 08:48 UTC, within the fifteen-minute investigation allowance that began at 08:40 UTC. Implementation, browser/cache rehearsals, release and reporting extend beyond that investigation allowance; total elapsed time is recorded separately in the delivery closeout. Original failed test setups and command-path mistakes are retained. Existing timeouts, retry counts and quality gates were not expanded to obtain passes.
+
+The single fresh real profile read took 4.694 seconds, including about 3.00 seconds in the existing live-snapshot read. This module proves current profile correctness, not a profile-speed improvement or repeated cold-opening budget. Keep real-device and wider latency acceptance open; no timeout or retry was increased.
