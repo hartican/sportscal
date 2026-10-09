@@ -19,9 +19,9 @@ function renderTournamentSlots(container,event){
    if(appearances.length&&event.key==='golf'&&event.eventFamilyId!=='presidents-cup'&&!event.contestUnit){
     const now=Date.now(),followed=p=>['follow','priority'].includes(FOLLOW_FIRST.effectiveParticipantFollow(p.id,userPreferences,followCollectionsById()).followLevel);
     const future=appearances.filter(a=>a.timePrecision==='exact'&&Date.parse(a.startTimeUtc)>=now).sort((a,b)=>Date.parse(a.startTimeUtc)-Date.parse(b.startTimeUtc));
-    const personal=future.filter(a=>a.participants?.some(followed)),pool=personal.length?personal:future,seen=new Set();
+    const personal=future.filter(a=>a.participants?.some(followed)),pool=personal,seen=new Set();
     for(const a of pool){const relevant=(a.participants||[]).filter(p=>personal.length?followed(p):(event.participantIds||[]).includes(p.id));if(!relevant.some(p=>!seen.has(p.id)))continue;relevant.forEach(p=>seen.add(p.id));const lead=relevant.map(participant).join(' / '),partners=(a.participants||[]).filter(p=>!relevant.includes(p)).map(participant);row(details,lead||a.label,[a.label,stamp(a),a.tee?'Tee '+a.tee:null,partners.length?'with '+partners.join(' and '):null].filter(Boolean).join(' · '),{...a,key:'golf',cardType:'golf_appearance',name:(a.participants||[]).map(participant).join(' / '),tournamentId:event.tournamentId,competitionId:event.competitionId});if(details.querySelectorAll(':scope > p').length>=3)break;}
-    if(!future.length)row(details,'Next tee time','The organiser has not published a verified next group.');
+    if(!personal.length)row(details,'Next followed tee time','The organiser has not published a verified next group.');
     if(event.sourceUrl){const link=document.createElement('a');link.href=event.sourceUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Official tee times';details.append(link);}
    }else if(appearances.length){
     const followed=p=>['follow','priority'].includes(FOLLOW_FIRST.effectiveParticipantFollow(p.id,userPreferences,followCollectionsById()).followLevel);

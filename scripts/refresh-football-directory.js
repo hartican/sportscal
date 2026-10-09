@@ -401,7 +401,7 @@ async function bootstrapAndWrite(){
     schemaVersion: "football-follow-index.v1",
     generatedAt: checkedAt,
     teams: directory.teams.map(team => ({ id: team.id, leagueId: team.leagueId })),
-    players: directory.players.map(player => ({ id: player.id, currentTeamId: player.currentTeamId, leagueId: player.leagueId })),
+    players: directory.players.map(player => ({ id: player.id, displayName:player.displayName, currentTeamId: player.currentTeamId, leagueId: player.leagueId })),
   };
   const staged = [];
   const stage = (target, body) => {
@@ -478,7 +478,7 @@ function pruneRemovedLeagues(){
     schemaVersion:"football-follow-index.v1",
     generatedAt:directory.generatedAt,
     teams:directory.teams.map(team => ({ id:team.id, leagueId:team.leagueId })),
-    players:directory.players.map(player => ({ id:player.id, currentTeamId:player.currentTeamId, leagueId:player.leagueId })),
+    players:directory.players.map(player => ({ id:player.id, displayName:player.displayName, currentTeamId:player.currentTeamId, leagueId:player.leagueId })),
   };
   const core = JSON.parse(fs.readFileSync(CORE_FIXTURE_PATH, "utf8"));
   core.events = core.events.filter(event => !removedLeagueIds.has(event.competitionId) && !removedLeagueKeys.has(event.key));

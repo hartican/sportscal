@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="466">
+<meta name="app-shell-version" content="467">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=466" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=467" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6768,6 +6768,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   font:800 .64rem/1 'DM Sans',sans-serif;
   cursor:pointer;
 }
+.tournament-start-marker{padding:12px 14px;display:grid;gap:4px;}.tournament-start-marker h3{font-size:1rem;margin:0;}.tournament-start-marker p{margin:0;color:var(--text-dim);font-size:.8rem;}.tournament-start-marker .event-card-controls{padding:0;justify-content:flex-end;}.tournament-start-marker .event-card-primary-actions{display:flex;flex-wrap:wrap;gap:8px;}.follow-gender-tabs [aria-selected=true]{background:var(--accent);color:var(--bg);font-weight:800;}
 .event-card-control:hover{ background:color-mix(in srgb,var(--soft-fill) 78%,transparent); }
 .event-card-control:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
 .event-card-control.restore{ display:inline-flex; width:auto; min-width:88px; padding:8px 12px; border:1px solid color-mix(in srgb,var(--accent) 55%,var(--border)); border-radius:999px; background:var(--soft-fill); color:var(--accent); }
@@ -7182,7 +7183,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=466"></script>
+<script src="assets/js/app-shell-runtime.js?v=467"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8381,7 +8382,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-    moduleScriptUrl: "config/major-events.js?v=293",
+    moduleScriptUrl: "config/major-events.js?v=467",
   url: "data/major-events.v1.json",
 });
 
@@ -8753,14 +8754,14 @@ async function loadAthletes(){
   if((activeTab!=='follow'||followHomeView!=='favourites'))return;
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
   const panel=document.getElementById('listView');renderFollowHomeLoading(panel);
-  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/athletes.js?v=454'),loadDeferredScript('config/participant-directory.js?v=463')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=466')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
+  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/athletes.js?v=467'),loadDeferredScript('config/participant-directory.js?v=463')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=466')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
   return loadAthletes.pending;
 }
 async function openAthleteProfile(id,label,sportKey,trigger){
   const owner=serverSyncClient?.sessionSubject()||'public';
   const route=location.href,tab=activeTab,view=followHomeView;
   const request=openAthleteProfile.request=(openAthleteProfile.request||0)+1;
-  await Promise.all([loadDeferredScript('config/athletes.js?v=454'),loadDeferredScript('config/participant-directory.js?v=463')]);
+  await Promise.all([loadDeferredScript('config/athletes.js?v=467'),loadDeferredScript('config/participant-directory.js?v=463')]);
   await loadDeferredScript('assets/js/athletes-ui.js?v=466');
   if(request===openAthleteProfile.request&&location.href===route&&activeTab===tab&&followHomeView===view&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
@@ -11034,7 +11035,7 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
           const retainedIds = new Set([...previous,...activeEvents].map(event => String(event.id || event.eventId)));
           // Explicit participation corrections must replace previously admitted golf cards,
           // even when a withdrawal means the new observation no longer qualifies.
-          const incoming = document.fixtures.filter(fixture => fixture?.id && identity.retainedInActiveTimeline(fixture) && (FOLLOW_FIRST.reasonForEvent(fixture,preferences,{preparedPreferences:context.preparedPreferences,collectionsById:context.collectionsById}) || code.id === 'sport:golf' && retainedIds.has(String(fixture.id)) && fixture.participantsConfirmed === true)).map(fixture => identity.fromSchedule(fixture,code));
+          const incoming = document.fixtures.filter(fixture => fixture?.id && identity.retainedInActiveTimeline(fixture) && (automaticEventFollowReason(identity.fromSchedule(fixture,code),context) || code.id === 'sport:golf' && retainedIds.has(String(fixture.id)) && fixture.participantsConfirmed === true)).map(fixture => identity.fromSchedule(fixture,code));
           // A shortened response is not a deletion. Explicit statuses/mutes still apply.
           const events = mergeCanonicalEventPages(incoming,previous).filter(event => eventMeetsDerivedRetention(event));
           followedScheduleFixtures.set(code.id,events);
@@ -12468,8 +12469,7 @@ function followedMajorEventParticipants(){
 }
 
 function visibleMajorEventSubEvents(record){
-  const context=buildFollowEligibilityContext();
-  return majorEventSubEvents(record).filter(subEvent=>eventMeetsDerivedRetention(subEvent)&&eventFollowReason({...subEvent,key:record.sportKey,eventFamilyId:record.eventFamilyId},context));
+  return majorEventSubEvents(record).filter(subEvent=>eventMeetsDerivedRetention(subEvent)&&FOLLOW_FEED_POLICY.scheduleVisible({...subEvent,key:record.sportKey},userPreferences,followCollectionsById()));
 }
 
 let majorEventCandidateCache=null;
@@ -12631,7 +12631,7 @@ function mainFeedFixtureSemanticKey(event){
 
 function mergeMainFeedSpecialEvents(events){
   const base = events
-    .filter(event => NOTHINGSPORTS_TENNIS_FEED.isParent(event) || FOLLOW_FEED_POLICY.presidentsCup(event) || event?.majorEventMarker !== true && event?.tournamentParent !== true && event?.cardKind !== "event");
+    .filter(event => FOLLOW_FEED_POLICY.multiDayMarker(event) || event?.majorEventMarker !== true && event?.tournamentParent !== true && event?.cardKind !== "event");
   const canonicalFixtures = majorEventFeedCandidates();
   const specialEvents = [...automaticallyFollowedMajorEventFixtures(), ...selectedMajorEventFixtures()]
     .filter(event => activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event))
@@ -14049,7 +14049,7 @@ async function syncAppRouteFromLocation(){
       return;
     }
     if (eventsRoute.type === "alert") openTicketAlertInEvents(eventsRoute.id, { pushHistory: false });
-    else openMajorEventInEvents(eventsRoute.id, { pushHistory: false });
+    else openMajorEventInEvents(eventsRoute.id, { pushHistory: false, tournament:eventsRoute.type==='tournament' });
     return;
   }
   if (!eventsDeepLinkReturnState) return;
@@ -14333,7 +14333,7 @@ function codeInspectorStandingsSportKey(code){
 
 let tennisScheduleUiLoading = null;
 function loadTennisScheduleUi(){
-  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=452').then(()=>loadDeferredScript('config/tennis-journeys.js?v=463')).then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=463')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
+  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=452').then(()=>loadDeferredScript('config/tennis-journeys.js?v=467')).then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=467')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
   return tennisScheduleUiLoading;
 }
 function renderTennisMajorEvents(container){
@@ -14349,7 +14349,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=453').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=467').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -14420,7 +14420,8 @@ function cachedParticipantFollow(id){
   return context.participantFollows.get(id);
 }
 function automaticEventFollowReason(ev, context=buildFollowEligibilityContext()){
-  if(!NOTHINGSPORTS_CRICKET_COVERAGE.allowed(ev))return null;
+  if(ev.universeOnly||!FOLLOW_FEED_POLICY.activeEligible(ev)||!NOTHINGSPORTS_CRICKET_COVERAGE.allowed(ev))return null;
+  if(FOLLOW_FEED_POLICY.multiDayMarker(ev))return NOTHINGSPORTS_TENNIS_FEED.reason(ev,userPreferences,{collectionsById:followCollectionsById(),now:nowAEST()});
   if(!FOLLOW_FEED_POLICY.sportingFixture(ev) || FOLLOW_FEED_POLICY.explicitlyExcluded(ev,userPreferences))return null;
   const eventParticipantIds = Array.from(new Set([
     ...(Array.isArray(ev?.participantIds) ? ev.participantIds : []),
@@ -14463,6 +14464,8 @@ function followFeedPolicySource(reason){
 }
 
 function eventFollowReason(ev, context){
+  if(ev.universeOnly||!FOLLOW_FEED_POLICY.activeEligible(ev))return null;
+  if(FOLLOW_FEED_POLICY.multiDayMarker(ev))return NOTHINGSPORTS_TENNIS_FEED.reason(ev,userPreferences,{collectionsById:followCollectionsById(),now:nowAEST()});
   if(!NOTHINGSPORTS_CRICKET_COVERAGE.allowed(ev)&&!CARD_LIFECYCLE.isRetentionExemptAction(getEventAction(ev)))return null;
   if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return NOTHINGSPORTS_TENNIS_FEED.reason(ev,userPreferences,{collectionsById:followCollectionsById(),now:nowAEST()});
   if(NOTHINGSPORTS_TENNIS_FEED.isRubber(ev))return null;
@@ -14616,6 +14619,8 @@ function eventIsAutoArchived(ev, reference = nowAEST()){
 
 function getPreferenceMatchedEvents(reference = nowAEST()){
   let list = tennisFeedParentCandidates(activeEvents);
+  const editions=new Set(list.filter(FOLLOW_FEED_POLICY.multiDayMarker).map(FOLLOW_FEED_POLICY.editionKey));
+  for(const record of majorEventsDocument?.events||[]){if(record.kind==='ticket_sale'||COMPETITION_CLASSIFICATION.belongsInEvents(record)===false)continue;const marker={...majorEventActionEvent(record),canonicalEventId:record.id,editionId:record.id,eventFamilyId:MAJOR_EVENTS.eventFamilyId(record),date:record.startDate,endDate:record.endDate,tournamentParent:true,majorEventMarker:true,majorEventId:record.id};if(!editions.has(FOLLOW_FEED_POLICY.editionKey(marker)))list.push(marker);}
   list = list.filter(ev => eventMeetsDerivedRetention(ev, reference));
 
   // Apply the shared additive Follow policy.
@@ -15595,6 +15600,7 @@ function dismissEventCard(ev, { previousPreferences, previousAction, card = null
     dismissalSource:surface,
   });
   card?.classList.add("is-dismissing");
+  if(card)card.inert=true;
   let undone = false;
   const undo = () => {
     if (undone) return;
@@ -15633,8 +15639,9 @@ function dismissEventCard(ev, { previousPreferences, previousAction, card = null
   showToast(dismissMessage, { actionLabel:"Undo", onAction:undo, duration:4200 });
   window.setTimeout(() => {
     if (undone) return;
-    renderAll({ preserveViewport:true });
-  }, 230);
+    card?.remove();
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{if(!undone)renderAll({preserveViewport:true});}));
+  }, 180);
   if (showTunePrompt){
     window.setTimeout(() => {
       if (undone || !getEventAction(ev).dismissed) return;
@@ -15657,6 +15664,7 @@ function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
   if (card?.dataset.swipeFeedbackActive === "true" && !(direction === "positive" && latestEventFeedbackDirection(ev) === "positive")) return { active:latestEventFeedbackDirection(ev) === direction };
   if (direction === "negative" && getEventAction(ev).dismissed){
     card?.classList.add("is-dismissing");
+  if(card)card.inert=true;
     window.setTimeout(() => renderAll({ preserveViewport:true }), 230);
     return { active:true, dismissed:true };
   }
@@ -16098,7 +16106,7 @@ async function toggleQuickReminder(ev, button){
 
 function appendTournamentSlots(container,event){
  if(!event.tournamentId&&!event.tennisTournamentId&&!(event.endDate&&event.endDate!==event.date&&!(event.participantIds?.length>=2)))return;
- void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=451').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
+ void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=467').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
 }
 function scheduleScopeForEvent(ev){
   const codeId=codeIdForEvent(ev);
@@ -16231,6 +16239,7 @@ function buildEventCardControls(ev, {card=null,eventsOnly=activeTab==='events',d
   const controls=document.createElement('div');controls.className='event-card-controls';
   const dismiss=document.createElement('button');dismiss.type='button';dismiss.className='event-card-control card-dismiss';
   dismiss.dataset.cardControl='dismiss';dismiss.textContent='×';dismiss.setAttribute('aria-label',`Dismiss ${displayLabel || ev.name || 'fixture'}`);
+  dismiss.style.touchAction="manipulation";
   dismiss.onclick=event=>{event.stopPropagation();const previous=storedEventAction(ev);dismissEventCard(ev,{previousAction:previous?{...previous}:null,card:event.currentTarget.closest('.event-card') || card,eventsOnly,displayLabel});};
   controls.appendChild(dismiss);return controls;
 }
@@ -16358,6 +16367,7 @@ async function loadNothingscoreBatch(ids, { rerender = true } = {}){
   if (owner !== (serverPersistence.user?.id || "")) return null;
   let changed = false;
   const returnedIds=new Set((payload.snapshots || []).map(snapshot=>String(snapshot.eventId)));
+  Object.entries(payload.eventAliases||{}).forEach(([alias,id])=>{if(returnedIds.has(id)){returnedIds.add(alias);nothingscoreLoadErrors.delete(alias);const snapshot=payload.snapshots.find(s=>s.eventId===id);if(snapshot)mergeNothingscoreSnapshot({...snapshot,eventId:alias});}});
   requested.filter(id=>!returnedIds.has(id)).forEach(id=>{if(!nothingscoreLoadErrors.has(id))changed=true;nothingscoreLoadErrors.set(id,Date.now());});
   (payload.snapshots || []).forEach(snapshot => {
     if(before.get(String(snapshot.eventId))!==nothingscoreSnapshots.get(String(snapshot.eventId)))return;
@@ -16529,7 +16539,7 @@ function buildInlineCrowdRating(ev,snapshot){
   }
   if(awaitingViewer){
     const failed=nothingscoreLoadErrors.has(id);
-    status.textContent=failed?'Your rating could not be loaded.':'Checking your rating…';
+    status.textContent=failed?'Ratings are temporarily unavailable. Retry to check your saved rating.':'Checking your rating…';
     if(failed){
       const retry=document.createElement('button');retry.type='button';retry.className='nsc-rating-retry';retry.textContent='Retry ratings';
       retry.onclick=event=>{event.stopPropagation();nothingscoreLoadErrors.delete(id);registerNothingscoreEvent(ev,{force:true});nothingscoreQueueRender();};
@@ -16871,21 +16881,24 @@ function loadTennisFeedContests(){
   return tennisFeedContestLoading;
 }
 const tennisFeedOpenParents=new Set();
-function buildTennisFeedParent(parent){
-  if(globalThis.NOTHINGSPORTS_TENNIS_PARENT_UI)return NOTHINGSPORTS_TENNIS_PARENT_UI.build(parent);
-  const card=document.createElement('article');card.className='event-card tennis-feed-parent';card.dataset.eventId=parent.id;
-  const title=document.createElement('h3');title.textContent=parent.name;const dates=document.createElement('p');dates.textContent=NOTHINGSPORTS_TENNIS_FEED.timingLabel(parent);card.append(title,dates);
-  const load=()=>loadDeferredScript('assets/js/tennis-parent-ui.js?v=458').then(()=>{if(card.isConnected)card.replaceWith(NOTHINGSPORTS_TENNIS_PARENT_UI.build(parent));}).catch(()=>{const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry tournament details';retry.onclick=()=>{retry.remove();void load();};card.append(retry);});void load();return card;
+function eventEditionFollowed(event){
+  return Boolean(NOTHINGSPORTS_TENNIS_FEED.reason(event,userPreferences,{collectionsById:followCollectionsById(),now:nowAEST()}));
 }
-function buildOngoingTournamentParent(ev){
-  const card=document.createElement('article');card.className='event-card tennis-feed-parent parent-ongoing';card.dataset.eventId=ev.eventId||ev.id;card.dataset.scrollKey=`event:calendar:${ev.eventId||ev.id}`;
-  const palette=NOTHINGSPORTS_FEED_CARD_PRESENTATION.palette(ev);if(palette){card.style.setProperty('--fixture-left',palette[0]);card.style.setProperty('--fixture-right',palette[1]);card.classList.add('parent-tinted');}
-  const heading=document.createElement('div');heading.className='tournament-parent-heading';const link=buildFeedScheduleLink(ev),context=document.createElement('span'),button=document.createElement('button');
-  context.className='tournament-parent-context';context.textContent='Ongoing';button.type='button';button.className='btn ghost';button.textContent='⌄';button.setAttribute('aria-label',`Expand ${ev.name} schedule`);
-  const body=document.createElement('div');body.hidden=!tennisFeedOpenParents.has(ev.id);button.setAttribute('aria-expanded',String(!body.hidden));
-  let loaded=false;function paint(){if(!body.hidden&&!loaded){loaded=true;appendTournamentSlots(body,ev);}}
-  button.onclick=()=>{body.hidden=!body.hidden;button.setAttribute('aria-expanded',String(!body.hidden));if(body.hidden)tennisFeedOpenParents.delete(ev.id);else tennisFeedOpenParents.add(ev.id);paint();};
-  heading.append(link,context,button);card.append(heading,body);queueMicrotask(paint);return card;
+function buildEventEditionToggle(event){
+  const button=document.createElement('button');button.type='button';button.className='btn ghost event-edition-toggle';button.dataset.edition=FOLLOW_FEED_POLICY.editionKey(event);
+  const sync=()=>{const followed=eventEditionFollowed(event);button.textContent=followed?'Unfollow event':'Follow event';button.setAttribute('aria-pressed',String(followed));};sync();
+  button.onclick=e=>{e.stopPropagation();const next=clonePreferences(userPreferences),key=FOLLOW_FEED_POLICY.editionKey(event),followed=eventEditionFollowed(event);
+    next.followFirst.eventEditionDecisions={schemaVersion:'event-edition-decisions.v1',states:{...(next.followFirst.eventEditionDecisions?.states||{}),[key]:followed?'excluded':'followed'}};
+    savePreferences(next,{deferFollowEffects:true});sync();
+    document.querySelectorAll('.event-edition-toggle').forEach(b=>{if(b.dataset.edition===key){b.textContent=followed?'Follow event':'Unfollow event';b.setAttribute('aria-pressed',String(!followed));}});
+    if(activeTab==='feed')requestAnimationFrame(()=>requestAnimationFrame(()=>renderAll({preserveViewport:true})));
+  };return button;
+}
+function buildTournamentMarker(event){
+  const card=document.createElement('article');card.className='event-card tournament-start-marker';card.dataset.eventId=event.eventId||event.id;card.dataset.scrollKey=`event:calendar:${event.eventId||event.id}`;
+  const title=document.createElement('h3');title.textContent=event.name;const dates=document.createElement('p');dates.textContent=[event.date,event.endDate!==event.date?event.endDate:null].filter(Boolean).map(value=>NOTHINGSPORTS_AUSTRALIAN_DATES.date(value)).join(' – ');
+  const actions=document.createElement('div');actions.className='event-card-primary-actions';const open=document.createElement('button');open.type='button';open.className='btn ghost';open.textContent='Open in Events';open.onclick=e=>{e.stopPropagation();openMajorEventInEvents(String(event.eventId||event.id),{tournament:!event.majorEventMarker});};
+  actions.append(open,buildEventEditionToggle(event));card.append(title,dates,actions,buildEventCardControls(event,{card}));return card;
 }
 function buildEuropeanDetail(ev,kind){
   const node=document.createElement('div');
@@ -16921,8 +16934,8 @@ function ensureFantasyUi(){
 function buildEventCard(ev, options = {}){
   if(NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS.cachedCalendarNote(ev))ev=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(ev);
   if(ev.cardKind==='calendar-note')return buildFixtureFallbackCard(ev,options);
-  if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return buildTennisFeedParent(ev);
-  if(options.mode!=='schedule'&&NOTHINGSPORTS_FEED_CARD_PRESENTATION.parentCompact(ev,nowAEST()))return buildOngoingTournamentParent(ev);
+  if(options.mode!=='schedule' && FOLLOW_FEED_POLICY.multiDayMarker(ev))return buildTournamentMarker(ev);
+  if(options.mode!=='schedule'&&NOTHINGSPORTS_FEED_CARD_PRESENTATION.parentCompact(ev,nowAEST()))return buildTournamentMarker(ev);
   profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
   try {
     const card = buildDetailedEventCard(ev, options);
@@ -18800,7 +18813,11 @@ function ensureFollowCollectionDirectories(preferences = userPreferences){
   if (profileHasNrlEntityFollow(preferences)) loads.push(loadNrlFollowIndex());
   if (profileHasAflEntityFollow(preferences)) loads.push(loadAflFollowIndex());
   if (profileHasAflwEntityFollow(preferences)) loads.push(loadAflwFollowIndex());
-  return Promise.all(loads);
+  return Promise.all(loads).then(results=>{
+    const collections=followCollectionsById(),next=FOLLOW_FIRST.freezeCollections(userPreferences,collections);
+    if(JSON.stringify(next.followFirst.collectionFollows)!==JSON.stringify(userPreferences.followFirst.collectionFollows))savePreferences(next,{deferFollowEffects:true});
+    return results;
+  });
 }
 
 function syncDirectoryFollowButton(button, participantId){
@@ -18814,7 +18831,7 @@ function syncDirectoryFollowButton(button, participantId){
   button.classList.toggle("active", followed);
   button.closest(".follow-directory-row,.football-club-row")?.classList.toggle("is-followed",followed);
   button.setAttribute("aria-pressed", String(followed));
-  button.textContent = followed ? (effective.source === "collection" ? "Following via group" : "Following") : "Follow";
+  button.textContent = followed ? "Following" : "Follow";
 }
 
 function buildDirectoryFollowButton(participantId, { sportKey = "football", leagueId = null, label = "Selection" } = {}){
@@ -18888,7 +18905,7 @@ function toggleAustraliaInternationals(){
 
 function installFollowEventBulk(container){
   if(globalThis.installFollowEventBulkUI)return globalThis.installFollowEventBulkUI(container);
-  void loadDeferredScript('assets/js/follow-event-bulk-ui.js?v=293').then(()=>{if(container.isConnected&&!container.querySelector('.follow-event-bulk'))globalThis.installFollowEventBulkUI(container);});
+  void loadDeferredScript('assets/js/follow-event-bulk-ui.js?v=467').then(()=>{if(container.isConnected&&!container.querySelector('.follow-event-bulk'))globalThis.installFollowEventBulkUI(container);});
 }
 
 function toggleMajorEventFollow(eventId){
@@ -18903,27 +18920,6 @@ function toggleMajorEventFollow(eventId){
   next.followFirst.excludedMajorEventIds = Array.from(excluded);
   next.followFirst.followedMajorEventIds = Array.from(selected);
   savePreferences(next);
-  if (activeTab === "follow" && followViewSection === "major-events"){
-    const followed = selected.has(eventId);
-    const familyCards = Array.from(document.querySelectorAll(".follow-event-family[data-event-family-id]"))
-      .filter(card => card.dataset.eventFamilyId === eventId);
-    const familyCard=familyCards[0];
-    familyCards.forEach(card=>{const b=card.querySelector(".follow-event-family-toggle");if(b){b.setAttribute("aria-pressed",String(followed));b.textContent=`${followed?"Unfollow":"Follow"} ${b.dataset.eventFamilyLabel||"Event"}`;}});
-    const button = familyCard?.querySelector(".follow-event-family-toggle");
-    mutateWithScrollContinuity(familyCard, () => {
-      familyCard?.classList.toggle("selected", followed);
-      if (button){
-        button.setAttribute("aria-pressed", String(followed));
-        button.textContent = `${followed ? "Unfollow" : "Follow"} ${button.dataset.eventFamilyLabel || "Event"}`;
-      }
-      const summary = document.querySelector('[data-follow-summary="event-families"]');
-      if (summary) summary.textContent = `${selected.size} event families`;
-    }, {
-      restoreFocus:true,
-      focusTarget:button,
-    });
-    return;
-  }
   renderAll({ preserveViewport:true });
 }
 
@@ -18934,6 +18930,8 @@ function majorEventVisibilityPreferences(){
     selectedSelectorEntityIds:userPreferences.selectedSelectorEntityIds,
     preferenceGraph:userPreferences.preferenceGraph,
     followedEventFamilyIds:userPreferences.followFirst.followedMajorEventIds,
+    eventEditionDecisions:userPreferences.followFirst.eventEditionDecisions,
+    excludedEventFamilyIds:userPreferences.followFirst.excludedMajorEventIds,
     followedParticipantIds:followedParticipants.ids,
     followedParticipantNames:followedParticipants.names,
   };
@@ -19019,7 +19017,7 @@ async function openFollowScreen(section){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=463';
+  const url='assets/js/follow-presentation-ui.js?v=467';
   return Promise.all([loadDeferredScript('config/participant-directory.js?v=463'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -19719,18 +19717,7 @@ function buildDetailedMajorEventCard(record, { interactionCard = null } = {}){
 
   const navigationRow = document.createElement("div");
   navigationRow.className = "major-event-navigation-row";
-  const familyId = MAJOR_EVENTS.eventFamilyId(record);
-  const familyFollowed = userPreferences.followFirst.followedMajorEventIds.includes(familyId);
-  const familyFollow = document.createElement("button");
-  familyFollow.type = "button";
-  familyFollow.className = `event-quick-action major-event-family-follow${familyFollowed ? " active" : ""}`;
-  familyFollow.setAttribute("aria-pressed", String(familyFollowed));
-  familyFollow.textContent = familyFollowed ? "Unfollow Event" : "Follow Event";
-  familyFollow.addEventListener("click", event => {
-    event.stopPropagation();
-    toggleMajorEventFollow(familyId);
-  });
-  navigationRow.appendChild(familyFollow);
+  navigationRow.appendChild(buildEventEditionToggle({...majorEventActionEvent(record),editionId:record.id,eventFamilyId:MAJOR_EVENTS.eventFamilyId(record),tournamentParent:true}));
 
   const inspect = document.createElement("button");
   inspect.type = "button";
@@ -19853,7 +19840,7 @@ function eventsDeepLinkHash(type, id){
 }
 
 function eventsDeepLinkFromLocation(){
-  const match = String(window.location.hash || "").match(/^#events\/(major|alert)\/(.+)$/);
+  const match = String(window.location.hash || "").match(/^#events\/(major|alert|tournament)\/(.+)$/);
   if (!match) return null;
   try{ return { type: match[1], id: decodeURIComponent(match[2]) }; }catch(_error){ return null; }
 }
@@ -19870,23 +19857,23 @@ function resolveMajorEventId(eventId){
   return related.find(record => (record.endDate || record.startDate || "") >= reference)?.id || related[related.length - 1].id;
 }
 
-function openMajorEventInEvents(eventId, { pushHistory = true } = {}){
+function openMajorEventInEvents(eventId, { pushHistory = true, tournament = false } = {}){
   const codeTarget = COMPETITION_CLASSIFICATION?.legacyNavigationTarget?.(eventId);
-  if (codeTarget?.codeId){
+  if (!tournament && codeTarget?.codeId){
     void openCodeInspector(codeTarget.codeId, { pushHistory });
     return;
   }
   if (!eventsDeepLinkReturnState){
     eventsDeepLinkReturnState = { activeTab, activeView, activeFilter, scrollY: window.scrollY };
   }
-  eventsViewTab = "major-events";
+  eventsViewTab = tournament ? "overviews" : "major-events";
   const resolvedEventId = resolveMajorEventId(eventId);
   activeMajorEventNowId = resolvedEventId;
   pendingMajorEventFocusId = resolvedEventId;
   pendingTicketAlertFocusId = null;
   const record = majorEventsDocument?.events?.find(item => item.id === resolvedEventId);
   if (record && cardStateForEvent(record) === "compact") setCardState(record, "selected");
-  const hash = eventsDeepLinkHash("major", resolvedEventId);
+  const hash = eventsDeepLinkHash(tournament ? "tournament" : "major", resolvedEventId);
   if (pushHistory && window.location.hash !== hash) history.pushState({ eventsDeepLink: { type: "major", id: resolvedEventId } }, "", hash);
   activateTopLevelTab("events", { resetViewport:false });
 }
@@ -19915,31 +19902,7 @@ function buildTicketSaleCard(record, {interactionCard=null}={}){
 }
 
 function buildMajorEventMarker(event){
-  const record = majorEventsDocument?.events?.find(candidate => candidate.id === event.majorEventId);
-  if (!record){
-    const unavailable = document.createElement("article");
-    unavailable.className = "major-event-marker feed-major-event-card";
-    unavailable.dataset.majorEventMarker = event.majorEventId;
-    unavailable.innerHTML = `<strong>${event.name}</strong><span>Event schedule loading…</span>`;
-    if (!majorEventsLoading) void loadMajorEventsData();
-    return unavailable;
-  }
-  const card = buildMajorEventCard(record);
-  card.id = `feed-major-event-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
-  card.classList.add("feed-major-event-card");
-  card.dataset.majorEventMarker = event.majorEventId;
-  card._rebuildCard=()=>buildMajorEventMarker(event);
-  const action = document.createElement("button");
-  action.type = "button";
-  action.className = "event-quick-action major-event-marker-open";
-  action.textContent = "Open in Events";
-  action.setAttribute("aria-label", `Open ${event.name} in Events`);
-  action.addEventListener("click", clickEvent => {
-    clickEvent.stopPropagation();
-    openMajorEventInEvents(event.majorEventId);
-  });
-  card.querySelector(".major-event-ticket-row")?.appendChild(action);
-  return card;
+  const card=buildTournamentMarker(event);card.classList.add('feed-major-event-card');card.dataset.majorEventMarker=event.majorEventId;return card;
 }
 
 function compareDismissedEventRecords(first, second){
@@ -19974,7 +19937,7 @@ function buildDismissedEventStub(record){
 
 async function renderEventOverviews(container){
  const host=document.createElement('div');host.className='event-overviews-host';container.append(host);
- try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=463');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=467');
  if(!host.isConnected)return;
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(host);
  }catch{if(!host.isConnected)return;const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';host.append(notice);}
@@ -20065,6 +20028,7 @@ function renderEventsView(){
     return;
   }
   const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, majorEventVisibilityPreferences(), nowAEST());
+  if(pendingMajorEventFocusId&&!visible.events.some(e=>e.id===pendingMajorEventFocusId)){const target=majorEventsDocument.events.find(e=>e.id===pendingMajorEventFocusId);if(target)visible.events.push(target);}
   const activeMajorRecords = visible.events.filter(record => !getEventAction(majorEventActionEvent(record)).isDismissed);
   const dismissedMajorRecords = visible.events
     .filter(record => getEventAction(majorEventActionEvent(record)).isDismissed)

@@ -1,0 +1,572 @@
+{
+  "schemaVersion": "football-club-crests.v1",
+  "clubs": [
+    {
+      "participantId": "team:football:club:ac-milan",
+      "displayName": "AC Milan",
+      "providerId": "441",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Logo_of_AC_Milan.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:aek-athens",
+      "displayName": "AEK Athens",
+      "providerId": "1217",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/4/46/Athlitik%C3%AD_%C3%89nosis_Konstantinoup%C3%B3leos_logo.svg?utm_source=de.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:anderlecht",
+      "displayName": "Anderlecht",
+      "providerId": "1216",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/7/77/R.S.C._Anderlecht.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:ararat-armenia",
+      "displayName": "Ararat-Armenia",
+      "providerId": "8876",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/FC_Ararat-Armenia_logo.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:as-roma",
+      "displayName": "AS Roma",
+      "providerId": "378",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/5/52/AS_Roma_logo_(2013).svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:atletico-madrid",
+      "displayName": "Atlético Madrid",
+      "providerId": "1068",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams?limit=100",
+      "checkedAt": "2026-10-09T03:29:43.852Z"
+    },
+    {
+      "participantId": "team:football:club:az-alkmaar",
+      "displayName": "AZ Alkmaar",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/140.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams?limit=100",
+      "checkedAt": "2026-10-09T03:03:58.819Z"
+    },
+    {
+      "participantId": "team:football:club:barcelona",
+      "displayName": "Barcelona",
+      "providerId": "356",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/960px-FC_Barcelona_%28crest%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:bayer-leverkusen",
+      "displayName": "Bayer Leverkusen",
+      "providerId": "6",
+      "logoUrl": "https://www.bundesliga-reisefuehrer.de/sites/default/files/B04_Standard_Logo_RGB.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:bayern-munich",
+      "displayName": "Bayern Munich",
+      "providerId": "40",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Logo_FC_Bayern_M%C3%BCnchen_%282002%E2%80%932017%29.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:benfica",
+      "displayName": "Benfica",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams?limit=100",
+      "checkedAt": "2026-10-09T03:03:58.819Z"
+    },
+    {
+      "participantId": "team:football:club:besiktas",
+      "displayName": "Beşiktaş",
+      "providerId": "1837",
+      "logoUrl": "https://s.hs-data.com/gfx/emblem/common/100x100/221.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:bod-glimt",
+      "displayName": "Bodø/Glimt",
+      "providerId": "5707",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/0/07/FK_Bod%C3%B8-Glimt_Logo.svg?utm_source=de.wikipedia.org&utm_campaign=index&utm_content=original",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:borussia-dortmund",
+      "displayName": "Borussia Dortmund",
+      "providerId": "7",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/960px-Borussia_Dortmund_logo.svg.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:celje",
+      "displayName": "Celje",
+      "providerId": "8885",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/f/fc/NK_Celje.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:celta-vigo",
+      "displayName": "Celta Vigo",
+      "providerId": "2175",
+      "logoUrl": "https://ssl.gstatic.com/onebox/media/sports/logos/wpdhixHP_sloegfP0UlwAw_48x48.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:celtic",
+      "displayName": "Celtic",
+      "providerId": "2804",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/f/f2/Celtic_fc.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:club-brugge",
+      "displayName": "Club Brugge",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams?limit=100",
+      "checkedAt": "2026-10-09T03:03:58.007Z"
+    },
+    {
+      "participantId": "team:football:club:como",
+      "displayName": "Como",
+      "providerId": "8787",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Calcio_Como_-_logo_%28Italy%2C_2019-%29.svg?utm_source=de.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:fenerbahce",
+      "displayName": "Fenerbahçe",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/436.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams?limit=100",
+      "checkedAt": "2026-10-09T03:03:58.007Z"
+    },
+    {
+      "participantId": "team:football:club:ferencvaros",
+      "displayName": "Ferencváros",
+      "providerId": "5250",
+      "logoUrl": "https://s.hs-data.com/gfx/emblem/common/100x100/17420.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:feyenoord",
+      "displayName": "Feyenoord",
+      "providerId": "1770",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/2/24/Logo_Feyenoord_Rotterdam.svg?utm_source=de.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:galatasaray",
+      "displayName": "Galatasaray",
+      "providerId": "2554",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/0/07/Galatasaray_S.K._Logo_2026_5-stars.svg?utm_source=de.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:gnk-dinamo",
+      "displayName": "GNK Dinamo",
+      "providerId": "1208",
+      "logoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuj5sEfmp2QZiTOsJZ_pqdrdTHTNQGhNkFIQ&s",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:hapoel-beer-sheva",
+      "displayName": "Hapoel Beer-Sheva",
+      "providerId": "4462",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/6/6e/HapoelBeerschebaFC.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:internazionale",
+      "displayName": "Internazionale",
+      "providerId": "110",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams?limit=100",
+      "checkedAt": "2026-10-09T03:29:43.340Z"
+    },
+    {
+      "participantId": "team:football:club:jagiellonia",
+      "displayName": "Jagiellonia Białystok",
+      "providerId": "632",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/9/90/Jagiellonia_Bia%C5%82ystok_logo.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:juventus",
+      "displayName": "Juventus",
+      "providerId": "369",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Juventus_FC_-_logo_black_%28Italy%2C_2020%29.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:lask",
+      "displayName": "LASK Linz",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/4411.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams?limit=100",
+      "checkedAt": "2026-10-09T03:05:12.086Z"
+    },
+    {
+      "participantId": "team:football:club:lech-poznan",
+      "displayName": "Lech Poznań",
+      "providerId": "449",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/4/46/Lech_Poznan.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:lens",
+      "displayName": "Lens",
+      "providerId": "5962",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/d/d7/RC_Lens_Logo.svg?utm_source=de.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:levski-sofia",
+      "displayName": "Levski Sofia",
+      "providerId": "1206",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/e/e6/Levski_Sofia_crest_%282026%29.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:lille",
+      "displayName": "Lille",
+      "providerId": "166",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams?limit=100",
+      "checkedAt": "2026-10-09T03:29:43.630Z"
+    },
+    {
+      "participantId": "team:football:club:lillestrom",
+      "displayName": "Lillestrøm",
+      "providerId": "1472",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Lillestr%C3%B8m_SK_logo.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:lyon",
+      "displayName": "Lyon",
+      "providerId": "1819",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/f/f1/Olympique_Lyon.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:marseille",
+      "displayName": "Marseille",
+      "providerId": "2557",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Olympique_de_Marseille_2026_logo.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:n-e-c",
+      "displayName": "N.E.C.",
+      "providerId": "443",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/3/34/NEC_Nijmegen.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:napoli",
+      "displayName": "Napoli",
+      "providerId": "114",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/114.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams?limit=100",
+      "checkedAt": "2026-10-09T03:29:43.340Z"
+    },
+    {
+      "participantId": "team:football:club:ofi-crete",
+      "displayName": "OFI Crete",
+      "providerId": "8811",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/f/f8/OFI_Crete_F.C._logo.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:olympiacos",
+      "displayName": "Olympiacos",
+      "providerId": "436",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/9/96/Logo_Olympiakos_Pir%C3%A4us.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:omonia",
+      "displayName": "Omonia",
+      "providerId": "5705",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/2/2c/Logo_Omonia_Nicosia.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:paris-saint-germain",
+      "displayName": "Paris Saint-Germain",
+      "providerId": "2281",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/c/c2/Paris_SG_Logo.svg?utm_source=de.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:porto",
+      "displayName": "FC Porto",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/teams?limit=100",
+      "checkedAt": "2026-10-09T03:05:11.866Z"
+    },
+    {
+      "participantId": "team:football:club:psv-eindhoven",
+      "displayName": "PSV Eindhoven",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams?limit=100",
+      "checkedAt": "2026-10-09T03:03:58.007Z"
+    },
+    {
+      "participantId": "team:football:club:rb-leipzig",
+      "displayName": "RB Leipzig",
+      "providerId": "1635",
+      "logoUrl": "https://i.imgur.com/Rpwsjz1.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:real-betis",
+      "displayName": "Real Betis",
+      "providerId": "1804",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Real_Betis_2022_logo.svg/960px-Real_Betis_2022_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:real-madrid",
+      "displayName": "Real Madrid",
+      "providerId": "1133",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/960px-Real_Madrid_CF.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:real-sociedad",
+      "displayName": "Real Sociedad",
+      "providerId": "1275",
+      "logoUrl": "https://s.hs-data.com/gfx/emblem/common/100x100/1550.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:sabah",
+      "displayName": "Sabah",
+      "providerId": "8798",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/a/a9/Sabah_FC_%28Azerbaijan%29.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:salzburg",
+      "displayName": "Salzburg",
+      "providerId": "1201",
+      "logoUrl": "https://s.hs-data.com/gfx/emblem/common/100x100/1536.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:shakhtar-donetsk",
+      "displayName": "Shakhtar Donetsk",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/493.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams?limit=100",
+      "checkedAt": "2026-10-09T03:03:58.007Z"
+    },
+    {
+      "participantId": "team:football:club:slavia-praha",
+      "displayName": "Slavia Praha",
+      "providerId": "4578",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Slavia-symbol-nowordmark-RGB.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:slovan-bratislava",
+      "displayName": "Slovan Bratislava",
+      "providerId": "5699",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/SK_Slovan_Bratislava_logo.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:sparta-praha",
+      "displayName": "Sparta Prague",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/433.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/teams/433",
+      "checkedAt": "2026-10-09T03:05:40.752Z"
+    },
+    {
+      "participantId": "team:football:club:sporting-cp",
+      "displayName": "Sporting CP",
+      "providerId": "1205",
+      "logoUrl": "https://s.hs-data.com/gfx/emblem/common/100x100/1776.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:stade-rennais",
+      "displayName": "Stade Rennais",
+      "providerId": "4639",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/b/b6/Stade_Rennais_Football_Club.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:sturm-graz",
+      "displayName": "Sturm Graz",
+      "providerId": "2491",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/2/20/SK_Sturm_Graz_Logo.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:torreense",
+      "displayName": "Torreense",
+      "providerId": "8877",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/d/dc/S.C.U._Torreense_logo.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:tsg-hoffenheim",
+      "displayName": "TSG Hoffenheim",
+      "providerId": "175",
+      "logoUrl": "https://i.imgur.com/gF0PfEl.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:union-saint-gilloise",
+      "displayName": "Union Saint-Gilloise",
+      "providerId": "4825",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/e/e8/Royale_Union_Saint-Gilloise.jpg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:vfb-stuttgart",
+      "displayName": "VfB Stuttgart",
+      "providerId": "16",
+      "logoUrl": "https://i.imgur.com/v0tkpNx.png",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:viking",
+      "displayName": "Viking",
+      "providerId": "1484",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/8/84/Viking_FK_Logo.svg?utm_source=de.wikipedia.org&utm_campaign=index&utm_content=original",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:club:viktoria-plzen",
+      "displayName": "Viktoria Plzeň",
+      "providerId": "4468",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/0/01/Viktoria.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:club:villarreal",
+      "displayName": "Villarreal",
+      "providerId": "382",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/7/70/Villarreal_CF_logo.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:epl:1",
+      "displayName": "Arsenal",
+      "providerId": "359",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams?limit=100",
+      "checkedAt": "2026-10-09T03:29:43.126Z"
+    },
+    {
+      "participantId": "team:football:epl:10",
+      "displayName": "Liverpool",
+      "providerId": "370",
+      "logoUrl": "https://preview.redd.it/can-someone-explain-to-me-why-does-liverpool-use-this-logo-v0-j6fk5mkwa3bb1.png?width=640&crop=smart&auto=webp&s=5b3da54edf04a5e4dae88cff64fb8a3f70bd789d",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:epl:11",
+      "displayName": "Manchester City",
+      "providerId": "382",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams?limit=100",
+      "checkedAt": "2026-10-09T03:29:43.126Z"
+    },
+    {
+      "participantId": "team:football:epl:12",
+      "displayName": "Manchester United",
+      "providerId": "2556",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg?utm_source=de.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
+      "checkedAt": "2026-10-09T02:55:24.884Z"
+    },
+    {
+      "participantId": "team:football:epl:127",
+      "displayName": "AFC Bournemouth",
+      "providerId": "2942",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/e/e5/AFC_Bournemouth_%282013%29.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:epl:2",
+      "displayName": "Aston Villa",
+      "providerId": "362",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams?limit=100",
+      "checkedAt": "2026-10-09T03:29:43.125Z"
+    },
+    {
+      "participantId": "team:football:epl:29",
+      "displayName": "Sunderland",
+      "providerId": "546",
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/7/77/Logo_Sunderland.svg",
+      "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
+      "checkedAt": "2026-10-09T02:55:25.267Z"
+    },
+    {
+      "participantId": "team:football:epl:6",
+      "displayName": "Crystal Palace",
+      "providerId": "384",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams?limit=100",
+      "checkedAt": "2026-10-09T03:33:42.784Z"
+    }
+  ]
+}

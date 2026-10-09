@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v466";
-const SHELL_VERSION = "466";
+const CACHE_NAME = "nothingsport-shell-v467";
+const SHELL_VERSION = "467";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -11,7 +11,7 @@ const APP_SHELL = [
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
-  "/assets/js/follow-presentation-ui.js?v=463",
+  "/assets/js/follow-presentation-ui.js?v=467",
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
@@ -20,8 +20,8 @@ const APP_SHELL = [
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=302",
   "/assets/js/settings-optional-ui.js?v=463",
-  "/assets/js/follow-navigation.js?v=463",
-  "/assets/js/tournament-fixture-ui.js?v=451",
+  "/assets/js/follow-navigation.js?v=467",
+  "/assets/js/tournament-fixture-ui.js?v=467",
   "/assets/styles/notifications-inbox.css?v=280",
   "/assets/js/app-update.js?v=293",
   // Navigations already share /index.html below; do not download/cache its
@@ -61,12 +61,12 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=466",
-  "/assets/js/follow-schedule-panel.js?v=453",
+  "/assets/js/app-shell-runtime.js?v=467",
+  "/assets/js/follow-schedule-panel.js?v=467",
   "/config/cricket-innings.js?v=431",
   "/config/tournament-schedule.js?v=452",
-  "/assets/js/tennis-schedule-ui.js?v=463",
-  "/config/tennis-journeys.js?v=463",
+  "/assets/js/tennis-schedule-ui.js?v=467",
+  "/config/tennis-journeys.js?v=467",
   "/assets/js/nsc-rankings-ui.js?v=293",
   "/assets/styles/nsc-ladder.css?v=293",
   "/assets/styles/card-clarity.css?v=424",
@@ -89,14 +89,14 @@ const APP_SHELL = [
   "/config/preference-reset-ui.js?v=423",
   "/config/marquee-campaigns.js",
   "/config/server-sync.js",
-  "/config/major-events.js?v=293",
-  "/config/event-overviews-ui.js?v=463",
+  "/config/major-events.js?v=467",
+  "/config/event-overviews-ui.js?v=467",
   "/config/surface-category-ui.js?v=403",
   "/assets/styles/match-centre.css?v=463",
   "/config/match-centre.js?v=463",
   "/config/feed-live-scores.js?v=437",
   "/config/feed-live-score-loader.js?v=463",
-  "/config/athletes.js?v=454",
+  "/config/athletes.js?v=467",
   "/assets/js/athletes-ui.js?v=466",
   // Profile UI caches after first use; optional detail stays out of shell budget.
   "/config/football-directory.js",

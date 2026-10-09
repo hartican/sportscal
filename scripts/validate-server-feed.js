@@ -76,7 +76,7 @@ async function run(){
   assert.equal(schema.properties.schemaVersion.const, "server-feed.v3");
   assert.equal(schema.properties.derivedCardCache.properties.buildOrigin.const, "server");
   assert(schema.required.includes("sourcePublishedAt"), "server feeds must distinguish canonical publication time from per-user generation time");
-  assert.match(feedPipeline.SERVER_FEED_BUILD_VERSION, /^follow-policy\.v13:[a-f0-9]{12}$/, "tennis projection changes must invalidate personalised feed caches");
+  assert.match(feedPipeline.SERVER_FEED_BUILD_VERSION, /^follow-policy\.v14:[a-f0-9]{12}$/, "tennis projection changes must invalidate personalised feed caches");
   assert.match(
     fs.readFileSync("api/feed.js", "utf8"),
     /buildVersion:\s*SERVER_FEED_BUILD_VERSION/,

@@ -7,7 +7,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(root, competitionClassification){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v11";
+  const SCHEMA_VERSION = "follow-first.v12";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -253,6 +253,7 @@
       followedMajorEventIds:[],
       excludedMajorEventIds:[],
       eventFamilyDecisions:{ schemaVersion:"event-family-decisions.v1", states:{} },
+      eventEditionDecisions:{schemaVersion:"event-edition-decisions.v1",states:{}},
       collectionFollows:[],
       codeInteractions:[],
       location:normalizeLocation({}),
@@ -378,6 +379,7 @@
             ...excludedMajorEventIds.map(id => [id, "excluded"]),
           ]),
         },
+        eventEditionDecisions:{schemaVersion:"event-edition-decisions.v1",states:Object.fromEntries(Object.entries(prior.eventEditionDecisions?.states || {}).filter(([id,state])=>id && ["followed","excluded"].includes(state)))},
         collectionFollows:normalizeCollectionFollows(prior.collectionFollows),
         codeInteractions:normalizeCodeInteractions(prior.codeInteractions),
         location:normalizeLocation(prior.location || startupMeta.location),
@@ -410,6 +412,15 @@
     };
   }
 
+  function freezeCollections(preferences, collectionsById){
+    const next=migratePreferences(preferences), remaining=[],follows=[...(next.preferenceGraph?.entityFollows||[])];
+    for(const id of next.followFirst.collectionFollows){
+      const members=collectionsById?.[id]?.memberIds;
+      if(!id.startsWith('collection:tennis:') || !Array.isArray(members)){remaining.push(id);continue;}
+      for(const participantId of members)if(!follows.some(f=>participantFollowIdentityKey(f.participantId)===participantFollowIdentityKey(participantId)))follows.push({participantId,followLevel:'follow'});
+    }
+    return {...next,preferenceGraph:{...next.preferenceGraph,entityFollows:follows},followFirst:{...next.followFirst,collectionFollows:remaining}};
+  }
   function setCollectionFollow(preferences, collectionId, followed){
     const next = migratePreferences(preferences);
     const selected = new Set(next.followFirst.collectionFollows);
@@ -536,12 +547,15 @@
   }
 
   function reasonForEvent(event, preferences, { participantLabel = id => id, collectionsById = {}, preparedPreferences = null } = {}){
+    if(event?.universeOnly)return null;
     const next = preparedPreferences || migratePreferences(preferences);
     const followPolicy = root.NOTHINGSPORTS_FOLLOW_FEED_POLICY
       || (typeof require === "function" ? require("./follow-feed-policy.js") : null);
     const tennis = root.NOTHINGSPORTS_TENNIS_FEED || (typeof require === "function" ? require("./tennis-feed") : null);
     if(tennis?.isParent(event))return tennis.reason(event,next,{collectionsById,preparedPreferences:next});
     if(followPolicy.sportKey(event).startsWith('tennis') && tennis?.isRubber(event))return null;
+    if (!followPolicy.activeEligible(event))return null;
+    if (followPolicy.multiDayMarker(event))return tennis.reason(event,next,{collectionsById,preparedPreferences:next});
     if (followPolicy.aggregateEvent(event) || !followPolicy.feedEligibleSession(event) || followPolicy.explicitlyExcluded(event,next)) return null;
     const cricket=root.NOTHINGSPORTS_CRICKET_COVERAGE||(typeof require==="function"?require("./cricket-coverage"):null);
     if(cricket&&!cricket.allowed(event))return null;
@@ -570,6 +584,8 @@
         return { type:"collection", entityKind:"athlete", id, label:null, displayTag:false, collectionIds:inherited.collectionIds };
       }
     }
+    if(followPolicy.eventExcluded(event,next))return null;
+    if(followPolicy.editionDecision(event,next)==='followed'&&!followPolicy.sportKey(event).startsWith('tennis')&&!golf)return {type:'event',entityKind:'event',id:followPolicy.editionKey(event),label:null,displayTag:false};
     const sportAliases = {
       "rugby-union":"rugby", basketball:"nba", "multi-sport":"cwg",
       fifa:"football", "premier-league":"football", bundesliga:"football", "la-liga":"football", "serie-a":"football", "ligue-1":"football",
@@ -625,9 +641,8 @@
       && event?.kind !== "major_event"
       && event?.kind !== "ticket_sale"
     );
-    if (sportFollowed && concreteSportingCard && followPolicy.isFinalsOrKnockout(event)) return {type:"sport-finals",entityKind:"sport",id:sportId,label:null,displayTag:false};
-    if (sportId.startsWith("tennis")) return sportFollowed && tennis.isFinal(event)
-      ? {type:'sport-marquee',entityKind:'sport',id:'tennis',label:null,displayTag:false} : null;
+    if (!sportId.startsWith("tennis") && sportFollowed && concreteSportingCard && followPolicy.isFinalsOrKnockout(event)) return {type:"sport-finals",entityKind:"sport",id:sportId,label:null,displayTag:false};
+    if (sportId.startsWith("tennis"))return sportFollowed && event.contestUnit==='tie' && tennis.isFinal(event)?{type:'sport-finals',entityKind:'sport',id:sportId,label:null,displayTag:false}:null;
     const australianScope = new Set(next.followFirst.australiansOnlySportIds || []);
     const scopedSportIds = [sourceSportId,sportId,sourceSportId === 'afl' ? 'afl-premiership' : '',sourceSportId === 'f1' ? 'motorsport' : ''].filter(Boolean).map(id=>`sport:${id}`);
     const families = new Set(next.followFirst.followedMajorEventIds || []);
@@ -919,6 +934,7 @@
     normalizeLocation,
     normalizeMeta,
     migratePreferences,
+    freezeCollections,
     setCollectionFollow,
     effectiveParticipantFollow,
     participantFollowIdentityKey,

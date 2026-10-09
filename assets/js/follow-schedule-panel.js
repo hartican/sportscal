@@ -1,7 +1,7 @@
 // The source calendar owns chronological round order; views never create follows.
 function footballRoundPlan(fixtures,today){
  const key=f=>JSON.stringify([f.competitionId||f.competitionName,f.season||f.seasonLabel||String(f.date).slice(0,4),f.stageType||f.stage,f.roundLabel||f.round||f.stage||f.date]);
- const groups=new Map();for(const f of fixtures){const k=key(f),g=groups.get(k)||{key:k,label:[f.competitionName,f.season||f.seasonLabel,f.stageType||f.stage,f.roundLabel||f.round||f.date].filter(Boolean).join(' · '),fixtures:[]};g.fixtures.push(f);groups.set(k,g);}
+ const groups=new Map();for(const f of fixtures){const k=key(f),g=groups.get(k)||{key:k,label:'Matchday, round '+(f.roundNumber||String(f.roundLabel||f.round||f.stage||'').match(/\d+/)?.[0]||f.date),context:[f.competitionName,f.season||f.seasonLabel,f.stageType||f.stage,f.roundLabel||f.round||f.date].filter(Boolean).join(' · '),fixtures:[]};g.fixtures.push(f);groups.set(k,g);}
  const ordered=[...groups.values()].sort((a,b)=>String(a.fixtures.map(f=>f.date||'9999').sort()[0]).localeCompare(String(b.fixtures.map(f=>f.date||'9999').sort()[0]))||a.label.localeCompare(b.label));
  const eligible=fixtures.filter(f=>!['completed','finished','cancelled','canceled','abandoned'].includes(f.status)&&String(f.endDate||f.date||'')>=today).sort((a,b)=>String(a.startTimeUtc||a.date||'9999').localeCompare(String(b.startTimeUtc||b.date||'9999')));
  const current=eligible[0];return {groups:ordered,key,currentKey:current?key(current):null,currentIndex:Math.max(0,current?ordered.findIndex(g=>g.key===key(current)):ordered.length-1)};
@@ -47,7 +47,7 @@ globalThis.renderFollowSchedulePanel=function(container){
   }
   const available = (codeInspectorChunk.fixtures || []).filter(inspectorFixtureMatchesTab).filter(f=>followScheduleScopeMatches(f));
   appendFootballCalendarFilters(panel,code,available);
-  const fixtures=available.filter(f=>NOTHINGSPORTS_FOLLOW_NAV.matches(f,code.id));
+  const fixtures=available.filter(f=>FOLLOW_FEED_POLICY.scheduleVisible(f,userPreferences,followCollectionsById())&&NOTHINGSPORTS_FOLLOW_NAV.matches(f,code.id));
   if(['sport:skiing','sport:surf'].includes(code.id)&&code.coverageStatus==='partial'){const note=document.createElement('p');note.className='code-inspector-note';note.textContent=codeInspectorCoverageCopy(code);panel.append(note);}
   const filterButton=document.createElement('button');filterButton.type='button';filterButton.className='btn ghost';filterButton.textContent='Filter schedule';filterButton.onclick=()=>NOTHINGSPORTS_FOLLOW_NAV.openFilters(code.id,available);panel.append(filterButton);
   if (codeInspectorTab === "players"){
@@ -60,7 +60,7 @@ globalThis.renderFollowSchedulePanel=function(container){
       : "No fixtures match this view."));
     return;
   }
-  if(code.id==='sport:tennis'){renderTennisTournamentSchedule(panel,fixtures);return;}
+  if(code.id.startsWith('sport:tennis')){renderTennisTournamentSchedule(panel,fixtures);return;}
   const football=/football|champions-league/.test(code.slug||'');
   const today=formatDateKey(nowAEST());
   const footballPlan=football?footballRoundPlan(fixtures,today):null;
@@ -92,12 +92,12 @@ globalThis.renderFollowSchedulePanel=function(container){
   let window=windows.get(code.id);if(!window||window.fingerprint!==fingerprint){window={start:currentIndex,end:Math.min(groupLabels.length,currentIndex+(football?1:3)),fingerprint};windows.set(code.id,window);}
   const action=(label,callback)=>{const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent=label;b.onclick=callback;panel.append(b);};
   action('Jump to current',()=>{window.start=currentIndex;window.end=Math.min(groupLabels.length,currentIndex+(football?1:3));renderCodeInspector();requestAnimationFrame(()=>document.querySelector('.code-inspector-group')?.scrollIntoView({block:'start'}));});
-  if(football){const row=document.createElement('label');row.className='football-round-picker';row.textContent='Matchday / round';const select=document.createElement('select');select.setAttribute('aria-label','Matchday / round');groupLabels.forEach((key,index)=>{const group=footballPlan.groups.find(g=>g.key===key);select.add(new Option((key===footballPlan.currentKey?'Current / next · ':'')+group.label,String(index)));});select.value=String(window.start);select.onchange=()=>{window.start=Number(select.value);window.end=window.start+1;renderCodeInspector();};row.append(select);panel.append(row);}
+  if(football){const row=document.createElement('label');row.className='football-round-picker';row.textContent='Matchday / round';const select=document.createElement('select');select.setAttribute('aria-label','Matchday / round');groupLabels.forEach((key,index)=>{const group=footballPlan.groups.find(g=>g.key===key);select.add(new Option((key===footballPlan.currentKey?'Current ':'')+group.label,String(index)));});select.value=String(window.start);select.onchange=()=>{window.start=Number(select.value);window.end=window.start+1;renderCodeInspector();};row.append(select);panel.append(row);}
   if(window.start>0)action('Earlier rounds / events',()=>{window.start=Math.max(0,window.start-(football?1:3));renderCodeInspector();});
   groupLabels.slice(window.start,window.end).forEach(label=>{
     const section=document.createElement('section');section.className='code-inspector-group';
-    const title=document.createElement('h3');title.textContent=football?footballPlan.groups.find(g=>g.key===label).label:label;
-    if(football&&label===footballPlan.currentKey){section.dataset.currentRound='true';title.setAttribute('aria-current','date');const note=document.createElement('span');note.className='football-current-round';note.textContent='Current / next round';title.append(document.createTextNode(' '),note);}
+    const title=document.createElement('h3');title.textContent=football?(label===footballPlan.currentKey?'Current ':'')+footballPlan.groups.find(g=>g.key===label).label:label;if(football)title.title=footballPlan.groups.find(g=>g.key===label).context;
+    if(football&&label===footballPlan.currentKey){section.dataset.currentRound='true';title.setAttribute('aria-current','date');const note=document.createElement('span');note.className='football-current-round';note.textContent='' ;title.append(document.createTextNode(' '),note);}
     const list=document.createElement('div');list.className='code-inspector-fixtures';list.dataset.scrollList=`inspector-group:${label}`;
     const rows=[...grouped.get(label)];
     if(code.id==='competition:dakar'&&codeInspectorTab!=='results')for(const note of codeInspectorChunk.scheduleNotes||[])if(rows.some(f=>f.season===note.season))rows.push({...note,restDayNote:true});

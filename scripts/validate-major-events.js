@@ -327,7 +327,7 @@ assert(html.includes('activeFilter === "all" || feedFilterMatchesEvent(activeFil
 const feedMerger = html.match(/function mergeMainFeedSpecialEvents\(events\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(feedMerger.includes("selectedMajorEventFixtures()"), "Feed must include independently pinned Event children");
 assert(!feedMerger.includes("markerEvents") && !feedMerger.includes("mainFeedMajorEventMarkers") && feedMerger.includes('event?.majorEventMarker !== true'), "parent Event and tournament markers must never enter Feed");
-assert(html.includes("visibleMajorEventSubEvents") && html.includes("eventFollowReason({...subEvent,key:record.sportKey"), "every Event timetable applies the shared follow policy");
+assert(html.includes("visibleMajorEventSubEvents") && html.includes("FOLLOW_FEED_POLICY.scheduleVisible({...subEvent,key:record.sportKey"), "every Event timetable applies the shared Schedule policy");
 assert(html.includes('setMajorEventFixtureAdded(options.sourceSubEvent') && html.includes("'Remove from Feed':'Add to Feed'"), "shared Event cards retain explicit Feed pin controls");
 
 console.log(`Major events valid: ${publishedParents.length} rich event cards, ${catalogue.events.length - publishedParents.length} active ticket alerts, exact seller endpoints, horizons, evidence and stable child IDs passed.`);

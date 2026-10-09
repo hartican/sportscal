@@ -73,6 +73,8 @@ jobs:
           node scripts/validate-nhl-results.js
           node scripts/validate-mlb-postseason.js
           node scripts/validate-follow-decisions.js
+          node scripts/validate-follow-with-confidence.js
+          node scripts/validate-ratings-recovery.js
           node scripts/validate-automatic-reminders.js
           node scripts/validate-experience-reliability.js
           node scripts/validate-cross-device-sync.js

@@ -27,5 +27,6 @@ assert(contains(build(state,{athletesOnly:true})),'The same match reaches follow
 assert(contains(build({preferences:{}},{athletesOnly:true,participantId:fixture.awayParticipantId})),'Osaka’s unfollowed profile retains its sourced match');
 assert(!contains(build({preferences:{}})),'An unfollowed match cannot be forced into personalised Feed');
 for(const action of [{dismissed:true},{archived:true}])assert(!contains(build({preferences,event_user_state:{[id]:action}},{athletesOnly:true})),'Hidden fixture actions remain authoritative');
-for(const excluded of [{...preferences,followFirst:{...preferences.followFirst,excludedMajorEventIds:['china-open']}},{...preferences,preferenceGraph:{entityFollows:[{participantId:fixture.homeParticipantId,followLevel:'mute'}]}}])assert(!contains(build({preferences:excluded})),'Competition exclusion and explicit mute win over the collection');
+assert(contains(build({preferences:{...preferences,followFirst:{...preferences.followFirst,excludedMajorEventIds:['china-open']}}})),'Event exclusion retains independently followed fixtures');
+assert(!contains(build({preferences:{...preferences,preferenceGraph:{entityFollows:[{participantId:fixture.homeParticipantId,followLevel:'mute'}]}}})),'Explicit participant mute wins');
 console.log('Reviewed tennis live: exact official row, oriented partial scores, date-only timing, existing collection Feed admission, profiles and explicit exclusions passed.');

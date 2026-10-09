@@ -392,6 +392,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-follow-first.js"],
   ["scripts/validate-follow-policy-parity.js"],
   ["scripts/validate-follow-decisions.js"],
+  ["scripts/validate-follow-with-confidence.js"],
+  ["scripts/validate-ratings-recovery.js"],
   ["scripts/validate-cricket-coverage.js"],
   ["scripts/validate-asia-cup-source.js", "--published"],
   ["scripts/validate-cricket-current-results.js"],
@@ -773,6 +775,7 @@ async function runMain() {
     return;
   }
   if(process.argv.includes("--follow-ui")){
+    runStep(['scripts/refresh-football-directory.js','--prune-removed']);
     for(const script of ["build-follow-directories","build-code-inspector","build-tournament-horizon","build-tennis-feed-parents","build-app-shell-runtime","validate-curated-follow-directories","validate-live-fixture-api"])runStep([`scripts/${script}.js`]);
     console.log("Follow UI projections rebuilt from retained canonical sources; no source refresh or release performed.");return;
   }

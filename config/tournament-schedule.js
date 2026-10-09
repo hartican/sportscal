@@ -10,10 +10,12 @@
  }
  function category(t){return t.level==='grand_slam'?'Grand Slams':t.level==='atp_masters_1000'?'ATP Masters 1000':t.level==='wta_1000'?'WTA 1000':t.level==='atp_500'?'ATP 500':t.level==='wta_500'?'WTA 500':t.level==='atp_250'?'ATP 250':t.level==='wta_250'?'WTA 250':/finals/.test(t.level)?'Tour finals':t.level==='team_competition'?'International team events':null;}
  function displayLabel(t){return [t.name,t.city,category(t)||t.tour,t.season||String(t.startDate||'').slice(0,4)].filter(Boolean).join(' · ');}
+ function eligible(t){return !/250|125|challenger|itf/i.test(t.level||t.tournamentLevel||'');}
+ function gender(t,value){const tours=t.representedTours||[t.tour];return tours.some(tour=>['BOTH','TEAM'].includes(tour)||tour===(value==='women'?'WTA':'ATP'));}
  function sections(tournaments,day){
   const limit=new Date(day+'T12:00:00Z');limit.setUTCMonth(limit.getUTCMonth()+3);const until=limit.toISOString().slice(0,10);
-  return ['Grand Slams','ATP Masters 1000','WTA 1000','ATP 500','WTA 500','ATP 250','WTA 250','Tour finals','International team events'].map(label=>{
-   const all=tournaments.filter(t=>category(t)===label).sort((a,b)=>a.startDate.localeCompare(b.startDate)||a.name.localeCompare(b.name));
+  return ['Grand Slams','ATP Masters 1000','WTA 1000','ATP 500','WTA 500','Tour finals','International team events'].map(label=>{
+   const all=tournaments.filter(t=>eligible(t)&&category(t)===label).sort((a,b)=>a.startDate.localeCompare(b.startDate)||a.name.localeCompare(b.name));
    return {label,current:all.filter(t=>t.endDate>=day&&t.startDate<=until),later:all.filter(t=>t.startDate>until),previous:all.filter(t=>t.endDate<day).reverse()};
   });
  }
@@ -33,5 +35,5 @@
   for(const g of out.values())g.fixtures.sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.time||'').localeCompare(String(b.time||''))||a.id.localeCompare(b.id));
   return [...out.values()].sort((a,b)=>String(a.startDate).localeCompare(String(b.startDate))||a.id.localeCompare(b.id));
  }
- return {family,category,displayLabel,sections,identify,groups};
+ return {family,category,eligible,gender,displayLabel,sections,identify,groups};
 });

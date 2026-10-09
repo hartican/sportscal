@@ -12,22 +12,22 @@ function loadTennisTournamentCatalogue(){
 function renderTennisMajorEvents(container){
   if(!tennisTournamentCatalogue){
     const status=document.createElement('p');status.textContent='Loading published tournaments…';container.append(status);
-    void loadTennisTournamentCatalogue().then(()=>{if(activeTab==='follow'&&followViewSection==='major-events')renderFollowView();}).catch(()=>{status.textContent='Tournament catalogue unavailable. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry';retry.onclick=()=>renderFollowView();status.append(retry);});return;
+    void Promise.all([loadTennisTournamentCatalogue(),loadTennisFeedParents()]).then(()=>{if(activeTab==='follow'&&followViewSection==='major-events')renderFollowView();}).catch(()=>{status.textContent='Tournament catalogue unavailable. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry';retry.onclick=()=>renderFollowView();status.append(retry);});return;
   }
   const helper=NOTHINGSPORTS_TOURNAMENT_SCHEDULE;
   function row(t){
     const family=helper.family(t),card=document.createElement('div');card.className='follow-event-family tennis-catalogue-row';card.dataset.eventFamilyId=family;card.dataset.edition=t.tournamentId;
     const copy=document.createElement('div'),title=document.createElement('strong'),dates=document.createElement('small');title.textContent=helper.displayLabel(t);dates.textContent=`${t.startDate} – ${t.endDate}`;copy.append(title,dates);
-    const toggle=document.createElement('button');toggle.type='button';toggle.className='btn ghost follow-event-family-toggle';toggle.dataset.eventFamilyLabel=t.name;const followed=userPreferences.followFirst.followedMajorEventIds.includes(family);toggle.textContent=`${followed?'Unfollow':'Follow'} ${t.name}`;toggle.setAttribute('aria-pressed',String(followed));toggle.onclick=()=>{toggleMajorEventFollow(family);};
-    const open=document.createElement('button');open.type='button';open.className='btn ghost';open.textContent='Schedule';open.onclick=async()=>{tennisSelectedEdition=t.tournamentId;await openCodeInspector('sport:tennis');};card.append(copy,toggle,open);return card;
+    const toggle=document.createElement('button');toggle.type='button';toggle.className='btn ghost follow-event-family-toggle';toggle.dataset.eventFamilyLabel=t.name;const edition={...t,...tennisFeedParentDocument?.parents?.find(p=>p.tournamentIds?.includes(t.tournamentId)),tournamentId:t.tournamentId,key:'tennis',id:t.tournamentId,eventFamilyId:family,date:t.startDate,endDate:t.endDate,tournamentParent:true};const editionToggle=buildEventEditionToggle(edition);toggle.replaceWith(editionToggle);
+    const open=document.createElement('button');open.type='button';open.className='btn ghost';open.textContent='Schedule';open.onclick=async()=>{tennisSelectedEdition=t.tournamentId;await openCodeInspector(followDirectoryKey().endsWith('-women')?'sport:tennis-women':'sport:tennis');};card.append(copy,editionToggle,open);return card;
   }
-  for(const section of helper.sections(tennisTournamentCatalogue.tournaments,formatDateKey(nowAEST()))){
+  for(const section of helper.sections(tennisTournamentCatalogue.tournaments.filter(t=>helper.gender(t,followBrowseState().gender || (followDirectoryKey().endsWith('-women')?'women':'men'))),formatDateKey(nowAEST())).filter(s=>s.current.length||s.later.length||s.previous.length)){
     const group=document.createElement('section');group.className='tennis-catalogue-category';const heading=document.createElement('h3');heading.textContent=section.label;group.append(heading);
     section.current.forEach(t=>group.append(row(t)));
     for(const [key,label]of [['later','Later published editions'],['previous','Previous editions']])if(section[key].length){const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent=label;details.dataset.followDisclosure=`tennis:${section.label}:${key}`;details.open=followDisclosureState.get(details.dataset.followDisclosure)===true;details.addEventListener('toggle',()=>followDisclosureState.set(details.dataset.followDisclosure,details.open));details.append(summary);section[key].forEach(t=>details.append(row(t)));group.append(details);}
     container.append(group);
   }
-  const note=document.createElement('p');note.className='chat-empty';note.textContent='Tournament follows add an overview to Feed. Followed players and teams add their contests; following Tennis also adds singles and team finals. Other contests can be added individually.';container.append(note);
+  const note=document.createElement('p');note.className='chat-empty';note.textContent='Follow this edition to add its marker to Feed. Your followed players add their sourced matches at ATP/WTA 500 and above. Schedule shows everyone from the quarterfinals onward.';container.append(note);
   installFollowEventBulk(container);
 }
 let tennisSelectedEdition = '';
@@ -72,8 +72,10 @@ function renderTennisTournamentSchedule(panel,fixtures){
   if(!tennisTournamentCatalogue){
     const pending=document.createElement('p');pending.textContent='Loading tournament editions…';panel.append(pending);void loadTennisTournamentCatalogue().then(()=>{if(activeInspectorCodeId==='sport:tennis')renderCodeInspector();}).catch(()=>{pending.textContent='Tournament catalogue unavailable. Try opening Schedule again.';});return;
   }
-  const groups=NOTHINGSPORTS_TOURNAMENT_SCHEDULE.groups(fixtures,tennisTournamentCatalogue.tournaments);
-  for(const t of tennisTournamentCatalogue.tournaments)if(!Object.values(NOTHINGSPORTS_FOLLOW_NAV.selected('sport:tennis')).some(v=>v.length)&&!groups.some(g=>g.id===t.tournamentId))groups.push({id:t.tournamentId,label:NOTHINGSPORTS_TOURNAMENT_SCHEDULE.displayLabel(t),startDate:t.startDate,endDate:t.endDate,fixtures:[]});
+  fixtures=fixtures.filter(f=>FOLLOW_FEED_POLICY.scheduleVisible(f,userPreferences,followCollectionsById()));
+  const catalogue=tennisTournamentCatalogue.tournaments.filter(t=>NOTHINGSPORTS_TOURNAMENT_SCHEDULE.eligible(t)&&NOTHINGSPORTS_TOURNAMENT_SCHEDULE.gender(t,followDirectoryKey().endsWith('-women')?'women':'men'));
+  const groups=NOTHINGSPORTS_TOURNAMENT_SCHEDULE.groups(fixtures,catalogue);
+  for(const t of catalogue)if(!Object.values(NOTHINGSPORTS_FOLLOW_NAV.selected('sport:tennis')).some(v=>v.length)&&!groups.some(g=>g.id===t.tournamentId))groups.push({id:t.tournamentId,label:NOTHINGSPORTS_TOURNAMENT_SCHEDULE.displayLabel(t),startDate:t.startDate,endDate:t.endDate,fixtures:[]});
   groups.sort((a,b)=>String(a.startDate).localeCompare(String(b.startDate))||a.id.localeCompare(b.id));
   const today=formatDateKey(nowAEST());
   const current=groups.filter(g=>g.endDate>=today);const latest=groups.filter(g=>g.endDate<today).sort((a,b)=>b.endDate.localeCompare(a.endDate))[0];

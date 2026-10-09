@@ -14,16 +14,16 @@ const parent=model.buildParents({tournaments:[tournament]},[fixture])[0];
 function admitted(e,prefs){return buildServerFeed({events:[e],userId:'test',userState:{preferences:prefs},now,limit:1000}).events.some(row=>row.id===e.id);}
 assert(model.reason(parent,direct,{now}));assert(model.reason(parent,explicit,{now}));assert.equal(model.reason(parent,broad,{now}),null);
 assert(admitted(parent,direct));assert(admitted(parent,explicit));assert(!admitted(parent,broad));assert(admitted(fixture,direct));
-assert(admitted(fixture,broad));assert(admitted({...fixture,round:'Final'},broad));
-for(const round of ['Semifinal','Quarterfinal'])assert(admitted({...fixture,round},broad));
+assert(!admitted(fixture,broad));assert(!admitted({...fixture,round:'Final'},broad));
+for(const round of ['Semifinal','Quarterfinal'])assert(!admitted({...fixture,round},broad));
 for(const fields of [{round:'Final',eventType:'womens-doubles'},{round:'Final',contestUnit:'rubber',parentTieId:'tie'}])assert(!admitted({...fixture,...fields},broad));
 assert(!admitted({...fixture,contestUnit:'rubber',parentTieId:'tie'},direct));
 const muted={...broad,preferenceGraph:{entityFollows:[{participantId:player,followLevel:'mute'}]}};
-assert(admitted({...fixture,round:'Final'},muted),'legacy mute migrates to participant opt-out');
+assert(!admitted({...fixture,round:'Final'},muted),'legacy mute migrates to participant opt-out');
 assert(admitted(fixture,{preferenceGraph:{entityFollows:[{participantId:player,followLevel:'follow'},{participantId:other,followLevel:'unfollow'}]}}),'opponent opt-out does not veto followed player');
 assert(!admitted(parent,{...explicit,followFirst:{...explicit.followFirst,excludedMajorEventIds:['test-open']}}));
-assert(!admitted(fixture,{...direct,followFirst:{excludedMajorEventIds:['test-open']}}));
-const ended=model.reconcile(parent,[{...fixture,status:'completed',loserParticipantId:player}]);assert.equal(model.reason(ended,direct,{now}),null);assert(model.reason(ended,explicit,{now}));
+assert(admitted(fixture,{...direct,followFirst:{excludedMajorEventIds:['test-open']}}));
+const ended=model.reconcile(parent,[{...fixture,status:'completed',loserParticipantId:player}]);assert(model.reason(ended,direct,{now}),'confirmed edition participation persists after elimination');assert(model.reason(ended,explicit,{now}));
 const withdrawn=model.reconcile(parent,[{...fixture,excludedParticipantIds:[player]}]);assert.equal(model.reason(withdrawn,direct,{now}),null);
 assert.equal(model.parentKey({...tournament,startDate:'2026-10-01'}),parent.id,'date changes preserve identity');
 const shared=model.buildParents({tournaments:[tournament,{...tournament,tournamentId:'wta-test',tour:'WTA',representedTours:['WTA']}]},[]);assert.equal(shared.length,1);assert.equal(shared[0].tournamentIds.length,2);
@@ -55,4 +55,4 @@ console.log('Tennis normalisation: parent/contest admission, finals, exclusions,
 
 const nested={...team,tournamentId:tournament.tournamentId,rubbers:[{sides:[{teamId:team.participantIds[0],participantIds:[player]}]}]};
 assert(model.reason(model.buildParents({tournaments:[tournament]},[nested])[0],direct,{now}),'confirmed rubber player admits the tournament parent');
-assert.equal(model.reason(model.buildParents({tournaments:[tournament]},[{...nested,eliminatedParticipantIds:[team.participantIds[0]]}])[0],direct,{now}),null,'team elimination ends player-derived parent participation');
+assert(model.reason(model.buildParents({tournaments:[tournament]},[{...nested,eliminatedParticipantIds:[team.participantIds[0]]}])[0],direct,{now}),'confirmed participation retains edition follow after team elimination');

@@ -28,18 +28,18 @@ included(fixture('motogp-no-consent',{key:'motogp',sessionType:'race',name:'Moto
 included(fixture('sailgp-meet',{key:'sailgp',name:'Sydney Sail Grand Prix'}),{followedSports:['sailgp']},true,'premier SailGP meets remain marquee without stakes');
 const tennis={followedSports:["tennis"],followFirst:{australiansOnlySportIds:["sport:tennis"]}};
 included(fixture("early-aussie",{round:"Round 1",participantCountryCodes:["AUS"]}),tennis,false,"early tennis requires a followed player");
-included(fixture("foreign-final",{round:"Final",participantCountryCodes:["ITA","USA"]}),tennis,true,"tennis singles finals follow broad Tennis");
-included(fixture("explicit-event",{round:"Quarter-final",eventFamilyId:"us-open",participantCountryCodes:["ITA","USA"]}),{...tennis,followFirst:{...tennis.followFirst,followedMajorEventIds:["us-open"]}},true,"followed Tennis admits quarter-finals");
+included(fixture("foreign-final",{round:"Final",participantCountryCodes:["ITA","USA"]}),tennis,false,"non-followed tennis finals stay out of Feed");
+included(fixture("explicit-event",{round:"Quarter-final",eventFamilyId:"us-open",participantCountryCodes:["ITA","USA"]}),{...tennis,followFirst:{...tennis.followFirst,followedMajorEventIds:["us-open"]}},false,"event follows grant no non-followed quarterfinal Feed admission");
 included(fixture("early-event",{round:"Round 1",eventFamilyId:"us-open"}),{followFirst:{followedMajorEventIds:["us-open"]}},false,"event follows remain marquee only");
 included(fixture("doubles-semi",{round:"Semi-final",eventType:"doubles"}),{followedSports:["tennis"]},false,"doubles start at finals");
 included(fixture('doubles-format',{stage:"Women's Doubles",roundLabel:'Quarterfinal',matchType:'womens-doubles'}),{followedSports:['tennis']},false,'Events and source format labels use the same doubles finals policy');
-included(fixture("singles-quarter",{round:"Quarterfinal",eventType:"singles"}),{followedSports:["tennis"]},true,"singles quarter-finals follow Tennis");
+included(fixture("singles-quarter",{round:"Quarterfinal",eventType:"singles"}),{followedSports:["tennis"]},false,"non-followed quarterfinals stay out of Feed");
 const athlete={followedSports:[],preferenceGraph:{entityFollows:[{participantId:"competitor:f1:max-verstappen",followLevel:"follow"}]}};
 included(fixture("nls",{key:"motorsport",participantIds:["competitor:f1:max-verstappen"],stakesScore:1}),athlete,true,"athlete follows cross disciplines");
 included(fixture("excluded",{key:"motorsport",participantIds:["competitor:f1:max-verstappen"],excludedParticipantIds:["competitor:f1:max-verstappen"]}),athlete,false,"confirmed exclusion overrides provisional entry");
-included(fixture("muted",{round:"Final",participantIds:["athlete:tennis:muted"]}),{followedSports:["tennis"],preferenceGraph:{entityFollows:[{participantId:"athlete:tennis:muted",followLevel:"mute"}]}},true,"legacy participant opt-out does not veto broad singles finals");
+included(fixture("muted",{round:"Final",participantIds:["athlete:tennis:muted"]}),{followedSports:["tennis"],preferenceGraph:{entityFollows:[{participantId:"athlete:tennis:muted",followLevel:"mute"}]}},false,"broad tennis grants no non-followed finals admission");
 included(fixture("explicit-muted-final",{round:"Final",participantIds:["athlete:tennis:muted"]}),{version:24,followedSports:["tennis"],preferenceGraph:{entityFollows:[{participantId:"athlete:tennis:muted",followLevel:"mute"}]}},false,"current explicit mute overrides finals admission in client and server");
-included(fixture("neutral-unfollow-final",{round:"Final",participantIds:["athlete:tennis:muted"]}),{version:24,followedSports:["tennis"],preferenceGraph:{entityFollows:[{participantId:"athlete:tennis:muted",followLevel:"unfollow"}]}},true,"ordinary Unfollow remains neutral for finals admission");
+included(fixture("neutral-unfollow-final",{round:"Final",participantIds:["athlete:tennis:muted"]}),{version:24,followedSports:["tennis"],preferenceGraph:{entityFollows:[{participantId:"athlete:tennis:muted",followLevel:"unfollow"}]}},false,"non-followed final stays out of Feed after ordinary Unfollow");
 included(fixture("empty-preferences",{key:"rugby",round:"Final",stakesScore:5}),{},false,"no follows means no unsolicited fixture");
 const footballPlayer=require('../data/canonical/football-follow-index.v1.json').players.find(player=>player.currentTeamId);
 for(const [fields,expected] of [[{},true],[{participantsConfirmed:true},true],[{excludedParticipantIds:[footballPlayer.id]},false]]){

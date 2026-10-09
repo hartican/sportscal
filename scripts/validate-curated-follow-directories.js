@@ -5,7 +5,7 @@ for(const key of ['rugby','tennis']){
  const event={id:'unfollowed',key,name:'Unfollowed A v B',date:'2026-09-10',round:'Round 1',isInternational:true,competitionScope:'international',competitionId:'competition:test',participantIds:['team:test:a','team:test:b']};
  assert.equal(follow.reasonForEvent(event,{followedSports:[key]}),null,key+' ordinary fixture needs participants');
  assert(follow.reasonForEvent(event,{preferenceGraph:{entityFollows:[{participantId:'team:test:a',followLevel:'follow'}]}}));
- assert(follow.reasonForEvent({...event,round:key==='tennis'?'Quarter-final':'Final'},{followedSports:[key]}),'finals admitted within followed sport');
+ assert.equal(Boolean(follow.reasonForEvent({...event,round:key==='tennis'?'Quarter-final':'Final'},{followedSports:[key]})),key!=='tennis','individual tournament knockout needs a follow; ordinary team finals retain admission');
 }
 const cricket={id:'retained-international',key:'cricket',format:'Test',name:'Australia v England',participantIds:['team:cricket:australia','team:cricket:england']};
 assert.equal(follow.reasonForEvent(cricket,{followedSports:['cricket']}),null);

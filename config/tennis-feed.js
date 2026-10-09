@@ -30,12 +30,14 @@
   function participation(parent,children){
     const policy=api('NOTHINGSPORTS_FOLLOW_FEED_POLICY');
     const entries=new Map((parent.sourceParticipation||[]).map(e=>[e.participantId+'|'+e.draw,e]));
-    const removed=new Set(parent.excludedParticipantIds||[]);
+    const removed=new Set(parent.excludedParticipantIds||[]),excluded=new Set(parent.excludedParticipantIds||[]);
+    for(const e of parent.participationEvidence||[])if(['withdrawn','excluded'].includes(e.participationStatus))excluded.add(e.participantId);
     for(const entry of parent.participationEvidence||[]){
       if(['withdrawn','eliminated','excluded'].includes(entry.participationStatus))removed.add(entry.participantId);
       else if(['confirmed','entered','active'].includes(entry.participationStatus))entries.set(entry.participantId+'|entry',{participantId:entry.participantId,draw:'entry',active:true});
     }
     for(const child of children){
+      for(const participantId of child.excludedParticipantIds||[])excluded.add(participantId);
       const draw=child.drawId||child.eventType||child.matchType||(child.contestUnit==='tie'?'ties':'singles');
       const eliminated=new Set([...(child.eliminatedParticipantIds||[]),child.loserParticipantId,...(child.excludedParticipantIds||[])].filter(Boolean));
       if(['cancelled','canceled','withdrawn','abandoned'].includes(String(child.status).toLowerCase()))continue;
@@ -49,7 +51,7 @@
     for(const child of children)for(const rubber of child.rubbers||[])for(const side of rubber.sides||[])for(const participantId of side.participantIds||[]){
       entries.set(participantId+'|team',{participantId,draw:'team',teamId:side.teamId,active:!eliminatedTeams.has(side.teamId)});
     }
-    return [...entries.values()].map(e=>({...e,active:e.active&&!removed.has(e.participantId)&&!eliminatedTeams.has(e.teamId)}));
+    return [...entries.values()].map(e=>({...e,excluded:excluded.has(e.participantId),active:e.active&&!removed.has(e.participantId)&&!eliminatedTeams.has(e.teamId)}));
   }
   function activeParticipants(parent,children){return [...new Set(participation(parent,children).filter(e=>e.active).map(e=>e.participantId))];}
   function reconcile(parent,events){
@@ -62,7 +64,7 @@
   function buildParents(catalogue,fixtures){
     const groups=new Map(),schedule=api('NOTHINGSPORTS_TOURNAMENT_SCHEDULE');
     for(const t of catalogue.tournaments||[]){
-      if(!t.tournamentId||!t.season||!t.sourceUrl)continue;
+      if(!t.tournamentId||!t.season||!t.sourceUrl||!api('NOTHINGSPORTS_FOLLOW_FEED_POLICY').activeEligible({...t,key:'tennis'}))continue;
       let key=parentKey(t);let prior=groups.get(key);
       if(prior && (prior.date!==t.startDate||prior.endDate!==t.endDate)){key=parentKey({...t,phaseId:t.tournamentId});prior=groups.get(key);}
       if(prior){prior.tournamentIds.push(t.tournamentId);prior.representedTours=[...new Set([...prior.representedTours,...(t.representedTours||[t.tour])])];prior.tourCategories.push({tour:t.tour,level:t.level});continue;}
@@ -80,10 +82,13 @@
   function reason(parent,preferences,{collectionsById={},preparedPreferences=null,expandedParticipantIds=null,now=new Date()}={}){
     const policy=api('NOTHINGSPORTS_FOLLOW_FEED_POLICY'),follow=api('NOTHINGSPORTS_FOLLOW_FIRST');
     const prefs=preparedPreferences||follow.migratePreferences(preferences);
-    if(policy.explicitlyExcluded(parent,prefs))return null;
-    if((prefs.followFirst?.followedMajorEventIds||[]).includes(parent.eventFamilyId)||(prefs.preferenceGraph?.competitionPreferences||[]).some(p=>p.competitionId===parent.competitionId&&p.enabled===true))return {type:'event',id:parent.eventFamilyId,displayTag:false};
-    if(parent.endDate && parent.endDate<policy.dateKey(now))return null;
-    const participant=(parent.participantIds||[]).find(id=>follow.effectiveParticipantFollow(id,prefs,collectionsById).followed || expandedParticipantIds?.has(id));
+    if(!policy.activeEligible(parent)||policy.explicitlyExcluded(parent,prefs)||policy.eventExcluded(parent,prefs))return null;
+    if(policy.editionDecision(parent,prefs)==='followed')return {type:'event',id:policy.editionKey(parent),displayTag:false};
+    if(policy.eventFamilyIds(parent).some(id=>(prefs.followFirst?.followedMajorEventIds||[]).includes(id))||(prefs.preferenceGraph?.competitionPreferences||[]).some(p=>p.competitionId===parent.competitionId&&p.enabled===true))return {type:'event',id:parent.eventFamilyId,displayTag:false};
+    const excluded=new Set(parent.excludedParticipantIds||[]),golf=['golf','golf-women','masters'].includes(policy.sportKey(parent));
+    if(golf&&parent.participantsConfirmed!==true)return null;
+    if(golf&&policy.hasAustralianParticipant(parent)&&(prefs.followFirst?.australiansOnlySportIds||[]).includes('sport:golf'))return {type:'sport',id:'golf',displayTag:false};
+    const participant=[...new Set([...(parent.participantIds||[]),...(parent.sourceParticipation||[]).filter(e=>!e.excluded).map(e=>e.participantId)])].find(id=>!excluded.has(id)&&(follow.effectiveParticipantFollow(id,prefs,collectionsById).followed || expandedParticipantIds?.has(id)));
     return participant?{type:participant.startsWith('team:')?'team':'athlete',id:participant,displayTag:false}:null;
   }
   function timingLabel(parent){

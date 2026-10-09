@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildFollowFeedPolicy(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-feed-policy.v11";
+  const SCHEMA_VERSION = "follow-feed-policy.v12";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const SYDNEY_DATE = new Intl.DateTimeFormat('en-CA',{timeZone:SYDNEY_TIME_ZONE,year:'numeric',month:'2-digit',day:'2-digit'});
 
@@ -52,7 +52,7 @@
 
   function aggregateEvent(event){
     if (!event) return true;
-    if(['golf','golf-women','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return false;
+    if(['golf','golf-women','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return multiDayMarker(event);
     if (event.majorEventMarker || event.tournamentParent || event.narrativeType === "tennis-tournament-overview" || event.cardKind === "event" || ["tournament","major_event","ticket_sale"].includes(event.kind)) return true;
     // Legacy published summaries have no typed kind. Do not confuse a dated
     // championship match with the programme for a whole week or round.
@@ -97,17 +97,42 @@
     return [event?.eventFamilyId,event?.majorEventId,event?.parentEventId,event?.eventSeriesId,event?.competitionId].filter(Boolean).map(id=>String(id).replace(/^(?:major-event|major|event|event-series):/, "").replace(/^(?:competition|tournament):/, "").replace(/[:-]\d{4}.*$/, "").split(":").at(-1));
   }
 
+  // Edition choices override recurring choices and derived participation. They
+  // suppress the overview and event-wide coverage, never an independent follow.
+  function editionKey(event){
+    if(!event?.tournamentId && sportKey(event).startsWith('tennis')){const family=eventFamilyIds(event).find(id=>['australian-open','roland-garros','wimbledon','us-open'].includes(id)),year=String(event.date||event.startDate||'').slice(0,4);if(family&&/^20\d{2}$/.test(year))return 'tournament:tennis:grand-slam-'+family+'-'+year;}
+    return String(event?.editionId || event?.tournamentId || event?.tennisTournamentId || event?.majorEventId || event?.canonicalEventId || event?.id || "");
+  }
+  function editionDecision(event, preferences){return preferences?.followFirst?.eventEditionDecisions?.states?.[editionKey(event)] || null;}
+  function eventExcluded(event, preferences){
+    const decision=editionDecision(event,preferences);
+    return decision ? decision === "excluded" : (preferences?.followFirst?.excludedMajorEventIds || []).some(id=>eventFamilyIds(event).includes(id));
+  }
+  function activeEligible(event){
+    if(!sportKey(event).startsWith('tennis'))return true;
+    const levels=[event?.tournamentLevel,event?.level,event?.competitionLevel,...(event?.tourCategories||[]).map(t=>t.level)].filter(Boolean).join(' ');
+    return !/250|125|challenger|itf|atp_challenger/i.test(levels+' '+String(event?.competitionId||''));
+  }
+  function scheduleVisible(event,preferences,collections={}){
+    if(!activeEligible(event))return false;
+    const key=sportKey(event),ids=participantIds(event);
+    if(!key.startsWith('tennis')&&!['golf','golf-women','masters'].includes(key)||ids.some(id=>id.startsWith('team:'))||event.contestUnit==='tie')return true;
+    if(key.startsWith('tennis')&&/^(?:(?:men.s|women.s|singles|doubles|mixed|championship|grand)\s+)*(?:quarter[ -]?finals?|semi[ -]?finals?|finals?|QF|SF)$/i.test(String(event.roundLabel||event.round||event.stage||'').trim()))return true;
+    const follows=globalThis.NOTHINGSPORTS_FOLLOW_FIRST||(typeof require==='function'?require('./follow-first'):null);
+    return ids.some(id=>follows.effectiveParticipantFollow(id,preferences,collections).followed);
+  }
+  function multiDayMarker(event){return Boolean(event?.tournamentParent || event?.majorEventMarker || event?.cardKind==='event' || ['tournament','major_event'].includes(event?.kind) || ['golf','golf-women','masters'].includes(sportKey(event)) && event?.cardType!=='golf_session' && event?.date && event?.endDate>event.date && !event?.startTimeUtc);}
   function explicitlyExcluded(event, preferences){
     const graph = preferences?.preferenceGraph || {};
     const key = sportKey(event);
     return Number(preferences?.version||0)>=24 && (graph.entityFollows||[]).some(f=>f.followLevel==='mute'&&participantIds(event).includes(f.participantId))
-      || (preferences?.followFirst?.excludedMajorEventIds || []).some(id=>eventFamilyIds(event).includes(id))
+      || aggregateEvent(event) && eventExcluded(event,preferences)
       || (graph.competitionPreferences || []).some(p => p.competitionId === event.competitionId && p.enabled === false)
       || effectiveDomainPreferences(event,preferences).some(p => [event.sportDomainId, `sport:${key}`, premiershipDomainId(event)].filter(Boolean).includes(p.sportDomainId) && p.enabled === false);
   }
 
   function sportingFixture(event){
-    if(['golf','golf-women','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return hasPublishedFixture(event);
+    if(['golf','golf-women','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return hasPublishedFixture(event)&&!multiDayMarker(event);
     return hasPublishedFixture(event) && !aggregateEvent(event) && !event.majorEventMarker && !event.tournamentParent
       && event.cardKind !== "event" && !["tournament", "major_event", "ticket_sale"].includes(event.kind);
   }
@@ -217,12 +242,12 @@
   }
 
   function participantFeedEligible(event){
+    if(!activeEligible(event))return false;
     if(!sportKey(event).startsWith('tennis')||participantIds(event).some(id=>id.startsWith('team:')))return true;
-    const reminders=globalThis.NOTHINGSPORTS_REMINDER_POLICY||(typeof require==='function'?require('./fixture-reminder-policy'):null);
-    return Boolean(reminders?.automaticEventScope({...event,key:sportKey(event)}));
+    return /500|1000|grand.?slam|major|masters|team|davis|billie|bjk|finals/i.test([event.tournamentLevel,event.level,event.category,event.competitionCategory].filter(Boolean).join(' '));
   }
   function eligibleForFollow(event,{competitionFollow=false,participantFollow=false,explicitSelection=false,explicitEventFollow=false,sportFollow=false,australiansOnly=false,australianDiscovery=false,muted=false}={}){
-    if(!hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event))return false;
+    if(event.universeOnly || !activeEligible(event) || !hasPublishedFixture(event) || aggregateEvent(event) && !multiDayMarker(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
     if(['golf','golf-women','masters'].includes(sportKey(event))){
@@ -233,10 +258,10 @@
       return presidentsCup(event)?(explicitEventFollow||competitionFollow&&event.tournamentParent===true):competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event));
     }
     if(participantFollow&&participantFeedEligible(event))return true;
-    if(sportFollow && isFinalsOrKnockout(event))return true;
+    if(sportFollow && (!sportKey(event).startsWith('tennis')||event.contestUnit==='tie') && isFinalsOrKnockout(event))return true;
     if(!sportingFixture(event))return false;
     if(sportKey(event)==="f1" && competitionFollow)return true;
-    if(sportKey(event).startsWith("tennis"))return competitionFollow && tennisModel().isFinal(event);
+    if(sportKey(event).startsWith("tennis"))return event.contestUnit==='tie'&&competitionFollow&&tennisModel().isFinal(event);
     if(explicitEventFollow)return isMarquee(event);
     if(["cricket","rugby"].includes(sportKey(event)))return false;
     if(australiansOnly && australiansFilterUseful(event))return competitionFollow && hasAustralianParticipant(event);
@@ -245,7 +270,7 @@
   }
 
   function followedFixtureDecision(event, { followed = false, followSource = "sport", now = new Date(), timeZone = SYDNEY_TIME_ZONE } = {}){
-    if (!followed || !hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event)) return { mode:"ineligible", include:false, label:"Add to Feed" };
+    if (!followed || !hasPublishedFixture(event) || aggregateEvent(event) && !multiDayMarker(event) || !feedEligibleSession(event)) return { mode:"ineligible", include:false, label:"Add to Feed" };
     if (["team", "athlete", "collection", "entity", "australians", "competition"].includes(String(followSource || ""))){
       return participantFeedEligible(event)?{ mode:"direct", include:true, label:"In Feed via follow" }:{mode:"manual",include:false,label:"Add to Feed"};
     }
@@ -253,5 +278,5 @@
     return { mode:"manual", include:false, label:"Add to Feed" };
   }
 
-  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, presidentsCup, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, eventFamilyIds, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, participantFeedEligible, followedFixtureDecision });
+  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, presidentsCup, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, eventFamilyIds, editionKey, editionDecision, eventExcluded, activeEligible, scheduleVisible, multiDayMarker, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, participantFeedEligible, followedFixtureDecision });
 });

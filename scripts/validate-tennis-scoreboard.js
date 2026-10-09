@@ -15,7 +15,7 @@ assert(require('./update-cards').buildSteps({localOnly:true}).some(s=>s[0]==='sc
 const prefs={version:27,onboardingComplete:true,selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]},followFirst:{collectionFollows:['collection:tennis:womens-top-10'],notifications:{enabled:false,sportingRemindersEnabled:false,autoRemindersEnabled:false}}};
 const pipeline=require('../lib/server-feed-pipeline');const build=state=>pipeline.buildServerFeed({events:[next],userId:'qa-auto-tennis',userState:state,now,limit:50});const contains=r=>r.events.some(e=>(e.canonicalEventId||e.id)===next.id);
 assert(contains(build({preferences:prefs})),'Newly discovered fixtures automatically enter the existing collection Feed');assert(!contains(build({preferences:{}})),'Discovery does not establish a follow');
-assert(!contains(build({preferences:{...prefs,followFirst:{...prefs.followFirst,excludedMajorEventIds:['china-open']}}})),'Competition exclusion wins over discovery');
+assert(contains(build({preferences:{...prefs,followFirst:{...prefs.followFirst,excludedMajorEventIds:['china-open']}}})),'Event unfollow retains independently followed player fixtures');
 assert(!contains(pipeline.buildServerFeed({events:[next],userId:'qa-auto-tennis',userState:{preferences:prefs,event_user_state:{[next.id]:{dismissed:true}}},now,limit:50,athletesOnly:true})),'Dismissal wins over discovery');
 assert.equal(require('../config/fixture-reminder-policy').timing(next),null);
 assert(next.estimatedStartTimeUtc);assert.equal(next.expected,null,'Published facts do not invent a Heat prediction');assert(!Object.hasOwn(next,'stakesScore'));

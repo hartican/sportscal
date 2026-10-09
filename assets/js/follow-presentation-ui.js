@@ -42,7 +42,7 @@ function buildFootballDirectoryToolbar(directory, filters, sportKey = "football"
   });
   searchField.appendChild(search);
   toolbar.appendChild(searchField);
-  const leagueOptions = [["", "All leagues"], ...directory.leagues.map(league => [league.id, league.displayName])];
+  const leagueOptions = [["", "All leagues"], ...directory.leagues.map(league => [league.id, league.displayName||league.name])];
   toolbar.appendChild(buildDirectorySelect("League", filters.leagueId, leagueOptions, leagueId => {
     updateDirectoryFilters(sportKey, { leagueId, teamId: "", expandedTeamIds: [], expandedTeamId: "" }); renderStandingsContext();
   }));
@@ -306,8 +306,6 @@ function renderLegacyParticipantDirectory(container, sportKey){
   const selectedCollectionMemberIds = new Set(collectionsById.get(filters.collectionId)?.memberIds || []);
   const records = allRecords
     .filter(record=>!sportKey.startsWith('cricket')||NOTHINGSPORTS_CRICKET_COVERAGE.policy.bblTeams.some(n=>record.id==='team:cricket:'+n)===(filters.cricketFormat==='BBL'))
-    .filter(record => !curatedIds.length || filters.query || filters.genderCategory === "female" || curatedOrder.has(record.id))
-    .filter(record => !['tennis','golf'].includes(sportKey.replace(/-women$/,''))||filters.query||filters.collectionId||record.entityType!=='athlete'||record.current&&Number.isFinite(record.rank)&&record.rank>=1&&record.rank<=(sportKey.replace(/-women$/,'')==='golf'&&record.genderCategory==='female'?5:10))
     .filter(record => !separatedEntityDirectory || record.entityType === filters.entityType)
     .filter(record => !filters.collectionId || selectedCollectionMemberIds.has(record.id))
     .filter(record => !filters.birthCountryCode || record.countryCode === filters.birthCountryCode)
@@ -372,7 +370,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
   });
   field.appendChild(search);
   toolbar.appendChild(field);
-  if (sportKey === "tennis" && collectionsById.size){
+  if (sportKey.startsWith("tennis") && collectionsById.size){
     const listOptions = [["", "All players"], ...Array.from(collectionsById.values())
       .sort((first, second) => Number(first.sortOrder || 0) - Number(second.sortOrder || 0))
       .map(collection => [collection.id, collection.label])];
@@ -462,18 +460,6 @@ function renderLegacyParticipantDirectory(container, sportKey){
     const wrcRole = ({ driver:"Driver", "co-driver":"Co-driver", manufacturer:"Manufacturer" })[record.position];
     detail.textContent = `${isWrcRecord ? wrcRole || (athlete ? "Competitor" : "Manufacturer") : motorsportDirectory ? (athlete ? "Driver" : "Constructor") : record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${numberLabel}${rankLabel}`;
     copy.append(name, detail);
-    if (Array.isArray(record.collectionIds) && record.collectionIds.length){
-      const chips = document.createElement("span");
-      chips.className = "follow-collection-chips";
-      record.collectionIds.forEach(collectionId => {
-        const collection = followCollectionsById()[collectionId];
-        if (!collection) return;
-        const chip = document.createElement("span");
-        chip.textContent = collection.label;
-        chips.appendChild(chip);
-      });
-      if (chips.childElementCount) copy.appendChild(chips);
-    }
     const follow = record.profileOnly ? document.createElement("span") : buildDirectoryFollowButton(record.id, { sportKey, label: record.displayName });
     [icon,copy].forEach(target=>{target.dataset.profileTrigger=(target===icon?'icon:':'copy:')+record.id;target.setAttribute('aria-label',`Open ${record.displayName} profile in Follow`);target.setAttribute('role','button');target.tabIndex=0;target.onclick=()=>void openAthleteProfile(record.id,record.displayName,isF1Record?'f1':sportKey,target);target.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();target.click();}};});
     row.append(icon, copy, follow);
@@ -518,65 +504,15 @@ function renderTeamsAndPlayersDirectoryLoaded(container){
     const sportKey=session.directorySportKey,chunk=followDirectoryChunks.get(sportKey);
     if(!chunk||!footballDirectoryApi){renderLegacyParticipantDirectory(container,sportKey);return;}
     const teams=chunk.records.filter(record=>record.entityType==='team'),byTeam=new Map(teams.map(record=>[record.id,record])),leagues=new Map();
-    const records=chunk.records.map(record=>{const leagueId=record.leagueId||byTeam.get(record.currentTeamId)?.leagueId||'competition:'+sportKey;leagues.set(leagueId,{id:leagueId,name:record.leagueName||leagueId.replace(/^competition:/,'').replaceAll('-',' ')});return {...record,leagueId,...(/birth/i.test(record.countryBasis||'')?{birthCountryCode:record.countryCode}:{}),rank:record.ranking};});
+    const records=chunk.records.map(record=>{const leagueId=record.leagueId||byTeam.get(record.currentTeamId)?.leagueId||'competition:'+sportKey;leagues.set(leagueId,{id:leagueId,displayName:record.leagueName||leagueId.replace(/^competition:/,'').replaceAll('-',' ')});return {...record,leagueId,...(/birth/i.test(record.countryBasis||'')?{birthCountryCode:record.countryCode}:{}),rank:record.ranking};});
     renderFootballDirectory(container,{sportKey,directoryData:{teams:records.filter(r=>r.entityType==='team'),players:records.filter(r=>r.entityType==='athlete'),leagues:[...leagues.values()]}});
   }else renderLegacyParticipantDirectory(container,session.directorySportKey);
-}
-
-function renderTennisFollowCollections(container){
-  const chunk = followDirectoryChunks.get("tennis");
-  const panel = document.createElement("div");
-  panel.className = "tennis-follow-collections";
-  panel.setAttribute("aria-label", "Tennis follow collections");
-  if (!chunk){
-    panel.textContent = followDirectoryChunkErrors.has("tennis") ? "Tennis groups are temporarily unavailable. Tap to retry." : "Loading Tennis groups…";
-    panel.addEventListener("click", () => {
-      followDirectoryChunkErrors.delete("tennis");
-      void loadFollowDirectoryChunk("tennis").then(() => queueScrollIdleMutation(renderFollowView)).catch(() => queueScrollIdleMutation(renderFollowView));
-    }, { once:true });
-    if (!followDirectoryChunkErrors.has("tennis") && !followDirectoryChunkLoading.has("tennis")) void loadFollowDirectoryChunk("tennis").then(() => {
-      if (activeTab === "follow" && followDirectoryKey() === "tennis") queueScrollIdleMutation(renderFollowView);
-    }).catch(() => {
-      if (activeTab === "follow" && followDirectoryKey() === "tennis") queueScrollIdleMutation(renderFollowView);
-    });
-    container.appendChild(panel);
-    return panel;
-  }
-  (chunk.collections || []).slice().sort((first, second) => Number(first.sortOrder || 0) - Number(second.sortOrder || 0)).forEach(collection => {
-    const selected = userPreferences.followFirst.collectionFollows.includes(collection.id);
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `tennis-collection-toggle${selected ? " active" : ""}`;
-    button.setAttribute("aria-pressed", String(selected));
-    const copy = document.createElement("span");
-    const label = document.createElement("strong");
-    label.textContent = collection.label;
-    const detail = document.createElement("small");
-    detail.textContent = `${collection.memberIds.length} players · inherited follow with individual opt-out`;
-    const state = document.createElement("b");
-    state.textContent = selected ? "On" : "Off";
-    copy.append(label, detail);
-    button.append(copy, state);
-    button.addEventListener("click", event => {
-      event.stopPropagation();
-      const enabled = button.getAttribute("aria-pressed") !== "true";
-      savePreferences(FOLLOW_FIRST.setCollectionFollow(userPreferences, collection.id, enabled));
-      button.setAttribute("aria-pressed", String(enabled));
-      button.classList.toggle("active", enabled);
-      button.querySelector("b").textContent = enabled ? "On" : "Off";
-      renderTabCounts();
-      showToast(`${collection.label}: ${enabled ? "followed" : "not followed"}.`);
-    });
-    panel.appendChild(button);
-  });
-  container.appendChild(panel);
-  return panel;
 }
 
 function renderFollowViewLoaded(){
   if(!globalThis.NOTHINGSPORTS_FOLLOW_NAV){
     const panel=document.getElementById('listView');panel.replaceChildren();buildFollowHomeTabs(panel);const state=document.createElement('p');state.textContent='Loading sports…';state.setAttribute('role','status');panel.append(state);
-    void loadDeferredScript('assets/js/follow-navigation.js?v=463').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
+    void loadDeferredScript('assets/js/follow-navigation.js?v=467').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
   }
   const oldNavigation=document.querySelector('#listView > .follow-navigation');
   if(oldNavigation){for(const child of [...oldNavigation.querySelector('#follow-navigation-controls').children])oldNavigation.before(child);oldNavigation.remove();}
@@ -594,7 +530,7 @@ function renderFollowViewLoaded(){
   const gender=state.gender||(female({id:state.sportId})?'women':'men');
   const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2||['sport:aflw','sport:nrlw'].includes(entity.id)).filter(entity=>female(entity)===(gender==='women')));
   const genderTabs=document.createElement('nav');genderTabs.className='follow-gender-tabs events-view-tabs';genderTabs.setAttribute('role','tablist');genderTabs.setAttribute('aria-label','Browse sports gender');
-  for(const [value,label]of [['men','Men'],['women','Women']]){const button=document.createElement('button');button.type='button';button.className='btn ghost'+(value===gender?' active':'');button.textContent=label;button.setAttribute('role','tab');button.setAttribute('aria-selected',String(value===gender));button.onclick=()=>{if(value===gender)return;const sportId=value==='women'?'sport:tennis-women':rankedFollowGridSports(BASE_SPORT_SELECTOR_ENTITIES.filter(e=>Number(e.level)===2&&!female(e)))[0]?.id||'sport:afl';saveFollowBrowse({gender:value,sportId,categoryId:'',section:'teams-players'});activeInspectorCodeId=null;renderFollowView();};genderTabs.append(button);}
+  for(const [value,label]of [['men','Men'],['women','Women']]){const button=document.createElement('button');button.type='button';button.className='btn ghost'+(value===gender?' active':'');button.textContent=label;button.setAttribute('role','tab');button.setAttribute('aria-selected',String(value===gender));button.onclick=()=>{if(value===gender)return;const sportId=value==='women'?'sport:tennis-women':rankedFollowGridSports(BASE_SPORT_SELECTOR_ENTITIES.filter(e=>Number(e.level)===2&&!female(e)))[0]?.id||'sport:afl';const genderRoutes={...(state.genderRoutes||{}),[gender]:{sportId:state.sportId,categoryId:state.categoryId,section:state.section}};saveFollowBrowse({sportId,categoryId:'',section:'teams-players',...(genderRoutes[value]||{}),gender:value,genderRoutes});activeInspectorCodeId=null;renderFollowView();};genderTabs.append(button);}
   for(const [index,button]of [...genderTabs.children].entries())button.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const target=event.key==='Home'?0:event.key==='End'?1:1-index;genderTabs.children[target].click();requestAnimationFrame(()=>container.querySelector('.follow-gender-tabs [aria-selected="true"]')?.focus({preventScroll:true}));});
   container.insertBefore(genderTabs,retainedBar);
   const primarySports=rankedFollowGridSports(sports);
@@ -688,29 +624,15 @@ function renderFollowViewLoaded(){
   }
   activeInspectorCodeId=null;
   if(followViewSection==='major-events'){
-    if(followDirectoryKey(entity)==='tennis'){renderTennisMajorEvents(container);return;}
-    const grid=document.createElement('div');grid.className='setup-choice-grid';
-    const keys=new Set([followDirectoryKey(entity),...(entity.canonicalSportKeys || [])]);
-    FOLLOW_FIRST.MAJOR_EVENT_FAMILIES.filter(record=>record.sportIds.some(id=>keys.has(id))).forEach(record=>{
-      const card=document.createElement('div');card.className='choice-card follow-event-family';card.dataset.eventFamilyId=record.id;card.dataset.scrollKey=`follow-event-family:${record.id}`;
-      const followed=userPreferences.followFirst.followedMajorEventIds.includes(record.id);
-      const toggle=document.createElement('button');toggle.type='button';toggle.className='follow-event-family-toggle';toggle.dataset.eventFamilyLabel=record.label;toggle.textContent=`${followed?'Unfollow':'Follow'} ${record.label}`;toggle.setAttribute('aria-pressed',String(followed));toggle.onclick=()=>toggleMajorEventFollow(record.id);
-      const edition=MAJOR_EVENTS?.activeEditionForFamily?.(majorEventsDocument,record.id,nowAEST());
-      if(record.majorSlug){const identity=document.createElement('span');identity.className='follow-sport-mark identity-frame';identity.style.cssText='display:block;width:64px;height:44px;margin:0 auto 8px';renderEventIdentityMark(identity,{key:'golf',golfMajorCalendar:true,majorSlug:record.majorSlug},{...sportMetaForEvent({key:'golf'}),glyph:'sport:golf',label:record.label});card.append(identity);}
-      card.appendChild(toggle);
-      if(edition){const open=document.createElement('button');open.type='button';open.className='btn ghost';open.textContent='Open in Events';open.onclick=()=>openMajorEventInEvents(edition.id);card.appendChild(open);}
-      grid.appendChild(card);
-    });
-    if(!grid.childElementCount){const empty=document.createElement('p');empty.textContent='No major events published for this category.';grid.appendChild(empty);}
-    container.appendChild(grid);
-    installFollowEventBulk(container);
-    if(!majorEventsDocument && !majorEventsLoading) void loadMajorEventsData().then(()=>{if(activeTab==='follow')queueScrollIdleMutation(renderFollowView);});
+    if(followDirectoryKey(entity).startsWith('tennis')){renderTennisMajorEvents(container);return;}
+    const host=document.createElement('div');host.textContent='Loading published events…';container.append(host);
+    void loadDeferredScript('config/event-overviews-ui.js?v=467').then(()=>NOTHINGSPORTS_EVENT_OVERVIEWS_UI.followRows(host,followDirectoryKey(entity))).catch(()=>{if(host.isConnected){host.textContent='Events could not load. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry events';retry.onclick=renderFollowView;host.append(retry);}});
     return;
   }
   const panel=document.createElement('section');panel.className='follow-section-panel';panel.dataset.scrollKey=`follow-directory:${entity.id}`;
   const key=followDirectoryKey(entity);updateStandingsDirectorySession({directorySportKey:key});
   const content=document.createElement('div');content.className='follow-directory-content';
-  renderTeamsAndPlayersDirectory(content);content.querySelector('.football-directory-sport-choice')?.remove();
+  renderTeamsAndPlayersDirectory(content);const guide=document.createElement('p');guide.className='chat-empty';guide.textContent='Your individual follows choose the matches in Feed. Lists only filter this page; follow the players you want to see.';content.prepend(guide);content.querySelector('.football-directory-sport-choice')?.remove();
   content.querySelectorAll('.football-directory-field').forEach(field=>{if(field.querySelector('input[type=search]'))field.remove();});
   const search=document.createElement('div');search.className='follow-global-search';panel.append(search,content);container.appendChild(panel);
   void loadDeferredScript('assets/js/participant-search-ui.js?v=463').then(()=>{if(search.isConnected)NOTHINGSPORTS_PARTICIPANT_SEARCH.mount(search,content);}).catch(()=>{search.textContent='Search could not load. Select a participant below.';});

@@ -14,7 +14,7 @@
  function next(events,id,now=Date.now()){
   const day=SYDNEY_DATE.format(new Date(now));
   const tees=events.filter(e=>e.cardType==='golf_appearance'&&involves(e,id)&&Date.parse(e.startTimeUtc)>=now&&!/^(completed|cancelled|postponed|suspended)$/.test(e.status||''));
-  return events.filter(e=>(e.cardType!=='golf_appearance'||Date.parse(e.startTimeUtc)>=now)&&!tees.some(t=>t.parentEventId===e.id)&&involves(e,id)&&!(/^(completed|finished|final|cancelled|canceled|abandoned|withdrawn)$/.test(e.status||''))).filter(e=>Date.parse(e.startTimeUtc||'')>=now||e.date>=day||e.participantsConfirmed===true&&!e.date&&!e.startTimeUtc&&e.schedulingWindow?.endsOn>=day||/^(live|in-progress|stumps|suspended|interrupted)$/.test(e.status||''))
+  return events.filter(e=>globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY?.activeEligible(e)!==false).filter(e=>(e.cardType!=='golf_appearance'||Date.parse(e.startTimeUtc)>=now)&&!tees.some(t=>t.parentEventId===e.id)&&involves(e,id)&&!(/^(completed|finished|final|cancelled|canceled|abandoned|withdrawn)$/.test(e.status||''))).filter(e=>Date.parse(e.startTimeUtc||'')>=now||e.date>=day||e.participantsConfirmed===true&&!e.date&&!e.startTimeUtc&&e.schedulingWindow?.endsOn>=day||/^(live|in-progress|stumps|suspended|interrupted)$/.test(e.status||''))
    .sort((a,b)=>{const fresh=e=>/^(live|in-progress)$/.test(e.status||'')&&Date.parse(e.statusCheckedAt||e.livePlayObservedAt||'')<=now&&now-Date.parse(e.statusCheckedAt||e.livePlayObservedAt||'')<=1800000;return Number(fresh(b))-Number(fresh(a))||(Date.parse(a.startTimeUtc||a.date)||Infinity)-(Date.parse(b.startTimeUtc||b.date)||Infinity);})[0]||null;
  }
  // Partition once so sorting a large Follow list never rescans the catalogue.
@@ -29,7 +29,7 @@
   for(const edition of document.editions||[]){
    const participation=edition.participation.find(p=>identity(p.playerId)===identity(id)&&p.status==='confirmed');
    const window=edition.tourWindows.find(w=>w.tour===player.tour&&w.startDate<=day&&w.endDate>=day);
-   if(!participation||!window||policy.explicitlyExcluded({id:edition.id,key:'tennis',eventFamilyId:edition.eventFamilyId,tournamentId:window.tournamentId,competitionId:window.tournamentId},preferences))continue;
+   if(!participation||!window||!policy.activeEligible({key:'tennis',tournamentLevel:window.level||edition.category})||policy.explicitlyExcluded({id:edition.id,key:'tennis',cardKind:'event',eventFamilyId:edition.eventFamilyId,tournamentId:window.tournamentId,competitionId:window.tournamentId},preferences))continue;
    const review=document.coverageReviews?.find(r=>r.editionId===edition.id&&r.tour===player.tour);
    return {edition,participation,window,review};
   }

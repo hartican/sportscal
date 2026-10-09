@@ -170,6 +170,7 @@ function eventMatchesCode(event, code){
   return (CODE_KEYS[code.id] || [code.slug]).some(key => values.some(value => value === key || value.includes(key)));
 }
 
+const clubCrests=new Map(require('../config/football-club-crests.json').clubs.map(c=>[c.participantId,c.logoUrl]));
 function participantSlots(event){
   if (event?.participantDisplayMode === "field") return [];
   const nationalTeams = nationalTeamIdentities.identitiesForEvent(event);
@@ -178,7 +179,7 @@ function participantSlots(event){
       slot: slot.slot || index + 1,
       participantId: nationalTeamIdentities.canonicalId(slot.participantId) || nationalTeams[index]?.id || null,
       label: slot.label || canonicalParticipantNames.get(nationalTeamIdentities.canonicalId(slot.participantId)) || nationalTeams[index]?.displayName || null,
-      logoUrl:nationalTeamIdentities.teamForId(slot.participantId)?.assetPath || slot.logoUrl || null,
+      logoUrl:nationalTeamIdentities.teamForId(slot.participantId)?.assetPath || slot.logoUrl || clubCrests.get(slot.participantId) || null,
       ...(slot.homeAway ? { homeAway:slot.homeAway } : {}),
       ...(slot.score != null ? { score:String(slot.score) } : {}),
     }));
@@ -188,7 +189,7 @@ function participantSlots(event){
       slot: index + 1,
       participantId,
       label: canonicalParticipantNames.get(participantId) || nationalTeamIdentities.teamForId(participantId)?.displayName || (event.participants || []).find(p=>p.id===participantId)?.name || null,
-      logoUrl:nationalTeamIdentities.teamForId(participantId)?.assetPath || null,
+      logoUrl:nationalTeamIdentities.teamForId(participantId)?.assetPath || (event.participants||[]).find(p=>p.id===participantId)?.logoUrl || clubCrests.get(participantId) || null,
     }));
   }
   if (nationalTeams.length === 2){

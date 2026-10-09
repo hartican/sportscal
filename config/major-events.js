@@ -65,9 +65,15 @@
   }
 
   function followed(record, followedInput){
+    const decision=editionDecision(record,followedInput);if(decision)return decision==='followed';
     const selected = followedSportKeys(followedInput);
     const keys = Array.isArray(record?.sportKeys) && record.sportKeys.length ? record.sportKeys : [record?.sportKey];
     return selected.has("*") || keys.some(key => selected.has(String(key || "").toLowerCase()));
+  }
+
+  function editionDecision(record,input){
+    const policy=globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY||(typeof require==='function'?require('./follow-feed-policy'):null);
+    return (input?.eventEditionDecisions||input?.followFirst?.eventEditionDecisions)?.states?.[policy?.editionKey({...record,key:record.sportKey})||record.id];
   }
 
   function eventFamilyId(record){
@@ -109,6 +115,8 @@
     const parents = records.filter(record => competitionClassification?.belongsInEvents?.(record) !== false
       && record.kind !== "ticket_sale"
       && record.lifecycleStatus !== "retired"
+      && editionDecision(record,followedInput)!=='excluded'
+      && (!followedInput?.excludedEventFamilyIds?.includes(eventFamilyId(record))||editionDecision(record,followedInput)==='followed')
       && (
         followed(record, followedInput)
         || followedEventFamilyIds.has(eventFamilyId(record))
