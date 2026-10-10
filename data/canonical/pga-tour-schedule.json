@@ -5394,7 +5394,81 @@
       "statusSource": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
       "participationCheckedAt": "2026-10-10T19:13:55.658Z",
       "participationScope": "ranked-and-explicit-follows",
-      "participationScopeCheckedOn": "2026-10-06"
+      "participationScopeCheckedOn": "2026-10-06",
+      "roundScores": [
+        {
+          "participantId": "competitor:golf:adam-scott",
+          "name": "Adam Scott",
+          "position": "T4",
+          "total": "-12",
+          "roundScore": "-6",
+          "thru": "F",
+          "currentRound": 3,
+          "rounds": [
+            "69",
+            "67",
+            "65",
+            "-"
+          ],
+          "roundStatus": "R3 Completed",
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+          "sourceCheckedAt": "2026-10-10T22:54:28.705Z"
+        },
+        {
+          "participantId": "competitor:golf:xander-schauffele",
+          "name": "Xander Schauffele",
+          "position": "T12",
+          "total": "-9",
+          "roundScore": "-6",
+          "thru": "F",
+          "currentRound": 3,
+          "rounds": [
+            "70",
+            "69",
+            "65",
+            "-"
+          ],
+          "roundStatus": "R3 Completed",
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+          "sourceCheckedAt": "2026-10-10T22:54:28.705Z"
+        },
+        {
+          "participantId": "competitor:golf:min-woo-lee",
+          "name": "Min Woo Lee",
+          "position": "T17",
+          "total": "-7",
+          "roundScore": "+1",
+          "thru": "F",
+          "currentRound": 3,
+          "rounds": [
+            "67",
+            "67",
+            "72",
+            "-"
+          ],
+          "roundStatus": "R3 Completed",
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+          "sourceCheckedAt": "2026-10-10T22:54:28.705Z"
+        },
+        {
+          "participantId": "competitor:golf:wyndham-clark",
+          "name": "Wyndham Clark",
+          "position": "T62",
+          "total": "+3",
+          "roundScore": "+3",
+          "thru": "F*",
+          "currentRound": 3,
+          "rounds": [
+            "70",
+            "72",
+            "74",
+            "-"
+          ],
+          "roundStatus": "R3 Completed",
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+          "sourceCheckedAt": "2026-10-10T22:54:28.705Z"
+        }
+      ]
     },
     {
       "id": "fixture:golf:pga:R2026528",

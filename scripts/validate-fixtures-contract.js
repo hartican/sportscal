@@ -29,27 +29,40 @@ assert.doesNotMatch(html, /appendManualMustWatchQueue|setMustWatch\(|Add to Must
 assert(!html.includes('label.className = "new-tag"') && html.includes("seenThreshold: 0.6") && html.includes("seenDelayMs: 800"), "seen-state learning must retain the durable 60%-for-800ms lifecycle without exposing a New label");
 const markerSource = html.slice(html.indexOf("function buildTournamentMarker(event){"), html.indexOf("function buildEuropeanDetail("));
 const majorMarkerSource = html.slice(html.indexOf("function buildMajorEventMarker(event){"), html.indexOf("function compareDismissedEventRecords("));
-const element = tag => ({tagName:tag.toUpperCase(),dataset:{},children:[],classList:{add(){}},append(...children){this.children.push(...children);}});
+const element = tag => ({tagName:tag.toUpperCase(),dataset:{},children:[],listeners:{},classList:{add(){}},setAttribute(k,v){this[k]=v;},addEventListener(k,f){this.listeners[k]=f;},append(...children){this.children.push(...children);}});
+const descendants=n=>[n,...n.children.flatMap(descendants)];
 const routes = [];
 const markerContext = {
   document:{createElement:element},
+  tennisFeedOpenParents:new Set(),
+  loadDeferredScript:()=>Promise.resolve(),
+  NOTHINGSPORTS_TOURNAMENT_CARD_UI:{render(){}},
+  queueMicrotask,
   NOTHINGSPORTS_AUSTRALIAN_DATES:{date:value=>value},
   buildEventEditionToggle:()=>element("button"),
   buildEventCardControls:()=>element("div"),
   openMajorEventInEvents:(id, options)=>routes.push({id,tournament:options.tournament}),
 };
 vm.createContext(markerContext);
-vm.runInContext(markerSource + "\n" + majorMarkerSource, markerContext);
+const detailSource=fs.readFileSync("assets/js/tournament-card-ui.js","utf8");
+const actionSource=detailSource.slice(detailSource.indexOf("function actions(parent){"),detailSource.indexOf("async function render("));
+markerContext.node=(tag,value,cls)=>Object.assign(element(tag),{textContent:value,className:cls});
+vm.runInContext(markerSource + "\n" + majorMarkerSource+"\n"+actionSource, markerContext);
 for (const major of [true, false]){
   const event = {id:major ? "major-event:reviewed" : "tournament:reviewed",name:"Reviewed event",date:"2026-10-01",endDate:"2026-10-03",majorEventMarker:major};
   event.majorEventId = major ? event.id : null;
   const card = major ? markerContext.buildMajorEventMarker(event) : markerContext.buildTournamentMarker(event);
-  const open = card.children[2].children.find(child=>child.textContent==="Open in Events");
+  const actionRow=markerContext.actions(event);
+  const open = descendants(actionRow).find(child=>child.textContent==="Open in Events");
+  const details=descendants(card).find(child=>child.tagName==="DETAILS");
+  assert(details && !details.open,"Tournament markers start narrow and collapsed");
+  details.open=true;details.listeners.toggle();assert(markerContext.tennisFeedOpenParents.has(event.id),"Opening a tournament retains expansion state");
+  details.open=false;details.listeners.toggle();assert(!markerContext.tennisFeedOpenParents.has(event.id),"Closing a tournament clears expansion state");
   assert(open && open.tagName === "BUTTON" && open.type === "button", "major event and tournament markers must expose a native keyboard button into Events");
   open.onclick({stopPropagation(){}});
   assert.deepEqual(routes.at(-1), {id:event.id,tournament:!major}, "the marker must open its exact event with the appropriate route");
 }
-assert(html.includes('footer.className = "event-compact-footer"') && html.includes('openEvents.textContent = "View in Events"'), "linked fixture cards must expose the optional compact expanded-footer Events action");
+assert(detailSource.includes('Open in Events') && detailSource.includes('pendingTournamentFocusFixture=parent'), "Expanded tournament cards route their exact edition into Events");
 assert(!html.includes("pruneUnavailableFootballFollows"), "directory membership changes must preserve explicit player follows");
 assert.match(html, /--fixture-card-collapsed-height:248px[\s\S]{0,500}\.cards-grid > \.event-card\[data-card-state="compact"\][\s\S]{0,500}height:var\(--fixture-card-collapsed-height\)/, "all collapsed fixture variants must share one outer height");
 assert(!fs.existsSync("data/football/fixtures/a-league-men.json") && !fs.existsSync("data/football/fixtures/a-league-men.js"), "A-League fixture bundles must be removed from active data");

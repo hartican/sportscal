@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cricket-women",
   "label": "Cricket Women",
-  "generatedAt": "2026-10-07T23:14:37.555Z",
+  "generatedAt": "2026-10-10T20:27:38.375Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -24,7 +24,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24268",
+      "leagueId": "competition:cricket:4606",
+      "leagueName": "Australia v Bangladesh ODIs 2026 - Women",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:australia-women",
@@ -35,12 +36,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.cricket.com.au/",
-        "https://www.espn.in/cricket/series/24268/game/1528724/australia-women-vs-new-zealand-women-3rd-t20i-24268"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-27T06:40:38.678Z",
+      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
       "sourceReviewAfter": null
     }
   ],

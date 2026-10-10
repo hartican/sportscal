@@ -404,6 +404,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-nbl-match-context.js", "--published"],
   ["scripts/validate-match-centre.js"],
   ["scripts/validate-current-score-placement.js"],
+  ["scripts/validate-full-scorecards.js"],
   ["scripts/validate-event-overviews.js"],
   ["scripts/validate-tennis-feed-normalisation.js"],
   ["scripts/validate-tournament-hydration.js"],
@@ -576,6 +577,15 @@ async function runMain() {
     runStep(['scripts/build-code-inspector.js','--codes=golf']);
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
     return;
+  }
+  if(process.argv.includes('--golf-scorecards')){
+    await require('./refresh-pga-schedule').refreshCurrentScorecard();
+    const review=require('./lib/golf-retained-review').apply();
+    for(const step of [
+      ...(review.feedChanged?[['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js']]:[]),
+      ['scripts/build-code-inspector.js','--codes=golf'],['scripts/build-follow-directories.js','--codes=golf,golf-women'],['scripts/build-tournament-horizon.js'],['scripts/validate-tournament-hydration.js'],['scripts/validate-full-scorecards.js']
+    ])runStep(step);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);return;
   }
   if(process.argv.includes('--golf-quality')){
     const review=require('./lib/golf-retained-review').apply();
@@ -874,6 +884,7 @@ async function runMain() {
       const sources=require('../lib/source-coverage').coverageSources().filter(source=>source.id===coverageScope.split('=')[1]);
       await require('./refresh-source-coverage').refreshCoverage({sources,scoped:true});
       runStep(['scripts/build-code-inspector.js','--codes=cricket']);
+      runStep(['scripts/build-follow-directories.js','--codes=cricket,cricket-women,rugby,rugby-women']);
       runStep(['scripts/validate-source-coverage.js']);
       runStep(['scripts/validate-asia-cup-source.js','--published']);
       return;

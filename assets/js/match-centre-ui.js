@@ -83,27 +83,22 @@ loadMatchCentreStyles();
   const head=node('thead'),tr=node('tr');for(const [title] of columns){const th=node('th',title);th.scope='col';tr.append(th);}head.append(tr);table.append(head);
   const body=node('tbody');for(const row of rows){const tr=node('tr');columns.forEach(([,key],index)=>{const cell=node(index?'td':'th',row[key]??'—');if(!index)cell.scope='row';tr.append(cell);});body.append(tr);}table.append(body);wrap.append(table);container.append(wrap);
  }
- function cricketDetails(container,innings){
-  for(const inning of innings||[]){const title=[inning.team||'Innings',inning.inningNumber?`innings ${inning.inningNumber}`:null].filter(Boolean).join(' · ');
-   scoreTable(container,title,[['Runs','runs'],['Wickets','wickets'],['Overs','overs']],[inning]);
-   scoreTable(container,'Batting · '+title,[['Player','name'],['Runs','runs'],['Balls','balls'],['4s','fours'],['6s','sixes'],['Dismissal','dismissal'],['Bowled by','bowledBy']],inning.batting);
-   scoreTable(container,'Bowling · '+title,[['Player','name'],['Overs','overs'],['Maidens','maidens'],['Runs','runs'],['Wickets','wickets']],inning.bowling);
-  }
- }
+ function cricketDetails(container,innings,fixtureId){if(innings?.length){const selected=container.querySelector('[aria-label="Scorecard innings"]')?.value;container.append(NOTHINGSPORTS_SCORE_DETAILS.cricket(innings,{selectedInnings:selected,fixtureId}));}}
  function makeCard(e){
   const id=m().id(e),card=node('article',null,'match-centre-card event-overview-card'),details=node('details'),summary=node('summary',null,'mc-row'),top=node('div',null,'mc-card-top'),mark=node('span',null,'mc-event-mark');card.dataset.matchId=id;card.dataset.viewportAnchorKey='match-centre:'+id;details.open=expanded.has(id);summary.setAttribute('aria-label',`Expand ${spoilerSafeDisplayTitle(e)}`);renderEventIdentityMark(mark,e,sportMetaForEvent(e));top.append(mark,node('small',[e.tournamentName||e.competitionName||e.eventName,e.court].filter(Boolean).join(' · ')));summary.append(top);
   const identities=matchupIdentityMatches(e,spoilerSafeDisplayTitle(e)),sides=node('div',null,'mc-participants');summary.append(sides);
   const snapshot=m().compact(e),ids=[snapshot.homeParticipantId,snapshot.awayParticipantId].filter(Boolean),ordered=ids.length===2?ids.map(id=>identities.find(i=>i.participant?.id===id||i.mark?.id===id)||{participant:(e.participants||[]).find(p=>p.id===id),label:(e.participants||[]).find(p=>p.id===id)?.displayName||id}):identities;
   const rows=[];for(const identity of ordered){const row=node('div',null,'mc-participant-row'),score=node('div',null,'mc-participant-score');const identityNode=buildCompactParticipant(identity,e),participant=(e.participants||[]).find(p=>p.id===(identity.participant?.id||identity.mark?.id)),country=participant?.countryCode||identity.participant?.countryCode||identity.mark?.countryCode;const flag=COUNTRY_FLAGS?.flagMarkup?.(country,{className:'mc-participant-flag'});if(flag&&!identity.mark?.url&&!identity.mark?.logo?.primary){identityNode.insertAdjacentHTML('afterbegin',flag);const image=identityNode.querySelector('.mc-participant-flag');image.onload=()=>identityNode.querySelector('.compact-participant-fallback')?.remove();image.onerror=()=>image.remove();}row.append(identityNode,score);sides.append(row);rows.push({id:identity.participant?.id||identity.mark?.id,score});}
   if(!ordered.length)sides.append(node('h3',spoilerSafeDisplayTitle(e)));
-  const status=node('span',null,'mc-status'),freshness=node('small',null,'mc-row-freshness'),classification=node('div',null,'mc-classification');summary.append(classification,status,freshness);details.append(summary);
+  const balance=node('p',null,'mc-cricket-balance'),status=node('span',null,'mc-status'),freshness=node('small',null,'mc-row-freshness'),classification=node('div',null,'mc-classification');summary.append(classification,status,balance,freshness);details.append(summary);
   const content=node('div',null,'mc-expanded'),timing=buildFixtureTimingGroup(e);timing.querySelector('.fixture-timing-badge').onclick=click=>{click.stopPropagation();void openFixtureFromTimingCapsule(currentFixture(e));};content.append(timing);if(e.venue||e.court)content.append(node('p',[e.venue,e.court&&e.court!==e.venue?e.court:null].filter(Boolean).join(' · ')));const updates=node('div',null,'mc-score-details');content.append(updates);
   const actions=node('div',null,'match-centre-actions');actions.append(feedButton(e));appendEventQuickActions(actions,e,{chat:false,viewing:false});const sourceLink=node('a',null,'btn ghost');sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';actions.append(sourceLink);content.append(actions);details.append(content);card.append(details);
   details.ontoggle=()=>{if(!details.isConnected)return;if(details.open){expanded.add(id);if(isSpoilerVisible(e)&&e.rubbers)void poll([e],true);}else expanded.delete(id);const view=cards.get(id);if(view?.details===details)patchCard(view,e);};
-  return {card,details,rows,status,freshness,classification,updates,sourceLink,updateKey:'',scoreKeys:new Map()};
+  return {card,details,rows,status,balance,freshness,classification,updates,sourceLink,updateKey:'',scoreKeys:new Map()};
  }
  function patchCard(view,e){
   const snapshot=m().observation(m().compact(e),scores.get(m().id(e))||m().compact(e)),score=snapshot.score||{},visible=isSpoilerVisible(e);
+  patchText(view.balance,visible?snapshot.cricketBalance||'':'');view.balance.hidden=!visible||!snapshot.cricketBalance;
   patchText(view.status,[statusText(e,snapshot),visible&&snapshot.clock?(m().sport(e)==='tennis'?'Duration '+snapshot.clock:snapshot.clock):null].filter(Boolean).join(' · '));view.status.classList.toggle('mc-active-live',m().liveState({...e,...snapshot})==='playing');
   const link=snapshot.scorecardUrl||snapshot.officialUrl;view.sourceLink.hidden=!link;if(link){view.sourceLink.href=link;patchText(view.sourceLink,snapshot.scorecardUrl?(snapshot.scorecardOfficial?'Official scorecard':'Source scorecard'):e.sourceType==='official'?'Official fixture':(e.sourceName||'Published')+' source');}
   const checked=Date.parse(snapshot.statusCheckedAt||snapshot.checkedAt||'');patchText(view.freshness,Number.isFinite(checked)?'Source update '+new Date(checked).toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'}):'Awaiting source update');
@@ -112,13 +107,13 @@ loadMatchCentreStyles();
    if(!visible)values=['Hidden'];else if(score.sets?.length||score.games){values=(score.sets||[]).map(set=>set[side]!=null?String(set[side])+(set[side+'Tiebreak']!=null?'('+set[side+'Tiebreak']+')':''):'—');if(score.games)values.push(score.games[side]??'—');}else if(score.innings){values=score.innings.filter(i=>i.participantId===row.id).map(i=>`${i.runs??'—'}/${i.wickets??'—'} (${i.overs??'—'})`);}else if(score[side]!=null)values=[score[side]];else values=['—'];
    const shape=values.length;if(row.score.children.length!==shape)row.score.replaceChildren(...values.map(()=>node('span',null,'mc-score-cell')));values.forEach((value,i)=>patchText(row.score.children[i],value));row.score.classList.toggle('mc-score-hidden',!visible);row.score.setAttribute('aria-label',!visible?'Results hidden':score.sets?.length?'Set scores'+(score.games?' and current games':''):'Score');
   }
-  const data=visible?JSON.stringify([view.details.open,snapshot.statusText,snapshot.incidents,snapshot.rubbers,score.classification,score.innings]):'hidden';
+  const data=visible?JSON.stringify([view.details.open,snapshot.statusText,snapshot.restartTimeUtc,snapshot.cricketBalance,snapshot.incidents,snapshot.rubbers,score.classification,score.innings]):'hidden';
   if(data!==view.updateKey){
    view.updateKey=data;view.updates.replaceChildren();view.classification.replaceChildren();
    if(visible){
     if(view.details.open){
-     if(snapshot.statusText)view.updates.append(node('p',snapshot.statusText));cricketDetails(view.updates,score.innings);
-     for(const incident of snapshot.incidents||[])view.updates.append(node('p',[incident.type,incident.name,incident.time].filter(v=>v!=null&&v!=='').join(' · ')));
+     if(snapshot.statusText)view.updates.append(node('p',snapshot.statusText));if(snapshot.restartTimeUtc)view.updates.append(node('p','Play resumes '+new Date(snapshot.restartTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney',weekday:'short',hour:'numeric',minute:'2-digit',timeZoneName:'short'})));cricketDetails(view.updates,score.innings,snapshot.id);
+     if(m().sport(e)==='football')view.updates.append(NOTHINGSPORTS_SCORE_DETAILS.football(snapshot.incidents));else for(const incident of snapshot.incidents||[])view.updates.append(node('p',[incident.type,incident.name,incident.time].filter(v=>v!=null&&v!=='').join(' · ')));
      for(const rubber of snapshot.rubbers||[])view.updates.append(node('p',rubber.name+': '+(/upcoming|unconfirmed/.test(rubber.status)?'Awaiting official score':scoreText(rubber.score))));
     }
     for(const entry of score.classification||[])view.classification.append(node('p',Array.isArray(entry)?entry.join(' · '):[entry.position,entry.displayName||entry.name,entry.time||entry.points].filter(v=>v!=null).join(' · ')));

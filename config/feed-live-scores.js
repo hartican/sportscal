@@ -13,6 +13,7 @@
   if(!text)return null;
   const stamp=Date.parse(snapshot.scoreCheckedAt||(event.fixtureObservationSchema?null:snapshot.checkedAt)||''),observed=Number.isFinite(stamp)&&stamp<=now,settled=model.final(event),fresh=observed&&now-stamp<=model.interval(event,now)*2&&!event.stale&&!event.sourceStale;
   const status=settled?'Finished':fresh&&/^(live|in-progress)$/.test(event.status)?'Live':model.interrupted(event)&&(!model.halftime(event)||fresh)?model.pausedLabel(event):'Last available score';
+  if(snapshot.cricketBalance)text+=' · '+snapshot.cricketBalance;
   return {text,status,stale:Boolean(event.stale)||(!settled&&!fresh),checkedAt:observed?new Date(stamp).toISOString():null};
  }
  function install(card,event,options){

@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "rugby-women",
   "label": "Rugby Union Women",
-  "generatedAt": "2026-10-07T23:14:37.555Z",
+  "generatedAt": "2026-10-10T20:27:38.375Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -31,12 +31,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -64,12 +64,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -163,12 +163,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -196,12 +196,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-01&endDate=2027-01-06&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-08T19:26:01.378Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -229,12 +229,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -262,12 +262,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -295,12 +295,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-01&endDate=2027-01-06&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-08T19:26:01.378Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -361,12 +361,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-01&endDate=2027-01-06&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-08T19:26:01.378Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -394,12 +394,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -427,12 +427,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -493,12 +493,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -526,12 +526,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -559,12 +559,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -592,12 +592,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-01&endDate=2027-01-06&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-08T19:26:01.378Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -625,12 +625,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -658,12 +658,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-01&endDate=2027-01-06&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-08T19:26:01.378Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -691,12 +691,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -724,12 +724,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -790,12 +790,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -823,12 +823,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -856,12 +856,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -889,12 +889,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -922,12 +922,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -955,12 +955,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1021,12 +1021,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1087,12 +1087,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1120,12 +1120,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1153,12 +1153,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1219,12 +1219,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1252,12 +1252,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1285,12 +1285,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1318,12 +1318,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1351,12 +1351,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1417,12 +1417,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1450,12 +1450,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1483,12 +1483,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1516,12 +1516,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1549,12 +1549,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-09-27&endDate=2027-01-02&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     },
     {
@@ -1582,12 +1582,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-01&endDate=2027-01-06&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-03&endDate=2027-01-08&sport=wru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-08T19:26:01.378Z",
+      "sourceCheckedAt": "2026-10-10T01:36:00.642Z",
       "sourceReviewAfter": null
     }
   ]

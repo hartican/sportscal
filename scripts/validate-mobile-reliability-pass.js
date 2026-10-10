@@ -36,8 +36,8 @@ assert(html.includes("buildInlineCrowdRating") && html.includes("inlineRatingReq
 assert(fs.existsSync("assets/providers/kayo-sports-negative.svg") && fs.existsSync("assets/providers/stan-sport.jpg"), "Kayo and Stan Sport provider marks must be committed locally");
 assert(worker.includes("/assets/providers/kayo-sports-negative.svg") && worker.includes("/assets/providers/stan-sport.jpg"), "provider marks must be available in the installed offline shell");
 assert(html.includes('function eventMajorEventId('), "all event routing must share one major-event ID resolver");
-assert(html.includes('footer.className = "event-compact-footer"'), "expanded Feed cards must use one compact action footer");
-assert(/buildEventCompactFooter[\s\S]{0,2200}buildSpoilerOverrideButton[\s\S]{0,2200}View in Events/.test(html) && !/buildEventCompactFooter[\s\S]{0,2200}buildEventFeedbackButtons/.test(html), "the compact footer must keep result and Events actions concise while feedback stays beside Feed stakes");
+assert(html.includes('secondaryActions.className = "event-card-secondary-actions"'), "Expanded cards keep optional actions in their shared information area");
+assert(html.includes("buildSpoilerOverrideButton") && html.includes("buildCardDisclosureControl") && !html.includes("function buildEventCompactFooter"), "Cards retain Results and native disclosure controls without the retired duplicate footer");
 
 assert(html.includes('card.dataset.cardLevel = isMinimised ? "L0" : cardLevelForState(state)'), "Events cards must expose L0, L1 and L2 levels while respecting Minimise");
 assert(html.includes('level: cardLevelForState(state)') && html.includes('MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST()'), "Events L0/L1/L2 must show the profile-filtered bounded around-Now timeline and complete two-day L2 window");

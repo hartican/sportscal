@@ -10,7 +10,8 @@ async function refreshCoverage({now=new Date(),sources=coverageSources(),scoped=
   const mergedEvents=mergeFixtureSnapshot(prior.events,[...require('../data/follow-sources/verified-fixtures.v1.json').events,...results.flatMap(result=>result.status==="fulfilled"?result.value:[])]).events;
   const identity=require('../config/fixture-identity'),scope=require('../config/cricket-coverage');
   const protectedIds=new Set(require('../data/canonical/cricket-retention.v1.json').fixtureIds);
-  const events=mergedEvents.map(require('../lib/source-observation-identity').normalize).filter(e=>scope.allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id)));
+  const existingIds=new Set(prior.events.map(e=>e.id));
+  const events=mergedEvents.map(require('../lib/source-observation-identity').normalize).filter(e=>scoped&&existingIds.has(e.id)||scope.allowed(e)||[e.id,...(e.sourceEventIds||[])].some(id=>protectedIds.has(id)));
   const participants=new Map((prior.participants||[]).map(record=>[record.id,record]));
   for(const event of events)for(const participant of event.participants||[]){
     if(!participant.id)continue;

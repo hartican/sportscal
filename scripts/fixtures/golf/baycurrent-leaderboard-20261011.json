@@ -1,0 +1,1590 @@
+{
+  "id": "R2026527",
+  "tournamentId": "R2026527",
+  "players": [
+    {
+      "id": "61522",
+      "player": {
+        "id": "61522",
+        "displayName": "Michael Brennan",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T1",
+        "total": "-13",
+        "score": "-6",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "68",
+          "67",
+          "65",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "48001",
+      "player": {
+        "id": "48001",
+        "displayName": "Zach Bauchou",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T1",
+        "total": "-13",
+        "score": "-4",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "69",
+          "64",
+          "67",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "60004",
+      "player": {
+        "id": "60004",
+        "displayName": "Jacob Bridgeman",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T1",
+        "total": "-13",
+        "score": "-2",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "63",
+          "68",
+          "69",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "24502",
+      "player": {
+        "id": "24502",
+        "displayName": "Adam Scott",
+        "countryFlag": "AUS"
+      },
+      "scoringData": {
+        "position": "T4",
+        "total": "-12",
+        "score": "-6",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "69",
+          "67",
+          "65",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "46464",
+      "player": {
+        "id": "46464",
+        "displayName": "Jordan Smith",
+        "countryFlag": "ENG"
+      },
+      "scoringData": {
+        "position": "T4",
+        "total": "-12",
+        "score": "-5",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "64",
+          "71",
+          "66",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "33448",
+      "player": {
+        "id": "33448",
+        "displayName": "Justin Thomas",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T4",
+        "total": "-12",
+        "score": "-4",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "69",
+          "65",
+          "67",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "36799",
+      "player": {
+        "id": "36799",
+        "displayName": "Stephan Jaeger",
+        "countryFlag": "GER"
+      },
+      "scoringData": {
+        "position": "T4",
+        "total": "-12",
+        "score": "-4",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "69",
+          "65",
+          "67",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "39546",
+      "player": {
+        "id": "39546",
+        "displayName": "Keith Mitchell",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T4",
+        "total": "-12",
+        "score": "-1",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "66",
+          "65",
+          "70",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "59018",
+      "player": {
+        "id": "59018",
+        "displayName": "Ryan Gerard",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T9",
+        "total": "-10",
+        "score": "-5",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "68",
+          "69",
+          "66",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "59143",
+      "player": {
+        "id": "59143",
+        "displayName": "Mac Meissner",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T9",
+        "total": "-10",
+        "score": "-1",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "65",
+          "68",
+          "70",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "39977",
+      "player": {
+        "id": "39977",
+        "displayName": "Max Homa",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T9",
+        "total": "-10",
+        "score": "-1",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "65",
+          "68",
+          "70",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "48081",
+      "player": {
+        "id": "48081",
+        "displayName": "Xander Schauffele",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T12",
+        "total": "-9",
+        "score": "-6",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "70",
+          "69",
+          "65",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "27644",
+      "player": {
+        "id": "27644",
+        "displayName": "Brian Harman",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T12",
+        "total": "-9",
+        "score": "-4",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "69",
+          "68",
+          "67",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "39971",
+      "player": {
+        "id": "39971",
+        "displayName": "Sungjae Im",
+        "countryFlag": "KOR"
+      },
+      "scoringData": {
+        "position": "T12",
+        "total": "-9",
+        "score": "-3",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "69",
+          "67",
+          "68",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "39975",
+      "player": {
+        "id": "39975",
+        "displayName": "Michael Kim",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T12",
+        "total": "-9",
+        "score": "-3",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "68",
+          "68",
+          "68",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "39335",
+      "player": {
+        "id": "39335",
+        "displayName": "Kevin Roy",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "16",
+        "total": "-8",
+        "score": "-5",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "70",
+          "69",
+          "66",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "47889",
+      "player": {
+        "id": "47889",
+        "displayName": "Kosuke Sunagawa",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T17",
+        "total": "-7",
+        "score": "-4",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "69",
+          "70",
+          "67",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "34046",
+      "player": {
+        "id": "34046",
+        "displayName": "Jordan Spieth",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T17",
+        "total": "-7",
+        "score": "-3",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "72",
+          "66",
+          "68",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "45522",
+      "player": {
+        "id": "45522",
+        "displayName": "Christiaan Bezuidenhout",
+        "countryFlag": "RSA"
+      },
+      "scoringData": {
+        "position": "T17",
+        "total": "-7",
+        "score": "-1",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "68",
+          "68",
+          "70",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "37378",
+      "player": {
+        "id": "37378",
+        "displayName": "Min Woo Lee",
+        "countryFlag": "AUS"
+      },
+      "scoringData": {
+        "position": "T17",
+        "total": "-7",
+        "score": "+1",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "67",
+          "67",
+          "72",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "36884",
+      "player": {
+        "id": "36884",
+        "displayName": "Ben Kohles",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T17",
+        "total": "-7",
+        "score": "+2",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "71",
+          "62",
+          "73",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "47917",
+      "player": {
+        "id": "47917",
+        "displayName": "Takumi Kanaya",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T22",
+        "total": "-6",
+        "score": "-3",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "70",
+          "69",
+          "68",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "35461",
+      "player": {
+        "id": "35461",
+        "displayName": "Beau Hossler",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T22",
+        "total": "-6",
+        "score": "-4",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "70",
+          "70",
+          "67",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "51287",
+      "player": {
+        "id": "51287",
+        "displayName": "Ryo Hisatsune",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T22",
+        "total": "-6",
+        "score": "-2",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "67",
+          "71",
+          "69",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "52375",
+      "player": {
+        "id": "52375",
+        "displayName": "Doug Ghim",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T22",
+        "total": "-6",
+        "score": "-1",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "69",
+          "68",
+          "70",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "33141",
+      "player": {
+        "id": "33141",
+        "displayName": "Keegan Bradley",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T22",
+        "total": "-6",
+        "score": "-5",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "72",
+          "69",
+          "66",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "57364",
+      "player": {
+        "id": "57364",
+        "displayName": "Michael Thorbjornsen",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T22",
+        "total": "-6",
+        "score": "E",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "66",
+          "70",
+          "71",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "36699",
+      "player": {
+        "id": "36699",
+        "displayName": "Patrick Rodgers",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T22",
+        "total": "-6",
+        "score": "-6",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "73",
+          "69",
+          "65",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "28723",
+      "player": {
+        "id": "28723",
+        "displayName": "John Parry",
+        "countryFlag": "ENG"
+      },
+      "scoringData": {
+        "position": "T29",
+        "total": "-5",
+        "score": "-2",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "68",
+          "71",
+          "69",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "32839",
+      "player": {
+        "id": "32839",
+        "displayName": "Hideki Matsuyama",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T29",
+        "total": "-5",
+        "score": "-2",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "67",
+          "72",
+          "69",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "34256",
+      "player": {
+        "id": "34256",
+        "displayName": "Andrew Putnam",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T29",
+        "total": "-5",
+        "score": "-2",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "66",
+          "73",
+          "69",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "54628",
+      "player": {
+        "id": "54628",
+        "displayName": "Lee Hodges",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T29",
+        "total": "-5",
+        "score": "-3",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "69",
+          "71",
+          "68",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "47993",
+      "player": {
+        "id": "47993",
+        "displayName": "Denny McCarthy",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T29",
+        "total": "-5",
+        "score": "-3",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "68",
+          "72",
+          "68",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "56100",
+      "player": {
+        "id": "56100",
+        "displayName": "Ren Yonezawa",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T29",
+        "total": "-5",
+        "score": "E",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "68",
+          "69",
+          "71",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "56165",
+      "player": {
+        "id": "56165",
+        "displayName": "Yusaku Hosono",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T29",
+        "total": "-5",
+        "score": "-4",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "72",
+          "69",
+          "67",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "29420",
+      "player": {
+        "id": "29420",
+        "displayName": "Billy Horschel",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T29",
+        "total": "-5",
+        "score": "-4",
+        "thru": "F",
+        "currentRound": 3,
+        "rounds": [
+          "71",
+          "70",
+          "67",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "35658",
+      "player": {
+        "id": "35658",
+        "displayName": "Kristoffer Ventura",
+        "countryFlag": "NOR"
+      },
+      "scoringData": {
+        "position": "T29",
+        "total": "-5",
+        "score": "+1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "66",
+          "70",
+          "72",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "50525",
+      "player": {
+        "id": "50525",
+        "displayName": "Collin Morikawa",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T38",
+        "total": "-4",
+        "score": "-2",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "67",
+          "73",
+          "69",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "51349",
+      "player": {
+        "id": "51349",
+        "displayName": "Nico Echavarria",
+        "countryFlag": "COL"
+      },
+      "scoringData": {
+        "position": "T38",
+        "total": "-4",
+        "score": "+2",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "67",
+          "69",
+          "73",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "49947",
+      "player": {
+        "id": "49947",
+        "displayName": "Taylor Moore",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T38",
+        "total": "-4",
+        "score": "+1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "72",
+          "65",
+          "72",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "52689",
+      "player": {
+        "id": "52689",
+        "displayName": "Rasmus Neergaard-Petersen",
+        "countryFlag": "DEN"
+      },
+      "scoringData": {
+        "position": "T38",
+        "total": "-4",
+        "score": "-4",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "74",
+          "68",
+          "67",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "60019",
+      "player": {
+        "id": "60019",
+        "displayName": "Jackson Suber",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T38",
+        "total": "-4",
+        "score": "-4",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "72",
+          "70",
+          "67",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "59440",
+      "player": {
+        "id": "59440",
+        "displayName": "Ricky Castillo",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T38",
+        "total": "-4",
+        "score": "+3",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "65",
+          "70",
+          "74",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "55908",
+      "player": {
+        "id": "55908",
+        "displayName": "Tomohiro Ishizaka",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T44",
+        "total": "-3",
+        "score": "-1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "70",
+          "70",
+          "70",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "25493",
+      "player": {
+        "id": "25493",
+        "displayName": "Nick Taylor",
+        "countryFlag": "CAN"
+      },
+      "scoringData": {
+        "position": "T44",
+        "total": "-3",
+        "score": "+1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "71",
+          "67",
+          "72",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "48887",
+      "player": {
+        "id": "48887",
+        "displayName": "Matt Wallace",
+        "countryFlag": "ENG"
+      },
+      "scoringData": {
+        "position": "T44",
+        "total": "-3",
+        "score": "-3",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "70",
+          "72",
+          "68",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "29725",
+      "player": {
+        "id": "29725",
+        "displayName": "Tony Finau",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T47",
+        "total": "-2",
+        "score": "+1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "71",
+          "68",
+          "72",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "36326",
+      "player": {
+        "id": "36326",
+        "displayName": "David Lipsky",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T47",
+        "total": "-2",
+        "score": "+2",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "66",
+          "72",
+          "73",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "63454",
+      "player": {
+        "id": "63454",
+        "displayName": "Johnny Keefer",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T47",
+        "total": "-2",
+        "score": "+3",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "68",
+          "69",
+          "74",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "33689",
+      "player": {
+        "id": "33689",
+        "displayName": "Jinichiro Kozuma",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T47",
+        "total": "-2",
+        "score": "-2",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "74",
+          "68",
+          "69",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "59836",
+      "player": {
+        "id": "59836",
+        "displayName": "Pierceson Coody",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T51",
+        "total": "-1",
+        "score": "+1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "65",
+          "75",
+          "72",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "29833",
+      "player": {
+        "id": "29833",
+        "displayName": "Yoshinori Fujimoto",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T51",
+        "total": "-1",
+        "score": "E",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "72",
+          "69",
+          "71",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "57900",
+      "player": {
+        "id": "57900",
+        "displayName": "Chandler Phillips",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T51",
+        "total": "-1",
+        "score": "E",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "70",
+          "71",
+          "71",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "58168",
+      "player": {
+        "id": "58168",
+        "displayName": "Davis Thompson",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T51",
+        "total": "-1",
+        "score": "E",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "73",
+          "68",
+          "71",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "49228",
+      "player": {
+        "id": "49228",
+        "displayName": "Keita Nakajima",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T51",
+        "total": "-1",
+        "score": "-2",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "69",
+          "74",
+          "69",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "45242",
+      "player": {
+        "id": "45242",
+        "displayName": "Kevin Yu",
+        "countryFlag": "TPE"
+      },
+      "scoringData": {
+        "position": "56",
+        "total": "E",
+        "score": "+1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "74",
+          "67",
+          "72",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "40250",
+      "player": {
+        "id": "40250",
+        "displayName": "Taylor Pendrith",
+        "countryFlag": "CAN"
+      },
+      "scoringData": {
+        "position": "T57",
+        "total": "+1",
+        "score": "+1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "72",
+          "70",
+          "72",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "59743",
+      "player": {
+        "id": "59743",
+        "displayName": "Aguri Iwasaki",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T57",
+        "total": "+1",
+        "score": "-1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "74",
+          "70",
+          "70",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "59141",
+      "player": {
+        "id": "59141",
+        "displayName": "Matt McCarty",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T59",
+        "total": "+2",
+        "score": "+4",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "70",
+          "70",
+          "75",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "51977",
+      "player": {
+        "id": "51977",
+        "displayName": "Max Greyserman",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T59",
+        "total": "+2",
+        "score": "+3",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "70",
+          "71",
+          "74",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "46442",
+      "player": {
+        "id": "46442",
+        "displayName": "Maverick McNealy",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T59",
+        "total": "+2",
+        "score": "-1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "72",
+          "73",
+          "70",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "51766",
+      "player": {
+        "id": "51766",
+        "displayName": "Wyndham Clark",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T62",
+        "total": "+3",
+        "score": "+3",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "70",
+          "72",
+          "74",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "46340",
+      "player": {
+        "id": "46340",
+        "displayName": "Alex Smalley",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T62",
+        "total": "+3",
+        "score": "+1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "71",
+          "73",
+          "72",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "33232",
+      "player": {
+        "id": "33232",
+        "displayName": "Sang-hee Lee",
+        "countryFlag": "KOR"
+      },
+      "scoringData": {
+        "position": "T62",
+        "total": "+3",
+        "score": "E",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "72",
+          "73",
+          "71",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "27747",
+      "player": {
+        "id": "27747",
+        "displayName": "Hiroshi Iwata",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T65",
+        "total": "+4",
+        "score": "+6",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "68",
+          "72",
+          "77",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "48117",
+      "player": {
+        "id": "48117",
+        "displayName": "Kurt Kitayama",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T65",
+        "total": "+4",
+        "score": "+2",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "71",
+          "73",
+          "73",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "32102",
+      "player": {
+        "id": "32102",
+        "displayName": "Rickie Fowler",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T65",
+        "total": "+4",
+        "score": "+1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "73",
+          "72",
+          "72",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "65922",
+      "player": {
+        "id": "65922",
+        "displayName": "Koshin Nagasaki",
+        "countryFlag": "JPN"
+      },
+      "scoringData": {
+        "position": "T65",
+        "total": "+4",
+        "score": "-2",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "72",
+          "76",
+          "69",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "51634",
+      "player": {
+        "id": "51634",
+        "displayName": "Sahith Theegala",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "69",
+        "total": "+5",
+        "score": "+2",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "74",
+          "71",
+          "73",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "57123",
+      "player": {
+        "id": "57123",
+        "displayName": "Steven Fisk",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T70",
+        "total": "+7",
+        "score": "-1",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "74",
+          "76",
+          "70",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "35532",
+      "player": {
+        "id": "35532",
+        "displayName": "Tom Hoge",
+        "countryFlag": "USA"
+      },
+      "scoringData": {
+        "position": "T70",
+        "total": "+7",
+        "score": "-3",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "81",
+          "71",
+          "68",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    },
+    {
+      "id": "63343",
+      "player": {
+        "id": "63343",
+        "displayName": "Aldrich Potgieter",
+        "countryFlag": "RSA"
+      },
+      "scoringData": {
+        "position": "72",
+        "total": "+8",
+        "score": "+7",
+        "thru": "F*",
+        "currentRound": 3,
+        "rounds": [
+          "77",
+          "66",
+          "78",
+          "-"
+        ],
+        "roundStatus": "R3 Completed"
+      }
+    }
+  ]
+}

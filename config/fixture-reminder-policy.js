@@ -17,8 +17,12 @@
   const exact=timing(f,now);if(exact)return exact;
   const p=f?.manualStartEstimate,o=f?.sessionOrderEvidence,checked=Date.parse(p?.sourceCheckedAt||'');
   if(!p||p.kind!=='official-session-order-estimate'||p.verified!==true||f.timePrecision!=='estimated'||f.manualEstimateHeld||f.sourceStale||f.stale||f.participantsConfirmed!==true||p.fixtureId!==fixtureId(f)||p.startsAt!==f.estimatedStartTimeUtc||!o||p.sessionId!==o.sessionId||p.sourceSha256!==o.sourceSha256||p.sourceUrl!==o.sourceUrl||p.sourceCheckedAt!==o.checkedAt||!Number.isFinite(checked)||checked>+now||+now-checked>172800000)return null;
-  const t=timing({...f,startTimeUtc:p.startsAt,timePrecision:'exact',scheduleStatus:'confirmed',timingVerified:true,sourceCheckedAt:p.sourceCheckedAt},now);
-  return t?{...t,precision:'estimated'}:null;
+  const earliest=Date.parse(p.earliestStartTimeUtc||p.startsAt),latest=Date.parse(p.latestStartTimeUtc||p.startsAt),middle=Date.parse(p.startsAt);
+  if(!Number.isFinite(earliest)||!Number.isFinite(latest)||earliest>middle||latest<middle||latest-earliest>3600000)return null;
+  const at=value=>timing({...f,startTimeUtc:value,timePrecision:'exact',scheduleStatus:'confirmed',timingVerified:true,sourceCheckedAt:p.sourceCheckedAt},now);
+  if(!at(p.startsAt)||!at(p.latestStartTimeUtc||p.startsAt))return null;
+  const t=at(p.earliestStartTimeUtc||p.startsAt);
+  return t?{...t,precision:'estimated',latestStartTimeUtc:p.latestStartTimeUtc||p.startsAt}:null;
  }
  function knockout(f){
   // Names of competitions, parent dates and golf final rounds cannot establish a round.
