@@ -126,11 +126,11 @@ assert.match(html, /@media \(prefers-reduced-motion:reduce\)[\s\S]+\.event-timin
 assert(html.includes("FOLLOW_FIRST?.toggleFeedback") && html.includes("targetType:target.targetType"), "curated swipes must retain weighted target metadata with reversible likes");
 assert(!html.includes('className = "badge discovery"') && !html.includes('className = "badge availability"'), "discovery and availability classifications must both stay behind the scenes");
 assert(html.includes('sessionOpenedEventIds.add(') && !html.includes('label.className = "new-tag"'), "open signals must remain session-local without exposing a New metadata label");
-assert(html.includes('rect.top <= window.innerHeight'), "the contextual jump must count Today as visible anywhere in the viewport");
+assert(html.includes("nowAnchor.getBoundingClientRect().top-edge"), "The jump destination follows the marker at the sticky viewport edge");
 assert(!/buildJointTournamentMustWatchAction|jointTournamentIsMustWatch|action\.mustWatch \? 12/.test(html), "the removed Must Watch feature must not affect tournament actions or recommendation scoring");
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)?.[1];
 assert(shellVersion && serviceWorker.includes(`const CACHE_NAME = "nothingsport-shell-v${shellVersion}"`));
-assert(html.includes("button.setAttribute('aria-label','Jump to Now')") && html.includes("scrollActiveFeedToInitialAnchor"), "the shared timeline control must jump to Now");
+assert(html.includes("label=atNow?'Jump to Today':'Jump to Now'") && html.includes("button.setAttribute('aria-label',label)") && html.includes("dataset.jumpDestination==='today'") && html.includes("scrollActiveFeedToToday"), "The label, accessible name and click destination must toggle together between Today and Now");
 assert(!html.includes('scrollActiveFeedToMustWatch'), "the removed queue must have no jump target");
 assert(require("./offline-shell-module")("config/feed-controls.js") && require("./offline-shell-module")("config/personalised-feed.js") && serviceWorker.includes('"/schemas/feed-controls.schema.json"'));
 

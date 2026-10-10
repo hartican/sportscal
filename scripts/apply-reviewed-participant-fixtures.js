@@ -10,7 +10,8 @@ function validate(doc=document){
   const proof=e.scheduleEvidence;
   assert(proof.kind==='official-order-of-play'&&proof.fixtureId===e.id&&proof.tournamentId===e.tournamentId&&proof.roundLabel===e.roundLabel,'official timing must bind the existing fixture, edition and round');
   assert.deepEqual(proof.participantIds,[e.homeParticipantId,e.awayParticipantId],'official timing must bind the ordered named participants');
-  assert(proof.sourceUrl===e.sourceUrl&&/^https:\/\/www\.protennislive\.com\/posting\/\d{4}\/\d+\/op\.pdf$/.test(proof.sourceUrl)&&proof.checkedAt===e.sourceCheckedAt&&/^[a-f0-9]{64}$/.test(proof.sourceSha256)&&proof.sourceSha256===e.timingEvidence.sourceSha256,'official timing requires its independently dated complete order-of-play receipt');
+  const publishedOrderOfPlay=/^https:\/\/www\.protennislive\.com\/posting\/\d{4}\/\d+\/op\.pdf$/.test(proof.sourceUrl)||(e.tour==='WTA'&&e.tournamentId===`tournament:tennis:wta-beijing-${e.season}`&&proof.sourceUrl===`https://wtafiles.wtatennis.com/pdf/draws/${e.season}/1020/OP.pdf`);
+  assert(proof.sourceUrl===e.sourceUrl&&publishedOrderOfPlay&&proof.checkedAt===e.sourceCheckedAt&&/^[a-f0-9]{64}$/.test(proof.sourceSha256)&&proof.sourceSha256===e.timingEvidence.sourceSha256,'official timing requires its independently dated complete order-of-play receipt');
   assert(Number.isFinite(Date.parse(proof.sourcePublishedAtLocal))&&Date.parse(proof.sourcePublishedAtLocal)<=Date.parse(proof.checkedAt),'a future publication cannot establish a verified clock');
   assert(proof.court===e.court&&Number.isInteger(proof.playOrder)&&proof.playOrder>0&&proof.playOrder<=20&&proof.matchRow===e.timingEvidence.matchRow&&proof.clockAssociation===e.timingEvidence.clockAssociation,'the named court row owns its clock association');
   assert(proof.timePrecision===e.timePrecision&&/^\d{4}-\d{2}-\d{2}$/.test(proof.matchDateLocal));

@@ -68,6 +68,9 @@ async function refresh({years=[new Date().getUTCFullYear(),new Date().getUTCFull
    const failure=attempts.find(r=>r.status==='rejected');if(failure)throw failure.reason;
    const pages=attempts.map(r=>r.value);
    const next=lpga.mergeObservation(lpga.parsePga(pages[0],{base,sourceUrl:root+'/tee-times',fieldHtml:pages[1],checkedAt:clock().toISOString()}),old);
+   if(base.tournamentId==='R2026527'&&!['completed','cancelled','abandoned'].includes(base.status)){
+    try{next.roundScores=lpga.parsePgaLeaderboard(await page(root+'/leaderboard','results',base,{deadline:4000}),{base,sourceUrl:root+'/leaderboard',checkedAt:clock().toISOString()});}catch{if(old?.roundScores)next.roundScores=old.roundScores.map(r=>({...r,stale:true}));}
+   }
    document.pgaParticipation=[...document.pgaParticipation.filter(e=>e.id!==base.id),next];
    const sourceStatus=lpga.pgaStatus(lpga.pgaQueries(pages[0]),base);
    observer.record({resource:'participation',sourceUrl:root+'/tee-times',...facts(old||base),state:sourceStatus==='completed'&&next.status!=='completed'?'not-attested':'accepted',code:sourceStatus==='completed'&&next.status!=='completed'?'final-result-required':'validated',status:next.status,statusEvidence:sourceStatus&&sourceStatus!=='completed'?'official-tournament':base.tournamentId.startsWith('H')?'retained-calendar':'official-calendar'});
@@ -105,4 +108,11 @@ async function refresh({years=[new Date().getUTCFullYear(),new Date().getUTCFull
  fs.writeFileSync(outputPath,JSON.stringify(document,null,2)+'\n');console.log(`PGA TOUR: ${seasons.length} published tournaments, ${seasons.filter(t=>t.major).length} majors, ${seasons.filter(t=>t.winners.length).length} confirmed results`);return document;
 }
 if(require.main===module)refresh().catch(e=>{console.error(e.message);process.exitCode=1;});
-module.exports={parse,dateRange,refresh,fixtures};
+async function refreshCurrentScorecard(){
+ const document=JSON.parse(fs.readFileSync(OUTPUT)),base=baseFixtures(document).find(e=>e.tournamentId==='R2026527');if(!base)throw Error('Current Baycurrent identity missing');
+ const sourceUrl='https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard',response=await fetch(sourceUrl,{signal:AbortSignal.timeout(4000)});if(!response.ok)throw Error('PGA leaderboard unavailable');
+ const roundScores=require('../lib/golf-participation').parsePgaLeaderboard(await response.text(),{base,sourceUrl,checkedAt:new Date().toISOString()});
+ const old=document.pgaParticipation.find(e=>e.tournamentId===base.tournamentId);if(!old)throw Error('Existing participant parent missing');old.roundScores=roundScores;
+ const scope=require('../lib/golf-tracked-scope'),next=scope.projectDocument(document,{ids:scope.trackedIds(scope.privateFollowIds())});fs.writeFileSync(OUTPUT,JSON.stringify(next,null,2)+'\n');return next;
+}
+module.exports={refreshCurrentScorecard,parse,dateRange,refresh,fixtures};

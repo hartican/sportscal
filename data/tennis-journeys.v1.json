@@ -2051,8 +2051,8 @@
     }
   ],
   "window": {
-    "from": "2026-10-10",
-    "through": "2027-10-10"
+    "from": "2026-10-11",
+    "through": "2027-10-11"
   },
   "contextOnly": true,
   "windowEditionIds": [
@@ -2079,6 +2079,7 @@
     "tennis-edition:us-open:2027",
     "tennis-edition:china-open:2027",
     "tennis-edition:shanghai-masters:2027",
+    "tennis-edition:wuhan-open:2027",
     "tennis-edition:billie-jean-king-cup-finals:2027"
   ]
 }

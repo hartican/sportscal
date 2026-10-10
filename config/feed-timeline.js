@@ -26,13 +26,14 @@
     const start=calendar.eventStart(event);
     return start && +start<=+now?'past':'upcoming';
   }
-  function compare(a,b){return +(calendar.eventStart(a)||new Date(`${a.date || a.startDate}T00:00:00Z`)) - +(calendar.eventStart(b)||new Date(`${b.date || b.startDate}T00:00:00Z`)) || (a.lemansCalendar&&b.lemansCalendar?a.sessionOrder-b.sessionOrder:0) || calendar.idFor(a).localeCompare(calendar.idFor(b));}
+  function sortTime(event){const restart=/^(stumps|rain-delay|break|suspended|interrupted)$/.test(event.status||'')?Date.parse(event.restartTimeUtc||''):NaN;if(Number.isFinite(restart))return restart;return +(calendar.eventStart(event)||Infinity);}
+  function compare(a,b){return String(a.date||a.startDate||'9999').localeCompare(String(b.date||b.startDate||'9999'))||sortTime(a)-sortTime(b)||(a.lemansCalendar&&b.lemansCalendar?a.sessionOrder-b.sessionOrder:0)||calendar.idFor(a).localeCompare(calendar.idFor(b));}
   function beforeNow(event,now=new Date()){
-    const start=Date.parse(event.startTimeUtc||'');
+    const start=sortTime(event);
     return !todayOverview(event,now)&&!confirmedLive(event,now)&&(status(event,now)==='past'||Number.isFinite(start)&&start<=+now);
   }
   function orderToday(events,now=new Date()){
-    const groups=[[],[],[],[]];for(const event of events.slice().sort(compare))groups[todayOverview(event,now)?0:confirmedLive(event,now)?2:beforeNow(event,now)?1:3].push(event);return groups.flat();
+    const groups=[[],[],[],[]];for(const event of events.slice().sort((a,b)=>sortTime(a)-sortTime(b)||calendar.idFor(a).localeCompare(calendar.idFor(b))))groups[todayOverview(event,now)?0:confirmedLive(event,now)?2:beforeNow(event,now)?1:3].push(event);return groups.flat();
   }
   function normalizedStatus(event,now=new Date()){
     // Keep authoritative states across repeated browser normalisation. In

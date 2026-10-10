@@ -1,7 +1,7 @@
 (function(root,factory){const api=factory();root.NOTHINGSPORTS_CRICKET_INNINGS=api;if(typeof module!=="undefined"&&module.exports)module.exports=api;})(typeof globalThis!=="undefined"?globalThis:window,function(){
 "use strict";
   function cricketInnings(event){
-    if(event?.key!=='cricket'||!['completed','finished','past','live','ongoing','in_progress','in-progress'].includes(event.status)||!Array.isArray(event.innings)||!event.innings.length)return null;
+    if(event?.key!=='cricket'||!['completed','finished','past','live','ongoing','in_progress','in-progress','stumps','rain-delay','interrupted','suspended','break'].includes(event.status)||!Array.isArray(event.innings)||!event.innings.length)return null;
     const participants=new Map((event.participants||[]).filter(p=>p&&typeof p==='object'&&p.id).map(p=>[p.id,p.displayName||p.name]));
     const seen=new Set(),rows=[];let unavailable=0,duplicate=false;
     for(const inning of event.innings){

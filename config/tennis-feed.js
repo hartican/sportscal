@@ -83,6 +83,10 @@
     const policy=api('NOTHINGSPORTS_FOLLOW_FEED_POLICY'),follow=api('NOTHINGSPORTS_FOLLOW_FIRST');
     const prefs=preparedPreferences||follow.migratePreferences(preferences);
     if(!policy.activeEligible(parent)||policy.explicitlyExcluded(parent,prefs)||policy.eventExcluded(parent,prefs))return null;
+    const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
+    const ongoing=parent.date<=today&&parent.endDate>=today&&!parent.majorEventMarker&&!policy.presidentsCup(parent);
+    const verifiedIds=[...new Set([...(parent.participantIds||[]),...(parent.sourceParticipation||[]).filter(e=>!e.excluded&&!['withdrawn','excluded'].includes(e.participationStatus)).map(e=>e.participantId)])].filter(id=>!(parent.excludedParticipantIds||[]).includes(id));
+    if(ongoing&&(parent.participantsConfirmed!==true||!verifiedIds.some(id=>follow.effectiveParticipantFollow(id,prefs,collectionsById).followed||expandedParticipantIds?.has(id))))return null;
     if(policy.editionDecision(parent,prefs)==='followed')return {type:'event',id:policy.editionKey(parent),displayTag:false};
     if(policy.eventFamilyIds(parent).some(id=>(prefs.followFirst?.followedMajorEventIds||[]).includes(id))||(prefs.preferenceGraph?.competitionPreferences||[]).some(p=>p.competitionId===parent.competitionId&&p.enabled===true))return {type:'event',id:parent.eventFamilyId,displayTag:false};
     const excluded=new Set(parent.excludedParticipantIds||[]),golf=['golf','golf-women','masters'].includes(policy.sportKey(parent));

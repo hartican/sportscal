@@ -30,7 +30,8 @@
     const now = new Date(reference);
     const precision = event.timePrecision;
     const uncertain = event.timeTbc || event.startTimeTbc;
-    const raw = precision === "estimated" ? event.estimatedStartTimeUtc || event.startTimeUtc : event.startTimeUtc;
+    const pausedRestart=/^(stumps|rain-delay|break|suspended|interrupted)$/.test(event.status||'')&&Number.isFinite(Date.parse(event.restartTimeUtc||''))?event.restartTimeUtc:null;
+    const raw = pausedRestart || (precision === "estimated" ? event.estimatedStartTimeUtc || event.startTimeUtc : event.startTimeUtc);
     const parsed = new Date(raw || "");
     const hasTime = !event.dateOnly && !uncertain && (!precision || ["exact","session-start","estimated","not-before"].includes(precision)) && Number.isFinite(+parsed);
     const date = hasTime ? parsed : calendarDate(event.date || event.startDate);
@@ -46,7 +47,9 @@
     const clock = hasTime ? format(parsed,{hour:"numeric",minute:"2-digit",hour12:true}).replace(/\s+/g," ") : "";
     const overview=(event.dateOnly||precision==='date-only')&&(event.key==='wrc'||event.cardType==='golf_tournament');
     const settled=/^(completed|finished|final|cancelled|canceled|abandoned)$/.test(event.status||'');
-    const time = overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`;
+    const windowStart=new Date(event.estimatedEarliestStartTimeUtc||''),windowEnd=new Date(event.estimatedLatestStartTimeUtc||'');
+    const windowLabel=precision==='estimated'&&Number.isFinite(+windowStart)&&Number.isFinite(+windowEnd)?'APPROX. '+format(windowStart,{hour:'numeric',minute:'2-digit',hour12:true})+' – '+format(windowEnd,{hour:'numeric',minute:'2-digit',hour12:true}):null;
+    const time = windowLabel || (overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`);
     const schedule = [day,time].filter(Boolean).join(delta !== null && delta >= 0 && delta < 7 && !range ? " " : " · ");
     // Venue calendar dates cannot establish Sydney dates without a race start.
     const venueCalendar = !hasTime && event.timingProvenance?.precision === 'venue-calendar' && event.displayDateLabel;
@@ -61,6 +64,9 @@
     else if (statuses.includes("abandoned")) status = "ABANDONED";
     else if (statuses.includes("suspended")) status = "SUSPENDED";
     else if (statuses.some(value => ["completed","finished","final"].includes(value))) status = "FINISHED";
+    else if(statuses.includes("stumps"))status="STUMPS";
+    else if(statuses.includes("rain-delay"))status="RAIN DELAY";
+    else if(statuses.includes("break"))status=event.statusText||"BREAK";
     else if(statuses.includes("ongoing"))status="ONGOING";
     else if (statuses.some(value => ["live","in_progress","in-progress"].includes(value))) status = "LIVE";
     if (tournamentPhase(event)) status = 'IN PROGRESS';

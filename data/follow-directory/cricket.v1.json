@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cricket",
   "label": "Cricket",
-  "generatedAt": "2026-10-04T05:48:59.057Z",
+  "generatedAt": "2026-10-10T23:29:09.110Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -73,7 +73,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
       "sourceReviewAfter": null
     },
     {
@@ -106,12 +106,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.cricket.com.au/",
-        "https://www.cricket.com.au/matches/"
+        "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39990&jsconfig=eccn%3Atrue&format=json"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
       "sourceReviewAfter": null
     },
     {
@@ -148,7 +148,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
       "sourceReviewAfter": null
     },
     {
@@ -287,12 +287,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.bcci.tv/",
-        "https://www.cricket.com.au/matches/"
+        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
       "sourceReviewAfter": null
     },
     {
@@ -469,7 +469,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
       "sourceReviewAfter": null
     },
     {
@@ -537,12 +537,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://cricket.co.za/the-proteas/",
-        "https://www.cricket.com.au/matches/"
+        "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39990&jsconfig=eccn%3Atrue&format=json"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
       "sourceReviewAfter": null
     },
     {
@@ -562,8 +562,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4718",
-      "leagueName": "Asian Games 2026 - Men",
+      "leagueId": "competition:cricket:4715",
+      "leagueName": "Pakistan v Sri Lanka T20Is 2026 - Men",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:sri-lanka",
@@ -574,12 +574,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://srilankacricket.lk/",
-        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+        "https://www.cricket.com.au/matches/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
       "sourceReviewAfter": null
     },
     {
@@ -682,12 +682,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.windiescricket.com/",
-        "https://www.cricket.com.au/matches/"
+        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
       "sourceReviewAfter": null
     },
     {

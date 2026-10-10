@@ -160,13 +160,14 @@
   const settled=status=>/^(completed|finished|final|abandoned)$/i.test(status||'');
   function inningsAdvanced(base,event){
     if(sportKey(event)!=='cricket'||!Array.isArray(base?.innings)||!Array.isArray(event.innings))return false;
+    const value=(i,key)=>(key==='wickets'&&typeof i[key]!=='number'?i.wicketsCount:i[key])??i[{runs:'runsScored',wickets:'numberOfWicketsFallen',overs:'oversBowled'}[key]];
     return event.innings.some((next,index)=>{
-      const prior=base.innings[index];if(!prior)return false;
+      const prior=next.inningNumber!=null?base.innings.find(i=>i.inningNumber===next.inningNumber):base.innings[index];if(!prior)return false;
       // A new representation, team label or score string is not evidence of play.
       if(prior.participantId&&next.participantId&&prior.participantId!==next.participantId)return false;
       if(!prior.participantId&&!next.participantId&&prior.team!==next.team)return false;
-      const values=['runs','wickets','overs'].filter(key=>prior[key]!=null&&next[key]!=null&&prior[key]!==''&&next[key]!==''&&Number.isFinite(Number(prior[key]))&&Number.isFinite(Number(next[key])));
-      return values.length>0&&values.every(key=>Number(next[key])>=Number(prior[key]))&&values.some(key=>Number(next[key])>Number(prior[key]));
+      const values=['runs','wickets','overs'].filter(key=>value(prior,key)!=null&&value(next,key)!=null&&value(prior,key)!==''&&value(next,key)!==''&&Number.isFinite(Number(value(prior,key)))&&Number.isFinite(Number(value(next,key))));
+      return values.length>0&&values.every(key=>Number(value(next,key))>=Number(value(prior,key)))&&values.some(key=>Number(value(next,key))>Number(value(prior,key)));
     });
   }
   function reconcileObservation(base,event){
@@ -182,6 +183,16 @@
       event.livePlayObservedAt=null;
       return;
     }
+    // A broad collection-level in-progress flag cannot reopen an explicitly
+    // paused Test. A verified detailed phase or newly advanced innings can.
+    if(sportKey(event)==='cricket'&&/^(stumps|rain-delay|break|suspended|interrupted)$/.test(base?.status||'')&&/^(live|in_progress|in-progress)$/.test(event.status||'')&&!event.cricketPhaseConfirmed){
+      if(inningsAdvanced(base,event)){
+        for(const key of ['statusText','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','cricketBalance','cricketPhaseConfirmed','cricketPhaseCheckedAt'])if(event[key]===undefined)event[key]=null;
+      }else{
+        event.status=base.status;event.statusCheckedAt=factTime(base,'status');
+        for(const key of ['statusText','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','cricketPhaseConfirmed','cricketPhaseCheckedAt'])if(base[key]!==undefined)event[key]=base[key];
+      }
+    }
     // Only a changed score observed from a live source establishes continuing play.
     // A source check timestamp alone cannot extend the ODI display window.
     const nextTime=Date.parse(event.scoreFactObservedAt||factTime(event,'score')||'');
@@ -196,6 +207,19 @@
       event.scoreCheckedAt=factTime(base,'score');
       // Retained home/away scores must retain their participant association.
       for(const key of ['homeParticipantId','awayParticipantId'])if(base[key])event[key]=base[key];
+    }
+    if(sportKey(event)==='cricket'&&Array.isArray(event.innings)&&base?.innings?.some(i=>i.detailCheckedAt)){
+      event.innings=event.innings.map(next=>{
+        const prior=base.innings.find(i=>i.inningNumber===next.inningNumber&&i.participantId===next.participantId);
+        if(!prior?.detailCheckedAt||Date.parse(next.detailCheckedAt)>=Date.parse(prior.detailCheckedAt))return next;
+        const retained={...next};
+        for(const key of ['batting','bowling','extras','detailCheckedAt','detailSourceUrl'])if(prior[key]!=null)retained[key]=prior[key];
+        retained.fallOfWickets=prior.fallOfWickets||(Array.isArray(prior.wickets)?prior.wickets:[]);
+        const total=(i,key)=>key==='wickets'?typeof i.wickets==='number'?i.wickets:i.wicketsCount??i.numberOfWicketsFallen:i[key]??i[{runs:'runsScored',overs:'oversBowled'}[key]];
+        retained.detailStale=prior.detailStale===true||event.sourceStale===true||['runs','wickets','overs'].some(key=>total(prior,key)!=null&&total(next,key)!=null&&String(total(prior,key))!==String(total(next,key)));return retained;
+      });
+      for(const prior of base.innings)if(prior.detailCheckedAt&&!event.innings.some(i=>i.inningNumber===prior.inningNumber&&i.participantId===prior.participantId))event.innings.push(prior);
+      event.innings.sort((a,b)=>a.inningNumber-b.inningNumber);
     }
     const passive=status=>!status||/^(scheduled|upcoming|not.started|pending)$/i.test(status);
     if(base&&((!passive(base.status)&&passive(event.status))||older(statusTime,factTime(base,'status')))){
