@@ -22,7 +22,7 @@ const policy=require('../config/fixture-reminder-policy'),automatic=require('../
   for(const name of ['20260927160736_reconcile_football_reminder_times.sql','20261002081559_global_fixture_reminders.sql'])await db.exec(fs.readFileSync('supabase/migrations/'+name,'utf8'));
   await db.exec('update nothingsports_reminder_policy_epoch set enabled=true');
   await db.exec(fs.readFileSync('scripts/fixtures/current-reminder-alias-function.sql','utf8'));
-  await db.exec(fs.readFileSync('supabase/migrations/20261010115922_manual_estimated_fixture_reminders.sql','utf8'));
+  await db.exec(fs.readFileSync('supabase/migrations/20261010124437_manual_estimated_fixture_reminders.sql','utf8'));
   await db.query('insert into auth.users values($1)',[user]);await db.query('insert into nothingsports_user_state(user_id,preferences) values($1,$2)',[user,JSON.stringify(prefs)]);await db.query('insert into nothingsports_push_installations(installation_id,user_id) values($1,$2)',[device,user]);
   const now=new Date(),future=h=>new Date(+now+h*3600000).toISOString();
   const at=h=>({...actual,estimatedStartTimeUtc:future(h),manualStartEstimate:{...actual.manualStartEstimate,startsAt:future(h),sourceCheckedAt:now.toISOString()},sessionOrderEvidence:{...actual.sessionOrderEvidence,checkedAt:now.toISOString()}});
