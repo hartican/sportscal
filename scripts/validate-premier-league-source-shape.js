@@ -120,6 +120,21 @@ async function interruptedResponse(kind){
    assert.deepEqual(result.failed,[{sourceId:'live-premier-league',code:'source_refresh_failed'}]);assert.deepEqual(result.refreshed,[]);assert.equal(calls.length,1,'live failure stops at the unsupported page');
   });
   assert.equal(publishes,0,'the actual live owner cannot publish an invented upcoming observation');assert.equal(failures,1,'the existing live failure path records the exception');assert.equal(JSON.stringify(prior),priorBytes,'the live snapshot and its original fixture clocks remain intact');
+  let publishedLive;
+  const successfulStore={claim:async()=>({fixtures:prior}),publish:async(id,token,value)=>{publishedLive=value;},fail:async()=>assert.fail('Reviewed live play must not enter the failure path')};
+  await responseSequence(withLive,async calls=>{
+   const result=await require('../lib/live-fixtures').refreshDueSources({sources:[liveSource],store:successfulStore,now:new Date(liveReceipt.checkedAt)});
+   assert.deepEqual(result.refreshed,['live-premier-league']);assert.deepEqual(result.failed,[]);assert.deepEqual(calls,[0,1,2,3]);
+  });
+  assert.deepEqual(publishedLive.fixtures.map(e=>e.id).sort(),prior.map(e=>e.id).sort(),'Successful live publication preserves the complete existing identity set');
+  const sharedLive=publishedLive.fixtures.find(e=>e.status==='live');
+  assert(sharedLive.participants.every(p=>p.id&&p.displayName),'Actual live publication retains self-contained team names after snapshot merge and normalization');
+  const handler=require('../lib/live-fixture-handler').createLiveFixtureHandler({publishedFixtures:()=>prior,clock:()=>new Date(liveReceipt.checkedAt),read:async()=>({revision:'controlled-live-publication',stale:false,sources:[{source_id:'live-premier-league',checked_at:liveReceipt.checkedAt,fixtures:publishedLive.fixtures}]})});
+  const response={setHeader(){},status(code){this.statusCode=code;return this;},json(body){this.body=body;return this;}};
+  await handler({url:'/api/fixtures?ids='+encodeURIComponent(sharedLive.id),method:'GET',headers:{}},response);
+  assert.equal(response.statusCode,200);const displayed=response.body.sources[0].fixtures.find(e=>e.id===sharedLive.id);assert(displayed);
+  assert.deepEqual(displayed.participants.map(p=>[p.id,p.displayName,p.role]),sharedLive.participants.map(p=>[p.id,p.displayName,p.role]),'The actual selected-fixture API preserves named score sides');
+  assert.equal(displayed.homeScore,2);assert.equal(displayed.awayScore,1);assert.equal(displayed.scoreCheckedAt,liveReceipt.checkedAt);assert(!displayed.outcomeText&&!displayed.resultSourceCheckedAt,'Published live facts reach the API without becoming a final');
   await responseSequence(()=>{},async()=>pl.refreshPremierLeagueCards(file,file,options));assert.deepEqual(fs.readFileSync(file),saved,'a reviewed primary response recovers without changing unchanged facts or clocks');
   const liveOptions={...options,checkedAt:liveReceipt.checkedAt};
   await responseSequence(withLive,async()=>pl.refreshPremierLeagueCards(file,file,liveOptions));
