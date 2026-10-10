@@ -905,6 +905,8 @@ Reuse the existing two-minute Supabase live-fixture scheduler, two workers, 45-s
 
 Healthy page omissions cannot establish a result. Degraded public and Followed membership retain known eligible fixtures; validate the whole reply before applying it. A disposable account/view/preference-scoped last-good cache supports reload recovery for seven days without renewing source clocks or admitting a newly excluded fixture. Network failure or omitted selected scores mark the saved play Awaiting update. Existing identity and navigation/account guards remain.
 
+Match Centre refreshes reuse the existing keyed viewport-continuity helper and restore the same focused fixture control when list reordering or a new sport rebuilds the surface. Expansion remains keyed by canonical identity. Continuity adds no source read or polling timer and stops stabilising when the user resumes interaction.
+
 Regressions: validate-match-centre.js, validate-find-your-sport.js, validate-hobby-feed-cache.js, validate-match-centre-browser.js and the shared observation/live API suites.
 
 

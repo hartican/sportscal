@@ -1,5 +1,17 @@
 'use strict';
 const assert=require('node:assert/strict'),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+async function continuityScenario(browser,engine){
+ const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'}),errors=[];let changed=false;
+ page.on('pageerror',e=>errors.push(e.message));
+ const stamp=new Date().toISOString(),fixtures=Array.from({length:9},(_,i)=>({id:'fixture:nrl:continuity:'+i,key:'nrl',name:'Panthers '+i+' v Storm '+i,status:'live',statusCheckedAt:stamp,scoreCheckedAt:stamp,startTimeUtc:new Date(Date.now()-3600000+i*1000).toISOString(),homeParticipantId:'team:nrl:home-'+i,awayParticipantId:'team:nrl:away-'+i,participantIds:['team:nrl:home-'+i,'team:nrl:away-'+i],homeScore:18,awayScore:12}));
+ const rows=()=>changed?fixtures.map((e,i)=>i===0?{...e,status:'completed',firstConfirmedCompleteAt:stamp}:i===8?{...e,key:'afl',name:'Swans v Lions'}:e):fixtures.slice(0,8);
+ await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,showSpoilers:true,selectedSelectorEntityIds:[],followedSports:[]})));
+ await page.route('**/api/**',route=>{const u=route.request().url();if(u.includes('membership=everything'))return route.fulfill({json:{enabled:true,events:rows(),fixtures:rows().map(e=>require('../config/match-centre').compact(e)),pagination:{nextCursor:null}}});if(u.includes('scope=match-centre'))return route.fulfill({json:{events:[],pagination:{nextCursor:null}}});if(u.includes('/api/match-centre?'))return route.fulfill({json:{enabled:true,fixtures:rows().map(e=>require('../config/match-centre').compact(e))}});return route.fulfill({status:503,json:{}});});
+ await page.goto(process.env.MATCH_CENTRE_QA_URL||'http://127.0.0.1:34109');await page.locator('#startupLaunch').waitFor({state:'hidden'});await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();});await page.locator('.tabs [data-tab=match-centre]').click();await page.getByRole('tab',{name:'Everything',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('[data-match-id]').length===8);await page.evaluate(()=>document.fonts.ready);await page.clock.install();
+ const card=page.locator('[data-match-id="'+fixtures[3].id+'"]');await card.locator('summary').click({position:{x:10,y:10}});await card.locator('.fixture-timing-badge').focus();await card.evaluate(e=>scrollTo(0,scrollY+e.getBoundingClientRect().top-250));
+ const before=await card.evaluate(e=>e.getBoundingClientRect().top);assert(await page.evaluate(()=>scrollY)>0);changed=true;await page.clock.fastForward(120001);await page.waitForFunction(()=>document.querySelectorAll('[data-match-id]').length===9);await page.evaluate(()=>new Promise(requestAnimationFrame));
+ assert.equal(await card.locator('details').getAttribute('open')!==null,true,'An ordinary changed list preserves inline expansion');assert.equal(await page.evaluate(()=>document.activeElement.closest('[data-match-id]')?.dataset.matchId),fixtures[3].id,'An ordinary refresh preserves focus on the same fixture');assert.equal(await card.locator('.fixture-timing-badge').evaluate(e=>e===document.activeElement),true,'The exact focused control survives a new-sport chrome rebuild');assert(Math.abs(await card.evaluate(e=>e.getBoundingClientRect().top)-before)<=2,'An ordinary refresh preserves the reader viewport anchor');assert.deepEqual(errors,[]);console.log(JSON.stringify({engine,automaticRefreshContinuity:true,newSport:true,terminalReordering:true,expansion:true,exactFocus:true,viewportAnchor:true,errors}));await page.close();
+}
 async function recoveryScenario(browser,engine){
  const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'}),errors=[];let phase='fresh',membershipReads=0;
  page.on('pageerror',e=>errors.push(e.message));
@@ -55,5 +67,5 @@ async function recoveryScenario(browser,engine){
  assert.equal(await page.locator('.match-centre-card').count(),6);assert.deepEqual(errors,[]);
  console.log(JSON.stringify({engine,width,colorScheme,allFixtures:6,followedPin:1,inlineExpansion:true,resultsControls:true,sideIdentity:true,compact:true,boundedReads:true,errors}));await page.close();
  }
- await recoveryScenario(browser,engine);
+ await recoveryScenario(browser,engine);await continuityScenario(browser,engine);
  }finally{await browser.close();}}})().catch(e=>{console.error(e);process.exitCode=1;});

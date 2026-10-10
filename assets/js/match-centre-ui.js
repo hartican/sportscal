@@ -3,7 +3,7 @@
  'use strict';
 function loadMatchCentreStyles(){
  if(document.querySelector('[data-mc-style]'))return;
- const link=document.createElement('link');link.rel='stylesheet';link.href='assets/styles/match-centre.css?v=476';link.dataset.mcStyle='';document.head.append(link);
+ const link=document.createElement('link');link.rel='stylesheet';link.href='assets/styles/match-centre.css?v=477';link.dataset.mcStyle='';document.head.append(link);
 }
 loadMatchCentreStyles();
 
@@ -91,7 +91,7 @@ loadMatchCentreStyles();
   }
  }
  function makeCard(e){
-  const id=m().id(e),card=node('article',null,'match-centre-card event-overview-card'),details=node('details'),summary=node('summary',null,'mc-row'),top=node('div',null,'mc-card-top'),mark=node('span',null,'mc-event-mark');card.dataset.matchId=id;details.open=expanded.has(id);summary.setAttribute('aria-label',`Expand ${spoilerSafeDisplayTitle(e)}`);renderEventIdentityMark(mark,e,sportMetaForEvent(e));top.append(mark,node('small',[e.tournamentName||e.competitionName||e.eventName,e.court].filter(Boolean).join(' · ')));summary.append(top);
+  const id=m().id(e),card=node('article',null,'match-centre-card event-overview-card'),details=node('details'),summary=node('summary',null,'mc-row'),top=node('div',null,'mc-card-top'),mark=node('span',null,'mc-event-mark');card.dataset.matchId=id;card.dataset.viewportAnchorKey='match-centre:'+id;details.open=expanded.has(id);summary.setAttribute('aria-label',`Expand ${spoilerSafeDisplayTitle(e)}`);renderEventIdentityMark(mark,e,sportMetaForEvent(e));top.append(mark,node('small',[e.tournamentName||e.competitionName||e.eventName,e.court].filter(Boolean).join(' · ')));summary.append(top);
   const identities=matchupIdentityMatches(e,spoilerSafeDisplayTitle(e)),sides=node('div',null,'mc-participants');summary.append(sides);
   const snapshot=m().compact(e),ids=[snapshot.homeParticipantId,snapshot.awayParticipantId].filter(Boolean),ordered=ids.length===2?ids.map(id=>identities.find(i=>i.participant?.id===id||i.mark?.id===id)||{participant:(e.participants||[]).find(p=>p.id===id),label:(e.participants||[]).find(p=>p.id===id)?.displayName||id}):identities;
   const rows=[];for(const identity of ordered){const row=node('div',null,'mc-participant-row'),score=node('div',null,'mc-participant-score');const identityNode=buildCompactParticipant(identity,e),participant=(e.participants||[]).find(p=>p.id===(identity.participant?.id||identity.mark?.id)),country=participant?.countryCode||identity.participant?.countryCode||identity.mark?.countryCode;const flag=COUNTRY_FLAGS?.flagMarkup?.(country,{className:'mc-participant-flag'});if(flag&&!identity.mark?.url&&!identity.mark?.logo?.primary){identityNode.insertAdjacentHTML('afterbegin',flag);const image=identityNode.querySelector('.mc-participant-flag');image.onload=()=>identityNode.querySelector('.compact-participant-fallback')?.remove();image.onerror=()=>image.remove();}row.append(identityNode,score);sides.append(row);rows.push({id:identity.participant?.id||identity.mark?.id,score});}
@@ -99,11 +99,11 @@ loadMatchCentreStyles();
   const status=node('span',null,'mc-status'),freshness=node('small',null,'mc-row-freshness'),classification=node('div',null,'mc-classification');summary.append(classification,status,freshness);details.append(summary);
   const content=node('div',null,'mc-expanded'),timing=buildFixtureTimingGroup(e);timing.querySelector('.fixture-timing-badge').onclick=click=>{click.stopPropagation();void openFixtureFromTimingCapsule(currentFixture(e));};content.append(timing);if(e.venue||e.court)content.append(node('p',[e.venue,e.court&&e.court!==e.venue?e.court:null].filter(Boolean).join(' · ')));const updates=node('div',null,'mc-score-details');content.append(updates);
   const actions=node('div',null,'match-centre-actions');actions.append(feedButton(e));appendEventQuickActions(actions,e,{chat:false,viewing:false});const sourceLink=node('a',null,'btn ghost');sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';actions.append(sourceLink);content.append(actions);details.append(content);card.append(details);
-  details.ontoggle=()=>{if(!details.isConnected)return;if(details.open){expanded.add(id);if(userPreferences.showSpoilers&&e.rubbers)void poll([e],true);}else expanded.delete(id);const view=cards.get(id);if(view?.details===details)patchCard(view,e);};
+  details.ontoggle=()=>{if(!details.isConnected)return;if(details.open){expanded.add(id);if(isSpoilerVisible(e)&&e.rubbers)void poll([e],true);}else expanded.delete(id);const view=cards.get(id);if(view?.details===details)patchCard(view,e);};
   return {card,details,rows,status,freshness,classification,updates,sourceLink,updateKey:'',scoreKeys:new Map()};
  }
  function patchCard(view,e){
-  const snapshot=m().observation(m().compact(e),scores.get(m().id(e))||m().compact(e)),score=snapshot.score||{},visible=userPreferences.showSpoilers;
+  const snapshot=m().observation(m().compact(e),scores.get(m().id(e))||m().compact(e)),score=snapshot.score||{},visible=isSpoilerVisible(e);
   patchText(view.status,[statusText(e,snapshot),visible&&snapshot.clock?(m().sport(e)==='tennis'?'Duration '+snapshot.clock:snapshot.clock):null].filter(Boolean).join(' · '));view.status.classList.toggle('mc-active-live',m().liveState({...e,...snapshot})==='playing');
   const link=snapshot.scorecardUrl||snapshot.officialUrl;view.sourceLink.hidden=!link;if(link){view.sourceLink.href=link;patchText(view.sourceLink,snapshot.scorecardUrl?(snapshot.scorecardOfficial?'Official scorecard':'Source scorecard'):e.sourceType==='official'?'Official fixture':(e.sourceName||'Published')+' source');}
   const checked=Date.parse(snapshot.statusCheckedAt||snapshot.checkedAt||'');patchText(view.freshness,Number.isFinite(checked)?'Source update '+new Date(checked).toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'}):'Awaiting source update');
@@ -126,6 +126,20 @@ loadMatchCentreStyles();
   }
  }
  function render(){
+  if(activeTab!=='match-centre')return;
+  const focused=document.activeElement,focusCard=focused?.closest?.('[data-match-id]'),focusPath=[];
+  for(let n=focused;focusCard&&n!==focusCard;n=n.parentElement)focusPath.unshift([...n.parentElement.children].indexOf(n));
+  const update=()=>{
+   renderContent();
+   if(focusCard&&document.activeElement!==focused){let target=cards.get(focusCard.dataset.matchId)?.card;for(const index of focusPath)target=target?.children[index];if(target?.tagName===focused.tagName&&target.className===focused.className)target.focus?.({preventScroll:true});}
+  };
+  // Keep viewport identity separate from Feed's DOM reconciliation: this
+  // surface already owns its card nodes and handlers.
+  const viewportTop=stickyFeedChromeHeight()+12,visibleCards=chrome?.heading.isConnected&&window.scrollY>0?[...document.querySelectorAll('.match-centre-card[data-viewport-anchor-key]')].filter(card=>card.getBoundingClientRect().bottom>viewportTop):[];
+  const anchor=visibleCards.find(card=>card.getBoundingClientRect().top>=viewportTop)||visibleCards[0];
+  if(anchor)mutateWithScrollContinuity(anchor,update,{local:true,anchorStrategy:'target',interactionName:'match-centre-update'});else update();
+ }
+ function renderContent(){
   if(activeTab!=='match-centre')return;for(const [id,view] of cards)if(view.card.isConnected){if(view.details.open)expanded.add(id);else expanded.delete(id);}const panel=document.getElementById('listView'),all=candidates();
   const key=JSON.stringify([selectedView,owner(),userPreferences.showSpoilers,[...new Set(all.map(e=>m().sport(e)))].sort()]);
   if(!chrome?.heading.isConnected||chromeKey!==key){chromeKey=key;cards.clear();panel.className='match-centre';const heading=node('div',null,'match-centre-heading'),refresh=node('button','Refresh','btn ghost'),tabs=node('div',null,'mc-membership-tabs'),noticeNode=node('p',null,'mc-refresh-notice'),empty=node('p'),more=node('button','Load more live fixtures','btn ghost');heading.append(node('h2','Match Centre'),refresh);refresh.type='button';refresh.setAttribute('aria-label','Refresh Match Centre');refresh.onclick=()=>void manualRefresh();tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','Match Centre fixtures');
