@@ -2,7 +2,7 @@
 
 Football cards now describe their table as **published standings**, and display an existing out-of-date warning when the table is marked stale. Previously the card said “current standings” and omitted that warning, even though the full Schedule table already showed it. Results OFF continues to hide the table records and warning. No ranking, result, fixture, source date, viewing link or saved preference is changed.
 
-Implementation is ready for the normal release; production proof will be recorded after that release succeeds. This is a small Football trust repair, not a whole-sport certification. The programme still records 0/3 Football pilots and 0/17 carried families fully approved, targeting at least 14/17 families.
+The scoped snapshot **2bff5b34661ceea72408194d3e54ddebd1c3218e**, shell **480**, is live and verified. Normal release **38067931812**, attempt 2, succeeded; Vercel **dpl_9oD7eixghWcAQRTZhGDoFgjdALog** is READY with the three expected aliases. Fourteen served file hashes agree with the deployment inventory and the published display module. Both hosted browser engines pass the 24 combined controlled disclosure cases. This is a small Football trust repair, not a whole-sport certification. The programme still records 0/3 Football pilots and 0/17 carried families fully approved, targeting at least 14/17 families.
 
 ## Fresh organiser comparison
 
@@ -38,3 +38,9 @@ The initial Python source reader failed local certificate verification before an
 **Value:** clearer interpretation when scores and tables update at different times. This is a plausible trust benefit, not measured retention improvement. **Effort:** one display module, explicit cache versions and the existing cache regression; source comparisons are a bounded audit. **Dependencies:** existing published tables, stale metadata and release owner. **New cash/owner routine:** A$0 and none; existing assistant/hosting costs remain unpriced. **Acceptance:** visible supplied warnings, dated published wording, intact Results privacy and source facts, both cached upgrades, exact production publication and hosted rendering. **Confidence:** high in compared fixture facts and reproduced disclosure behaviour; no whole-sport, playback, rights, real-phone or returning-user approval.
 
 Evidence is saved under `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/football-current-check-20261011`: source-pass brief, raw private source responses and hashes, `official-current-comparison.json`, `epl-table-comparison.json`, dated ordinary production read, before/after browser receipts and cache logs. Full provider response bodies remain outside the repository and application.
+
+## Release incident and closeout
+
+The first attempt passed the shared contracts and deployed the requested snapshot, then correctly failed the public Match Centre check because `membershipStale` was true. A fresh unchanged diagnostic passed with 19 listed and 19 selected fixtures. The complete failed job was rerun without a waiver, timeout change, source refresh or forced rebuild; attempt 2 passed and reused the same READY deployment. The original run, failure log, diagnostic, retry decision and both artifact sets are retained. A temporary remote-read failure is an inference; its cause and cold-server reliability remain unconfirmed. No general recovery or performance fix is claimed from the successful recheck.
+
+GitHub publication, immutable READY/SHA, aliases, transformed served bytes, controlled hosted rendering and cached-browser rehearsals are separate receipts. Physical-phone, signed-in, playback, commercial permissions and genuine return visits remain open. Full programme approval counts do not change.
