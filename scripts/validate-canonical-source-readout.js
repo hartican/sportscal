@@ -9,6 +9,15 @@ const gap = {tournamentId:'tournament:tennis:wta-beijing-2026', name:'China Open
 const hydration = {schemaVersion:'tournament-hydration-report.v1', checkedAt:quick.checkedAt, offline:false, tournaments:[gap]};
 const run = {databaseId:36777788726, status:'completed', conclusion:'success', createdAt:'2026-09-30T21:10:00Z', headSha:'a'.repeat(40), url:'https://github.com/hartican/sportscal/actions/runs/36777788726'};
 const report = summary({quick, hydration, now});
+const nhlSource=require('./lib/nhl-results'),tennisSource=require('../lib/tennis-scoreboard');
+const sourceTimeErrors=[
+ ()=>nhlSource.parseStandings({standingsDateTimeUtc:new Date(+now+1).toISOString()},{checkedAt:now.toISOString(),now}),
+ ()=>tennisSource.parse({}, {tour:'wta',checkedAt:new Date(+now-6*3600000-1).toISOString(),now}),
+].map(check=>{try{check();}catch(error){return error.message;}assert.fail('Controlled invalid source time must reject');});
+const timeReport=summary({quick:{mode:'quick',checkedAt:now.toISOString(),failures:sourceTimeErrors,aiCalls:0},now});
+assert.equal(timeReport.quick.state,'observed');assert.deepEqual(timeReport.quick.failures,sourceTimeErrors,'Both clocks and the rejection reason survive the real bounded exception readout');
+const timeMarkdown=markdown({state:'observed',run, reports:timeReport,limitations:[]});
+assert(sourceTimeErrors.every(message=>timeMarkdown.includes(message)),'The existing operator readout exposes actionable source-time failures');
 const finalApi=require('./lib/known-final-results'),finalNow=new Date('2026-10-04T21:00:00Z'),knownFinals={schemaVersion:'known-final-results.v1',checkedAt:'2026-10-04T20:15:00Z',checks:[{fixtureId:finalApi.NRL_ID,sourceUrl:finalApi.NRL_URL,state:'primary-final',observedAt:'2026-10-04T20:15:20Z',changed:false}],failures:[],requests:1,maxRequests:2,aiCalls:0};
 assert.equal(summary({knownFinals,now:finalNow}).knownFinals.state,'observed');assert.equal(summary({knownFinals:{...knownFinals,checks:[],requests:0},now:finalNow}).knownFinals.state,'not-checked');
 for(const invalid of [{schemaVersion:'wrong'},{requests:3},{checks:[knownFinals.checks[0],knownFinals.checks[0]]},{checks:[{...knownFinals.checks[0],sourceUrl:'https://example.invalid'}]},{checks:[{...knownFinals.checks[0],observedAt:'2099-01-01T00:00:00Z'}]}])assert.equal(summary({knownFinals:{...knownFinals,...invalid},now:finalNow}).knownFinals.state,'unavailable');

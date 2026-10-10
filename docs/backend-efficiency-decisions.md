@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Explain rejected source times without widening acceptance — 11 October 2026 Sydney
+
+The existing NHL and Tennis source errors distinguish a future provider publication or observation from an older-than-six-hours Tennis receipt, with independently labelled valid source/validation clocks. Invalid clock values fail closed and are never copied into messages. The same existing quick/live exception path carries the bounded error text; no report schema, additional source request, retry, scheduler, credential, polling, database operation or owner task is added. Valid source data and original observation values are unchanged; even a one-millisecond future observation stays rejected.
+
+Five fresh read-only resources now pass their existing parsers, so the earlier manual run's six warnings do not prove a persistent parser fault or clock-skew cause. This is actionable diagnosis for recurrence, not a claimed repair of transient external failures. Keep the WRC timeout, browser upgrade stall, match-list read and ordinary overnight proof separate. Existing source/actual-writer/recovery gates remain mandatory.
+
 ## Manual sports updates exclude profile-picture cleanup — 11 October 2026 Sydney
 
 The existing canonical workflow's manual sports run skips its unrelated avatar maintenance step. The scheduled run keeps the same cleanup command, cadence and always-on-failure behaviour. No new workflow, scheduler, retry, source request, credential, customer mutation or owner routine is introduced; this limits the manual action's scope rather than changing sports refresh ownership. The existing backend-efficiency release gate evaluates the actual maintenance condition for manual, scheduled and unknown events, enabled/disabled cadence and successful/failed refreshes. Manual refresh success remains separate from proof of ordinary unattended operation.

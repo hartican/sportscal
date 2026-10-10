@@ -10,7 +10,12 @@ function instant(value){
  if(typeof value!=='string'||!/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d{3})?Z$/.test(value)||!Number.isFinite(Date.parse(value))||new Date(value).toISOString().replace('.000Z','Z')!==value.replace('.000Z','Z'))fail('invalid source timestamp');return value;
 }
 function day(value){if(typeof value!=='string'||!/^\d{4}-\d\d-\d\d$/.test(value)||!Number.isFinite(Date.parse(value+'T00:00:00Z'))||new Date(value+'T00:00:00Z').toISOString().slice(0,10)!==value)fail('invalid schedule date');return value;}
-function observed(value,now){instant(value);if(Date.parse(value)>+now)fail('future observation');return value;}
+function observed(value,now,label='source observation'){
+ if(!Number.isFinite(+now))fail('invalid validation time');
+ instant(value);
+ if(Date.parse(value)>+now)fail(`future observation (${label}: ${new Date(value).toISOString()}; validation: ${new Date(+now).toISOString()})`);
+ return value;
+}
 function knownTeams(teams){const ids=new Set((teams||[]).map(t=>t.id));if(ids.size!==32||ABBREVS.some(a=>!ids.has('team:nhl:'+a.toLowerCase())))fail('expected the 32 reviewed NHL clubs');return ids;}
 function localParts(value,timeZone='Australia/Sydney'){return Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date(value)).map(p=>[p.type,p.value]));}
 function leagueDay(value){const p=localParts(value,'America/New_York');return `${p.year}-${p.month}-${p.day}`;}
@@ -95,7 +100,7 @@ function mergeFixtures(previous,fixtures){
  return [...previous.fixtures.map(f=>changes.get(f.id)||f),...fixtures.filter(f=>!originals.has(f.id))];
 }
 function parseStandings(payload,{teams,fixtures,checkedAt,now=new Date()}={}){
- observed(checkedAt,now);observed(payload?.standingsDateTimeUtc,now);if(Date.parse(payload.standingsDateTimeUtc)>Date.parse(checkedAt))fail('table published after observation');const ids=knownTeams(teams),seen=new Set(),ranks=new Set(),groups=new Map();
+ observed(checkedAt,now);observed(payload?.standingsDateTimeUtc,now,'standings publication');if(Date.parse(payload.standingsDateTimeUtc)>Date.parse(checkedAt))fail('table published after observation');const ids=knownTeams(teams),seen=new Set(),ranks=new Set(),groups=new Map();
  if(!Array.isArray(payload.standings)||payload.standings.length!==32)fail('incomplete league table');
  const totals=new Map([...ids].map(id=>[id,{gamesPlayed:0,wins:0,goalsFor:0,goalsAgainst:0}]));for(const f of fixtures.filter(f=>f.competitionId==='competition:nhl'&&f.roundLabel==='Regular season'&&f.status==='completed'))for(const s of f.participantSlots){if(!totals.has(s.participantId))fail('unknown retained final participant');const other=f.participantSlots.find(o=>o.participantId!==s.participantId),t=totals.get(s.participantId);if(!Number.isInteger(s.score)||!Number.isInteger(other?.score))fail('invalid retained final score');t.gamesPlayed++;t.wins+=s.score>other.score;t.goalsFor+=s.score;t.goalsAgainst+=other.score;}
  const rows=payload.standings.map(r=>{

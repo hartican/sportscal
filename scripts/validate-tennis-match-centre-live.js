@@ -20,6 +20,12 @@ const res=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},status(n){this.cod
  const adapter=require('../lib/live-tennis-scoreboard').sources({fetchImpl,published:[scheduled,oldFinal]}).find(s=>s.id==='live-tennis-wta');assert.equal(adapter.seed.length,1,'Initial live seed excludes already published historical finals');
  const observed=await adapter.fetch({now,previous:adapter.seed});assert.equal(sourceCalls,1);assert.equal(observed.find(f=>f.tennisProviderMatchId==='184351').status,'live');assert(!observed.some(f=>f.tennisProviderMatchId==='184349'),'An initial historical final cannot gain a fresh completion window');assert(observed.every(f=>f.fixtureObservationSchema));
  assert.throws(()=>source.parse(payload,{tour:'wta',catalogue,checkedAt:now.toISOString(),now:new Date(+now+6*3600000+1)}),/invalid or stale observation/,'A successful stale receipt remains rejected.');
+ for(const [delta,reason] of [[1,'ahead of validation'],[-6*3600000-1,'older than six hours']]){
+  const sourceTime=new Date(+now+delta).toISOString();
+  assert.throws(()=>source.parse(payload,{tour:'wta',catalogue,checkedAt:sourceTime,now}),error=>error.message.includes(reason)&&error.message.includes(sourceTime)&&error.message.includes(now.toISOString()),'A strict rejection identifies the age problem and both independent clocks');
+ }
+ assert.throws(()=>source.parse({leagues:[{slug:'wta'}],events:[]},{tour:'wta',catalogue,checkedAt:now.toISOString(),now:new Date('invalid')}),/invalid source or validation time/,'Even a valid empty response cannot pass an invalid validation clock');
+ assert.throws(()=>source.parse(payload,{tour:'wta',catalogue,checkedAt:'private-invalid-value',now}),error=>error.message.includes('invalid source or validation time')&&!error.message.includes('private-invalid-value'),'Malformed values are never copied into operational messages');
  const keys=require('../lib/live-fixtures').splitScores(observed,{observedFixtures:observed,now});const score=keys.scores.find(f=>f.id===scheduled.id);assert(score.scoreObserved&&score.statusObserved);assert.equal(score.scoreCheckedAt,now.toISOString());
  for(const age of [7*86400000,-1000]){
   const invalid=require('../lib/live-tennis-scoreboard').sources({fetchImpl:async()=>({ok:true,headers:new Headers({date:new Date(+now-age).toISOString()}),json:async()=>payload}),published:[scheduled]}).find(s=>s.id==='live-tennis-wta');
