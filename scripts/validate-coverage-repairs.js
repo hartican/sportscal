@@ -22,9 +22,10 @@ const {capture,safeSignal,researchCandidates}=require('./snapshot-editorial-noth
  assert(golf.tournaments.filter(t=>t.status!=='completed').every(t=>!t.winners.length),'defending champions are not results');
  assert.deepEqual(pga.dateRange('Jan 29 - Feb 1',2026),{startDate:'2026-01-29',endDate:'2026-02-01'});
  const inspector=require('../data/code-inspector/golf.json').fixtures;
- for(const t of golf.tournaments){const records=inspector.filter(f=>f.tournamentId===t.id&&f.cardType!=='golf_session');assert.equal(records.length,1,t.id+' one canonical schedule entry');if(t.status==='completed')assert.match(records[0].outcomeText,/won/);}
+ assert.equal(new Set(inspector.map(f=>f.id)).size,inspector.length,'source appearances retain distinct fixture identities');
+ for(const t of golf.tournaments){const records=inspector.filter(f=>f.tournamentId===t.id&&!['golf_session','golf_appearance'].includes(f.cardType));assert.equal(records.length,1,t.id+' one canonical tournament overview alongside sourced appearances');if(t.status==='completed')assert.match(records[0].outcomeText,/won/);}
  const catalogue=require('../data/canonical/tennis-catalogue-2026.json').tournaments;
- const sections=tournaments.sections(catalogue,'2026-09-22');assert.deepEqual(sections.map(s=>s.label),['Grand Slams','ATP Masters 1000','WTA 1000','ATP 500','WTA 500','ATP 250','WTA 250','Tour finals','International team events']);
+ const sections=tournaments.sections(catalogue,'2026-09-22');assert.deepEqual(sections.map(s=>s.label),['Grand Slams','ATP Masters 1000','WTA 1000','ATP 500','WTA 500','Tour finals','International team events'],'the approved 500-and-above scope hides smaller categories');
  assert.equal(new Set(catalogue.filter(t=>t.level==='grand_slam').map(tournaments.family)).size,4);
  assert.equal(tournaments.family({name:'WTA Finals Indian Wells'}),'wta-finals');
  for(const section of sections){assert(section.current.every(t=>t.endDate>='2026-09-22'&&t.startDate<='2026-12-22'));assert(section.later.every(t=>t.startDate>'2026-12-22'));}
