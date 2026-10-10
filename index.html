@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="481">
+<meta name="app-shell-version" content="482">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=481" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=482" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6557,6 +6557,10 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .provider-action-text-fallback{ max-width:100%; overflow:hidden; color:currentColor; font:900 .65rem/1 'DM Sans',sans-serif; text-overflow:ellipsis; white-space:nowrap; }
 .provider-action-logo{ display:block; width:100%; height:100%; object-fit:contain; }
 .provider-action-mark .vector-glyph{ width:14px; height:14px; }
+.fixture-providers{ display:flex; flex-wrap:wrap; gap:6px; min-width:0; }
+.fixture-providers .event-quick-action.provider-link{ width:auto; flex:0 1 auto; flex-direction:column; gap:3px; min-height:44px; }
+.provider-link .provider-action-mark{ flex:0 0 auto; }
+.provider-access{ font-size:.6rem; line-height:1.15; }
 .event-quick-action.viewing-tbc{ border-style:dashed; color:var(--text-dim); background:transparent; cursor:default; }
 .event-quick-explanation{ grid-column:1 / -1; margin:0; color:var(--text-dim); font-size:.66rem; line-height:1.35; overflow-wrap:anywhere; }
 .open-in-events-link,.major-event-marker-open{ border-color:color-mix(in srgb,var(--accent) 50%,var(--border)); color:var(--accent); }
@@ -7184,7 +7188,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=481"></script>
+<script src="assets/js/app-shell-runtime.js?v=482"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16108,6 +16112,16 @@ function configureProviderLaunch(link, viewing){
   link.rel = "noopener noreferrer external";
 }
 
+function viewingAccessLabel(viewing){
+  switch(viewing.accessType){
+    case 'free': return 'Free';
+    case 'subscription': return 'Subscription';
+    case 'ppv': return 'Pay-per-view';
+    case 'included': return 'Included in plan';
+    default: return 'Check cost';
+  }
+}
+
 function appendEventQuickActions(container, ev, { reminder = true, chat = true, viewing = true } = {}){
   if(globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev))viewing=false;
   const actions = document.createElement("div");
@@ -16119,10 +16133,12 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
       const link=document.createElement('a');link.className='event-quick-action provider-link';
       configureProviderLaunch(link,viewingLink);
       const verb=viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';
-      link.title=`${verb} on ${viewingLink.label}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
+      const access=viewingAccessLabel(viewingLink);
+      link.title=`${verb} on ${viewingLink.label} · ${access}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
+      const cost=document.createElement('span');cost.className='provider-access';cost.textContent=access;link.appendChild(cost);
       link.addEventListener('click',event=>{event.stopPropagation();recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
     }
-    const viewingNote=!viewingLinks.length?'Australian viewing unconfirmed':viewingLinks.every(p=>p.paid)&&['competition:lpga-tour','competition:nhl'].includes(ev.competitionId)?'Subscription':null;
+    const viewingNote=!viewingLinks.length?'Australian viewing unconfirmed':null;
     if(viewingNote){const text=document.createElement('span');text.className='viewing-tbc';text.textContent=viewingNote;row.append(text);}
     actions.append(row);
   }

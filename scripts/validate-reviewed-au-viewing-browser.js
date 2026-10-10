@@ -21,20 +21,25 @@ const aflwOnly=process.argv.includes('--aflw');
  },aflwOnly);assert(fixtures.every(Boolean));
  for(const mode of ['feed','schedule'])for(const show of [false,true])for(const width of [320,390,768,1280])for(const fixture of fixtures){
   await page.setViewportSize({width,height:844});
-  const expected=await page.evaluate(({fixture,mode,show})=>{
+  const rendered=await page.evaluate(({fixture,mode,show})=>{
    activeTab=mode==='feed'?'feed':'follow';activeInspectorCodeId=null;userPreferences.showSpoilers=show;userPreferences.feedCompact=false;
    const f={...fixture,eventId:fixture.id};setCardState(f,'opened');const card=mode==='feed'?buildEventCard(f):buildCodeInspectorFixture(fixture);card.style.contentVisibility='visible';document.getElementById('listView').replaceChildren(card);scrollTo(0,0);
-   return FOLLOW_FIRST.viewingOptions(f).map(o=>({id:o.providerId,url:o.url,label:o.label,paid:o.paid,accessType:o.accessType,replay:o.liveOrReplay==='replay',rightsScope:o.rightsScope,replayVerified:o.replayVerified}));
+   return {marker:card.classList.contains('tournament-start-marker'),options:FOLLOW_FIRST.viewingOptions(f).map(o=>({id:o.providerId,url:o.url,label:o.label,paid:o.paid,accessType:o.accessType,replay:o.liveOrReplay==='replay',rightsScope:o.rightsScope,replayVerified:o.replayVerified}))};
   },{fixture,mode,show});
+  const expected=rendered.options,presented=rendered.marker?[]:expected;
   const card=page.locator('#listView .event-card');await card.scrollIntoViewIfNeeded();
   const links=await card.locator('.fixture-providers a').evaluateAll(links=>links.map(a=>({href:a.getAttribute('href'),label:a.getAttribute('aria-label')})));
-  assert.equal(links.length,expected.length,`${fixture.id}/${mode}: actual visible provider actions`);
-  for(let i=0;i<links.length;i++){assert.equal(links[i].href,expected[i].url);assert.equal(links[i].label,`${expected[i].replay?'Check replay availability':'Watch'} on ${expected[i].label}`);}
-  const text=await card.innerText();if(!expected.length)assert(text.includes('Australian viewing unconfirmed'),'degraded state visible');
+  assert.equal(links.length,presented.length,`${fixture.id}/${mode}: actual visible provider actions`);
+  for(let i=0;i<links.length;i++){assert.equal(links[i].href,presented[i].url);const access={free:'Free',subscription:'Subscription',ppv:'Pay-per-view',included:'Included in plan'}[presented[i].accessType]||'Check cost';assert.equal(links[i].label,`${presented[i].replay?'Check replay availability':'Watch'} on ${presented[i].label} · ${access}`);}
+  const text=await card.innerText();if(!expected.length&&!rendered.marker)assert(text.includes('Australian viewing unconfirmed'),'degraded state visible');
+  if(rendered.marker){assert.equal(mode,'feed');assert.equal(await card.getByRole('button',{name:'Open in Events',exact:true}).count(),1,'Published multi-day Feed marker retains its genuine Events handoff');assert.equal(await card.locator('.provider-access').count(),0,'A calendar marker cannot invent a direct viewing action');}
+  for(const caption of await card.locator('.provider-access').evaluateAll(nodes=>nodes.map(n=>({text:n.textContent,width:n.clientWidth,scroll:n.scrollWidth,height:n.clientHeight}))))assert(caption.width>0&&caption.height>0&&caption.scroll<=caption.width+1,'Provider cost caption is readable without clipping: '+caption.text);
   if(fixture.id==='event:aflw:cd_m20262641601'){
    assert.deepEqual(expected.map(o=>o.id),['seven','kayo','foxtel'],'The women’s final has its own confirmed options, free first');
    assert.equal(links[0].href,'https://7plus.com.au/aflw');assert(expected.every(o=>o.rightsScope==='fixture'&&!o.replayVerified));
    assert.deepEqual(expected.map(o=>o.accessType),['free','subscription','subscription'],'The existing provider metadata distinguishes free and paid access');
+   assert.deepEqual(await card.locator('.provider-access').allTextContents(),['Free','Subscription','Subscription'],'Actual mixed-provider card clearly labels each free or paid destination');
+   if(process.env.QA_SCREENSHOT_DIR&&mode==='feed'&&!show&&width===390)await card.screenshot({path:require('node:path').join(process.env.QA_SCREENSHOT_DIR,'aflw-access-'+(process.env.QA_BROWSER||'chromium')+'.png')});
    if(mode==='schedule'){assert.match(text,/27\s+Nov/i);assert.match(text,/Time TBC/i);assert.match(text,/Winner of PF1/);assert.match(text,/Winner of PF2/);}
   }
   if(fixture.id==='fixture:rugby:wr:e492d961-1f1e-4c37-b9d7-e9fd811459be'){
@@ -45,7 +50,7 @@ const aflwOnly=process.argv.includes('--aflw');
   if(fixture.id==='rugby-australia-south-africa-2026-09-27')assert(show?/42\s*[–-]\s*38/.test(text):!/42\s*[–-]\s*38/.test(text),'Results privacy survives viewing change');
   if(['fixture:golf:lpga:2026068','fixture:golf:lpga:2026070'].includes(fixture.id)){
    assert.deepEqual(expected.map(o=>o.id),['kayo','foxtel']);assert(expected.every(o=>o.rightsScope==='competition'&&!o.replayVerified),'LPGA only claims reviewed competition carriage');
-   assert(text.includes('Subscription'),'paid provider state is visible');
+   if(!rendered.marker)assert(text.includes('Subscription'),'paid provider state is visible');
   }
   if(fixture.competitionId==='competition:nhl'){
    assert.deepEqual(expected.map(o=>o.id),fixture.roundLabel==='Regular season'?['disney']:[],'regular season only');
@@ -54,11 +59,11 @@ const aflwOnly=process.argv.includes('--aflw');
    if(fixture.id==='fixture:nhl:2026020001')assert(show?/1\s*[–-]\s*0/.test(text):!/1\s*[–-]\s*0/.test(text),'NHL zero final obeys Results privacy');
   }
   if(fixture.id==='fixture:golf:lpga:2026063'){
-   assert.equal(fixture.fixtureResults.rows.length,144);assert(show?text.includes(fixture.scoreDisplay):!text.includes('Winner: Yuna')&&!text.includes('won Walmart'),'retained LPGA classification obeys Results privacy');
+   assert.equal(fixture.fixtureResults.rows.length,144);assert(show&&!rendered.marker?text.includes(fixture.scoreDisplay):!text.includes('Winner: Yuna')&&!text.includes('won Walmart'),'retained LPGA classification obeys Results privacy; markers do not expose a final score');
    assert(!/multiple live stages/i.test(text),'completed tournament is not labelled live');
   }
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);assert(!overflow,`${fixture.id}/${mode}/${width}: mobile layout`);
-  observations.push({id:fixture.id,mode,show,width,providers:expected.map(o=>o.id),overflow});
+  observations.push({id:fixture.id,mode,show,width,providers:expected.map(o=>o.id),shownProviders:presented.map(o=>o.id),feedCalendarMarker:rendered.marker,overflow});
  }
  if(aflwOnly){
   await page.locator('#startupLaunch').waitFor({state:'hidden'});
@@ -74,12 +79,12 @@ const aflwOnly=process.argv.includes('--aflw');
  const id='fixture:cricket:espn:1525659';
  for(let n=0;n<25&&await page.locator(`[data-event-id="${id}"]`).count()===0;n++){const later=page.getByRole('button',{name:'Later rounds / events',exact:true});if(!await later.count())break;await later.click();}
  const ordinary=page.locator(`[data-event-id="${id}"]`);await ordinary.waitFor({state:'attached'});assert.equal(await ordinary.locator('.fixture-providers a').count(),2,'ordinary Cricket Schedule presents both broadcasters');
- await page.evaluate(()=>{saveFollowBrowse({sportId:'sport:golf-women',categoryId:'sport:golf-women',section:'schedule',scheduleScope:null});return openCodeInspector('sport:golf',{startingTab:'all-fixtures'});});await page.locator('.code-inspector-group').first().waitFor();
  const lpgaId='fixture:golf:lpga:2026068';
+ await page.evaluate(fixture=>openCodeInspector('sport:golf',{focusFixture:fixture}),fixtures.find(f=>f.id===lpgaId));
  for(let n=0;n<25&&await page.locator(`[data-inspector-fixture-id="${lpgaId}"]`).count()===0;n++){const direction=Date.parse(fixtures.find(f=>f.id===lpgaId).date+'T00:00:00Z')<Date.now()?'Earlier rounds / events':'Later rounds / events';const more=page.getByRole('button',{name:direction,exact:true});if(!await more.count())break;await more.click();}
  const ordinaryGolf=page.locator(`[data-inspector-fixture-id="${lpgaId}"]`);await ordinaryGolf.waitFor({state:'attached'});assert.equal(await ordinaryGolf.locator('.fixture-providers a').count(),2,'ordinary Golf Schedule presents both reviewed LPGA broadcasters');
- await page.evaluate(()=>{saveFollowBrowse({sportId:'sport:ice-hockey',categoryId:'sport:ice-hockey',section:'schedule',scheduleScope:null});return openCodeInspector('sport:ice-hockey',{startingTab:'all-fixtures'});});await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='sport:ice-hockey');
  const nhlId='fixture:nhl:2026020035';
+ await page.evaluate(fixture=>openCodeInspector('sport:ice-hockey',{focusFixture:fixture}),fixtures.find(f=>f.id===nhlId));await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='sport:ice-hockey');
  const ordinaryNhl=page.locator(`[data-inspector-fixture-id="${nhlId}"]`);
  for(let n=0;n<25&&await ordinaryNhl.count()===0;n++){const more=page.getByRole('button',{name:'Later rounds / events',exact:true});if(!await more.count())break;await more.click();}
  await ordinaryNhl.waitFor({state:'attached'});assert.equal(await ordinaryNhl.locator('.fixture-providers a').count(),1,'ordinary NHL Schedule has reviewed Disney action');assert((await ordinaryNhl.innerText()).includes('Subscription'));
@@ -87,7 +92,7 @@ const aflwOnly=process.argv.includes('--aflw');
  // without subscriber login, a production write or a claim of video playback.
  const destination=page.context();await destination.route('https://www.disneyplus.com/**',r=>r.fulfill({status:200,contentType:'text/html',body:'<title>Isolated provider destination handoff</title>'}));
  await ordinaryNhl.scrollIntoViewIfNeeded();const popupPromise=page.waitForEvent('popup');await ordinaryNhl.locator('.fixture-providers a').click();const popup=await popupPromise;await popup.waitForLoadState('domcontentloaded');assert.equal(popup.url(),'https://www.disneyplus.com/en-au/welcome/espn-sports');await popup.close();
- const report={checkedAt:new Date().toISOString(),browser:process.env.QA_BROWSER||'chromium',cases:observations.length,ordinaryCricketSchedule:true,ordinaryGolfSchedule:true,ordinaryNhlSchedule:true,isolatedDisneyClick:true,observations,scope:'Actual source projections and opened Feed/Schedule rendering; APIs isolated and workers blocked. Public destinations only, no authenticated playback or physical device proof.'};
+ const report={checkedAt:new Date().toISOString(),browser:process.env.QA_BROWSER||'chromium',cases:observations.length,ordinaryCricketSchedule:true,focusedGolfSchedule:true,focusedNhlSchedule:true,isolatedDisneyClick:true,observations,scope:'Actual source projections, supported Feed cards and calendar markers, opened Schedule rendering, current focused Golf/NHL schedule links and isolated Disney handoff; APIs isolated and workers blocked. Public destinations only, no authenticated playback or physical device proof.'};
  if(process.env.QA_REPORT_FILE)fs.writeFileSync(process.env.QA_REPORT_FILE,JSON.stringify(report,null,2)+'\n');console.log(`${report.browser}: ${report.cases} viewing cases, four widths, Results privacy and ordinary Cricket/Golf Schedule passed.`);
  }finally{await browser.close();if(server){server.closeAllConnections();await new Promise(r=>server.close(r));}}
 })().catch(error=>{console.error(error);process.exitCode=1;});

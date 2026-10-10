@@ -362,11 +362,20 @@ async function assertCachedFootballStatus(page){
     const data=await(await fetch('/data/follow-schedule/nrl.json')).json(),final=data.fixtures.find(f=>f.canonicalEventId==='evt_84');
     const options=NOTHINGSPORTS_FOLLOW_FIRST.viewingOptions(final),controls=document.createElement('div');
     appendEventQuickActions(controls,final,{reminder:false,chat:false});
-    return {options:options.map(o=>({id:o.providerId,url:o.webUrl,scope:o.linkScope,checkedAt:o.verifiedAt,permalink:o.permalinkVerifiedAt})),destinations:[...controls.querySelectorAll('a.provider-link')].map(a=>a.getAttribute('href'))};
+    return {options:options.map(o=>({id:o.providerId,url:o.webUrl,scope:o.linkScope,checkedAt:o.verifiedAt,permalink:o.permalinkVerifiedAt})),destinations:[...controls.querySelectorAll('a.provider-link')].map(a=>a.getAttribute('href')),access:[...controls.querySelectorAll('.provider-access')].map(n=>n.textContent),labels:[...controls.querySelectorAll('a.provider-link')].map(a=>a.getAttribute('aria-label'))};
   });
   assert.deepEqual(finalsDestinations.options.map(o=>o.id),['nine-tv','nine']);
   assert(finalsDestinations.options.every(o=>o.url==='https://www.9now.com.au/'&&o.scope==='sport'&&o.checkedAt==='2026-09-27T13:39:49.102Z'&&o.permalink===null),'cached reader preserves general destinations and original rights evidence');
   assert.deepEqual(finalsDestinations.destinations,['https://www.9now.com.au/','https://www.9now.com.au/'],'cached controls retain external destinations after upgrade and offline');
+  assert.deepEqual(finalsDestinations.access,['Free','Free'],'Cached upgrade and offline display retain the free labels for the actual NRL final');
+  assert(finalsDestinations.labels.every(s=>s.endsWith(' · Free')&&s.startsWith('Check replay availability on ')),'Cached cost labels preserve unverified replay language');
+  const mixedAccess=await page.evaluate(async()=>{
+    const f=(await(await fetch('/data/code-inspector/aflw.json')).json()).fixtures.find(e=>e.id==='event:aflw:cd_m20262641601'),controls=document.createElement('div');
+    appendEventQuickActions(controls,f,{reminder:false,chat:false});
+    return {access:[...controls.querySelectorAll('.provider-access')].map(n=>n.textContent),urls:[...controls.querySelectorAll('a.provider-link')].map(n=>n.href)};
+  });
+  assert.deepEqual(mixedAccess.access,['Free','Subscription','Subscription'],'Cached upgrade and offline retain mixed provider access labels');
+  assert.deepEqual(mixedAccess.urls,['https://7plus.com.au/aflw','https://kayosports.com.au/en-AU/schedule','https://www.foxtel.com.au/watch/sport.html'],'Cost display preserves actual reviewed AFLW destinations');
 }
 
 const baselineSha = process.env.PWA_BASELINE_SHA || 'eb1b495';

@@ -63,7 +63,7 @@ if(process.env.POSITION_PENDING_REHEARSAL==='1')for(const entry of inspector.sta
     activeTab=mode==='feed'?'feed':'follow';
     document.getElementById('listView').replaceChildren(mode==='schedule'?buildCodeInspectorFixture(fixture):buildEventCard(fixture));
    },{mode,competitionId});
-   const link=page.locator('#listView a.provider-link[aria-label="Check replay availability on Stan Sport"]');
+   const link=page.locator('#listView a.provider-link[aria-label="Check replay availability on Stan Sport · Subscription"]');
    assert.equal(await link.count(),1,`${mode}: provider page must not promise a verified fixture replay`);
    assert.equal(await link.getAttribute('href'),`https://www.stan.com.au/watch/sport/football/${slug}`);
   }
