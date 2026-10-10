@@ -403,6 +403,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-football-status-display.js"],
   ["scripts/validate-nbl-match-context.js", "--published"],
   ["scripts/validate-match-centre.js"],
+  ["scripts/validate-current-score-placement.js"],
+  ["scripts/validate-event-overviews.js"],
   ["scripts/validate-tennis-feed-normalisation.js"],
   ["scripts/validate-tournament-hydration.js"],
   ["scripts/validate-odi-display.js"],

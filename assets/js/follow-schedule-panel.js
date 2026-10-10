@@ -45,9 +45,14 @@ globalThis.renderFollowSchedulePanel=function(container){
     panel.innerHTML = '<div class="empty-state">Loading detailed fixtures…</div>';
     return;
   }
+  const focused=codeInspectorFocusedOwner===(serverSyncClient?.sessionSubject()||'public')?codeInspectorFocusedFixture:null;
+  if(focused){
+    setCardState(focused,'opened');const card=buildEventCard(focused,{mode:'schedule',inspectorFixture:focused});card.dataset.inspectorFixtureId=focused.id;panel.append(card);
+    requestAnimationFrame(()=>{if(!card.isConnected||activeInspectorCodeId!==code.id||codeInspectorFocusedFixture!==focused)return;card.tabIndex=-1;card.scrollIntoView({block:'start',behavior:'instant'});card.focus({preventScroll:true});});
+  }
   const available = (codeInspectorChunk.fixtures || []).filter(inspectorFixtureMatchesTab).filter(f=>followScheduleScopeMatches(f));
   appendFootballCalendarFilters(panel,code,available);
-  const fixtures=available.filter(f=>FOLLOW_FEED_POLICY.scheduleVisible(f,userPreferences,followCollectionsById())&&NOTHINGSPORTS_FOLLOW_NAV.matches(f,code.id));
+  const fixtures=available.filter(f=>f.id!==focused?.id&&FOLLOW_FEED_POLICY.scheduleVisible(f,userPreferences,followCollectionsById())&&NOTHINGSPORTS_FOLLOW_NAV.matches(f,code.id));
   if(['sport:skiing','sport:surf'].includes(code.id)&&code.coverageStatus==='partial'){const note=document.createElement('p');note.className='code-inspector-note';note.textContent=codeInspectorCoverageCopy(code);panel.append(note);}
   const filterButton=document.createElement('button');filterButton.type='button';filterButton.className='btn ghost';filterButton.textContent='Filter schedule';filterButton.onclick=()=>NOTHINGSPORTS_FOLLOW_NAV.openFilters(code.id,available);panel.append(filterButton);
   if (codeInspectorTab === "players"){

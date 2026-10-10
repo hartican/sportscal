@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="474">
+<meta name="app-shell-version" content="475">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=474" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=475" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6378,6 +6378,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .events-now-marker::before,.events-now-marker::after{ content:""; flex:1; height:1px; background:var(--border); }
 .events-now-marker.is-active{ color:var(--accent); }
 .events-now-marker.is-active::before,.events-now-marker.is-active::after{ background:color-mix(in srgb,var(--accent) 62%,var(--border)); }
+.feed-now-marker{--accent:var(--live-red,#e4414f);text-transform:none}
 .major-event-matchup-sides{ display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); align-items:center; gap:7px; margin-top:7px; color:var(--text); }
 .major-event-matchup-side{ display:flex; min-width:0; flex-direction:column; gap:4px; }
 .major-event-matchup-side:last-child{ text-align:right; }
@@ -7183,7 +7184,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=474"></script>
+<script src="assets/js/app-shell-runtime.js?v=475"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8692,6 +8693,8 @@ let inspectorReturnState = null;
 let codeInspectorManifest = null;
 let codeInspectorManifestLoading = null;
 let codeInspectorChunk = null;
+let codeInspectorFocusedFixture = null;
+let codeInspectorFocusedOwner = '';
 let liveFixtureRevision = "";
 let fantasySourceState = {};
 let liveFixtureEvents = [];
@@ -10995,7 +10998,7 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 }
 
 let feedScoreUiLoading=null;
-function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=474').catch(error=>{feedScoreUiLoading=null;throw error;});}
+function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=475').catch(error=>{feedScoreUiLoading=null;throw error;});}
 function installFeedLiveScore(card,event){
   if(globalThis.NOTHINGSPORTS_FEED_SCORE_UI){globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);return;}
   const owner=serverSyncClient?.sessionSubject()||'public';
@@ -13902,10 +13905,13 @@ function restoreInspectorFeedViewport(returnState){
   }
 }
 
-async function openCodeInspector(codeId, { pushHistory = true, startingGroup = "", startingTab = "all-fixtures" } = {}){
+async function openCodeInspector(codeId, { pushHistory = true, startingGroup = "", startingTab = "all-fixtures", focusFixture = null } = {}){
+  codeInspectorFocusedFixture=focusFixture;
+  codeInspectorFocusedOwner=serverSyncClient?.sessionSubject()||'public';
   const startedAt = feedPerformanceNow();
   const hydration = codeInspectorChunk ? null : beginInSessionLoading("Loading Schedule");
   const manifest = await loadCodeInspectorManifest();
+  if(focusFixture&&codeInspectorFocusedOwner!==(serverSyncClient?.sessionSubject()||'public')){codeInspectorFocusedFixture=null;return;}
   if (!manifest.codes.some(code => code.id === codeId)){
     hydration?.fail("Schedule is unavailable.");
     return;
@@ -14065,27 +14071,13 @@ async function syncAppRouteFromLocation(){
 }
 
 let notificationFixtureLoading=false;
-function openMatchCentreFeedFixture(event,{temporary=false}={}){
-  const action=getEventAction(event);
-  if(action.archived||action.dismissed){showToast('This fixture has been removed from your Feed.');return;}
-  const id=String(event.eventId||event.id);
-  // Seed this verified fixture while its Feed page loads.
-  activeEvents=mergeCanonicalEventPages(activeEvents,[event]);
-  if(!matchesFeedViewFilters(event)){
-    feedViewFilters={sport:'all',minimum:0};if(!temporary){localStorage.removeItem('ns-feed-view-filter-v1');showToast('Feed filters cleared to show this fixture.');}
-  }
-  activeView='list';calendarChoice.active=false;setCardState(event,'opened');
-  pendingNotificationEventId=id;
-  activateTopLevelTab('feed',{resetViewport:false,athleteMatch:temporary});
-  calendarInitialJumpPending=false;
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    if(activeTab!=='feed')return;
-    if(pendingNotificationEventId===id)focusPendingNotificationEvent();
-    // Two frames let Feed layout finish before restoring focus.
-    const target=document.querySelector(`.event-card[data-event-id="${CSS.escape(id)}"]`);
-    if(target){target.tabIndex=-1;window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-stickyFeedChromeHeight()-12),behavior:'auto'});target.focus({preventScroll:true});}
-  }));
+let fixtureNavigationRevision=0;
+function routeFixture(method,...args){
+  const revision=++fixtureNavigationRevision,owner=serverSyncClient?.sessionSubject(),href=location.href;
+  return loadDeferredScript('assets/js/fixture-navigation.js?v=475').then(()=>{if(revision===fixtureNavigationRevision&&owner===serverSyncClient?.sessionSubject()&&href===location.href)return NOTHINGSPORTS_FIXTURE_NAVIGATION[method](...args);});
 }
+function openMatchCentreFeedFixture(...args){return routeFixture('feed',...args);}
+function openFixtureFromTimingCapsule(...args){return routeFixture('timing',...args);}
 async function openFriendFixture(eventId){
  const payload=await serverSyncClient.nothingscoreRequest({fixture:eventId});if(!payload.event)throw new Error('Fixture unavailable.');
  const d=document.createElement('dialog');d.className='nsc-friend-fixture calendar-dialog';d.setAttribute('aria-label',payload.event.name);
@@ -14349,7 +14341,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=467').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=475').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -15142,16 +15134,17 @@ function buildFixtureTimingGroup(ev){
 }
 function buildFixtureTimingBadge(ev){
   const timing = NOTHINGSPORTS_CARD_TIMING.presentation(ev, nowAEST());
-  const badge = document.createElement('span');
-  badge.className = 'fixture-timing-badge';
+  const badge = document.createElement('button');badge.type='button';
+  badge.className = 'fixture-timing-badge btn ghost';
   const day=document.createElement('span');day.className='fixture-timing-day';day.textContent=timing.day;
   const clock=document.createElement('span');clock.className='fixture-timing-clock';clock.textContent=timing.time;
   badge.append(day);if(timing.time)badge.append(clock);
   if(['RALLY DATES','TOURNAMENT DATES'].includes(timing.time)){const note=document.createElement('small');note.textContent=ev.key==='wrc'?'Stage timetable not verified':ev.appearances?.length?'See player tee times':'Tee times not verified';badge.append(note);}
   if(timing.status){const status=document.createElement('small');status.textContent=timing.status;badge.append(status);}
   badge.dataset.timingStatus = timing.status;
-  badge.setAttribute('aria-label', timing.ariaLabel);
   badge.title = timing.fullSchedule;
+  badge.setAttribute('aria-label',`${timing.ariaLabel}. Open fixture`);
+  badge.onclick=event=>{event.stopPropagation();void openFixtureFromTimingCapsule(ev);};
   return badge;
 }
 
@@ -15186,17 +15179,17 @@ function buildCompactCardSummary(ev,{minimal=false}={}){
 }
 
 function feedClockKey(){
-  return `${NOTHINGSPORTS_CALENDAR.sydneyDay()}|${activeEvents.map(ev=>`${ev.eventId || ev.id}:${getEventStatus(ev)}`).join('|')}`;
+  return `${NOTHINGSPORTS_CALENDAR.sydneyDay()}|${activeEvents.map(ev=>`${ev.eventId || ev.id}:${getEventStatus(ev)}:${NOTHINGSPORTS_FEED_TIMELINE.confirmedLive(ev,nowAEST())}`).join('|')}`;
 }
 let previousFeedClockKey='';
 function refreshFeedClock(){
   if(activeTab!=='feed' || activeView!=='list' || activeInspectorCodeId || startupCoordinator.isHydrating())return;
   const next=feedClockKey();
   if(next!==previousFeedClockKey){previousFeedClockKey=next;queueScrollIdleMutation(()=>renderAll({preserveViewport:true}));}
-  document.getElementById('calendarNowAnchor')?.setAttribute('aria-label',`Now ${new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',hour:'numeric',minute:'2-digit'}).format(new Date())}`);
+  document.getElementById('calendarNowAnchor')?.setAttribute('aria-label',`Live Now ${new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',hour:'numeric',minute:'2-digit'}).format(new Date())}`);
 }
 function buildFeedNowMarker(){
-  const marker=document.createElement('div');marker.id='calendarNowAnchor';marker.className='events-now-marker is-active feed-now-marker';marker.textContent='Now';marker.setAttribute('role','separator');marker.setAttribute('aria-label','Now: live and upcoming fixtures');return marker;
+  const marker=document.createElement('div');marker.id='calendarNowAnchor';marker.className='events-now-marker is-active feed-now-marker';marker.textContent='● Live Now';marker.setAttribute('role','separator');marker.setAttribute('aria-label','Live Now');return marker;
 }
 function renderFeedViewActions(container){
   syncContextualJumpButton();
@@ -18030,10 +18023,11 @@ function renderListView(){
       const grid = document.createElement("div");
       grid.className = "cards-grid";
       const ordered=sortedChrono(groups[dateStr]);
-      const dayEvents=dateStr===todayStr ? [...ordered.filter(ev=>getEventStatus(ev)==="past"),...ordered.filter(ev=>getEventStatus(ev)!=="past")] : ordered;
+      const anchored=ev=>NOTHINGSPORTS_FEED_TIMELINE.todayOverview(ev,nowAEST()),before=ev=>NOTHINGSPORTS_FEED_TIMELINE.beforeNow(ev,nowAEST());
+      const dayEvents=dateStr===todayStr ? NOTHINGSPORTS_FEED_TIMELINE.orderToday(ordered,nowAEST()) : ordered;
       let nowInserted=false;
       dayEvents.forEach(event => {
-        if(dateStr===todayStr && !nowInserted && getEventStatus(event)!=="past"){grid.appendChild(buildFeedNowMarker());nowInserted=true;}
+        if(dateStr===todayStr && !nowInserted && !anchored(event)&&!before(event)){grid.appendChild(buildFeedNowMarker());nowInserted=true;}
         const card = buildFeedCardSlot(event);
         card.dataset.feedEventId = String(event?.canonicalEventId || event?.eventId || event?.id || "");
         grid.appendChild(card);
@@ -19063,7 +19057,7 @@ async function loadMatchCentre(){
   const panel=document.getElementById('listView');
   if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return;}
   panel.className='match-centre';panel.textContent='Loading Match Centre…';
-  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=474'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=474')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
+  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=475'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=475')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
 }
 function renderTeamsAndPlayersDirectory(container){
   if(typeof globalThis.renderTeamsAndPlayersDirectoryLoaded==='function')return globalThis.renderTeamsAndPlayersDirectoryLoaded(container);
@@ -19937,7 +19931,7 @@ function buildDismissedEventStub(record){
 
 async function renderEventOverviews(container){
  const host=document.createElement('div');host.className='event-overviews-host';container.append(host);
- try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=467');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=475');
  if(!host.isConnected)return;
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(host);
  }catch{if(!host.isConnected)return;const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';host.append(notice);}

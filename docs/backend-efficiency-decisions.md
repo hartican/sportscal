@@ -906,3 +906,8 @@ Reuse the existing two-minute Supabase live-fixture scheduler, two workers, 45-s
 Healthy page omissions cannot establish a result. Degraded public and Followed membership retain known eligible fixtures; validate the whole reply before applying it. A disposable account/view/preference-scoped last-good cache supports reload recovery for seven days without renewing source clocks or admitting a newly excluded fixture. Network failure or omitted selected scores mark the saved play Awaiting update. Existing identity and navigation/account guards remain.
 
 Regressions: validate-match-centre.js, validate-find-your-sport.js, validate-hobby-feed-cache.js, validate-match-centre-browser.js and the shared observation/live API suites.
+
+
+## 10 October 2026 - current score surfaces (phase 2)
+
+Followed-first Match Centre, its approved Cricket catalogue, Feed/Schedule timing-button navigation and Today/Live Now placement use the existing membership and compact score reads. No scheduler, provider call, polling interval, database migration, deadline or budget changes. Expanded F1 Events reads its existing published Schedule chunk once per surface lifetime with a coalesced request and explicit retry after failure. Feed age transitions use its existing visible clock timer.

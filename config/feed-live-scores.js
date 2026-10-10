@@ -1,7 +1,9 @@
 (function(root,factory){const api=factory(typeof module==='object'?require('./match-centre'):root.NOTHINGSPORTS_MATCH_CENTRE);if(typeof module==='object')module.exports=api;else root.NOTHINGSPORTS_FEED_LIVE_SCORES=api;})(typeof globalThis==='object'?globalThis:this,function(model){
  'use strict';
  function presentation(event,{resultsOn=false,now=Date.now(),label=id=>id}={}){
-  if(!resultsOn||!model.supported(event))return null;
+  // Feed admission is owned by the host. MC's public catalogue boundary must
+  // not hide an already admitted legacy fixture's sourced score.
+  if(!resultsOn||!model.supported(event,{catalogue:false}))return null;
   const snapshot=model.compact(event),score=snapshot.score;
   const name=id=>(event.participants||[]).find(p=>p.id===id)?.displayName||(event.participantSlots||[]).find(s=>s.participantId===id)?.label||label(id);
   let text='';

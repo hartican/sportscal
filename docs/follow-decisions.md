@@ -721,3 +721,14 @@ Reuse the existing two-minute Supabase live-fixture scheduler, two workers, 45-s
 Healthy page omissions cannot establish a result. Degraded public and Followed membership retain known eligible fixtures; validate the whole reply before applying it. A disposable account/view/preference-scoped last-good cache supports reload recovery for seven days without renewing source clocks or admitting a newly excluded fixture. Network failure or omitted selected scores mark the saved play Awaiting update. Existing identity and navigation/account guards remain.
 
 Regressions: validate-match-centre.js, validate-find-your-sport.js, validate-hobby-feed-cache.js, validate-match-centre-browser.js and the shared observation/live API suites.
+
+
+## 10 October 2026 - current score navigation and placement (phase 2)
+
+The owner changes Match Centre's initial membership to Followed, shown first on the left; Everything follows on the right. Everything's Cricket fixtures must belong to the approved Follow catalogue, including Australia-South Africa Tests. Out-of-scope domestic records such as Ghani-Pakistan Television cannot appear there. This supersedes the 9 October public Cricket scope exception for this surface; already-admitted Feed cards retain their score presentation.
+
+The date/time capsule is a keyboard-accessible button. It opens the exact expanded Feed fixture, seeded with the displayed source observation, when personal admission and saved actions permit it. Otherwise it opens the exact fixture in its Schedule, without changing follows, pins, exclusions, dismissals or reminder choices. The transient Schedule target is guarded by account and navigation ownership.
+
+Every fresh source-confirmed live contest eligible for the personal Feed sits at the red `● Live Now` line, including smaller followed matches. Old or failed play observations cannot establish live placement. Ongoing tournament overview parents stay at the top of Today throughout their sourced date window; the source dates remain unchanged. Individual source-confirmed contests keep their own placement.
+
+Followed Events presents one Formula 1 GP weekend parent containing all published Practice, Qualifying, Sprint Qualifying, Sprint and Race sessions. Child identities and individual actions survive; Practice remains outside individual Feed admission. Ticket-sale alerts remain separate. Regression: `validate-current-score-placement.js`, `validate-event-overviews.js`, and the both-engine capsule/GP browser contract.

@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict');
 const {overlaySnapshots}=require('../lib/live-fixtures');
 const {createMatchCentreHandler}=require('../lib/match-centre-handler');
-const base={id:'fixture:cricket:espn:1525655',key:'cricket',status:'scheduled',startTimeUtc:'2026-09-24T08:00:00Z',homeParticipantId:'team:cricket:south-africa',awayParticipantId:'team:cricket:australia'};
+const base={id:'fixture:cricket:espn:1525655',key:'cricket',format:'Test',status:'scheduled',startTimeUtc:'2026-09-24T08:00:00Z',homeParticipantId:'team:cricket:south-africa',awayParticipantId:'team:cricket:australia'};
 const scoreTime='2026-09-24T11:42:00Z',scheduleTime='2026-09-24T11:44:00Z';
 const live={...base,status:'live',innings:[{team:'South Africa Men',runs:235,wickets:5,overs:'44.1'}]};
 const snapshots=[{checked_at:scoreTime,fixtures:[live]},{checked_at:scheduleTime,fixtures:[{...base,innings:[]}]}];

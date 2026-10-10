@@ -4,8 +4,9 @@
  const sport=e=>{const key=String(e.key||'').replace(/-women$/,'');return ({wimbledon:'tennis',rugby:'rugby-union'})[key]||key;};
  const final=e=>/^(completed|finished|final)$/.test(e.status||'');
  const interrupted=e=>/^(stumps|suspended|interrupted|delayed|rain-delay|break)$/.test(e.status||'');
- function supported(e){
+ function supported(e,{catalogue=true}={}){
   const policy=globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY||(typeof require==='function'?require('./follow-feed-policy'):null);if(policy&&!policy.activeEligible(e))return false;
+  const cricket=globalThis.NOTHINGSPORTS_CRICKET_COVERAGE||(typeof require==='function'?require('./cricket-coverage'):null);if(catalogue&&cricket?.isCricket(e)&&!cricket.allowed(e))return false;
   if(e.key==='golf'&&e.eventFamilyId==='presidents-cup'&&e.tournamentParent===true)return true;
   return !['tennis_parent','tennis_rubber'].includes(e.cardType)&&!e.parentTieId&&!(e.tieId&&e.contestUnit!=='tie')&&e.contestUnit!=='rubber'&&!['major_event','tournament','ticket_sale','rubber'].includes(e.kind);
  }

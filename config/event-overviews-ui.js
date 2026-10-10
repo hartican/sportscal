@@ -5,7 +5,7 @@ function loadMatchCentreStyles(){
  const link=document.createElement('link');link.rel='stylesheet';link.href='assets/styles/match-centre.css?v=463';link.dataset.mcStyle='';document.head.append(link);
 }
 loadMatchCentreStyles();
-let eventOverviewsDocument=null,eventOverviewsPending=null;
+let eventOverviewsDocument=null,eventOverviewsPending=null;const sessionSchedules=new Map();
 const text=(tag,value,className)=>{const node=document.createElement(tag);node.textContent=value;if(className)node.className=className;return node;};
 async function render(container){
  const node=document.createElement('section');node.className='events-section';node.id='eventsViewPanel';node.setAttribute('role','tabpanel');node.setAttribute('aria-labelledby','events-view-tab-overviews');container.append(node);
@@ -37,7 +37,10 @@ async function render(container){
   const details=document.createElement('details'),summary=text('summary','Fixtures');details.append(summary);details.open=Boolean(isTarget(event));card.append(details);let loaded=false;
   const mount=async()=>{if(!details.open||loaded)return;loaded=true;const list=document.createElement('div');list.textContent='Loading published fixtures…';details.append(list);try{
     let fixtures;if(event.sportKey.startsWith('tennis'))fixtures=(await loadTennisFeedContests()).fixtures.filter(f=>(f.tournamentId||f.tennisTournamentId)===event.tournamentId);
-    else {await loadDeferredScript('assets/js/tournament-fixture-ui.js?v=467');const horizon=await loadTournamentHorizon();fixtures=horizon.tournaments?.find(t=>t.tournamentId===event.tournamentId)?.publishedFixtures||[];}
+    else if(event.sportKey==='f1'){
+      if(!sessionSchedules.has('f1'))sessionSchedules.set('f1',fetchJson('data/follow-schedule/f1.json',{cache:'no-cache'}).catch(error=>{sessionSchedules.delete('f1');throw error;}));
+      const schedule=await sessionSchedules.get('f1');fixtures=(schedule.fixtures||[]).filter(f=>event.fixtureIds.includes(f.id));
+    }else {await loadDeferredScript('assets/js/tournament-fixture-ui.js?v=467');const horizon=await loadTournamentHorizon();fixtures=horizon.tournaments?.find(t=>t.tournamentId===event.tournamentId)?.publishedFixtures||[];}
     if(!list.isConnected)return;fixtures=fixtures.filter(f=>!FOLLOW_FEED_POLICY.multiDayMarker(f)&&FOLLOW_FEED_POLICY.scheduleVisible(f,prefs,collections));
     list.replaceChildren();let count=0;const more=()=>{for(const f of fixtures.slice(count,count+20))list.append(buildEventCard(NOTHINGSPORTS_FIXTURE_IDENTITY.fromSchedule(f,event.sportKey),{mode:'schedule'}));count+=20;if(count<fixtures.length){const b=text('button','More fixtures','btn ghost');b.type='button';b.onclick=()=>{b.remove();more();};list.append(b);}};more();if(!fixtures.length)list.append(text('p','No published fixtures match this view.'));
   }catch{loaded=false;list.textContent='Fixtures could not load. ';const retry=text('button','Retry fixtures','btn ghost');retry.type='button';retry.onclick=()=>{list.remove();void mount();};list.append(retry);}};details.addEventListener('toggle',()=>void mount());void mount();
