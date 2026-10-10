@@ -21,7 +21,7 @@ Source receipt collection and initial assessment ran13:21:31–13:31:04UTC, with
 - Controlled tests exercise the real source reader, live adapter and persistent file writer: complete380-record responses, zero live scores, invalid scores/periods, unchanged reruns, last-good preservation, primary completion and final continuity. This controlled380-record test is separate from the partial real observation.
 - Twenty-four local cases per browser engine replay the captured source row at its original date and31minutes later through compact Feed, expanded Feed and Schedule,320/390widths and day/night themes. The current compact layout retains visible schedule and accessible status; expanded/Schedule cards show the visible status. ResultsOFF hides the captured score. These are anonymous browser rehearsals, not actual live-play, authenticated acceptance or physical-phone proof.
 
-No cached browser asset changes are needed for this source-only module. Existing shell/cache bytes remain unchanged; the normal release gates and exact production proof remain required. The separate score workstream's shell477 and scheduler repair are preserved rather than duplicated. Implementation and local checks alone are not a production delivery receipt.
+No cached browser asset changes are needed for this source-only module. Existing shell/cache bytes remain unchanged; the normal release gates and exact production proof remain required. The separate score workstream owns shell477 and its ongoing scheduler repair; this module does not duplicate either. Implementation and local checks alone are not a production delivery receipt.
 
 ## Recommended next work
 
