@@ -131,7 +131,7 @@
     const graph = preferences?.preferenceGraph || {};
     const key = sportKey(event);
     return Number(preferences?.version||0)>=24 && (graph.entityFollows||[]).some(f=>f.followLevel==='mute'&&participantIds(event).includes(f.participantId))
-      || aggregateEvent(event) && eventExcluded(event,preferences)
+      || (aggregateEvent(event) || presidentsCup(event)) && eventExcluded(event,preferences)
       || (graph.competitionPreferences || []).some(p => p.competitionId === event.competitionId && p.enabled === false)
       || effectiveDomainPreferences(event,preferences).some(p => [event.sportDomainId, `sport:${key}`, premiershipDomainId(event)].filter(Boolean).includes(p.sportDomainId) && p.enabled === false);
   }

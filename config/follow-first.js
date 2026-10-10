@@ -555,8 +555,11 @@
     if(tennis?.isParent(event))return tennis.reason(event,next,{collectionsById,preparedPreferences:next});
     if(followPolicy.sportKey(event).startsWith('tennis') && tennis?.isRubber(event))return null;
     if (!followPolicy.activeEligible(event))return null;
-    if (followPolicy.multiDayMarker(event))return tennis.reason(event,next,{collectionsById,preparedPreferences:next});
-    if (followPolicy.aggregateEvent(event) || !followPolicy.feedEligibleSession(event) || followPolicy.explicitlyExcluded(event,next)) return null;
+    // The approved Golf exception admits the Presidents Cup overview.
+    // Its multi-day marker must not route it through tennis admission.
+    const cupParent = followPolicy.presidentsCup(event) && event.tournamentParent === true;
+    if (followPolicy.multiDayMarker(event) && !cupParent)return tennis.reason(event,next,{collectionsById,preparedPreferences:next});
+    if ((followPolicy.aggregateEvent(event) && !cupParent) || !followPolicy.feedEligibleSession(event) || followPolicy.explicitlyExcluded(event,next)) return null;
     const cricket=root.NOTHINGSPORTS_CRICKET_COVERAGE||(typeof require==="function"?require("./cricket-coverage"):null);
     if(cricket&&!cricket.allowed(event))return null;
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));

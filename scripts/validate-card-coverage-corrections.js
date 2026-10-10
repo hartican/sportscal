@@ -8,7 +8,10 @@ const invalid=cup.parse(payload('IN_PROGRESS',[null,2]),{previous:[parent],check
 const blank=cup.parse(payload('IN_PROGRESS',[null,2]),{previous})[0];assert.equal(blank.homeScore,undefined);
 const completed=cup.parse(payload('COMPLETED'),{previous:[parent],checkedAt:'2026-09-27T23:00:00Z'})[0];assert(mc.eligible(completed,Date.parse('2026-09-27T23:59Z')));assert(!mc.eligible(completed,Date.parse('2026-09-28T00:01Z')));
 const golf={selectedSelectorEntityIds:['sport:golf'],followedSports:['golf']};
+assert(policy.multiDayMarker(parent));assert(!require('../config/tennis-feed').isParent(parent),'Cup overview is not a tennis parent');
+const originalParent=JSON.stringify(parent),originalGolf=JSON.stringify(golf);
 assert(follow.reasonForEvent(parent,golf));assert(!follow.reasonForEvent(child,golf));
+assert.equal(JSON.stringify(parent),originalParent);assert.equal(JSON.stringify(golf),originalGolf,'admission cannot alter saved choices');
 const direct={followFirst:{followedMajorEventIds:['presidents-cup']}};
 assert(follow.reasonForEvent(parent,direct));assert(follow.reasonForEvent(child,direct));assert(!follow.reasonForEvent(parent,{selectedSelectorEntityIds:['competition:pga-tour']}));
 assert(!policy.presidentsCup({...child,name:'Live From the Presidents Cup'}));
@@ -27,9 +30,12 @@ const actionKey=require('../config/event-action-identity').stableKey;
 function server(preferences,actions={}){return buildServerFeed({events:[parent,child],userId:'qa',userState:{preferences,event_user_state:actions},now:new Date('2026-09-25T01:00Z')}).events.map(e=>e.id);}
 assert.deepEqual(server(golf),[parent.id]);assert(server(direct).includes(child.id));
 const excluded={...golf,followFirst:{excludedMajorEventIds:['presidents-cup']}};
+assert(policy.explicitlyExcluded(child,excluded),'Cup family exclusion also covers a sourced competitive child');
 assert.deepEqual(server(excluded),[]);assert(!follow.reasonForEvent(parent,excluded));
 assert(server({}, {[actionKey(child)]:{addedToFixtures:true,addedFixture:child}}).includes(child.id));
+assert(server({}, {[actionKey(parent)]:{addedToFixtures:true,addedFixture:parent}}).includes(parent.id),'an explicitly pinned sourced Cup overview remains available');
 assert.deepEqual(server(excluded,{[actionKey(child)]:{addedToFixtures:true,addedFixture:child}}),[]);
+assert.deepEqual(server(excluded,{[actionKey(parent)]:{addedToFixtures:true,addedFixture:parent}}),[],'explicit Cup exclusion wins over a pinned overview');
 // Feed transport retains dismissed records for restoration; Match Centre excludes them.
 assert.equal(buildServerFeed({events:[parent],userId:'qa',userState:{preferences:golf,event_user_state:{[actionKey(parent)]:{dismissed:true}}},now:new Date('2026-09-25T01:00Z'),matchCentreOnly:true}).events.length,0);
 (async()=>{

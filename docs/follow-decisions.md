@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Presidents Cup overview routing restored — 11 October 2026
+
+This repairs implementation of the existing 25 September decision; it adds no new opt-in. A recognised sourced Presidents Cup overview follows explicit Golf selection, while sourced competitive sessions require a direct Cup follow or explicit saved fixture. The multi-day Cup parent must not enter tennis admission. Browser and authenticated server evaluation retain the same boundary. Explicit Cup exclusion suppresses its overview and competitive children, including saved cards; dismiss/archive and original fixture facts remain authoritative. Ordinary golf and tennis admission are unchanged.
+
+Regression: `validate-card-coverage-corrections.js` exercises browser/server decisions, preserved inputs, direct versus broad scope, saved parent/child fixtures, exclusion precedence, score/source retention and failed-source behaviour. Follow decision, policy parity, server-feed and tracked-golfer checks remain required. The runtime/cache change uses shell 485; existing two-engine installed-upgrade and private cached-reader checks pass. Exact publication and live proof are tracked in `docs/quality/presidents-cup-follow-repair-2026-10-11.md`.
+
 ## AFLW Grand Final announced day — 9 October 2026
 
 The existing official 2026 Grand Final identity has a separately verified announced date, 27 November, while its primary match record still has no kickoff or actual finalists. Display that day with date-only precision and timing TBC. Preserve its published winner-of slots, all saved choices and existing eligibility rules. This is one existing match with an announced day, distinct from a general competition-stage programme. Neither the announcement nor its Friday-night wording establishes a UTC sporting clock, actual host, live status, result or reminder. The eight other undated finals remain undated. A validated primary clock or different primary day takes priority; the announcement cannot replace it. Regression: validate-aflw-final-date.js through the existing canonical-sports gate and affected native Schedule/cache checks.
