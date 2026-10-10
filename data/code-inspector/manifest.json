@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-10T20:28:02.487Z",
+  "generatedAt": "2026-10-10T22:41:27.155Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/baseball.json",
@@ -23,7 +23,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T22:41:27.155Z",
       "chunkPath": "data/code-inspector/supercars.json"
     },
     {
@@ -60,7 +60,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-10T19:14:49.917Z",
+      "freshAt": "2026-10-10T22:41:27.155Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {

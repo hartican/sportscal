@@ -283,7 +283,13 @@ assert.deepEqual(coldPin.participantIds,oldPin.participantIds,"copy repair prese
 assert.equal(coldPin.startTimeUtc,oldPin.startTimeUtc,"copy repair preserves the source clock");
 assert.equal(pinContext.repair(coldPin,[]).fixture,coldPin,"unchanged cold reruns retain the original object");
 assert.equal(pinContext.repair(oldPin,[curatedOpener]).fixture,curatedOpener,"loaded canonical data remains authoritative");
-for(const changed of [{...oldPin,startTimeUtc:"2026-10-16T09:05:00Z"},{...oldPin,participantIds:["team:nrl:kangaroos","team:nrl:other"]},{...oldPin,key:"rugby-union"},{...oldPin,status:"completed"},{...oldPin,editorialNarrative:{...oldPin.editorialNarrative,researchedAt:"2026-10-03T12:00:00Z",hook:"A newer reviewed saved preview remains authoritative."}}]){
+const bootstrapResearchTime=Date.parse(curatedOpener.editorialNarrative.researchedAt);
+assert(Number.isFinite(bootstrapResearchTime),'published bootstrap requires a valid research time');
+const newerSavedResearchTime=new Date(bootstrapResearchTime+60*60*1000).toISOString();
+// Both reviews are synthetic past observations for this ordering regression.
+// A future-dated saved review is intentionally not authoritative at runtime.
+vm.runInContext('Date.now=()=>'+JSON.stringify(bootstrapResearchTime+2*60*60*1000),pinContext);
+for(const changed of [{...oldPin,startTimeUtc:"2026-10-16T09:05:00Z"},{...oldPin,participantIds:["team:nrl:kangaroos","team:nrl:other"]},{...oldPin,key:"rugby-union"},{...oldPin,status:"completed"},{...oldPin,editorialNarrative:{...oldPin.editorialNarrative,researchedAt:newerSavedResearchTime,hook:"A newer reviewed saved preview remains authoritative."}}]){
   assert.equal(pinContext.repair(changed,[]).fixture,changed,"changed fixture facts/status and newer reviewed copy reject the older bootstrap");
 }
 const shared = require("../config/feed-fixture-reconciliation");
