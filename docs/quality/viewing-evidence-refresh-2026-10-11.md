@@ -22,6 +22,6 @@ This bounded recheck advances the earlier assessed sample from 90/92 to 91/92. I
 
 ## Delivery and operating cost
 
-Local validation is complete. GitHub publication and production proof will be recorded after the normal release gates. Cash cost: $0 added. No owner decision or routine is added. The scoped review avoids a long provider refresh while retaining the canonical refresh owner and failure checks.
+Published and verified live at `a3e54d1ed464421e0808aaf0892c7fc66d28059e` through normal production run 38095458096, attempt 1. Vercel `dpl_WycaxBVmsp7JXKrdHwQDeznJTo1d` is READY; all three production aliases, release metadata and 43 served paths match the sealed published snapshot. The hosted report passes six Chromium/WebKit width cases; the three CTO reports pass 18 layout/structure cases. The cached app shell remains version 485 with byte-identical shell inputs, so no new upgrade rehearsal is needed. These checks do not prove stream playback, physical-phone use or a successful full sports refresh. Cash cost: $0 added. No owner decision or routine is added. The scoped review avoids a long provider refresh while retaining the canonical refresh owner and failure checks.
 
 Detailed red/green logs, source-review receipt, persistence comparison and final release proof are saved under `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/viewing-evidence-refresh-20261011`.
