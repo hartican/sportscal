@@ -34,3 +34,8 @@ No cached browser asset changes are needed for this source-only module. Existing
 | Finish the existing Football pilots | Trustworthy matches and viewing information support repeat use and later sponsorship | Current acceptance queue; actual phone, playback and commercial permissions remain dependencies | Full count remains0/3Football pilots and0/17families,target≥14/17. A green release and this single match do not certify a sport |
 
 Existing assistant and hosting costs remain unpriced. The next ordinary scheduled publication and actual source recovery need their own dated evidence. No database migration, customer write, reminder replay, purchase, new competition or new owner is introduced by this module.
+
+## Production delivery receipt
+
+
+11OctoberSydney delivery: scoped Football source snapshot `a9875880d582783cf20265384472d062ca2388aa` passed [normal production run 38062329692](https://github.com/hartican/sportscal/actions/runs/38062329692); Vercel `dpl_Bgg62o8fRsbAgR27fwsC6qf8B95S` is READY with its three production aliases. Served bytes and packaged source agree with the exact published snapshot. Both hosted browser engines passed96 controlled cases on shell479. This is deployment and browser-rehearsal proof, not a fresh complete-season truth check, signed-in session, physical phone, commercial permission or ordinary updater recovery. The 0/17 and0/3 approval counts remain unchanged. No new scheduler, provider, spending or owner routine.
