@@ -10,7 +10,7 @@ The frozen audit window is 2026-09-20 to 2027-09-27; it is separate from today's
 
 | Carried family | Retained unique records | In-window groups | Next evidence needed |
 | --- | --- | --- | --- |
-| AFL/AFLW | 338 | 2 | Nine undated AFLW records need sport-appropriate review |
+| AFL/AFLW | 338 | 2 | Eight finals remain undated; the announced Grand Final day is now carried without a kickoff. Whole-family gates remain open |
 | Rugby league | 288 | 3 | No additional structural failure; full source, viewing, behaviour and rights proof remains |
 | Motorsport | 344 | 8 | Unclassified, undated and unsourced retained records remain |
 | Surfing | 14 | 2 | Two unclassified undated/unsourced records remain |
@@ -44,15 +44,18 @@ The achievable 90-day programme still centres on reliable invited use and select
 
 ## Ordinary operation and architecture
 
-The canonical GitHub refresh workflow is active. Its latest scheduled run, 37843596977 on 8 October, is terminal and failed; its downstream directory failure was repaired in later passing releases. No later ordinary scheduled run is present in the current four-run read. The old local refresh automation remains paused. Do not claim this is a running process or a new successful unattended update. Await actual next-owner evidence; do not launch a second updater merely to improve this report.
+The canonical GitHub refresh workflow is active. At the original count review, its latest scheduled run, 37843596977 on 8 October, was terminal and failed; its downstream directory failure was repaired in later passing releases. No later ordinary scheduled run is present in the current four-run read. The old local refresh automation remains paused. Do not claim this is a running process or a new successful unattended update. Await actual next-owner evidence; do not launch a second updater merely to improve this report.
 
-No application, sporting data, source, database, scheduler, personal-state or commercial-placement architecture changed in this review. The latest verified app remains e8dcd277 / shell471, READY dpl_ADLbVtmLMDCNCTx2Eg5dcQUrfKae. Live baseball and skiing files match that exact deployment inventory. Current and recommended architecture diagrams remain in the comprehensive audit; no rewrite is justified by this count correction.
+No application, sporting data, source, database, scheduler, personal-state or commercial-placement architecture changed in this review. At that count-only review, the verified app was e8dcd277 / shell471, READY dpl_ADLbVtmLMDCNCTx2Eg5dcQUrfKae. Live baseball and skiing files match that exact deployment inventory. Current and recommended architecture diagrams remain in the comprehensive audit; no rewrite is justified by this count correction.
 
 ## Evidence, confidence and limits
 
-Verified: current Git snapshot, the real auditor and its meaningful positive/negative controls, live-release audit summary, exact served carried-family files, official GitHub workflow/run status and existing local automation record. High confidence in counting and recorded structural diagnostics. Inferred: the CHL review is the next bounded shared-quality task; source and permission evidence may change its acceptance. Unverified: any whole-family/competition certification, actual source completeness, device usability, play-status truth, playback, commercial permission or returning-user success merely from this inventory.
+Verified: current Git snapshot, the real auditor and its meaningful positive/negative controls, live-release audit summary, exact served carried-family files, official GitHub workflow/run status and existing local automation record. High confidence in counting and recorded structural diagnostics. At the original review, inferred: the CHL review was the next bounded shared-quality task; source and permission evidence may change its acceptance. Unverified: any whole-family/competition certification, actual source completeness, device usability, play-status truth, playback, commercial permission or returning-user success merely from this inventory.
 
 The existing source assessments, repairs and release receipts remain dated evidence in docs/quality; they are not silently renewed. Original audit chapters 2–51 and three diagrams are unchanged. This review adds no subscription, new owner routine, source refresh, deployment or outreach. Full programme completion remains unproven.
 
 
 9 October later delivery: [CHL programme-date review and Feed repair](chl-calendar-review-2026-10-09.md) is now live. This later module changes the shared policy and shell472, with sporting data unchanged; the count-only review and shell471 evidence above remain dated history. No full sport or Football-pilot certification is added.
+
+
+10 October closeout: [AFLW announced final date](aflw-announced-final-date-2026-10-09.md) was delivered 9 October at `448f1c90f64e280e2cef6056c7f5f95d304e2c8f` / shell473. It fills one day, preserves unknown kickoff/finalists/venue and every original identity, and leaves eight undated finals. Twelve local/twelve hosted cases and both update rehearsals pass with the separately disclosed WebKit artificial-offline limitation. Later score repair `8cdbe411e1e99a1e0d1b7b160501f47233833ef4` is now READY; six date-data/presentation assets are independently confirmed unchanged. The latest ordinary refresh `37987512827` on 9 October is terminal and failed at result completeness for cricket and tennis. Its diagnosis now precedes further source polish. No full-family or Football-pilot certification is added; current counts remain 0/17, 0/3 and target at least 14/17.
