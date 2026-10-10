@@ -4,6 +4,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('nod
 const {EventEmitter}=require('node:events');
 const pl=require('./refresh-premier-league-cards');
 const liveReceipt=require('./fixtures/epl-live-20261010.json');
+const firstHalfReceipt=require('./fixtures/epl-first-half-20261010.json');
 // A controlled 20-club double round robin, never published sporting evidence.
 const fixtures=[],ring=Array.from({length:20},(_,i)=>i+1);
 for(let round=0;round<19;round++){
@@ -53,6 +54,13 @@ async function interruptedResponse(kind){
  assert.equal(actualLive.scoreDisplay,'2–1');assert.equal(actualLive.statusCheckedAt,liveReceipt.checkedAt);
  assert.equal(actualLive.scoreCheckedAt,liveReceipt.checkedAt);assert(!actualLive.outcomeText&&!actualLive.recapText&&!actualLive.resultSourceCheckedAt,'A live score cannot become a completed outcome');
  assert.equal(actualLive.id,'epl-2026-27-128973');assert.equal(actualLive.canonicalEventId,'event:premier-league:128973');
+ assert.deepEqual(actualLive.participants.map(p=>[p.id,p.displayName,p.role]),[['team:football:epl:1','Arsenal','home'],['team:football:epl:9','Leeds United','away']],'Live score names bind to the existing source-ordered canonical identities');
+ const actualFirstHalf=pl.cardForFixture(firstHalfReceipt.fixture,firstHalfReceipt.checkedAt);
+ assert.equal(firstHalfReceipt.fixture.phase,'1');assert.equal(actualFirstHalf.status,'live');assert.equal(actualFirstHalf.scoreDisplay,'0–0','The naturally observed first-half zero score is present, not treated as missing');
+ assert.equal(actualFirstHalf.statusCheckedAt,firstHalfReceipt.checkedAt);assert.equal(actualFirstHalf.scoreCheckedAt,firstHalfReceipt.checkedAt);
+ assert(!actualFirstHalf.outcomeText&&!actualFirstHalf.resultSourceCheckedAt,'First-half play is not a final');
+ const actualFinal=pl.cardForFixture(firstHalfReceipt.recoveredFinal,firstHalfReceipt.checkedAt);
+ assert.equal(actualFinal.id,actualLive.id);assert.equal(actualFinal.status,'completed');assert.equal(actualFinal.homeScore,2);assert.equal(actualFinal.awayScore,1);assert.equal(actualFinal.resultSourceCheckedAt,firstHalfReceipt.checkedAt,'Actual primary completion retains identity, score and its later real receipt');
  assert.equal(require('../config/card-timing').presentation(actualLive,new Date(liveReceipt.checkedAt)).status,'LIVE');
  assert.equal(require('../config/card-timing').presentation(actualLive,new Date(Date.parse(liveReceipt.checkedAt)+31*60000)).status,'Awaiting match update','Old captured play does not remain live');
  for(const phase of ['1','2'])assert.equal(pl.cardForFixture({...liveReceipt.fixture,phase},liveReceipt.checkedAt).status,'live','Only the playing-period admission is supported; no halftime/interruption label is inferred');

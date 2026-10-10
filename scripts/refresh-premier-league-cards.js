@@ -223,6 +223,7 @@ function cardForFixture(fixture, checkedAt){
     catchupEligible: completed,
     resultLabels: [`Premier League Matchweek ${gameweek}`],
     ...(playing ? {
+      participants:[{id:home.id,name:home.name,displayName:home.name,role:'home'},{id:away.id,name:away.name,displayName:away.name,role:'away'}],
       homeScore:fixture.teams[0].score,awayScore:fixture.teams[1].score,
       score:`${home.name} ${fixture.teams[0].score}-${fixture.teams[1].score} ${away.name}`,
       scoreDisplay:`${fixture.teams[0].score}–${fixture.teams[1].score}`,
