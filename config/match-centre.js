@@ -70,7 +70,7 @@
  function officialUrl(e){return safeUrl(e.sourceUrl||e.canonicalSourceUrl||e.officialUrl)||({nrl:'https://www.nrl.com/draw/',afl:'https://www.afl.com.au/fixture','rugby-union':'https://www.world.rugby/tournaments/fixtures-results'})[sport(e)]||null;}
  function scorecard(e){
   const supplied=safeUrl(e.officialScorecardUrl)||safeUrl(e.scorecardUrl);
-  const ca=String(e.sourceFixtureId||id(e)).match(/^(?:fixture:cricket:)?CA:(\d+)$/);
+  const ca=[id(e),e.sourceFixtureId].map(value=>String(value||'').match(/^(?:fixture:cricket:)?CA:(\d+)$/)).find(Boolean);
   const url=supplied||(sport(e)==='cricket'&&e.sourceType==='official'&&ca?`https://www.cricket.com.au/matches/CA%3A${ca[1]}`:null);
   return {scorecardUrl:url,scorecardOfficial:Boolean(url&&e.sourceType==='official')};
  }

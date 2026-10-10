@@ -3,7 +3,7 @@
  'use strict';
 function loadMatchCentreStyles(){
  if(document.querySelector('[data-mc-style]'))return;
- const link=document.createElement('link');link.rel='stylesheet';link.href='assets/styles/match-centre.css?v=477';link.dataset.mcStyle='';document.head.append(link);
+ const link=document.createElement('link');link.rel='stylesheet';link.href='assets/styles/match-centre.css?v=478';link.dataset.mcStyle='';document.head.append(link);
 }
 loadMatchCentreStyles();
 
