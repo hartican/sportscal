@@ -721,3 +721,8 @@ Reuse the existing two-minute Supabase live-fixture scheduler, two workers, 45-s
 Healthy page omissions cannot establish a result. Degraded public and Followed membership retain known eligible fixtures; validate the whole reply before applying it. A disposable account/view/preference-scoped last-good cache supports reload recovery for seven days without renewing source clocks or admitting a newly excluded fixture. Network failure or omitted selected scores mark the saved play Awaiting update. Existing identity and navigation/account guards remain.
 
 Regressions: validate-match-centre.js, validate-find-your-sport.js, validate-hobby-feed-cache.js, validate-match-centre-browser.js and the shared observation/live API suites.
+
+
+## Published reminder clock validation — 10 October 2026 Sydney
+
+The existing exact/not-before contract requires a genuine published instant with an explicit timezone and valid calendar day. Reject timezone-free timestamps, date-only values and impossible calendar dates in the shared server/browser timing policy rather than letting Date.parse infer a device timezone or normalise a nonexistent day. This repairs validation of the existing rule; it does not admit estimates or alter manual/automatic round scope, OFF decisions, permissions or the sole dispatcher. Regression: validate-automatic-reminders.js, validate-automatic-reminders-browser.js and validate-reminder-fixture-scope.js. The bounded shared reminder read includes all potentially automatic future rounds, existing manual requests/aliases and unsent corrections; it does not defer distant valid automatic intent until the delivery window.

@@ -48,10 +48,10 @@ async function main(){
  const fixtures=require('../lib/reminder-fixtures');
  const upstream=new server.SupabaseRequestError('Deadline',{status:504,payload:{code:'supabase_timeout'}});
  const snapshotCalls=new Map();
- const catalogue=await fixtures.catalogue({rows:[],now,request:async p=>{
+ const catalogue=await fixtures.catalogue({rows:[],now,request:async (p,o)=>{
   const count=(snapshotCalls.get(p)||0)+1;snapshotCalls.set(p,count);
   if(count===1)throw upstream;
-  return p.endsWith('nothingsports_read_current_fixture_bundle')?{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[]}:[];
+  return p.endsWith('nothingsports_read_reminder_fixture_bundle')?{schemaVersion:'current-fixture-bundle.v1',scope:'reminders',requiredIds:o.body.p_required_ids,complete:true,rows:[]}:[];
  }});
  assert.equal(catalogue.fixtures.length,0);
  assert([...snapshotCalls.values()].every(n=>n===2),'Each transient snapshot read retries only once');
@@ -99,4 +99,4 @@ async function main(){
  }finally{restorers.reverse().forEach(r=>r());delete require.cache[key];old===undefined?delete process.env.CRON_SECRET:process.env.CRON_SECRET=old;}
  console.log('Dispatcher incident regression passed: oversized campaign inventory, bounded transient recovery, persistent outage and safe fail-closed API status. No real notifications sent.');
 }
-main().catch(e=>{console.error(e);process.exitCode=1;});
+main().then(()=>require('node:child_process').execFileSync(process.execPath,['scripts/validate-reminder-fixture-scope.js'],{stdio:'inherit'})).catch(e=>{console.error(e);process.exitCode=1;});

@@ -15,6 +15,7 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
   tournamentHorizon={tournaments:[{tournamentId:'qa:tour',publishedFixtures:[{...f,id:'nested:qa:event',sourceEventIds:[f.id]}]}]};
   const nested=document.createElement('div');host.append(nested);NOTHINGSPORTS_TOURNAMENT_UI.append(nested,{id:'qa:tour',tournamentId:'qa:tour',key:'nrl'});await new Promise(r=>setTimeout(r,20));nested.querySelector('details').open=true;await new Promise(r=>setTimeout(r,20));
   const buttons=[...host.querySelectorAll('[data-reminder-action-key]')];if(buttons.length!==3)throw Error('Both fixture instances must expose a reminder');
+  const ambiguousHeld=NOTHINGSPORTS_REMINDER_POLICY.timing({...f,startTimeUtc:'2099-01-01T12:00:00'})===null&&NOTHINGSPORTS_REMINDER_POLICY.timing({...f,startTimeUtc:'2099-02-30T12:00:00Z'})===null;
   const initial=buttons.every(b=>b.getAttribute('aria-pressed')==='true');
   updateEventAction(f,{saved:true});const saveNeutral=!Object.hasOwn(storedEventAction(f),'reminderRequested');
   removeWebPushReminder=async()=>{throw Error('Offline');};
@@ -23,7 +24,7 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
   const off=buttons.every(b=>b.getAttribute('aria-pressed')==='false')&&storedEventAction(f).reminderChoice==='off';
   const rescheduledOff=getEventAction({...f,startTimeUtc:new Date(Date.now()+7200000).toISOString()}).reminderRequested===false;
   const next=clonePreferences(userPreferences);next.followFirst.notifications.autoRemindersEnabled=false;savePreferences(next);const globalOff=getEventAction({...f,id:'fixture:qa:other',canonicalEventId:'fixture:qa:other'}).reminderRequested===false;
-  host.remove();return {initial,saveNeutral,rolledBack,off,rescheduledOff,globalOff,resultsOff:userPreferences.showSpoilers===false};
+  host.remove();return {ambiguousHeld,initial,saveNeutral,rolledBack,off,rescheduledOff,globalOff,resultsOff:userPreferences.showSpoilers===false};
  });for(const [key,value] of Object.entries(result))assert.equal(value,true,key);
  await page.evaluate(()=>openSettings({section:'notifications'}));await page.locator('#autoRemindersEnabled').waitFor();assert.equal(await page.locator('#autoRemindersEnabled').isChecked(),false);
  console.log(JSON.stringify({engine,...result,settingsControl:true,realPush:false}));
