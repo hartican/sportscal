@@ -19,6 +19,7 @@ function eventsForLeague(facts){
       sourceType:'community',sourceName:facts.source.name,sourceUrl:facts.source.url,sourceCheckedAt:fixture.sourceCheckedAt||facts.checkedAt,
       sourceAttribution:{provider:'OpenLigaDB',licence:'ODbL',datasetUrl:'/data/providers/openligadb/football-2026-27.json'},
       footballMatchContext:require('./lib/football-match-context').matchContext(facts,fixture),
+      ...(fixture.goalScorers?{goalScorers:fixture.goalScorers,goalDetailsCheckedAt:fixture.goalDetailsCheckedAt,goalDetailsStale:fixture.goalDetailsStale===true,scorecardUrl:`https://www.openligadb.de/Match/Id/${fixture.providerFixtureId}`} : {}),
       ...(fixture.result?{...fixture.result,score:`${participants[0].name} ${fixture.result.homeScore}-${fixture.result.awayScore} ${participants[1].name}`,scoreCheckedAt:fixture.scoreCheckedAt||facts.checkedAt,resultSourceUrl:facts.source.url}:{}),
     });
   });

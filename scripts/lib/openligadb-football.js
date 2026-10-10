@@ -20,6 +20,25 @@ function sourcePlace(value){
   const clean=value.trim().replace(/\s+/g,' ');
   return clean&&!/^(?:tbc|tbd|unknown|-|n\/a)$/i.test(clean)&&clean.length<=200?clean:null;
 }
+function goalDetails(match,result){
+  // Optional detail cannot invalidate otherwise verified fixture/results.
+  const rows=match.goals;if(!Array.isArray(rows)||rows.length>40||!result)return null;
+  const goals=rows.filter(g=>g&&g.disallowed!==true&&g.isDisallowed!==true&&g.cancelled!==true).slice().sort((a,b)=>(a.scoreTeam1+a.scoreTeam2)-(b.scoreTeam1+b.scoreTeam2));
+  if(goals.length!==result.homeScore+result.awayScore)return null;
+  const ids=new Set();let home=0,away=0;
+  const normalized=[];
+  for(const g of goals){
+    const name=sourcePlace(g.goalGetterName),minute=g.matchMinute;
+    if(!Number.isSafeInteger(g.goalID)||ids.has(g.goalID)||!name||!Number.isSafeInteger(g.scoreTeam1)||!Number.isSafeInteger(g.scoreTeam2)||g.scoreTeam1<0||g.scoreTeam2<0)return null;
+    ids.add(g.goalID);const delta=[g.scoreTeam1-home,g.scoreTeam2-away];
+    if(!(delta[0]===1&&delta[1]===0||delta[0]===0&&delta[1]===1))return null;
+    const team=delta[0]?match.team1:match.team2;
+    if(g.scoringTeamId!=null&&g.scoringTeamId!==team.teamId)return null;
+    normalized.push({id:String(g.goalID),name,minute:Number.isSafeInteger(minute)&&minute>0&&minute<=180?minute:null,...(Number.isSafeInteger(g.addedTime)&&g.addedTime>0&&g.addedTime<=30?{addedTime:g.addedTime}:{}),ownGoal:g.isOwnGoal===true,penalty:g.isPenalty===true,type:'Goal',teamProviderId:String(team.teamId)});
+    home=g.scoreTeam1;away=g.scoreTeam2;
+  }
+  return home===result.homeScore&&away===result.awayScore?normalized:null;
+}
 function normalizeLeague(matches,{league,season=2026,checkedAt}={}){
   const competition=COMPETITIONS[league];if(!competition||season!==2026)fail('unreviewed competition or season');
   checkedAt=timestamp(checkedAt,'check time must be explicit UTC');
@@ -51,7 +70,8 @@ function normalizeLeague(matches,{league,season=2026,checkedAt}={}){
       result={homeScore:integer(finalResults[0].pointsTeam1,'invalid home score',0),awayScore:integer(finalResults[0].pointsTeam2,'invalid away score',0)};
       if(Date.parse(startTimeUtc)>Date.parse(checkedAt))fail('future fixture marked completed');
     }else if(finalResults.length)fail('unfinished fixture has a final result');
-    return {providerFixtureId:String(id),competitionId:competition.competitionId,season:'2026/27',stage:'league-phase',roundNumber:round,startTimeUtc,participants,
+    const goals=goalDetails(match,result);
+    return {providerFixtureId:String(id),competitionId:competition.competitionId,season:'2026/27',stage:'league-phase',roundNumber:round,startTimeUtc,participants,...(goals?{goalScorers:goals,goalDetailsCheckedAt:checkedAt}:{}),
       venue:sourcePlace(match.location?.locationStadium),venueCity:sourcePlace(match.location?.locationCity),
       // Elapsed time is not evidence of live play or completion.
       status:match.matchIsFinished?'completed':Date.parse(startTimeUtc)>Date.parse(checkedAt)?'upcoming':'unknown',result};
@@ -71,7 +91,7 @@ function resolveLeagueIdentities(facts, registry){
     if(!mapped||!/^team:football:/.test(mapped.participantId)||!mapped.displayName||!mapped.sourceNames?.includes(team.sourceName))fail(`unreviewed club identity ${team.providerId}`);
     return {...team,participantId:mapped.participantId,name:mapped.displayName};
   };
-  return {...facts,teams:facts.teams.map(resolve),fixtures:facts.fixtures.map(fixture=>({...fixture,participants:fixture.participants.map(resolve)}))};
+  return {...facts,teams:facts.teams.map(resolve),fixtures:facts.fixtures.map(fixture=>{const participants=fixture.participants.map(resolve);return {...fixture,participants,...(fixture.goalScorers?{goalScorers:fixture.goalScorers.map(g=>{const team=participants.find(p=>p.providerId===g.teamProviderId);return {...g,teamName:team?.name||null,teamParticipantId:team?.participantId||null};})}:{})};})};
 }
 function assertSnapshotContinuity(previous, next) {
   if (!previous) return;
@@ -92,10 +112,12 @@ function assertSnapshotContinuity(previous, next) {
 function retainFixtureObservations(previous, next) {
   const known = new Map((previous?.fixtures || []).map(f => [f.providerFixtureId, f]));
   const valid = value => Number.isFinite(Date.parse(value));
-  const facts = ['providerFixtureId','competitionId','season','stage','roundNumber','startTimeUtc','participants','venue','venueCity','status','result'];
+  const facts = ['providerFixtureId','competitionId','season','stage','roundNumber','startTimeUtc','participants','venue','venueCity','status','result','goalScorers'];
   const sameSource = previous?.source?.name === next.source.name && previous?.source?.url === next.source.url && previous?.source?.type === next.source.type;
   return {...next, fixtures: next.fixtures.map(fixture => {
     const prior = known.get(fixture.providerFixtureId), result = {...fixture, sourceCheckedAt: next.checkedAt};
+    if(sameSource&&prior?.goalScorers&&fixture.goalScorers&&JSON.stringify(prior.goalScorers)===JSON.stringify(fixture.goalScorers))result.goalDetailsCheckedAt=prior.goalDetailsCheckedAt||prior.sourceCheckedAt||previous.checkedAt;
+    else if(sameSource&&prior?.goalScorers&&!fixture.goalScorers&&JSON.stringify(prior.result)===JSON.stringify(fixture.result))Object.assign(result,{goalScorers:prior.goalScorers,goalDetailsCheckedAt:prior.goalDetailsCheckedAt||prior.sourceCheckedAt||previous.checkedAt,goalDetailsStale:true});
     if (sameSource && prior && facts.every(key => JSON.stringify(prior[key]) === JSON.stringify(fixture[key]))) {
       const observed = prior.sourceCheckedAt || previous.checkedAt;
       if (valid(observed)) result.sourceCheckedAt = observed;
@@ -110,4 +132,4 @@ function retainFixtureObservations(previous, next) {
     return result;
   })};
 }
-module.exports={normalizeLeague,resolveLeagueIdentities,assertSnapshotContinuity,retainFixtureObservations,COMPETITIONS,LICENCE};
+module.exports={normalizeLeague,resolveLeagueIdentities,assertSnapshotContinuity,retainFixtureObservations,goalDetails,COMPETITIONS,LICENCE};

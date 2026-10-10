@@ -5,7 +5,7 @@ const html=fs.readFileSync(process.argv[2]||'index.html','utf8');
 const source=html.match(/async function loadNothingscoreBatch\(ids, \{ rerender = true \} = \{\}\)\{[\s\S]*?\n\}/)?.[0];
 assert(source,'actual browser batch loader');
 let renders=0;
-const errors=new Map(),context={NOTHINGSCORE:{},serverPersistence:{user:null},serverSyncClient:{nothingscoreRequest:async()=>({snapshots:[]})},nothingscoreLoadErrors:errors,mergeNothingscoreSnapshot:()=>false,nothingscoreQueueRender:()=>renders++,nothingscoreViewer:null};
+const errors=new Map(),context={NOTHINGSCORE:{},serverPersistence:{user:null},serverSyncClient:{nothingscoreRequest:async()=>({snapshots:[]})},nothingscoreSnapshots:new Map(),nothingscoreLoadErrors:errors,mergeNothingscoreSnapshot:()=>false,nothingscoreQueueRender:()=>renders++,nothingscoreViewer:null};
 vm.createContext(context);vm.runInContext(source,context);
 (async()=>{
  await context.loadNothingscoreBatch(['missing']);

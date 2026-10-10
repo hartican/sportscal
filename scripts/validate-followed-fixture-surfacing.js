@@ -95,9 +95,9 @@ const userState = {
   },
 };
 
-function pageAt(now){
+function pageAt(now,fixture=liverpoolFixture){
   return buildServerFeed({
-    events: [...Array.from({ length: 48 }, (_, index) => genericEvent(index)), liverpoolFixture, ...Array.from({ length: 7 }, (_, index) => genericEvent(index + 48))],
+    events: [...Array.from({ length: 48 }, (_, index) => genericEvent(index)), fixture, ...Array.from({ length: 7 }, (_, index) => genericEvent(index + 48))],
     userId: "00000000-0000-4000-8000-000000000001",
     userState,
     now,
@@ -105,16 +105,20 @@ function pageAt(now){
   });
 }
 
-for (const [label, now, expectedStatus] of [
+for (const [label, now, expectedStatus,observation] of [
   ["21:25 Sydney before kickoff", "2026-08-29T11:25:00.000Z", "upcoming"],
-  ["21:31 Sydney after kickoff", "2026-08-29T11:31:00.000Z", "live"],
+  ["21:31 Sydney without a play observation", "2026-08-29T11:31:00.000Z", "scheduled"],
+  ["21:31 Sydney with a controlled source-confirmed live observation", "2026-08-29T11:31:00.000Z", "live",{status:'live',statusCheckedAt:'2026-08-29T11:31:00.000Z'}],
 ]){
-  const feed = pageAt(new Date(now));
+  const input={...liverpoolFixture,...observation},before=JSON.stringify(input);
+  const feed = pageAt(new Date(now),input);
   const event = feed.events.find(item => item.canonicalEventId === LIVERPOOL_ID);
   assert(event, `${label}: the followed Liverpool fixture must be on the initial 20-event page`);
   assert.equal(event.status, expectedStatus, `${label}: the timeline status must remain accurate`);
   assert(feed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === LIVERPOOL_ID), `${label}: the server-derived card must correspond to the first page`);
   assert(feed.events.length <= 20, `${label}: the startup page limit must be retained`);
+  assert.equal(JSON.stringify(input),before,`${label}: source fixture input stays unchanged`);
+  assert.equal(event.statusCheckedAt,input.statusCheckedAt,`${label}: the real status observation is retained`);
 }
 
 function aflwPreferences({ entityFollows = [], templateId = "template:like", includeAllFixtures = false } = {}){

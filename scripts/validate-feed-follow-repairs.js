@@ -3,7 +3,7 @@ const assert=require('node:assert/strict'),policy=require('../config/follow-feed
 const rows=[{user_id:'me',phase:'heat',rating:2,updated_at:'2026-09-21'},{user_id:'me',phase:'heat',rating:3,updated_at:'2026-09-22'},{user_id:'a',phase:'impact',rating:5},{user_id:'b',phase:'impact',rating:4}];
 let snapshot={filterRatings:ratings(rows,'me')};assert.equal(filter.score(snapshot),3);assert(!filter.matches(snapshot,4));snapshot={filterRatings:ratings(rows,'other')};assert.equal(filter.score(snapshot),4.5);assert(filter.matches(snapshot,4));assert(!filter.matches(snapshot,5));assert(!filter.matches({},4));assert(filter.matches({},0));assert.equal(filter.score({filterRatings:ratings([...rows,{user_id:'me',phase:'pulse',rating:5}],'me')}),5);
 for(const name of ['Masters Tournament','U.S. Women’s Open','KPMG Women’s PGA Championship','The Amundi Evian Championship','AIG Women’s Open']){
- const event={id:name,key:'golf',name,date:'2026-09-23',kind:'tournament',participantIds:[]};assert(policy.golfMajor(event),name);const category=policy.sportKey(event);assert(follow.reasonForEvent(event,{selectedSelectorEntityIds:['sport:'+category]}),name);if(category==='golf-women')assert.equal(follow.reasonForEvent(event,{selectedSelectorEntityIds:['sport:golf']}),null);assert(policy.eligibleForFollow(event,{competitionFollow:true}),name);
+ const event={id:name,key:'golf',name,date:'2026-09-23',cardKind:'fixture',participantIds:[]};assert(policy.golfMajor(event),name);const category=policy.sportKey(event);assert(follow.reasonForEvent(event,{selectedSelectorEntityIds:['sport:'+category]}),name);if(category==='golf-women')assert.equal(follow.reasonForEvent(event,{selectedSelectorEntityIds:['sport:golf']}),null);assert(policy.eligibleForFollow(event,{competitionFollow:true}),name);
 }
 assert(policy.golfMajor({key:'masters',name:'Masters Round 1'}));
 const ordinary={id:'golf-ordinary',key:'golf',name:'Bank of Utah Championship',date:'2026-09-23',participantIds:['golfer']};assert(!follow.reasonForEvent(ordinary,{selectedSelectorEntityIds:['sport:golf'],preferenceGraph:{entityFollows:[{participantId:'golfer',followLevel:'follow'}]}}));assert(policy.eligibleForFollow(ordinary,{explicitSelection:true}));assert(!policy.eligibleForFollow(ordinary,{explicitSelection:true,muted:true}));
@@ -24,7 +24,7 @@ for(const t of catalogue.filter(t=>horizon.inHorizon(t,published.from)))assert(p
 const saved=new Map([[slot.slotId,{rating:5,reminder:true}]]),rescheduled=horizon.structure(t,[{id:'confirmed',tournamentSlotId:slot.slotId,date:'2026-09-26',time:'17:30',participantSlots:[{participantId:'confirmed-player',label:'Confirmed player'}]}],{drawSize:32});
 assert.equal(rescheduled.slots[0].slotId,slot.slotId);assert.equal(rescheduled.slots[0].date,'2026-09-26');assert.deepEqual(saved.get(rescheduled.slots[0].slotId),{rating:5,reminder:true});
 
-const major={id:'golf-major',key:'golf',name:'Masters Tournament',date:'2026-09-23',kind:'tournament'};
+const major={id:'golf-major',key:'golf',name:'Masters Tournament',date:'2026-09-23',cardKind:'fixture'};
 const auGolf={selectedSelectorEntityIds:['sport:golf'],followFirst:{australiansOnlySportIds:['sport:golf']}};
 assert(!follow.reasonForEvent(major,auGolf));assert(follow.reasonForEvent({...major,participants:[{id:'golfer',countryCode:'AU'}]},auGolf));
 assert(!policy.eligibleForFollow(major,{competitionFollow:true,australiansOnly:true}));

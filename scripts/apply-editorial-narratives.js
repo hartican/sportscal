@@ -71,6 +71,10 @@ function main(){
   }
   const feed = readJson(FEED_PATH);
   const publishedFeed = readJson(PUBLISHED_FEED_PATH);
+  const fixtureIdsArgument=process.argv.find(arg=>arg.startsWith('--fixture-ids='));
+  const fixtureIds=fixtureIdsArgument?new Set(fixtureIdsArgument.slice('--fixture-ids='.length).split(',').filter(Boolean)):null;
+  if(fixtureIds&&!MAJOR_ONLY)throw new Error('Scoped fixture projection requires --major-events-only.');
+  const scopedKeys=fixtureIds?new Set([...feed.events,...publishedFeed.events].filter(event=>fixtureIds.has(event.id)).map(event=>majorEventContract.fixtureSemanticKey(event)).filter(Boolean)):null;
   const feedApplied = applyFeed(feed);
   applyFeed(publishedFeed);
 
@@ -78,13 +82,17 @@ function main(){
   let majorApplied = 0;
   let childApplied = 0;
   majorEvents.events = majorEvents.events.map(record => {
-    const projection = projectionForTarget(knowledge, "major-event", record);
+    const projection = fixtureIds?null:projectionForTarget(knowledge, "major-event", record);
     const projectedParent = projection ? applyToMajorEvent(record, projection, indexes) : record;
     if (projection) majorApplied += 1;
     if (!Array.isArray(projectedParent.subEvents)) return projectedParent;
     return {
       ...projectedParent,
       subEvents:projectedParent.subEvents.map(subEvent => {
+        if(scopedKeys){
+          const fixture=majorEventContract.fixtureFromSubEvent(subEvent,projectedParent);
+          if(!fixture||!scopedKeys.has(majorEventContract.fixtureSemanticKey(fixture)))return subEvent;
+        }
         const resolved = majorEventContract.editorialRecordForSubEvent(
           subEvent,
           projectedParent,

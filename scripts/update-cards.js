@@ -68,6 +68,10 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
+  if (argv.includes('--broadcaster-review')) {
+    const allowed = new Set(['--broadcaster-review', '--local-only', '-p']);
+    if (argv.some(arg => !allowed.has(arg))) throw new Error('Broadcaster review cannot be combined with other refresh routes. No source steps ran.');
+  }
   if (argv.includes('--result-observations') && (!argv.includes('--reviewed-fixtures') || !argv.some(arg=>arg.startsWith('--ids=')) || argv.some(arg=>arg.startsWith('--restore-published=')))) {
     throw new Error('Result observations require --reviewed-fixtures with retained --ids= and no editorial restoration. No source steps ran.');
   }
@@ -86,6 +90,14 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
 
 function buildQuickSteps(argv = process.argv.slice(2)) {
   return [["scripts/quick-results.js", ...argv.filter(arg => ["--offline", "--rebuild"].includes(arg))]];
+}
+
+function buildBroadcasterReviewSteps() {
+  return [
+    ['scripts/scan-broadcaster-coverage.js', '--enforce-freshness'],
+    ['scripts/scan-broadcaster-coverage.js', '--check', '--enforce-freshness'],
+    ['scripts/validate-broadcaster-discovery.js'],
+  ];
 }
 
 function buildSteps({ localOnly = false } = {}) {
@@ -441,6 +453,12 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if (process.argv.includes('--broadcaster-review')) {
+    for (const args of buildBroadcasterReviewSteps()) runStep(args);
+    if (!options.localOnly) runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Reviewed viewing evidence updated through the canonical owner; no provider requests or fixture changes.');
+    return;
+  }
   if(process.argv.includes('--calendar-notes')||process.argv.includes('--surf-calendar-notes')){
     const notes=require('./lib/reviewed-calendar-notes'),surfOnly=!process.argv.includes('--calendar-notes');
     const repaired=notes.applyRetained({selectedIds:surfOnly?notes.surfIds:notes.ids});console.log(JSON.stringify(repaired));
@@ -961,6 +979,7 @@ module.exports = {
   resumeSteps,
   buildSteps,
   buildQuickSteps,
+  buildBroadcasterReviewSteps,
   discoverCanonicalFixtureBundles,
   parseOptions,
 };
