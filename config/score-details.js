@@ -41,7 +41,7 @@ function feed(slot,ev,visible){
   slot.append(cricket(ev.innings,{fixtureId:String(ev.canonicalEventId||ev.eventId||ev.id),stale:ev.sourceStale===true}));
   const id=[ev.canonicalEventId,ev.eventId,ev.id,...(ev.sourceEventIds||[])].map(v=>String(v||'').match(/(?:^|:)CA:(\d+)$/)?.[1]).find(Boolean);
   if(id){const a=node('a','Official scorecard');a.href='https://www.cricket.com.au/matches/CA%3A'+id;a.target='_blank';a.rel='noopener noreferrer';slot.append(a);}
- }else slot.append(football(ev.incidents||ev.goalScorers));
+ }else {slot.append(football(ev.incidents||ev.goalScorers));if(ev.scorecardUrl&&/^https:\/\//.test(ev.scorecardUrl)){const a=node('a','Source scorecard');a.href=ev.scorecardUrl;a.target='_blank';a.rel='noopener noreferrer';slot.append(a);}if(ev.goalDetailsCheckedAt)slot.append(node('small',(ev.goalDetailsStale?'Last available goal details':'Goal details source update')+' · '+new Date(ev.goalDetailsCheckedAt).toLocaleString('en-AU',{timeZone:'Australia/Sydney',day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})));}
 }
 return {cricket,football,incidents,feed,styles};
 });

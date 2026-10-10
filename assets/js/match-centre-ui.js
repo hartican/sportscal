@@ -113,7 +113,7 @@ loadMatchCentreStyles();
    if(visible){
     if(view.details.open){
      if(snapshot.statusText)view.updates.append(node('p',snapshot.statusText));if(snapshot.restartTimeUtc)view.updates.append(node('p','Play resumes '+new Date(snapshot.restartTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney',weekday:'short',hour:'numeric',minute:'2-digit',timeZoneName:'short'})));cricketDetails(view.updates,score.innings,snapshot.id);
-     if(m().sport(e)==='football')view.updates.append(NOTHINGSPORTS_SCORE_DETAILS.football(snapshot.incidents));else for(const incident of snapshot.incidents||[])view.updates.append(node('p',[incident.type,incident.name,incident.time].filter(v=>v!=null&&v!=='').join(' · ')));
+     if(/football|soccer|fifa|premier-league|uefa-/.test(m().sport(e)))view.updates.append(NOTHINGSPORTS_SCORE_DETAILS.football(snapshot.incidents));else for(const incident of snapshot.incidents||[])view.updates.append(node('p',[incident.type,incident.name,incident.time].filter(v=>v!=null&&v!=='').join(' · ')));
      for(const rubber of snapshot.rubbers||[])view.updates.append(node('p',rubber.name+': '+(/upcoming|unconfirmed/.test(rubber.status)?'Awaiting official score':scoreText(rubber.score))));
     }
     for(const entry of score.classification||[])view.classification.append(node('p',Array.isArray(entry)?entry.join(' · '):[entry.position,entry.displayName||entry.name,entry.time||entry.points].filter(v=>v!=null).join(' · ')));
