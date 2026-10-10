@@ -8,12 +8,56 @@ const {
   GENERIC_COPY,
   SUBSTANTIVE_DIMENSIONS,
   TIER_REQUIREMENTS,
+  applyToFeedEvent,
+  indexesFor,
   projectionForTarget,
   validateKnowledge,
 } = require("./lib/editorial-narrative.js");
 const competitionClassification = require("../config/competition-classification.js");
 
 const DAY_MS = 24 * 60 * 60 * 1000;
+// A researched preview can outlive the fixture. Reapplying it after a
+// confirmed final must not overwrite the default spoiler-protected summary.
+function validateCompletedProjectionCopy(){
+  const lifecycle = require("../config/editorial-lifecycle");
+  const { spoilerContractIssues } = require("./lib/storyline-card-rules");
+  const source = { id:"source:test:editorial", name:"Reviewed editorial source", url:"https://example.test/review", sourceType:"official", checkedAt:"2026-10-09T09:00:00Z" };
+  const indexes = indexesFor({ sources:[source], narrativeFacts:[], narrativeThreads:[] });
+  const projection = {
+    id:"projection:test:retained-preview", hook:"The Sprint follows qualifying.",
+    synopsis:"A rider previously reached the podium here; Saturday offers another test.",
+    sourceIds:[source.id], factIds:[], threadIds:[], researchedAt:source.checkedAt, generationMode:"researched",
+  };
+  const event = {
+    id:"event:test:completed-editorial", eventId:"event:test:completed-editorial", name:"Reviewed Sprint",
+    status:"completed", outcomeText:"Rider A won the Sprint.", score:"1. Rider A · 2. Rider B", recapText:"Rider A won after the final lap.",
+    sourceName:"Fixture organiser", sourceUrl:"https://example.test/result", sourceType:"official", sourceCheckedAt:"2026-10-10T09:00:00Z",
+    resultSourceCheckedAt:"2026-10-10T09:00:00Z", startTimeUtc:"2026-10-10T04:00:00Z",
+    userActivity:{ dismissed:true, remind:false, results:false },
+  };
+  const snapshot = JSON.stringify(event), projected = applyToFeedEvent(event,projection,indexes);
+  assert.deepEqual(spoilerContractIssues(projected,new Date("2026-10-10T21:17:00Z")),[],"retained pre-race research must not leak through completed root copy");
+  assert.equal(projected.selectedSentence,projected.storyline.hookSpoilerOff);
+  assert.equal(projected.fullSpiel,projected.storyline.synopsisSpoilerOff);
+  assert.equal(projected.editorialNarrative.synopsis,projection.synopsis,"retain dated research separately");
+  assert.equal(lifecycle.copy(projected,projected.editorialNarrative,true).hook,event.outcomeText,"revealing results keeps the sourced outcome");
+  for (const field of Object.keys(event)) assert.deepEqual(projected[field],event[field],`${field} fixture fact or saved choice must survive projection`);
+  assert.equal(JSON.stringify(event),snapshot,"projection must not mutate its input");
+  assert.deepEqual(applyToFeedEvent(projected,projection,indexes),projected,"unchanged rerun must retain protected copy");
+  const upcoming = applyToFeedEvent({ ...event,status:"upcoming" },projection,indexes);
+  assert.equal(upcoming.selectedSentence,projection.hook,"unfinished fixtures retain their preview");
+  assert.equal(upcoming.fullSpiel,projection.synopsis);
+  const recap = { ...projection,hook:"The Sprint is complete. Reveal results for the outcome.",synopsis:"The key moments are protected here.",hookSpoilerOn:event.outcomeText,synopsisSpoilerOn:event.recapText };
+  const recapped = applyToFeedEvent(event,recap,indexes);
+  assert.deepEqual(spoilerContractIssues(recapped),[],"reviewed protected recaps remain valid");
+  assert.equal(recapped.fullSpiel,recap.synopsis);
+  const corrected = applyToFeedEvent({ ...recapped,outcomeText:"Rider B won the Sprint.",score:"1. Rider B · 2. Rider A",recapText:"Rider B won following the official correction." },recap,indexes);
+  assert(corrected.editorialNarrative.resultResearchRequired,"a changed outcome must invalidate old recap research");
+  assert.deepEqual(spoilerContractIssues(corrected),[]);
+  assert.equal(corrected.fullSpiel,corrected.storyline.synopsisSpoilerOff);
+  assert.equal(lifecycle.copy(corrected,corrected.editorialNarrative,true).hook,corrected.outcomeText);
+}
+validateCompletedProjectionCopy();
 const reference = new Date(process.env.NS_EDITORIAL_REFERENCE || Date.now());
 assert(!Number.isNaN(reference.getTime()), "NS_EDITORIAL_REFERENCE must be a valid date when supplied");
 
@@ -106,8 +150,15 @@ knowledge.eventProjections.forEach(projection => {
       assert(publishedEvent, `${targetId} editorial target must exist in the published feed`);
       assertProjected(incomingEvent, projection, `incoming ${targetId}`);
       assertProjected(publishedEvent, projection, `published ${targetId}`);
-      assert.equal(incomingEvent.selectedSentence, projection.hook, `${targetId} compatibility hook must be updated before publication`);
-      assert.equal(publishedEvent.selectedSentence, projection.hook, `${targetId} compatibility hook must survive publication`);
+      for (const [label,event] of [["incoming",incomingEvent],["published",publishedEvent]]){
+        if (event.status === "completed"){
+          assert.equal(event.selectedSentence,event.storyline?.hookSpoilerOff,`${label} ${targetId} completed root hook must remain spoiler protected`);
+          assert.equal(event.fullSpiel,event.storyline?.synopsisSpoilerOff,`${label} ${targetId} completed root synopsis must remain spoiler protected`);
+          assert.deepEqual(require("./lib/storyline-card-rules").spoilerContractIssues(event),[],`${label} ${targetId} completed projection must preserve the spoiler contract`);
+        } else {
+          assert.equal(event.selectedSentence,projection.hook,`${label} ${targetId} compatibility hook must publish its researched preview`);
+        }
+      }
     } else {
       if (!competitionClassification.belongsInEvents(targetId)) return;
       const record = majorById.get(targetId);

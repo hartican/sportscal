@@ -323,12 +323,16 @@ function applyToFeedEvent(event, projection, indexes){
   }else narrative.phase = 'preview';
   const completedHook = narrative.hookSpoilerOn;
   const completedSynopsis = narrative.synopsisSpoilerOn || completedHook;
+  // Root summaries are visible with Results OFF. Reapplying dated preview
+  // research after a confirmed final must use the same protected lifecycle
+  // copy as the card, while retaining the research inside its narrative.
+  const displayCopy = lifecycle.copy(event,narrative,false);
   const contextSignals = unique(["event-specific", ...narrative.dimensions.map(value => `narrative:${value}`)]);
   const threadTitle = indexes.threads.get(projection.threadIds[0])?.title || "Persistent editorial thread";
   return locks.apply({
     ...event,
-    selectedSentence:narrative.hook,
-    fullSpiel:narrative.synopsis,
+    selectedSentence:displayCopy.hook,
+    fullSpiel:completed ? displayCopy.synopsis || displayCopy.hook : narrative.synopsis,
     ...fixtureSourceMetadata(event,primarySource),
     lastReviewedAt:projection.researchedAt,
     editorialNarrative:narrative,
@@ -345,9 +349,9 @@ function applyToFeedEvent(event, projection, indexes){
       ...(event.storyline || {}),
       researchDepth:(projection.researchDepth || projection.stakes),
       arcStage:completed ? "recap" : "preview",
-      hookSpoilerOff:completed ? lifecycle.copy(event,narrative,false).hook : narrative.hook,
+      hookSpoilerOff:completed ? displayCopy.hook : narrative.hook,
       hookSpoilerOn:completed ? completedHook : projection.hookSpoilerOn || projection.hook,
-      synopsisSpoilerOff:completed ? lifecycle.copy(event,narrative,false).synopsis || lifecycle.copy(event,narrative,false).hook : narrative.synopsis,
+      synopsisSpoilerOff:completed ? displayCopy.synopsis || displayCopy.hook : narrative.synopsis,
       synopsisSpoilerOn:completed ? completedSynopsis : projection.synopsisSpoilerOn || projection.synopsis,
       lastReviewedAt:projection.researchedAt,
     },
