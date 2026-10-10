@@ -68,6 +68,31 @@ assert.equal(venues.resolve("Berlin, Germany", { key: "fiba-women" }).id, "uber-
 assert.equal(venues.resolve("Berlin, Germany").audited, false, "Berlin must not globally collapse to one arena");
 assert.equal(venues.resolve("Phillip Island Grand Prix Circuit").id, "phillip-island-grand-prix-circuit");
 assert.equal(venues.resolve("Geneva, Switzerland").id, "geneva-sailgp");
+const sharedCourtContexts = [
+  { venue: "Court 6", key: "tennis", eventSeriesId: "event-series:us-open" },
+  { venue: "Court 6", key: "tennis", tennisTournamentId: "tournament:tennis:wta-beijing-2026" },
+];
+assert(venues.audit(sharedCourtContexts).pending.includes("Court 6"), "one reviewed court context must not hide another unresolved use of the same name");
+assert.deepEqual(venues.audit(sharedCourtContexts), venues.audit([...sharedCourtContexts].reverse()), "venue audit must not depend on fixture order");
+const beijingCourt = venues.resolve("Court 4", { key: "tennis", tennisTournamentId: "tournament:tennis:wta-beijing-2026" });
+const shanghaiCourt = venues.resolve("Court 4", { key: "tennis", tournamentId: "tournament:tennis:atp-shanghai-2026" });
+assert.notEqual(beijingCourt.id, shanghaiCourt.id, "identically labelled courts at different sites must retain distinct identities");
+assert.equal(shanghaiCourt.audited, true, "the official 2026 Shanghai order of play names Court 4");
+assert.equal(beijingCourt.audited, false, "unconfirmed current court identities remain unresolved");
+assert.equal(beijingCourt.reviewDisposition, "court_identity_pending_review");
+assert.equal(beijingCourt.displayName, "Court 4", "retain the source-listed court label");
+assert.equal(venues.resolve("Shanghai", { key: "tennis", tournamentId: "tournament:tennis:atp-shanghai-2026" }).id, "qizhong-tennis-center");
+for (const context of [{}, { key: "baseball", tournamentId: "tournament:tennis:atp-shanghai-2026" }, { key: "tennis", tournamentId: "tournament:tennis:atp-shanghai-2027" }, { key: "tennis", tennisTournamentId: "tournament:tennis:atp-shanghai-2026", tournamentId: "tournament:tennis:wta-beijing-2026" }]) {
+  assert.equal(venues.resolve("Shanghai", context).audited, false, "a city must not resolve without a consistent reviewed tournament context");
+  assert.equal(venues.resolve("Court 4", context).reviewDisposition, "unclassified", "unsupported court contexts must fail closed despite a familiar label");
+}
+assert.equal(venues.resolve("Court 99", { key: "tennis", tournamentId: "tournament:tennis:atp-shanghai-2026" }).reviewDisposition, "unclassified", "a known site cannot validate an invented court");
+const courtAudit = venues.audit([{ venue: "Court 4", key: "tennis", tournamentId: "tournament:tennis:atp-shanghai-2026" }, { venue: "Court 4", key: "tennis" }]);
+assert(courtAudit.unclassified.includes("Court 4"), "a validated first fixture cannot mask an unsupported later context");
+assert.equal(courtAudit.contexts.length, 2);
+const shanghaiCourt7 = venues.resolve("Court 7", { key: "tennis", tournamentId: "tournament:tennis:atp-shanghai-2026" });
+assert.equal(shanghaiCourt7.reviewDisposition, "court_identity_pending_review", "the formerly hidden Shanghai outer-court context stays unresolved");
+assert.notEqual(shanghaiCourt7.id, venues.resolve("Court 7", { key: "tennis", eventSeriesId: "event-series:us-open" }).id, "Shanghai and New York courts must not share identity");
 ["config/source-trust.js","config/venue-registry.js"].forEach(file => require("./app-shell-test-utils").assertShellModule(html,file));
 assert(require("./offline-shell-module")("config/source-trust.js") && require("./offline-shell-module")("config/venue-registry.js"), "the source trust and venue models must remain available in the offline shell");
 const audit = venues.audit(feed.events);
@@ -120,6 +145,13 @@ const allowedPending = [
   "WIN Entertainment Centre"
 ];
 allowedPending.push(...["Ariake Colosseum, Tokyo","Auckland","Belmore Sports Ground","Bermuda","Campbelltown Sports Stadium","Concepción","Encarnación","Eric Tweedale Stadium","Exponor service park","FMG Stadium Waikato","Gap / Monaco","Geneva","Geohex Park","Gran Canaria Stadium service park","Grobnik Circuit service park","Halifax","Jyväskylä","Loutraki","Lungomare Barcellona service park","Monaco / French Alps","Naivasha","National Tennis Center, Beijing","New York","Polytec Stadium","Portsmouth","Rio","San Francisco","Sassnitz","St George Venues Jubilee Stadium","Sydney","Tartu","Toyota Stadium service park","Umeå","Valencia"]);
+const reviewedCourtPending = ["Court 1", "Court 2", "Court 3", "Court 4", "Court 5", "Court 7", "HSBC Moon", "Kinoshita Group Show Court"];
+allowedPending.push(...reviewedCourtPending);
+for (const name of reviewedCourtPending) {
+  const unresolved = audit.contexts.filter(context => context.input === name && !context.audited);
+  assert(unresolved.length, "retain each explicit current court-review exception");
+  assert(unresolved.every(context => context.reviewDisposition === "court_identity_pending_review"), "pending court exceptions require a reviewed tournament context, not a blanket name waiver");
+}
 for(const name of ["Ariake Colosseum, Tokyo","Auckland","Belmore Sports Ground","Bermuda","Campbelltown Sports Stadium","Concepción","Encarnación","Eric Tweedale Stadium","Exponor service park","FMG Stadium Waikato","Gap / Monaco","Geneva","Geohex Park","Gran Canaria Stadium service park","Grobnik Circuit service park","Halifax","Jyväskylä","Loutraki","Lungomare Barcellona service park","Monaco / French Alps","Naivasha","National Tennis Center, Beijing","New York","Polytec Stadium","Portsmouth","Rio","San Francisco","Sassnitz","St George Venues Jubilee Stadium","Sydney","Tartu","Toyota Stadium service park","Umeå","Valencia"]){const record=venues.resolve(name);assert.equal(record.audited,false,"queued source names must not pretend to be canonical venues");assert.equal(record.reviewDisposition,"source_name_pending_review");}
 assert.equal(venues.resolve("Never reviewed invented ground").reviewDisposition,"unclassified","future unknown labels still fail closed");
 assert(audit.pending.every(name=>allowedPending.includes(name)), "only explicitly queued source labels, routes and placeholders may remain unresolved");
