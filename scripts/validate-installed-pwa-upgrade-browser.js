@@ -94,12 +94,22 @@ async function assertCachedCanonicalResults(page){
 async function assertCachedFootballStatus(page){
   const footballContextPath=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/assets\/js\/football-card-context\.js\?v=\d+/)?.[0];
   assert(footballContextPath,'Football context uses the current explicit cache URL');
-  const settled=await page.evaluate(async()=>{
-    await loadDeferredScript('config/match-centre.js?v=463');await loadDeferredScript('config/feed-live-scores.js?v=437');
+  const shellManifest=fs.readFileSync(path.join(root,'service-worker.js'),'utf8'),scorePaths=['config/match-centre.js','config/feed-live-scores.js'].map(file=>{const match=shellManifest.match(new RegExp(file.replaceAll('.','\\.')+'\\?v=\\d+'));assert(match,'Current cached score module '+file);return match[0];});
+  const settled=await page.evaluate(async paths=>{
+    for(const file of paths)await loadDeferredScript(file);
     const code=await(await fetch('/data/code-inspector/football.json')).json(),host=document.createElement('div');document.body.append(host);
     try{return ['competition:premier-league-2026-27','competition:uefa-champions-league','competition:uefa-europa-league'].map(id=>{const fixture=code.fixtures.find(f=>f.competitionId===id&&f.status==='completed'),before=JSON.stringify(fixture);NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,fixture,{resultsOn:true});const shown={text:host.textContent,date:host.querySelector('time')?.dateTime};NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,fixture,{resultsOn:false});return {id,shown,explicitStale:Boolean(fixture.stale),checkedAt:fixture.scoreCheckedAt,hidden:!host.querySelector('.feed-live-score'),unchanged:before===JSON.stringify(fixture)};});}finally{host.remove();}
-  });
+  },scorePaths);
   for(const final of settled){assert(final.shown.text.includes('Finished')&&final.shown.text.includes('Update needed')===final.explicitStale,'cached settled final does not expire with elapsed age');assert.equal(final.shown.date,final.checkedAt,'cached calendar date retains original final observation');assert(/\b20\d{2}\b/.test(final.shown.text),'cached source check includes its year');assert(final.hidden&&final.unchanged,'cached source-date detail preserves privacy and facts');}
+  const halfReceipt=require('./fixtures/epl-half-time-20261010.json'),halfFixture=require('./refresh-premier-league-cards').cardForFixture(halfReceipt.fixture,halfReceipt.checkedAt);
+  const halfCheck=await page.evaluate(f=>{
+    const now=Date.parse(f.statusCheckedAt),host=document.createElement('div'),before=JSON.stringify(f);
+    NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,f,{resultsOn:true,now});const shown=host.textContent,date=host.querySelector('time')?.dateTime;
+    NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,f,{resultsOn:false,now});
+    return {shown,date,hidden:!host.querySelector('.feed-live-score'),label:NOTHINGSPORTS_CARD_TIMING.presentation(f,now).status,paused:NOTHINGSPORTS_MATCH_CENTRE.liveState(NOTHINGSPORTS_MATCH_CENTRE.compact(f),now),older:NOTHINGSPORTS_CARD_TIMING.presentation(f,now+240001).status,unchanged:before===JSON.stringify(f)};
+  },halfFixture);
+  assert(halfCheck.shown.includes('Manchester United 0')&&halfCheck.shown.includes('Tottenham Hotspur 0')&&halfCheck.shown.includes('Half-time'));assert.equal(halfCheck.date,halfReceipt.checkedAt);assert.equal(halfCheck.label,'HALF-TIME');assert.equal(halfCheck.paused,'paused');assert.equal(halfCheck.older,'Awaiting match update');assert(halfCheck.hidden&&halfCheck.unchanged,'Upgraded/offline half-time preserves zero scores, original clocks and Results OFF');
+  for(const file of scorePaths)assert.equal(await page.evaluate(file=>caches.match('/'+file).then(r=>r?.text()),file),fs.readFileSync(path.join(root,file.split('?')[0]),'utf8'),'Half-time executes the exact current cached score model');
   const preview=await page.evaluate(async modulePath=>{
     await loadDeferredScript(modulePath);
     const code=await(await fetch('/data/code-inspector/football.json')).json(),f=code.fixtures.find(f=>f.competitionId==='competition:uefa-champions-league'&&f.status==='upcoming');

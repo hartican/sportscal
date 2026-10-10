@@ -64,7 +64,7 @@ loadMatchCentreStyles();
   })();hydrating=operation;try{return await operation;}finally{if(hydrating===operation)hydrating=null;}
  }
  function scoreText(s){if(!s)return 'Scores unavailable';if(s.innings)return s.innings.length?s.innings.map(i=>`${i.team||i.participantId||'Innings'} ${i.runs??'—'}/${i.wickets??'—'} (${i.overs??'—'} overs)`).join(' · '):'Scores unavailable';if(s.sets?.length||s.games)return (s.sets||[]).map(x=>`${x.home??'—'}–${x.away??'—'}`).join('  ')+(s.games?` · Games ${s.games.home??'—'}–${s.games.away??'—'}`:'');return s.home!=null&&s.away!=null?`${s.home}–${s.away}`:'Scores unavailable';}
- function statusText(e,snapshot){const current={...e,...snapshot},state=m().liveState(current);return m().final(current)?'Finished':state==='awaiting-update'?'Awaiting update':state==='paused'?String(current.status).replace(/-/g,' '):state==='playing'?'Live':'Starting soon';}
+ function statusText(e,snapshot){const current={...e,...snapshot},state=m().liveState(current);return m().final(current)?'Finished':state==='awaiting-update'?'Awaiting update':state==='paused'?m().pausedLabel(current):state==='playing'?'Live':'Starting soon';}
  function scoreLabel(e,snapshot){
   const identities=matchupIdentityMatches(e,spoilerSafeDisplayTitle(e)),label=id=>identities.find(i=>i.participant?.id===id||i.mark?.id===id)?.label||(e.participantSlots||[]).find(s=>s.participantId===id)?.label||(e.participants||[]).find(p=>p.id===id)?.displayName||(e.participants||[]).find(p=>p.id===id)?.name||cardIdentityParticipants().find(p=>p.id===id)?.displayName;
   if(snapshot.score.home!=null&&snapshot.score.away!=null)return `${label(snapshot.homeParticipantId)||'Home'}: ${snapshot.score.home} · ${label(snapshot.awayParticipantId)||'Away'}: ${snapshot.score.away}`;

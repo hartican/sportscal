@@ -1,0 +1,126 @@
+{
+  "checkedAt": "2026-10-10T17:22:09.905Z",
+  "sourceUrl": "https://footballapi.pulselive.com/football/fixtures?comps=1&comp=1&compSeasons=841&page=0&pageSize=100&altIds=true",
+  "sourceSha256": "d56a4084f71ccda04a9743865fc7bd7c1dfffcc156caf9d89b675de1fbfe48f5",
+  "pageInfo": {
+    "page": 0,
+    "numPages": 4,
+    "pageSize": 100,
+    "numEntries": 380
+  },
+  "scope": "Naturally observed half-time row from one existing primary page. Official season display separately showed HT for the same ordered clubs, zero scores and Opta fixture ID. No full-season certification.",
+  "fixture": {
+    "gameweek": {
+      "id": 19766.0,
+      "compSeason": {
+        "label": "English Premier League Season 2026/2027",
+        "competition": {
+          "abbreviation": "EN_PR",
+          "description": "Premier League",
+          "level": "SEN",
+          "source": "",
+          "id": 1.0,
+          "altIds": {
+            "opta": "8"
+          }
+        },
+        "id": 841.0
+      },
+      "gameweek": 6.0,
+      "competitionPhase": {
+        "id": 8163.0,
+        "type": "L",
+        "gameweekRange": [
+          1.0,
+          38.0
+        ]
+      }
+    },
+    "kickoff": {
+      "completeness": 3.0,
+      "millis": 1791649800000.0,
+      "label": "Sat 10 Oct 2026, 17:30 BST",
+      "gmtOffset": 1.0
+    },
+    "provisionalKickoff": {
+      "completeness": 3.0,
+      "millis": 1791649800000.0,
+      "label": "Sat 10 Oct 2026, 17:30 BST",
+      "gmtOffset": 1.0
+    },
+    "teams": [
+      {
+        "team": {
+          "name": "Manchester United",
+          "club": {
+            "name": "Manchester United",
+            "shortName": "Man Utd",
+            "abbr": "MUN",
+            "id": 12.0
+          },
+          "teamType": "FIRST",
+          "shortName": "Man Utd",
+          "id": 12.0,
+          "altIds": {
+            "opta": "t1"
+          }
+        },
+        "score": 0.0
+      },
+      {
+        "team": {
+          "name": "Tottenham Hotspur",
+          "club": {
+            "name": "Tottenham Hotspur",
+            "shortName": "Spurs",
+            "abbr": "TOT",
+            "id": 21.0
+          },
+          "teamType": "FIRST",
+          "shortName": "Spurs",
+          "id": 21.0,
+          "altIds": {
+            "opta": "t6"
+          }
+        },
+        "score": 0.0
+      }
+    ],
+    "replay": false,
+    "ground": {
+      "name": "Old Trafford",
+      "city": "Manchester",
+      "source": "OPTA",
+      "id": 9516.0
+    },
+    "neutralGround": false,
+    "status": "L",
+    "phase": "H",
+    "clock": {
+      "secs": 2760.0,
+      "label": "45+1'00"
+    },
+    "fixtureType": "REGULAR",
+    "extraTime": false,
+    "shootout": false,
+    "goals": [],
+    "penaltyShootouts": [],
+    "behindClosedDoors": false,
+    "id": 128981.0,
+    "altIds": {
+      "opta": "g2645253"
+    }
+  },
+  "officialDisplay": {
+    "observedAt": "2026-10-10T17:25:13.671Z",
+    "url": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "matchUrl": "https://www.premierleague.com/en/match/2645253/manchester-united-vs-tottenham-hotspur/overview",
+    "text": "Manchester UnitedMan Utd0 - 0HTTottenham HotspurSpursHTWatch Live On"
+  },
+  "labelEvidence": {
+    "url": "https://translations.premier-league-prod.pulselive.com/premierleague/en.js",
+    "observedAt": "2026-10-10T13:26:17.258Z",
+    "key": "label.halfTime.short",
+    "value": "HT"
+  }
+}

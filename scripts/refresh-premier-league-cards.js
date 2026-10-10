@@ -65,12 +65,12 @@ function sourceFixtureStatus(fixture){
   if (fixture?.status === "U") return "upcoming";
   const id=Number.isSafeInteger(fixture?.id)?fixture.id:'unknown';
   if (fixture?.status === "L") {
-    // Admit playing periods only. Unknown pauses/halftime/interruptions must
-    // retain older facts until their own raw source contract is reviewed.
-    if(!['1','2'].includes(fixture.phase))throw new Error(`Premier League live fixture ${id} has a missing or unreviewed playing phase; retain last-good data.`);
+    // Actual L/H and the matching official HT display were captured on
+    // 10 October. Other interruptions remain unreviewed, never inferred.
+    if(!['1','2','H'].includes(fixture.phase))throw new Error(`Premier League live fixture ${id} has a missing or unreviewed playing phase; retain last-good data.`);
     const scores=fixture.teams?.map(team=>team.score);
     if(!scores||scores.length!==2||scores.some(score=>!Number.isSafeInteger(score)||score<0))throw new Error(`Premier League live fixture ${id} lacks a confirmed integer score.`);
-    return "live";
+    return fixture.phase==='H' ? 'break' : 'live';
   }
   const code=typeof fixture?.status==='string'&&fixture.status.length<=16?fixture.status:'invalid';
   throw new Error(`Premier League fixture ${id} has a missing or unreviewed source status (${code}); retain last-good data pending primary status verification.`);
@@ -150,8 +150,8 @@ function cardForFixture(fixture, checkedAt){
   const { date, time } = sydneyDateAndTime(fixture.kickoff.millis);
   const status = sourceFixtureStatus(fixture);
   const completed = status === "completed";
-  const playing = status === "live";
-  if(playing&&(!Number.isFinite(Date.parse(checkedAt))||!/Z$/.test(checkedAt)))throw new Error('Premier League live fixture requires a valid source observation.');
+  const inProgress = status === 'live' || status === 'break';
+  if(inProgress&&(!Number.isFinite(Date.parse(checkedAt))||!/Z$/.test(checkedAt)))throw new Error('Premier League live fixture requires a valid source observation.');
   const result = completed ? resultScoreline(fixture, home, away) : null;
   if(completed && !result)throw new Error("Premier League completed fixture lacks a confirmed integer score.");
   const gameweek = fixture.gameweek?.gameweek;
@@ -222,14 +222,15 @@ function cardForFixture(fixture, checkedAt){
     briefingEligible: false,
     catchupEligible: completed,
     resultLabels: [`Premier League Matchweek ${gameweek}`],
-    ...(playing ? {
+    ...(inProgress ? {
+      statusText:status==='break'?'Half-time':null,
       participants:[{id:home.id,name:home.name,displayName:home.name,role:'home'},{id:away.id,name:away.name,displayName:away.name,role:'away'}],
       homeScore:fixture.teams[0].score,awayScore:fixture.teams[1].score,
       score:`${home.name} ${fixture.teams[0].score}-${fixture.teams[1].score} ${away.name}`,
       scoreDisplay:`${fixture.teams[0].score}–${fixture.teams[1].score}`,
       statusCheckedAt:checkedAt,scoreCheckedAt:checkedAt,
       statusSourceName:'Premier League official fixture service',statusSourceUrl:OFFICIAL_MATCHES_URL,statusSourceType:'official',
-      statusEvidence:{kind:'primary-fixture-status',providerFixtureId:fixture.id,rawStatus:'L',playingPhase:fixture.phase,sourceUrl:OFFICIAL_MATCHES_URL,checkedAt},
+      statusEvidence:{kind:'primary-fixture-status',providerFixtureId:fixture.id,rawStatus:'L',...(status==='break'?{nonPlayingPhase:fixture.phase}:{playingPhase:fixture.phase}),sourceUrl:OFFICIAL_MATCHES_URL,checkedAt},
     } : {}),
     ...(result ? {
       ...result,

@@ -137,6 +137,11 @@
     const start = eventStart(event);
     const reference = now instanceof Date ? now : new Date(now);
     if (Number.isNaN(reference.getTime())) return null;
+    if(status==='break'&&event.statusText==='Half-time'){
+      const checked=Date.parse(event.statusCheckedAt||'');
+      const fresh=Number.isFinite(checked)&&checked<=+reference&&+reference-checked<=4*60*1000&&event.sourceStale!==true&&event.stale!==true;
+      return fresh?Object.freeze({key:'half-time',label:'Half-time',ariaLabel:'Half-time'}):Object.freeze({key:'awaiting-update',label:'Awaiting match update',ariaLabel:'Match status unconfirmed; awaiting a source update'});
+    }
     if(!start){
       if(event?.tournamentParent||event?.cardKind==='event'||event?.cardType==='tournament_overview'||event?.dateOnly&&event?.endDate)return null;
       // A dated live observation is independent of a published start clock.

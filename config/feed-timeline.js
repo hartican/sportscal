@@ -22,6 +22,7 @@
     const timing=controls.timingState(event,now)?.key;
     if(timing==='awaiting-update')return 'unknown';
     if(timing==='live-now')return 'live';
+    if(timing==='half-time')return 'ongoing';
     const start=calendar.eventStart(event);
     return start && +start<=+now?'past':'upcoming';
   }

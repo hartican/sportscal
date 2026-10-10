@@ -5,6 +5,7 @@ const {EventEmitter}=require('node:events');
 const pl=require('./refresh-premier-league-cards');
 const liveReceipt=require('./fixtures/epl-live-20261010.json');
 const firstHalfReceipt=require('./fixtures/epl-first-half-20261010.json');
+const halfTimeReceipt=require('./fixtures/epl-half-time-20261010.json');
 // A controlled 20-club double round robin, never published sporting evidence.
 const fixtures=[],ring=Array.from({length:20},(_,i)=>i+1);
 for(let round=0;round<19;round++){
@@ -64,13 +65,38 @@ async function interruptedResponse(kind){
  assert.equal(require('../config/card-timing').presentation(actualLive,new Date(liveReceipt.checkedAt)).status,'LIVE');
  assert.equal(require('../config/card-timing').presentation(actualLive,new Date(Date.parse(liveReceipt.checkedAt)+31*60000)).status,'Awaiting match update','Old captured play does not remain live');
  for(const phase of ['1','2'])assert.equal(pl.cardForFixture({...liveReceipt.fixture,phase},liveReceipt.checkedAt).status,'live','Only the playing-period admission is supported; no halftime/interruption label is inferred');
- for(const phase of [undefined,null,'H','HT','P','F','QA_UNKNOWN',2])assert.throws(()=>pl.cardForFixture({...liveReceipt.fixture,phase},liveReceipt.checkedAt),/unreviewed.*phase|phase.*unreviewed/,'Unreviewed or missing live periods keep last-good data');
+ for(const phase of [undefined,null,'HT','P','F','QA_UNKNOWN',2])assert.throws(()=>pl.cardForFixture({...liveReceipt.fixture,phase},liveReceipt.checkedAt),/unreviewed.*phase|phase.*unreviewed/,'Unreviewed or missing live periods keep last-good data');
  for(const score of [undefined,null,-1,1.5,Infinity,'2']){const bad=structuredClone(liveReceipt.fixture);bad.teams[0].score=score;assert.throws(()=>pl.cardForFixture(bad,liveReceipt.checkedAt),/integer score/);}
  const zeroLive=structuredClone(liveReceipt.fixture);zeroLive.teams.forEach(t=>t.score=0);assert.equal(pl.cardForFixture(zeroLive,liveReceipt.checkedAt).scoreDisplay,'0–0');
  assert.throws(()=>pl.cardForFixture(liveReceipt.fixture,'invalid'),/observation/);
  const laterChecked=new Date(Date.parse(liveReceipt.checkedAt)+60000).toISOString();
  assert.equal(require('../lib/live-fixtures').contentHash([actualLive]),require('../lib/live-fixtures').contentHash([pl.cardForFixture(liveReceipt.fixture,laterChecked)]),'Repeated real-source checks cannot create a new fact revision just from observation clocks');
- const withLive=p=>{const fixture=p[0].content[1];fixture.status='L';fixture.phase='2';fixture.teams[0].score=2;fixture.teams[1].score=1;};
+ const withLive=p=>{const fixture=p[0].content[1];fixture.status='L';fixture.phase='2';fixture.kickoff.millis=liveReceipt.fixture.kickoff.millis;fixture.teams[0].score=2;fixture.teams[1].score=1;};
+ const halfTime=pl.cardForFixture(halfTimeReceipt.fixture,halfTimeReceipt.checkedAt),halfNow=Date.parse(halfTimeReceipt.checkedAt);
+ const model=require('../config/match-centre'),timing=require('../config/card-timing'),feed=require('../config/feed-live-scores');
+ assert.equal(halfTime.status,'break');assert.equal(halfTime.statusText,'Half-time');assert.equal(halfTime.scoreDisplay,'0–0');
+ assert.deepEqual(halfTime.participantIds,['team:football:epl:12','team:football:epl:21']);assert.equal(halfTime.canonicalEventId,'event:premier-league:128981');
+ assert(!halfTime.outcomeText&&!halfTime.recapText&&!halfTime.resultSourceCheckedAt&&!halfTime.replayEligible&&!halfTime.catchupEligible,'A routine half-time pause is never a final');
+ assert.equal(halfTime.statusCheckedAt,halfTimeReceipt.checkedAt);assert.equal(halfTime.scoreCheckedAt,halfTimeReceipt.checkedAt);
+ const canonicalStatus=require('../lib/canonical-status-observations');assert(canonicalStatus.observation(halfTime,{now:halfNow}));
+ for(const patch of [{statusText:'Other break'},{statusEvidence:null},{canonicalEventId:'event:premier-league:other'},{statusSourceUrl:'https://example.test/'},{homeScore:null},{statusCheckedAt:new Date(halfNow+1).toISOString()}])assert.equal(canonicalStatus.observation({...halfTime,...patch},{now:halfNow}),null,'Canonical admission rejects unrelated, incomplete or future pause facts');
+ const beforeHalf={...halfTime,status:'live',statusText:null,statusCheckedAt:new Date(halfNow-120000).toISOString()};
+ assert.equal(canonicalStatus.apply(beforeHalf,halfTime,{now:halfNow}).statusText,'Half-time');assert.equal(canonicalStatus.apply({...beforeHalf,status:'completed'},halfTime,{now:halfNow}).status,'completed');
+ const resumedObservation={...halfTime,status:'live',statusText:null,statusCheckedAt:new Date(halfNow+120000).toISOString()};assert.equal(canonicalStatus.apply(halfTime,resumedObservation,{now:halfNow+120000}).statusText,null);
+ assert.equal(require('../lib/live-fixtures').contentHash([halfTime]),require('../lib/live-fixtures').contentHash([pl.cardForFixture(halfTimeReceipt.fixture,new Date(halfNow+60000).toISOString())]),'Unchanged half-time checks do not create clock-only fact revisions');
+
+ assert.equal(model.liveState(halfTime,halfNow),'paused');assert.equal(model.liveState(model.compact(halfTime),halfNow),'paused');
+ assert.equal(model.interval(halfTime,halfNow),120000);assert.equal(require('../lib/live-fixtures').refreshInterval([halfTime],new Date(halfNow)),120000,'Existing active cadence resumes without an invented restart clock');
+ assert.equal(require('../config/feed-timeline').status(halfTime,new Date(halfNow)),'ongoing','Half-time cannot be styled or rated as a final result');assert.equal(timing.presentation(halfTime,halfNow).status,'HALF-TIME');assert.equal(timing.presentation(halfTime,halfNow+240001).status,'Awaiting match update');
+ assert.equal(model.liveState(halfTime,halfNow+240001),'awaiting-update');assert.equal(model.liveState({...halfTime,sourceStale:true},halfNow),'awaiting-update');
+ assert.equal(feed.presentation(halfTime,{resultsOn:true,now:halfNow}).status,'Half-time');assert.equal(feed.presentation(halfTime,{resultsOn:true,now:halfNow+240001}).status,'Last available score');assert.equal(feed.presentation(halfTime,{resultsOn:false,now:halfNow}),null);
+ assert.equal(model.interval({...halfTime,statusText:'Other break'},halfNow),1800000,'Other interruptions retain their quiet cadence');
+ assert.equal(require('../config/fixture-reminder-policy').manualTiming(halfTime,halfNow),null,'Half-time cannot create a reminder');
+ for(const score of [null,-1,0.5,'0']){const bad=structuredClone(halfTimeReceipt.fixture);bad.teams[0].score=score;assert.throws(()=>pl.cardForFixture(bad,halfTimeReceipt.checkedAt),/integer score/);}
+ assert.throws(()=>pl.cardForFixture(halfTimeReceipt.fixture,'invalid'),/observation/);
+ const withHalfTime=p=>{withLive(p);p[0].content[1].phase='H';};
+ await responseSequence(withHalfTime,async calls=>{const loaded=await pl.loadFixtures();assert.equal(loaded.length,380);assert.deepEqual(calls,[0,1,2,3]);assert.equal(pl.cardForFixture(loaded[1],halfTimeReceipt.checkedAt).status,'break');});
+
  await responseSequence(withLive,async calls=>{const source=require('../lib/live-source-adapters').liveSources(async()=>{throw Error('QA must not call another provider');},{environment:{}}).find(s=>s.id==='live-premier-league');const events=await source.fetch({now:new Date(liveReceipt.checkedAt)});assert.equal(events.length,380);assert.equal(events.filter(e=>e.status==='live').length,1);assert.equal(events.find(e=>e.status==='live').scoreDisplay,'2–1');assert.deepEqual(calls,[0,1,2,3],'The real live adapter keeps the same four complete page reads');});
  await rejects('unreviewed live period',p=>{withLive(p);p[0].content[1].phase='HT';},1);
  await rejects('incomplete live scores',p=>{withLive(p);delete p[0].content[1].teams[0].score;},1);
@@ -145,11 +171,27 @@ async function interruptedResponse(kind){
   await responseSequence(withLive,async()=>pl.refreshPremierLeagueCards(file,file,liveOptions));assert.deepEqual(fs.readFileSync(file),liveSaved,'An unchanged live source rerun retains bytes');
   await responseSequence(p=>{withLive(p);p[0].content[1].phase='HT';},async()=>assert.rejects(pl.refreshPremierLeagueCards(file,file,{...liveOptions,checkedAt:laterChecked}),/unreviewed.*phase/));
   assert.deepEqual(fs.readFileSync(file),liveSaved,'Unknown non-playing phases preserve the actual live snapshot and its original clocks');
-  await responseSequence(p=>{withLive(p);p[0].content[1].status='C';},async()=>pl.refreshPremierLeagueCards(file,file,{...liveOptions,checkedAt:laterChecked}));
+  const halfOptions={...liveOptions,checkedAt:halfTimeReceipt.checkedAt};
+  await responseSequence(withHalfTime,async()=>pl.refreshPremierLeagueCards(file,file,halfOptions));
+  const halfSaved=fs.readFileSync(file),paused=JSON.parse(halfSaved).events.find(e=>e.id===live.id);
+  assert.equal(paused.status,'break');assert.equal(paused.statusText,'Half-time');assert.equal(paused.scoreCheckedAt,halfTimeReceipt.checkedAt);
+  assert.deepEqual(JSON.parse(halfSaved).events.map(e=>e.id).sort(),liveEvents.map(e=>e.id).sort(),'Half-time preserves all existing identities');
+  await responseSequence(withHalfTime,async()=>pl.refreshPremierLeagueCards(file,file,halfOptions));assert.deepEqual(fs.readFileSync(file),halfSaved,'Unchanged half-time rerun retains actual persisted bytes');
+  let halfPublished;
+  await responseSequence(withHalfTime,async()=>{const result=await require('../lib/live-fixtures').refreshDueSources({sources:[liveSource],store:{claim:async()=>({fixtures:prior}),publish:async(id,token,value)=>{halfPublished=value;},fail:async()=>assert.fail('Verified half-time cannot reject the league')},now:new Date(halfTimeReceipt.checkedAt)});assert.deepEqual(result.failed,[]);});
+  const sharedHalf=halfPublished.fixtures.find(e=>e.status==='break');assert.equal(sharedHalf.statusText,'Half-time');assert.equal(sharedHalf.scoreCheckedAt,halfTimeReceipt.checkedAt);assert.equal(halfPublished.nextDueAt,halfNow+120000);
+  const halfHandler=require('../lib/live-fixture-handler').createLiveFixtureHandler({publishedFixtures:()=>prior,clock:()=>new Date(halfTimeReceipt.checkedAt),read:async()=>({revision:'controlled-half-time',stale:false,sources:[{source_id:'live-premier-league',checked_at:halfTimeReceipt.checkedAt,fixtures:halfPublished.fixtures}]})});
+  await halfHandler({url:'/api/fixtures?ids='+encodeURIComponent(sharedHalf.id),method:'GET',headers:{}},response);
+  const returnedHalf=response.body.sources[0].fixtures.find(e=>e.id===sharedHalf.id);assert.equal(returnedHalf.status,'break');assert.equal(returnedHalf.statusText,'Half-time');assert.equal(model.compact(returnedHalf).statusText,'Half-time');
+  await responseSequence(withLive,async()=>pl.refreshPremierLeagueCards(file,file,{...halfOptions,checkedAt:new Date(halfNow+120000).toISOString()}));
+  const resumed=JSON.parse(fs.readFileSync(file)).events.find(e=>e.id===live.id);assert.equal(resumed.status,'live');assert(!resumed.statusText,'Primary second-half recovery clears the old half-time label');
+  const finalChecked=new Date(halfNow+180000).toISOString();
+  await responseSequence(p=>{withLive(p);p[0].content[1].status='C';},async()=>pl.refreshPremierLeagueCards(file,file,{...liveOptions,checkedAt:finalChecked}));
   const finalSaved=fs.readFileSync(file),final=JSON.parse(finalSaved).events.find(e=>e.id===live.id);
-  assert.equal(final.status,'completed');assert.equal(final.homeScore,2);assert.equal(final.awayScore,1);assert.equal(final.resultSourceCheckedAt,laterChecked,'Validated primary completion advances the existing fixture');
+  assert.equal(final.status,'completed');assert.equal(final.homeScore,2);assert.equal(final.awayScore,1);assert.equal(final.resultSourceCheckedAt,finalChecked,'Validated primary completion advances the existing fixture');
   await responseSequence(withLive,async()=>assert.rejects(pl.refreshPremierLeagueCards(file,file,liveOptions),/continuity failed/));
   assert.deepEqual(fs.readFileSync(file),finalSaved,'An older live response cannot reopen the persisted final');
+  await responseSequence(withHalfTime,async()=>assert.rejects(pl.refreshPremierLeagueCards(file,file,halfOptions),/continuity failed/));assert.deepEqual(fs.readFileSync(file),finalSaved,'An older half-time response cannot reopen the persisted final');
  }finally{fs.rmSync(directory,{recursive:true,force:true});}
- console.log('EPL source shape: bounded four-page reads, complete directed pairings, valid season/round/status admission, reschedules, zero finals and actual last-good writer preservation/recovery passed; controlled source, no network.');
+ console.log('EPL source shape: actual half-time admission, saved/API propagation, two-minute resumption cadence, stale privacy and terminal continuity; bounded four-page reads, complete directed pairings, valid season/round/status admission, reschedules, zero finals and actual last-good writer preservation/recovery passed; controlled source, no network.');
 })().catch(error=>{console.error(error.stack||error.message);process.exitCode=1;});

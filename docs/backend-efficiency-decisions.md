@@ -1,5 +1,13 @@
 # Backend efficiency decisions
 
+## EPL half-time through existing refresh owners — 11 October 2026 Sydney
+
+A naturally observed primary L/H record and the matching official HT display establish half-time for the existing 2026/27 EPL adapter. Represent it as the existing `break` state with `statusText: Half-time`, named integer scores and genuine independent source observations. Canonical persistence admits that pause only with the exact provider identity, competition, season, official provenance and reviewed H evidence. Other unknown phases still retain last-good facts. A pause creates no completion, final copy, replay promise, restart clock or reminder.
+
+Keep the existing active two-minute source/browser cadence during a routine half-time break; long interruptions retain their quiet cadence. Four-minute-old or failed half-time observations become an explicit awaiting-update display. Feed classifies the match as ongoing, preventing a half-time score from being styled as a final. The same compact fields serve Match Centre, Feed and Schedule; source recovery clears the old pause label. All existing source page/deadline, lease, minimum interval, database, notification and consent budgets remain. No new timer, request, retry, owner, scheduler, provider, schema or subscription.
+
+Regression adds the actual receipt to the existing source-shape, persistent-writer, selected-API, Football surface, Match Centre and cached-upgrade checks. Browser replays are controlled evidence; normal source operation, signed-in and physical-phone proof remain distinct. [Evidence and limits](quality/epl-half-time-recovery-2026-10-11.md).
+
 ## Observed EPL live source — 11 October 2026 Sydney
 
 The existing Premier League primary adapter admits the naturally observed raw L live code, alongside retained C/U, only for numbered playing periods1/2 and two non-negative integer scores. Actual phase1/2, zero live goals, recovery to C and the league's own L label are captured; unknown pauses/non-playing codes stay rejected. Live names bind to their existing ordered participant IDs, making the source row self-contained for score display without a catalogue read. Complete four-page validation, last-good fallback, final-only delayed backup and completed-result continuity remain. Preserve all fixture/activity IDs, schedule/viewing facts and genuine observation dates; live facts do not create final copy or replay eligibility.

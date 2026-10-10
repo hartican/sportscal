@@ -68,6 +68,7 @@
     if(odi?.awaiting(event,reference))status=odi.label;
     const controls=typeof module==='object'&&module.exports?require('./feed-controls'):globalThis.NOTHINGSPORTS_FEED_CONTROLS;
     const observed=controls?.timingState(event,reference);
+    if(observed?.key==='half-time')status='HALF-TIME';
     if(observed?.key==='awaiting-update')status=observed.label;
     return Object.freeze({day:venueCalendar?day:date?(range?day:dated(date)):'DATE TBC',time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:scheduleLabel, fullSchedule, ariaLabel:status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule});
   }
