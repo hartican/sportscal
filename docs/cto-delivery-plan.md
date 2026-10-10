@@ -1,6 +1,6 @@
 # CTO delivery programme — authoritative current queue
 
-**Current decision — 11 October 2026:** Continue Football first. The rally, public-page/cache and Golf/Cup repairs are verified live. Singapore qualifying now keeps the missing retired driver, so following him retains the session. That repair is also verified live. Six more old test assumptions are corrected against the agreed rules: 90 of the 92 sampled update checks now pass. Two remain: current viewing evidence and venue records. Resolve them before another long sports-data run. Keep updates brief and in everyday language; detailed evidence stays in the reports. No new subscription or owner routine; Passwords/iCloud remains parked.
+**Current decision — 11 October 2026:** Continue Football first. The rally, public-page/cache and Golf/Cup repairs are verified live. Singapore qualifying keeps the missing retired driver, so following him retains the session; that repair is verified live. The dated viewing review now passes and no longer invents midnight for a date-only listing. Of the 92 previously sampled update checks, 91 now pass after bounded rechecks. Venue records remain before the next full sports update. Keep updates short and in everyday language; detailed evidence stays in the reports. No new subscription or owner routine; Passwords/iCloud remains parked.
 
 **Full approval:** 0/17 carried families and 0/3 Football pilots, targeting at least 14/17 families. These numbers count completed requirements, not broken sports or the repairs already delivered. Baseball joined carried coverage on 6 October; dated historical chapters retain the earlier sixteen-family count. [Current coverage review](https://github.com/hartican/sportscal/blob/main/docs/quality/current-programme-review-2026-10-09.md).
 
@@ -16,7 +16,7 @@
 
 **Next five actions, in order:**
 
-- Resolve the two remaining full-update checks for current viewing evidence and venue records. Keep their real quality failures intact. Run the existing full update owner and prove its exact release; check a later ordinary overnight publication separately. The latest qualifying repair is already live, and rejected sports-data batches remain unpublished. Keep the intermittent match-list read and earlier browser/source failures recorded; diagnose recurrence without weakening deadlines or release checks.
+- Resolve the remaining venue check using current source evidence. Keep their real quality failures intact. Run the existing full update owner and prove its exact release; check a later ordinary overnight publication separately. The latest qualifying repair is already live, and rejected sports-data batches remain unpublished. Keep the intermittent match-list read and earlier browser/source failures recorded; diagnose recurrence without weakening deadlines or release checks.
 - Finish the existing Football pilots: remaining interruptions, table maintenance beyond the verified first-match checkpoint, Australian viewing and real-phone use. The verified half-time state is complete as a scoped repair. Reuse the completed dated season and 72-club table comparisons; keep the scope bounded.
 - Continue demonstrated carried-sport repairs toward at least 14/17 families. Shared cost labels are delivered. Keep unknown AFLW kickoff, finalists and undated finals unknown; assess Binge only when its destination and value are verified.
 - Complete the prepared short phone session when available, then measure genuine return visits among authorised invitees. Existing owner questions stay pending; Passwords/iCloud stays parked.
@@ -34,4 +34,6 @@ The full audit retains 51 chapters and three diagrams. These repairs do not comp
 
 [Faster private update checks and remaining work](https://github.com/hartican/sportscal/blob/main/docs/quality/full-update-preflight-2026-10-11.md).
 
-[Current rules, complete qualifying results and three remaining update checks](https://github.com/hartican/sportscal/blob/main/docs/quality/full-update-contract-review-2026-10-11.md).
+[Current rules, complete qualifying results and the update-check review](https://github.com/hartican/sportscal/blob/main/docs/quality/full-update-contract-review-2026-10-11.md).
+
+[Current viewing evidence and honest unknown times](https://github.com/hartican/sportscal/blob/main/docs/quality/viewing-evidence-refresh-2026-10-11.md).

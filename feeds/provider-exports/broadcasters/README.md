@@ -11,3 +11,5 @@ Consumer pages must not be scraped unless their owner has given written permissi
 The canonical fixture source remains authoritative for event identity and timing. A broadcaster snapshot contributes availability evidence and catalogue-discovery candidates only.
 
 Licensed providers use the same file contract with `sourceMode: "licensed_api"`; no source-specific payload may bypass normalization. The current commercial shortlist and procurement test are in `data/coverage/latest.md` and `docs/research/nothingsport-phase-3-broadcaster-source-research.md`.
+
+When a reviewed guide does not establish a timezone or individual fixture, retain only its printed date with `timeConfidence: "date_only"` and null UTC fields. Do not infer midnight, opponents or a kickoff from a programme label. These listings remain discovery review evidence, not publishable fixture facts.

@@ -88,6 +88,22 @@ assert.equal(exactCandidate.blockers.length, 0);
 assert(discovery.canPublishCandidate(exactCandidate));
 assert(discovery.scoreListingAgainstEvent(replay, discovery.resolveTaxonomy(replay), cricket).confidence <= 0.49, "replay evidence must stay below the event match threshold");
 
+const dateOnlyInput = snapshotFor("stan_sport", { timeConfidence: "date_only" });
+delete dateOnlyInput.items[0].eventStartsAtUtc;
+const dateOnlyListing = discovery.normalizeSnapshot(dateOnlyInput).items[0];
+for (const catalogue of [canonical, []]) {
+  const candidate = discovery.candidateForListing(dateOnlyListing, catalogue, "coverage-report:2026-08-13");
+  assert.equal(candidate.startsAt, null, "a source date without an observed clock must never invent midnight");
+  assert.equal(candidate.eventTiming.localDate, "2026-08-13", "keep the actual printed source date");
+  assert.equal(candidate.eventTiming.eventStartsAtUtc, null);
+  assert.equal(candidate.eventTiming.programmeStartsAtUtc, null);
+  assert.equal(discovery.canPublishCandidate(candidate), false, "date-only availability evidence cannot publish a fixture or exact match");
+  if (candidate.provisionalEvent) {
+    assert.equal(candidate.provisionalEvent.startTimeUtc, null);
+    assert.equal(candidate.provisionalEvent.sourceLocalDate, "2026-08-13");
+  }
+}
+
 const snapshots = loadSnapshots();
 assert.equal(assertFreshSnapshots(snapshots, sydneyDate()), undefined);
 const latestObservedAt = Array.from(snapshots.values()).map(snapshot => snapshot.observedAt).sort().at(-1);

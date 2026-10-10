@@ -507,7 +507,7 @@
       source: listing.sourceId,
       sport: taxonomy.sportId || listing.rawSport,
       competition: taxonomy.eventSeriesId || taxonomy.competitionId || listing.rawCompetition,
-      startsAt: listing.eventStartsAtUtc || listing.programmeStartsAtUtc || `${listing.localDate}T00:00:00.000Z`,
+      startsAt: listing.eventStartsAtUtc || listing.programmeStartsAtUtc || null,
       matchStatus,
       catalogueStatus: matchStatus,
       matchConfidence: confidence,

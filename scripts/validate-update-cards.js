@@ -5,13 +5,22 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
-const { buildQuickSteps, buildSteps, parseOptions } = require("./update-cards");
+const { buildBroadcasterReviewSteps, buildQuickSteps, buildSteps, parseOptions } = require("./update-cards");
 const { projectionSteps: quickProjectionSteps } = require("./quick-results");
 
 const releaseStep = "scripts/redeploy-and-release.sh";
 const defaultSteps = buildSteps(parseOptions([], {}));
 const localSteps = buildSteps(parseOptions(["-p", "--local-only"], {}));
 const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" }));
+for (const step of buildBroadcasterReviewSteps()) {
+  assert(localSteps.some(existing => JSON.stringify(existing) === JSON.stringify(step)), 'viewing review must reuse the exact checks in the full canonical owner');
+}
+assert.equal(buildBroadcasterReviewSteps().length, 3, 'viewing review must not request providers or publish fixture facts');
+assert.equal(parseOptions(['--broadcaster-review', '-p'], {}).localOnly, true);
+assert.equal(parseOptions(['--broadcaster-review'], {}).localOnly, false);
+for (const route of ['--quick', '--f1-results', '--resume-from', '--source=football']) {
+  assert.throws(() => parseOptions(['--broadcaster-review', route], {}), /cannot be combined/, 'viewing review must reject mixed routes before dispatch');
+}
 assert(localSteps.findIndex(step=>step[0]==="scripts/refresh-source-coverage.js") < localSteps.findIndex(step=>step[0]==="scripts/apply-reviewed-fixture-timing.js"), "reviewed host clocks must follow the canonical source observation");
 assert(localSteps.findIndex(step=>step[0]==="scripts/apply-reviewed-fixture-timing.js") < localSteps.findIndex(step=>step[0]==="scripts/build-code-inspector.js"), "reviewed timing must persist before shared projections");
 const quickSteps = buildQuickSteps(["--quick", "--offline"]);
@@ -35,6 +44,14 @@ try{
     assert.match(result.stderr,/Only the quick refresh supports --offline/,'caller receives an actionable mode diagnostic');
     const trace=result.stdout.match(/OFFLINE_BOUNDARY (\{[^\n]+\})/);assert(trace,'actual entrypoint must emit the isolated trace');
     assert.deepEqual(JSON.parse(trace[1]),{mkdir:0,mkdtemp:0,write:0,spawn:0},'offline rejection precedes every diagnostic write and source step');
+  }
+  for (const route of ['--quick', '--f1-results', '--resume-from']) {
+    const result = spawnSync(process.execPath, ['--require', hook, path.join(__dirname, 'update-cards.js'), '--broadcaster-review', route], { cwd: path.resolve(__dirname, '..'), encoding: 'utf8' });
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /Broadcaster review cannot be combined/);
+    const trace = result.stdout.match(/OFFLINE_BOUNDARY (\{[^\n]+\})/);
+    assert(trace, 'rejected mixed viewing routes must emit the actual entrypoint trace');
+    assert.deepEqual(JSON.parse(trace[1]), { mkdir: 0, mkdtemp: 0, write: 0, spawn: 0 }, 'mixed viewing routes reject before diagnostic writes or subprocesses');
   }
   for(const args of [['--quick','--offline'],['--offline','--quick','--rebuild','--local-only'],['-p','--offline','--quick']])assert.doesNotThrow(()=>parseOptions(args,{}),'existing quick offline modes remain supported');
 }finally{fs.rmSync(offlineBoundaryRoot,{recursive:true,force:true});}
