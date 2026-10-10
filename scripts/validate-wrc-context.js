@@ -74,6 +74,13 @@ assert(schema.properties.events, "shared context schema must admit canonical mul
 const calendarFixture = fs.readFileSync(path.join(FIXTURES, "wrc-calendar.html"), "utf8");
 const standingsFixture = fs.readFileSync(path.join(FIXTURES, "wrc-standings.html"), "utf8");
 const parsedRounds = parseWrcCalendar(calendarFixture);
+const rollover=require('./fixtures/wrc-season-rollover-20261011.json');
+assert.equal(CALENDAR_URL,rollover.seasonPage.sourceUrl,'The existing 2026 refresh must use the organiser\'s explicit season page after its default moves to 2027');
+const capturedCalendar=table=>'<script id="rb3-prerender-data-cache">'+JSON.stringify({calendar:table})+'</script>';
+assert.throws(()=>parseWrcCalendar(capturedCalendar(rollover.defaultTable),{withdrawalVerified:true}),/15 rounds|invalid dates/,'The actual rolled-over 2027 collection cannot replace 2026');
+assert.throws(()=>parseWrcCalendar(capturedCalendar({...rollover.defaultTable,rows:rollover.defaultTable.rows.slice(0,14)}),{withdrawalVerified:true}),/invalid dates/,'Matching the old row count cannot disguise the wrong season');
+assert.equal(parseWrcCalendar(capturedCalendar(rollover.seasonTable),{withdrawalVerified:true}).length,13);
+assert.throws(()=>parseWrcCalendar(capturedCalendar(rollover.seasonTable)),/officially verified 13-round revision/,'A season URL cannot replace required withdrawal evidence');
 const parsedStandings = parseFiaStandings(standingsFixture);
 assert.equal(parsedRounds.length, 14);
 assert.deepEqual(parsedRounds[9], {

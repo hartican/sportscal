@@ -1,5 +1,6 @@
 'use strict';
 const metadata=require('../../config/wrc-venues.json');
+const {CALENDAR_URL}=require('./wrc-context');
 const REVISION_URL='https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship';
 const FUTURE_URL='https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/';
 function verifiedWithdrawal(html){
@@ -25,12 +26,12 @@ function applyCoverage(context,{rounds,withdrawalVerified=false,future,checkedAt
    const result={...event,status:'cancelled',statusSourceUrl:REVISION_URL,statusCheckedAt:checkedAt,scheduleNote:'The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.'};delete result.result;return withVenue(result);
   }
   // Calendar corrections retain identity, results and their original verification times.
-  return withVenue({...event,displayName:round.name,date:round.startDate,endDate:round.endDate,source:{provider:'WRC',sourceUrl:'https://www.wrc.com/en/calendar',checkedAt}});
+  return withVenue({...event,displayName:round.name,date:round.startDate,endDate:round.endDate,source:{provider:'WRC',sourceUrl:CALENDAR_URL,checkedAt}});
  });
  const futureEvents=future?[withVenue(future)]:context.events.filter(e=>!e.date.startsWith('2026-')).map(withVenue);
  const competitions=context.competitions.filter(c=>c.id!=='competition:wrc-2027');
  if(futureEvents.length)competitions.push({...context.competitions.find(c=>c.id==='competition:wrc-2026'),id:'competition:wrc-2027',slug:'wrc-2027',name:'2027 FIA World Rally Championship',seasonLabel:'2027',supportsLadder:false});
  const source={provider:'FIA',sourceUrl:REVISION_URL,sourceType:'official',checkedAt};
- return {...context,generatedAt:checkedAt,calendarCoverage:{season:2026,publishedRounds:rounds.length,retainedWithdrawals:events.filter(e=>e.status==='cancelled').map(e=>e.id),complete:true,checkedAt,...(withdrawalVerified?{revisionSourceUrl:REVISION_URL}:{}),futureCalendarComplete:false,futureNote:'Only individually published future events are included; the full 2027 calendar is unconfirmed.'},competitions,events:[...events,...futureEvents],eventParticipantScopes:context.eventParticipantScopes.map(scope=>({...scope,season:'2026'})),sources:[...context.sources.filter(s=>s.sourceUrl!==REVISION_URL&&s.sourceUrl!==FUTURE_URL),...(withdrawalVerified?[source]:[]),...(futureEvents.length?[futureEvents[0].source]:[])]};
+ return {...context,generatedAt:checkedAt,calendarCoverage:{season:2026,publishedRounds:rounds.length,retainedWithdrawals:events.filter(e=>e.status==='cancelled').map(e=>e.id),complete:true,checkedAt,...(withdrawalVerified?{revisionSourceUrl:REVISION_URL}:{}),futureCalendarComplete:false,futureNote:'Future coverage includes only the individually listed rallies.'},competitions,events:[...events,...futureEvents],eventParticipantScopes:context.eventParticipantScopes.map(scope=>({...scope,season:'2026'})),sources:[...context.sources.filter(s=>s.sourceUrl!==REVISION_URL&&s.sourceUrl!==FUTURE_URL).map(s=>['https://www.wrc.com/en/calendar',CALENDAR_URL].includes(s.sourceUrl)?{...s,sourceUrl:CALENDAR_URL,checkedAt}:s),...(withdrawalVerified?[source]:[]),...(futureEvents.length?[futureEvents[0].source]:[])]};
 }
 module.exports={REVISION_URL,FUTURE_URL,verifiedWithdrawal,futureMonteCarlo,withVenue,applyCoverage};

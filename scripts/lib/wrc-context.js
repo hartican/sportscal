@@ -1,6 +1,6 @@
 "use strict";
 
-const CALENDAR_URL = "https://www.wrc.com/en/calendar";
+const CALENDAR_URL = "https://www.wrc.com/en/calendar/wrc-2026";
 const STANDINGS_URL = "https://api.fia.com/events/world-rally-championship/season-2026/standings";
 const STAN_URL = "https://www.stan.com.au/watch/sport/motorsport/wrc";
 const TRANSIENT_SOURCE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);

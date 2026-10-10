@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20261010191449917",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261010191449917-20261010200008838",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-10T19:14:49.917Z",
+  "publishedAt": "2026-10-10T20:00:08.838Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -31,12 +31,12 @@
     "tennis",
     "fiba-women",
     "football",
+    "baseball",
     "supercars",
-    "downhill-mtb",
-    "big-wave",
     "ski",
+    "big-wave",
     "goodwood",
-    "baseball"
+    "downhill-mtb"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -187,6 +187,11 @@
         "firstEventDate": "2026-09-25",
         "lastEventDate": "2026-09-29"
       },
+      "baseball": {
+        "count": 36,
+        "firstEventDate": "2026-09-30",
+        "lastEventDate": "2026-10-20"
+      },
       "supercars": {
         "count": 1,
         "firstEventDate": "2026-10-11",
@@ -196,11 +201,6 @@
         "count": 4,
         "firstEventDate": "2027-03-05",
         "lastEventDate": "2027-03-20"
-      },
-      "baseball": {
-        "count": 36,
-        "firstEventDate": "2026-09-30",
-        "lastEventDate": "2026-10-20"
       }
     }
   }

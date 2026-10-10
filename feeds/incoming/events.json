@@ -2,7 +2,7 @@
   "schemaVersion": "events.v1",
   "version": "nothingsport-official-results-2026-09-15-v1",
   "publishedAt": "2026-10-10T19:14:46.600Z",
-  "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
+  "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch. WRC rounds are sourced from the official WRC calendar and FIA senior championship tables.",
   "events": [
     {
       "id": "evt_dakar_2026_prologue",
@@ -1427,16 +1427,16 @@
       "round": "all",
       "roundNumber": 1,
       "roundLabel": "Round 1",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC Rallye Monte-Carlo is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC Rallye Monte-Carlo is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC Rallye Monte-Carlo is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC Rallye Monte-Carlo is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -1445,12 +1445,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC Rallye Monte-Carlo is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Oliver Solberg / Elliott Edmondson won in 4:24:59.0 in a Toyota GR Yaris Rally1.",
-        "synopsisSpoilerOff": "WRC Rallye Monte-Carlo is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC Rallye Monte-Carlo was won by Oliver Solberg / Elliott Edmondson in 4:24:59.0, driving a Toyota GR Yaris Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "hookSpoilerOff": "WRC Rallye Monte-Carlo has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC Rallye Monte-Carlo has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC Rallye Monte-Carlo is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC Rallye Monte-Carlo was won by Oliver Solberg / Elliott Edmondson in 4:24:59.0, driving a Toyota GR Yaris Rally1."
       },
       "resultStatus": "official",
       "score": "Oliver Solberg / Elliott Edmondson — 4:24:59.0",
@@ -2113,16 +2111,16 @@
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Round 2",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC Rally Sweden is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC Rally Sweden is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC Rally Sweden is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC Rally Sweden is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -2131,12 +2129,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC Rally Sweden is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Elfyn Evans / Scott Martin won in 2:35:53.1 in a Toyota GR Yaris Rally1.",
-        "synopsisSpoilerOff": "WRC Rally Sweden is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC Rally Sweden was won by Elfyn Evans / Scott Martin in 2:35:53.1, driving a Toyota GR Yaris Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "hookSpoilerOff": "WRC Rally Sweden has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC Rally Sweden has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC Rally Sweden is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC Rally Sweden was won by Elfyn Evans / Scott Martin in 2:35:53.1, driving a Toyota GR Yaris Rally1."
       },
       "resultStatus": "official",
       "score": "Elfyn Evans / Scott Martin — 2:35:53.1",
@@ -3975,16 +3971,16 @@
       "round": "all",
       "roundNumber": 3,
       "roundLabel": "Round 3",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC Safari Rally Kenya is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC Safari Rally Kenya is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC Safari Rally Kenya is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC Safari Rally Kenya is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -3993,12 +3989,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC Safari Rally Kenya is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Takamoto Katsuta / Aaron Johnston won in 3:16:05.6 in a Toyota GR Yaris Rally1.",
-        "synopsisSpoilerOff": "WRC Safari Rally Kenya is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC Safari Rally Kenya was won by Takamoto Katsuta / Aaron Johnston in 3:16:05.6, driving a Toyota GR Yaris Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "hookSpoilerOff": "WRC Safari Rally Kenya has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC Safari Rally Kenya has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC Safari Rally Kenya is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC Safari Rally Kenya was won by Takamoto Katsuta / Aaron Johnston in 3:16:05.6, driving a Toyota GR Yaris Rally1."
       },
       "resultStatus": "official",
       "score": "Takamoto Katsuta / Aaron Johnston — 3:16:05.6",
@@ -6446,16 +6440,16 @@
       "round": "all",
       "roundNumber": 4,
       "roundLabel": "Round 4",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC Croatia Rally is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC Croatia Rally is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC Croatia Rally is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC Croatia Rally is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -6464,12 +6458,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC Croatia Rally is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Elfyn Evans / Scott Martin won in 2:35:53.1 in a Toyota GR Yaris Rally1.",
-        "synopsisSpoilerOff": "WRC Croatia Rally is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC Croatia Rally was won by Elfyn Evans / Scott Martin in 2:35:53.1, driving a Toyota GR Yaris Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "hookSpoilerOff": "WRC Croatia Rally has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC Croatia Rally has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC Croatia Rally is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC Croatia Rally was won by Elfyn Evans / Scott Martin in 2:35:53.1, driving a Toyota GR Yaris Rally1."
       },
       "resultStatus": "official",
       "score": "Elfyn Evans / Scott Martin — 2:35:53.1",
@@ -7644,16 +7636,16 @@
       "round": "all",
       "roundNumber": 5,
       "roundLabel": "Round 5",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC Rally Islas Canarias is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC Rally Islas Canarias is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC Rally Islas Canarias is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC Rally Islas Canarias is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -7662,12 +7654,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC Rally Islas Canarias is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Sébastien Ogier / Vincent Landais won in 2:43:18.9 in a Toyota GR Yaris Rally1.",
-        "synopsisSpoilerOff": "WRC Rally Islas Canarias is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC Rally Islas Canarias was won by Sébastien Ogier / Vincent Landais in 2:43:18.9, driving a Toyota GR Yaris Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "hookSpoilerOff": "WRC Rally Islas Canarias has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC Rally Islas Canarias has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC Rally Islas Canarias is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC Rally Islas Canarias was won by Sébastien Ogier / Vincent Landais in 2:43:18.9, driving a Toyota GR Yaris Rally1."
       },
       "resultStatus": "official",
       "score": "Sébastien Ogier / Vincent Landais — 2:43:18.9",
@@ -9239,16 +9229,16 @@
       "round": "all",
       "roundNumber": 6,
       "roundLabel": "Round 6",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC Vodafone Rally de Portugal is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC Vodafone Rally de Portugal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC Vodafone Rally de Portugal is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC Vodafone Rally de Portugal is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -9257,12 +9247,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC Vodafone Rally de Portugal is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Thierry Neuville / Martijn Wydaeghe won in 3:53:01.7 in a Hyundai i20 N Rally1.",
-        "synopsisSpoilerOff": "WRC Vodafone Rally de Portugal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC Vodafone Rally de Portugal was won by Thierry Neuville / Martijn Wydaeghe in 3:53:01.7, driving a Hyundai i20 N Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "hookSpoilerOff": "WRC Vodafone Rally de Portugal has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC Vodafone Rally de Portugal has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC Vodafone Rally de Portugal is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC Vodafone Rally de Portugal was won by Thierry Neuville / Martijn Wydaeghe in 3:53:01.7, driving a Hyundai i20 N Rally1."
       },
       "resultStatus": "official",
       "score": "Thierry Neuville / Martijn Wydaeghe — 3:53:01.7",
@@ -13694,16 +13682,16 @@
       "round": "all",
       "roundNumber": 7,
       "roundLabel": "Round 7",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC FORUM8 Rally Japan is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC FORUM8 Rally Japan is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC FORUM8 Rally Japan is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC FORUM8 Rally Japan is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -13712,12 +13700,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC FORUM8 Rally Japan is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Elfyn Evans / Scott Martin won in 3:17:08.0 in a Toyota GR Yaris Rally1.",
-        "synopsisSpoilerOff": "WRC FORUM8 Rally Japan is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC FORUM8 Rally Japan was won by Elfyn Evans / Scott Martin in 3:17:08.0, driving a Toyota GR Yaris Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "hookSpoilerOff": "WRC FORUM8 Rally Japan has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC FORUM8 Rally Japan has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC FORUM8 Rally Japan is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC FORUM8 Rally Japan was won by Elfyn Evans / Scott Martin in 3:17:08.0, driving a Toyota GR Yaris Rally1."
       },
       "resultStatus": "official",
       "score": "Elfyn Evans / Scott Martin — 3:17:08.0",
@@ -20050,16 +20036,16 @@
       "round": "all",
       "roundNumber": 8,
       "roundLabel": "Round 8",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC EKO Acropolis Rally Greece is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC EKO Acropolis Rally Greece is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC EKO Acropolis Rally Greece is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC EKO Acropolis Rally Greece is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -20068,12 +20054,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC EKO Acropolis Rally Greece is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Sébastien Ogier / Vincent Landais won in 3:36:40.7 in a Toyota GR Yaris Rally1.",
-        "synopsisSpoilerOff": "WRC EKO Acropolis Rally Greece is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC EKO Acropolis Rally Greece was won by Sébastien Ogier / Vincent Landais in 3:36:40.7, driving a Toyota GR Yaris Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "hookSpoilerOff": "WRC EKO Acropolis Rally Greece has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC EKO Acropolis Rally Greece has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC EKO Acropolis Rally Greece is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC EKO Acropolis Rally Greece was won by Sébastien Ogier / Vincent Landais in 3:36:40.7, driving a Toyota GR Yaris Rally1."
       },
       "resultStatus": "official",
       "score": "Sébastien Ogier / Vincent Landais — 3:36:40.7",
@@ -28005,16 +27989,16 @@
       "round": "all",
       "roundNumber": 9,
       "roundLabel": "Round 9",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC Delfi Rally Estonia is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC Delfi Rally Estonia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC Delfi Rally Estonia is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC Delfi Rally Estonia is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -28023,12 +28007,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC Delfi Rally Estonia is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Sami Pajari / Marko Salminen won in 2:31:16.5 in a Toyota GR Yaris Rally1.",
-        "synopsisSpoilerOff": "WRC Delfi Rally Estonia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC Delfi Rally Estonia was won by Sami Pajari / Marko Salminen in 2:31:16.5, driving a Toyota GR Yaris Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "hookSpoilerOff": "WRC Delfi Rally Estonia has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC Delfi Rally Estonia has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC Delfi Rally Estonia is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC Delfi Rally Estonia was won by Sami Pajari / Marko Salminen in 2:31:16.5, driving a Toyota GR Yaris Rally1."
       },
       "resultStatus": "official",
       "score": "Sami Pajari / Marko Salminen — 2:31:16.5",
@@ -34358,14 +34340,14 @@
       "roundLabel": "Round 10",
       "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC Secto Rally Finland is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC Secto Rally Finland is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC Secto Rally Finland is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC Secto Rally Finland is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -34374,12 +34356,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC Secto Rally Finland is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Sami Pajari / Marko Salminen won in 2:27:58.0 in a Toyota GR Yaris Rally1.",
-        "synopsisSpoilerOff": "WRC Secto Rally Finland is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC Secto Rally Finland was won by Sami Pajari / Marko Salminen in 2:27:58.0, driving a Toyota GR Yaris Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "hookSpoilerOff": "WRC Secto Rally Finland has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC Secto Rally Finland has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC Secto Rally Finland is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC Secto Rally Finland was won by Sami Pajari / Marko Salminen in 2:27:58.0, driving a Toyota GR Yaris Rally1."
       },
       "resultStatus": "official",
       "score": "Sami Pajari / Marko Salminen — 2:27:58.0",
@@ -49528,14 +49508,14 @@
       "roundLabel": "Round 11",
       "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC ueno Rally del Paraguay is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC ueno Rally del Paraguay is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC ueno Rally del Paraguay is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC ueno Rally del Paraguay is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -49544,12 +49524,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC ueno Rally del Paraguay is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Sami Pajari / Marko Salminen won in 3:13:28.5 in a Toyota GR Yaris Rally1.",
-        "synopsisSpoilerOff": "WRC ueno Rally del Paraguay is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC ueno Rally del Paraguay was won by Sami Pajari / Marko Salminen in 3:13:28.5, driving a Toyota GR Yaris Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "hookSpoilerOff": "WRC ueno Rally del Paraguay has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC ueno Rally del Paraguay has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC ueno Rally del Paraguay is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC ueno Rally del Paraguay was won by Sami Pajari / Marko Salminen in 3:13:28.5, driving a Toyota GR Yaris Rally1."
       },
       "resultStatus": "official",
       "score": "Sami Pajari / Marko Salminen — 3:13:28.5",
@@ -70153,14 +70131,14 @@
       "roundLabel": "Round 12",
       "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "Elfyn Evans carries a 20-point lead over Sami Pajari into WRC Rally Chile Bio Bío, Round 12 of 14.",
-      "fullSpiel": "WRC Rally Chile Bio Bío runs from 2026-09-10 to 2026-09-13 in Chile. Elfyn Evans leads Sami Pajari by 20 points in the official FIA driver standings, and 2 rounds remain after this one. Stan Sport lists live and replay coverage in Australia.",
+      "selectedSentence": "WRC Rally Chile Bio Bío is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC Rally Chile Bio Bío is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/news/solberg-wins-rally-chile-as-toyota-clinches-manufacturers-crown",
-      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-22T01:40:00.000Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -70169,22 +70147,19 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC Rally Chile Bio Bío is complete. Reveal results for the outcome.",
-        "hookSpoilerOn": "Oliver Solberg and Elliott Edmondson won Rally Chile Bio Bio.",
-        "synopsisSpoilerOff": "WRC Rally Chile Bio Bío is complete. Reveal results for the outcome.",
-        "synopsisSpoilerOn": "Solberg and Edmondson won Rally Chile in 2:57:08.2 in a Toyota GR Yaris Rally1, 16.6 seconds clear of Sebastien Ogier and Vincent Landais.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed",
-        "researchDepth": 5,
-        "lastReviewedAt": "2026-09-08T12:57:33.822Z"
+        "hookSpoilerOff": "WRC Rally Chile Bio Bío has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC Rally Chile Bio Bío has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC Rally Chile Bio Bío is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC Rally Chile Bio Bío was won by Oliver Solberg / Elliott Edmondson in 2:57:08.2, driving a Toyota GR Yaris Rally1."
       },
       "resultStatus": "official",
       "score": "Oliver Solberg / Elliott Edmondson — 2:57:08.2",
-      "outcomeText": "Oliver Solberg and Elliott Edmondson won Rally Chile Bio Bio.",
-      "recapText": "Solberg and Edmondson won Rally Chile in 2:57:08.2 in a Toyota GR Yaris Rally1, 16.6 seconds clear of Sebastien Ogier and Vincent Landais.",
+      "outcomeText": "Oliver Solberg / Elliott Edmondson won in 2:57:08.2 in a Toyota GR Yaris Rally1.",
+      "recapText": "WRC Rally Chile Bio Bío was won by Oliver Solberg / Elliott Edmondson in 2:57:08.2, driving a Toyota GR Yaris Rally1.",
       "resultLabels": [
         "Round 12",
-        "Oliver Solberg / Elliott Edmondson — 2:57:08.2",
+        "Oliver Solberg / Elliott Edmondson",
+        "2:57:08.2",
         "Official result"
       ],
       "consensusResult": {
@@ -70743,58 +70718,7 @@
           "displayName": "M-SPORT FORD WORLD RALLY TEAM",
           "countryCode": "GB"
         }
-      ],
-      "resultPublishedAt": "2026-09-22T01:40:00.000Z",
-      "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:rolling:event-wrc-2026-round-12",
-        "researchTier": "marquee",
-        "hook": "Elfyn Evans carries a 20-point lead over Sami Pajari into WRC Rally Chile Bio Bío, Round 12 of 14.",
-        "synopsis": "WRC Rally Chile Bio Bío runs from 2026-09-10 to 2026-09-13 in Chile. Elfyn Evans leads Sami Pajari by 20 points in the official FIA driver standings, and 2 rounds remain after this one. Stan Sport lists live and replay coverage in Australia.",
-        "threadIds": [
-          "thread:rolling:wrc:2026"
-        ],
-        "factIds": [
-          "fact:rolling:event-wrc-2026-round-12:schedule",
-          "fact:rolling:event-wrc-2026-round-12:standings",
-          "fact:rolling:event-wrc-2026-round-12:path",
-          "fact:rolling:event-wrc-2026-round-12:viewing"
-        ],
-        "sourceIds": [
-          "source:rolling:wrc:calendar",
-          "source:rolling:wrc:driver-standings",
-          "source:rolling:wrc:stan-sport"
-        ],
-        "dimensions": [
-          "schedule",
-          "form",
-          "path",
-          "format"
-        ],
-        "researchedAt": "2026-09-08T12:57:33.822Z",
-        "refreshAfter": null,
-        "generationMode": "researched",
-        "resultResearchRequired": false,
-        "phase": "preview",
-        "resultSignature": "[\"completed\",\"Oliver Solberg and Elliott Edmondson won Rally Chile Bio Bio.\",\"Oliver Solberg / Elliott Edmondson — 2:57:08.2\",\"Solberg and Edmondson won Rally Chile in 2:57:08.2 in a Toyota GR Yaris Rally1, 16.6 seconds clear of Sebastien Ogier and Vincent Landais.\"]",
-        "hookSpoilerOn": "Oliver Solberg and Elliott Edmondson won Rally Chile Bio Bio.",
-        "synopsisSpoilerOn": "Solberg and Edmondson won Rally Chile in 2:57:08.2 in a Toyota GR Yaris Rally1, 16.6 seconds clear of Sebastien Ogier and Vincent Landais."
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 WRC title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:form",
-          "narrative:path",
-          "narrative:format"
-        ],
-        "sourceName": "WRC official 2026 calendar",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
-        "needsPreviewRefresh": false
-      }
+      ]
     },
     {
       "id": "evt_fiba_women_2026_qualification_day_2",
@@ -91250,8 +91174,8 @@
       }
     },
     {
-      "id": "fixture:mlb:849845",
-      "eventId": "fixture:mlb:849845",
+      "id": "fixture-mlb-849845",
+      "eventId": "fixture-mlb-849845",
       "canonicalEventId": "fixture:mlb:849845",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -91370,8 +91294,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:mlb:849849",
-      "eventId": "fixture:mlb:849849",
+      "id": "fixture-mlb-849849",
+      "eventId": "fixture-mlb-849849",
       "canonicalEventId": "fixture:mlb:849849",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -91490,8 +91414,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:mlb:849851",
-      "eventId": "fixture:mlb:849851",
+      "id": "fixture-mlb-849851",
+      "eventId": "fixture-mlb-849851",
       "canonicalEventId": "fixture:mlb:849851",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -91610,8 +91534,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:mlb:849843",
-      "eventId": "fixture:mlb:849843",
+      "id": "fixture-mlb-849843",
+      "eventId": "fixture-mlb-849843",
       "canonicalEventId": "fixture:mlb:849843",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -92153,8 +92077,8 @@
       "awayParticipantId": "team:nbl:brisbane-bullets"
     },
     {
-      "id": "fixture:tennis:espn:atp:183447",
-      "eventId": "fixture:tennis:espn:atp:183447",
+      "id": "fixture-tennis-espn-atp-183447",
+      "eventId": "fixture-tennis-espn-atp-183447",
       "canonicalEventId": "fixture:tennis:espn:atp:183447",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183447"
@@ -92289,8 +92213,8 @@
       "fullSpiel": "Karen Khachanov v Felix Auger Aliassime is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183449",
-      "eventId": "fixture:tennis:espn:atp:183449",
+      "id": "fixture-tennis-espn-atp-183449",
+      "eventId": "fixture-tennis-espn-atp-183449",
       "canonicalEventId": "fixture:tennis:espn:atp:183449",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183449"
@@ -92423,8 +92347,8 @@
       "fullSpiel": "Zhang Zhizhen v Arthur Gea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183455",
-      "eventId": "fixture:tennis:espn:atp:183455",
+      "id": "fixture-tennis-espn-atp-183455",
+      "eventId": "fixture-tennis-espn-atp-183455",
       "canonicalEventId": "fixture:tennis:espn:atp:183455",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183455"
@@ -92561,8 +92485,8 @@
       "fullSpiel": "Nuno Borges v Novak Djokovic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183456",
-      "eventId": "fixture:tennis:espn:atp:183456",
+      "id": "fixture-tennis-espn-atp-183456",
+      "eventId": "fixture-tennis-espn-atp-183456",
       "canonicalEventId": "fixture:tennis:espn:atp:183456",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183456"
@@ -92699,8 +92623,8 @@
       "fullSpiel": "Juan Manuel Cerundolo v Bu Yunchaokete is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183461",
-      "eventId": "fixture:tennis:espn:atp:183461",
+      "id": "fixture-tennis-espn-atp-183461",
+      "eventId": "fixture-tennis-espn-atp-183461",
       "canonicalEventId": "fixture:tennis:espn:atp:183461",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183461"
@@ -92833,8 +92757,8 @@
       "fullSpiel": "Jan-Lennard Struff v Thiago Agustin Tirante is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183488",
-      "eventId": "fixture:tennis:espn:atp:183488",
+      "id": "fixture-tennis-espn-atp-183488",
+      "eventId": "fixture-tennis-espn-atp-183488",
       "canonicalEventId": "fixture:tennis:espn:atp:183488",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183488"
@@ -92969,8 +92893,8 @@
       "fullSpiel": "Alejandro Tabilo v Tommy Paul is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183489",
-      "eventId": "fixture:tennis:espn:atp:183489",
+      "id": "fixture-tennis-espn-atp-183489",
+      "eventId": "fixture-tennis-espn-atp-183489",
       "canonicalEventId": "fixture:tennis:espn:atp:183489",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183489"
@@ -93105,8 +93029,8 @@
       "fullSpiel": "Arthur Fils v Luca Van Assche is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183495",
-      "eventId": "fixture:tennis:espn:atp:183495",
+      "id": "fixture-tennis-espn-atp-183495",
+      "eventId": "fixture-tennis-espn-atp-183495",
       "canonicalEventId": "fixture:tennis:espn:atp:183495",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183495"
@@ -93244,8 +93168,8 @@
       "fullSpiel": "Matteo Arnaldi v Rei Sakamoto is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183496",
-      "eventId": "fixture:tennis:espn:atp:183496",
+      "id": "fixture-tennis-espn-atp-183496",
+      "eventId": "fixture-tennis-espn-atp-183496",
       "canonicalEventId": "fixture:tennis:espn:atp:183496",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183496"
@@ -93384,8 +93308,8 @@
       "fullSpiel": "Valentin Vacherot v Alexander Blockx is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184233",
-      "eventId": "fixture:tennis:espn:wta:184233",
+      "id": "fixture-tennis-espn-wta-184233",
+      "eventId": "fixture-tennis-espn-wta-184233",
       "canonicalEventId": "fixture:tennis:espn:wta:184233",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184233"
@@ -93518,8 +93442,8 @@
       "fullSpiel": "Bai Zhuoxuan v Linda Fruhvirtova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184235",
-      "eventId": "fixture:tennis:espn:wta:184235",
+      "id": "fixture-tennis-espn-wta-184235",
+      "eventId": "fixture-tennis-espn-wta-184235",
       "canonicalEventId": "fixture:tennis:espn:wta:184235",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184235"
@@ -93652,8 +93576,8 @@
       "fullSpiel": "Mai Hontama v Katie Boulter is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184239",
-      "eventId": "fixture:tennis:espn:wta:184239",
+      "id": "fixture-tennis-espn-wta-184239",
+      "eventId": "fixture-tennis-espn-wta-184239",
       "canonicalEventId": "fixture:tennis:espn:wta:184239",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184239"
@@ -93786,8 +93710,8 @@
       "fullSpiel": "Darja Vidmanova v Maria Timofeeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184240",
-      "eventId": "fixture:tennis:espn:wta:184240",
+      "id": "fixture-tennis-espn-wta-184240",
+      "eventId": "fixture-tennis-espn-wta-184240",
       "canonicalEventId": "fixture:tennis:espn:wta:184240",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184240"
@@ -93921,8 +93845,8 @@
       "fullSpiel": "Maddison Inglis v Zeynep Sonmez is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184242",
-      "eventId": "fixture:tennis:espn:wta:184242",
+      "id": "fixture-tennis-espn-wta-184242",
+      "eventId": "fixture-tennis-espn-wta-184242",
       "canonicalEventId": "fixture:tennis:espn:wta:184242",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184242"
@@ -94060,8 +93984,8 @@
       "fullSpiel": "Maya Joint v Sinja Kraus is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184249",
-      "eventId": "fixture:tennis:espn:wta:184249",
+      "id": "fixture-tennis-espn-wta-184249",
+      "eventId": "fixture-tennis-espn-wta-184249",
       "canonicalEventId": "fixture:tennis:espn:wta:184249",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184249"
@@ -94194,8 +94118,8 @@
       "fullSpiel": "Catherine McNally v Dayana Yastremska is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184258",
-      "eventId": "fixture:tennis:espn:wta:184258",
+      "id": "fixture-tennis-espn-wta-184258",
+      "eventId": "fixture-tennis-espn-wta-184258",
       "canonicalEventId": "fixture:tennis:espn:wta:184258",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184258"
@@ -94334,8 +94258,8 @@
       "fullSpiel": "Janice Tjen v Anhelina Kalinina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184262",
-      "eventId": "fixture:tennis:espn:wta:184262",
+      "id": "fixture-tennis-espn-wta-184262",
+      "eventId": "fixture-tennis-espn-wta-184262",
       "canonicalEventId": "fixture:tennis:espn:wta:184262",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184262"
@@ -94471,8 +94395,8 @@
       "fullSpiel": "Taylah Preston v Tamara Korpatsch is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184263",
-      "eventId": "fixture:tennis:espn:wta:184263",
+      "id": "fixture-tennis-espn-wta-184263",
+      "eventId": "fixture-tennis-espn-wta-184263",
       "canonicalEventId": "fixture:tennis:espn:wta:184263",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184263"
@@ -94610,8 +94534,8 @@
       "fullSpiel": "Daria Snigur v Katarzyna Kawa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184265",
-      "eventId": "fixture:tennis:espn:wta:184265",
+      "id": "fixture-tennis-espn-wta-184265",
+      "eventId": "fixture-tennis-espn-wta-184265",
       "canonicalEventId": "fixture:tennis:espn:wta:184265",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184265"
@@ -94745,8 +94669,8 @@
       "fullSpiel": "Oleksandra Oliynykova v Yuan Yue is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184266",
-      "eventId": "fixture:tennis:espn:wta:184266",
+      "id": "fixture-tennis-espn-wta-184266",
+      "eventId": "fixture-tennis-espn-wta-184266",
       "canonicalEventId": "fixture:tennis:espn:wta:184266",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184266"
@@ -94885,8 +94809,8 @@
       "fullSpiel": "Ma YeXin v Polina Kudermetova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184276",
-      "eventId": "fixture:tennis:espn:wta:184276",
+      "id": "fixture-tennis-espn-wta-184276",
+      "eventId": "fixture-tennis-espn-wta-184276",
       "canonicalEventId": "fixture:tennis:espn:wta:184276",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184276"
@@ -95019,8 +94943,8 @@
       "fullSpiel": "Elena-Gabriela Ruse v Lilli Tagger is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184280",
-      "eventId": "fixture:tennis:espn:wta:184280",
+      "id": "fixture-tennis-espn-wta-184280",
+      "eventId": "fixture-tennis-espn-wta-184280",
       "canonicalEventId": "fixture:tennis:espn:wta:184280",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184280"
@@ -95154,8 +95078,8 @@
       "fullSpiel": "Aliaksandra Sasnovich v Talia Gibson is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184283",
-      "eventId": "fixture:tennis:espn:wta:184283",
+      "id": "fixture-tennis-espn-wta-184283",
+      "eventId": "fixture-tennis-espn-wta-184283",
       "canonicalEventId": "fixture:tennis:espn:wta:184283",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184283"
@@ -95288,8 +95212,8 @@
       "fullSpiel": "Viktorija Golubic v Elvina Kalieva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184288",
-      "eventId": "fixture:tennis:espn:wta:184288",
+      "id": "fixture-tennis-espn-wta-184288",
+      "eventId": "fixture-tennis-espn-wta-184288",
       "canonicalEventId": "fixture:tennis:espn:wta:184288",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184288"
@@ -95424,8 +95348,8 @@
       "fullSpiel": "Anna Bondar v Renata Zarazua is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184289",
-      "eventId": "fixture:tennis:espn:wta:184289",
+      "id": "fixture-tennis-espn-wta-184289",
+      "eventId": "fixture-tennis-espn-wta-184289",
       "canonicalEventId": "fixture:tennis:espn:wta:184289",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184289"
@@ -95610,14 +95534,14 @@
       "roundLabel": "Round 13",
       "narrativeType": "championship-round",
       "status": "completed",
-      "selectedSentence": "WRC Rally Italia Sardegna is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "WRC Rally Italia Sardegna is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "WRC Rally Italia Sardegna is complete; the winning crew and total time stay hidden until you reveal the result.",
+      "fullSpiel": "WRC Rally Italia Sardegna is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
       "sourceName": "WRC",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T20:41:03.188Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -95626,15 +95550,28 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "WRC Rally Italia Sardegna is complete; the key moments are protected until you choose to reveal them.",
-        "hookSpoilerOn": "Oliver Solberg / Elliott Edmondson won in 3:24:57.0 in a Toyota GR Yaris Rally1.",
-        "synopsisSpoilerOff": "WRC Rally Italia Sardegna is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-        "synopsisSpoilerOn": "WRC Rally Italia Sardegna was won by Oliver Solberg / Elliott Edmondson in 3:24:57.0, driving a Toyota GR Yaris Rally1.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed",
-        "researchDepth": 5,
-        "lastReviewedAt": "2026-10-04T05:51:53.694Z"
+        "hookSpoilerOff": "WRC Rally Italia Sardegna has finished; reveal the official result when you are ready.",
+        "hookSpoilerOn": "WRC Rally Italia Sardegna has an official winning crew and time.",
+        "synopsisSpoilerOff": "WRC Rally Italia Sardegna is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
+        "synopsisSpoilerOn": "WRC Rally Italia Sardegna was won by Oliver Solberg / Elliott Edmondson in 3:24:57.0, driving a Toyota GR Yaris Rally1."
       },
+      "resultStatus": "official",
+      "score": "Oliver Solberg / Elliott Edmondson — 3:24:57.0",
+      "outcomeText": "Oliver Solberg / Elliott Edmondson won in 3:24:57.0 in a Toyota GR Yaris Rally1.",
+      "recapText": "WRC Rally Italia Sardegna was won by Oliver Solberg / Elliott Edmondson in 3:24:57.0, driving a Toyota GR Yaris Rally1.",
+      "resultLabels": [
+        "Round 13",
+        "Oliver Solberg / Elliott Edmondson",
+        "3:24:57.0",
+        "Official result"
+      ],
+      "consensusResult": {
+        "winner": "Oliver Solberg / Elliott Edmondson",
+        "summary": "Oliver Solberg / Elliott Edmondson won in 3:24:57.0",
+        "marginText": "3:24:57.0"
+      },
+      "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-ditalia/classifications",
+      "resultSourceCheckedAt": "2026-10-04T20:41:03.188Z",
       "participantIds": [
         "competitor:wrc:driver:elfyn-evans",
         "competitor:wrc:driver:sami-pajari",
@@ -96184,64 +96121,11 @@
           "displayName": "M-SPORT FORD WORLD RALLY TEAM",
           "countryCode": "GB"
         }
-      ],
-      "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:rolling:event-wrc-2026-round-13",
-        "researchTier": "marquee",
-        "hook": "Elfyn Evans carries a 17-point lead over Sami Pajari into WRC Rally Italia Sardegna, Round 13 of 14.",
-        "synopsis": "WRC Rally Italia Sardegna runs from 2026-10-01 to 2026-10-04 in Italy. Elfyn Evans leads Sami Pajari by 17 points in the official FIA driver standings, and 2 rounds remain after this one. Stan Sport lists live and replay coverage in Australia.",
-        "threadIds": [
-          "thread:rolling:wrc:2026"
-        ],
-        "factIds": [
-          "fact:rolling:event-wrc-2026-round-13:schedule",
-          "fact:rolling:event-wrc-2026-round-13:standings",
-          "fact:rolling:event-wrc-2026-round-13:path",
-          "fact:rolling:event-wrc-2026-round-13:viewing"
-        ],
-        "sourceIds": [
-          "source:rolling:wrc:calendar",
-          "source:rolling:wrc:driver-standings",
-          "source:rolling:wrc:stan-sport"
-        ],
-        "dimensions": [
-          "schedule",
-          "form",
-          "path",
-          "format"
-        ],
-        "researchedAt": "2026-10-04T05:51:53.694Z",
-        "refreshAfter": null,
-        "generationMode": "researched",
-        "phase": "preview"
-      },
-      "resultStatus": "official",
-      "score": "Oliver Solberg / Elliott Edmondson — 3:24:57.0",
-      "outcomeText": "Oliver Solberg / Elliott Edmondson won in 3:24:57.0 in a Toyota GR Yaris Rally1.",
-      "recapText": "WRC Rally Italia Sardegna was won by Oliver Solberg / Elliott Edmondson in 3:24:57.0, driving a Toyota GR Yaris Rally1.",
-      "resultLabels": [
-        "Round 13",
-        "Oliver Solberg / Elliott Edmondson",
-        "3:24:57.0",
-        "Official result"
-      ],
-      "consensusResult": {
-        "winner": "Oliver Solberg / Elliott Edmondson",
-        "summary": "Oliver Solberg / Elliott Edmondson won in 3:24:57.0",
-        "marginText": "3:24:57.0"
-      },
-      "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-ditalia/classifications",
-      "resultSourceCheckedAt": "2026-10-04T20:41:03.188Z",
-      "fixtureObservationSchema": "fixture-observations.v1",
-      "scoreCheckedAt": "2026-10-04T20:41:03.188Z",
-      "statusCheckedAt": "2026-10-04T20:41:03.188Z",
-      "scoreFactObservedAt": "2026-10-04T20:41:03.188Z",
-      "resultPublishedAt": "2026-10-04T20:41:03.188Z"
+      ]
     },
     {
-      "id": "fixture:mlb:849841",
-      "eventId": "fixture:mlb:849841",
+      "id": "fixture-mlb-849841",
+      "eventId": "fixture-mlb-849841",
       "canonicalEventId": "fixture:mlb:849841",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -96360,8 +96244,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:mlb:849846",
-      "eventId": "fixture:mlb:849846",
+      "id": "fixture-mlb-849846",
+      "eventId": "fixture-mlb-849846",
       "canonicalEventId": "fixture:mlb:849846",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -96480,8 +96364,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:mlb:849848",
-      "eventId": "fixture:mlb:849848",
+      "id": "fixture-mlb-849848",
+      "eventId": "fixture-mlb-849848",
       "canonicalEventId": "fixture:mlb:849848",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -96600,8 +96484,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:mlb:849842",
-      "eventId": "fixture:mlb:849842",
+      "id": "fixture-mlb-849842",
+      "eventId": "fixture-mlb-849842",
       "canonicalEventId": "fixture:mlb:849842",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -97082,8 +96966,8 @@
       "awayParticipantId": "team:nbl:melbourne-united"
     },
     {
-      "id": "fixture:tennis:espn:atp:183438",
-      "eventId": "fixture:tennis:espn:atp:183438",
+      "id": "fixture-tennis-espn-atp-183438",
+      "eventId": "fixture-tennis-espn-atp-183438",
       "canonicalEventId": "fixture:tennis:espn:atp:183438",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183438"
@@ -97222,8 +97106,8 @@
       "fullSpiel": "Learner Tien v Hubert Hurkacz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183440",
-      "eventId": "fixture:tennis:espn:atp:183440",
+      "id": "fixture-tennis-espn-atp-183440",
+      "eventId": "fixture-tennis-espn-atp-183440",
       "canonicalEventId": "fixture:tennis:espn:atp:183440",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183440"
@@ -97360,8 +97244,8 @@
       "fullSpiel": "Alexander Zverev v Cameron Norrie is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183441",
-      "eventId": "fixture:tennis:espn:atp:183441",
+      "id": "fixture-tennis-espn-atp-183441",
+      "eventId": "fixture-tennis-espn-atp-183441",
       "canonicalEventId": "fixture:tennis:espn:atp:183441",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183441"
@@ -97495,8 +97379,8 @@
       "fullSpiel": "Roman Safiullin v Flavio Cobolli is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183443",
-      "eventId": "fixture:tennis:espn:atp:183443",
+      "id": "fixture-tennis-espn-atp-183443",
+      "eventId": "fixture-tennis-espn-atp-183443",
       "canonicalEventId": "fixture:tennis:espn:atp:183443",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183443"
@@ -97636,8 +97520,8 @@
       "fullSpiel": "Tallon Griekspoor v Andrey Rublev is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183445",
-      "eventId": "fixture:tennis:espn:atp:183445",
+      "id": "fixture-tennis-espn-atp-183445",
+      "eventId": "fixture-tennis-espn-atp-183445",
       "canonicalEventId": "fixture:tennis:espn:atp:183445",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183445"
@@ -97774,8 +97658,8 @@
       "fullSpiel": "Ignacio Buse v Quentin Halys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183448",
-      "eventId": "fixture:tennis:espn:atp:183448",
+      "id": "fixture-tennis-espn-atp-183448",
+      "eventId": "fixture-tennis-espn-atp-183448",
       "canonicalEventId": "fixture:tennis:espn:atp:183448",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183448"
@@ -97908,8 +97792,8 @@
       "fullSpiel": "Alex Molcan v Tomas Machac is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183457",
-      "eventId": "fixture:tennis:espn:atp:183457",
+      "id": "fixture-tennis-espn-atp-183457",
+      "eventId": "fixture-tennis-espn-atp-183457",
       "canonicalEventId": "fixture:tennis:espn:atp:183457",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183457"
@@ -98046,8 +97930,8 @@
       "fullSpiel": "Shang Juncheng v Sebastian Baez is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183458",
-      "eventId": "fixture:tennis:espn:atp:183458",
+      "id": "fixture-tennis-espn-atp-183458",
+      "eventId": "fixture-tennis-espn-atp-183458",
       "canonicalEventId": "fixture:tennis:espn:atp:183458",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183458"
@@ -98184,8 +98068,8 @@
       "fullSpiel": "Alex De Minaur v Mariano Navone is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183459",
-      "eventId": "fixture:tennis:espn:atp:183459",
+      "id": "fixture-tennis-espn-atp-183459",
+      "eventId": "fixture-tennis-espn-atp-183459",
       "canonicalEventId": "fixture:tennis:espn:atp:183459",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183459"
@@ -98322,8 +98206,8 @@
       "fullSpiel": "Alexander Bublik v Jakub Mensik is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183460",
-      "eventId": "fixture:tennis:espn:atp:183460",
+      "id": "fixture-tennis-espn-atp-183460",
+      "eventId": "fixture-tennis-espn-atp-183460",
       "canonicalEventId": "fixture:tennis:espn:atp:183460",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183460"
@@ -98462,8 +98346,8 @@
       "fullSpiel": "Botic van de Zandschulp v Francisco Cerundolo is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183484",
-      "eventId": "fixture:tennis:espn:atp:183484",
+      "id": "fixture-tennis-espn-atp-183484",
+      "eventId": "fixture-tennis-espn-atp-183484",
       "canonicalEventId": "fixture:tennis:espn:atp:183484",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183484"
@@ -98596,8 +98480,8 @@
       "fullSpiel": "Holger Rune v Kyrian Jacquet is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183485",
-      "eventId": "fixture:tennis:espn:atp:183485",
+      "id": "fixture-tennis-espn-atp-183485",
+      "eventId": "fixture-tennis-espn-atp-183485",
       "canonicalEventId": "fixture:tennis:espn:atp:183485",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183485"
@@ -98735,8 +98619,8 @@
       "fullSpiel": "Jaime Faria v Arthur Fery is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183486",
-      "eventId": "fixture:tennis:espn:atp:183486",
+      "id": "fixture-tennis-espn-atp-183486",
+      "eventId": "fixture-tennis-espn-atp-183486",
       "canonicalEventId": "fixture:tennis:espn:atp:183486",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183486"
@@ -98876,8 +98760,8 @@
       "fullSpiel": "Taylor Fritz v Jaume Munar is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183487",
-      "eventId": "fixture:tennis:espn:atp:183487",
+      "id": "fixture-tennis-espn-atp-183487",
+      "eventId": "fixture-tennis-espn-atp-183487",
       "canonicalEventId": "fixture:tennis:espn:atp:183487",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183487"
@@ -99011,8 +98895,8 @@
       "fullSpiel": "Kei Nishikori v Frances Tiafoe is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183490",
-      "eventId": "fixture:tennis:espn:atp:183490",
+      "id": "fixture-tennis-espn-atp-183490",
+      "eventId": "fixture-tennis-espn-atp-183490",
       "canonicalEventId": "fixture:tennis:espn:atp:183490",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183490"
@@ -99153,8 +99037,8 @@
       "fullSpiel": "Jiri Lehecka v Zizou Bergs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183491",
-      "eventId": "fixture:tennis:espn:atp:183491",
+      "id": "fixture-tennis-espn-atp-183491",
+      "eventId": "fixture-tennis-espn-atp-183491",
       "canonicalEventId": "fixture:tennis:espn:atp:183491",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183491"
@@ -99289,8 +99173,8 @@
       "fullSpiel": "Brandon Nakashima v Ugo Humbert is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183492",
-      "eventId": "fixture:tennis:espn:atp:183492",
+      "id": "fixture-tennis-espn-atp-183492",
+      "eventId": "fixture-tennis-espn-atp-183492",
       "canonicalEventId": "fixture:tennis:espn:atp:183492",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183492"
@@ -99427,8 +99311,8 @@
       "fullSpiel": "Luciano Darderi v Casper Ruud is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183493",
-      "eventId": "fixture:tennis:espn:atp:183493",
+      "id": "fixture-tennis-espn-atp-183493",
+      "eventId": "fixture-tennis-espn-atp-183493",
       "canonicalEventId": "fixture:tennis:espn:atp:183493",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183493"
@@ -99562,8 +99446,8 @@
       "fullSpiel": "Denis Shapovalov v Sho Shimabukuro is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183494",
-      "eventId": "fixture:tennis:espn:atp:183494",
+      "id": "fixture-tennis-espn-atp-183494",
+      "eventId": "fixture-tennis-espn-atp-183494",
       "canonicalEventId": "fixture:tennis:espn:atp:183494",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183494"
@@ -99702,8 +99586,8 @@
       "fullSpiel": "Tomas Martin Etcheverry v Stefanos Tsitsipas is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183497",
-      "eventId": "fixture:tennis:espn:atp:183497",
+      "id": "fixture-tennis-espn-atp-183497",
+      "eventId": "fixture-tennis-espn-atp-183497",
       "canonicalEventId": "fixture:tennis:espn:atp:183497",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183497"
@@ -99844,8 +99728,8 @@
       "fullSpiel": "Carlos Alcaraz v Alex Michelsen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183498",
-      "eventId": "fixture:tennis:espn:atp:183498",
+      "id": "fixture-tennis-espn-atp-183498",
+      "eventId": "fixture-tennis-espn-atp-183498",
       "canonicalEventId": "fixture:tennis:espn:atp:183498",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183498"
@@ -99979,8 +99863,8 @@
       "fullSpiel": "Adolfo Daniel Vallejo v Rafael Jodar is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183499",
-      "eventId": "fixture:tennis:espn:atp:183499",
+      "id": "fixture-tennis-espn-atp-183499",
+      "eventId": "fixture-tennis-espn-atp-183499",
       "canonicalEventId": "fixture:tennis:espn:atp:183499",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183499"
@@ -100121,8 +100005,8 @@
       "fullSpiel": "Alejandro Davidovich Fokina v Matteo Berrettini is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184232",
-      "eventId": "fixture:tennis:espn:wta:184232",
+      "id": "fixture-tennis-espn-wta-184232",
+      "eventId": "fixture-tennis-espn-wta-184232",
       "canonicalEventId": "fixture:tennis:espn:wta:184232",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184232"
@@ -100255,8 +100139,8 @@
       "fullSpiel": "Lanlana Tararudee v Camila Osorio is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184244",
-      "eventId": "fixture:tennis:espn:wta:184244",
+      "id": "fixture-tennis-espn-wta-184244",
+      "eventId": "fixture-tennis-espn-wta-184244",
       "canonicalEventId": "fixture:tennis:espn:wta:184244",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184244"
@@ -100396,8 +100280,8 @@
       "fullSpiel": "Paula Badosa v Daria Kasatkina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184247",
-      "eventId": "fixture:tennis:espn:wta:184247",
+      "id": "fixture-tennis-espn-wta-184247",
+      "eventId": "fixture-tennis-espn-wta-184247",
       "canonicalEventId": "fixture:tennis:espn:wta:184247",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184247"
@@ -100530,8 +100414,8 @@
       "fullSpiel": "Eva Lys v Xinran Sun is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184248",
-      "eventId": "fixture:tennis:espn:wta:184248",
+      "id": "fixture-tennis-espn-wta-184248",
+      "eventId": "fixture-tennis-espn-wta-184248",
       "canonicalEventId": "fixture:tennis:espn:wta:184248",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184248"
@@ -100670,8 +100554,8 @@
       "fullSpiel": "Harriet Dart v Qu Yihan is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184252",
-      "eventId": "fixture:tennis:espn:wta:184252",
+      "id": "fixture-tennis-espn-wta-184252",
+      "eventId": "fixture-tennis-espn-wta-184252",
       "canonicalEventId": "fixture:tennis:espn:wta:184252",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184252"
@@ -100804,8 +100688,8 @@
       "fullSpiel": "Katie Volynets v Robin Montgomery is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184255",
-      "eventId": "fixture:tennis:espn:wta:184255",
+      "id": "fixture-tennis-espn-wta-184255",
+      "eventId": "fixture-tennis-espn-wta-184255",
       "canonicalEventId": "fixture:tennis:espn:wta:184255",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184255"
@@ -100944,8 +100828,8 @@
       "fullSpiel": "Zheng Qinwen v Shi Han is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184257",
-      "eventId": "fixture:tennis:espn:wta:184257",
+      "id": "fixture-tennis-espn-wta-184257",
+      "eventId": "fixture-tennis-espn-wta-184257",
       "canonicalEventId": "fixture:tennis:espn:wta:184257",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184257"
@@ -101079,8 +100963,8 @@
       "fullSpiel": "Aoi Ito v Kimberly Birrell is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184267",
-      "eventId": "fixture:tennis:espn:wta:184267",
+      "id": "fixture-tennis-espn-wta-184267",
+      "eventId": "fixture-tennis-espn-wta-184267",
       "canonicalEventId": "fixture:tennis:espn:wta:184267",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184267"
@@ -101213,8 +101097,8 @@
       "fullSpiel": "Sofia Kenin v Ashlyn Krueger is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184268",
-      "eventId": "fixture:tennis:espn:wta:184268",
+      "id": "fixture-tennis-espn-wta-184268",
+      "eventId": "fixture-tennis-espn-wta-184268",
       "canonicalEventId": "fixture:tennis:espn:wta:184268",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184268"
@@ -101347,8 +101231,8 @@
       "fullSpiel": "Shao Yushan v Anastasia Zakharova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184270",
-      "eventId": "fixture:tennis:espn:wta:184270",
+      "id": "fixture-tennis-espn-wta-184270",
+      "eventId": "fixture-tennis-espn-wta-184270",
       "canonicalEventId": "fixture:tennis:espn:wta:184270",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184270"
@@ -101481,8 +101365,8 @@
       "fullSpiel": "Magda Linette v Katerina Siniakova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184271",
-      "eventId": "fixture:tennis:espn:wta:184271",
+      "id": "fixture-tennis-espn-wta-184271",
+      "eventId": "fixture-tennis-espn-wta-184271",
       "canonicalEventId": "fixture:tennis:espn:wta:184271",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184271"
@@ -101616,8 +101500,8 @@
       "fullSpiel": "Yu Jun Lin v Storm Hunter is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184274",
-      "eventId": "fixture:tennis:espn:wta:184274",
+      "id": "fixture-tennis-espn-wta-184274",
+      "eventId": "fixture-tennis-espn-wta-184274",
       "canonicalEventId": "fixture:tennis:espn:wta:184274",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184274"
@@ -101750,8 +101634,8 @@
       "fullSpiel": "Alycia Parks v Zhu Lin is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184279",
-      "eventId": "fixture:tennis:espn:wta:184279",
+      "id": "fixture-tennis-espn-wta-184279",
+      "eventId": "fixture-tennis-espn-wta-184279",
       "canonicalEventId": "fixture:tennis:espn:wta:184279",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184279"
@@ -101884,8 +101768,8 @@
       "fullSpiel": "Gao Xinyu v Panna Udvardy is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184285",
-      "eventId": "fixture:tennis:espn:wta:184285",
+      "id": "fixture-tennis-espn-wta-184285",
+      "eventId": "fixture-tennis-espn-wta-184285",
       "canonicalEventId": "fixture:tennis:espn:wta:184285",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184285"
@@ -102018,8 +101902,8 @@
       "fullSpiel": "Sonay Kartal v Andrea Lazaro Garcia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184286",
-      "eventId": "fixture:tennis:espn:wta:184286",
+      "id": "fixture-tennis-espn-wta-184286",
+      "eventId": "fixture-tennis-espn-wta-184286",
       "canonicalEventId": "fixture:tennis:espn:wta:184286",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184286"
@@ -102157,8 +102041,8 @@
       "fullSpiel": "Yuliia Starodubtseva v Alina Charaeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184292",
-      "eventId": "fixture:tennis:espn:wta:184292",
+      "id": "fixture-tennis-espn-wta-184292",
+      "eventId": "fixture-tennis-espn-wta-184292",
       "canonicalEventId": "fixture:tennis:espn:wta:184292",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184292"
@@ -102293,8 +102177,8 @@
       "fullSpiel": "Marina Bassols Ribera v Kamilla Rakhimova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:mlb:849844",
-      "eventId": "fixture:mlb:849844",
+      "id": "fixture-mlb-849844",
+      "eventId": "fixture-mlb-849844",
       "canonicalEventId": "fixture:mlb:849844",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -104332,8 +104216,8 @@
       "awayParticipantId": "team:nbl:south-east-melbourne-phoenix"
     },
     {
-      "id": "fixture:tennis:espn:atp:183439",
-      "eventId": "fixture:tennis:espn:atp:183439",
+      "id": "fixture-tennis-espn-atp-183439",
+      "eventId": "fixture-tennis-espn-atp-183439",
       "canonicalEventId": "fixture:tennis:espn:atp:183439",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183439"
@@ -104467,8 +104351,8 @@
       "fullSpiel": "Alex Molcan v Karen Khachanov is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183442",
-      "eventId": "fixture:tennis:espn:atp:183442",
+      "id": "fixture-tennis-espn-atp-183442",
+      "eventId": "fixture-tennis-espn-atp-183442",
       "canonicalEventId": "fixture:tennis:espn:atp:183442",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183442"
@@ -104610,8 +104494,8 @@
       "fullSpiel": "Hubert Hurkacz v Arthur Gea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183453",
-      "eventId": "fixture:tennis:espn:atp:183453",
+      "id": "fixture-tennis-espn-atp-183453",
+      "eventId": "fixture-tennis-espn-atp-183453",
       "canonicalEventId": "fixture:tennis:espn:atp:183453",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183453"
@@ -104751,8 +104635,8 @@
       "fullSpiel": "Bu Yunchaokete v Novak Djokovic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183454",
-      "eventId": "fixture:tennis:espn:atp:183454",
+      "id": "fixture-tennis-espn-atp-183454",
+      "eventId": "fixture-tennis-espn-atp-183454",
       "canonicalEventId": "fixture:tennis:espn:atp:183454",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183454"
@@ -104886,8 +104770,8 @@
       "fullSpiel": "Daniil Medvedev v Pablo Carreno Busta is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183502",
-      "eventId": "fixture:tennis:espn:atp:183502",
+      "id": "fixture-tennis-espn-atp-183502",
+      "eventId": "fixture-tennis-espn-atp-183502",
       "canonicalEventId": "fixture:tennis:espn:atp:183502",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183502"
@@ -105023,8 +104907,8 @@
       "fullSpiel": "Kyrian Jacquet v Luciano Darderi is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183503",
-      "eventId": "fixture:tennis:espn:atp:183503",
+      "id": "fixture-tennis-espn-atp-183503",
+      "eventId": "fixture-tennis-espn-atp-183503",
       "canonicalEventId": "fixture:tennis:espn:atp:183503",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183503"
@@ -105157,8 +105041,8 @@
       "fullSpiel": "Jaume Munar v Jaime Faria is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183505",
-      "eventId": "fixture:tennis:espn:atp:183505",
+      "id": "fixture-tennis-espn-atp-183505",
+      "eventId": "fixture-tennis-espn-atp-183505",
       "canonicalEventId": "fixture:tennis:espn:atp:183505",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183505"
@@ -105293,8 +105177,8 @@
       "fullSpiel": "Arthur Fils v Frances Tiafoe is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183506",
-      "eventId": "fixture:tennis:espn:atp:183506",
+      "id": "fixture-tennis-espn-atp-183506",
+      "eventId": "fixture-tennis-espn-atp-183506",
       "canonicalEventId": "fixture:tennis:espn:atp:183506",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183506"
@@ -105435,8 +105319,8 @@
       "fullSpiel": "Valentin Vacherot v Stefanos Tsitsipas is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184295",
-      "eventId": "fixture:tennis:espn:wta:184295",
+      "id": "fixture-tennis-espn-wta-184295",
+      "eventId": "fixture-tennis-espn-wta-184295",
       "canonicalEventId": "fixture:tennis:espn:wta:184295",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184295"
@@ -105570,8 +105454,8 @@
       "fullSpiel": "Renata Zarazua v Aryna Sabalenka is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184296",
-      "eventId": "fixture:tennis:espn:wta:184296",
+      "id": "fixture-tennis-espn-wta-184296",
+      "eventId": "fixture-tennis-espn-wta-184296",
       "canonicalEventId": "fixture:tennis:espn:wta:184296",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184296"
@@ -105706,8 +105590,8 @@
       "fullSpiel": "Nikola Bartunkova v Magdalena Frech is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184297",
-      "eventId": "fixture:tennis:espn:wta:184297",
+      "id": "fixture-tennis-espn-wta-184297",
+      "eventId": "fixture-tennis-espn-wta-184297",
       "canonicalEventId": "fixture:tennis:espn:wta:184297",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184297"
@@ -105841,8 +105725,8 @@
       "fullSpiel": "Dayana Yastremska v Maja Chwalinska is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184298",
-      "eventId": "fixture:tennis:espn:wta:184298",
+      "id": "fixture-tennis-espn-wta-184298",
+      "eventId": "fixture-tennis-espn-wta-184298",
       "canonicalEventId": "fixture:tennis:espn:wta:184298",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184298"
@@ -105972,8 +105856,8 @@
       "fullSpiel": "Anastasia Potapova v Sinja Kraus is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184299",
-      "eventId": "fixture:tennis:espn:wta:184299",
+      "id": "fixture-tennis-espn-wta-184299",
+      "eventId": "fixture-tennis-espn-wta-184299",
       "canonicalEventId": "fixture:tennis:espn:wta:184299",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184299"
@@ -106114,8 +105998,8 @@
       "fullSpiel": "Jasmine Paolini v Daria Snigur is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184300",
-      "eventId": "fixture:tennis:espn:wta:184300",
+      "id": "fixture-tennis-espn-wta-184300",
+      "eventId": "fixture-tennis-espn-wta-184300",
       "canonicalEventId": "fixture:tennis:espn:wta:184300",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184300"
@@ -106250,8 +106134,8 @@
       "fullSpiel": "Janice Tjen v Diana Shnaider is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184301",
-      "eventId": "fixture:tennis:espn:wta:184301",
+      "id": "fixture-tennis-espn-wta-184301",
+      "eventId": "fixture-tennis-espn-wta-184301",
       "canonicalEventId": "fixture:tennis:espn:wta:184301",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184301"
@@ -106385,8 +106269,8 @@
       "fullSpiel": "Ekaterina Alexandrova v Aliaksandra Sasnovich is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184302",
-      "eventId": "fixture:tennis:espn:wta:184302",
+      "id": "fixture-tennis-espn-wta-184302",
+      "eventId": "fixture-tennis-espn-wta-184302",
       "canonicalEventId": "fixture:tennis:espn:wta:184302",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184302"
@@ -106524,8 +106408,8 @@
       "fullSpiel": "Viktorija Golubic v Peyton Stearns is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184303",
-      "eventId": "fixture:tennis:espn:wta:184303",
+      "id": "fixture-tennis-espn-wta-184303",
+      "eventId": "fixture-tennis-espn-wta-184303",
       "canonicalEventId": "fixture:tennis:espn:wta:184303",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184303"
@@ -106663,8 +106547,8 @@
       "fullSpiel": "Yuan Yue v Mirra Andreeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184304",
-      "eventId": "fixture:tennis:espn:wta:184304",
+      "id": "fixture-tennis-espn-wta-184304",
+      "eventId": "fixture-tennis-espn-wta-184304",
       "canonicalEventId": "fixture:tennis:espn:wta:184304",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184304"
@@ -106802,8 +106686,8 @@
       "fullSpiel": "Clara Tauson v Polina Kudermetova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184305",
-      "eventId": "fixture:tennis:espn:wta:184305",
+      "id": "fixture-tennis-espn-wta-184305",
+      "eventId": "fixture-tennis-espn-wta-184305",
       "canonicalEventId": "fixture:tennis:espn:wta:184305",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184305"
@@ -106940,8 +106824,8 @@
       "fullSpiel": "Taylah Preston v Diane Parry is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184306",
-      "eventId": "fixture:tennis:espn:wta:184306",
+      "id": "fixture-tennis-espn-wta-184306",
+      "eventId": "fixture-tennis-espn-wta-184306",
       "canonicalEventId": "fixture:tennis:espn:wta:184306",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184306"
@@ -107079,8 +106963,8 @@
       "fullSpiel": "Maria Timofeeva v Naomi Osaka is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184307",
-      "eventId": "fixture:tennis:espn:wta:184307",
+      "id": "fixture-tennis-espn-wta-184307",
+      "eventId": "fixture-tennis-espn-wta-184307",
       "canonicalEventId": "fixture:tennis:espn:wta:184307",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184307"
@@ -107215,8 +107099,8 @@
       "fullSpiel": "Sara Bejlek v Maddison Inglis is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184308",
-      "eventId": "fixture:tennis:espn:wta:184308",
+      "id": "fixture-tennis-espn-wta-184308",
+      "eventId": "fixture-tennis-espn-wta-184308",
       "canonicalEventId": "fixture:tennis:espn:wta:184308",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184308"
@@ -107354,8 +107238,8 @@
       "fullSpiel": "Linda Fruhvirtova v Liudmila Samsonova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184309",
-      "eventId": "fixture:tennis:espn:wta:184309",
+      "id": "fixture-tennis-espn-wta-184309",
+      "eventId": "fixture-tennis-espn-wta-184309",
       "canonicalEventId": "fixture:tennis:espn:wta:184309",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184309"
@@ -107491,8 +107375,8 @@
       "fullSpiel": "Karolina Muchova v Katie Boulter is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184318",
-      "eventId": "fixture:tennis:espn:wta:184318",
+      "id": "fixture-tennis-espn-wta-184318",
+      "eventId": "fixture-tennis-espn-wta-184318",
       "canonicalEventId": "fixture:tennis:espn:wta:184318",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184318"
@@ -110537,8 +110421,8 @@
       "awayParticipantId": "team:nbl:cairns-taipans"
     },
     {
-      "id": "fixture:tennis:espn:atp:183444",
-      "eventId": "fixture:tennis:espn:atp:183444",
+      "id": "fixture-tennis-espn-atp-183444",
+      "eventId": "fixture-tennis-espn-atp-183444",
       "canonicalEventId": "fixture:tennis:espn:atp:183444",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183444"
@@ -110676,8 +110560,8 @@
       "fullSpiel": "Andrey Rublev v Roman Safiullin is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183446",
-      "eventId": "fixture:tennis:espn:atp:183446",
+      "id": "fixture-tennis-espn-atp-183446",
+      "eventId": "fixture-tennis-espn-atp-183446",
       "canonicalEventId": "fixture:tennis:espn:atp:183446",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183446"
@@ -110811,8 +110695,8 @@
       "fullSpiel": "Alexander Zverev v Shang Juncheng is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183451",
-      "eventId": "fixture:tennis:espn:atp:183451",
+      "id": "fixture-tennis-espn-atp-183451",
+      "eventId": "fixture-tennis-espn-atp-183451",
       "canonicalEventId": "fixture:tennis:espn:atp:183451",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183451"
@@ -110947,8 +110831,8 @@
       "fullSpiel": "Francisco Cerundolo v Jakub Mensik is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183452",
-      "eventId": "fixture:tennis:espn:atp:183452",
+      "id": "fixture-tennis-espn-atp-183452",
+      "eventId": "fixture-tennis-espn-atp-183452",
       "canonicalEventId": "fixture:tennis:espn:atp:183452",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183452"
@@ -111082,8 +110966,8 @@
       "fullSpiel": "Daniil Medvedev v Jan-Lennard Struff is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183500",
-      "eventId": "fixture:tennis:espn:atp:183500",
+      "id": "fixture-tennis-espn-atp-183500",
+      "eventId": "fixture-tennis-espn-atp-183500",
       "canonicalEventId": "fixture:tennis:espn:atp:183500",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183500"
@@ -111222,8 +111106,8 @@
       "fullSpiel": "Denis Shapovalov v Alejandro Tabilo is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183504",
-      "eventId": "fixture:tennis:espn:atp:183504",
+      "id": "fixture-tennis-espn-atp-183504",
+      "eventId": "fixture-tennis-espn-atp-183504",
       "canonicalEventId": "fixture:tennis:espn:atp:183504",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183504"
@@ -111362,8 +111246,8 @@
       "fullSpiel": "Ugo Humbert v Jiri Lehecka is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183507",
-      "eventId": "fixture:tennis:espn:atp:183507",
+      "id": "fixture-tennis-espn-atp-183507",
+      "eventId": "fixture-tennis-espn-atp-183507",
       "canonicalEventId": "fixture:tennis:espn:atp:183507",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183507"
@@ -111499,8 +111383,8 @@
       "fullSpiel": "Matteo Berrettini v Adolfo Daniel Vallejo is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184310",
-      "eventId": "fixture:tennis:espn:wta:184310",
+      "id": "fixture-tennis-espn-wta-184310",
+      "eventId": "fixture-tennis-espn-wta-184310",
       "canonicalEventId": "fixture:tennis:espn:wta:184310",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184310"
@@ -111634,8 +111518,8 @@
       "fullSpiel": "Xinran Sun v Cristina Bucsa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184311",
-      "eventId": "fixture:tennis:espn:wta:184311",
+      "id": "fixture-tennis-espn-wta-184311",
+      "eventId": "fixture-tennis-espn-wta-184311",
       "canonicalEventId": "fixture:tennis:espn:wta:184311",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184311"
@@ -111775,8 +111659,8 @@
       "fullSpiel": "Coco Gauff v Camila Osorio is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184312",
-      "eventId": "fixture:tennis:espn:wta:184312",
+      "id": "fixture-tennis-espn-wta-184312",
+      "eventId": "fixture-tennis-espn-wta-184312",
       "canonicalEventId": "fixture:tennis:espn:wta:184312",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184312"
@@ -111914,8 +111798,8 @@
       "fullSpiel": "Katerina Siniakova v Elina Svitolina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184313",
-      "eventId": "fixture:tennis:espn:wta:184313",
+      "id": "fixture-tennis-espn-wta-184313",
+      "eventId": "fixture-tennis-espn-wta-184313",
       "canonicalEventId": "fixture:tennis:espn:wta:184313",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184313"
@@ -112050,8 +111934,8 @@
       "fullSpiel": "Maria Sakkari v Storm Hunter is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184314",
-      "eventId": "fixture:tennis:espn:wta:184314",
+      "id": "fixture-tennis-espn-wta-184314",
+      "eventId": "fixture-tennis-espn-wta-184314",
       "canonicalEventId": "fixture:tennis:espn:wta:184314",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184314"
@@ -112189,8 +112073,8 @@
       "fullSpiel": "Kamilla Rakhimova v Leylah Fernandez is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184315",
-      "eventId": "fixture:tennis:espn:wta:184315",
+      "id": "fixture-tennis-espn-wta-184315",
+      "eventId": "fixture-tennis-espn-wta-184315",
       "canonicalEventId": "fixture:tennis:espn:wta:184315",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184315"
@@ -112328,8 +112212,8 @@
       "fullSpiel": "Iva Jovic v Harriet Dart is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184316",
-      "eventId": "fixture:tennis:espn:wta:184316",
+      "id": "fixture-tennis-espn-wta-184316",
+      "eventId": "fixture-tennis-espn-wta-184316",
       "canonicalEventId": "fixture:tennis:espn:wta:184316",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184316"
@@ -112467,8 +112351,8 @@
       "fullSpiel": "Katie Volynets v Elise Mertens is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184317",
-      "eventId": "fixture:tennis:espn:wta:184317",
+      "id": "fixture-tennis-espn-wta-184317",
+      "eventId": "fixture-tennis-espn-wta-184317",
       "canonicalEventId": "fixture:tennis:espn:wta:184317",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184317"
@@ -112604,8 +112488,8 @@
       "fullSpiel": "Jelena Ostapenko v Paula Badosa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184319",
-      "eventId": "fixture:tennis:espn:wta:184319",
+      "id": "fixture-tennis-espn-wta-184319",
+      "eventId": "fixture-tennis-espn-wta-184319",
       "canonicalEventId": "fixture:tennis:espn:wta:184319",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184319"
@@ -112739,8 +112623,8 @@
       "fullSpiel": "Gao Xinyu v Iga Swiatek is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184320",
-      "eventId": "fixture:tennis:espn:wta:184320",
+      "id": "fixture-tennis-espn-wta-184320",
+      "eventId": "fixture-tennis-espn-wta-184320",
       "canonicalEventId": "fixture:tennis:espn:wta:184320",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184320"
@@ -112878,8 +112762,8 @@
       "fullSpiel": "Donna Vekic v Zhu Lin is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184321",
-      "eventId": "fixture:tennis:espn:wta:184321",
+      "id": "fixture-tennis-espn-wta-184321",
+      "eventId": "fixture-tennis-espn-wta-184321",
       "canonicalEventId": "fixture:tennis:espn:wta:184321",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184321"
@@ -113014,8 +112898,8 @@
       "fullSpiel": "Marie Bouzkova v Kimberly Birrell is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184322",
-      "eventId": "fixture:tennis:espn:wta:184322",
+      "id": "fixture-tennis-espn-wta-184322",
+      "eventId": "fixture-tennis-espn-wta-184322",
       "canonicalEventId": "fixture:tennis:espn:wta:184322",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184322"
@@ -113148,8 +113032,8 @@
       "fullSpiel": "Sonay Kartal v Wang Xinyu is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184323",
-      "eventId": "fixture:tennis:espn:wta:184323",
+      "id": "fixture-tennis-espn-wta-184323",
+      "eventId": "fixture-tennis-espn-wta-184323",
       "canonicalEventId": "fixture:tennis:espn:wta:184323",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184323"
@@ -113287,8 +113171,8 @@
       "fullSpiel": "Elena Rybakina v Alina Charaeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184324",
-      "eventId": "fixture:tennis:espn:wta:184324",
+      "id": "fixture-tennis-espn-wta-184324",
+      "eventId": "fixture-tennis-espn-wta-184324",
       "canonicalEventId": "fixture:tennis:espn:wta:184324",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184324"
@@ -113428,8 +113312,8 @@
       "fullSpiel": "Zheng Qinwen v Anna Kalinskaya is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184325",
-      "eventId": "fixture:tennis:espn:wta:184325",
+      "id": "fixture-tennis-espn-wta-184325",
+      "eventId": "fixture-tennis-espn-wta-184325",
       "canonicalEventId": "fixture:tennis:espn:wta:184325",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184325"
@@ -113563,8 +113447,8 @@
       "fullSpiel": "Ashlyn Krueger v Ann Li is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184326",
-      "eventId": "fixture:tennis:espn:wta:184326",
+      "id": "fixture-tennis-espn-wta-184326",
+      "eventId": "fixture-tennis-espn-wta-184326",
       "canonicalEventId": "fixture:tennis:espn:wta:184326",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184326"
@@ -113700,8 +113584,8 @@
       "fullSpiel": "Belinda Bencic v Anastasia Zakharova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:mlb:849829",
-      "eventId": "fixture:mlb:849829",
+      "id": "fixture-mlb-849829",
+      "eventId": "fixture-mlb-849829",
       "canonicalEventId": "fixture:mlb:849829",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -113820,8 +113704,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:mlb:849828",
-      "eventId": "fixture:mlb:849828",
+      "id": "fixture-mlb-849828",
+      "eventId": "fixture-mlb-849828",
       "canonicalEventId": "fixture:mlb:849828",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -114046,8 +113930,8 @@
       }
     },
     {
-      "id": "fixture:mlb:849835",
-      "eventId": "fixture:mlb:849835",
+      "id": "fixture-mlb-849835",
+      "eventId": "fixture-mlb-849835",
       "canonicalEventId": "fixture:mlb:849835",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -114166,8 +114050,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:mlb:849830",
-      "eventId": "fixture:mlb:849830",
+      "id": "fixture-mlb-849830",
+      "eventId": "fixture-mlb-849830",
       "canonicalEventId": "fixture:mlb:849830",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -116367,8 +116251,8 @@
       "endTimeBasis": "scheduled-live-window"
     },
     {
-      "id": "fixture:tennis:espn:atp:183462",
-      "eventId": "fixture:tennis:espn:atp:183462",
+      "id": "fixture-tennis-espn-atp-183462",
+      "eventId": "fixture-tennis-espn-atp-183462",
       "canonicalEventId": "fixture:tennis:espn:atp:183462",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183462"
@@ -116505,8 +116389,8 @@
       "fullSpiel": "Hubert Hurkacz v Karen Khachanov is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183463",
-      "eventId": "fixture:tennis:espn:atp:183463",
+      "id": "fixture-tennis-espn-atp-183463",
+      "eventId": "fixture-tennis-espn-atp-183463",
       "canonicalEventId": "fixture:tennis:espn:atp:183463",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183463"
@@ -116645,8 +116529,8 @@
       "fullSpiel": "Alex De Minaur v Andrey Rublev is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183464",
-      "eventId": "fixture:tennis:espn:atp:183464",
+      "id": "fixture-tennis-espn-atp-183464",
+      "eventId": "fixture-tennis-espn-atp-183464",
       "canonicalEventId": "fixture:tennis:espn:atp:183464",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183464"
@@ -116783,8 +116667,8 @@
       "fullSpiel": "Daniil Medvedev v Francisco Cerundolo is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183508",
-      "eventId": "fixture:tennis:espn:atp:183508",
+      "id": "fixture-tennis-espn-atp-183508",
+      "eventId": "fixture-tennis-espn-atp-183508",
       "canonicalEventId": "fixture:tennis:espn:atp:183508",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183508"
@@ -116923,8 +116807,8 @@
       "fullSpiel": "Valentin Vacherot v Arthur Fils is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183509",
-      "eventId": "fixture:tennis:espn:atp:183509",
+      "id": "fixture-tennis-espn-atp-183509",
+      "eventId": "fixture-tennis-espn-atp-183509",
       "canonicalEventId": "fixture:tennis:espn:atp:183509",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183509"
@@ -117058,8 +116942,8 @@
       "fullSpiel": "Jiri Lehecka v Adolfo Daniel Vallejo is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183510",
-      "eventId": "fixture:tennis:espn:atp:183510",
+      "id": "fixture-tennis-espn-atp-183510",
+      "eventId": "fixture-tennis-espn-atp-183510",
       "canonicalEventId": "fixture:tennis:espn:atp:183510",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183510"
@@ -117192,8 +117076,8 @@
       "fullSpiel": "Jaume Munar v Kyrian Jacquet is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183511",
-      "eventId": "fixture:tennis:espn:atp:183511",
+      "id": "fixture-tennis-espn-atp-183511",
+      "eventId": "fixture-tennis-espn-atp-183511",
       "canonicalEventId": "fixture:tennis:espn:atp:183511",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183511"
@@ -117330,8 +117214,8 @@
       "fullSpiel": "Carlos Alcaraz v Denis Shapovalov is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184334",
-      "eventId": "fixture:tennis:espn:wta:184334",
+      "id": "fixture-tennis-espn-wta-184334",
+      "eventId": "fixture-tennis-espn-wta-184334",
       "canonicalEventId": "fixture:tennis:espn:wta:184334",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184334"
@@ -117466,8 +117350,8 @@
       "fullSpiel": "Daria Snigur v Taylah Preston is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184335",
-      "eventId": "fixture:tennis:espn:wta:184335",
+      "id": "fixture-tennis-espn-wta-184335",
+      "eventId": "fixture-tennis-espn-wta-184335",
       "canonicalEventId": "fixture:tennis:espn:wta:184335",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184335"
@@ -117606,8 +117490,8 @@
       "fullSpiel": "Ekaterina Alexandrova v Diana Shnaider is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184336",
-      "eventId": "fixture:tennis:espn:wta:184336",
+      "id": "fixture-tennis-espn-wta-184336",
+      "eventId": "fixture-tennis-espn-wta-184336",
       "canonicalEventId": "fixture:tennis:espn:wta:184336",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184336"
@@ -117741,8 +117625,8 @@
       "fullSpiel": "Linda Noskova v Viktorija Golubic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184338",
-      "eventId": "fixture:tennis:espn:wta:184338",
+      "id": "fixture-tennis-espn-wta-184338",
+      "eventId": "fixture-tennis-espn-wta-184338",
       "canonicalEventId": "fixture:tennis:espn:wta:184338",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184338"
@@ -117876,8 +117760,8 @@
       "fullSpiel": "Polina Kudermetova v Mirra Andreeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184339",
-      "eventId": "fixture:tennis:espn:wta:184339",
+      "id": "fixture-tennis-espn-wta-184339",
+      "eventId": "fixture-tennis-espn-wta-184339",
       "canonicalEventId": "fixture:tennis:espn:wta:184339",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184339"
@@ -118014,8 +117898,8 @@
       "fullSpiel": "Sara Bejlek v Naomi Osaka is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184342",
-      "eventId": "fixture:tennis:espn:wta:184342",
+      "id": "fixture-tennis-espn-wta-184342",
+      "eventId": "fixture-tennis-espn-wta-184342",
       "canonicalEventId": "fixture:tennis:espn:wta:184342",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184342"
@@ -118148,8 +118032,8 @@
       "fullSpiel": "Sinja Kraus v Dayana Yastremska is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:mlb:849825",
-      "eventId": "fixture:mlb:849825",
+      "id": "fixture-mlb-849825",
+      "eventId": "fixture-mlb-849825",
       "canonicalEventId": "fixture:mlb:849825",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -118268,8 +118152,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:mlb:849823",
-      "eventId": "fixture:mlb:849823",
+      "id": "fixture-mlb-849823",
+      "eventId": "fixture-mlb-849823",
       "canonicalEventId": "fixture:mlb:849823",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -118388,8 +118272,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:tennis:atp-beijing-2026:sf:de-minaur-hurkacz",
-      "eventId": "fixture:tennis:atp-beijing-2026:sf:de-minaur-hurkacz",
+      "id": "fixture-tennis-atp-beijing-2026-sf-de-minaur-hurkacz",
+      "eventId": "fixture-tennis-atp-beijing-2026-sf-de-minaur-hurkacz",
       "canonicalEventId": "fixture:tennis:atp-beijing-2026:sf:de-minaur-hurkacz",
       "key": "tennis",
       "sport": "Tennis",
@@ -118554,8 +118438,8 @@
       "fullSpiel": "Alex de Minaur v Hubert Hurkacz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
-      "eventId": "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
+      "id": "fixture-tennis-atp-tokyo-2026-sf-alcaraz-munar",
+      "eventId": "fixture-tennis-atp-tokyo-2026-sf-alcaraz-munar",
       "canonicalEventId": "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
       "key": "tennis",
       "sport": "Tennis",
@@ -118724,8 +118608,8 @@
       "fullSpiel": "Carlos Alcaraz v Jaume Munar is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183467",
-      "eventId": "fixture:tennis:espn:atp:183467",
+      "id": "fixture-tennis-espn-atp-183467",
+      "eventId": "fixture-tennis-espn-atp-183467",
       "canonicalEventId": "fixture:tennis:espn:atp:183467",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183467"
@@ -118860,8 +118744,8 @@
       "fullSpiel": "Novak Djokovic v Daniil Medvedev is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:183513",
-      "eventId": "fixture:tennis:espn:atp:183513",
+      "id": "fixture-tennis-espn-atp-183513",
+      "eventId": "fixture-tennis-espn-atp-183513",
       "canonicalEventId": "fixture:tennis:espn:atp:183513",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:183513"
@@ -118996,8 +118880,8 @@
       "fullSpiel": "Jiri Lehecka v Valentin Vacherot is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184327",
-      "eventId": "fixture:tennis:espn:wta:184327",
+      "id": "fixture-tennis-espn-wta-184327",
+      "eventId": "fixture-tennis-espn-wta-184327",
       "canonicalEventId": "fixture:tennis:espn:wta:184327",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184327"
@@ -119137,8 +119021,8 @@
       "fullSpiel": "Marie Bouzkova v Zheng Qinwen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184328",
-      "eventId": "fixture:tennis:espn:wta:184328",
+      "id": "fixture-tennis-espn-wta-184328",
+      "eventId": "fixture-tennis-espn-wta-184328",
       "canonicalEventId": "fixture:tennis:espn:wta:184328",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184328"
@@ -119271,8 +119155,8 @@
       "fullSpiel": "Alina Charaeva v Sonay Kartal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184329",
-      "eventId": "fixture:tennis:espn:wta:184329",
+      "id": "fixture-tennis-espn-wta-184329",
+      "eventId": "fixture-tennis-espn-wta-184329",
       "canonicalEventId": "fixture:tennis:espn:wta:184329",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184329"
@@ -119407,8 +119291,8 @@
       "fullSpiel": "Belinda Bencic v Ann Li is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184330",
-      "eventId": "fixture:tennis:espn:wta:184330",
+      "id": "fixture-tennis-espn-wta-184330",
+      "eventId": "fixture-tennis-espn-wta-184330",
       "canonicalEventId": "fixture:tennis:espn:wta:184330",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184330"
@@ -119542,8 +119426,8 @@
       "fullSpiel": "Iva Jovic v Kamilla Rakhimova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184331",
-      "eventId": "fixture:tennis:espn:wta:184331",
+      "id": "fixture-tennis-espn-wta-184331",
+      "eventId": "fixture-tennis-espn-wta-184331",
       "canonicalEventId": "fixture:tennis:espn:wta:184331",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184331"
@@ -119682,8 +119566,8 @@
       "fullSpiel": "Jelena Ostapenko v Elise Mertens is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184333",
-      "eventId": "fixture:tennis:espn:wta:184333",
+      "id": "fixture-tennis-espn-wta-184333",
+      "eventId": "fixture-tennis-espn-wta-184333",
       "canonicalEventId": "fixture:tennis:espn:wta:184333",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184333"
@@ -119818,8 +119702,8 @@
       "fullSpiel": "Maria Sakkari v Elina Svitolina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184337",
-      "eventId": "fixture:tennis:espn:wta:184337",
+      "id": "fixture-tennis-espn-wta-184337",
+      "eventId": "fixture-tennis-espn-wta-184337",
       "canonicalEventId": "fixture:tennis:espn:wta:184337",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184337"
@@ -119960,8 +119844,8 @@
       "fullSpiel": "Donna Vekic v Iga Swiatek is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184340",
-      "eventId": "fixture:tennis:espn:wta:184340",
+      "id": "fixture-tennis-espn-wta-184340",
+      "eventId": "fixture-tennis-espn-wta-184340",
       "canonicalEventId": "fixture:tennis:espn:wta:184340",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184340"
@@ -120100,8 +119984,8 @@
       "fullSpiel": "Karolina Muchova v Liudmila Samsonova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:mlb:849834",
-      "eventId": "fixture:mlb:849834",
+      "id": "fixture-mlb-849834",
+      "eventId": "fixture-mlb-849834",
       "canonicalEventId": "fixture:mlb:849834",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -120220,8 +120104,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:mlb:849839",
-      "eventId": "fixture:mlb:849839",
+      "id": "fixture-mlb-849839",
+      "eventId": "fixture-mlb-849839",
       "canonicalEventId": "fixture:mlb:849839",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -120340,8 +120224,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka",
-      "eventId": "fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka",
+      "id": "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+      "eventId": "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
       "canonicalEventId": "fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka",
       "key": "tennis",
       "sport": "Tennis",
@@ -120540,8 +120424,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur",
-      "eventId": "fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur",
+      "id": "fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
+      "eventId": "fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
       "canonicalEventId": "fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur",
       "key": "tennis",
       "sport": "Tennis",
@@ -120742,8 +120626,8 @@
       "fullSpiel": "Novak Djokovic v Alex de Minaur is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184332",
-      "eventId": "fixture:tennis:espn:wta:184332",
+      "id": "fixture-tennis-espn-wta-184332",
+      "eventId": "fixture-tennis-espn-wta-184332",
       "canonicalEventId": "fixture:tennis:espn:wta:184332",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184332"
@@ -120877,8 +120761,8 @@
       "fullSpiel": "Coco Gauff v Xinran Sun is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184343",
-      "eventId": "fixture:tennis:espn:wta:184343",
+      "id": "fixture-tennis-espn-wta-184343",
+      "eventId": "fixture-tennis-espn-wta-184343",
       "canonicalEventId": "fixture:tennis:espn:wta:184343",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184343"
@@ -121013,8 +120897,8 @@
       "fullSpiel": "Daria Snigur v Mirra Andreeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184344",
-      "eventId": "fixture:tennis:espn:wta:184344",
+      "id": "fixture-tennis-espn-wta-184344",
+      "eventId": "fixture-tennis-espn-wta-184344",
       "canonicalEventId": "fixture:tennis:espn:wta:184344",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184344"
@@ -121149,8 +121033,8 @@
       "fullSpiel": "Linda Noskova v Ekaterina Alexandrova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184348",
-      "eventId": "fixture:tennis:espn:wta:184348",
+      "id": "fixture-tennis-espn-wta-184348",
+      "eventId": "fixture-tennis-espn-wta-184348",
       "canonicalEventId": "fixture:tennis:espn:wta:184348",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184348"
@@ -121288,8 +121172,8 @@
       "fullSpiel": "Sinja Kraus v Nikola Bartunkova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:wta-beijing-2026:r16:muchova-osaka",
-      "eventId": "fixture:tennis:wta-beijing-2026:r16:muchova-osaka",
+      "id": "fixture-tennis-wta-beijing-2026-r16-muchova-osaka",
+      "eventId": "fixture-tennis-wta-beijing-2026-r16-muchova-osaka",
       "canonicalEventId": "fixture:tennis:wta-beijing-2026:r16:muchova-osaka",
       "key": "tennis",
       "sport": "Tennis",
@@ -121454,8 +121338,8 @@
       "fullSpiel": "Karolina Muchova v Naomi Osaka is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:mlb:849819",
-      "eventId": "fixture:mlb:849819",
+      "id": "fixture-mlb-849819",
+      "eventId": "fixture-mlb-849819",
       "canonicalEventId": "fixture:mlb:849819",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -121574,8 +121458,8 @@
       "endTimeBasis": "scheduled-live-window"
     },
     {
-      "id": "fixture:mlb:849826",
-      "eventId": "fixture:mlb:849826",
+      "id": "fixture-mlb-849826",
+      "eventId": "fixture-mlb-849826",
       "canonicalEventId": "fixture:mlb:849826",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -121891,8 +121775,8 @@
       "endTimeBasis": "scheduled-live-window"
     },
     {
-      "id": "fixture:tennis:espn:atp:184839",
-      "eventId": "fixture:tennis:espn:atp:184839",
+      "id": "fixture-tennis-espn-atp-184839",
+      "eventId": "fixture-tennis-espn-atp-184839",
       "canonicalEventId": "fixture:tennis:espn:atp:184839",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184839"
@@ -122033,8 +121917,8 @@
       "fullSpiel": "Zhang Zhizhen v Tomas Machac is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184840",
-      "eventId": "fixture:tennis:espn:atp:184840",
+      "id": "fixture-tennis-espn-atp-184840",
+      "eventId": "fixture-tennis-espn-atp-184840",
       "canonicalEventId": "fixture:tennis:espn:atp:184840",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184840"
@@ -122176,8 +122060,8 @@
       "fullSpiel": "Aleksandar Kovacevic v Matteo Berrettini is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184842",
-      "eventId": "fixture:tennis:espn:atp:184842",
+      "id": "fixture-tennis-espn-atp-184842",
+      "eventId": "fixture-tennis-espn-atp-184842",
       "canonicalEventId": "fixture:tennis:espn:atp:184842",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184842"
@@ -122312,8 +122196,8 @@
       "fullSpiel": "Marco Trungelliti v Rei Sakamoto is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184847",
-      "eventId": "fixture:tennis:espn:atp:184847",
+      "id": "fixture-tennis-espn-atp-184847",
+      "eventId": "fixture-tennis-espn-atp-184847",
       "canonicalEventId": "fixture:tennis:espn:atp:184847",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184847"
@@ -122451,8 +122335,8 @@
       "fullSpiel": "Quentin Halys v Chak Lam Coleman Wong is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184849",
-      "eventId": "fixture:tennis:espn:atp:184849",
+      "id": "fixture-tennis-espn-atp-184849",
+      "eventId": "fixture-tennis-espn-atp-184849",
       "canonicalEventId": "fixture:tennis:espn:atp:184849",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184849"
@@ -122590,8 +122474,8 @@
       "fullSpiel": "Arthur Fery v Marin Cilic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184854",
-      "eventId": "fixture:tennis:espn:atp:184854",
+      "id": "fixture-tennis-espn-atp-184854",
+      "eventId": "fixture-tennis-espn-atp-184854",
       "canonicalEventId": "fixture:tennis:espn:atp:184854",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184854"
@@ -122730,8 +122614,8 @@
       "fullSpiel": "Alex Molcan v Federico Cina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184862",
-      "eventId": "fixture:tennis:espn:atp:184862",
+      "id": "fixture-tennis-espn-atp-184862",
+      "eventId": "fixture-tennis-espn-atp-184862",
       "canonicalEventId": "fixture:tennis:espn:atp:184862",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184862"
@@ -122868,8 +122752,8 @@
       "fullSpiel": "Wu Yibing v Michael Zheng is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184870",
-      "eventId": "fixture:tennis:espn:atp:184870",
+      "id": "fixture-tennis-espn-atp-184870",
+      "eventId": "fixture-tennis-espn-atp-184870",
       "canonicalEventId": "fixture:tennis:espn:atp:184870",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184870"
@@ -123010,8 +122894,8 @@
       "fullSpiel": "Mattia Bellucci v Zhou Yi is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184878",
-      "eventId": "fixture:tennis:espn:atp:184878",
+      "id": "fixture-tennis-espn-atp-184878",
+      "eventId": "fixture-tennis-espn-atp-184878",
       "canonicalEventId": "fixture:tennis:espn:atp:184878",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184878"
@@ -123156,8 +123040,8 @@
       "fullSpiel": "Yannick Hanfmann v Kamil Majchrzak is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184880",
-      "eventId": "fixture:tennis:espn:atp:184880",
+      "id": "fixture-tennis-espn-atp-184880",
+      "eventId": "fixture-tennis-espn-atp-184880",
       "canonicalEventId": "fixture:tennis:espn:atp:184880",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184880"
@@ -123298,8 +123182,8 @@
       "fullSpiel": "Arthur Gea v Jaime Faria is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184881",
-      "eventId": "fixture:tennis:espn:atp:184881",
+      "id": "fixture-tennis-espn-atp-184881",
+      "eventId": "fixture-tennis-espn-atp-184881",
       "canonicalEventId": "fixture:tennis:espn:atp:184881",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184881"
@@ -123434,8 +123318,8 @@
       "fullSpiel": "Adrian Mannarino v Nikoloz Basilashvili is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184888",
-      "eventId": "fixture:tennis:espn:atp:184888",
+      "id": "fixture-tennis-espn-atp-184888",
+      "eventId": "fixture-tennis-espn-atp-184888",
       "canonicalEventId": "fixture:tennis:espn:atp:184888",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184888"
@@ -123571,8 +123455,8 @@
       "fullSpiel": "Rinky Hijikata v Roman Safiullin is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184889",
-      "eventId": "fixture:tennis:espn:atp:184889",
+      "id": "fixture-tennis-espn-atp-184889",
+      "eventId": "fixture-tennis-espn-atp-184889",
       "canonicalEventId": "fixture:tennis:espn:atp:184889",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184889"
@@ -123707,8 +123591,8 @@
       "fullSpiel": "Sho Shimabukuro v Miomir Kecmanovic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184345",
-      "eventId": "fixture:tennis:espn:wta:184345",
+      "id": "fixture-tennis-espn-wta-184345",
+      "eventId": "fixture-tennis-espn-wta-184345",
       "canonicalEventId": "fixture:tennis:espn:wta:184345",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184345"
@@ -123845,8 +123729,8 @@
       "fullSpiel": "Iva Jovic v Iga Swiatek is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184346",
-      "eventId": "fixture:tennis:espn:wta:184346",
+      "id": "fixture-tennis-espn-wta-184346",
+      "eventId": "fixture-tennis-espn-wta-184346",
       "canonicalEventId": "fixture:tennis:espn:wta:184346",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184346"
@@ -123983,8 +123867,8 @@
       "fullSpiel": "Coco Gauff v Elise Mertens is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184355",
-      "eventId": "fixture:tennis:espn:wta:184355",
+      "id": "fixture-tennis-espn-wta-184355",
+      "eventId": "fixture-tennis-espn-wta-184355",
       "canonicalEventId": "fixture:tennis:espn:wta:184355",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184355"
@@ -124123,8 +124007,8 @@
       "fullSpiel": "Alina Charaeva v Zheng Qinwen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:mlb:849833",
-      "eventId": "fixture:mlb:849833",
+      "id": "fixture-mlb-849833",
+      "eventId": "fixture-mlb-849833",
       "canonicalEventId": "fixture:mlb:849833",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -124243,8 +124127,8 @@
       "endTimeBasis": "scheduled-live-window"
     },
     {
-      "id": "fixture:mlb:849822",
-      "eventId": "fixture:mlb:849822",
+      "id": "fixture-mlb-849822",
+      "eventId": "fixture-mlb-849822",
       "canonicalEventId": "fixture:mlb:849822",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -124363,8 +124247,8 @@
       "endTimeBasis": "scheduled-live-window"
     },
     {
-      "id": "fixture:mlb:849838",
-      "eventId": "fixture:mlb:849838",
+      "id": "fixture-mlb-849838",
+      "eventId": "fixture-mlb-849838",
       "canonicalEventId": "fixture:mlb:849838",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -124483,8 +124367,8 @@
       "endTimeBasis": "scheduled-live-window"
     },
     {
-      "id": "fixture:mlb:849827",
-      "eventId": "fixture:mlb:849827",
+      "id": "fixture-mlb-849827",
+      "eventId": "fixture-mlb-849827",
       "canonicalEventId": "fixture:mlb:849827",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -124800,8 +124684,8 @@
       "endTimeBasis": "scheduled-live-window"
     },
     {
-      "id": "fixture:tennis:espn:atp:184841",
-      "eventId": "fixture:tennis:espn:atp:184841",
+      "id": "fixture-tennis-espn-atp-184841",
+      "eventId": "fixture-tennis-espn-atp-184841",
       "canonicalEventId": "fixture:tennis:espn:atp:184841",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184841"
@@ -124936,8 +124820,8 @@
       "fullSpiel": "Martin Landaluce v Jan-Lennard Struff is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184843",
-      "eventId": "fixture:tennis:espn:atp:184843",
+      "id": "fixture-tennis-espn-atp-184843",
+      "eventId": "fixture-tennis-espn-atp-184843",
       "canonicalEventId": "fixture:tennis:espn:atp:184843",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184843"
@@ -125074,8 +124958,8 @@
       "fullSpiel": "Bernard Tomic v Matteo Arnaldi is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184850",
-      "eventId": "fixture:tennis:espn:atp:184850",
+      "id": "fixture-tennis-espn-atp-184850",
+      "eventId": "fixture-tennis-espn-atp-184850",
       "canonicalEventId": "fixture:tennis:espn:atp:184850",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184850"
@@ -125210,8 +125094,8 @@
       "fullSpiel": "Adolfo Daniel Vallejo v Valentin Royer is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184851",
-      "eventId": "fixture:tennis:espn:atp:184851",
+      "id": "fixture-tennis-espn-atp-184851",
+      "eventId": "fixture-tennis-espn-atp-184851",
       "canonicalEventId": "fixture:tennis:espn:atp:184851",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184851"
@@ -125351,8 +125235,8 @@
       "fullSpiel": "Cameron Norrie v Dalibor Svrcina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184855",
-      "eventId": "fixture:tennis:espn:atp:184855",
+      "id": "fixture-tennis-espn-atp-184855",
+      "eventId": "fixture-tennis-espn-atp-184855",
       "canonicalEventId": "fixture:tennis:espn:atp:184855",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184855"
@@ -125488,8 +125372,8 @@
       "fullSpiel": "Kimmer Coppejans v Stefanos Tsitsipas is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184857",
-      "eventId": "fixture:tennis:espn:atp:184857",
+      "id": "fixture-tennis-espn-atp-184857",
+      "eventId": "fixture-tennis-espn-atp-184857",
       "canonicalEventId": "fixture:tennis:espn:atp:184857",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184857"
@@ -125627,8 +125511,8 @@
       "fullSpiel": "Nuno Borges v Facundo Diaz Acosta is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184858",
-      "eventId": "fixture:tennis:espn:atp:184858",
+      "id": "fixture-tennis-espn-atp-184858",
+      "eventId": "fixture-tennis-espn-atp-184858",
       "canonicalEventId": "fixture:tennis:espn:atp:184858",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184858"
@@ -125763,8 +125647,8 @@
       "fullSpiel": "Thiago Agustin Tirante v Hamad Medjedovic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184863",
-      "eventId": "fixture:tennis:espn:atp:184863",
+      "id": "fixture-tennis-espn-atp-184863",
+      "eventId": "fixture-tennis-espn-atp-184863",
       "canonicalEventId": "fixture:tennis:espn:atp:184863",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184863"
@@ -125904,8 +125788,8 @@
       "fullSpiel": "Mariano Navone v Pablo Carreno Busta is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184864",
-      "eventId": "fixture:tennis:espn:atp:184864",
+      "id": "fixture-tennis-espn-atp-184864",
+      "eventId": "fixture-tennis-espn-atp-184864",
       "canonicalEventId": "fixture:tennis:espn:atp:184864",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184864"
@@ -126044,8 +125928,8 @@
       "fullSpiel": "Camilo Ugo Carabelli v Ilia Simakin is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184867",
-      "eventId": "fixture:tennis:espn:atp:184867",
+      "id": "fixture-tennis-espn-atp-184867",
+      "eventId": "fixture-tennis-espn-atp-184867",
       "canonicalEventId": "fixture:tennis:espn:atp:184867",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184867"
@@ -126182,8 +126066,8 @@
       "fullSpiel": "Fabian Marozsan v Zachary Svajda is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184868",
-      "eventId": "fixture:tennis:espn:atp:184868",
+      "id": "fixture-tennis-espn-atp-184868",
+      "eventId": "fixture-tennis-espn-atp-184868",
       "canonicalEventId": "fixture:tennis:espn:atp:184868",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184868"
@@ -126321,8 +126205,8 @@
       "fullSpiel": "Luca Van Assche v Bu Yunchaokete is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184869",
-      "eventId": "fixture:tennis:espn:atp:184869",
+      "id": "fixture-tennis-espn-atp-184869",
+      "eventId": "fixture-tennis-espn-atp-184869",
       "canonicalEventId": "fixture:tennis:espn:atp:184869",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184869"
@@ -126461,8 +126345,8 @@
       "fullSpiel": "Hubert Hurkacz v James Duckworth is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184874",
-      "eventId": "fixture:tennis:espn:atp:184874",
+      "id": "fixture-tennis-espn-atp-184874",
+      "eventId": "fixture-tennis-espn-atp-184874",
       "canonicalEventId": "fixture:tennis:espn:atp:184874",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184874"
@@ -126599,8 +126483,8 @@
       "fullSpiel": "Pavel Kotov v Tallon Griekspoor is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184875",
-      "eventId": "fixture:tennis:espn:atp:184875",
+      "id": "fixture-tennis-espn-atp-184875",
+      "eventId": "fixture-tennis-espn-atp-184875",
       "canonicalEventId": "fixture:tennis:espn:atp:184875",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184875"
@@ -126741,8 +126625,8 @@
       "fullSpiel": "Botic van de Zandschulp v Daniel Merida is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184877",
-      "eventId": "fixture:tennis:espn:atp:184877",
+      "id": "fixture-tennis-espn-atp-184877",
+      "eventId": "fixture-tennis-espn-atp-184877",
       "canonicalEventId": "fixture:tennis:espn:atp:184877",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184877"
@@ -126877,8 +126761,8 @@
       "fullSpiel": "Jaume Munar v Jenson Brooksby is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184882",
-      "eventId": "fixture:tennis:espn:atp:184882",
+      "id": "fixture-tennis-espn-atp-184882",
+      "eventId": "fixture-tennis-espn-atp-184882",
       "canonicalEventId": "fixture:tennis:espn:atp:184882",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184882"
@@ -127017,8 +126901,8 @@
       "fullSpiel": "Marcos Giron v Sebastian Baez is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184885",
-      "eventId": "fixture:tennis:espn:atp:184885",
+      "id": "fixture-tennis-espn-atp-184885",
+      "eventId": "fixture-tennis-espn-atp-184885",
       "canonicalEventId": "fixture:tennis:espn:atp:184885",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184885"
@@ -127159,8 +127043,8 @@
       "fullSpiel": "Holger Rune v Daniel Altmaier is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184892",
-      "eventId": "fixture:tennis:espn:atp:184892",
+      "id": "fixture-tennis-espn-atp-184892",
+      "eventId": "fixture-tennis-espn-atp-184892",
       "canonicalEventId": "fixture:tennis:espn:atp:184892",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184892"
@@ -127296,8 +127180,8 @@
       "fullSpiel": "Vit Kopriva v Zizou Bergs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184893",
-      "eventId": "fixture:tennis:espn:atp:184893",
+      "id": "fixture-tennis-espn-atp-184893",
+      "eventId": "fixture-tennis-espn-atp-184893",
       "canonicalEventId": "fixture:tennis:espn:atp:184893",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184893"
@@ -127432,8 +127316,8 @@
       "fullSpiel": "Juan Manuel Cerundolo v Nicolas Mejia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184351",
-      "eventId": "fixture:tennis:espn:wta:184351",
+      "id": "fixture-tennis-espn-wta-184351",
+      "eventId": "fixture-tennis-espn-wta-184351",
       "canonicalEventId": "fixture:tennis:espn:wta:184351",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184351"
@@ -127570,8 +127454,8 @@
       "fullSpiel": "Karolina Muchova v Nikola Bartunkova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184352",
-      "eventId": "fixture:tennis:espn:wta:184352",
+      "id": "fixture-tennis-espn-wta-184352",
+      "eventId": "fixture-tennis-espn-wta-184352",
       "canonicalEventId": "fixture:tennis:espn:wta:184352",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184352"
@@ -127712,8 +127596,8 @@
       "fullSpiel": "Ekaterina Alexandrova v Mirra Andreeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184354",
-      "eventId": "fixture:tennis:espn:wta:184354",
+      "id": "fixture-tennis-espn-wta-184354",
+      "eventId": "fixture-tennis-espn-wta-184354",
       "canonicalEventId": "fixture:tennis:espn:wta:184354",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184354"
@@ -127850,8 +127734,8 @@
       "fullSpiel": "Ann Li v Elina Svitolina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:mlb:849832",
-      "eventId": "fixture:mlb:849832",
+      "id": "fixture-mlb-849832",
+      "eventId": "fixture-mlb-849832",
       "canonicalEventId": "fixture:mlb:849832",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -128249,8 +128133,8 @@
       "expected": 7,
       "venue": "Kingsmead, Durban",
       "liveWindow": 8,
-      "id": "fixture:cricket:espn:1525659",
-      "eventId": "fixture:cricket:espn:1525659",
+      "id": "fixture-cricket-espn-1525659",
+      "eventId": "fixture-cricket-espn-1525659",
       "displayTitleCompact": "South Africa v Australia — First Test",
       "selectedSentence": "Rabada's absence and two South African spinners make Durban a test of Australia's batting adaptability, not simply its pace attack.",
       "fullSpiel": "Kingsmead begins a three-Test contest between the last two World Test Championship winners, before Gqeberha and Cape Town. South Africa's announced XI is confirmed; Australia's touring options are not a promised playing XI. Kayo and Fox Cricket carry the series in Australia. No first-Test result has been assumed.",
@@ -129259,8 +129143,8 @@
       "endTimeBasis": "scheduled-live-window"
     },
     {
-      "id": "fixture:tennis:espn:atp:184917",
-      "eventId": "fixture:tennis:espn:atp:184917",
+      "id": "fixture-tennis-espn-atp-184917",
+      "eventId": "fixture-tennis-espn-atp-184917",
       "canonicalEventId": "fixture:tennis:espn:atp:184917",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184917",
@@ -130054,8 +129938,8 @@
       "participantsConfirmed": true
     },
     {
-      "id": "fixture:mlb:849837",
-      "eventId": "fixture:mlb:849837",
+      "id": "fixture-mlb-849837",
+      "eventId": "fixture-mlb-849837",
       "canonicalEventId": "fixture:mlb:849837",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -130160,8 +130044,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:tennis:atp-shanghai-2026:r64:de-minaur-molcan",
-      "eventId": "fixture:tennis:atp-shanghai-2026:r64:de-minaur-molcan",
+      "id": "fixture-tennis-atp-shanghai-2026-r64-de-minaur-molcan",
+      "eventId": "fixture-tennis-atp-shanghai-2026-r64-de-minaur-molcan",
       "canonicalEventId": "fixture:tennis:atp-shanghai-2026:r64:de-minaur-molcan",
       "key": "tennis",
       "sport": "Tennis",
@@ -130357,8 +130241,8 @@
       "fullSpiel": "Alex de Minaur v Alex Molcan is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184904",
-      "eventId": "fixture:tennis:espn:atp:184904",
+      "id": "fixture-tennis-espn-atp-184904",
+      "eventId": "fixture-tennis-espn-atp-184904",
       "canonicalEventId": "fixture:tennis:espn:atp:184904",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184904"
@@ -130494,8 +130378,8 @@
       "fullSpiel": "Yannick Hanfmann v Frances Tiafoe is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184914",
-      "eventId": "fixture:tennis:espn:atp:184914",
+      "id": "fixture-tennis-espn-atp-184914",
+      "eventId": "fixture-tennis-espn-atp-184914",
       "canonicalEventId": "fixture:tennis:espn:atp:184914",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184914"
@@ -130631,8 +130515,8 @@
       "fullSpiel": "Rei Sakamoto v Andrey Rublev is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184915",
-      "eventId": "fixture:tennis:espn:atp:184915",
+      "id": "fixture-tennis-espn-atp-184915",
+      "eventId": "fixture-tennis-espn-atp-184915",
       "canonicalEventId": "fixture:tennis:espn:atp:184915",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184915"
@@ -130779,8 +130663,8 @@
       "fullSpiel": "Karen Khachanov v Arthur Fery is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184916",
-      "eventId": "fixture:tennis:espn:atp:184916",
+      "id": "fixture-tennis-espn-atp-184916",
+      "eventId": "fixture-tennis-espn-atp-184916",
       "canonicalEventId": "fixture:tennis:espn:atp:184916",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184916"
@@ -130920,8 +130804,8 @@
       "fullSpiel": "Adrian Mannarino v Flavio Cobolli is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184918",
-      "eventId": "fixture:tennis:espn:atp:184918",
+      "id": "fixture-tennis-espn-atp-184918",
+      "eventId": "fixture-tennis-espn-atp-184918",
       "canonicalEventId": "fixture:tennis:espn:atp:184918",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184918"
@@ -131065,8 +130949,8 @@
       "fullSpiel": "Zhou Yi v Lorenzo Musetti is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184919",
-      "eventId": "fixture:tennis:espn:atp:184919",
+      "id": "fixture-tennis-espn-atp-184919",
+      "eventId": "fixture-tennis-espn-atp-184919",
       "canonicalEventId": "fixture:tennis:espn:atp:184919",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184919"
@@ -131202,8 +131086,8 @@
       "fullSpiel": "Alejandro Davidovich Fokina v Jenson Brooksby is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184920",
-      "eventId": "fixture:tennis:espn:atp:184920",
+      "id": "fixture-tennis-espn-atp-184920",
+      "eventId": "fixture-tennis-espn-atp-184920",
       "canonicalEventId": "fixture:tennis:espn:atp:184920",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184920"
@@ -131341,8 +131225,8 @@
       "fullSpiel": "Ben Shelton v Daniel Altmaier is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184921",
-      "eventId": "fixture:tennis:espn:atp:184921",
+      "id": "fixture-tennis-espn-atp-184921",
+      "eventId": "fixture-tennis-espn-atp-184921",
       "canonicalEventId": "fixture:tennis:espn:atp:184921",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184921"
@@ -131482,8 +131366,8 @@
       "fullSpiel": "Arthur Gea v Ugo Humbert is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184922",
-      "eventId": "fixture:tennis:espn:atp:184922",
+      "id": "fixture-tennis-espn-atp-184922",
+      "eventId": "fixture-tennis-espn-atp-184922",
       "canonicalEventId": "fixture:tennis:espn:atp:184922",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184922"
@@ -131621,8 +131505,8 @@
       "fullSpiel": "Francisco Cerundolo v Roman Safiullin is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184923",
-      "eventId": "fixture:tennis:espn:atp:184923",
+      "id": "fixture-tennis-espn-atp-184923",
+      "eventId": "fixture-tennis-espn-atp-184923",
       "canonicalEventId": "fixture:tennis:espn:atp:184923",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184923"
@@ -131758,8 +131642,8 @@
       "fullSpiel": "Miomir Kecmanovic v Jakub Mensik is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184924",
-      "eventId": "fixture:tennis:espn:atp:184924",
+      "id": "fixture-tennis-espn-atp-184924",
+      "eventId": "fixture-tennis-espn-atp-184924",
       "canonicalEventId": "fixture:tennis:espn:atp:184924",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184924"
@@ -131902,8 +131786,8 @@
       "fullSpiel": "Quentin Halys v Alexander Blockx is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184925",
-      "eventId": "fixture:tennis:espn:atp:184925",
+      "id": "fixture-tennis-espn-atp-184925",
+      "eventId": "fixture-tennis-espn-atp-184925",
       "canonicalEventId": "fixture:tennis:espn:atp:184925",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184925"
@@ -132041,8 +131925,8 @@
       "fullSpiel": "Alexander Bublik v Tomas Machac is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184926",
-      "eventId": "fixture:tennis:espn:atp:184926",
+      "id": "fixture-tennis-espn-atp-184926",
+      "eventId": "fixture-tennis-espn-atp-184926",
       "canonicalEventId": "fixture:tennis:espn:atp:184926",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184926"
@@ -132181,8 +132065,8 @@
       "fullSpiel": "Matteo Berrettini v Brandon Nakashima is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184928",
-      "eventId": "fixture:tennis:espn:atp:184928",
+      "id": "fixture-tennis-espn-atp-184928",
+      "eventId": "fixture-tennis-espn-atp-184928",
       "canonicalEventId": "fixture:tennis:espn:atp:184928",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184928"
@@ -132320,8 +132204,8 @@
       "fullSpiel": "Alexander Zverev v Wu Yibing is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184347",
-      "eventId": "fixture:tennis:espn:wta:184347",
+      "id": "fixture-tennis-espn-wta-184347",
+      "eventId": "fixture-tennis-espn-wta-184347",
       "canonicalEventId": "fixture:tennis:espn:wta:184347",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184347"
@@ -132459,8 +132343,8 @@
       "fullSpiel": "Zheng Qinwen v Elina Svitolina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184353",
-      "eventId": "fixture:tennis:espn:wta:184353",
+      "id": "fixture-tennis-espn-wta-184353",
+      "eventId": "fixture-tennis-espn-wta-184353",
       "canonicalEventId": "fixture:tennis:espn:wta:184353",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184353"
@@ -135048,8 +134932,8 @@
       "scoreCheckedAt": "2026-10-10T19:13:52.774Z"
     },
     {
-      "id": "fixture:mlb:849821",
-      "eventId": "fixture:mlb:849821",
+      "id": "fixture-mlb-849821",
+      "eventId": "fixture-mlb-849821",
       "canonicalEventId": "fixture:mlb:849821",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -135154,8 +135038,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:mlb:849824",
-      "eventId": "fixture:mlb:849824",
+      "id": "fixture-mlb-849824",
+      "eventId": "fixture-mlb-849824",
       "canonicalEventId": "fixture:mlb:849824",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -135260,8 +135144,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:tennis:espn:atp:184897",
-      "eventId": "fixture:tennis:espn:atp:184897",
+      "id": "fixture-tennis-espn-atp-184897",
+      "eventId": "fixture-tennis-espn-atp-184897",
       "canonicalEventId": "fixture:tennis:espn:atp:184897",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184897"
@@ -135398,8 +135282,8 @@
       "fullSpiel": "Luciano Darderi v Stefanos Tsitsipas is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184898",
-      "eventId": "fixture:tennis:espn:atp:184898",
+      "id": "fixture-tennis-espn-atp-184898",
+      "eventId": "fixture-tennis-espn-atp-184898",
       "canonicalEventId": "fixture:tennis:espn:atp:184898",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184898"
@@ -135536,8 +135420,8 @@
       "fullSpiel": "Matteo Arnaldi v Taylor Fritz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184899",
-      "eventId": "fixture:tennis:espn:atp:184899",
+      "id": "fixture-tennis-espn-atp-184899",
+      "eventId": "fixture-tennis-espn-atp-184899",
       "canonicalEventId": "fixture:tennis:espn:atp:184899",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184899"
@@ -135650,8 +135534,8 @@
       "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z"
     },
     {
-      "id": "fixture:tennis:espn:atp:184900",
-      "eventId": "fixture:tennis:espn:atp:184900",
+      "id": "fixture-tennis-espn-atp-184900",
+      "eventId": "fixture-tennis-espn-atp-184900",
       "canonicalEventId": "fixture:tennis:espn:atp:184900",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184900"
@@ -135749,8 +135633,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:atp:184901",
-      "eventId": "fixture:tennis:espn:atp:184901",
+      "id": "fixture-tennis-espn-atp-184901",
+      "eventId": "fixture-tennis-espn-atp-184901",
       "canonicalEventId": "fixture:tennis:espn:atp:184901",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184901"
@@ -135890,8 +135774,8 @@
       "fullSpiel": "Dalibor Svrcina v Tomas Martin Etcheverry is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184902",
-      "eventId": "fixture:tennis:espn:atp:184902",
+      "id": "fixture-tennis-espn-atp-184902",
+      "eventId": "fixture-tennis-espn-atp-184902",
       "canonicalEventId": "fixture:tennis:espn:atp:184902",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184902"
@@ -136005,8 +135889,8 @@
       "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z"
     },
     {
-      "id": "fixture:tennis:espn:atp:184903",
-      "eventId": "fixture:tennis:espn:atp:184903",
+      "id": "fixture-tennis-espn-atp-184903",
+      "eventId": "fixture-tennis-espn-atp-184903",
       "canonicalEventId": "fixture:tennis:espn:atp:184903",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184903"
@@ -136119,8 +136003,8 @@
       "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z"
     },
     {
-      "id": "fixture:tennis:espn:atp:184905",
-      "eventId": "fixture:tennis:espn:atp:184905",
+      "id": "fixture-tennis-espn-atp-184905",
+      "eventId": "fixture-tennis-espn-atp-184905",
       "canonicalEventId": "fixture:tennis:espn:atp:184905",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184905"
@@ -136256,8 +136140,8 @@
       "fullSpiel": "Arthur Fils v Pavel Kotov is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184906",
-      "eventId": "fixture:tennis:espn:atp:184906",
+      "id": "fixture-tennis-espn-atp-184906",
+      "eventId": "fixture-tennis-espn-atp-184906",
       "canonicalEventId": "fixture:tennis:espn:atp:184906",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184906"
@@ -136367,8 +136251,8 @@
       "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z"
     },
     {
-      "id": "fixture:tennis:espn:atp:184907",
-      "eventId": "fixture:tennis:espn:atp:184907",
+      "id": "fixture-tennis-espn-atp-184907",
+      "eventId": "fixture-tennis-espn-atp-184907",
       "canonicalEventId": "fixture:tennis:espn:atp:184907",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184907"
@@ -136509,8 +136393,8 @@
       "fullSpiel": "Jiri Lehecka v Nuno Borges is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184908",
-      "eventId": "fixture:tennis:espn:atp:184908",
+      "id": "fixture-tennis-espn-atp-184908",
+      "eventId": "fixture-tennis-espn-atp-184908",
       "canonicalEventId": "fixture:tennis:espn:atp:184908",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184908"
@@ -136652,8 +136536,8 @@
       "fullSpiel": "Camilo Ugo Carabelli v Felix Auger Aliassime is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184909",
-      "eventId": "fixture:tennis:espn:atp:184909",
+      "id": "fixture-tennis-espn-atp-184909",
+      "eventId": "fixture-tennis-espn-atp-184909",
       "canonicalEventId": "fixture:tennis:espn:atp:184909",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184909"
@@ -136793,8 +136677,8 @@
       "fullSpiel": "Daniil Medvedev v Jan-Lennard Struff is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184910",
-      "eventId": "fixture:tennis:espn:atp:184910",
+      "id": "fixture-tennis-espn-atp-184910",
+      "eventId": "fixture-tennis-espn-atp-184910",
       "canonicalEventId": "fixture:tennis:espn:atp:184910",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184910"
@@ -136934,8 +136818,8 @@
       "fullSpiel": "Thiago Agustin Tirante v Rafael Jodar is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184911",
-      "eventId": "fixture:tennis:espn:atp:184911",
+      "id": "fixture-tennis-espn-atp-184911",
+      "eventId": "fixture-tennis-espn-atp-184911",
       "canonicalEventId": "fixture:tennis:espn:atp:184911",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184911"
@@ -137071,8 +136955,8 @@
       "fullSpiel": "Learner Tien v Zachary Svajda is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184912",
-      "eventId": "fixture:tennis:espn:atp:184912",
+      "id": "fixture-tennis-espn-atp-184912",
+      "eventId": "fixture-tennis-espn-atp-184912",
       "canonicalEventId": "fixture:tennis:espn:atp:184912",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184912"
@@ -137210,8 +137094,8 @@
       "fullSpiel": "Bu Yunchaokete v Casper Ruud is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:atp:184913",
-      "eventId": "fixture:tennis:espn:atp:184913",
+      "id": "fixture-tennis-espn-atp-184913",
+      "eventId": "fixture-tennis-espn-atp-184913",
       "canonicalEventId": "fixture:tennis:espn:atp:184913",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184913"
@@ -137353,8 +137237,8 @@
       "fullSpiel": "Alejandro Tabilo v Pablo Carreno Busta is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
-      "id": "fixture:tennis:espn:wta:184350",
-      "eventId": "fixture:tennis:espn:wta:184350",
+      "id": "fixture-tennis-espn-wta-184350",
+      "eventId": "fixture-tennis-espn-wta-184350",
       "canonicalEventId": "fixture:tennis:espn:wta:184350",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184350"
@@ -137467,8 +137351,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:184357",
-      "eventId": "fixture:tennis:espn:wta:184357",
+      "id": "fixture-tennis-espn-wta-184357",
+      "eventId": "fixture-tennis-espn-wta-184357",
       "canonicalEventId": "fixture:tennis:espn:wta:184357",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:184357"
@@ -138910,8 +138794,8 @@
       "scoreCheckedAt": "2026-10-10T19:13:52.774Z"
     },
     {
-      "id": "fixture:mlb:849831",
-      "eventId": "fixture:mlb:849831",
+      "id": "fixture-mlb-849831",
+      "eventId": "fixture-mlb-849831",
       "canonicalEventId": "fixture:mlb:849831",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -139766,8 +139650,8 @@
       }
     },
     {
-      "id": "fixture:tennis:espn:atp:184942",
-      "eventId": "fixture:tennis:espn:atp:184942",
+      "id": "fixture-tennis-espn-atp-184942",
+      "eventId": "fixture-tennis-espn-atp-184942",
       "canonicalEventId": "fixture:tennis:espn:atp:184942",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184942"
@@ -140071,8 +139955,8 @@
       }
     },
     {
-      "id": "fixture:tennis:espn:atp:184929",
-      "eventId": "fixture:tennis:espn:atp:184929",
+      "id": "fixture-tennis-espn-atp-184929",
+      "eventId": "fixture-tennis-espn-atp-184929",
       "canonicalEventId": "fixture:tennis:espn:atp:184929",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184929"
@@ -140638,8 +140522,8 @@
       }
     },
     {
-      "id": "fixture:tennis:espn:atp:184944",
-      "eventId": "fixture:tennis:espn:atp:184944",
+      "id": "fixture-tennis-espn-atp-184944",
+      "eventId": "fixture-tennis-espn-atp-184944",
       "canonicalEventId": "fixture:tennis:espn:atp:184944",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184944"
@@ -140833,8 +140717,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:atp:184931",
-      "eventId": "fixture:tennis:espn:atp:184931",
+      "id": "fixture-tennis-espn-atp-184931",
+      "eventId": "fixture-tennis-espn-atp-184931",
       "canonicalEventId": "fixture:tennis:espn:atp:184931",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184931"
@@ -141148,8 +141032,8 @@
       }
     },
     {
-      "id": "fixture:mlb:849836",
-      "eventId": "fixture:mlb:849836",
+      "id": "fixture-mlb-849836",
+      "eventId": "fixture-mlb-849836",
       "canonicalEventId": "fixture:mlb:849836",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -141254,8 +141138,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:tennis:espn:atp:184930",
-      "eventId": "fixture:tennis:espn:atp:184930",
+      "id": "fixture-tennis-espn-atp-184930",
+      "eventId": "fixture-tennis-espn-atp-184930",
       "canonicalEventId": "fixture:tennis:espn:atp:184930",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184930"
@@ -141354,8 +141238,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:atp:184935",
-      "eventId": "fixture:tennis:espn:atp:184935",
+      "id": "fixture-tennis-espn-atp-184935",
+      "eventId": "fixture-tennis-espn-atp-184935",
       "canonicalEventId": "fixture:tennis:espn:atp:184935",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184935"
@@ -141453,8 +141337,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:atp:184936",
-      "eventId": "fixture:tennis:espn:atp:184936",
+      "id": "fixture-tennis-espn-atp-184936",
+      "eventId": "fixture-tennis-espn-atp-184936",
       "canonicalEventId": "fixture:tennis:espn:atp:184936",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184936"
@@ -141553,8 +141437,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:atp:184943",
-      "eventId": "fixture:tennis:espn:atp:184943",
+      "id": "fixture-tennis-espn-atp-184943",
+      "eventId": "fixture-tennis-espn-atp-184943",
       "canonicalEventId": "fixture:tennis:espn:atp:184943",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184943"
@@ -142100,8 +141984,8 @@
       }
     },
     {
-      "id": "fixture:mlb:849809",
-      "eventId": "fixture:mlb:849809",
+      "id": "fixture-mlb-849809",
+      "eventId": "fixture-mlb-849809",
       "canonicalEventId": "fixture:mlb:849809",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -142206,8 +142090,8 @@
       "catchupEligible": false
     },
     {
-      "id": "fixture:tennis:espn:atp:184932",
-      "eventId": "fixture:tennis:espn:atp:184932",
+      "id": "fixture-tennis-espn-atp-184932",
+      "eventId": "fixture-tennis-espn-atp-184932",
       "canonicalEventId": "fixture:tennis:espn:atp:184932",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184932"
@@ -142306,8 +142190,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:atp:184933",
-      "eventId": "fixture:tennis:espn:atp:184933",
+      "id": "fixture-tennis-espn-atp-184933",
+      "eventId": "fixture-tennis-espn-atp-184933",
       "canonicalEventId": "fixture:tennis:espn:atp:184933",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184933"
@@ -142405,8 +142289,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:atp:184934",
-      "eventId": "fixture:tennis:espn:atp:184934",
+      "id": "fixture-tennis-espn-atp-184934",
+      "eventId": "fixture-tennis-espn-atp-184934",
       "canonicalEventId": "fixture:tennis:espn:atp:184934",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184934"
@@ -142504,8 +142388,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:atp:184938",
-      "eventId": "fixture:tennis:espn:atp:184938",
+      "id": "fixture-tennis-espn-atp-184938",
+      "eventId": "fixture-tennis-espn-atp-184938",
       "canonicalEventId": "fixture:tennis:espn:atp:184938",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184938"
@@ -142604,8 +142488,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:atp:184939",
-      "eventId": "fixture:tennis:espn:atp:184939",
+      "id": "fixture-tennis-espn-atp-184939",
+      "eventId": "fixture-tennis-espn-atp-184939",
       "canonicalEventId": "fixture:tennis:espn:atp:184939",
       "sourceEventIds": [
         "fixture:tennis:espn:atp:184939"
@@ -142704,8 +142588,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185314",
-      "eventId": "fixture:tennis:espn:wta:185314",
+      "id": "fixture-tennis-espn-wta-185314",
+      "eventId": "fixture-tennis-espn-wta-185314",
       "canonicalEventId": "fixture:tennis:espn:wta:185314",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185314"
@@ -142803,8 +142687,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185320",
-      "eventId": "fixture:tennis:espn:wta:185320",
+      "id": "fixture-tennis-espn-wta-185320",
+      "eventId": "fixture-tennis-espn-wta-185320",
       "canonicalEventId": "fixture:tennis:espn:wta:185320",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185320"
@@ -142902,8 +142786,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185321",
-      "eventId": "fixture:tennis:espn:wta:185321",
+      "id": "fixture-tennis-espn-wta-185321",
+      "eventId": "fixture-tennis-espn-wta-185321",
       "canonicalEventId": "fixture:tennis:espn:wta:185321",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185321"
@@ -143002,8 +142886,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185322",
-      "eventId": "fixture:tennis:espn:wta:185322",
+      "id": "fixture-tennis-espn-wta-185322",
+      "eventId": "fixture-tennis-espn-wta-185322",
       "canonicalEventId": "fixture:tennis:espn:wta:185322",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185322"
@@ -143101,8 +142985,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185324",
-      "eventId": "fixture:tennis:espn:wta:185324",
+      "id": "fixture-tennis-espn-wta-185324",
+      "eventId": "fixture-tennis-espn-wta-185324",
       "canonicalEventId": "fixture:tennis:espn:wta:185324",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185324"
@@ -143200,8 +143084,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185326",
-      "eventId": "fixture:tennis:espn:wta:185326",
+      "id": "fixture-tennis-espn-wta-185326",
+      "eventId": "fixture-tennis-espn-wta-185326",
       "canonicalEventId": "fixture:tennis:espn:wta:185326",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185326"
@@ -143299,8 +143183,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185327",
-      "eventId": "fixture:tennis:espn:wta:185327",
+      "id": "fixture-tennis-espn-wta-185327",
+      "eventId": "fixture-tennis-espn-wta-185327",
       "canonicalEventId": "fixture:tennis:espn:wta:185327",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185327"
@@ -143399,8 +143283,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185330",
-      "eventId": "fixture:tennis:espn:wta:185330",
+      "id": "fixture-tennis-espn-wta-185330",
+      "eventId": "fixture-tennis-espn-wta-185330",
       "canonicalEventId": "fixture:tennis:espn:wta:185330",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185330"
@@ -143498,8 +143382,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185331",
-      "eventId": "fixture:tennis:espn:wta:185331",
+      "id": "fixture-tennis-espn-wta-185331",
+      "eventId": "fixture-tennis-espn-wta-185331",
       "canonicalEventId": "fixture:tennis:espn:wta:185331",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185331"
@@ -143598,8 +143482,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185332",
-      "eventId": "fixture:tennis:espn:wta:185332",
+      "id": "fixture-tennis-espn-wta-185332",
+      "eventId": "fixture-tennis-espn-wta-185332",
       "canonicalEventId": "fixture:tennis:espn:wta:185332",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185332"
@@ -143697,8 +143581,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185333",
-      "eventId": "fixture:tennis:espn:wta:185333",
+      "id": "fixture-tennis-espn-wta-185333",
+      "eventId": "fixture-tennis-espn-wta-185333",
       "canonicalEventId": "fixture:tennis:espn:wta:185333",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185333"
@@ -143796,8 +143680,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185334",
-      "eventId": "fixture:tennis:espn:wta:185334",
+      "id": "fixture-tennis-espn-wta-185334",
+      "eventId": "fixture-tennis-espn-wta-185334",
       "canonicalEventId": "fixture:tennis:espn:wta:185334",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185334"
@@ -143894,8 +143778,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185336",
-      "eventId": "fixture:tennis:espn:wta:185336",
+      "id": "fixture-tennis-espn-wta-185336",
+      "eventId": "fixture-tennis-espn-wta-185336",
       "canonicalEventId": "fixture:tennis:espn:wta:185336",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185336"
@@ -143994,8 +143878,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185339",
-      "eventId": "fixture:tennis:espn:wta:185339",
+      "id": "fixture-tennis-espn-wta-185339",
+      "eventId": "fixture-tennis-espn-wta-185339",
       "canonicalEventId": "fixture:tennis:espn:wta:185339",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185339"
@@ -144094,8 +143978,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185340",
-      "eventId": "fixture:tennis:espn:wta:185340",
+      "id": "fixture-tennis-espn-wta-185340",
+      "eventId": "fixture-tennis-espn-wta-185340",
       "canonicalEventId": "fixture:tennis:espn:wta:185340",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185340"
@@ -144193,8 +144077,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185341",
-      "eventId": "fixture:tennis:espn:wta:185341",
+      "id": "fixture-tennis-espn-wta-185341",
+      "eventId": "fixture-tennis-espn-wta-185341",
       "canonicalEventId": "fixture:tennis:espn:wta:185341",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185341"
@@ -144293,8 +144177,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185343",
-      "eventId": "fixture:tennis:espn:wta:185343",
+      "id": "fixture-tennis-espn-wta-185343",
+      "eventId": "fixture-tennis-espn-wta-185343",
       "canonicalEventId": "fixture:tennis:espn:wta:185343",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185343"
@@ -144392,8 +144276,8 @@
       "fullSpiel": ""
     },
     {
-      "id": "fixture:tennis:espn:wta:185344",
-      "eventId": "fixture:tennis:espn:wta:185344",
+      "id": "fixture-tennis-espn-wta-185344",
+      "eventId": "fixture-tennis-espn-wta-185344",
       "canonicalEventId": "fixture:tennis:espn:wta:185344",
       "sourceEventIds": [
         "fixture:tennis:espn:wta:185344"
@@ -144641,8 +144525,8 @@
       }
     },
     {
-      "id": "fixture:mlb:849812",
-      "eventId": "fixture:mlb:849812",
+      "id": "fixture-mlb-849812",
+      "eventId": "fixture-mlb-849812",
       "canonicalEventId": "fixture:mlb:849812",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -144946,8 +144830,8 @@
       }
     },
     {
-      "id": "fixture:mlb:849811",
-      "eventId": "fixture:mlb:849811",
+      "id": "fixture-mlb-849811",
+      "eventId": "fixture-mlb-849811",
       "canonicalEventId": "fixture:mlb:849811",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -145374,8 +145258,8 @@
       "roundLabel": "Rugby League World Cup Round 1"
     },
     {
-      "id": "fixture:mlb:849810",
-      "eventId": "fixture:mlb:849810",
+      "id": "fixture-mlb-849810",
+      "eventId": "fixture-mlb-849810",
       "canonicalEventId": "fixture:mlb:849810",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -147098,8 +146982,8 @@
       }
     },
     {
-      "id": "fixture:mlb:849808",
-      "eventId": "fixture:mlb:849808",
+      "id": "fixture-mlb-849808",
+      "eventId": "fixture-mlb-849808",
       "canonicalEventId": "fixture:mlb:849808",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -148706,8 +148590,8 @@
       "expected": 8,
       "venue": "St George's Park, Gqeberha",
       "liveWindow": 8,
-      "id": "fixture:cricket:espn:1525660",
-      "eventId": "fixture:cricket:espn:1525660",
+      "id": "fixture-cricket-espn-1525660",
+      "eventId": "fixture-cricket-espn-1525660",
       "displayTitleCompact": "South Africa v Australia — Second Test",
       "selectedSentence": "St George's Park brings spin selection into sharper focus as Australia and South Africa reach the middle Test of a three-match contest.",
       "fullSpiel": "Gqeberha hosts the second Test on 18-22 October, before the Cape Town finale. It is the middle match, not yet a verified clincher or comeback: Durban's result must be confirmed before either description is used. The announced Australian squad offers spin options, but no second-Test XI, pitch behaviour or Rabada return has been assumed.",
@@ -149434,8 +149318,8 @@
       }
     },
     {
-      "id": "fixture:mlb:849806",
-      "eventId": "fixture:mlb:849806",
+      "id": "fixture-mlb-849806",
+      "eventId": "fixture-mlb-849806",
       "canonicalEventId": "fixture:mlb:849806",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -149689,8 +149573,8 @@
       }
     },
     {
-      "id": "fixture:mlb:849807",
-      "eventId": "fixture:mlb:849807",
+      "id": "fixture-mlb-849807",
+      "eventId": "fixture-mlb-849807",
       "canonicalEventId": "fixture:mlb:849807",
       "key": "baseball",
       "sportDomainId": "sport:baseball",
@@ -155463,8 +155347,8 @@
       "expected": 8,
       "venue": "Newlands, Cape Town",
       "liveWindow": 8,
-      "id": "fixture:cricket:espn:1525661",
-      "eventId": "fixture:cricket:espn:1525661",
+      "id": "fixture-cricket-espn-1525661",
+      "eventId": "fixture-cricket-espn-1525661",
       "displayTitleCompact": "South Africa v Australia — Third Test",
       "selectedSentence": "The three-Test tour ends at Newlands, Australia's first Test return to the ground since the 2018 scandal.",
       "fullSpiel": "Cape Town gives the series finale a consequence beyond whatever scoreline arrives from Durban and Gqeberha. Newlands is where Australia's previous South African Test tour fractured in 2018; this return closes the first series back and may also settle a live WTC contest.",
@@ -166132,7 +166016,7 @@
       "venueCountryCode": "SA",
       "scheduleNote": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.",
       "statusSourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
-      "statusCheckedAt": "2026-10-04T05:49:31.163Z",
+      "statusCheckedAt": "2026-10-10T20:00:03.353Z",
       "season": "2026",
       "countryCode": "SA",
       "region": "Middle East",
@@ -166149,7 +166033,7 @@
       "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:51:15.056Z",
+      "lastReviewedAt": "2026-10-04T05:49:31.163Z",
       "replayEligible": false,
       "highlightEligible": false,
       "briefingEligible": false,
@@ -166158,12 +166042,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "preview",
-        "hookSpoilerOff": "The WRC element of Rally Saudi Arabia will not take place in 2026.",
-        "hookSpoilerOn": "The WRC element of Rally Saudi Arabia will not take place in 2026.",
+        "hookSpoilerOff": "The 2026 WRC element has been withdrawn.",
+        "hookSpoilerOn": "The 2026 WRC element has been withdrawn.",
         "synopsisSpoilerOff": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.",
-        "synopsisSpoilerOn": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
+        "synopsisSpoilerOn": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition."
       },
       "participantIds": [
         "competitor:wrc:driver:elfyn-evans",
@@ -166714,13 +166596,7 @@
           "displayName": "M-SPORT FORD WORLD RALLY TEAM",
           "countryCode": "GB"
         }
-      ],
-      "editorialPreview": {
-        "status": "research-required",
-        "needsPreviewRefresh": true,
-        "editorialWindowDays": 10,
-        "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-      }
+      ]
     },
     {
       "id": "evt_nbl_2026_27_37541928_58ad_11f1_86bd_87c06d92085a",
@@ -197648,10 +197524,10 @@
       "fullSpiel": "WRC Rallye Monte-Carlo is 2027 edition of the 2027 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with Australian viewing details still to be confirmed.",
       "sourceName": "Automobile Club de Monaco",
       "sourceUrl": "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/",
-      "sourceCheckedAt": "2026-10-04T05:49:31.163Z",
+      "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-04T05:51:15.056Z",
+      "lastReviewedAt": "2026-10-10T20:00:03.353Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -197660,18 +197536,10 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "preview",
-        "hookSpoilerOff": "WRC Rallye Monte-Carlo runs from 2027-01-21 to 2027-01-24, with multiple competitive stages; Australian viewing details TBC.",
-        "hookSpoilerOn": "WRC Rallye Monte-Carlo runs from 2027-01-21 to 2027-01-24, with multiple competitive stages; Australian viewing details TBC.",
+        "hookSpoilerOff": "WRC Rallye Monte-Carlo brings the championship to Monaco.",
+        "hookSpoilerOn": "WRC Rallye Monte-Carlo brings the championship to Monaco.",
         "synopsisSpoilerOff": "WRC Rallye Monte-Carlo is 2027 edition of the 2027 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with Australian viewing details still to be confirmed.",
-        "synopsisSpoilerOn": "WRC Rallye Monte-Carlo is 2027 edition of the 2027 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with Australian viewing details still to be confirmed.",
-        "expectedSpectacle": 7,
-        "intensitySource": "computed"
-      },
-      "editorialPreview": {
-        "status": "research-required",
-        "needsPreviewRefresh": true,
-        "editorialWindowDays": 10,
-        "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+        "synopsisSpoilerOn": "WRC Rallye Monte-Carlo is 2027 edition of the 2027 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with Australian viewing details still to be confirmed."
       }
     },
     {
@@ -230169,8 +230037,8 @@
       }
     },
     {
-      "id": "fixture:tennis:atp-beijing-2026:qf:djokovic-zverev",
-      "eventId": "fixture:tennis:atp-beijing-2026:qf:djokovic-zverev",
+      "id": "fixture-tennis-atp-beijing-2026-qf-djokovic-zverev",
+      "eventId": "fixture-tennis-atp-beijing-2026-qf-djokovic-zverev",
       "canonicalEventId": "fixture:tennis:atp-beijing-2026:qf:djokovic-zverev",
       "key": "tennis",
       "sport": "Tennis",

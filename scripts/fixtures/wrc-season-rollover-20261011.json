@@ -1,0 +1,946 @@
+{
+  "capturedAt": "2026-10-10T19:59:26.192Z",
+  "defaultPage": {
+    "sourceUrl": "https://www.wrc.com/en/calendar",
+    "startedAt": "2026-10-10T19:54:39.008Z",
+    "receivedAt": "2026-10-10T19:54:40.011Z",
+    "date": "Sat, 10 Oct 2026 19:54:39 GMT",
+    "bytes": 534528,
+    "sha256": "b276fa850ed3d6701090348a5be4656545eb6fc27b2df1be4c31495aafe0e9c6",
+    "retries": 0
+  },
+  "seasonPage": {
+    "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
+    "startedAt": "2026-10-10T19:57:12.154Z",
+    "receivedAt": "2026-10-10T19:57:13.887Z",
+    "date": "Sat, 10 Oct 2026 19:57:13 GMT",
+    "bytes": 532003,
+    "sha256": "1f58b8e36a14c5d0a53f66d17c9b4fa939c59a58c9ad1c420eec0511ff27e499",
+    "retries": 0
+  },
+  "defaultTable": {
+    "type": "table",
+    "fields": [
+      {
+        "title": "ROUND"
+      },
+      {
+        "title": "RALLY"
+      },
+      {
+        "title": "DATE"
+      }
+    ],
+    "rows": [
+      [
+        [
+          {
+            "variant": "text",
+            "text": "1"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇲🇨 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Rallye Monte-Carlo",
+            "title": "WRC Rallye Monte-Carlo",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rallye-monte-carlo-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:f9fe583d-463c-40b7-abf7-4401faa11b71:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "21 - 24 JANUARY 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "2"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇸🇪 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Rally Sweden",
+            "title": "WRC Rally Sweden",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-sweden-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:128b0c7a-7af6-434d-9900-47fd520a554e:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "18 - 21 FEBRUARY 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "3"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇰🇪 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Safari Rally Kenya",
+            "title": "WRC Safari Rally Kenya",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-safari-rally-kenya-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:f4fe98d3-ef38-4cd3-bb1f-e72ff2158a93:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "18 - 21 MARCH 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "4"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇭🇷 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Croatia Rally",
+            "title": "WRC Croatia Rally",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-croatia-rally-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:925b58f9-f93b-43f9-963e-759318a581a6:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "08 - 11 APRIL 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "5"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇪🇸 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Rally Islas Canarias",
+            "title": "WRC Rally Islas Canarias",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-islas-canarias-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:08858f60-81a1-4ac8-af8b-f65e3e40e4a7:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "06 - 09 MAY 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "6"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇯🇵 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC FORUM8 Rally Japan",
+            "title": "WRC FORUM8 Rally Japan",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-forum8-rally-japan-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:f576cbbe-867c-4225-b3bf-8fc2c8773a1b:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "03 - 06 JUNE 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "7"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇬🇷 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC EKO Acropolis Rally Greece",
+            "title": "WRC EKO Acropolis Rally Greece",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-eko-acropolis-rally-greece-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:f8f139f8-82a6-47f8-b338-5c3de10889bd:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "24 - 27 JUNE 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "8"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇮🇹 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Rally d'Italia",
+            "title": "WRC Rally d'Italia",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-italia-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:6053e5af-7a93-4b8f-bfee-40fd36dff988:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "08 - 11 JULY 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "9"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇪🇪 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Delfi Rally Estonia",
+            "title": "WRC Delfi Rally Estonia",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-delfi-rally-estonia-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:7f913fea-be9c-47f9-a6d4-7d5478ecdd25:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "22 - 25 JULY 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "10"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇫🇮 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Secto Rally Finland",
+            "title": "WRC Secto Rally Finland",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-secto-rally-finland-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:f6218dd9-a4c3-4d07-8dc7-9a86c496e07e:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "29 JULY - 01 AUGUST 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "11"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇺🇸 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "Rally US",
+            "title": "Rally US",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-us-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:2eaf07d0-8228-4e75-b967-d971506bff2c:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "26 - 29 AUGUST 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "12"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇬🇧 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "Rally Scotland",
+            "title": "Rally Scotland",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-scotland-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:4b14155a-b925-415d-b2fe-030c9d880857:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "30 SEPTEMBER - 03 OCTOBER 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "13"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇵🇾 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC ueno Rally del Paraguay",
+            "title": "WRC ueno Rally del Paraguay",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-ueno-rally-del-paraguay-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:929e81b4-a744-4c5a-a890-6b81875b97b1:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "21 - 24 OCTOBER 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "14"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇨🇱 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Rally Chile Biobío",
+            "title": "WRC Rally Chile Biobío",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-chile-bio-bio-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:38dee054-f6e0-45d3-bb56-d964d88d4e9f:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "04 - 07 NOVEMBER 2027"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "15"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇸🇦 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Rally Saudi Arabia",
+            "title": "WRC Rally Saudi Arabia",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-saudi-arabia-2027",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:4639ecbc-7cd9-4530-bd65-632b477e0c6f:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "25 - 28 NOVEMBER 2027"
+          }
+        ]
+      ]
+    ]
+  },
+  "seasonTable": {
+    "type": "table",
+    "fields": [
+      {
+        "title": "ROUND"
+      },
+      {
+        "title": "RALLY"
+      },
+      {
+        "title": "DATE"
+      }
+    ],
+    "rows": [
+      [
+        [
+          {
+            "variant": "text",
+            "text": "1"
+          }
+        ],
+        [
+          {
+            "variant": "reference-link",
+            "text": "🇲🇨 WRC Rallye Monte-Carlo",
+            "title": "🇲🇨 WRC Rallye Monte-Carlo",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rallye-monte-carlo-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:4c92af02-96b6-49cf-896d-f616b7c8baf9:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "22 - 25 JANUARY 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "2"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇸🇪 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Rally Sweden",
+            "title": "WRC Rally Sweden",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-sweden-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:648e7d4d-9434-41ae-bad9-2acdc864dbc4:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "12 - 15 FEBRUARY 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "3"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇰🇪 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Safari Rally Kenya",
+            "title": "WRC Safari Rally Kenya",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-safari-rally-kenya-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:54d66c80-1b29-4f54-9f93-2275ccb79725:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "12 - 15 MARCH 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "4"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇭🇷 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Croatia Rally",
+            "title": "WRC Croatia Rally",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-croatia-rally-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:252ead6e-e776-419e-b751-be1ecf839c50:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "09 - 12 APRIL 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "5"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇪🇸 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Rally Islas Canarias",
+            "title": "WRC Rally Islas Canarias",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-islas-canarias-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:88b82af4-ce9f-4dd1-b8ac-6bc3815503c9:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "23 - 26 APRIL 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "6"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇵🇹 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Vodafone Rally de Portugal",
+            "title": "WRC Vodafone Rally de Portugal",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-vodafone-rally-de-portugal-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:b2221637-f094-4dc6-8e72-74d1d0e62264:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "07 - 10 MAY 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "7"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇯🇵 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC FORUM8 Rally Japan",
+            "title": "WRC FORUM8 Rally Japan",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-forum8-rally-japan-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:5d26ec4c-43df-4ad5-8cff-55df7d9bb21f:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "28 - 31 MAY 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "8"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇬🇷 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC EKO Acropolis Rally Greece",
+            "title": "WRC EKO Acropolis Rally Greece",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-eko-acropolis-rally-greece-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:2c159e44-7481-4f33-bd69-1af9661b7103:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "25 - 28 JUNE 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "9"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇪🇪 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Delfi Rally Estonia",
+            "title": "WRC Delfi Rally Estonia",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-delfi-rally-estonia-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:9e0db890-ca85-4b03-8267-8c000871a316:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "16 - 19 JULY 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "10"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇫🇮 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Secto Rally Finland",
+            "title": "WRC Secto Rally Finland",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-secto-rally-finland-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:7eff5032-1930-4692-a627-f2513f8370b2:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "30 JULY - 02 AUGUST 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "11"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇵🇾 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC ueno Rally del Paraguay",
+            "title": "WRC ueno Rally del Paraguay",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-del-paraguay-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:caf0032b-7beb-476c-818a-004657a4ae1f:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "27 - 30 AUGUST 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "12"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇨🇱 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Rally Chile Bio Bío",
+            "title": "WRC Rally Chile Bio Bío",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-chile-bio-bio-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:84d16050-7b45-48c5-b804-dcb9793f2f89:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "10 - 13 SEPTEMBER 2026"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "variant": "text",
+            "text": "13"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "🇮🇹 "
+          },
+          {
+            "variant": "reference-link",
+            "text": "WRC Rally Italia Sardegna",
+            "title": "WRC Rally Italia Sardegna",
+            "reference": {
+              "linkType": "static",
+              "href": "/en/events/wrc-rally-italia-sardegna-2026",
+              "isExternal": false
+            },
+            "resourceId": "rrn:content:event-profiles:844b813c-2cfe-4fdd-88e6-9cd32a8f4122:en-INT",
+            "resourceType": "event"
+          }
+        ],
+        [
+          {
+            "variant": "text",
+            "text": "01 - 04 OCTOBER 2026"
+          }
+        ]
+      ]
+    ]
+  },
+  "note": "Exact captured organiser tables; minimal HTML wrapping is a controlled parser transport fixture, not a copied page or coverage expansion."
+}
