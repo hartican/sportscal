@@ -50,7 +50,7 @@ let tableDocument=null,tableLoading=null;
 async function standings(ev){
  if(!['competition:premier-league-2026-27','competition:uefa-champions-league','competition:uefa-europa-league'].includes(ev.competitionId))return null;
  const section=document.createElement('section');section.className='football-card-standings';section.dataset.cardArea='expanded-information';
- const heading=document.createElement('h3');heading.textContent=ev.competitionName+' · current standings';section.append(heading);
+ const heading=document.createElement('h3');heading.textContent=ev.competitionName+' · published standings';section.append(heading);
  const full=document.createElement('button');full.type='button';full.className='btn ghost';full.textContent='View competition standings';full.onclick=async()=>{await loadDeferredScript('assets/js/follow-navigation.js?v=463');NOTHINGSPORTS_FOLLOW_NAV.setFilter('sport:football','competition',[ev.competitionId]);activeTab='follow';followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'standings',scheduleScope:null});renderAll();};
  const paint=async()=>{
   section.replaceChildren(heading);
@@ -59,6 +59,7 @@ async function standings(ev){
    if(!userPreferences.showSpoilers){await paint();return;}
    const rows=doc.standings.filter(r=>r.competitionId===ev.competitionId&&(ev.participantIds||[]).includes(r.participantId));
    if(!rows.length)throw Error('No published table rows');
+   if(rows.some(row=>row.stale)){const warning=document.createElement('p');warning.className='standings-stale-note';warning.textContent=rows.find(row=>row.stale)?.staleNote||'Table awaits primary-source confirmation.';section.append(warning);}
    const list=document.createElement('ul');for(const r of rows){const row=document.createElement('li');row.textContent=NOTHINGSPORTS_FEED_CARD_PRESENTATION.standingPosition(r)+' · '+r.displayName+' · '+r.played+' played · '+r.ladderPoints+' pts';list.append(row);}section.append(list);
    const note=document.createElement('p'),checked=rows.map(r=>r.asOf).filter(Boolean).sort().at(-1);note.className='standings-source-note';note.textContent=(rows[0].tableNote||'')+(checked?' Table checked '+new Intl.DateTimeFormat('en-AU',{dateStyle:'medium',timeStyle:'short',timeZone:'Australia/Sydney'}).format(new Date(checked))+' (Sydney).':'');section.append(note);
    if(/^https:\/\//.test(rows[0].sourceUrl||'')){const link=document.createElement('a');link.href=rows[0].sourceUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Standings source';section.append(link);}

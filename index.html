@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="479">
+<meta name="app-shell-version" content="480">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=479" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=480" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7184,7 +7184,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=479"></script>
+<script src="assets/js/app-shell-runtime.js?v=480"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16838,7 +16838,7 @@ function buildEuropeanDetail(ev,kind){
     if(ev.sourceAttribution?.provider==='OpenLigaDB'){const link=document.createElement('a');link.href='/data/providers/openligadb/football-2026-27.json';link.textContent='OpenLigaDB data · ODbL';node.append(link);}
     if(ev.delayedResultSource){const note=document.createElement('p'),link=document.createElement('a');link.href='https://www.football-data.org/';link.textContent='Football data provided by the Football-Data.org API';note.append(link,document.createTextNode('. Delayed final result; primary source unavailable at recovery.'));node.append(note);}
   }
-  loadDeferredScript('assets/js/football-card-context.js?v=463').then(async()=>{const detail=await NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,Boolean(userPreferences.showSpoilers));if(!node.isConnected)return;if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();if(kind==='standings'&&node.isConnected){node.textContent='Standings unavailable. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry standings';retry.onclick=()=>node.replaceWith(buildEuropeanDetail(ev,kind));node.append(retry);}});
+  loadDeferredScript('assets/js/football-card-context.js?v=480').then(async()=>{const detail=await NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,Boolean(userPreferences.showSpoilers));if(!node.isConnected)return;if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();if(kind==='standings'&&node.isConnected){node.textContent='Standings unavailable. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry standings';retry.onclick=()=>node.replaceWith(buildEuropeanDetail(ev,kind));node.append(retry);}});
   return node;
 }
 function buildFixtureDataAttribution(ev){return ev.sourceAttribution||ev.delayedResultSource?buildEuropeanDetail(ev,'attribution'):null;}

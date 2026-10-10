@@ -92,15 +92,33 @@ async function assertCachedCanonicalResults(page){
   }
 }
 async function assertCachedFootballStatus(page){
+  const footballContextPath=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/assets\/js\/football-card-context\.js\?v=\d+/)?.[0];
+  assert(footballContextPath,'Football context uses the current explicit cache URL');
   const settled=await page.evaluate(async()=>{
     await loadDeferredScript('config/match-centre.js?v=463');await loadDeferredScript('config/feed-live-scores.js?v=437');
     const code=await(await fetch('/data/code-inspector/football.json')).json(),host=document.createElement('div');document.body.append(host);
     try{return ['competition:premier-league-2026-27','competition:uefa-champions-league','competition:uefa-europa-league'].map(id=>{const fixture=code.fixtures.find(f=>f.competitionId===id&&f.status==='completed'),before=JSON.stringify(fixture);NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,fixture,{resultsOn:true});const shown={text:host.textContent,date:host.querySelector('time')?.dateTime};NOTHINGSPORTS_FEED_LIVE_SCORES.install(host,fixture,{resultsOn:false});return {id,shown,explicitStale:Boolean(fixture.stale),checkedAt:fixture.scoreCheckedAt,hidden:!host.querySelector('.feed-live-score'),unchanged:before===JSON.stringify(fixture)};});}finally{host.remove();}
   });
   for(const final of settled){assert(final.shown.text.includes('Finished')&&final.shown.text.includes('Update needed')===final.explicitStale,'cached settled final does not expire with elapsed age');assert.equal(final.shown.date,final.checkedAt,'cached calendar date retains original final observation');assert(/\b20\d{2}\b/.test(final.shown.text),'cached source check includes its year');assert(final.hidden&&final.unchanged,'cached source-date detail preserves privacy and facts');}
-  const preview=await page.evaluate(async()=>{await loadDeferredScript('assets/js/football-card-context.js?v=463');const code=await(await fetch('/data/code-inspector/football.json')).json(),f=code.fixtures.find(f=>f.competitionId==='competition:uefa-champions-league'&&f.status==='upcoming'),saved=userPreferences.showSpoilers;try{userPreferences.showSpoilers=false;const hidden=await NOTHINGSPORTS_FOOTBALL_CONTEXT.standings(f);userPreferences.showSpoilers=true;const shown=await NOTHINGSPORTS_FOOTBALL_CONTEXT.standings(f);return {hiddenRows:hidden.querySelectorAll('li').length,hiddenText:hidden.textContent,shownRows:shown.querySelectorAll('li').length,source:shown.querySelector('a')?.href};}finally{userPreferences.showSpoilers=saved;}});
+  const preview=await page.evaluate(async modulePath=>{
+    await loadDeferredScript(modulePath);
+    const code=await(await fetch('/data/code-inspector/football.json')).json(),f=code.fixtures.find(f=>f.competitionId==='competition:uefa-champions-league'&&f.status==='upcoming');
+    const saved=userPreferences.showSpoilers,previousChunk=codeInspectorChunk;
+    try{
+      // Controlled delayed-result metadata verifies the cached disclosure;
+      // it does not replace the published source or establish a real outage.
+      codeInspectorChunk=structuredClone(code);
+      for(const row of codeInspectorChunk.standings.filter(row=>row.competitionId===f.competitionId)){
+        row.stale=true;row.staleNote='Table awaits primary-source confirmation of delayed backup results.';
+      }
+      userPreferences.showSpoilers=false;const hidden=await NOTHINGSPORTS_FOOTBALL_CONTEXT.standings(f);
+      userPreferences.showSpoilers=true;const shown=await NOTHINGSPORTS_FOOTBALL_CONTEXT.standings(f);
+      return {hiddenRows:hidden.querySelectorAll('li').length,hiddenText:hidden.textContent,hiddenWarnings:hidden.querySelectorAll('.standings-stale-note').length,shownRows:shown.querySelectorAll('li').length,shownWarning:shown.querySelector('.standings-stale-note')?.textContent,source:shown.querySelector('a')?.href};
+    }finally{userPreferences.showSpoilers=saved;codeInspectorChunk=previousChunk;}
+  },footballContextPath);
   assert.equal(preview.hiddenRows,0);assert.match(preview.hiddenText,/Results is off/);assert.equal(preview.shownRows,2);assert(preview.source);
-  assert.equal(await page.evaluate(()=>caches.match('/assets/js/football-card-context.js?v=463').then(r=>r?.text())),fs.readFileSync(path.join(root,'assets/js/football-card-context.js'),'utf8'),'Cached UEFA preview executes the exact current source module');
+  assert.equal(preview.hiddenWarnings,0);assert.equal(preview.shownWarning,'Table awaits primary-source confirmation of delayed backup results.','Cached backup-result tables retain their warning without leaking it through Results OFF');
+  assert.equal(await page.evaluate(modulePath=>caches.match('/'+modulePath).then(r=>r?.text()),footballContextPath),fs.readFileSync(path.join(root,'assets/js/football-card-context.js'),'utf8'),'Cached UEFA preview executes the exact current source module');
   const priorLive=JSON.parse(baselineFile('data/code-inspector/american-football.json')).fixtures.find(f=>f.status==='live')||require('./fixtures/nfl-retained-live-observation.json').fixture;
   const nfl=await page.evaluate(async priorLive=>{
     await loadDeferredScript('assets/js/follow-navigation.js?v=463');await loadDeferredScript('assets/js/follow-schedule-panel.js?v=453');
