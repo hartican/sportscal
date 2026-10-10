@@ -7,6 +7,8 @@
   if(!f||STOP.test(f.status||'')||STOP.test(f.scheduleStatus||'')||!['upcoming','scheduled'].includes(f.status)||f.scheduleStatus!=='confirmed'||f.timingVerified===false)return null;
   const precision=f.timePrecision;
   if(!['exact','not-before','not_before'].includes(precision))return null;
+  const clock=String(f.startTimeUtc||''),parts=clock.match(/^(\d{4})-(\d{2})-(\d{2})T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/);
+  if(!parts||new Date(Date.UTC(+parts[1],+parts[2]-1,+parts[3])).toISOString().slice(0,10)!==parts.slice(1,4).join('-'))return null;
   const start=Date.parse(f.startTimeUtc||''),verified=Date.parse(f.sourceCheckedAt||f.canonicalSourceCheckedAt||f.lastVerifiedAt||'');
   if(!Number.isFinite(start)||start<=+now||!Number.isFinite(verified)||verified>+now||!/^https:\/\//.test(f.sourceUrl||f.scheduleSourceUrl||''))return null;
   return {startsAt:new Date(start).toISOString(),remindAt:new Date(start-900000).toISOString(),deliveryMode:'match-15',precision:precision==='exact'?'exact':'not-before',late:start-900000<+now};

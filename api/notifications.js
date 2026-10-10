@@ -268,7 +268,7 @@ async function notificationsHandler(request, response){
       return;
     }
     if (body.action === "remind"){
-      const catalogue=await fixtureReminders.catalogue({request:supabaseServiceRequest});
+      const catalogue=await fixtureReminders.catalogue({request:supabaseServiceRequest,requiredIds:[clean(body.eventId)]});
       const fixture=catalogue.resolve(clean(body.eventId));
       const timing=reminderPolicy.timing(fixture);
       if(!fixture||!timing){

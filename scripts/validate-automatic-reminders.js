@@ -22,6 +22,7 @@ async function main(){
  assert.equal(policy.automatic({...f,roundLabel:'Group',name:'WTA Finals'},prefs,{},+now),false);
  assert.equal(policy.automatic({...f,roundLabel:'Final',tournamentLevel:'WTA Finals'},prefs,{},+now),true);
  for(const precision of ['follows','estimated','session','unknown'])assert.equal(policy.timing({...f,timePrecision:precision},+now),null,precision);
+ for(const startTimeUtc of ['2026-11-31T12:00:00Z','2099-01-01T12:00:00','2026-10-10','not before 18:00'])assert.equal(policy.timing({...f,startTimeUtc},+now),null,'Ambiguous or impossible clock must remain held');
  assert.equal(policy.timing({...f,timePrecision:'not-before'},+now).precision,'not-before');
  assert.equal(policy.timing({...f,startTimeUtc:new Date(+now+300000).toISOString()},+now).late,true);
  for(const status of ['cancelled','completed','live','withdrawn','postponed'])assert.equal(policy.timing({...f,status},+now),null);
