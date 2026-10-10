@@ -4,6 +4,19 @@ const {reviewedAuViewing:review}=require('../lib/reviewed-au-viewing'),follow=re
 const audit=require('../data/coverage/australian-viewing-rights.v1.json');
 const rugby=require('../data/follow-schedule/rugby-union.json').fixtures,cricket=require('../data/follow-schedule/cricket.json').fixtures;
 const providers=f=>follow.viewingOptions(review(f)).map(p=>p.providerId);
+const aflwFinal=require('../data/canonical/afl-nrl-2026.json').events.find(f=>f.id==='event:aflw:cd_m20262641601');assert(aflwFinal);
+const viewedAflw=review(aflwFinal),aflwOptions=follow.viewingOptions(viewedAflw);
+assert.deepEqual(aflwOptions.map(p=>p.providerId),['seven','kayo','foxtel'],'The exact AFLW final keeps free access first and its separately announced paid options');
+assert.equal(aflwOptions[0].webUrl,'https://7plus.com.au/aflw','Use the provider AFLW destination, not its general homepage');
+assert.equal(aflwOptions[0].accessType,'free');
+for(const option of aflwOptions){assert.equal(option.rightsScope,'fixture');assert.equal(option.linkScope,'sport');assert.equal(option.replayVerified,false);assert.equal(option.permalinkVerifiedAt,null);assert.equal(option.verifiedAt,'2026-10-09T10:51:48.755Z','Reuse the actual announcement observation, not a new sporting source check');}
+const withoutViewing=({viewingOptions,broadcaster,broadcastOptions,broadcasterIds,...rest})=>rest;
+assert.deepEqual(withoutViewing(viewedAflw),withoutViewing(aflwFinal),'Viewing cannot create a clock, finalist, host, result or reminder');
+assert.deepEqual(review(viewedAflw),viewedAflw,'An unchanged review is idempotent');
+for(const mutation of [{id:'another-aflw-final',eventId:'another',canonicalEventId:'another',sourceEventIds:[]},{competitionId:'competition:afl'},{roundLabel:'Preliminary Final'},{date:'2026-11-28'},{date:'2026-11-26'},{date:null},{date:'2026-11-31'},{startTimeUtc:'2026-11-27T13:00:00Z',date:'2026-11-27'}]){
+ const changed=review({...aflwFinal,...mutation});assert(!(changed.viewingOptions||[]).some(o=>o.reviewId==='au-viewing-20261002'),'Another identity, stage or Australian day cannot inherit this final review');
+}
+assert(!(review({...viewedAflw,date:'2026-11-28'}).viewingOptions||[]).some(o=>o.reviewId==='au-viewing-20261002'),'Our review expires after a reschedule, including persisted options');
 const home=rugby.find(f=>f.id==='rugby-australia-south-africa-2026-09-27');
 assert.deepEqual(providers(home),['nine-tv','nine','stan'],'verified free access before subscription');
 for(const f of rugby.filter(f=>f.date>='2026-10-01'&&f.date<'2026-11-01'&&f.participantIds.includes('team:rugby:wallabies')&&f.participantIds.includes('team:rugby:all-blacks'))){

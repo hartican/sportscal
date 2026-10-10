@@ -2,33 +2,41 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),http=require('node:http'),path=require('node:path');
 const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'..');
+const aflwOnly=process.argv.includes('--aflw');
 (async()=>{
  const server=process.env.QA_BASE_URL?null:http.createServer((req,res)=>{const file=path.join(root,new URL(req.url,'http://local').pathname.replace(/^\/$/,'/index.html'));fs.readFile(file,(e,b)=>{res.writeHead(e?404:200,{'Content-Type':({'.js':'application/javascript','.json':'application/json','.css':'text/css','.png':'image/png','.svg':'image/svg+xml'})[path.extname(file)]||'text/html'});res.end(e?'':b);});});
  if(server)await new Promise(r=>server.listen(0,'127.0.0.1',r));
  const browser=await(process.env.QA_BROWSER==='webkit'?webkit:chromium).launch(),observations=[];
  try{
  const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'});
- await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,followedSports:['rugby','cricket','golf'],showSpoilers:false,preferenceGraph:{entityFollows:[{participantId:'team:rugby:wallabies',followLevel:'follow'},{participantId:'team:cricket:australia',followLevel:'follow'}]}})));
+ await page.addInitScript(aflwOnly=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,...(aflwOnly?{selectedSelectorEntityIds:['sport:aflw']}:{followedSports:['rugby','cricket','golf']}),showSpoilers:false,preferenceGraph:{entityFollows:[{participantId:'team:rugby:wallabies',followLevel:'follow'},{participantId:'team:cricket:australia',followLevel:'follow'}]}})),aflwOnly);
  await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
  await page.goto(process.env.QA_BASE_URL||`http://127.0.0.1:${server.address().port}`,{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>typeof buildCodeInspectorFixture==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
- const fixtures=await page.evaluate(async()=>{
+ const fixtures=await page.evaluate(async aflwOnly=>{
   const load=async code=>(await(await fetch(`/data/code-inspector/${code}.json`)).json()).fixtures;
+  if(aflwOnly)return [(await load('aflw')).find(f=>f.id==='event:aflw:cd_m20262641601')];
   const rugby=await load('rugby-union'),cricket=await load('cricket'),golf=await load('golf'),hockey=await load('ice-hockey');
   return [rugby.find(f=>f.id==='rugby-australia-south-africa-2026-09-27'),rugby.find(f=>f.id==='rugby-new-zealand-australia-2026-10-10'),rugby.find(f=>f.id.includes('e492d961')),rugby.find(f=>f.competitionName==='Top 14 2027'),...['1525659','1525660','1525661','1525658'].map(id=>cricket.find(f=>f.id==='fixture:cricket:espn:'+id)),...['fixture:golf:lpga:2026068','fixture:golf:lpga:2026070','fixture:golf:lpga:2026063','fixture:golf:lpga:2026076','fixture:golf:pga:H2026166'].map(id=>golf.find(f=>f.id===id)),...['fixture:nhl:2026020035','fixture:nhl:2026020001','fixture:nhl:2026010063'].map(id=>hockey.find(f=>f.id===id))];
- });assert(fixtures.every(Boolean));
+ },aflwOnly);assert(fixtures.every(Boolean));
  for(const mode of ['feed','schedule'])for(const show of [false,true])for(const width of [320,390,768,1280])for(const fixture of fixtures){
   await page.setViewportSize({width,height:844});
   const expected=await page.evaluate(({fixture,mode,show})=>{
    activeTab=mode==='feed'?'feed':'follow';activeInspectorCodeId=null;userPreferences.showSpoilers=show;userPreferences.feedCompact=false;
    const f={...fixture,eventId:fixture.id};setCardState(f,'opened');const card=mode==='feed'?buildEventCard(f):buildCodeInspectorFixture(fixture);card.style.contentVisibility='visible';document.getElementById('listView').replaceChildren(card);scrollTo(0,0);
-   return FOLLOW_FIRST.viewingOptions(f).map(o=>({id:o.providerId,url:o.url,label:o.label,replay:o.liveOrReplay==='replay',rightsScope:o.rightsScope,replayVerified:o.replayVerified}));
+   return FOLLOW_FIRST.viewingOptions(f).map(o=>({id:o.providerId,url:o.url,label:o.label,paid:o.paid,accessType:o.accessType,replay:o.liveOrReplay==='replay',rightsScope:o.rightsScope,replayVerified:o.replayVerified}));
   },{fixture,mode,show});
   const card=page.locator('#listView .event-card');await card.scrollIntoViewIfNeeded();
   const links=await card.locator('.fixture-providers a').evaluateAll(links=>links.map(a=>({href:a.getAttribute('href'),label:a.getAttribute('aria-label')})));
   assert.equal(links.length,expected.length,`${fixture.id}/${mode}: actual visible provider actions`);
   for(let i=0;i<links.length;i++){assert.equal(links[i].href,expected[i].url);assert.equal(links[i].label,`${expected[i].replay?'Check replay availability':'Watch'} on ${expected[i].label}`);}
   const text=await card.innerText();if(!expected.length)assert(text.includes('Australian viewing unconfirmed'),'degraded state visible');
+  if(fixture.id==='event:aflw:cd_m20262641601'){
+   assert.deepEqual(expected.map(o=>o.id),['seven','kayo','foxtel'],'The women’s final has its own confirmed options, free first');
+   assert.equal(links[0].href,'https://7plus.com.au/aflw');assert(expected.every(o=>o.rightsScope==='fixture'&&!o.replayVerified));
+   assert.deepEqual(expected.map(o=>o.accessType),['free','subscription','subscription'],'The existing provider metadata distinguishes free and paid access');
+   if(mode==='schedule'){assert.match(text,/27\s+Nov/i);assert.match(text,/Time TBC/i);assert.match(text,/Winner of PF1/);assert.match(text,/Winner of PF2/);}
+  }
   if(fixture.id==='fixture:rugby:wr:e492d961-1f1e-4c37-b9d7-e9fd811459be'){
    assert.deepEqual(expected.map(o=>o.id),['youtube','stan'],'final free coverage appears before paid coverage');
    assert.equal(links[0].href,'https://www.youtube.com/@rugbycomau');
@@ -51,6 +59,16 @@ const root=path.resolve(__dirname,'..');
   }
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);assert(!overflow,`${fixture.id}/${mode}/${width}: mobile layout`);
   observations.push({id:fixture.id,mode,show,width,providers:expected.map(o=>o.id),overflow});
+ }
+ if(aflwOnly){
+  await page.locator('#startupLaunch').waitFor({state:'hidden'});
+  await page.evaluate(fixture=>openCodeInspector('sport:aflw',{focusFixture:fixture}),fixtures[0]);
+  const ordinary=page.locator('[data-inspector-fixture-id="event:aflw:cd_m20262641601"]');
+  await ordinary.waitFor({state:'visible'});assert.equal(await ordinary.locator('.fixture-providers a').count(),3,'Ordinary focused AFLW Schedule keeps all three supported actions');
+  await page.context().route('https://7plus.com.au/**',r=>r.fulfill({status:200,contentType:'text/html',body:'<title>Isolated AFLW destination handoff</title>'}));
+  const popupPromise=page.waitForEvent('popup');await ordinary.locator('.fixture-providers a').first().click();const popup=await popupPromise;await popup.waitForLoadState('domcontentloaded');assert.equal(popup.url(),'https://7plus.com.au/aflw');await popup.close();
+  const report={checkedAt:new Date().toISOString(),browser:process.env.QA_BROWSER||'chromium',cases:observations.length,ordinaryAflwSchedule:true,isolated7plusClick:true,observations,scope:'Actual AFLW Code projection and native Feed/Schedule rendering, plus ordinary focused Schedule and isolated popup handoff. APIs isolated and workers blocked. Not actual playback, authenticated acceptance or physical device proof.'};
+  if(process.env.QA_REPORT_FILE)fs.writeFileSync(process.env.QA_REPORT_FILE,JSON.stringify(report,null,2)+'\n');console.log(`${report.browser}: ${report.cases} AFLW viewing cases and ordinary Schedule handoff passed.`);return;
  }
  await page.evaluate(()=>openCodeInspector('sport:cricket',{startingTab:'all-fixtures'}));await page.locator('.code-inspector-group').first().waitFor();
  const id='fixture:cricket:espn:1525659';

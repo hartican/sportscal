@@ -27,5 +27,11 @@ const unknown=rows.find(f=>f.competitionName==='Top 14 2027' && f.date>='2026-10
   const options=follow.viewingOptions(f);assert.deepEqual(options.map(o=>o.providerId),original.roundLabel==='Regular season'?['disney']:[]);assert(options.every(o=>o.rightsScope==='competition'&&o.linkScope==='sport'&&!o.replayVerified));
  }
  const nhlCached=response();await nhlHandler({method:'GET',url:'/api/fixtures',headers:{'if-none-match':live.headers.ETag}},nhlCached);assert.equal(nhlCached.statusCode,304);assert.equal(nhlReads,2,'viewing enrichment adds no snapshot query');
- console.log('Reviewed AU viewing API: retained Rugby/Cricket/Golf/NHL snapshot facts, competition-scoped LPGA presentation, unknown-state protection, one read and unchanged revision caching passed.');
+ const aflw=require('../data/canonical/afl-nrl-2026.json').events.find(f=>f.id==='event:aflw:cd_m20262641601');assert(aflw);let aflwReads=0;
+ const aflwHandler=createLiveFixtureHandler({clock:()=>new Date('2026-10-11T00:00:00Z'),publishedFixtures:()=>[aflw],read:async()=>{aflwReads++;return {revision:'unchanged-aflw-primary',stale:false,sources:[{source_id:'live-aflw',fixtures:[aflw]}]};}});
+ const ar=response();await aflwHandler({method:'GET',url:'/api/fixtures?ids='+encodeURIComponent(aflw.id),headers:{}},ar);
+ assert.equal(ar.statusCode,200);assert.equal(aflwReads,1);const aflwPresented=ar.body.sources[0].fixtures.find(f=>f.id===aflw.id);assert(aflwPresented);
+ const aflwOptions=follow.viewingOptions(aflwPresented);assert.deepEqual(aflwOptions.map(o=>o.providerId),['seven','kayo','foxtel']);assert.equal(aflwOptions[0].webUrl,'https://7plus.com.au/aflw');
+ assert.equal(aflwPresented.date,aflw.date);assert.equal(aflwPresented.startTimeUtc,aflw.startTimeUtc);assert.equal(aflwPresented.status,aflw.status);assert.deepEqual(aflwPresented.source,aflw.source);assert.deepEqual(aflwPresented.participantIds,aflw.participantIds);
+ console.log('Reviewed AU viewing API: retained Rugby/Cricket/Golf/NHL/AFLW snapshot facts, exact final and competition-scoped presentation, unknown-state protection, one read and unchanged revision caching passed.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

@@ -792,6 +792,46 @@
           "sourceUrl": "https://www.foxtel.com.au/tv-guide/channel/ESPN2-HD/ES2/2026/09/09/1755"
         }
       ]
+    },
+    {
+      "id": "aflw-grand-final-2026-au",
+      "fixtureIds": [
+        "event:aflw:cd_m20262641601"
+      ],
+      "competitionIds": [
+        "competition:aflw-2026"
+      ],
+      "roundLabel": "Grand Final",
+      "notBefore": "2026-11-27",
+      "notAfter": "2026-11-28",
+      "verifiedAt": "2026-10-09T10:51:48.755Z",
+      "sourceUrl": "https://www.afl.com.au/news/1596264/friday-night-lights-prime-time-stage-set-for-2026-nab-aflw-grand-final",
+      "sourceSha256": "b56a53636e88a7d8ee1624d0422f2bce03803026ae374b40108d46bf8155799d",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "seven",
+          "url": "https://7plus.com.au/aflw",
+          "linkScope": "sport",
+          "liveOrReplay": "live",
+          "destinationVerifiedAt": "2026-10-10T15:27:30.829Z"
+        },
+        {
+          "id": "kayo",
+          "url": "https://kayosports.com.au/en-AU/schedule",
+          "linkScope": "sport",
+          "liveOrReplay": "live",
+          "destinationVerifiedAt": "2026-10-10T15:27:31.066Z"
+        },
+        {
+          "id": "foxtel",
+          "url": "https://www.foxtel.com.au/watch/sport.html",
+          "linkScope": "sport",
+          "liveOrReplay": "live",
+          "destinationVerifiedAt": "2026-10-10T15:27:32.135Z"
+        }
+      ],
+      "notes": "The organiser confirms Seven/7plus, Foxtel, Kayo and Binge for this final. Existing supported providers are shown free first. Binge is confirmed in source evidence but has no existing app provider entry; this list is not exhaustive. Sport/service destinations, no verified future match permalink or playback."
     }
   ]
 }
