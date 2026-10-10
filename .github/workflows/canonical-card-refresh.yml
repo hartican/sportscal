@@ -94,7 +94,7 @@ jobs:
         run: bash scripts/update-sportscal-cards-and-release.sh
 
       - name: Clean temporary and replaced profile pictures
-        if: always() && steps.cadence.outputs.run == 'true'
+        if: always() && github.event_name == 'schedule' && steps.cadence.outputs.run == 'true'
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}

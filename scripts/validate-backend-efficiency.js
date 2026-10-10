@@ -3,6 +3,7 @@
 
 const assert=require("node:assert/strict");
 const fs=require("node:fs");
+const vm=require("node:vm");
 const {createSnapshotStore}=require("../lib/live-fixtures");
 
 const read=path=>fs.readFileSync(path,"utf8");
@@ -53,6 +54,18 @@ async function main(){
   assert.match(cron,/nothingsport-live-fixtures','\*\/2 \* \* \* \*'/);
   assert.match(cron,/nothingsport-prune-cron-history/);
   assert.match(workflow,/QUICK_RESULTS: \$\{\{ steps\.cadence\.outputs\.quick \}\}/);
+  const avatarSteps=workflow.split(/^      - name: /m).slice(1).filter(step=>step.startsWith('Clean temporary and replaced profile pictures\n'));
+  assert.equal(avatarSteps.length,1,'the existing avatar maintenance step stays uniquely owned');
+  const avatarCondition=avatarSteps[0].match(/^        if: (.+)$/m)?.[1];
+  assert(avatarCondition,'avatar maintenance requires an explicit scope condition');
+  assert.match(avatarSteps[0],/^        run: node scripts\/maintain-profile-avatars\.js$/m);
+  for(const event of ['workflow_dispatch','schedule','other'])for(const run of ['true','false'])for(const refreshPassed of [true,false]){
+    const enabled=vm.runInNewContext(avatarCondition,{
+      github:{event_name:event},steps:{cadence:{outputs:{run}}},
+      always:()=>true,success:()=>refreshPassed,failure:()=>!refreshPassed,cancelled:()=>false,
+    },{timeout:100});
+    assert.equal(enabled,event==='schedule'&&run==='true',`Avatar maintenance scope: ${event}, cadence ${run}, refresh passed ${refreshPassed}`);
+  }
   assert.equal(fs.existsSync(".github/workflows/quick-results-refresh.yml"),false);
   assert.match(read("AGENTS.md"),/docs\/backend-efficiency-decisions\.md/);
   assert.match(read("lib/supabase-server.js"),/SUPABASE_MAINTENANCE_MODE/);

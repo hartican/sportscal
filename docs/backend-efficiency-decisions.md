@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Manual sports updates exclude profile-picture cleanup — 11 October 2026 Sydney
+
+The existing canonical workflow's manual sports run skips its unrelated avatar maintenance step. The scheduled run keeps the same cleanup command, cadence and always-on-failure behaviour. No new workflow, scheduler, retry, source request, credential, customer mutation or owner routine is introduced; this limits the manual action's scope rather than changing sports refresh ownership. The existing backend-efficiency release gate evaluates the actual maintenance condition for manual, scheduled and unknown events, enabled/disabled cadence and successful/failed refreshes. Manual refresh success remains separate from proof of ordinary unattended operation.
+
 ## EPL half-time through existing refresh owners — 11 October 2026 Sydney
 
 A naturally observed primary L/H record and the matching official HT display establish half-time for the existing 2026/27 EPL adapter. Represent it as the existing `break` state with `statusText: Half-time`, named integer scores and genuine independent source observations. Canonical persistence admits that pause only with the exact provider identity, competition, season, official provenance and reviewed H evidence. Other unknown phases still retain last-good facts. A pause creates no completion, final copy, replay promise, restart clock or reminder.
