@@ -47,3 +47,7 @@ Business value: catch failures before spending time and tokens on another entire
 No new sport, competition, purchase, database migration, reminder replay or customer write. No new coverage demand is inferred from this check. Full approval stays **0/17 carried families and 0/3 Football pilots**, targeting at least 14/17. The dated 72-club European standings agreement remains separate from ongoing table maintenance and complete Football readiness.
 
 Detailed receipts: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/ordinary-full-refresh-20261011/`, especially `full-only-preflight-results.json`, `full-only-preflight-dependency-recheck.json`, `preflight-repaired-actual-checks.json`, `preflight-harness-repairs.json`, `preflight-coverage-current-contract.log`, `preflight-coverage-duplicate-parent-red.log`, `full-only-preflight-logs/` and `cup-follow-live/production-proof.json`. The private fixture is disposable; its changed data is not a publication source.
+
+## Subsequent review
+
+The [current-rule and source review](full-update-contract-review-2026-10-11.md) supersedes the open-check count above: the same sample now passes 89/92 on merged main and the current qualifying candidate. Five old assumptions and one genuine F1 table omission are repaired; three full-update checks remain. Earlier failed receipts and the original 83/92 checkpoint remain historical evidence. Production acceptance of the new candidate is separate.

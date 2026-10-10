@@ -153550,7 +153550,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Singapore GP · Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Formula 1 official session results",
     "sourceUrl": "https://www.formula1.com/en/results/2026/races/1296/singapore/qualifying",
-    "sourceCheckedAt": "2026-10-10T19:13:52.774Z",
+    "sourceCheckedAt": "2026-10-10T22:56:48.048Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -153659,7 +153659,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "competitor:f1:lance-stroll",
       "competitor:f1:sergio-perez",
       "team:f1:cadillac",
-      "competitor:f1:valtteri-bottas"
+      "competitor:f1:valtteri-bottas",
+      "competitor:f1:isack-hadjar"
     ],
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -153679,8 +153680,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultStatus": "official",
     "resultPublishedAt": "2026-10-10T19:13:52.774Z",
     "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1296/singapore/qualifying",
-    "resultSourceCheckedAt": "2026-10-10T19:13:52.774Z",
-    "scoreCheckedAt": "2026-10-10T19:13:52.774Z",
+    "resultSourceCheckedAt": "2026-10-10T22:56:48.048Z",
+    "scoreCheckedAt": "2026-10-10T22:56:48.048Z",
     "fixtureResults": {
       "schemaVersion": "fixture-results.v1",
       "columns": [
@@ -153903,10 +153904,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
           "",
           "",
           "10"
+        ],
+        [
+          "RT",
+          "6",
+          "Isack Hadjar",
+          "Red Bull Racing",
+          "",
+          "",
+          "",
+          "3"
         ]
       ],
       "sourceUrl": "https://www.formula1.com/en/results/2026/races/1296/singapore/qualifying",
-      "checkedAt": "2026-10-10T19:13:52.774Z"
+      "checkedAt": "2026-10-10T22:56:48.048Z"
     },
     "participants": [
       {
@@ -154100,6 +154111,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "name": "Valtteri Bottas",
         "displayName": "Valtteri Bottas",
         "countryCode": "FI"
+      },
+      {
+        "id": "competitor:f1:isack-hadjar",
+        "name": "Isack Hadjar",
+        "displayName": "Isack Hadjar",
+        "countryCode": "FR"
       }
     ],
     "participantsConfirmed": true
