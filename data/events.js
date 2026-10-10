@@ -1589,10 +1589,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Rallye Monte-Carlo is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -1623,6 +1623,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/94e-rallye-monte-carlo/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -2173,8 +2175,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -2298,10 +2298,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Rally Sweden is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -2332,6 +2332,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-sweden/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -2882,8 +2884,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -4272,10 +4272,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Safari Rally Kenya is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -4306,6 +4306,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/safari-rally-kenya/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -4856,8 +4858,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -6888,10 +6888,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Croatia Rally is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -6922,6 +6922,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/wrc-croatia-rally-2026/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -7472,8 +7474,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -8184,10 +8184,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Rally Islas Canarias is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -8218,6 +8218,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/50-rally-islas-canarias-rally-de-espana/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -8768,8 +8770,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -9861,10 +9861,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Vodafone Rally de Portugal is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -9895,6 +9895,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/vodafone-rally-portugal/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -10445,8 +10447,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -14691,10 +14691,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC FORUM8 Rally Japan is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -14725,6 +14725,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-japan-2026/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -15275,8 +15277,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -21623,10 +21623,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC EKO Acropolis Rally Greece is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -21657,6 +21657,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/eko-acropolis-rally-2026/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -22207,8 +22209,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -31171,10 +31171,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Delfi Rally Estonia is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -31205,6 +31205,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-estonia/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -31755,8 +31757,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -38499,10 +38499,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Secto Rally Finland is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -38533,6 +38533,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/secto-rally-finland/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -39083,8 +39085,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -55847,10 +55847,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC ueno Rally del Paraguay is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -55881,6 +55881,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/wrc-rally-del-paraguay/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -56431,8 +56433,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -77990,10 +77990,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Rally Chile Bio Bío is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -78009,12 +78009,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultStatus": "official",
     "score": "Oliver Solberg / Elliott Edmondson — 2:57:08.2",
-    "outcomeText": "Oliver Solberg / Elliott Edmondson won in 2:57:08.2 in a Toyota GR Yaris Rally1.",
-    "recapText": "WRC Rally Chile Bio Bío was won by Oliver Solberg / Elliott Edmondson in 2:57:08.2, driving a Toyota GR Yaris Rally1.",
+    "outcomeText": "Oliver Solberg and Elliott Edmondson won Rally Chile Bio Bio.",
+    "recapText": "Solberg and Edmondson won Rally Chile in 2:57:08.2 in a Toyota GR Yaris Rally1, 16.6 seconds clear of Sebastien Ogier and Vincent Landais.",
     "resultLabels": [
       "Round 12",
-      "Oliver Solberg / Elliott Edmondson",
-      "2:57:08.2",
+      "Oliver Solberg / Elliott Edmondson — 2:57:08.2",
       "Official result"
     ],
     "consensusResult": {
@@ -78024,6 +78023,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-chile-biobio/classifications",
     "resultSourceCheckedAt": "2026-10-04T05:49:31.163Z",
+    "scoreCheckedAt": "2026-10-02T13:06:48.940Z",
+    "statusCheckedAt": "2026-10-02T13:06:48.940Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -78104,6 +78105,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "team:wrc:toyota-gazoo-racing-wrt2",
       "team:wrc:m-sport-ford-world-rally-team"
     ],
+    "resultPublishedAt": "2026-09-22T01:40:00.000Z",
     "participants": [
       {
         "id": "competitor:wrc:driver:elfyn-evans",
@@ -78574,8 +78576,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -107110,10 +107110,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Rally Italia Sardegna is complete. Its official winning crew, vehicle and total time are available in the result view without being exposed on the spoiler-safe card.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:27:38.375Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -107144,6 +107144,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "resultSourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-ditalia/classifications",
     "resultSourceCheckedAt": "2026-10-04T20:41:03.188Z",
+    "scoreCheckedAt": "2026-10-04T20:41:03.188Z",
+    "statusCheckedAt": "2026-10-04T20:41:03.188Z",
     "participantIds": [
       "competitor:wrc:driver:elfyn-evans",
       "competitor:wrc:driver:sami-pajari",
@@ -107224,6 +107226,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "team:wrc:toyota-gazoo-racing-wrt2",
       "team:wrc:m-sport-ford-world-rally-team"
     ],
+    "scoreFactObservedAt": "2026-10-04T20:41:03.188Z",
+    "resultPublishedAt": "2026-10-04T20:41:03.188Z",
+    "fixtureObservationSchema": "fixture-observations.v1",
     "participants": [
       {
         "id": "competitor:wrc:driver:elfyn-evans",
@@ -107694,8 +107699,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "GB"
       }
     ],
-    "scoreCheckedAt": "2026-10-10T20:00:03.353Z",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
@@ -184536,7 +184539,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "venueCountryCode": "SA",
     "scheduleNote": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.",
     "statusSourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
+    "statusCheckedAt": "2026-10-10T20:27:38.375Z",
     "season": "2026",
     "countryCode": "SA",
     "region": "Middle East",
@@ -218849,10 +218852,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Rallye Monte-Carlo is 2027 edition of the 2027 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with Australian viewing details still to be confirmed.",
     "sourceName": "Automobile Club de Monaco",
     "sourceUrl": "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/",
-    "sourceCheckedAt": "2026-10-10T20:00:03.353Z",
+    "sourceCheckedAt": "2026-10-10T20:22:47.185Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-10T20:00:03.353Z",
+    "lastReviewedAt": "2026-10-10T20:22:47.185Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -218866,7 +218869,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "WRC Rallye Monte-Carlo is 2027 edition of the 2027 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with Australian viewing details still to be confirmed.",
       "synopsisSpoilerOn": "WRC Rallye Monte-Carlo is 2027 edition of the 2027 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with Australian viewing details still to be confirmed."
     },
-    "statusCheckedAt": "2026-10-10T20:00:03.353Z",
+    "statusCheckedAt": "2026-10-10T20:22:47.185Z",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],

@@ -2,13 +2,13 @@
   "schemaVersion": "sport-context.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-10-10T20:00:03.353Z",
+  "generatedAt": "2026-10-10T20:27:38.375Z",
   "sources": [
     {
       "provider": "WRC",
       "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
       "sourceType": "official",
-      "checkedAt": "2026-10-10T20:00:03.353Z"
+      "checkedAt": "2026-10-10T20:27:38.375Z"
     },
     {
       "provider": "FIA",
@@ -26,12 +26,12 @@
       "provider": "FIA",
       "sourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
       "sourceType": "official",
-      "checkedAt": "2026-10-10T20:00:03.353Z"
+      "checkedAt": "2026-10-10T20:27:38.375Z"
     },
     {
       "provider": "Automobile Club de Monaco",
       "sourceUrl": "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/",
-      "checkedAt": "2026-10-10T20:00:03.353Z"
+      "checkedAt": "2026-10-10T20:22:47.185Z"
     }
   ],
   "sportDomains": [
@@ -1287,7 +1287,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1334,7 +1334,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1381,7 +1381,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1428,7 +1428,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1476,7 +1476,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1523,7 +1523,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1571,7 +1571,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1619,7 +1619,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1666,7 +1666,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1713,7 +1713,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1760,7 +1760,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1807,7 +1807,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "result": {
         "status": "official",
@@ -1854,7 +1854,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar/wrc-2026",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:27:38.375Z"
       },
       "season": "2026",
       "venueCountryCode": "IT",
@@ -1909,7 +1909,7 @@
         "checkedAt": "2026-10-04T05:49:31.163Z"
       },
       "statusSourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
-      "statusCheckedAt": "2026-10-10T20:00:03.353Z",
+      "statusCheckedAt": "2026-10-10T20:27:38.375Z",
       "scheduleNote": "The 2026 WRC element was withdrawn. The separate regional MERC rally is outside this competition.",
       "season": "2026",
       "venueCountryCode": "SA"
@@ -1943,7 +1943,7 @@
       "source": {
         "provider": "Automobile Club de Monaco",
         "sourceUrl": "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/",
-        "checkedAt": "2026-10-10T20:00:03.353Z"
+        "checkedAt": "2026-10-10T20:22:47.185Z"
       }
     }
   ],
@@ -2493,7 +2493,7 @@
       "event:wrc:2026:round-14"
     ],
     "complete": true,
-    "checkedAt": "2026-10-10T20:00:03.353Z",
+    "checkedAt": "2026-10-10T20:27:38.375Z",
     "revisionSourceUrl": "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
     "futureCalendarComplete": false,
     "futureNote": "Future coverage includes only the individually listed rallies."

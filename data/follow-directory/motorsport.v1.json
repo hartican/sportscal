@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "motorsport",
   "label": "Motorsport",
-  "generatedAt": "2026-10-07T23:14:37.555Z",
+  "generatedAt": "2026-10-10T20:22:47.185Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -30,7 +30,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -140,7 +140,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -179,7 +179,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -289,7 +289,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -328,7 +328,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -367,7 +367,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -406,7 +406,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -516,7 +516,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -555,7 +555,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -632,7 +632,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -704,7 +704,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -743,7 +743,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -782,7 +782,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -821,7 +821,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -931,7 +931,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1041,7 +1041,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1113,7 +1113,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1190,7 +1190,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1262,7 +1262,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1339,7 +1339,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1378,7 +1378,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1417,7 +1417,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1560,7 +1560,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1599,7 +1599,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1676,7 +1676,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1786,7 +1786,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1863,7 +1863,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1902,7 +1902,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -1941,7 +1941,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2018,7 +2018,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2095,7 +2095,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2134,7 +2134,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2173,7 +2173,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2212,7 +2212,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2327,7 +2327,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2366,7 +2366,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2443,7 +2443,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2482,7 +2482,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2559,7 +2559,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2598,7 +2598,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2637,7 +2637,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2714,7 +2714,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2753,7 +2753,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2792,7 +2792,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2867,7 +2867,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2944,7 +2944,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -2983,7 +2983,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3022,7 +3022,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3099,7 +3099,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3138,7 +3138,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3215,7 +3215,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3254,7 +3254,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3293,7 +3293,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3332,7 +3332,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3371,7 +3371,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3410,7 +3410,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3449,7 +3449,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3488,7 +3488,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3527,7 +3527,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3566,7 +3566,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3605,7 +3605,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3644,7 +3644,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3683,7 +3683,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3722,7 +3722,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3761,7 +3761,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3800,7 +3800,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3839,7 +3839,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3878,7 +3878,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3917,7 +3917,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3956,7 +3956,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -3995,7 +3995,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -4034,7 +4034,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -4073,7 +4073,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -4112,7 +4112,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -4151,7 +4151,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -4190,7 +4190,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -4229,7 +4229,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",
@@ -4268,7 +4268,7 @@
       "eventRanks": [],
       "rankingBasis": "After Round 12",
       "sourceRefs": [
-        "https://www.wrc.com/en/calendar",
+        "https://www.wrc.com/en/calendar/wrc-2026",
         "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "https://www.stan.com.au/watch/sport/motorsport/wrc",
         "https://api.fia.com/news/fia-and-wrc-promoter-confirm-final-round-2026-fia-world-rally-championship",

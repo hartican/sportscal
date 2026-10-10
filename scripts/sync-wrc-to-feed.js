@@ -40,6 +40,8 @@ function resultFields(event){
     consensusResult: { winner: event.result.winningCrew, summary, marginText: event.result.totalTime },
     resultSourceUrl: event.result.sourceUrl,
     resultSourceCheckedAt: event.result.checkedAt,
+    scoreCheckedAt: event.result.checkedAt,
+    statusCheckedAt: event.result.checkedAt,
   };
 }
 
@@ -134,8 +136,16 @@ function syncWrcToFeed(feed, context){
   // Project the existing season scope once, so fresh Feed loads can resolve
   // followed names without loading the optional standings transport.
   const participantById = new Map(context.participants.map(person => [person.id, person]));
+  const previousByCanonicalId = new Map((feed.events || []).filter(card=>card.canonicalEventId).map(card=>[card.canonicalEventId,card]));
   const cards = context.events.map(event => {
     const card = require('../config/sport-context').applyEventContext(eventToCard(event), context);
+    const previous=previousByCanonicalId.get(card.canonicalEventId);
+    // Calendar observations cannot erase independently reviewed final detail.
+    // A changed final, source receipt or identity uses the new projection.
+    if(previous?.key==='wrc'&&previous.status==='completed'&&card.status==='completed'&&previous.resultStatus==='official'&&card.resultStatus==='official'&&card.score&&previous.score===card.score&&card.resultSourceUrl&&previous.resultSourceUrl===card.resultSourceUrl&&card.resultSourceCheckedAt&&previous.resultSourceCheckedAt===card.resultSourceCheckedAt){
+      for(const field of ['outcomeText','recapText','resultLabels','consensusResult'])if(previous[field]!=null)card[field]=previous[field];
+      for(const field of ['scoreCheckedAt','statusCheckedAt','scoreFactObservedAt','resultPublishedAt','fixtureObservationSchema'])if(Object.hasOwn(previous,field))card[field]=previous[field];
+    }
     const participants=(card.participantIds || []).map(id => participantById.get(id)).filter(Boolean)
       .map(({id, displayName, countryCode}) => ({id, name:displayName, displayName, countryCode}));
     return { ...card, ...(participants.length ? {participants} : {}) };

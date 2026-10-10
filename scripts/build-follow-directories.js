@@ -182,7 +182,9 @@ function main(){
     const key = sportKeyForParticipant(participant);
     if (!key || !chunks.has(key) || participant?.metadata?.active === false) return;
     const contextSources = key === "wrc" ? (context.sources || []).map(source => source.sourceUrl).filter(Boolean) : [];
-    const sourceCheckedAt = key === "wrc" ? (context.sources || []).map(source => source.checkedAt).filter(Boolean).sort().at(-1) || null : null;
+    // WRC participant identities come from the championship tables. Checking
+    // a calendar, viewing page or next-season itinerary cannot refresh them.
+    const sourceCheckedAt = key === "wrc" ? (context.sources || []).find(source=>source.sourceUrl===require('./lib/wrc-context').STANDINGS_URL)?.checkedAt || null : null;
     const record = normalizeRecord(participant, {
       ranking:rankByParticipant.get(participant.id),
       genderCategory:key === "tennis" ? tennisGenderForParticipant(participant) : null,

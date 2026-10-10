@@ -668,7 +668,9 @@ async function runMain() {
       ['scripts/sync-wrc-to-feed.js','data/canonical/wrc-context-2026.json','data/events.json'],
       ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
       ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
-      ['scripts/build-code-inspector.js','--codes=wrc,motorsport'],['scripts/build-canonical-context-bundle.js'],['scripts/build-canonical-context-bundle.js','--check'],['scripts/build-app-shell-runtime.js'],
+      ['scripts/build-code-inspector.js','--codes=wrc,motorsport'],
+      ['scripts/build-follow-directories.js','--codes=wrc,motorsport'],['scripts/build-follow-directories.js','--check'],
+      ['scripts/build-canonical-context-bundle.js'],['scripts/build-canonical-context-bundle.js','--check'],['scripts/build-app-shell-runtime.js'],
       ['scripts/validate-wrc-venue-coverage.js'],['scripts/validate-follow-policy-parity.js'],
       ['scripts/validate-feed-card-presentation.js'],['scripts/validate-feed.js','feeds/incoming/events.json'],['scripts/validate-feed.js','data/events.json'],
       ['scripts/qa-storyline-spoilers.js','data/events.json']

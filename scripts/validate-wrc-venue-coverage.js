@@ -2,11 +2,13 @@
 'use strict';
 const fs=require('fs'),assert=require('node:assert/strict');
 const context=require('../data/canonical/wrc-context-2026.json');
-const {parseWrcCalendar,validateWrcContext,CALENDAR_URL}=require('./lib/wrc-context');
+const {parseWrcCalendar,validateWrcContext,CALENDAR_URL,STANDINGS_URL}=require('./lib/wrc-context');
 const {verifiedWithdrawal,futureMonteCarlo,applyCoverage,REVISION_URL}=require('./lib/wrc-venue-coverage');
 const {eventToCard,syncWrcToFeed}=require('./sync-wrc-to-feed');
 const art=require('../config/venue-artwork'),presentation=require('../config/feed-card-presentation'),scope=require('../config/sport-context');
 assert.deepEqual(validateWrcContext(context),[]);
+const rosterReceipt=context.sources.find(source=>source.sourceUrl===STANDINGS_URL).checkedAt;
+for(const sport of ['wrc','motorsport'])for(const record of require('../data/follow-directory/'+sport+'.v1.json').records.filter(record=>record.id.startsWith('competitor:wrc:')))assert.equal(record.sourceCheckedAt,rosterReceipt,'a fresh calendar or future itinerary cannot refresh the date attached to unchanged WRC participants');
 const original=fs.readFileSync('scripts/fixtures/wrc-calendar.html','utf8');
 const payload=JSON.parse(original.match(/<script[^>]*>([\s\S]*?)<\/script>/)[1]);payload.calendar.rows.pop();
 const revised='<script id="rb3-prerender-data-cache">'+JSON.stringify(payload)+'</script>';
@@ -30,6 +32,15 @@ assert.throws(()=>applyCoverage(context,{rounds:rounds.slice(0,12),withdrawalVer
 const futureCard=eventToCard(future);assert.equal(futureCard.watchUrl,undefined);assert.equal(futureCard.timePrecision,'date-only');assert.deepEqual(scope.applyEventContext(futureCard,result).participantIds,[],'future season never inherits the current roster');
 const sourceFailed=applyCoverage(context,{rounds,withdrawalVerified:true,checkedAt:'2026-10-03'});assert.deepEqual(sourceFailed.events.filter(e=>e.season==='2027'),context.events.filter(e=>e.season==='2027'),'missing future source retains its prior exact snapshot');
 const once=syncWrcToFeed({events:[]},result);assert.deepEqual(syncWrcToFeed(once,result),once,'duplicate prevention');
+const completed=once.events.find(event=>event.resultStatus==='official'&&event.status==='completed');
+const reviewed={...completed,recapText:'Existing reviewed result text',outcomeText:'Existing reviewed outcome',resultLabels:['Existing reviewed label'],consensusResult:{...completed.consensusResult,summary:'Existing reviewed summary'},scoreCheckedAt:'2026-10-01T00:00:00Z',statusCheckedAt:'2026-10-01T00:00:00Z',scoreFactObservedAt:'2026-10-01T00:00:00Z',resultPublishedAt:'2026-10-01T00:00:00Z'};
+const reviewedFields=['recapText','outcomeText','resultLabels','consensusResult','scoreCheckedAt','statusCheckedAt','scoreFactObservedAt','resultPublishedAt'];
+const retainedReview=syncWrcToFeed({events:[reviewed]},result).events.find(event=>event.id===completed.id);
+for(const field of reviewedFields)assert.deepEqual(retainedReview[field],reviewed[field],'a calendar-only refresh cannot replace an unchanged reviewed result with a generic template');
+for(const change of [{score:'Different source score'},{resultSourceCheckedAt:'2000-01-01T00:00:00Z'},{resultSourceUrl:'https://example.invalid/different-source'},{resultStatus:'pending'},{canonicalEventId:'event:wrc:2026:different-round'}]){
+ const updated=syncWrcToFeed({events:[{...reviewed,...change}]},result).events.find(event=>event.id===completed.id);
+ assert.equal(updated.recapText,completed.recapText,'a different identity, final or observation must not inherit the old reviewed recap');
+}
 assert.equal(once.events.find(e=>e.season==='2027').participants,undefined,'unconfirmed future events have no projected season roster');
 const scopedCard=once.events.find(e=>e.roundNumber===13);assert.deepEqual(scopedCard.participantIds,result.eventParticipantScopes[0].participantIds,'fresh cards retain exactly the existing season participant scope');assert(scopedCard.participants.every(p=>p.displayName===result.participants.find(original=>original.id===p.id).displayName),'names come from the existing championship context');
 assert.equal(once.events.filter(e=>e.status!=='cancelled'&&e.season==='2026').length,13);
