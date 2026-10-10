@@ -1,5 +1,7 @@
 # Lite weekend editorial
 
+The 10 October 2026 standing authority covers inventory, sourced editorial application, scoped main push and exact-SHA deployment without a new approval checkpoint. Complete independent valid cards even if one card fails; retain explicit deferrals for that card and its direct dependants. Shared safety, private-control and release gates still apply. Respect explicit user interruptions, but do not ask for routine approval at the next scheduled wake. See [standing execution authority](adaptive-editorial.md).
+
 Run Fridays at 09:00 Australia/Sydney. Weekend includes every Friday, Saturday,
 Sunday and Monday fixture in Sydney calendar dates; only existing 4/5 or 5/5
 stakes cards qualify. Do not load account preferences or run canonical ingestion.

@@ -54,9 +54,10 @@ async function main(args){
   let failure;
   try{
   const inventory=await store.inventory(),published=read('data/events.json'),publication=require('./lib/editorial-publication');
-  const cards=require('./lib/editorial-display-copy').selectCards(inventory,published.events,publication.publicationMismatch);
+  const display=require('./lib/editorial-display-copy');
+  const cards=display.selectCards(inventory,published.events,publication.publicationMismatch);
   readout.inventory(inventory,cards);
-  if(args.includes('--list')){readout.stage('complete');console.log(JSON.stringify({...inventory,cards:cards.map(c=>({id:c.event.id,name:c.event.name,date:c.schedule.date,eligibility:c.eligibility,schedule:c.schedule,repairReason:c.repairReason,copy:c.state.pending_copy||policy.copy(c.event),sources:c.event.editorialSources||[],pendingEdit:!!c.state.pending_copy,revision:c.state.revision}))},null,2));return;}
+  if(args.includes('--list')){readout.stage('complete');console.log(JSON.stringify({...inventory,cards:cards.map(c=>({id:c.event.id,name:c.event.name,date:c.schedule.date,eligibility:c.eligibility,schedule:c.schedule,repairReason:c.repairReason,copy:display.baselineCopy(c),sources:c.event.editorialSources||[],pendingEdit:!!c.state.pending_copy,revision:c.state.revision}))},null,2));return;}
   if(!cards.length){readout.stage('complete');console.log('No due qualifying 5/5 editorial; no changes or release.');return {updatedIds:[],deferred:[]};}
   readout.stage('research');
   const index=args.indexOf('--research');assert(index>=0&&args[index+1],'Provide --research <dated JSON>, or --list first.');

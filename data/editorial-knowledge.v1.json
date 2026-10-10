@@ -1071,6 +1071,26 @@
       "id": "subject:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674",
       "kind": "event",
       "name": "MotoGP Indonesia Grand Prix"
+    },
+    {
+      "id": "subject:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843",
+      "kind": "event",
+      "name": "Bathurst 1000"
+    },
+    {
+      "id": "subject:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818",
+      "kind": "event",
+      "name": "Liverpool v Manchester City"
+    },
+    {
+      "id": "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846",
+      "kind": "event",
+      "name": "Australia v New Zealand - Rugby League World Cup"
+    },
+    {
+      "id": "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb",
+      "kind": "event",
+      "name": "Australia v New Zealand - Sydney Bledisloe Test"
     }
   ],
   "sources": [
@@ -5581,6 +5601,160 @@
       "url": "https://www.motogp.com/en/news/2026/10/07/two-points-the-gap-as-motogps-2026-thriller-lands-in-lombok/1171109",
       "sourceType": "official",
       "checkedAt": "2026-10-09T00:20:09.386Z"
+    },
+    {
+      "id": "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+      "name": "Bathurst 1000 — official research 1",
+      "url": "https://www.supercars.com/news/supercars-news-2026-bathurst-1000-top-10-shootout-report-zach-bates-pole-shock-fairytale-matt-stone-racing-results",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
+      "name": "Bathurst 1000 — official research 2",
+      "url": "https://www.v8sleuth.com.au/bates-grabs-bathurst-pole-to-deny-kostecki-record/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
+      "name": "Bathurst 1000 — official research 3",
+      "url": "https://www.supercars.com/news/supercars-news-2026-bathurst-1000-qualifying-report-zach-bates-provisional-pole-record-breaking-msr-results",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+      "name": "Bathurst 1000 — official research 4",
+      "url": "https://www.supercars.com/news/supercars-news-2026-ford-engine-change-bathurst-1000-barometric-pressure-testing-investigation-gen3",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
+      "name": "Bathurst 1000 — official research 5",
+      "url": "https://www.supercars.com/events/2026-bathurst-1000",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5",
+      "name": "Bathurst 1000 — official research 6",
+      "url": "https://www.supercars.com/news/supercars-news-2026-ryan-walkinshaw-toyota-bathurst-1000-reliability-engine-gen3-the-bend-500-enduro",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:6",
+      "name": "Bathurst 1000 — official research 7",
+      "url": "https://www.supercars.com/news/supercars-news-2026-centre-of-gravity-adjustments-ford-toyota-chevrolet-gen3-parity-bathurst-1000",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:0",
+      "name": "Liverpool v Manchester City — official research 1",
+      "url": "https://www.mancity.com/news/mens/liverpool-v-city-premier-league-match-preview-october-2026-63926279",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:1",
+      "name": "Liverpool v Manchester City — official research 2",
+      "url": "https://www.mancity.com/news/mens/enzo-maresca-liverpool-v-manchester-city-team-news-update-63927129",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:2",
+      "name": "Liverpool v Manchester City — official research 3",
+      "url": "https://www.premierleague.com/en/news/4727779/premier-league-statement-manchester-city-fc/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:3",
+      "name": "Liverpool v Manchester City — official research 4",
+      "url": "https://www.mancity.com/news/club/manchester-city-lodge-appeal-63926534",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:4",
+      "name": "Liverpool v Manchester City — official research 5",
+      "url": "https://apnews.com/article/24585acc5c33ee96413d2495465b8856",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:0",
+      "name": "Australia v New Zealand - Rugby League World Cup — official research 1",
+      "url": "https://www.nrl.com/news/2026/10/05/kangaroos-squad-for-2026-rugby-league-world-cup/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:1",
+      "name": "Australia v New Zealand - Rugby League World Cup — official research 2",
+      "url": "https://www.nrl.com/news/2026/10/06/ponga-gagai-among-new-faces-in-kiwis-squad/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:2",
+      "name": "Australia v New Zealand - Rugby League World Cup — official research 3",
+      "url": "https://www.nrl.com/news/2026/10/10/job-to-do-walker-just-getting-started-on-path-to-greatness/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:3",
+      "name": "Australia v New Zealand - Rugby League World Cup — official research 4",
+      "url": "https://www.rlwc2026.com/draws-and-pools",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:4",
+      "name": "Australia v New Zealand - Rugby League World Cup — official research 5",
+      "url": "https://www.nrl.com/news/2026/09/27/cleary-out-of-world-cup-edwards-yeo-in-doubt-as-crossland-awaits-fate/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
+      "name": "Australia v New Zealand - Sydney Bledisloe Test — official research 1",
+      "url": "https://www.allblacks.com/team/all-blacks/bledisloe-cup",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T22:41:26.276Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1",
+      "name": "Australia v New Zealand - Sydney Bledisloe Test — official research 2",
+      "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T22:41:26.276Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
+      "name": "Australia v New Zealand - Sydney Bledisloe Test — official research 3",
+      "url": "https://www.rugby.com.au/news/codie-taylor-confirmed-as-captain-as-all-blacks-confirm-34man-squad-for-bledisloe-cup-series-2026929",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T22:41:26.276Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3",
+      "name": "Australia v New Zealand - Sydney Bledisloe Test — official research 4",
+      "url": "https://www.rugby.com.au/news/wallabies-2027-rugby-world-cup-pool-fixtures-new-zealand-chile-hong-kong-china-202622",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T22:41:26.276Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4",
+      "name": "Australia v New Zealand - Sydney Bledisloe Test — official research 5",
+      "url": "https://www.rugby.com.au/wallabies/news/brute-force-all-blacks-deliver-second-half-masterclass-to-extend-winning-run-over-wallabies-at-eden-park-20261010",
+      "sourceType": "official",
+      "checkedAt": "2026-10-10T22:41:26.276Z"
     }
   ],
   "narrativeFacts": [
@@ -30549,6 +30723,336 @@
       ],
       "observedAt": "2026-10-09T00:20:09.386Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
+      ],
+      "statement": "Bates secured the Bathurst pole ahead of Kostecki and De Pasquale.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
+      ],
+      "statement": "It is Bates' first Supercars pole and Matt Stone Racing's first Bathurst pole.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
+      ],
+      "statement": "Feeney, Waters and Mostert missed the Top Ten Shootout.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
+      ],
+      "statement": "Ford's engine adjustment applies to Bathurst only, separately from Chevrolet ballast changes.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:6"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
+      ],
+      "statement": "The 161-lap race closes the Enduro Cup before the Finals.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
+      ],
+      "statement": "Toyota won The Bend 500 with Mostert and Coulthard.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:0",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818"
+      ],
+      "statement": "City seek six successive league wins; Liverpool are unbeaten in seven matches across all competitions.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:0"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:1",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818"
+      ],
+      "statement": "Haaland is fit and available; Foden misses Liverpool through suspension.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:1"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:2",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818"
+      ],
+      "statement": "The independent Commission found financial-reporting and spending-rule breaches; sanctions are addressed separately.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:2"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:3",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818"
+      ],
+      "statement": "City have appealed the findings and maintain their innocence.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:3"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:4",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818"
+      ],
+      "statement": "Maresca has backed the hierarchy and said players must focus on the pitch.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:4"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:5",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818"
+      ],
+      "statement": "The 11 October 16:30 BST Anfield kickoff falls on 12 October in Sydney.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:0"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:0",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846"
+      ],
+      "statement": "Yeo captains the announced Kangaroos squad; Lindsay Smith replaces injured Lindsay Collins.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:0"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:1",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846"
+      ],
+      "statement": "Walker competes with Munster, Dearden and Moses for a halves place; inclusion in the squad does not confirm the match team.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:2"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:2",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846"
+      ],
+      "statement": "The Kiwis squad includes Ponga and Gagai and returning Hughes alongside its 2025 Pacific Championships-winning core.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:1"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:3",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846"
+      ],
+      "statement": "Walker recovered from August ankle surgery before the finals and his World Cup selection.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:2"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:4",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846"
+      ],
+      "statement": "Australia and New Zealand open the World Cup at Allianz Stadium on 15 October in Pool A.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:3"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:5",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846"
+      ],
+      "statement": "Cleary is ruled out of Australia's World Cup campaign.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:4"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:6",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846"
+      ],
+      "statement": "Seven and 7plus hold confirmed Australian World Cup coverage.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:0"
+      ],
+      "observedAt": "2026-10-10T09:56:08Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb"
+      ],
+      "statement": "The second Test is scheduled at Accor Stadium on 17 October, after the completed Auckland Test.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1"
+      ],
+      "observedAt": "2026-10-10T22:41:26.276Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb"
+      ],
+      "statement": "Wilson and Taylor captained the Auckland teams; that selection does not announce the Sydney XV.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4"
+      ],
+      "observedAt": "2026-10-10T22:41:26.276Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb"
+      ],
+      "statement": "Taylor leads the series squad in Savea's absence following shoulder surgery; Scott Barrett returned after back surgery.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2"
+      ],
+      "observedAt": "2026-10-10T22:41:26.276Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb"
+      ],
+      "statement": "Rennie previously coached the Wallabies and now coaches New Zealand.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2"
+      ],
+      "observedAt": "2026-10-10T22:41:26.276Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb"
+      ],
+      "statement": "Sydney closes Australia's home Test programme before the northern tour.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1"
+      ],
+      "observedAt": "2026-10-10T22:41:26.276Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:5",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb"
+      ],
+      "statement": "The countries meet at the same stadium in their first World Cup pool encounter on 9 October 2027.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3"
+      ],
+      "observedAt": "2026-10-10T22:41:26.276Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -33583,6 +34087,79 @@
       ],
       "status": "active",
       "updatedAt": "2026-10-09T00:20:09.386Z"
+    },
+    {
+      "id": "thread:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843",
+      "subjectIds": [
+        "subject:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
+      ],
+      "title": "Bathurst 1000",
+      "summary": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed.",
+      "factIds": [
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "thread:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818",
+      "subjectIds": [
+        "subject:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818"
+      ],
+      "title": "Liverpool v Manchester City",
+      "summary": "Anfield hosts the match on Sunday 11 October in Britain, early Monday 12 October in Sydney. Liverpool must turn its unbeaten start into control against an opponent on a sustained league run. The tactical question is whether Iraola's pressure disrupts City's possession before Haaland can exploit space. Confirmed availability is not an announced starting XI, and no deduction, stripped title or match outcome has been presumed.",
+      "factIds": [
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:0",
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:1",
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:2",
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:3",
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:4",
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:5"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846"
+      ],
+      "title": "Australia v New Zealand - Rugby League World Cup",
+      "summary": "The men's World Cup opens at Allianz Stadium on Thursday 15 October, with Australia and New Zealand sharing Pool A with Fiji and Cook Islands. Opening points shape the route through the pool without deciding the trophy. The national squads are announced; the match-day teams and starting halves are not assumed. Australian coverage is confirmed on Seven and 7plus. Neither a predicted lineup nor a result has been presented as fact.",
+      "factIds": [
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:0",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:1",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:2",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:3",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:4",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:5",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:6"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-10T09:56:08Z"
+    },
+    {
+      "id": "thread:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb"
+      ],
+      "title": "Australia v New Zealand - Sydney Bledisloe Test",
+      "summary": "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
+      "factIds": [
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:5"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-10T22:41:26.276Z"
     }
   ],
   "audienceMemories": [],
@@ -46826,80 +47403,6 @@
       }
     },
     {
-      "id": "projection:feed:rlwc-australia-new-zealand-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "rlwc-australia-new-zealand-2026"
-      ],
-      "researchDepth": 5,
-      "hook": "Australia's title defence begins against a confident New Zealand, with its first-choice halfback missing and selection still unsettled.",
-      "synopsis": "The men's Rugby League World Cup opens at Allianz Stadium on Thursday 15 October. Australia and New Zealand share Pool A with Fiji and Cook Islands, with only the top two progressing to the semi-finals. The result will shape that route without deciding the trophy. Australia's squad is expected after the NRL Grand Final; announced selections, rather than predicted teams, will determine the final matchups.",
-      "formCopy": "New Zealand arrive as the 2025 Pacific Cup champions; Australia bring the momentum of an Ashes series win. The Kiwis' forward depth gives them a platform to challenge the defending world champions, rather than wait for an upset. Australia's task has become harder with Nathan Cleary ruled out, while the fitness of Isaah Yeo and Dylan Edwards remains uncertain.",
-      "closingCopy": "This rivalry is about who owns the green-and-gold standard, not just who wins opening night. Kevin Walters must rebuild Australia's attacking direction without Cleary; Sam Walker is a contender, not a confirmed selection. For New Zealand, the old Sydney Football Stadium's seven-match losing record offers a history to overturn at the rebuilt Allianz. The 2008 champions showed why an opening defeat need not define a World Cup, but neither side wants to spend this tournament recovering lost ground.",
-      "threadIds": [
-        "thread:fixture-research:rlwc-australia-new-zealand-2026"
-      ],
-      "factIds": [
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:0",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:1",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:2",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:3",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:4",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:5"
-      ],
-      "sourceIds": [
-        "source:fixture-research:rlwc-australia-new-zealand-2026:0",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:1",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:2",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:3"
-      ],
-      "researchedAt": "2026-10-02T17:57:04.283Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-15T09:05:00Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-02T17:57:04.283Z"
-      }
-    },
-    {
-      "id": "projection:feed:bledisloe-sydney-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "rugby-australia-new-zealand-2026-10-17",
-        "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8"
-      ],
-      "researchDepth": 5,
-      "hook": "Sydney gives the Wallabies a home-ground chance to challenge New Zealand's long hold, with a World Cup reunion already on the calendar.",
-      "synopsis": "Australia host New Zealand at Accor Stadium on Saturday 17 October, one week after the first Bledisloe Test at Eden Park. This closes the Wallabies' home Test programme before their northern tour. Whether Sydney can decide the cup depends on Auckland's result; that claim should wait until the first match is played. The teams meet here again in the 2027 World Cup pool stage, on 9 October.",
-      "formCopy": "Australia enter the Bledisloe fortnight buoyed by their recent Springboks performance; New Zealand have come through a demanding four-Test South Africa series. Codie Taylor captains the All Blacks while Ardie Savea recovers from shoulder surgery, with Scott Barrett returning after back surgery. Those are the current squad-level changes, not a confirmed Sydney starting XV.",
-      "closingCopy": "For Wallabies supporters, home advantage is an invitation to believe rather than accept another familiar ending. For New Zealand, protecting a trophy held since 2003 is a matter of standards as well as silverware. Les Kiss is building towards a home World Cup; Taylor must lead through an injury-hit period. This same stadium hosts the countries' first World Cup pool meeting next October, giving both teams a chance to shape the atmosphere of a rivalry that will return on an even bigger stage.",
-      "threadIds": [
-        "thread:fixture-research:rugby-australia-new-zealand-2026-10-17"
-      ],
-      "factIds": [
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:0",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:1",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:2",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:3",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:4",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:5"
-      ],
-      "sourceIds": [
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:0",
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:1",
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:2"
-      ],
-      "researchedAt": "2026-10-02T17:57:04.283Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-17T05:00:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-02T17:57:04.283Z"
-      }
-    },
-    {
       "id": "projection:rolling:epl-2026-27-128973",
       "targetType": "feed-event",
       "targetIds": [
@@ -49076,42 +49579,6 @@
       }
     },
     {
-      "id": "projection:rolling:epl-2026-27-128980",
-      "targetType": "feed-event",
-      "targetIds": [
-        "epl-2026-27-128980"
-      ],
-      "researchDepth": 5,
-      "hook": "Anfield tests Liverpool's rebuild against City's winning run, with City's financial-breach appeal hanging over the rivalry.",
-      "synopsis": "Liverpool host City at Anfield on 11 October, with the late-afternoon UK kickoff falling early on Monday 12 October in Sydney. Iraola's pressing asks whether Liverpool can force mistakes before Maresca's side establishes control in possession. City's pre-match briefing is scheduled for 9 October, so availability and starting lineups should not be assumed now. The immediate prize is league points and evidence that a new coaching identity works against elite opposition, not a verdict on the financial proceedings or any unannounced penalty.",
-      "formCopy": "City arrive chasing a sixth consecutive league win, while Liverpool are unbeaten in seven matches across all competitions. Andoni Iraola's energetic Liverpool rebuild meets Enzo Maresca's first City season after Pep Guardiola: one side wants to disrupt the rhythm, the other to keep its winning sequence intact. Those runs make this more than a referendum on two new managers. Liverpool must turn momentum into authority against a rival already making consistency its advantage.",
-      "closingCopy": "The financial dispute gives the rivalry a second emotional fault line. An independent Commission found serious breaches of financial reporting and spending rules; this is not a salary-cap case. City have appealed and maintain their innocence, with sanctions still to be determined separately. For Liverpool supporters, questions of competitive fairness can sharpen the contest; for City supporters, pride in the team can coexist with resistance to findings their club disputes. Management must answer institutional questions while today's players are judged on the pitch. A win at Anfield would settle neither the appeal nor that argument.",
-      "threadIds": [
-        "thread:fixture-research:epl-2026-27-128980"
-      ],
-      "factIds": [
-        "fact:fixture-research:epl-2026-27-128980:0",
-        "fact:fixture-research:epl-2026-27-128980:1",
-        "fact:fixture-research:epl-2026-27-128980:2",
-        "fact:fixture-research:epl-2026-27-128980:3",
-        "fact:fixture-research:epl-2026-27-128980:4"
-      ],
-      "sourceIds": [
-        "source:fixture-research:epl-2026-27-128980:0",
-        "source:fixture-research:epl-2026-27-128980:1",
-        "source:fixture-research:epl-2026-27-128980:2",
-        "source:fixture-research:epl-2026-27-128980:3"
-      ],
-      "researchedAt": "2026-10-06T02:47:49.275Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-11T15:30:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-06T02:47:49.275Z"
-      }
-    },
-    {
       "id": "projection:fixture-research:fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
       "targetType": "feed-event",
       "targetIds": [
@@ -49701,45 +50168,6 @@
       }
     },
     {
-      "id": "projection:fixture-research:supercars-bathurst-1000-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "supercars-bathurst-1000-2026"
-      ],
-      "researchDepth": 5,
-      "hook": "Ford gets a Bathurst-only engine adjustment as Toyota tests its endurance breakthrough against the Mountain's full distance.",
-      "synopsis": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Chevrolet's separately approved centre-of-gravity ballast change remains part of the technical backdrop; it is not the same measure as Ford's engine correction. The decisive test is how crews combine pace, reliability and driver handovers over the full distance. Practice can identify contenders, not settle that argument.",
-      "formCopy": "Kai Allen set the fastest lap in Thursday's opening practice, an early signal rather than a qualifying verdict. Toyota arrive after Chaz Mostert and Fabian Coulthard's Bend 500 win and a clean finish for all five Supras. Supercars has now approved a Mustang engine adjustment after testing identified power loss at lower barometric pressure; it applies here only, with Chevrolet and Toyota engines unchanged.",
-      "closingCopy": "Toyota supporters have a reason to believe the new badge can challenge established rivals, but 1000 kilometres asks more than The Bend did. Ford's engine change adds another layer to the parity debate without predicting a winner. Brodie Kostecki and Todd Hazelwood also have a human adjustment: Tom Moore replaces injured engineer George Commins, drawing on an existing working relationship rather than starting from zero.",
-      "threadIds": [
-        "thread:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df"
-      ],
-      "factIds": [
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:0",
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:1",
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:2",
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:3",
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:4",
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:5"
-      ],
-      "sourceIds": [
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:0",
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:1",
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:2",
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:3",
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:4",
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-b657e2bdd306fe90f68d1f53edc673bd5a3672fbe0bbd514e1421de0b21ec4df:5"
-      ],
-      "researchedAt": "2026-10-09T00:20:09.386Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-11T00:30:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-09T00:20:09.386Z"
-      }
-    },
-    {
       "id": "projection:rolling:evt-motogp-2026-indonesia",
       "targetType": "feed-event",
       "targetIds": [
@@ -49775,6 +50203,165 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-09T00:20:09.386Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:supercars-bathurst-1000-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "supercars-bathurst-1000-2026"
+      ],
+      "researchDepth": 5,
+      "hook": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
+      "synopsis": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed.",
+      "formCopy": "Bates backed up Friday's record Gen3 qualifying lap by beating Brodie Kostecki in Saturday's Shootout. It is the first Bathurst pole for both the rookie and Matt Stone Racing. Kostecki starts alongside him; Anton De Pasquale is third. Broc Feeney, Cam Waters and Chaz Mostert missed the top ten, so several familiar contenders must build their challenge from further back.",
+      "closingCopy": "For Matt Stone Racing, the front row makes an underdog story tangible without making Sunday a fairytale already won. Kostecki remains the immediate benchmark beside Bates. Toyota's Bend 500 breakthrough still offers a reason for its supporters to believe, but Mostert's grid position asks the team to earn that belief over the distance. One exceptional lap and a complete endurance performance are different achievements.",
+      "threadIds": [
+        "thread:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
+      ],
+      "factIds": [
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5"
+      ],
+      "sourceIds": [
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:6"
+      ],
+      "researchedAt": "2026-10-10T09:56:08Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-11T00:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-10T09:56:08Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128980",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128980"
+      ],
+      "researchDepth": 5,
+      "hook": "Haaland is fit for Anfield, where Liverpool's rebuild meets City's winning run and a financial dispute that football cannot settle.",
+      "synopsis": "Anfield hosts the match on Sunday 11 October in Britain, early Monday 12 October in Sydney. Liverpool must turn its unbeaten start into control against an opponent on a sustained league run. The tactical question is whether Iraola's pressure disrupts City's possession before Haaland can exploit space. Confirmed availability is not an announced starting XI, and no deduction, stripped title or match outcome has been presumed.",
+      "formCopy": "City chase a sixth successive league win; Liverpool are unbeaten in seven matches across all competitions. Maresca has now confirmed Haaland is fit and available after a precautionary withdrawal on international duty. Foden remains suspended. Iraola's Liverpool press meets a City side trying to restore its rhythm after the international break, with attacking availability no longer waiting on Friday's briefing.",
+      "closingCopy": "The Commission found serious financial-reporting and spending-rule breaches, not a salary-cap offence. City have appealed and maintain their innocence; sanctions remain a separate process. Maresca has publicly backed the club's hierarchy and asked his players to focus on football. For Liverpool fans, competitive fairness can sharpen the rivalry; for City fans, loyalty meets disputed findings. Management faces institutional questions while the players must perform in an atmosphere their manager expects to be fiercer. A win would answer the sporting challenge, not resolve the case.",
+      "threadIds": [
+        "thread:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818"
+      ],
+      "factIds": [
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:0",
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:1",
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:2",
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:3",
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:4",
+        "fact:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:5"
+      ],
+      "sourceIds": [
+        "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:0",
+        "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:1",
+        "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:2",
+        "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:3",
+        "source:fixture-research:epl-2026-27-128980:revision-67d661bb3d4c81563415de665822924c4174623760eda3654fd4c21eeb08b818:4"
+      ],
+      "researchedAt": "2026-10-10T09:56:08Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-11T15:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-10T09:56:08Z"
+      }
+    },
+    {
+      "id": "projection:feed:rlwc-australia-new-zealand-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rlwc-australia-new-zealand-2026"
+      ],
+      "researchDepth": 5,
+      "hook": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
+      "synopsis": "The men's World Cup opens at Allianz Stadium on Thursday 15 October, with Australia and New Zealand sharing Pool A with Fiji and Cook Islands. Opening points shape the route through the pool without deciding the trophy. The national squads are announced; the match-day teams and starting halves are not assumed. Australian coverage is confirmed on Seven and 7plus. Neither a predicted lineup nor a result has been presented as fact.",
+      "formCopy": "Australia have named their 23-player squad with Yeo as captain, removing the earlier uncertainty about his inclusion. Lindsay Smith replaces injured Lindsay Collins. Walker is selected in the squad but competes with Munster, Dearden and Moses for a halves berth. New Zealand retain the core of their 2025 Pacific Championships winners, add Ponga and Gagai, and welcome Hughes back.",
+      "closingCopy": "Cleary's absence makes Australia's attacking succession a live contest rather than a speculative squad list. Walker's recovery from ankle surgery gives his chance a personal edge, but it does not guarantee selection. Across the divide, Ponga's allegiance and Hughes' return strengthen the Kiwis' own story of belonging and ambition. Australian supporters expect a title defence; New Zealand supporters can see experienced winners and new talent challenging that expectation.",
+      "threadIds": [
+        "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846"
+      ],
+      "factIds": [
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:0",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:1",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:2",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:3",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:4",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:5",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:6"
+      ],
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:0",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:1",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:2",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:3",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:4"
+      ],
+      "researchedAt": "2026-10-10T09:56:08Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-15T09:05:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-10T09:56:08Z"
+      }
+    },
+    {
+      "id": "projection:feed:bledisloe-sydney-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rugby-australia-new-zealand-2026-10-17",
+        "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "fixture-rugby-wr-e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "fixture:rugby:ra:949627",
+        "fixture-rugby-ra-949627"
+      ],
+      "researchDepth": 5,
+      "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
+      "synopsis": "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
+      "formCopy": "The first Test's lineups paired Harry Wilson's Wallabies against Codie Taylor's All Blacks; Sydney selection is still to come. Taylor's captaincy covers Ardie Savea's shoulder-surgery absence, while Scott Barrett's return adds experience to New Zealand's pack. Both coaches now have direct evidence from Auckland rather than just South African form to assess. The question for this week is which combinations can sustain their work when territory and fatigue begin to change the game.",
+      "closingCopy": "For Australian supporters, the last home Test of the year is a chance to see Les Kiss's project hold its shape against the closest rival, not merely to applaud promising passages. Dave Rennie knows the gold jersey from his own time coaching Australia; facing his former players adds a personal edge to New Zealand's preparation. The crowd can supply belief, but it cannot make the tackles or organise the next phase. This stadium hosts the countries' first World Cup pool meeting next year, so the emotional memory of Sydney will outlast this fortnight.",
+      "threadIds": [
+        "thread:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb"
+      ],
+      "factIds": [
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:5"
+      ],
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4"
+      ],
+      "researchedAt": "2026-10-10T22:41:26.276Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-17T05:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-10T22:41:26.276Z"
       }
     }
   ]

@@ -21,6 +21,12 @@ function displayCopy(event,spoilersOn,now=new Date()){
 function needsDisplayCopy(event,now=new Date()){
   return stakesFor(event)>=4&&[false,true].some(on=>{const copy=displayCopy(event,on,now);return !copy.hook||!copy.synopsis;});
 }
+function completeStagedCopy(state){
+  return state.staged_copy&&policy.fields.every(field=>typeof state.staged_copy[field]==='string'&&state.staged_copy[field].trim());
+}
+function baselineCopy(card){
+  return card.state.pending_copy||(completeStagedCopy(card.state)?card.state.staged_copy:policy.copy(card.event));
+}
 function selectCards(inventory,published,publicationMismatch,now=new Date()){
   const byAlias=new Map(published.flatMap(event=>policy.ids(event).map(id=>[id,event])));
   return inventory.cards.flatMap(card=>{
@@ -28,8 +34,11 @@ function selectCards(inventory,published,publicationMismatch,now=new Date()){
     const served=policy.ids(card.event).map(id=>byAlias.get(id)).find(Boolean);
     // Repair required existing public copy, not ratings, admission or new coverage.
     const repair=card.schedule.inWindow&&served&&needsDisplayCopy(served,now);
-    const due=card.selected&&(card.schedule.due||publicationMismatch(card.event,published));
-    return repair||due?[{...card,repairReason:repair?'missing-required-display-copy':null}]:[];
+    // A successful check is not publication. Recover complete unpublished copy
+    // independently of cadence, without broadening eligibility or kickoff scope.
+    const unpublished=card.selected&&card.schedule.inWindow&&served&&completeStagedCopy(card.state)&&!policy.equalCopy(card.state.staged_copy,policy.copy(served));
+    const due=card.selected&&card.schedule.inWindow&&(card.schedule.due||publicationMismatch(card.event,published));
+    return repair||due||unpublished?[{...card,repairReason:repair?'missing-required-display-copy':unpublished?'unpublished-staged-copy':null}]:[];
   });
 }
-module.exports={displayCopy,needsDisplayCopy,selectCards};
+module.exports={displayCopy,needsDisplayCopy,selectCards,baselineCopy};

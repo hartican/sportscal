@@ -299,11 +299,12 @@ for(const file of ['assets/js/app-shell-runtime.js','data/chat-fixtures.v1.json'
   assert(releaseOutputs.some(output=>file===output||file.startsWith(output+'/')),`${file} must travel with refreshed canonical data`);
 }
 assert(releaseScript.indexOf('node scripts/build-app-shell-runtime.js --check') < releaseScript.indexOf('git commit --only -m "$RELEASE_COMMIT_MESSAGE" -- "${CARD_OUTPUT_FILES[@]}"',releaseScript.indexOf('INITIAL_HEAD=')),'stale generated runtime must fail before the release commit');
-// This offline regression verifies the published snapshot, not matches that
-// finish after that snapshot. Production verification keeps its real clock.
-const snapshotTime = JSON.parse(fs.readFileSync(path.join(projectRoot, "data/feed-meta.json"), "utf8")).publishedAt;
-assert(Number.isFinite(Date.parse(snapshotTime)), "published snapshot requires a reference time");
-const quickEnvironment = { ...process.env, RESULT_CHECK_NOW:snapshotTime };
+// This is an offline pipeline/privacy regression, not a current-results refresh.
+// Editorial publication can advance publishedAt without refreshing sporting facts.
+// Freeze elapsed-time demand here; confirmed completions still require all result
+// fields and provenance regardless of the clock. Exercise real elapsed-time
+// rejection separately below. Production verification keeps its real clock.
+const quickEnvironment = { ...process.env, RESULT_CHECK_NOW:"1970-01-01T00:00:00Z" };
 for (const name of [
   "SUPABASE_URL",
   "SUPABASE_SECRET_KEY",
@@ -325,6 +326,20 @@ try{
     env:quickEnvironment,
     encoding:"utf8",
   });
+  // Keep the actual verifier intact: a fixture without a result passes before
+  // its deadline, fails at the deadline, and fails as confirmed completed even
+  // with the isolated clock. Only this disposable fixture is synthetic.
+  const deadlinePath=path.join(quickFixtureRoot,'offline-deadline-regression.json');
+  const deadlineEvent={id:'quick-offline-overdue',key:'nbl',name:'Home v Away',status:'upcoming',date:'2000-01-01',time:'12:00',startTimeUtc:'2000-01-01T01:00:00Z',liveWindow:3};
+  const checkDeadline=(event,now)=>{
+    fs.writeFileSync(deadlinePath,JSON.stringify({events:[event]}));
+    return spawnSync(process.execPath,['scripts/verify-result-completeness.js',deadlinePath],{cwd:quickFixtureRoot,env:{...quickEnvironment,RESULT_CHECK_NOW:now},encoding:'utf8'});
+  };
+  assert.equal(checkDeadline(deadlineEvent,'2000-01-01T03:59:59Z').status,0,'offline regression retains the before-deadline boundary');
+  const overdue=checkDeadline(deadlineEvent,'2000-01-01T04:00:00Z');
+  assert.equal(overdue.status,1,'the real verifier rejects missing overdue results');
+  assert.match(overdue.stdout,/quick-offline-overdue/,'the rejected fixture is identified');
+  assert.equal(checkDeadline({...deadlineEvent,status:'completed'},quickEnvironment.RESULT_CHECK_NOW).status,1,'confirmed completion cannot evade completeness using the isolated clock');
   // Fail after runtime generation. Neither the new standings runtime nor its
   // source data may escape a rejected atomic refresh.
   const runtimePath=path.join(quickFixtureRoot,'assets/js/app-shell-runtime.js');

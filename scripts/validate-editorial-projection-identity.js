@@ -30,6 +30,17 @@ assert.equal(refresh(split.knowledge,split.feed).feed.events[0].editorialNarrati
 const newKnowledge=structuredClone(knowledge);
 newKnowledge.eventProjections=newKnowledge.eventProjections.filter(p=>p.id!==published.id);
 assert.equal(refresh(newKnowledge,{events:[original]}).feed.events[0].editorialNarrative.projectionId,'projection:fixture-research:'+id);
+const providerId='fixture:provider:stable-alias';
+const providerEvent={...original,sourceEventIds:[...(original.sourceEventIds||[]),providerId]};
+const providerKnowledge=structuredClone(knowledge);
+providerKnowledge.eventProjections.find(p=>p.id===published.id).targetIds=[providerId];
+const competing=structuredClone(published);competing.id='projection:fixture-research:'+id;competing.targetIds=[id];
+providerKnowledge.eventProjections.push(competing);
+const providerRefresh=refresh(providerKnowledge,{events:[providerEvent]});
+assert.equal(providerRefresh.feed.events[0].editorialNarrative.projectionId,published.id,'A known provider alias retains the established identity even after a competing canonical projection was created.');
+assert.equal(providerRefresh.knowledge.eventProjections.filter(p=>p.targetIds.includes(id)||p.targetIds.includes(providerId)).length,1);
+assert(providerRefresh.knowledge.eventProjections.find(p=>p.id===published.id).targetIds.includes(providerId));
+assert.equal(refresh(providerRefresh.knowledge,providerRefresh.feed).feed.events[0].editorialNarrative.projectionId,published.id);
 for(const [fixture,projection] of [['rugby-new-zealand-australia-2026-10-10',null],['rugby-australia-new-zealand-2026-10-17','projection:feed:bledisloe-sydney-2026']]){
   const event=feed.events.find(e=>e.id===fixture);
   const p=narrative.projectionForTarget(knowledge,'feed-event',event);
