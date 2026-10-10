@@ -89,6 +89,13 @@ async function main(){
     await refreshDueSources({sources:[{id:'repeated-failure',retryMs,fetch:async()=>{throw new Error('empty source');}}],store:failedStore,now});
     assert.equal(retry.retryMs,expected,"repeated source failure backoff must be bounded");
   }
-  console.log("Live fixtures: due cadence, coalescing, revisions and last-good preservation passed.");
+  const nearDue=Date.now()+150,observedNow=new Date(),nearCalls=[];
+  const nearStore={dueIds:async()=>[{source_id:'near-due',next_due_at:new Date(nearDue).toISOString()}],claim:async(id)=>{assert(Date.now()>=nearDue,'A near-due source cannot claim before its database deadline');nearCalls.push('claim');return {fixtures:[event]};},publish:async()=>nearCalls.push('publish'),fail:async()=>assert.fail('Healthy near-due source cannot enter backoff')};
+  const nearResult=await refreshDueSources({sources:[{id:'near-due',fetch:async({now})=>{assert.equal(now,observedNow,'Waiting cannot manufacture a newer sporting observation clock');nearCalls.push('fetch');return [event];}}],store:nearStore,now:observedNow});assert.deepEqual(nearResult.refreshed,['near-due']);assert.deepEqual(nearCalls,['claim','fetch','publish'],'The same tick performs one fenced source check without a retry');
+  let earlyClaims=0;const laterStore={dueIds:async()=>[{source_id:'later-due',next_due_at:new Date(Date.now()+6000).toISOString()}],claim:async()=>{earlyClaims++;}};
+  const laterResult=await refreshDueSources({sources:[{id:'later-due'}],store:laterStore,now:new Date()});assert.deepEqual(laterResult.skipped,['later-due']);assert.equal(earlyClaims,0,'Outside the bounded lookahead no source call is added');
+  const exhausted=await refreshDueSources({sources:[{id:'near-due',fetch:async()=>assert.fail('Deadline cannot be increased to wait for a source')}],store:{...nearStore,dueIds:async()=>[{source_id:'near-due',next_due_at:new Date(Date.now()+300).toISOString()}]},now:new Date(),maxRuntimeMs:500});assert.deepEqual(exhausted.skipped,['near-due']);
+  await require('./validate-live-source-cadence')();
+  console.log("Live fixtures: due cadence, bounded near-due wait, fenced source minimum, coalescing, revisions and last-good preservation passed.");
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});
