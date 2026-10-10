@@ -4,6 +4,8 @@ const {execFileSync}=require('node:child_process');
 const crypto=require('node:crypto');
 const sha=process.argv[2];
 if(!/^[a-f0-9]{40}$/.test(sha||''))throw new Error('Expected full release SHA');
+try{execFileSync('git',['cat-file','-e',`${sha}^{commit}`],{stdio:'ignore'});}
+catch{console.error('Release SHA is not a commit in this checkout; no deployment requested.');process.exit(2);}
 const id=crypto.randomUUID();
 const repo='hartican/sportscal',workflow='sportscal-production.yml';
 function gh(args){return execFileSync('gh',[...args,'--repo',repo],{encoding:'utf8',stdio:['ignore','pipe','inherit']});}
