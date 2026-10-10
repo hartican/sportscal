@@ -63,6 +63,10 @@ try {
   assert.equal(afterDayFive.status, 1, "a five-day Test must require a result after its expected close");
   assert.match(afterDayFive.stdout, /timing-test-match/, "the overdue Test must be reported by id");
 
+  const actualTest=require('../data/events.json').events.find(e=>e.id==='fixture:cricket:espn:1525659');
+  assert(actualTest&&actualTest.format==='Test'&&actualTest.endDate==='2026-10-13','Use the actual Australia-South Africa five-day schedule');
+  assert.equal(runCheck(actualTest,'2026-10-10T12:00:00Z').status,0,'Its generic narrative type cannot shorten a sourced Test to one day');
+  assert.equal(runCheck(actualTest,'2026-10-15T12:00:00Z').status,1,'The format exception cannot hide an overdue Test forever');
   const oneDayEvent = { ...testMatch, id: "timing-one-day", narrativeType: "t20" };
   const afterEightHours = runCheck(oneDayEvent, "2026-08-13T09:00:00.000Z");
   assert.equal(afterEightHours.status, 1, "ordinary liveWindow timing must remain unchanged");

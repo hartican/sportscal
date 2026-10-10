@@ -5061,7 +5061,7 @@
       "sourceName": "PGA TOUR official schedule",
       "sourceUrl": "https://www.pgatour.com/tournaments/2026/bank-of-utah-championship/R2026554/tee-times",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-08T21:00:49.392Z",
+      "sourceCheckedAt": "2026-10-10T12:27:25.860Z",
       "sourceTrust": "verified",
       "outcomeText": "Austin Smotherman won Bank of Utah Championship.",
       "scoreDisplay": "Winner: Austin Smotherman",
@@ -5074,7 +5074,7 @@
       "entryListPublished": true,
       "excludedParticipantIds": [],
       "appearances": [],
-      "participationCheckedAt": "2026-10-08T21:00:49.392Z",
+      "participationCheckedAt": "2026-10-10T12:27:25.860Z",
       "participationScope": "ranked-and-explicit-follows",
       "participationScopeCheckedOn": "2026-10-06"
     },
@@ -5105,7 +5105,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
         },
         {
           "id": "competitor:golf:min-woo-lee",
@@ -5115,7 +5115,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
         },
         {
           "id": "competitor:golf:xander-schauffele",
@@ -5125,7 +5125,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
         },
         {
           "id": "competitor:golf:adam-scott",
@@ -5135,7 +5135,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
         }
       ],
       "participantIds": [
@@ -5152,7 +5152,7 @@
       "sourceName": "PGA TOUR official schedule",
       "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-08T21:00:49.493Z",
+      "sourceCheckedAt": "2026-10-10T12:27:27.415Z",
       "sourceTrust": "verified",
       "cardType": "golf_tournament",
       "entries": [
@@ -5164,7 +5164,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
         },
         {
           "id": "competitor:golf:min-woo-lee",
@@ -5174,7 +5174,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
         },
         {
           "id": "competitor:golf:xander-schauffele",
@@ -5184,7 +5184,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
         },
         {
           "id": "competitor:golf:adam-scott",
@@ -5194,7 +5194,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
         }
       ],
       "participantsConfirmed": true,
@@ -5202,57 +5202,20 @@
       "excludedParticipantIds": [],
       "appearances": [
         {
-          "id": "fixture:golf:pga:R2026527:round:2:group:10",
-          "round": 2,
-          "label": "Round 2",
+          "id": "fixture:golf:pga:R2026527:round:4:group:6",
+          "round": 4,
+          "label": "Round 4",
           "participants": [
             {
-              "id": "competitor:golf:wyndham-clark",
-              "displayName": "Wyndham Clark",
-              "sourceParticipantId": "51766",
-              "countryCode": "US",
+              "id": "competitor:golf:christiaan-bezuidenhout",
+              "displayName": "Christiaan Bezuidenhout",
+              "sourceParticipantId": "45522",
+              "countryCode": "ZA",
               "genderCategory": "male",
               "entryStatus": "confirmed",
               "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-              "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
             },
-            {
-              "id": "competitor:golf:justin-thomas",
-              "displayName": "Justin Thomas",
-              "sourceParticipantId": "33448",
-              "countryCode": "US",
-              "genderCategory": "male",
-              "entryStatus": "confirmed",
-              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-              "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
-            },
-            {
-              "id": "competitor:golf:adam-scott",
-              "displayName": "Adam Scott",
-              "sourceParticipantId": "24502",
-              "countryCode": "AU",
-              "genderCategory": "male",
-              "entryStatus": "confirmed",
-              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-              "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
-            }
-          ],
-          "participantIds": [
-            "competitor:golf:wyndham-clark",
-            "competitor:golf:justin-thomas",
-            "competitor:golf:adam-scott"
-          ],
-          "startTimeUtc": "2026-10-09T00:18:00.000Z",
-          "timePrecision": "exact",
-          "tee": 10,
-          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
-        },
-        {
-          "id": "fixture:golf:pga:R2026527:round:2:group:16",
-          "round": 2,
-          "label": "Round 2",
-          "participants": [
             {
               "id": "competitor:golf:min-woo-lee",
               "displayName": "Min Woo Lee",
@@ -5261,64 +5224,54 @@
               "genderCategory": "male",
               "entryStatus": "confirmed",
               "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-              "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
             },
             {
-              "id": "competitor:golf:jordan-spieth",
-              "displayName": "Jordan Spieth",
-              "sourceParticipantId": "34046",
+              "id": "competitor:golf:ben-kohles",
+              "displayName": "Ben Kohles",
+              "sourceParticipantId": "36884",
               "countryCode": "US",
               "genderCategory": "male",
               "entryStatus": "confirmed",
               "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-              "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
-            },
-            {
-              "id": "competitor:golf:sungjae-im",
-              "displayName": "Sungjae Im",
-              "sourceParticipantId": "39971",
-              "countryCode": "KR",
-              "genderCategory": "male",
-              "entryStatus": "confirmed",
-              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-              "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
             }
           ],
           "participantIds": [
+            "competitor:golf:christiaan-bezuidenhout",
             "competitor:golf:min-woo-lee",
-            "competitor:golf:jordan-spieth",
-            "competitor:golf:sungjae-im"
+            "competitor:golf:ben-kohles"
           ],
-          "startTimeUtc": "2026-10-09T01:24:00.000Z",
+          "startTimeUtc": "2026-10-11T00:15:00.000Z",
           "timePrecision": "exact",
           "tee": 1,
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
         },
         {
-          "id": "fixture:golf:pga:R2026527:round:2:group:17",
-          "round": 2,
-          "label": "Round 2",
+          "id": "fixture:golf:pga:R2026527:round:4:group:9",
+          "round": 4,
+          "label": "Round 4",
           "participants": [
             {
-              "id": "competitor:golf:jacob-bridgeman",
-              "displayName": "Jacob Bridgeman",
-              "sourceParticipantId": "60004",
+              "id": "competitor:golf:mac-meissner",
+              "displayName": "Mac Meissner",
+              "sourceParticipantId": "59143",
               "countryCode": "US",
               "genderCategory": "male",
               "entryStatus": "confirmed",
               "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-              "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
             },
             {
-              "id": "competitor:golf:collin-morikawa",
-              "displayName": "Collin Morikawa",
-              "sourceParticipantId": "50525",
+              "id": "competitor:golf:max-homa",
+              "displayName": "Max Homa",
+              "sourceParticipantId": "39977",
               "countryCode": "US",
               "genderCategory": "male",
               "entryStatus": "confirmed",
               "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-              "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
             },
             {
               "id": "competitor:golf:xander-schauffele",
@@ -5328,24 +5281,118 @@
               "genderCategory": "male",
               "entryStatus": "confirmed",
               "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-              "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
             }
           ],
           "participantIds": [
-            "competitor:golf:jacob-bridgeman",
-            "competitor:golf:collin-morikawa",
+            "competitor:golf:mac-meissner",
+            "competitor:golf:max-homa",
             "competitor:golf:xander-schauffele"
           ],
-          "startTimeUtc": "2026-10-09T01:35:00.000Z",
+          "startTimeUtc": "2026-10-11T00:48:00.000Z",
           "timePrecision": "exact",
           "tee": 1,
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-08T21:00:49.493Z"
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
+        },
+        {
+          "id": "fixture:golf:pga:R2026527:round:4:group:21",
+          "round": 4,
+          "label": "Round 4",
+          "participants": [
+            {
+              "id": "competitor:golf:maverick-mcnealy",
+              "displayName": "Maverick McNealy",
+              "sourceParticipantId": "46442",
+              "countryCode": "US",
+              "genderCategory": "male",
+              "entryStatus": "confirmed",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
+            },
+            {
+              "id": "competitor:golf:wyndham-clark",
+              "displayName": "Wyndham Clark",
+              "sourceParticipantId": "51766",
+              "countryCode": "US",
+              "genderCategory": "male",
+              "entryStatus": "confirmed",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
+            },
+            {
+              "id": "competitor:golf:alex-smalley",
+              "displayName": "Alex Smalley",
+              "sourceParticipantId": "46340",
+              "countryCode": "US",
+              "genderCategory": "male",
+              "entryStatus": "confirmed",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
+            }
+          ],
+          "participantIds": [
+            "competitor:golf:maverick-mcnealy",
+            "competitor:golf:wyndham-clark",
+            "competitor:golf:alex-smalley"
+          ],
+          "startTimeUtc": "2026-10-11T00:48:00.000Z",
+          "timePrecision": "exact",
+          "tee": 10,
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
+        },
+        {
+          "id": "fixture:golf:pga:R2026527:round:4:group:11",
+          "round": 4,
+          "label": "Round 4",
+          "participants": [
+            {
+              "id": "competitor:golf:adam-scott",
+              "displayName": "Adam Scott",
+              "sourceParticipantId": "24502",
+              "countryCode": "AU",
+              "genderCategory": "male",
+              "entryStatus": "confirmed",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
+            },
+            {
+              "id": "competitor:golf:jordan-smith",
+              "displayName": "Jordan Smith",
+              "sourceParticipantId": "46464",
+              "countryCode": "GB",
+              "genderCategory": "male",
+              "entryStatus": "confirmed",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
+            },
+            {
+              "id": "competitor:golf:justin-thomas",
+              "displayName": "Justin Thomas",
+              "sourceParticipantId": "33448",
+              "countryCode": "US",
+              "genderCategory": "male",
+              "entryStatus": "confirmed",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
+            }
+          ],
+          "participantIds": [
+            "competitor:golf:adam-scott",
+            "competitor:golf:jordan-smith",
+            "competitor:golf:justin-thomas"
+          ],
+          "startTimeUtc": "2026-10-11T01:10:00.000Z",
+          "timePrecision": "exact",
+          "tee": 1,
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+          "sourceCheckedAt": "2026-10-10T12:27:27.415Z"
         }
       ],
-      "statusCheckedAt": "2026-10-08T21:00:49.493Z",
+      "statusCheckedAt": "2026-10-10T12:27:27.415Z",
       "statusSource": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-      "participationCheckedAt": "2026-10-08T21:00:49.493Z",
+      "participationCheckedAt": "2026-10-10T12:27:27.415Z",
       "participationScope": "ranked-and-explicit-follows",
       "participationScopeCheckedOn": "2026-10-06"
     },
@@ -5418,7 +5465,7 @@
       "sourceName": "PGA TOUR official schedule",
       "sourceUrl": "https://www.pgatour.com/korn-ferry-tour/tournaments/2026/compliance-solutions-championship/H2026166/tee-times",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-08T21:00:51.154Z",
+      "sourceCheckedAt": "2026-10-10T12:27:30.776Z",
       "sourceTrust": "verified",
       "cardType": "golf_tournament",
       "entries": [],
@@ -5426,7 +5473,7 @@
       "entryListPublished": true,
       "excludedParticipantIds": [],
       "appearances": [],
-      "participationCheckedAt": "2026-10-08T21:00:51.154Z",
+      "participationCheckedAt": "2026-10-10T12:27:30.776Z",
       "participationScope": "ranked-and-explicit-follows",
       "participationScopeCheckedOn": "2026-10-06"
     }
@@ -8218,7 +8265,7 @@
           "genderCategory": "female",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.lpga.com/tournaments/buick-lpga-shanghai/entries",
-          "sourceCheckedAt": "2026-10-08T21:00:56.058Z"
+          "sourceCheckedAt": "2026-10-10T12:27:32.271Z"
         },
         {
           "id": "competitor:golf:jeeno-thitikul",
@@ -8228,7 +8275,7 @@
           "genderCategory": "female",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.lpga.com/tournaments/buick-lpga-shanghai/entries",
-          "sourceCheckedAt": "2026-10-08T21:00:56.058Z"
+          "sourceCheckedAt": "2026-10-10T12:27:32.271Z"
         },
         {
           "id": "competitor:golf:minjee-lee",
@@ -8238,7 +8285,7 @@
           "genderCategory": "female",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.lpga.com/tournaments/buick-lpga-shanghai/entries",
-          "sourceCheckedAt": "2026-10-08T21:00:56.058Z"
+          "sourceCheckedAt": "2026-10-10T12:27:32.271Z"
         }
       ],
       "participantIds": [
@@ -8255,7 +8302,7 @@
           "genderCategory": "female",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.lpga.com/tournaments/buick-lpga-shanghai/entries",
-          "sourceCheckedAt": "2026-10-08T21:00:56.058Z"
+          "sourceCheckedAt": "2026-10-10T12:27:32.271Z"
         },
         {
           "id": "competitor:golf:jeeno-thitikul",
@@ -8265,7 +8312,7 @@
           "genderCategory": "female",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.lpga.com/tournaments/buick-lpga-shanghai/entries",
-          "sourceCheckedAt": "2026-10-08T21:00:56.058Z"
+          "sourceCheckedAt": "2026-10-10T12:27:32.271Z"
         },
         {
           "id": "competitor:golf:minjee-lee",
@@ -8275,7 +8322,7 @@
           "genderCategory": "female",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.lpga.com/tournaments/buick-lpga-shanghai/entries",
-          "sourceCheckedAt": "2026-10-08T21:00:56.058Z"
+          "sourceCheckedAt": "2026-10-10T12:27:32.271Z"
         }
       ],
       "participantsConfirmed": true,
@@ -8285,8 +8332,108 @@
       "sourceUrl": "https://www.lpga.com/tournaments/buick-lpga-shanghai/pairings",
       "sourceName": "LPGA official tee times",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-08T21:00:56.058Z",
-      "participationCheckedAt": "2026-10-08T21:00:56.058Z",
+      "sourceCheckedAt": "2026-10-10T12:27:32.271Z",
+      "participationCheckedAt": "2026-10-10T12:27:32.271Z",
+      "participationScope": "ranked-and-explicit-follows",
+      "participationScopeCheckedOn": "2026-10-06"
+    },
+    {
+      "id": "fixture:golf:lpga:2026072",
+      "eventId": "fixture:golf:lpga:2026072",
+      "key": "golf",
+      "codeId": "sport:golf",
+      "competitionId": "competition:lpga-tour",
+      "competitionName": "LPGA Tour",
+      "genderCategory": "female",
+      "cardType": "golf_tournament",
+      "name": "BMW Ladies Championship",
+      "tournamentName": "BMW Ladies Championship",
+      "tournamentId": "2026072",
+      "date": "2026-10-22",
+      "endDate": "2026-10-25",
+      "dateOnly": true,
+      "timePrecision": "date-only",
+      "status": "upcoming",
+      "venue": "Haenam-gun, Jeollanam-do, Republic of Korea",
+      "venueCity": "Haenam-gun",
+      "venueCountryCode": "KR",
+      "participants": [
+        {
+          "id": "competitor:golf:haeran-ryu",
+          "displayName": "Haeran Ryu",
+          "sourceParticipantId": "98843",
+          "countryCode": "KR",
+          "genderCategory": "female",
+          "entryStatus": "confirmed",
+          "sourceUrl": "https://www.lpga.com/tournaments/bmw-lpga-championship/entries",
+          "sourceCheckedAt": "2026-10-10T12:27:34.674Z"
+        },
+        {
+          "id": "competitor:golf:hyo-joo-kim",
+          "displayName": "Hyo Joo Kim",
+          "sourceParticipantId": "98236",
+          "countryCode": "KR",
+          "genderCategory": "female",
+          "entryStatus": "confirmed",
+          "sourceUrl": "https://www.lpga.com/tournaments/bmw-lpga-championship/entries",
+          "sourceCheckedAt": "2026-10-10T12:27:34.674Z"
+        },
+        {
+          "id": "competitor:golf:minjee-lee",
+          "displayName": "Minjee Lee",
+          "sourceParticipantId": "98193",
+          "countryCode": "AU",
+          "genderCategory": "female",
+          "entryStatus": "confirmed",
+          "sourceUrl": "https://www.lpga.com/tournaments/bmw-lpga-championship/entries",
+          "sourceCheckedAt": "2026-10-10T12:27:34.674Z"
+        }
+      ],
+      "participantIds": [
+        "competitor:golf:haeran-ryu",
+        "competitor:golf:hyo-joo-kim",
+        "competitor:golf:minjee-lee"
+      ],
+      "entries": [
+        {
+          "id": "competitor:golf:haeran-ryu",
+          "displayName": "Haeran Ryu",
+          "sourceParticipantId": "98843",
+          "countryCode": "KR",
+          "genderCategory": "female",
+          "entryStatus": "confirmed",
+          "sourceUrl": "https://www.lpga.com/tournaments/bmw-lpga-championship/entries",
+          "sourceCheckedAt": "2026-10-10T12:27:34.674Z"
+        },
+        {
+          "id": "competitor:golf:hyo-joo-kim",
+          "displayName": "Hyo Joo Kim",
+          "sourceParticipantId": "98236",
+          "countryCode": "KR",
+          "genderCategory": "female",
+          "entryStatus": "confirmed",
+          "sourceUrl": "https://www.lpga.com/tournaments/bmw-lpga-championship/entries",
+          "sourceCheckedAt": "2026-10-10T12:27:34.674Z"
+        },
+        {
+          "id": "competitor:golf:minjee-lee",
+          "displayName": "Minjee Lee",
+          "sourceParticipantId": "98193",
+          "countryCode": "AU",
+          "genderCategory": "female",
+          "entryStatus": "confirmed",
+          "sourceUrl": "https://www.lpga.com/tournaments/bmw-lpga-championship/entries",
+          "sourceCheckedAt": "2026-10-10T12:27:34.674Z"
+        }
+      ],
+      "participantsConfirmed": true,
+      "entryListPublished": true,
+      "excludedParticipantIds": [],
+      "appearances": [],
+      "sourceUrl": "https://www.lpga.com/tournaments/bmw-lpga-championship/pairings",
+      "sourceName": "LPGA official tee times",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-10T12:27:34.674Z",
       "participationScope": "ranked-and-explicit-follows",
       "participationScopeCheckedOn": "2026-10-06"
     }

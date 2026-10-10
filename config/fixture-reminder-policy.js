@@ -13,6 +13,13 @@
   if(!Number.isFinite(start)||start<=+now||!Number.isFinite(verified)||verified>+now||!/^https:\/\//.test(f.sourceUrl||f.scheduleSourceUrl||''))return null;
   return {startsAt:new Date(start).toISOString(),remindAt:new Date(start-900000).toISOString(),deliveryMode:'match-15',precision:precision==='exact'?'exact':'not-before',late:start-900000<+now};
  }
+ function manualTiming(f,now=Date.now()){
+  const exact=timing(f,now);if(exact)return exact;
+  const p=f?.manualStartEstimate,o=f?.sessionOrderEvidence,checked=Date.parse(p?.sourceCheckedAt||'');
+  if(!p||p.kind!=='official-session-order-estimate'||p.verified!==true||f.timePrecision!=='estimated'||f.manualEstimateHeld||f.sourceStale||f.stale||f.participantsConfirmed!==true||p.fixtureId!==fixtureId(f)||p.startsAt!==f.estimatedStartTimeUtc||!o||p.sessionId!==o.sessionId||p.sourceSha256!==o.sourceSha256||p.sourceUrl!==o.sourceUrl||p.sourceCheckedAt!==o.checkedAt||!Number.isFinite(checked)||checked>+now||+now-checked>172800000)return null;
+  const t=timing({...f,startTimeUtc:p.startsAt,timePrecision:'exact',scheduleStatus:'confirmed',timingVerified:true,sourceCheckedAt:p.sourceCheckedAt},now);
+  return t?{...t,precision:'estimated'}:null;
+ }
  function knockout(f){
   // Names of competitions, parent dates and golf final rounds cannot establish a round.
   const stage=[f.stage,f.round,f.roundLabel,f.stageType,f.drawStage].filter(Boolean).join(' ').toLowerCase().replace(/_/g,' ');
@@ -48,5 +55,5 @@
   const enabled=automatic(f,prefs,collections,now);
   return {enabled,origin:'automatic',choice:'automatic'};
  }
- return Object.freeze({fixtureId,timing,knockout,automaticEventScope,automatic,intent});
+ return Object.freeze({fixtureId,timing,manualTiming,knockout,automaticEventScope,automatic,intent});
 });

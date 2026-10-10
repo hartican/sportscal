@@ -39,7 +39,7 @@ function expectedCloseAt(event) {
   const start = Number.isFinite(+sourceStart) ? sourceStart : sydneyClock(event.date, event.time);
   if (!start) return null;
   const isMultiDayCricketTest = String(event.key || event.sport || "").toLowerCase() === "cricket"
-    && String(event.narrativeType || "").toLowerCase() === "test";
+    && [event.format,event.matchFormat,event.narrativeType].some(value => /^(?:test|test match)$/i.test(String(value || "")));
   const durationHours = isMultiDayCricketTest ? 5 * 24 : Number(event.liveWindow);
   const expectedDurationMs = (Number.isFinite(durationHours) && durationHours > 0 ? durationHours : 3) * 60 * 60 * 1000;
   return new Date(start.getTime() + expectedDurationMs);

@@ -270,7 +270,7 @@ async function notificationsHandler(request, response){
     if (body.action === "remind"){
       const catalogue=await fixtureReminders.catalogue({request:supabaseServiceRequest,requiredIds:[clean(body.eventId)]});
       const fixture=catalogue.resolve(clean(body.eventId));
-      const timing=reminderPolicy.timing(fixture);
+      const timing=reminderPolicy.manualTiming(fixture);
       if(!fixture||!timing){
         response.status(409).json({error:"This fixture has no verified future start.",code:"unverified_fixture_start"});return;
       }

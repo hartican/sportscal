@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-10T11:53:57.988Z",
+  "generatedAt": "2026-10-10T12:28:15.041Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/baseball.json",
@@ -11,7 +11,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T06:52:24.757Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "chunkPath": "data/code-inspector/baseball.json"
     },
     {
@@ -35,7 +35,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "chunkPath": "data/code-inspector/afl.json"
     },
     {
@@ -47,7 +47,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-09T06:52:24.757Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "parentSportId": "sport:afl",
       "chunkPath": "data/code-inspector/aflw.json"
     },
@@ -60,7 +60,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -72,7 +72,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "parentSportId": "sport:nrl",
       "chunkPath": "data/code-inspector/nrlw.json"
     },
@@ -87,7 +87,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "chunkPath": "data/code-inspector/motorsport.json",
       "coverageNote": "Motorsport coverage is partial. Goodwood is an organiser calendar window with UK-local dates, not a scheduled competitive fixture. Sydney session starts and Australian viewing are unconfirmed."
     },
@@ -113,7 +113,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T06:52:24.757Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/f1.json"
     },
@@ -153,7 +153,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "chunkPath": "data/code-inspector/rugby-union.json"
     },
     {
@@ -161,11 +161,11 @@
       "id": "sport:tennis",
       "slug": "tennis",
       "label": "Tennis",
-      "fixtureCount": 1234,
+      "fixtureCount": 1262,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-10T11:53:57.988Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -177,7 +177,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {
@@ -201,7 +201,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "chunkPath": "data/code-inspector/cricket.json"
     },
     {
@@ -225,7 +225,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/nbl.json"
     },
@@ -234,11 +234,11 @@
       "id": "sport:golf",
       "slug": "golf",
       "label": "Golf",
-      "fixtureCount": 130,
+      "fixtureCount": 132,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:05:01.079Z",
       "chunkPath": "data/code-inspector/golf.json"
     },
     {
@@ -251,7 +251,7 @@
       "coverageNote": "NFL: all 272 current regular-season fixtures plus preseason and retained history; source-supplied conference standings. Provisional kickoffs, viewing and wider quality checks remain partial.",
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "chunkPath": "data/code-inspector/american-football.json"
     },
     {
@@ -264,7 +264,7 @@
       "coverageNote": "NHL and CHL: published match windows and sourced records. CHL knockout dates are programme context until teams and kickoffs are announced; viewing and wider quality checks remain partial.",
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "chunkPath": "data/code-inspector/ice-hockey.json"
     },
     {
@@ -444,7 +444,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/motogp.json"
     },
@@ -471,7 +471,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-09T01:01:11.984Z",
+      "freshAt": "2026-10-10T12:28:15.041Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/fiba-women.json"
     }

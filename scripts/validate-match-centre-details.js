@@ -8,6 +8,8 @@ assert.equal(model.compact(tennis).clock,null,'A generic source clock or start t
 assert.equal(model.compact({...tennis,matchDurationSeconds:6420}).clock,'1:47:00');
 assert.equal(model.compact({...cricket,scorecardUrl:'javascript:alert(1)'}).scorecardUrl,value.scorecardUrl);
 assert.equal(model.compact({key:'nrl',incidents:[{type:'Try',name:'Published scorer',minute:0}]}).incidents[0].time,0);
+assert.equal(model.compact({key:'nrl',incidents:[null,{name:'Published player',minute:8}]}).incidents[0].type,null,'An untyped incident cannot invent a goal');
+assert.equal(model.compact({key:'football',goalScorers:[{name:'Published scorer',minute:8}]}).incidents[0].type,'Goal');
 console.log('Match Centre details: bounded verified innings/player tables, zero values, official match link, incidents and provider-only tennis duration passed.');
 
 const receipt=require('../feeds/provider-exports/tennis/scoreboard-contract.v1.json'),payload=structuredClone(receipt.payloads.wta),match=payload.events[0].groupings[0].competitions.find(e=>e.id==='184351');match.duration={displayValue:'1:47',seconds:6420};const parsed=require('../lib/tennis-scoreboard').parse(payload,{tour:'wta',checkedAt:receipt.checkedAt,now:new Date(receipt.checkedAt),catalogue:require('../data/canonical/tennis-catalogue-2026.json')}).fixtures.find(e=>e.tennisProviderMatchId===match.id);assert.equal(model.compact(parsed).clock,'1:47','Actual source adapter preserves a supplied match duration');

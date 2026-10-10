@@ -30200,7 +30200,7 @@
       "date": "2026-10-10",
       "timePrecision": "exact",
       "dateOnly": false,
-      "status": "scheduled",
+      "status": "completed",
       "roundLabel": "First Test",
       "venue": "Eden Park, Auckland",
       "participants": [
@@ -30240,10 +30240,10 @@
       "homeParticipantId": "team:rugby:all-blacks",
       "awayParticipantId": "team:rugby:wallabies",
       "sourceFixtureId": "ac4f516c-300d-4f4b-85ea-514f0be5ddf6",
-      "sourceName": "Eden Park",
+      "sourceName": "World Rugby",
       "sourceType": "official",
-      "sourceUrl": "https://edenpark.co.nz/events/all-blacks-v-australia-saturday-10-october-2026/",
-      "sourceCheckedAt": "2026-10-08T19:32:03.176Z",
+      "sourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-09&endDate=2026-10-11&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+      "sourceCheckedAt": "2026-10-10T12:12:01.544Z",
       "timingProvenance": {
         "kind": "official",
         "checkedAt": "2026-10-08T19:32:03.176Z",
@@ -30266,11 +30266,30 @@
         "millis": 1791616200000,
         "gmtOffset": 12
       },
-      "statusCheckedAt": "2026-10-08T19:32:03.176+00:00",
-      "scoreCheckedAt": null,
-      "scoreFactObservedAt": null,
-      "statusFactObservedAt": "2026-10-02T18:38:01.23+00:00",
-      "fixtureObservationSchema": "fixture-observations.v1"
+      "statusCheckedAt": "2026-10-10T12:12:01.544Z",
+      "scoreCheckedAt": "2026-10-10T12:12:01.544Z",
+      "scoreFactObservedAt": "2026-10-10T07:58:02.111Z",
+      "statusFactObservedAt": "2026-10-10T07:58:02.111Z",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "score": "50–19",
+      "scoreDisplay": "50–19",
+      "homeScore": 50,
+      "awayScore": 19,
+      "outcomeText": "New Zealand defeated Australia 50–19.",
+      "recapText": "World Rugby reports New Zealand as the winner over Australia, 50–19 at Eden Park.",
+      "firstConfirmedCompleteAt": "2026-10-10T07:58:04.869881Z",
+      "resultStatus": "official",
+      "resultSourceUrl": "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-09&endDate=2026-10-11&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0",
+      "resultSourceCheckedAt": "2026-10-10T12:12:01.544Z",
+      "resultPublishedAt": "2026-10-10T07:58:02.111Z",
+      "sourceTrust": "verified",
+      "sourceRefs": [
+        "https://edenpark.co.nz/events/all-blacks-v-australia-saturday-10-october-2026/",
+        "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate=2026-10-09&endDate=2026-10-11&sport=mru&states=U,UP,L,CC,C&pageSize=100&sort=asc&page=0"
+      ],
+      "stakesScore": 5,
+      "endTimeUtc": "2026-10-10T09:10:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:373d121e-d202-42f5-a357-8d2013e9e18e",

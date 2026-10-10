@@ -18,7 +18,7 @@ assert.equal(projection.contextIds([target.id],rows).length,4,'Selected timing r
 assert.equal(projection.contextIds(Array.from({length:60},(_,i)=>'qa:'+i),rows).length,60,'The existing sixty-ID read cap is hard');
 const merged=require('../lib/live-fixtures').overlaySnapshots(rows,[{source_id:'tennis',checked_at:progressed.toISOString(),fixtures:[playing]}],{now:progressed});
 assert.equal(merged.find(e=>e.id===target.id).manualStartEstimate.startsAt,'2026-10-11T05:40:00.000Z','The current shared source supplies preceding-match progress');
-assert.equal(require('../lib/live-fixtures').overlaySnapshots(rows,[{source_id:'tennis',failure_count:1,fixtures:[playing]}],{now:progressed}).find(e=>e.id===target.id).manualStartEstimate,undefined,'A failed preceding source retracts its derived clock');
+assert.equal(require('../lib/live-fixtures').overlaySnapshots(projection.apply(rows,now),[{source_id:'tennis',failure_count:1,fixtures:[playing]}],{now:progressed}).find(e=>e.id===target.id).manualStartEstimate,null,'A failed preceding source retracts its derived clock');
 async function selectedRead(){
  const calls=[],handler=require('../lib/live-fixture-handler').createLiveFixtureHandler({clock:()=>progressed,publishedFixtures:()=>rows,read:async options=>{calls.push(options);return {sources:[{source_id:'tennis',checked_at:progressed.toISOString(),fixtures:[playing]}],revision:'qa',stale:false};}});
  const response={setHeader(){},status(n){this.statusCode=n;return this;},json(value){this.body=value;},end(){}};
