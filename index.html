@@ -12106,11 +12106,6 @@ function actualStarValue(id){
   return RATING_SYSTEM?.storedScoreToStars?.(getActual(id)) ?? null;
 }
 
-function actualRatingLabel(score){
-  const stars = RATING_SYSTEM?.storedScoreToStars?.(score);
-  return stars === null || stars === undefined ? null : `${stars}/5 stars`;
-}
-
 function ensureSessionRatingPrompt(events){
   if (
     sessionRatingPromptSelectionFinalized
@@ -12174,12 +12169,6 @@ function isPreFlagged(ev){
 
 function isUpgrade(ev){
   return Number(getActual(ev.id)) > 8;
-}
-
-function isPriorityEvent(ev){
-  return isPreFlagged(ev)
-    || eventEnrichment(ev).mustWatchScore >= 70
-    || (isSpoilerVisible(ev) && isUpgrade(ev));
 }
 
 function eventActionKey(ev){

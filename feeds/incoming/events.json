@@ -230252,6 +230252,143 @@
         "hookSpoilerOn": "Nikola Bartunkova won. 6–4, 6–3",
         "synopsisSpoilerOn": "ESPN reports Nikola Bartunkova as the winner of this round of 32 match. 6–4, 6–3"
       }
+    },
+    {
+      "id": "fixture:tennis:espn:wta:184356",
+      "key": "tennis",
+      "date": "2026-10-11",
+      "kind": "fixture",
+      "name": "Zheng Qinwen v Mirra Andreeva",
+      "time": "22:30",
+      "tour": "WTA",
+      "court": "Capital Group Diamond",
+      "round": "final",
+      "sport": "Tennis",
+      "stage": "Final",
+      "venue": "Capital Group Diamond",
+      "gender": "women",
+      "season": 2026,
+      "status": "scheduled",
+      "eventId": "fixture:tennis:espn:wta:184356",
+      "timeTbc": false,
+      "cardKind": "fixture",
+      "expected": null,
+      "eventType": "womens-singles",
+      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+      "venueCity": "Beijing",
+      "broadcasts": [],
+      "discipline": "singles",
+      "liveWindow": 5,
+      "roundLabel": "Final",
+      "sourceName": "China Open official order of play",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184356",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261010"
+      ],
+      "sourceType": "official",
+      "broadcaster": "Australian viewing unconfirmed",
+      "contestUnit": "match",
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:zheng-qinwen",
+          "name": "Zheng Qinwen",
+          "type": "athlete",
+          "entityType": "athlete",
+          "displayName": "Zheng Qinwen",
+          "sportDomainId": "sport:tennis"
+        },
+        {
+          "id": "competitor:tennis:wta:mirra-andreeva",
+          "name": "Mirra Andreeva",
+          "type": "athlete",
+          "entityType": "athlete",
+          "countryCode": "RU",
+          "displayName": "Mirra Andreeva",
+          "sportDomainId": "sport:tennis"
+        }
+      ],
+      "scheduleNote": "Not before 19:30 Beijing (22:30 Sydney), 11 October; directly attached to Zheng–Andreeva in the official order of play.",
+      "startTimeUtc": "2026-10-11T11:30:00.000Z",
+      "tournamentId": "tournament:tennis:wta-beijing-2026",
+      "competitionId": "competition:wta-tour",
+      "consensusTags": [
+        {
+          "label": "Final",
+          "confidence": 0.9,
+          "sourceUrls": [
+            "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf"
+          ],
+          "method": "published-schedule.v1"
+        }
+      ],
+      "eventFamilyId": "china-open",
+      "sportDomainId": "sport:tennis",
+      "timePrecision": "not-before",
+      "broadcasterIds": [],
+      "participantIds": [
+        "competitor:tennis:wta:zheng-qinwen",
+        "competitor:tennis:wta:mirra-andreeva"
+      ],
+      "scheduleStatus": "confirmed",
+      "sourceEventIds": [
+        "fixture:tennis:espn:wta:184356"
+      ],
+      "tournamentName": "China Open",
+      "viewingOptions": [],
+      "competitionName": "China Open",
+      "sourceCheckedAt": "2026-10-10T23:40:16.252996+00:00",
+      "statusCheckedAt": "2026-10-10T12:42:02.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184356",
+      "tournamentLevel": "1000",
+      "broadcastOptions": [],
+      "canonicalEventId": "fixture:tennis:espn:wta:184356",
+      "participantSlots": [],
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "awayParticipantId": "competitor:tennis:wta:mirra-andreeva",
+      "homeParticipantId": "competitor:tennis:wta:zheng-qinwen",
+      "tennisProviderTour": "wta",
+      "tennisTournamentId": "tournament:tennis:wta-beijing-2026",
+      "displayTitleCompact": "Zheng Qinwen v Mirra Andreeva",
+      "estimatedStartTimeUtc": null,
+      "participantsConfirmed": true,
+      "tennisProviderEventId": "959-2026",
+      "tennisProviderMatchId": "184356",
+      "participantCountryCodes": [],
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "representativeCountryCodes": [],
+      "startTimeTbc": false,
+      "timingVerified": true,
+      "timingEvidence": {
+        "matchRow": "11 October, Capital Group Diamond, match 2: [WC] Qinwen ZHENG v [4] Mirra ANDREEVA (WTA Final), Not before 7:30 PM",
+        "clockAssociation": "Not before 7:30 PM is directly attached to the named singles final; the earlier 4:30 PM heading belongs to the doubles final. Asia/Shanghai UTC+08:00.",
+        "publishedAtLocal": "2026-10-10T15:35:00+08:00",
+        "sourceSha256": "cd9e86a0ae8f3ecc42b0a2404f8b8699ea74e28ab9ae4e4561ddc5d3b024aa4f",
+        "reviewMethod": "Complete official PDF pixels and text checked together; singles final and preceding doubles row independently bound. Published download link discovered on the official WTA order-of-play page."
+      },
+      "scheduleEvidence": {
+        "kind": "official-order-of-play",
+        "fixtureId": "fixture:tennis:espn:wta:184356",
+        "tournamentId": "tournament:tennis:wta-beijing-2026",
+        "roundLabel": "Final",
+        "participantIds": [
+          "competitor:tennis:wta:zheng-qinwen",
+          "competitor:tennis:wta:mirra-andreeva"
+        ],
+        "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+        "checkedAt": "2026-10-10T23:40:16.252996+00:00",
+        "sourceSha256": "cd9e86a0ae8f3ecc42b0a2404f8b8699ea74e28ab9ae4e4561ddc5d3b024aa4f",
+        "sourcePublishedAtLocal": "2026-10-10T15:35:00+08:00",
+        "court": "Capital Group Diamond",
+        "playOrder": 2,
+        "matchRow": "11 October, Capital Group Diamond, match 2: [WC] Qinwen ZHENG v [4] Mirra ANDREEVA (WTA Final), Not before 7:30 PM",
+        "clockAssociation": "Not before 7:30 PM is directly attached to the named singles final; the earlier 4:30 PM heading belongs to the doubles final. Asia/Shanghai UTC+08:00.",
+        "timePrecision": "not-before",
+        "matchDateLocal": "2026-10-11",
+        "timeZone": "Asia/Shanghai",
+        "startsAt": "2026-10-11T11:30:00.000Z",
+        "localTime": "19:30"
+      }
     }
   ]
 }

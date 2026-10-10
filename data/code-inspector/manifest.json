@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-10T23:37:45.414Z",
+  "generatedAt": "2026-10-10T23:44:56.601Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/baseball.json",
@@ -161,11 +161,11 @@
       "id": "sport:tennis",
       "slug": "tennis",
       "label": "Tennis",
-      "fixtureCount": 1262,
+      "fixtureCount": 1263,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-10T23:37:45.414Z",
+      "freshAt": "2026-10-10T23:44:56.601Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -177,7 +177,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-10T23:37:45.414Z",
+      "freshAt": "2026-10-10T23:44:56.601Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {

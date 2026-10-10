@@ -46,7 +46,8 @@ check("crowd ratings retain accessible controls", () => {
 
 check("Dismiss replaces Dislike and Like is suggestion-only", () => {
   assert.doesNotMatch(html, /Less of this|More of this/);
-  assert.match(html, /if \(!eventIsHighStakesSuggestion\(ev\)\) return \[\]/);
+  assert.match(html, /function eventIsHighStakesSuggestion\(\)\{ return false; \}/);
+  assert.match(html, /function buildEventFeedbackButtons\(\)\{ return \[\]; \}/);
 });
 
 check("one rollback-safe optimistic mutation helper is shared", () => {

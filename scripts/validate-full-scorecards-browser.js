@@ -49,15 +49,15 @@ const observations=[];
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);
   // Rehearse actual published goal facts with a controlled current membership;
   // the historical fixture is not claimed to be live in production.
-  const replay={...football,status:'ongoing',statusCheckedAt:new Date().toISOString(),scoreCheckedAt:new Date().toISOString()};
+  const replay={...football,status:'ongoing',date:new Date().toISOString().slice(0,10),endDate:new Date().toISOString().slice(0,10),startTimeUtc:new Date(Date.now()-2400000).toISOString(),actualEndTimeUtc:null,completedAt:null,firstConfirmedCompleteAt:null,statusCheckedAt:new Date().toISOString(),scoreCheckedAt:new Date().toISOString()};
   await page.route('**/api/match-centre?**',r=>r.fulfill({json:{enabled:true,events:[replay],fixtures:[model.compact(replay)],membershipStale:false,pagination:{nextCursor:null}}}));
-  await page.locator('.tabs [data-tab=match-centre]').click();await page.getByRole('button',{name:'Refresh Match Centre',exact:true}).click();
+  await page.locator('.tabs [data-tab=match-centre]').click();await page.getByRole('tab',{name:'Everything',exact:true}).click();await page.waitForTimeout(10500);await page.getByRole('button',{name:'Refresh Match Centre',exact:true}).click();await page.getByText('Latest available scores loaded.',{exact:true}).waitFor();
   const goalCard=page.locator('[data-match-id="'+football.canonicalEventId+'"]');await goalCard.waitFor();await goalCard.locator('.mc-status').click();
   async function goalRows(host){const t=host.locator('table').filter({has:page.locator('caption',{hasText:'Goals',exact:true})});await t.waitFor();assert.equal(await t.locator('tbody tr').count(),football.goalScorers.length);for(const g of football.goalScorers){const cells=await t.locator('tbody tr').filter({has:page.getByRole('rowheader',{name:g.name,exact:true})}).locator('th,td').allTextContents();assert.deepEqual(cells,[g.name,String(g.minute)+'′',g.ownGoal?'Own goal':g.penalty?'Penalty':'Goal',g.teamName]);}}
   await goalRows(goalCard);await page.locator('.tabs [data-tab=feed]').click();
   await page.evaluate(f=>{const host=document.getElementById('fullScorecardEvidence');host.replaceChildren();setCardState(f,'opened');host.append(buildEventCard(f,{mode:'feed'}));},football);
   const goalFeed=page.locator('#fullScorecardEvidence .event-card');await goalRows(goalFeed);assert.equal(await goalFeed.getByRole('link',{name:'Source scorecard'}).getAttribute('href'),football.scorecardUrl);
-  const result={engine,width,realCricketRows:true,bothCards:true,stumpsRestart:true,selectionRefresh:true,followedTournamentDetails:true,exactEventsAndBack:true,jumpToggle:true,noPageOverflow:true,errors};observations.push(result);console.log(JSON.stringify(result));
+  const result={engine,width,realCricketRows:true,verifiedFootballGoalReplay:true,bothCards:true,stumpsRestart:true,selectionRefresh:true,followedTournamentDetails:true,exactEventsAndBack:true,jumpToggle:true,noPageOverflow:true,errors};observations.push(result);console.log(JSON.stringify(result));
   if(process.env.FULL_SCORECARD_CAPTURE){fs.mkdirSync(process.env.FULL_SCORECARD_CAPTURE,{recursive:true});await page.screenshot({path:path.join(process.env.FULL_SCORECARD_CAPTURE,engine+'-'+width+'.png'),fullPage:false});}
   await page.close();
  }}finally{await browser.close();}
