@@ -20,6 +20,8 @@ The earlier general viewing tests had drifted: their direct Feed Golf assertion 
 
 The fixed startup gate remains unchanged: eight critical requests and compressed growth1.18%, below its1.25% allowance. Two481→482 cached-update/offline rehearsals passed, retaining mixed AFLW and free NRL captions, exact destinations, unverified replay wording, Results OFF, Remind OFF and saved preferences. Full local/hosted results and release evidence are recorded below after completion. No measured speed or cash saving is claimed.
 
+The first normal release stopped before deployment because the Follow gate required an exact old source-code spelling of the link title. Replace that one brittle check with execution of the actual shared renderer: eighteen controlled combinations cover approved live/unverified-replay/verified-replay wording and six cost values, plus missing viewing options. Existing reminder, chat, logo/fallback and Follow checks remain. The gate now verifies visible and accessible costs, HTTPS destinations, safe external-link attributes and unchanged metadata; missing cost, missing caption and unknown-as-free mutations are rejected. Client, cached shell and sporting-data bytes are unchanged by this test-only correction, so their completed browser/cache evidence is reused after exact-byte verification. The missed affected Follow gate and extra publication are recorded as release rework; future shared-action briefs should include this quick gate before publication.
+
 ## Recommended next actions
 
 | Action | Business value and evidence | Effort and dependencies | Cash and owner time | Acceptance and decision |

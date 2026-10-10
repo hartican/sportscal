@@ -159,11 +159,31 @@ assert(
     && html.includes('chat.textContent = "Chat"')
     && html.includes("buildViewingProviderMark")
     && html.includes("const verb=viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';")
-    && html.includes("link.title=`${verb} on ${viewingLink.label}`;link.setAttribute('aria-label',link.title)")
+    && html.includes("link.setAttribute('aria-label',link.title)")
     && html.includes("mark.replaceChildren(fallback)")
     && !html.includes("mark.append(fallback, image)"),
   "quick actions must use the approved labels and show either a provider logo or its text fallback"
 );
+// Execute the real shared renderer to preserve approved action meaning, instead
+// of requiring one exact source spelling of an accessible label. Layout and
+// decoded provider artwork remain covered by the browser checks.
+const actionNode = tag => ({tag,children:[],attributes:{},append(...nodes){this.children.push(...nodes);},appendChild(node){this.children.push(node);return node;},setAttribute(name,value){this.attributes[name]=String(value);},addEventListener(){}});
+let controlledViewing;
+const actionContext={document:{createElement:actionNode},userPreferences:{followFirst:{subscriptions:[]}},FOLLOW_FIRST:{viewingOptions:()=>controlledViewing},buildViewingProviderMark:()=>actionNode('provider-mark')};
+require('node:vm').runInNewContext(html.slice(html.indexOf('function configureProviderLaunch('),html.indexOf('function restoreEventCardControlFocus(')),actionContext);
+for(const [accessType,cost] of [['free','Free'],['subscription','Subscription'],['ppv','Pay-per-view'],['included','Included in plan'],['unknown','Check cost'],['__proto__','Check cost']]){
+ for(const [liveOrReplay,replayVerified,verb] of [['live',false,'Watch'],['replay',false,'Check replay availability'],['replay',true,'Replay']]){
+  const provider={...followFirst.VIEWING_PROVIDERS.stan,accessType,liveOrReplay,replayVerified};controlledViewing=[provider];const saved=JSON.stringify(provider),host=actionNode('host');
+  actionContext.appendEventQuickActions(host,{key:'football'},{reminder:false,chat:false});
+  const link=host.children[0].children[0].children[0],caption=link.children.find(n=>n.className==='provider-access');
+  assert.equal(link.attributes['aria-label'],verb+' on Stan Sport · '+cost,'Actual accessible viewing action preserves approved purpose and explicit cost');
+  assert.equal(caption?.textContent,cost,'Actual visible caption agrees with the accessible cost');
+  assert.equal(link.href,provider.webUrl);assert.equal(link.target,'_blank');assert.equal(link.rel,'noopener noreferrer external');
+  assert.equal(JSON.stringify(provider),saved,'Presentation must not mutate viewing evidence');
+ }
+}
+controlledViewing=[];const unknownViewing=actionNode('host');actionContext.appendEventQuickActions(unknownViewing,{key:'football'},{reminder:false,chat:false});
+assert.equal(unknownViewing.children[0].children[0].children[0].textContent,'Australian viewing unconfirmed','No options cannot create a free viewing claim');
 assert(!html.includes("Swipe to like") && !html.includes("Swipe to dislike"), "startup and cards must not teach Tinder-style gestures");
 assert(html.includes('data-tab="follow"') && html.includes("renderFollowView"));
 assert(html.includes("['schedule','Schedule']") && !html.includes('["matches", "Matches"]') && !html.includes('["players", "Players"]') && html.includes("followStandingsLabel"));
