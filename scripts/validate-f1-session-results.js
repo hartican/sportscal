@@ -11,6 +11,17 @@ async function verify(){
  assert.equal(resultRows(table(),6).length,10);
  assert.equal(resultRows(table()).length,0);
  assert.equal(resultRows(table(7),6).length,0);
+ // Official qualifying lists use RT for retired drivers (Singapore, 10 October).
+ const retiredTable=table(8).replace('<td>10</td><td>10</td>','<td>RT</td><td>10</td>');
+ assert.equal(resultRows(retiredTable,8).length,10,'a retired source row must not disappear from the table');
+ assert.equal(resultRows(retiredTable,8).at(-1)[0],'RT','retirement must not become a numbered placing');
+ assert.equal(resultRows(retiredTable.replace('<td>RT</td>','<td>UNKNOWN</td>'),8).length,0,'an unrecognised classification rejects the complete table instead of losing one participant');
+ assert.equal(resultRows(retiredTable.replace('<td>Driver 9</td>',''),8).length,0,'one malformed driver row must reject the whole table');
+ assert.equal(resultRows(retiredTable.replace('<td>Driver 9</td>','<td></td>'),8).length,0,'one unnamed driver must reject the whole table');
+ const withRetirement=await updatesFor([{...fixture,name:'Azerbaijan GP · Qualifying'}],now,async url=>url.endsWith('/races')?'<a href="/en/results/2026/races/1295/azerbaijan/race-result">Race</a>':retiredTable,context);
+ assert.equal(withRetirement.length,1);assert(withRetirement[0].participantIds.includes('driver:9'),'retired drivers remain available to their followers');assert.equal(withRetirement[0].fixtureResults.rows.at(-1)[0],'RT');
+ const incomplete=await updatesFor(withRetirement,now,async url=>url.endsWith('/races')?'<a href="/en/results/2026/races/1295/azerbaijan/race-result">Race</a>':retiredTable.replace('<td>RT</td>','<td>UNKNOWN</td>'),context);
+ assert.equal(incomplete.length,0,'a partially readable response cannot replace a retained complete result');
  const sprintCalls=[];
  const sprint=await updatesFor([{...fixture,name:'Azerbaijan GP · Sprint Qualifying'}],now,async url=>{sprintCalls.push(url);return url.endsWith('/races')?'<a href="/en/results/2026/races/1295/azerbaijan/race-result">Race</a>':table(8);},context);
  assert.match(sprintCalls[1],/sprint-qualifying$/);assert.match(sprint[0].outcomeText,/took sprint pole/);assert.equal(sprint[0].fixtureResults.columns[4],'SQ1');

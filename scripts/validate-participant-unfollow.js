@@ -33,10 +33,13 @@ assert.equal(follow.effectiveParticipantFollow(sa,grouped,collections).followed,
 assert(follow.reasonForEvent(odi[0],grouped,{collectionsById:collections}));
 const player=require('../data/canonical/football-follow-index.v1.json').players.find(p=>p.currentTeamId);
 assert(!expandedFollowEntityIds({preferences:preferences([player.id],[player.currentTeamId])}).has(player.currentTeamId),'team opt-out stops inheritance');
-for(const p of [
- {...migrated,preferenceGraph:{...migrated.preferenceGraph,competitionPreferences:[{competitionId:odi[0].competitionId,enabled:false}]}},
- {...migrated,followFirst:{...migrated.followFirst,excludedMajorEventIds:['test-series'],eventFamilyDecisions:{states:{'test-series':'excluded'}}}}
-])assert.equal(buildServerFeed({events:[{...odi[0],eventFamilyId:'test-series'}],userId:'audit',userState:{preferences:p},now}).events.length,0,'explicit competition/event exclusions survive');
+const competitionExcluded={...migrated,preferenceGraph:{...migrated.preferenceGraph,competitionPreferences:[{competitionId:odi[0].competitionId,enabled:false}]}};
+const familyExcluded={...migrated,followFirst:{...migrated.followFirst,excludedMajorEventIds:['test-series']}};
+const familyFixture={...odi[0],eventFamilyId:'test-series'};
+assert.equal(buildServerFeed({events:[familyFixture],userId:'audit',userState:{preferences:competitionExcluded},now}).events.length,0,'explicit competition exclusion still wins');
+assert.equal(buildServerFeed({events:[familyFixture],userId:'audit',userState:{preferences:familyExcluded},now}).events.length,1,'event unfollow retains independently followed-team fixtures under the 9 October decision');
+assert(follow.reasonForEvent(familyFixture,familyExcluded),'browser retains the same independent team follow');
+assert.equal(buildServerFeed({events:[familyFixture],userId:'audit',userState:{preferences:{...familyExcluded,preferenceGraph:{...familyExcluded.preferenceGraph,entityFollows:[]}}},now}).events.length,0,'event exclusion cannot manufacture an independent follow');
 console.log('Participant unfollow migration, ODI admission, collections, inheritance and exclusions passed.');
 
 const persistence=require('../lib/supabase-server');

@@ -7,7 +7,15 @@ function applyPublishedSchedule(events){
  return events.map(require("../lib/f1-venues").enrich).map(event=>{const session=sessions.get(event.id);if(!session)return event;const {id,...timing}=session;return {...event,...timing,timingSourceUrl:publishedSchedule.sourceUrl,timingCheckedAt:publishedSchedule.checkedAt};});
 }
 function text(html){return html.replace(/<span class="md:hidden">[\s\S]*?<\/span>/g,'').replace(/<[^>]*>/g,'').replace(/&nbsp;|\u00a0/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();}
-function resultRows(html, expectedColumns=7){const body=html.match(/<tbody\b[^>]*>([\s\S]*?)<\/tbody>/)?.[1];if(!body)return [];return [...body.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/g)].map(m=>[...m[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/g)].map(c=>text(c[1]))).filter(c=>/^(?:\d+|NC|DSQ|DQ|DNF|DNS)$/i.test(c[0])&&c.length===expectedColumns&&c[2]);}
+function resultRows(html, expectedColumns=7){
+ const body=html.match(/<tbody\b[^>]*>([\s\S]*?)<\/tbody>/)?.[1];if(!body)return [];
+ const rows=[...body.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/g)]
+  .map(m=>[...m[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/g)].map(c=>text(c[1])))
+  .filter(c=>c.length);
+ // Reject a malformed table in full; filtering one row can silently lose a driver.
+ if(rows.some(c=>! /^(?:\d+|NC|DSQ|DQ|DNF|DNS|RT)$/i.test(c[0])||c.length!==expectedColumns||!c[2]))return [];
+ return rows;
+}
 function sessionFor(name){
  if(/sprint\s+(?:qualifying|shootout)/i.test(name))return {path:'sprint-qualifying',columns:['Pos','No','Driver','Car','SQ1','SQ2','SQ3','Laps'],verb:'took sprint pole for'};
  const practice=name.match(/practice\s*([123])/i);

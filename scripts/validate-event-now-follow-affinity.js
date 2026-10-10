@@ -160,8 +160,20 @@ const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
 require("./app-shell-test-utils").assertShellModule(html,"config/follow-first.js");
 assert(/ensureFollowCollectionDirectories\(userPreferences\)\.then\(\(\) => \{[\s\S]{0,500}renderAll\(\{ preserveViewport:true \}\)/.test(html), "saved collection follows must automatically re-render Feed and Events when their lazy directory becomes available");
 assert(html.includes("activeMajorEventNowId") && html.includes("events-now-marker"), "Events must keep one active card-local Now marker");
-assert(html.includes("Follow Event") && html.includes("Unfollow Event"), "Event cards must expose family follow controls");
-assert(html.includes("renderTennisFollowCollections"), "Sports & Australia must expose expandable Tennis collections");
+assert(html.includes('navigationRow.appendChild(buildEventEditionToggle('), 'Events cards mount the current edition follow control');
+// Exercise the mounted control rather than expecting retired label capitalisation.
+const toggleSource=html.match(/function eventEditionFollowed\(event\)\{[\s\S]*?\n\}/)?.[0]+'\n'+html.match(/function buildEventEditionToggle\(event\)\{[\s\S]*?\n\}/)?.[0];
+assert(toggleSource.includes('return button;'),'actual edition follow builder');
+const buttons=[],ctx={FOLLOW_FEED_POLICY:require('../config/follow-feed-policy'),NOTHINGSPORTS_TENNIS_FEED:require('../config/tennis-feed'),userPreferences:followFirst.migratePreferences({showSpoilers:false,reminderChoice:'off'}),followCollectionsById:()=>({}),nowAEST:()=>reference,clonePreferences:structuredClone,activeTab:'events',document:{createElement:()=>{const attrs={},button={dataset:{},setAttribute:(key,value)=>attrs[key]=value,getAttribute:key=>attrs[key]};buttons.push(button);return button;},querySelectorAll:()=>buttons}};
+ctx.savePreferences=next=>{ctx.userPreferences=next;};
+require('node:vm').createContext(ctx);require('node:vm').runInContext(toggleSource,ctx);
+const edition={id:'controlled-overview',key:'tennis',cardType:'tennis_parent',tournamentParent:true,tournamentId:'controlled-edition',tournamentLevel:'500',date:reference.toISOString().slice(0,10),endDate:reference.toISOString().slice(0,10),participantIds:[]},facts=JSON.stringify(edition);
+const button=ctx.buildEventEditionToggle(edition),same=ctx.buildEventEditionToggle(edition),other=ctx.buildEventEditionToggle({...edition,tournamentId:'other-edition'});
+assert.equal(button.type,'button');assert.equal(button.textContent,'Follow event');assert.equal(button.getAttribute('aria-pressed'),'false');
+let stopped=0;button.onclick({stopPropagation:()=>stopped++});
+assert.equal(ctx.userPreferences.followFirst.eventEditionDecisions.states['controlled-edition'],'followed');assert.equal(button.textContent,'Unfollow event');assert.equal(same.getAttribute('aria-pressed'),'true');assert.equal(other.getAttribute('aria-pressed'),'false','another edition stays unchanged');
+button.onclick({stopPropagation:()=>stopped++});assert.equal(stopped,2);assert.equal(ctx.userPreferences.followFirst.eventEditionDecisions.states['controlled-edition'],'excluded');assert.equal(button.textContent,'Follow event');assert.equal(same.getAttribute('aria-pressed'),'false');assert.equal(ctx.userPreferences.showSpoilers,false);assert.equal(ctx.userPreferences.reminderChoice,'off');assert.equal(JSON.stringify(edition),facts,'clicks do not rewrite source fixture facts');
+assert(html.includes('buildDirectorySelect("List", filters.collectionId, listOptions, collectionId =>') && html.includes('updateDirectoryFilters(sportKey, { collectionId }); renderStandingsContext();') && html.includes('.filter(record => !filters.collectionId || selectedCollectionMemberIds.has(record.id))'), 'current Tennis lists filter directory records without subscribing to a group');
 assert(html.includes("follow-more-trigger") && html.includes("followBrowse"), "Follow must preserve sport navigation state in the fixed icon directory");
 
 console.log("Event Now, hierarchical Tennis follows and personalised Standings contracts passed.");
