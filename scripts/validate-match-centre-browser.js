@@ -7,6 +7,8 @@ async function recoveryScenario(browser,engine){
  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:26,onboardingComplete:true,showSpoilers:false,followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]}})));
  await page.route('**/api/**',route=>{
   const url=route.request().url();
+  if(phase==='offline'&&url.includes('match-centre'))return route.fulfill({status:503,json:{}});
+  if(phase==='malformed'&&url.includes('membership=everything'))return route.fulfill({json:{enabled:true,events:[],fixtures:[],pagination:{nextCursor:0}}});
   if(url.includes('membership=everything')){membershipReads++;return route.fulfill({json:{enabled:true,membershipStale:phase==='degraded',events:phase==='degraded'?fixtures.slice(0,1):phase==='fresh'?fixtures.slice(0,6):fixtures,fixtures:[],pagination:{nextCursor:null}}});}
   if(url.includes('/api/match-centre?'))return route.fulfill({json:{enabled:true,fixtures:[]}});
   if(url.includes('scope=match-centre'))return route.fulfill({json:{events:[],pagination:{nextCursor:null}}});
@@ -21,6 +23,9 @@ async function recoveryScenario(browser,engine){
  await page.getByRole('tab',{name:'Followed',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.match-centre-card').length===0);await page.getByRole('tab',{name:'Everything',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.match-centre-card').length===6);
  phase='recovered';await page.waitForTimeout(10000);assert.equal(membershipReads,2,'A degraded response does not cause an immediate repeated request');
  await page.waitForFunction(()=>document.querySelectorAll('.match-centre-card').length===7,{},{timeout:25000});assert.equal(membershipReads,3,'The existing timer retries once after thirty seconds, including after a sub-tab return');
+ phase='malformed';await page.getByRole('button',{name:'Refresh Match Centre',exact:true}).click();await page.getByText('Couldn’t refresh. Showing last available scores.',{exact:true}).waitFor();assert.equal(await page.locator('.match-centre-card').count(),7,'An invalid continuation is rejected before changing membership');
+ phase='offline';await page.reload({waitUntil:'domcontentloaded'});await page.locator('#startupLaunch').waitFor({state:'hidden'});await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();});await page.locator('.tabs [data-tab=match-centre]').click();
+ await page.waitForFunction(()=>document.querySelectorAll('.match-centre-card').length===7);assert.equal(await page.locator('.mc-row-freshness').first().innerText(),originalClock,'Reload recovery preserves source clocks');await page.getByText('Some fixtures could not load. Showing last available scores. Refresh to retry.',{exact:true}).waitFor();assert.equal(await page.locator('.mc-active-live').count(),0,'Offline recovery does not claim that saved fixtures are currently live');
  assert.equal(await page.evaluate(()=>userPreferences.followedSports?.length||0),0);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);
  console.log(JSON.stringify({engine,degradedRecovery:true,retainedFixtures:6,recoveredFixtures:7,originalClocks:true,publicOnly:true,membershipReads,errors}));await page.close();
 }

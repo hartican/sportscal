@@ -85,6 +85,7 @@ function createFeedHandler({load=feedDependencies,authenticate=()=>require('../l
       resolved.participants.forEach(p=>participants.set(p.id,{...participants.get(p.id),...p}));
       const events=d.overlaySnapshots(resolved.events,snapshot?.sources).map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
       const feed=d.buildServerFeed({matchCentreOnly,athletesOnly,participantId,events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false});
+      if(matchCentreOnly)feed.membershipStale=!snapshot||snapshot.stale===true;
       if(athletesOnly&&cursor===0)feed.athletes=require('../lib/athletes').projection({participants:[...participants.values()],preferences:userState.preferences,events});
       t=performance.now();const body=JSON.stringify(feed);mark('serialize',performance.now()-t);
       const entry={body,etag:`"${digest([key,feed.generatedAt]).slice(0,24)}"`,expiresAt:expiry(events,now,d)};

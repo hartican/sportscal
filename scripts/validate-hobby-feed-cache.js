@@ -23,6 +23,11 @@ async function main(){
   cache.set('huge',{body:'x'.repeat(300),etag:'4',expiresAt:100});assert.equal(cache.get('huge',0),null);
   assert.equal(expiry([{startTimeUtc:'2026-09-15T03:00:05Z'}],new Date('2026-09-15T03:00:00Z'),pipeline),Date.parse('2026-09-15T03:00:05Z'));
   assert.equal(expiry([],new Date('2026-09-15T13:59:59Z'),pipeline),Date.parse('2026-09-15T14:00:00Z'),'Sydney midnight expires cache');
+  for(const snapshot of [null,{revision:'r',sources:[],stale:true},{revision:'r',sources:[],stale:false}]){
+    const followed=createFeedHandler({load:()=>({...data,readLiveSnapshots:async()=>snapshot}),clock:()=>now});
+    const result=response();await followed({method:'POST',url:'/api/feed?scope=match-centre',body:{preferences:{}},headers:{}},result);
+    assert.equal(result.statusCode,200);assert.equal(result.body.membershipStale,!snapshot||snapshot.stale,'Followed membership exposes shared-store degradation to the retention path');
+  }
   // Frozen input proves copy-on-write composition does not mutate shared event data.
   const event=Object.freeze({id:'frozen',key:'afl',date:'2026-09-15',startTimeUtc:'2026-09-15T04:00:00Z',participantIds:Object.freeze([]),storyline:Object.freeze({stakes:3})});
   pipeline.buildServerFeed({events:[event],userId:'a',userState:{},now:new Date('2026-09-15T03:00:00Z'),copyEvents:false});

@@ -8,17 +8,34 @@ function loadMatchCentreStyles(){
 loadMatchCentreStyles();
 
  let selectedView='everything',nextCursor=null;const viewCache=new Map();
- const scores=new Map(),requested=new Map(),expanded=new Set();let timer,inflight=null,hydrating=null,membership=[],membershipKey='',membershipOwner='',membershipCheckedAt=0,membershipMaxAge=300000,generation=0,manual=null,lastManual=-Infinity,notice='',refreshControl;
+ const scores=new Map(),requested=new Map(),expanded=new Set();let timer,inflight=null,hydrating=null,membership=[],membershipKey='',membershipOwner='',membershipCheckedAt=0,membershipMaxAge=120000,generation=0,manual=null,lastManual=-Infinity,notice='',refreshControl;
  const owner=()=>serverSyncClient?.sessionSubject()||'public';
  const membershipQueryKey=()=>selectedView==='everything'?'everything':JSON.stringify([owner(),userPreferences,eventActions]);
  const ticket=()=>({generation,owner:owner(),view:selectedView,key:membershipQueryKey()});
  const valid=t=>t.generation===generation&&t.owner===owner()&&t.view===selectedView&&t.key===membershipQueryKey()&&activeTab==='match-centre';
  const m=()=>globalThis.NOTHINGSPORTS_MATCH_CENTRE;
  const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
- function observations(){if(membershipOwner!==owner())return [];return membership.map(e=>{const s=scores.get(m().id(e));if(!s)return e;const source=m().compact(e),latest=m().observation(source,s);return {...e,status:latest.status,statusCheckedAt:latest.statusCheckedAt,livePlayObservedAt:latest.livePlayObservedAt,completedAt:latest.completedAt||e.completedAt,...(latest.court?{court:latest.court}:{}),...(latest.statusSourceType?{statusSourceType:latest.statusSourceType}:{})};}).filter(e=>{if(selectedView==='everything')return true;const a=getEventAction(e);return !a.archived&&!a.dismissed&&Boolean(eventFollowReason(e));});}
+ const cacheKey=t=>`match-centre:v1:${t.owner}:${t.view}`;
+ let restoring=null;
+ function saveMembership(t){
+  if(!valid(t)||!disposableStore?.set)return;
+  disposableStore.set(cacheKey(t),{key:t.key,events:membership,fixtures:membership.map(e=>scores.get(m().id(e))).filter(Boolean),nextCursor},{ttlMs:7*86400000});
+  void disposableStore.flush?.();
+ }
+ async function restoreMembership(){
+  const t=ticket();if(membershipKey===t.key||!disposableStore?.hydrate)return;
+  if(restoring)return restoring;
+  const operation=(async()=>{const cached=await disposableStore.hydrate(cacheKey(t),null);if(!valid(t)||membershipKey===t.key||cached?.key!==t.key||!Array.isArray(cached.events)||!Array.isArray(cached.fixtures))return;
+   membership=cached.events.filter(e=>e&&m().id(e)&&m().supported(e));membershipOwner=t.owner;membershipKey=t.key;membershipCheckedAt=0;nextCursor=null;
+   for(const snapshot of cached.fixtures)if(snapshot?.id)scores.set(snapshot.id,m().observation(scores.get(snapshot.id),snapshot));
+   notice='Showing last available fixtures. Checking for updates…';render();
+  })();restoring=operation;try{await operation;}finally{if(restoring===operation)restoring=null;}
+ }
+ function markAwaiting(ids){for(const id of ids){const prior=scores.get(id)||m().compact(membership.find(e=>m().id(e)===id)||{});scores.set(id,{...prior,stale:true});}}
+ function observations(){if(membershipOwner!==owner())return [];return membership.map(e=>{const s=scores.get(m().id(e));if(!s)return e;const source=m().compact(e),latest=m().observation(source,s);return {...e,status:latest.status,stale:latest.stale,statusCheckedAt:latest.statusCheckedAt,livePlayObservedAt:latest.livePlayObservedAt,completedAt:latest.completedAt||e.completedAt,...(latest.court?{court:latest.court}:{}),...(latest.statusSourceType?{statusSourceType:latest.statusSourceType}:{})};}).filter(e=>{if(selectedView==='everything')return true;const a=getEventAction(e);return !a.archived&&!a.dismissed&&Boolean(eventFollowReason(e));});}
  function candidates(){return m().select(observations());}
  async function hydrate(force=false,append=false){
-  const t=ticket();if(hydrating){await hydrating;if(!valid(t))return;}
+  const t=ticket();if(hydrating){try{await hydrating;}catch{}if(!valid(t))return;}
   if(!valid(t)||(!append&&!force&&t.key===membershipKey&&Date.now()-membershipCheckedAt<membershipMaxAge))return;
   const operation=(async()=>{
    const cursor=append?(nextCursor||0):0;
@@ -26,12 +43,17 @@ loadMatchCentreStyles();
    if(selectedView==='everything'){const response=await fetch(`/api/match-centre?membership=everything&limit=50&cursor=${cursor}`,{signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error();data=await response.json();if(data.enabled!==true)throw Error('Match Centre is unavailable');}
    else data=serverPersistence.user?await serverSyncClient.loadFeed({cursor,limit:50,scope:'match-centre'}):await fetch(`/api/feed?scope=match-centre&limit=50&cursor=${cursor}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({preferences:userPreferences,eventUserState:eventActions}),signal:AbortSignal.timeout(10000)}).then(r=>{if(!r.ok)throw Error();return r.json();});
    if(!valid(t))return;
-   for(const snapshot of data.fixtures||[])scores.set(snapshot.id,m().observation(scores.get(snapshot.id),snapshot));
-   const degraded=selectedView==='everything'&&data.membershipStale===true,retain=append||degraded&&membershipKey===t.key&&membershipOwner===t.owner;
-   membership=[...new Map([...(retain?membership:[]),...(data.events||[])].map(e=>[m().id(e),e])).values()];
-   nextCursor=data.pagination?.nextCursor??null;if(nextCursor!==null&&(!Number.isSafeInteger(nextCursor)||nextCursor<=cursor))throw Error('Invalid membership continuation');
-   membershipOwner=owner();membershipKey=t.key;membershipCheckedAt=Date.now();membershipMaxAge=degraded?30000:300000;notice=data.membershipConflicts?'Conflicting court updates are withheld while the source is checked.':degraded?'Match list needs rechecking. Showing last available fixtures. Rechecking shortly.':'';
+   if(!Array.isArray(data.events)||data.events.some(e=>!e||!m().id(e))||data.fixtures!=null&&!Array.isArray(data.fixtures))throw Error('Invalid fixture list');
+   const continuation=data.pagination?.nextCursor??null;if(continuation!==null&&(!Number.isSafeInteger(continuation)||continuation<=cursor))throw Error('Invalid membership continuation');
+   for(const snapshot of data.fixtures||[])if(snapshot?.id)scores.set(snapshot.id,m().observation(scores.get(snapshot.id),snapshot));
+   const degraded=data.membershipStale===true,retain=membershipKey===t.key&&membershipOwner===t.owner;
+   // Page omissions and failed sources cannot confirm that an unresolved
+   // sporting contest ended. Explicit returned terminal facts still win.
+   membership=[...new Map([...(retain?membership.filter(e=>append||m().eligible(e)):[]),...data.events].map(e=>[m().id(e),e])).values()];
+   nextCursor=continuation;
+   membershipOwner=owner();membershipKey=t.key;membershipCheckedAt=Date.now();membershipMaxAge=degraded?30000:120000;notice=data.membershipConflicts?'Conflicting court updates are withheld while the source is checked.':degraded?'Match list needs rechecking. Showing last available fixtures. Rechecking shortly.':'';
    viewCache.set(selectedView,{events:membership,key:membershipKey,checked:membershipCheckedAt,nextCursor,maxAge:membershipMaxAge});
+   if(!degraded)saveMembership(t);
   })();hydrating=operation;try{return await operation;}finally{if(hydrating===operation)hydrating=null;}
  }
  function scoreText(s){if(!s)return 'Scores unavailable';if(s.innings)return s.innings.length?s.innings.map(i=>`${i.team||i.participantId||'Innings'} ${i.runs??'—'}/${i.wickets??'—'} (${i.overs??'—'} overs)`).join(' · '):'Scores unavailable';if(s.sets?.length||s.games)return (s.sets||[]).map(x=>`${x.home??'—'}–${x.away??'—'}`).join('  ')+(s.games?` · Games ${s.games.home??'—'}–${s.games.away??'—'}`:'');return s.home!=null&&s.away!=null?`${s.home}–${s.away}`:'Scores unavailable';}
@@ -75,7 +97,7 @@ loadMatchCentreStyles();
   if(activeTab!=='match-centre')return;const panel=document.getElementById('listView'),all=candidates();
   const key=JSON.stringify([selectedView,owner(),userPreferences.showSpoilers,[...new Set(all.map(e=>m().sport(e)))].sort()]);
   if(!chrome?.heading.isConnected||chromeKey!==key){chromeKey=key;cards.clear();panel.className='match-centre';const heading=node('div',null,'match-centre-heading'),refresh=node('button','Refresh','btn ghost'),tabs=node('div',null,'mc-membership-tabs'),noticeNode=node('p',null,'mc-refresh-notice'),empty=node('p'),more=node('button','Load more live fixtures','btn ghost');heading.append(node('h2','Match Centre'),refresh);refresh.type='button';refresh.setAttribute('aria-label','Refresh Match Centre');refresh.onclick=()=>void manualRefresh();tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','Match Centre fixtures');
-   for(const [view,label] of [['everything','Everything'],['followed','Followed']]){const tab=node('button',label,'btn ghost');tab.type='button';tab.setAttribute('role','tab');tab.setAttribute('aria-selected',String(selectedView===view));tab.onclick=()=>{if(selectedView===view)return;generation++;selectedView=view;manual=null;notice='';const cached=viewCache.get(view);membership=cached?.events||[];membershipKey=cached?.key||'';membershipCheckedAt=cached?.checked||0;membershipMaxAge=cached?.maxAge||300000;nextCursor=cached?.nextCursor??null;membershipOwner=owner();renderMatchCentre();};tabs.append(tab);}
+   for(const [view,label] of [['everything','Everything'],['followed','Followed']]){const tab=node('button',label,'btn ghost');tab.type='button';tab.setAttribute('role','tab');tab.setAttribute('aria-selected',String(selectedView===view));tab.onclick=()=>{if(selectedView===view)return;generation++;selectedView=view;manual=null;notice='';const cached=viewCache.get(view);membership=cached?.events||[];membershipKey=cached?.key||'';membershipCheckedAt=cached?.checked||0;membershipMaxAge=cached?.maxAge||120000;nextCursor=cached?.nextCursor??null;membershipOwner=owner();renderMatchCentre();};tabs.append(tab);}
    const choice=buildSurfaceCategoryChooser('match-centre',all,render,{includeAll:true});heading.append(choice.select);noticeNode.setAttribute('role','status');noticeNode.setAttribute('aria-live','polite');const sections=new Map();panel.replaceChildren(heading,tabs,noticeNode,empty);for(const [id,title] of [['live','Live'],['starting-soon','Starting soon'],['recently-finished','Recently finished']]){const section=node('section',null,'mc-section'),list=node('div',null,'mc-card-list');section.append(node('h3',title),list);panel.append(section);sections.set(id,{section,list});}more.type='button';more.onclick=async()=>{more.disabled=true;try{await hydrate(false,true);render();void poll();}catch{notice='More fixtures could not load. Retry when connected.';render();}};panel.append(more);chrome={heading,refresh,noticeNode,empty,sections,more,choice};
   }
   chrome.refresh.disabled=Boolean(manual);panel.setAttribute('aria-busy',String(Boolean(manual||hydrating)));const events=all.filter(e=>NOTHINGSPORTS_SURFACE_CATEGORY.matches(e,chrome.choice.select.value)),conflicts=m().conflicts(observations());patchText(chrome.noticeNode,conflicts.length?'Conflicting court updates are withheld while the source is checked.':notice);patchText(chrome.empty,hydrating?'Loading current fixtures…':selectedView==='everything'?'No fixtures in the current live window.':'No followed fixtures in the current live window.');chrome.empty.hidden=Boolean(events.length);chrome.more.hidden=nextCursor===null;chrome.more.disabled=false;
@@ -96,26 +118,29 @@ loadMatchCentreStyles();
     if(!valid(t)||document.hidden)return false;
     const r=await fetch(`/api/match-centre?ids=${encodeURIComponent(ids.slice(offset,offset+60).join(','))}${rubbers?'&rubbers=1':''}`,{signal:AbortSignal.timeout(5000)});
     if(!r.ok)throw Error();const data=await r.json();if(!data.enabled)throw Error();if(!valid(t))return false;
-    for(const s of data.fixtures||[]){
+    if(!Array.isArray(data.fixtures))throw Error('Invalid score list');
+    const received=new Set();for(const s of data.fixtures){
+     if(!ids.includes(s.id))continue;received.add(s.id);
      scores.set(s.id,m().observation(scores.get(s.id),s));
     }
+    markAwaiting(ids.filter(id=>!received.has(id)));
    }
-   render();return true;
-  }catch{if(valid(t)){ids.forEach(id=>{if(scores.has(id))scores.get(id).stale=true;});render();}return false;}finally{inflight=null;}})();return inflight;
+   saveMembership(t);render();return true;
+  }catch{if(valid(t)){markAwaiting(ids);render();}return false;}finally{inflight=null;}})();return inflight;
  }
  async function manualRefresh(){
   if(manual||document.hidden||activeTab!=='match-centre')return manual;
   if(Date.now()-lastManual<10000){notice='Please wait a moment before refreshing again.';render();return;}
   lastManual=Date.now();const t=ticket();notice='Refreshing…';
-  const operation=(async()=>{try{await hydrate(true);if(!valid(t))return;render();if(!await poll(null,false,true))throw Error();if(valid(t))notice=membershipMaxAge===30000?'Match list needs rechecking. Showing last available fixtures. Rechecking shortly.':'Latest available scores loaded.';}catch{if(valid(t))notice='Couldn’t refresh. Showing last available scores.';}finally{if(manual===operation)manual=null;if(valid(t)){refreshControl?.setBusy(false);render();}}})();
+  const operation=(async()=>{try{await hydrate(true);if(!valid(t))return;render();if(!await poll(null,false,true))throw Error();if(valid(t))notice=membershipMaxAge===30000?'Match list needs rechecking. Showing last available fixtures. Rechecking shortly.':'Latest available scores loaded.';}catch{if(valid(t)){markAwaiting(membership.map(m().id));notice='Couldn’t refresh. Showing last available scores.';}}finally{if(manual===operation)manual=null;if(valid(t)){refreshControl?.setBusy(false);render();}}})();
   manual=operation;refreshControl?.setBusy(true);render();return manual;
  }
  globalThis.stopMatchCentre=()=>{generation++;clearInterval(timer);refreshControl?.cancel();manual=null;notice='';document.getElementById('listView')?.removeAttribute('aria-busy');};
  globalThis.renderMatchCentre=()=>{
-  if(membershipOwner&&membershipOwner!==owner()){globalThis.stopMatchCentre();membership=[];membershipKey='';membershipOwner=owner();membershipMaxAge=300000;lastManual=-Infinity;scores.clear();requested.clear();expanded.clear();viewCache.clear();nextCursor=null;}
+  if(membershipOwner&&membershipOwner!==owner()){globalThis.stopMatchCentre();membership=[];membershipKey='';membershipOwner=owner();membershipMaxAge=120000;lastManual=-Infinity;scores.clear();requested.clear();expanded.clear();viewCache.clear();nextCursor=null;}
   refreshControl||=globalThis.createMatchCentreRefresh({panel:document.getElementById('listView'),enabled:()=>activeTab==='match-centre'&&!document.hidden,refresh:manualRefresh});
   if(!membership.length){membership=selectedView==='followed'?[...activeEvents].filter(e=>Boolean(eventFollowReason(e))):[];membershipOwner=owner();}
-  const t=ticket();render();void hydrate().then(()=>{if(!valid(t))return;render();if(!manual)void poll();}).catch(()=>{if(!valid(t))return;if(!manual&& !notice)notice='Some fixtures could not load. Refresh to retry.';render();});
+  const t=ticket();render();void restoreMembership().then(()=>hydrate()).then(()=>{if(!valid(t))return;render();if(!manual)void poll();}).catch(()=>{if(!valid(t))return;markAwaiting(membership.map(m().id));if(!manual)notice='Some fixtures could not load. Showing last available scores. Refresh to retry.';render();});
   clearInterval(timer);timer=setInterval(()=>{if(activeTab!=='match-centre'){globalThis.stopMatchCentre();return;}if(document.hidden||manual||refreshControl.pulling)return;void hydrate().then(()=>{render();void poll();}).catch(()=>{});},15000);if(!manual)void poll();
  };
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)void poll();});

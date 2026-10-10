@@ -1,0 +1,13 @@
+# Current-score reliability, phase 1
+
+An unresolved cricket fixture disappeared from the actual Match Centre selector after its source observation reached forty minutes. The new regression failed on the prior code and passes with retained membership and an **Awaiting update** label. Elapsed time never establishes a result. Explicit Stumps/Rain delay remain labelled; genuine finals keep the existing one-hour Match Centre window.
+
+Refresh replies are validated before state changes. Healthy page omissions and degraded public/Followed snapshots retain known eligible fixtures. A disposable cache scoped to account, view and Followed preferences restores the last good stack after reload without renewing source clocks. Failed or absent selected-score replies cannot leave a current-live claim. Changed membership scope and account/navigation guards still apply.
+
+The existing two-minute live scheduler is unchanged. Active visible Match Centre membership and scores now use two minutes; interrupted scores keep thirty minutes unless a sourced restart is near. The sixty-ID compact reads, three-second database limit, thirty-second shared cache, hidden-view stop, manual cooldown, two source workers and 45-second refresh deadline remain. No new cron job, provider request path, migration or paid service is introduced. The independent reminder workstream owns dispatcher recovery and its SQL optimisation.
+
+Validation: all 165 production workflow checks pass, including Feed admission, provenance, Results privacy, reminder choices, database contracts and startup budgets. Chromium and WebKit pass the twelve responsive/theme Match Centre cases, degraded/invalid-reply/reload recovery, pull refresh and navigation races, and live/final Feed score updates. Chromium and WebKit installed-browser upgrade rehearsals pass from shell 473 to 474, including failure retention and offline recovery. Production release metadata, alias/served bytes and hosted rendering are recorded separately after deployment.
+
+The public baseline already contained Australia–South Africa's First Test and a fresh CA innings; this does not establish the cause of the earlier screenshot. The selector regression establishes one concrete disappearance path. Source publication timing and physical iPhone/Home Screen behaviour remain separate from controlled browser evidence.
+
+The next phase covers Followed defaults, approved cricket scope, capsule routing, Live Now placement, tournament-overview placement and grouped Formula 1 weekends. Estimated manual reminders and verified score details follow, coordinated with the reminder workstream.
