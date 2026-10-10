@@ -50,4 +50,4 @@ Detailed receipts: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-de
 
 ## Subsequent review
 
-The [current-rule and source review](full-update-contract-review-2026-10-11.md) supersedes the open-check count above: the same sample now passes 89/92 on merged main and the current qualifying candidate. Five old assumptions and one genuine F1 table omission are repaired; three full-update checks remain. Earlier failed receipts and the original 83/92 checkpoint remain historical evidence. Production acceptance of the new candidate is separate.
+The [current-rule and source review](full-update-contract-review-2026-10-11.md) supersedes the open-check count above: the same assessed command set now passes 90/92 on merged main plus the targeted Cricket scope recheck. Six old assumptions and one genuine F1 table omission are repaired; two full-update checks remain. The qualifying repair is verified live. Earlier failed receipts and the original 83/92 checkpoint remain historical evidence. Production acceptance of the new candidate is separate.

@@ -2,9 +2,10 @@
 'use strict';
 const assert=require('node:assert/strict');
 const pauses=require('../config/coverage-pauses');
+const coverage=require('../config/cricket-coverage');
 const {catalogue}=require('../lib/calendar-catalogue');
 const {editorialKey}=require('../lib/fixture-editorial');
-const events=catalogue().filter(e=>e.key==='cricket'&&!pauses.womensT20(e)&&e.isInternational&&(e.participantIds||[]).some(id=>/^team:cricket:australia(?:-women)?$/.test(id)));
+const events=catalogue().filter(e=>e.key==='cricket'&&coverage.allowed(e)&&!pauses.womensT20(e)&&e.isInternational&&(e.participantIds||[]).some(id=>/^team:cricket:australia(?:-women)?$/.test(id)));
 assert(events.length>20);
 const schedule=require('../data/follow-schedule/cricket.json').fixtures;
 for(const event of events){
