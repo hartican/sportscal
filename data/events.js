@@ -247977,5 +247977,762 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "matchRow": "9 October, Stadium Court, match 4: Novak DJOKOVIC v Hubert HURKACZ, Not Before 18:00",
       "clockAssociation": "Not Before 18:00 is attached directly to this named fourth match; the court session starts at 12:00 and the third row is empty. Neither supplies this match time."
     }
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184942",
+    "eventId": "fixture-tennis-espn-atp-184942",
+    "canonicalEventId": "fixture:tennis:espn:atp:184942",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184942",
+      "fixture-tennis-espn-atp-184942"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184942",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Karen Khachanov v Adrian Mannarino",
+    "date": "2026-10-11",
+    "time": "15:00",
+    "startTimeUtc": "2026-10-11T04:00:00.000Z",
+    "estimatedStartTimeUtc": null,
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "timeTbc": false,
+    "scheduleNote": "Confirmed first court match at the published session start.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:karen-khachanov",
+      "competitor:tennis:atp:adrian-mannarino"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:karen-khachanov",
+        "name": "Karen Khachanov",
+        "displayName": "Karen Khachanov",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "RU"
+      },
+      {
+        "id": "competitor:tennis:atp:adrian-mannarino",
+        "name": "Adrian Mannarino",
+        "displayName": "Adrian Mannarino",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:karen-khachanov",
+    "awayParticipantId": "competitor:tennis:atp:adrian-mannarino",
+    "venue": "Grandstand 2",
+    "venueCity": "Shanghai",
+    "sourceName": "Rolex Shanghai Masters official order of play",
+    "sourceType": "official",
+    "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+    "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
+    "statusCheckedAt": "2026-10-10T11:40:32.332Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184942",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184942",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261011"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "startTimeTbc": false,
+    "timingVerified": true,
+    "timingEvidence": {
+      "matchRow": "Grandstand 2, row 1: Karen Khachanov v Adrian Mannarino",
+      "clockAssociation": "Starts At 12:00 directly above the first Grandstand 2 match; Asia/Shanghai UTC+08:00.",
+      "publishedAtLocal": "2026-10-10T15:16:24+08:00",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "reviewMethod": "Complete PDF pixels and text checked together; four court columns and all preceding rows verified."
+    },
+    "scheduleEvidence": {
+      "kind": "official-order-of-play",
+      "fixtureId": "fixture:tennis:espn:atp:184942",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "roundLabel": "Round of 32",
+      "participantIds": [
+        "competitor:tennis:atp:karen-khachanov",
+        "competitor:tennis:atp:adrian-mannarino"
+      ],
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "checkedAt": "2026-10-10T11:36:33.460Z",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "sourcePublishedAtLocal": "2026-10-10T15:16:24+08:00",
+      "court": "Grandstand 2",
+      "playOrder": 1,
+      "matchRow": "Grandstand 2, row 1: Karen Khachanov v Adrian Mannarino",
+      "clockAssociation": "Starts At 12:00 directly above the first Grandstand 2 match; Asia/Shanghai UTC+08:00.",
+      "timePrecision": "exact",
+      "matchDateLocal": "2026-10-11",
+      "timeZone": "Asia/Shanghai",
+      "startsAt": "2026-10-11T04:00:00.000Z",
+      "localTime": "12:00"
+    },
+    "sessionOrderEvidence": {
+      "kind": "official-session-order",
+      "sessionId": "atp-shanghai-2026:2026-10-11:grandstand-2",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "court": "Grandstand 2",
+      "startsAt": "2026-10-11T04:00:00.000Z",
+      "matchDateLocal": "2026-10-11",
+      "timeZone": "Asia/Shanghai",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "checkedAt": "2026-10-10T11:36:33.460Z",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "fixtureIds": [
+        "fixture:tennis:espn:atp:184942",
+        "fixture:tennis:espn:atp:184929",
+        "fixture:tennis:espn:atp:184944",
+        "fixture:tennis:espn:atp:184931"
+      ],
+      "participantIdsByFixture": {
+        "fixture:tennis:espn:atp:184942": [
+          "competitor:tennis:atp:karen-khachanov",
+          "competitor:tennis:atp:adrian-mannarino"
+        ],
+        "fixture:tennis:espn:atp:184929": [
+          "athlete:tennis:alex-de-minaur",
+          "competitor:tennis:atp:rei-sakamoto"
+        ],
+        "fixture:tennis:espn:atp:184944": [
+          "competitor:tennis:atp:francisco-cerundolo",
+          "competitor:tennis:atp:jakub-mensik"
+        ],
+        "fixture:tennis:espn:atp:184931": [
+          "competitor:tennis:atp:alexander-bublik",
+          "competitor:tennis:atp:brandon-nakashima"
+        ]
+      }
+    },
+    "displayTitleCompact": "Karen Khachanov v Adrian Mannarino",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.protennislive.com/posting/2026/5014/op.pdf"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "sourceTrust": "verified",
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184929",
+    "eventId": "fixture-tennis-espn-atp-184929",
+    "canonicalEventId": "fixture:tennis:espn:atp:184929",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184929",
+      "fixture-tennis-espn-atp-184929"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184929",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Alex de Minaur v Rei Sakamoto",
+    "date": "2026-10-11",
+    "time": "16:40",
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-11T05:40:00.000Z",
+    "timePrecision": "estimated",
+    "scheduleStatus": "provisional",
+    "timeTbc": false,
+    "scheduleNote": "Approximate start from official court order; assumes 90-minute matches and 10-minute changeovers. Adjusts with verified preceding-match progress.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "athlete:tennis:alex-de-minaur",
+      "competitor:tennis:atp:rei-sakamoto"
+    ],
+    "participants": [
+      {
+        "id": "athlete:tennis:alex-de-minaur",
+        "name": "Alex de Minaur",
+        "displayName": "Alex de Minaur",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "AU"
+      },
+      {
+        "id": "competitor:tennis:atp:rei-sakamoto",
+        "name": "Rei Sakamoto",
+        "displayName": "Rei Sakamoto",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "athlete:tennis:alex-de-minaur",
+    "awayParticipantId": "competitor:tennis:atp:rei-sakamoto",
+    "venue": "Grandstand 2",
+    "venueCity": "Shanghai",
+    "sourceName": "Rolex Shanghai Masters official order of play",
+    "sourceType": "official",
+    "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+    "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
+    "statusCheckedAt": "2026-10-10T11:40:32.332Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184929",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184929",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261011"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "startTimeTbc": false,
+    "timingVerified": false,
+    "timingEvidence": {
+      "matchRow": "Grandstand 2, row 2: Alex de Minaur v Rei Sakamoto",
+      "clockAssociation": "Followed By directly above this court row; 12:00 session heading belongs to the first row only.",
+      "publishedAtLocal": "2026-10-10T15:16:24+08:00",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "reviewMethod": "Complete PDF pixels and text checked together; four court columns and all preceding rows verified."
+    },
+    "scheduleEvidence": {
+      "kind": "official-order-of-play",
+      "fixtureId": "fixture:tennis:espn:atp:184929",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "roundLabel": "Round of 32",
+      "participantIds": [
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:rei-sakamoto"
+      ],
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "checkedAt": "2026-10-10T11:36:33.460Z",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "sourcePublishedAtLocal": "2026-10-10T15:16:24+08:00",
+      "court": "Grandstand 2",
+      "playOrder": 2,
+      "matchRow": "Grandstand 2, row 2: Alex de Minaur v Rei Sakamoto",
+      "clockAssociation": "Followed By directly above this court row; 12:00 session heading belongs to the first row only.",
+      "timePrecision": "followed-by",
+      "matchDateLocal": "2026-10-11",
+      "timeZone": "Asia/Shanghai",
+      "startsAt": null,
+      "localTime": null
+    },
+    "sessionOrderEvidence": {
+      "kind": "official-session-order",
+      "sessionId": "atp-shanghai-2026:2026-10-11:grandstand-2",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "court": "Grandstand 2",
+      "startsAt": "2026-10-11T04:00:00.000Z",
+      "matchDateLocal": "2026-10-11",
+      "timeZone": "Asia/Shanghai",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "checkedAt": "2026-10-10T11:36:33.460Z",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "fixtureIds": [
+        "fixture:tennis:espn:atp:184942",
+        "fixture:tennis:espn:atp:184929",
+        "fixture:tennis:espn:atp:184944",
+        "fixture:tennis:espn:atp:184931"
+      ],
+      "participantIdsByFixture": {
+        "fixture:tennis:espn:atp:184942": [
+          "competitor:tennis:atp:karen-khachanov",
+          "competitor:tennis:atp:adrian-mannarino"
+        ],
+        "fixture:tennis:espn:atp:184929": [
+          "athlete:tennis:alex-de-minaur",
+          "competitor:tennis:atp:rei-sakamoto"
+        ],
+        "fixture:tennis:espn:atp:184944": [
+          "competitor:tennis:atp:francisco-cerundolo",
+          "competitor:tennis:atp:jakub-mensik"
+        ],
+        "fixture:tennis:espn:atp:184931": [
+          "competitor:tennis:atp:alexander-bublik",
+          "competitor:tennis:atp:brandon-nakashima"
+        ]
+      }
+    },
+    "displayTitleCompact": "Alex de Minaur v Rei Sakamoto",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.protennislive.com/posting/2026/5014/op.pdf"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "manualStartEstimate": {
+      "kind": "official-session-order-estimate",
+      "verified": true,
+      "fixtureId": "fixture:tennis:espn:atp:184929",
+      "startsAt": "2026-10-11T05:40:00.000Z",
+      "calculatedAt": "2026-10-10T11:47:11.485Z",
+      "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "sessionId": "atp-shanghai-2026:2026-10-11:grandstand-2",
+      "assumedDurationMinutes": 90,
+      "changeoverMinutes": 10
+    },
+    "sourceTrust": "verified",
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184944",
+    "eventId": "fixture-tennis-espn-atp-184944",
+    "canonicalEventId": "fixture:tennis:espn:atp:184944",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184944",
+      "fixture-tennis-espn-atp-184944"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184944",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Francisco Cerundolo v Jakub Mensik",
+    "date": "2026-10-11",
+    "time": "18:20",
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-11T07:20:00.000Z",
+    "timePrecision": "estimated",
+    "scheduleStatus": "provisional",
+    "timeTbc": false,
+    "scheduleNote": "Approximate start from official court order; assumes 90-minute matches and 10-minute changeovers. Adjusts with verified preceding-match progress.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:francisco-cerundolo",
+      "competitor:tennis:atp:jakub-mensik"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:francisco-cerundolo",
+        "name": "Francisco Cerundolo",
+        "displayName": "Francisco Cerundolo",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "AR"
+      },
+      {
+        "id": "competitor:tennis:atp:jakub-mensik",
+        "name": "Jakub Mensik",
+        "displayName": "Jakub Mensik",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CZ"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:francisco-cerundolo",
+    "awayParticipantId": "competitor:tennis:atp:jakub-mensik",
+    "venue": "Grandstand 2",
+    "venueCity": "Shanghai",
+    "sourceName": "Rolex Shanghai Masters official order of play",
+    "sourceType": "official",
+    "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+    "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
+    "statusCheckedAt": "2026-10-10T11:40:32.332Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184944",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184944",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261011"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "startTimeTbc": false,
+    "timingVerified": false,
+    "timingEvidence": {
+      "matchRow": "Grandstand 2, row 3: Francisco Cerundolo v Jakub Mensik",
+      "clockAssociation": "Followed By directly above this court row; 12:00 session heading belongs to the first row only.",
+      "publishedAtLocal": "2026-10-10T15:16:24+08:00",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "reviewMethod": "Complete PDF pixels and text checked together; four court columns and all preceding rows verified."
+    },
+    "scheduleEvidence": {
+      "kind": "official-order-of-play",
+      "fixtureId": "fixture:tennis:espn:atp:184944",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "roundLabel": "Round of 32",
+      "participantIds": [
+        "competitor:tennis:atp:francisco-cerundolo",
+        "competitor:tennis:atp:jakub-mensik"
+      ],
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "checkedAt": "2026-10-10T11:36:33.460Z",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "sourcePublishedAtLocal": "2026-10-10T15:16:24+08:00",
+      "court": "Grandstand 2",
+      "playOrder": 3,
+      "matchRow": "Grandstand 2, row 3: Francisco Cerundolo v Jakub Mensik",
+      "clockAssociation": "Followed By directly above this court row; 12:00 session heading belongs to the first row only.",
+      "timePrecision": "followed-by",
+      "matchDateLocal": "2026-10-11",
+      "timeZone": "Asia/Shanghai",
+      "startsAt": null,
+      "localTime": null
+    },
+    "sessionOrderEvidence": {
+      "kind": "official-session-order",
+      "sessionId": "atp-shanghai-2026:2026-10-11:grandstand-2",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "court": "Grandstand 2",
+      "startsAt": "2026-10-11T04:00:00.000Z",
+      "matchDateLocal": "2026-10-11",
+      "timeZone": "Asia/Shanghai",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "checkedAt": "2026-10-10T11:36:33.460Z",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "fixtureIds": [
+        "fixture:tennis:espn:atp:184942",
+        "fixture:tennis:espn:atp:184929",
+        "fixture:tennis:espn:atp:184944",
+        "fixture:tennis:espn:atp:184931"
+      ],
+      "participantIdsByFixture": {
+        "fixture:tennis:espn:atp:184942": [
+          "competitor:tennis:atp:karen-khachanov",
+          "competitor:tennis:atp:adrian-mannarino"
+        ],
+        "fixture:tennis:espn:atp:184929": [
+          "athlete:tennis:alex-de-minaur",
+          "competitor:tennis:atp:rei-sakamoto"
+        ],
+        "fixture:tennis:espn:atp:184944": [
+          "competitor:tennis:atp:francisco-cerundolo",
+          "competitor:tennis:atp:jakub-mensik"
+        ],
+        "fixture:tennis:espn:atp:184931": [
+          "competitor:tennis:atp:alexander-bublik",
+          "competitor:tennis:atp:brandon-nakashima"
+        ]
+      }
+    },
+    "displayTitleCompact": "Francisco Cerundolo v Jakub Mensik",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.protennislive.com/posting/2026/5014/op.pdf"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "manualStartEstimate": {
+      "kind": "official-session-order-estimate",
+      "verified": true,
+      "fixtureId": "fixture:tennis:espn:atp:184944",
+      "startsAt": "2026-10-11T07:20:00.000Z",
+      "calculatedAt": "2026-10-10T11:47:11.485Z",
+      "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "sessionId": "atp-shanghai-2026:2026-10-11:grandstand-2",
+      "assumedDurationMinutes": 90,
+      "changeoverMinutes": 10
+    },
+    "sourceTrust": "verified",
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184931",
+    "eventId": "fixture-tennis-espn-atp-184931",
+    "canonicalEventId": "fixture:tennis:espn:atp:184931",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184931",
+      "fixture-tennis-espn-atp-184931"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184931",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Alexander Bublik v Brandon Nakashima",
+    "date": "2026-10-11",
+    "time": "20:00",
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-11T09:00:00.000Z",
+    "timePrecision": "estimated",
+    "scheduleStatus": "provisional",
+    "timeTbc": false,
+    "scheduleNote": "Approximate start from official court order; assumes 90-minute matches and 10-minute changeovers. Adjusts with verified preceding-match progress.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:alexander-bublik",
+      "competitor:tennis:atp:brandon-nakashima"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:alexander-bublik",
+        "name": "Alexander Bublik",
+        "displayName": "Alexander Bublik",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "KZ"
+      },
+      {
+        "id": "competitor:tennis:atp:brandon-nakashima",
+        "name": "Brandon Nakashima",
+        "displayName": "Brandon Nakashima",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:alexander-bublik",
+    "awayParticipantId": "competitor:tennis:atp:brandon-nakashima",
+    "venue": "Grandstand 2",
+    "venueCity": "Shanghai",
+    "sourceName": "Rolex Shanghai Masters official order of play",
+    "sourceType": "official",
+    "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+    "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
+    "statusCheckedAt": "2026-10-10T11:40:32.332Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184931",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184931",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261011"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Grandstand 2",
+    "statusSourceType": "reputable",
+    "startTimeTbc": false,
+    "timingVerified": false,
+    "timingEvidence": {
+      "matchRow": "Grandstand 2, row 4: Alexander Bublik v Brandon Nakashima",
+      "clockAssociation": "Followed By directly above this court row; 12:00 session heading belongs to the first row only.",
+      "publishedAtLocal": "2026-10-10T15:16:24+08:00",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "reviewMethod": "Complete PDF pixels and text checked together; four court columns and all preceding rows verified."
+    },
+    "scheduleEvidence": {
+      "kind": "official-order-of-play",
+      "fixtureId": "fixture:tennis:espn:atp:184931",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "roundLabel": "Round of 32",
+      "participantIds": [
+        "competitor:tennis:atp:alexander-bublik",
+        "competitor:tennis:atp:brandon-nakashima"
+      ],
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "checkedAt": "2026-10-10T11:36:33.460Z",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "sourcePublishedAtLocal": "2026-10-10T15:16:24+08:00",
+      "court": "Grandstand 2",
+      "playOrder": 4,
+      "matchRow": "Grandstand 2, row 4: Alexander Bublik v Brandon Nakashima",
+      "clockAssociation": "Followed By directly above this court row; 12:00 session heading belongs to the first row only.",
+      "timePrecision": "followed-by",
+      "matchDateLocal": "2026-10-11",
+      "timeZone": "Asia/Shanghai",
+      "startsAt": null,
+      "localTime": null
+    },
+    "sessionOrderEvidence": {
+      "kind": "official-session-order",
+      "sessionId": "atp-shanghai-2026:2026-10-11:grandstand-2",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "court": "Grandstand 2",
+      "startsAt": "2026-10-11T04:00:00.000Z",
+      "matchDateLocal": "2026-10-11",
+      "timeZone": "Asia/Shanghai",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "checkedAt": "2026-10-10T11:36:33.460Z",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "fixtureIds": [
+        "fixture:tennis:espn:atp:184942",
+        "fixture:tennis:espn:atp:184929",
+        "fixture:tennis:espn:atp:184944",
+        "fixture:tennis:espn:atp:184931"
+      ],
+      "participantIdsByFixture": {
+        "fixture:tennis:espn:atp:184942": [
+          "competitor:tennis:atp:karen-khachanov",
+          "competitor:tennis:atp:adrian-mannarino"
+        ],
+        "fixture:tennis:espn:atp:184929": [
+          "athlete:tennis:alex-de-minaur",
+          "competitor:tennis:atp:rei-sakamoto"
+        ],
+        "fixture:tennis:espn:atp:184944": [
+          "competitor:tennis:atp:francisco-cerundolo",
+          "competitor:tennis:atp:jakub-mensik"
+        ],
+        "fixture:tennis:espn:atp:184931": [
+          "competitor:tennis:atp:alexander-bublik",
+          "competitor:tennis:atp:brandon-nakashima"
+        ]
+      }
+    },
+    "displayTitleCompact": "Alexander Bublik v Brandon Nakashima",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.protennislive.com/posting/2026/5014/op.pdf"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "manualStartEstimate": {
+      "kind": "official-session-order-estimate",
+      "verified": true,
+      "fixtureId": "fixture:tennis:espn:atp:184931",
+      "startsAt": "2026-10-11T09:00:00.000Z",
+      "calculatedAt": "2026-10-10T11:47:11.485Z",
+      "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "sourceSha256": "66234b4bc367e6145495c155d38f050f37a4aed1e729ed4bcbf5bd1267aebf05",
+      "sessionId": "atp-shanghai-2026:2026-10-11:grandstand-2",
+      "assumedDurationMinutes": 90,
+      "changeoverMinutes": 10
+    },
+    "sourceTrust": "verified",
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false
   }
 ];

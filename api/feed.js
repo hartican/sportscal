@@ -83,7 +83,7 @@ function createFeedHandler({load=feedDependencies,authenticate=()=>require('../l
       t=performance.now();const resolved=d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,participantId:athletesOnly?participantId:null,copyEvents:false});mark('resolve',performance.now()-t);
       const participants=new Map(d.canonicalSportContext.participants.map(p=>[p.id,p]));
       resolved.participants.forEach(p=>participants.set(p.id,{...participants.get(p.id),...p}));
-      const events=d.overlaySnapshots(resolved.events,snapshot?.sources).map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
+      const events=d.overlaySnapshots(resolved.events,snapshot?.sources,{now,stale:!snapshot||snapshot.stale===true}).map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
       const feed=d.buildServerFeed({matchCentreOnly,athletesOnly,participantId,events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false});
       if(matchCentreOnly)feed.membershipStale=!snapshot||snapshot.stale===true;
       if(athletesOnly&&cursor===0)feed.athletes=require('../lib/athletes').projection({participants:[...participants.values()],preferences:userState.preferences,events});

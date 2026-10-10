@@ -3,7 +3,7 @@
  'use strict';
 function loadMatchCentreStyles(){
  if(document.querySelector('[data-mc-style]'))return;
- const link=document.createElement('link');link.rel='stylesheet';link.href='assets/styles/match-centre.css?v=463';link.dataset.mcStyle='';document.head.append(link);
+ const link=document.createElement('link');link.rel='stylesheet';link.href='assets/styles/match-centre.css?v=476';link.dataset.mcStyle='';document.head.append(link);
 }
 loadMatchCentreStyles();
 
@@ -77,6 +77,19 @@ loadMatchCentreStyles();
  }
  const cards=new Map();let chrome=null,chromeKey='';
  const patchText=(element,value)=>{const text=String(value??'');if(element.textContent!==text)element.textContent=text;};
+ function scoreTable(container,title,columns,rows){
+  if(!rows?.length)return;
+  const wrap=node('div',null,'mc-score-table-wrap'),table=node('table',null,'mc-score-table');wrap.tabIndex=0;wrap.setAttribute('aria-label',title);table.append(node('caption',title));
+  const head=node('thead'),tr=node('tr');for(const [title] of columns){const th=node('th',title);th.scope='col';tr.append(th);}head.append(tr);table.append(head);
+  const body=node('tbody');for(const row of rows){const tr=node('tr');columns.forEach(([,key],index)=>{const cell=node(index?'td':'th',row[key]??'—');if(!index)cell.scope='row';tr.append(cell);});body.append(tr);}table.append(body);wrap.append(table);container.append(wrap);
+ }
+ function cricketDetails(container,innings){
+  for(const inning of innings||[]){const title=[inning.team||'Innings',inning.inningNumber?`innings ${inning.inningNumber}`:null].filter(Boolean).join(' · ');
+   scoreTable(container,title,[['Runs','runs'],['Wickets','wickets'],['Overs','overs']],[inning]);
+   scoreTable(container,'Batting · '+title,[['Player','name'],['Runs','runs'],['Balls','balls'],['4s','fours'],['6s','sixes'],['Dismissal','dismissal'],['Bowled by','bowledBy']],inning.batting);
+   scoreTable(container,'Bowling · '+title,[['Player','name'],['Overs','overs'],['Maidens','maidens'],['Runs','runs'],['Wickets','wickets']],inning.bowling);
+  }
+ }
  function makeCard(e){
   const id=m().id(e),card=node('article',null,'match-centre-card event-overview-card'),details=node('details'),summary=node('summary',null,'mc-row'),top=node('div',null,'mc-card-top'),mark=node('span',null,'mc-event-mark');card.dataset.matchId=id;details.open=expanded.has(id);summary.setAttribute('aria-label',`Expand ${spoilerSafeDisplayTitle(e)}`);renderEventIdentityMark(mark,e,sportMetaForEvent(e));top.append(mark,node('small',[e.tournamentName||e.competitionName||e.eventName,e.court].filter(Boolean).join(' · ')));summary.append(top);
   const identities=matchupIdentityMatches(e,spoilerSafeDisplayTitle(e)),sides=node('div',null,'mc-participants');summary.append(sides);
@@ -85,23 +98,35 @@ loadMatchCentreStyles();
   if(!ordered.length)sides.append(node('h3',spoilerSafeDisplayTitle(e)));
   const status=node('span',null,'mc-status'),freshness=node('small',null,'mc-row-freshness'),classification=node('div',null,'mc-classification');summary.append(classification,status,freshness);details.append(summary);
   const content=node('div',null,'mc-expanded'),timing=buildFixtureTimingGroup(e);timing.querySelector('.fixture-timing-badge').onclick=click=>{click.stopPropagation();void openFixtureFromTimingCapsule(currentFixture(e));};content.append(timing);if(e.venue||e.court)content.append(node('p',[e.venue,e.court&&e.court!==e.venue?e.court:null].filter(Boolean).join(' · ')));const updates=node('div',null,'mc-score-details');content.append(updates);
-  const actions=node('div',null,'match-centre-actions');actions.append(feedButton(e));appendEventQuickActions(actions,e,{chat:false,viewing:false});if(snapshot.officialUrl){const official=node('a',e.sourceType==='official'?'Official fixture':(e.sourceName||'Published')+' source','btn ghost');official.href=snapshot.officialUrl;official.target='_blank';official.rel='noopener noreferrer';actions.append(official);}content.append(actions);details.append(content);card.append(details);
-  details.ontoggle=()=>{if(!details.isConnected)return;if(details.open){expanded.add(id);if(userPreferences.showSpoilers&&e.rubbers)void poll([e],true);}else expanded.delete(id);};
-  return {card,details,rows,status,freshness,classification,updates,updateKey:'',scoreKeys:new Map()};
+  const actions=node('div',null,'match-centre-actions');actions.append(feedButton(e));appendEventQuickActions(actions,e,{chat:false,viewing:false});const sourceLink=node('a',null,'btn ghost');sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';actions.append(sourceLink);content.append(actions);details.append(content);card.append(details);
+  details.ontoggle=()=>{if(!details.isConnected)return;if(details.open){expanded.add(id);if(userPreferences.showSpoilers&&e.rubbers)void poll([e],true);}else expanded.delete(id);const view=cards.get(id);if(view?.details===details)patchCard(view,e);};
+  return {card,details,rows,status,freshness,classification,updates,sourceLink,updateKey:'',scoreKeys:new Map()};
  }
  function patchCard(view,e){
   const snapshot=m().observation(m().compact(e),scores.get(m().id(e))||m().compact(e)),score=snapshot.score||{},visible=userPreferences.showSpoilers;
-  patchText(view.status,[statusText(e,snapshot),visible?snapshot.clock:null].filter(Boolean).join(' · '));view.status.classList.toggle('mc-active-live',m().liveState({...e,...snapshot})==='playing');
+  patchText(view.status,[statusText(e,snapshot),visible&&snapshot.clock?(m().sport(e)==='tennis'?'Duration '+snapshot.clock:snapshot.clock):null].filter(Boolean).join(' · '));view.status.classList.toggle('mc-active-live',m().liveState({...e,...snapshot})==='playing');
+  const link=snapshot.scorecardUrl||snapshot.officialUrl;view.sourceLink.hidden=!link;if(link){view.sourceLink.href=link;patchText(view.sourceLink,snapshot.scorecardUrl?(snapshot.scorecardOfficial?'Official scorecard':'Source scorecard'):e.sourceType==='official'?'Official fixture':(e.sourceName||'Published')+' source');}
   const checked=Date.parse(snapshot.statusCheckedAt||snapshot.checkedAt||'');patchText(view.freshness,Number.isFinite(checked)?'Source update '+new Date(checked).toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'}):'Awaiting source update');
   for(const [index,row] of view.rows.entries()){
    const side=row.id===snapshot.homeParticipantId?'home':row.id===snapshot.awayParticipantId?'away':index===0?'home':'away';let values=[];
    if(!visible)values=['Hidden'];else if(score.sets?.length||score.games){values=(score.sets||[]).map(set=>set[side]!=null?String(set[side])+(set[side+'Tiebreak']!=null?'('+set[side+'Tiebreak']+')':''):'—');if(score.games)values.push(score.games[side]??'—');}else if(score.innings){values=score.innings.filter(i=>i.participantId===row.id).map(i=>`${i.runs??'—'}/${i.wickets??'—'} (${i.overs??'—'})`);}else if(score[side]!=null)values=[score[side]];else values=['—'];
    const shape=values.length;if(row.score.children.length!==shape)row.score.replaceChildren(...values.map(()=>node('span',null,'mc-score-cell')));values.forEach((value,i)=>patchText(row.score.children[i],value));row.score.classList.toggle('mc-score-hidden',!visible);row.score.setAttribute('aria-label',!visible?'Results hidden':score.sets?.length?'Set scores'+(score.games?' and current games':''):'Score');
   }
-  const data=visible?JSON.stringify([snapshot.statusText,snapshot.incidents,snapshot.rubbers,score.classification]):'hidden';if(data!==view.updateKey){view.updateKey=data;view.updates.replaceChildren();view.classification.replaceChildren();if(visible){if(snapshot.statusText)view.updates.append(node('p',snapshot.statusText));for(const incident of snapshot.incidents||[])view.updates.append(node('p',[incident.type,incident.name,incident.time].filter(Boolean).join(' · ')));for(const rubber of snapshot.rubbers||[])view.updates.append(node('p',rubber.name+': '+(/upcoming|unconfirmed/.test(rubber.status)?'Awaiting official score':scoreText(rubber.score))));for(const entry of score.classification||[])view.classification.append(node('p',Array.isArray(entry)?entry.join(' · '):[entry.position,entry.displayName||entry.name,entry.time||entry.points].filter(v=>v!=null).join(' · ')));}}
+  const data=visible?JSON.stringify([view.details.open,snapshot.statusText,snapshot.incidents,snapshot.rubbers,score.classification,score.innings]):'hidden';
+  if(data!==view.updateKey){
+   view.updateKey=data;view.updates.replaceChildren();view.classification.replaceChildren();
+   if(visible){
+    if(view.details.open){
+     if(snapshot.statusText)view.updates.append(node('p',snapshot.statusText));cricketDetails(view.updates,score.innings);
+     for(const incident of snapshot.incidents||[])view.updates.append(node('p',[incident.type,incident.name,incident.time].filter(v=>v!=null&&v!=='').join(' · ')));
+     for(const rubber of snapshot.rubbers||[])view.updates.append(node('p',rubber.name+': '+(/upcoming|unconfirmed/.test(rubber.status)?'Awaiting official score':scoreText(rubber.score))));
+    }
+    for(const entry of score.classification||[])view.classification.append(node('p',Array.isArray(entry)?entry.join(' · '):[entry.position,entry.displayName||entry.name,entry.time||entry.points].filter(v=>v!=null).join(' · ')));
+   }
+  }
  }
  function render(){
-  if(activeTab!=='match-centre')return;const panel=document.getElementById('listView'),all=candidates();
+  if(activeTab!=='match-centre')return;for(const [id,view] of cards)if(view.card.isConnected){if(view.details.open)expanded.add(id);else expanded.delete(id);}const panel=document.getElementById('listView'),all=candidates();
   const key=JSON.stringify([selectedView,owner(),userPreferences.showSpoilers,[...new Set(all.map(e=>m().sport(e)))].sort()]);
   if(!chrome?.heading.isConnected||chromeKey!==key){chromeKey=key;cards.clear();panel.className='match-centre';const heading=node('div',null,'match-centre-heading'),refresh=node('button','Refresh','btn ghost'),tabs=node('div',null,'mc-membership-tabs'),noticeNode=node('p',null,'mc-refresh-notice'),empty=node('p'),more=node('button','Load more live fixtures','btn ghost');heading.append(node('h2','Match Centre'),refresh);refresh.type='button';refresh.setAttribute('aria-label','Refresh Match Centre');refresh.onclick=()=>void manualRefresh();tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','Match Centre fixtures');
    for(const [view,label] of [['followed','Followed'],['everything','Everything']]){const tab=node('button',label,'btn ghost');tab.type='button';tab.setAttribute('role','tab');tab.setAttribute('aria-selected',String(selectedView===view));tab.onclick=()=>{if(selectedView===view)return;generation++;selectedView=view;manual=null;notice='';const cached=viewCache.get(view);membership=cached?.events||[];membershipKey=cached?.key||'';membershipCheckedAt=cached?.checked||0;membershipMaxAge=cached?.maxAge||120000;nextCursor=cached?.nextCursor??null;membershipOwner=owner();renderMatchCentre();};tabs.append(tab);}
@@ -144,7 +169,7 @@ loadMatchCentreStyles();
  }
  globalThis.stopMatchCentre=()=>{generation++;clearInterval(timer);refreshControl?.cancel();manual=null;notice='';document.getElementById('listView')?.removeAttribute('aria-busy');};
  globalThis.renderMatchCentre=()=>{
-  if(membershipOwner&&membershipOwner!==owner()){globalThis.stopMatchCentre();membership=[];membershipKey='';membershipOwner=owner();membershipMaxAge=120000;lastManual=-Infinity;scores.clear();requested.clear();expanded.clear();viewCache.clear();nextCursor=null;}
+  if(membershipOwner&&membershipOwner!==owner()){globalThis.stopMatchCentre();membership=[];membershipKey='';membershipOwner=owner();membershipMaxAge=120000;lastManual=-Infinity;scores.clear();requested.clear();cards.clear();expanded.clear();viewCache.clear();nextCursor=null;}
   refreshControl||=globalThis.createMatchCentreRefresh({panel:document.getElementById('listView'),enabled:()=>activeTab==='match-centre'&&!document.hidden,refresh:manualRefresh});
   if(!membership.length){membership=selectedView==='followed'?[...activeEvents].filter(e=>Boolean(eventFollowReason(e))):[];membershipOwner=owner();}
   const t=ticket();render();void restoreMembership().then(()=>hydrate()).then(()=>{if(!valid(t))return;render();if(!manual)void poll();}).catch(()=>{if(!valid(t))return;markAwaiting(membership.map(m().id));if(!manual)notice='Some fixtures could not load. Showing last available scores. Refresh to retry.';render();});

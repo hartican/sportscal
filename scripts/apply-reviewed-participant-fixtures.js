@@ -24,6 +24,14 @@ function validate(doc=document){
    assert(proof.timePrecision==='followed-by'&&proof.startsAt===null&&proof.localTime===null&&!e.startTimeUtc&&!e.time&&e.timeTbc===true&&e.timingVerified===false&&e.scheduleStatus==='unresolved'&&e.date===proof.matchDateLocal,'play order establishes a local schedule day, never an automatic reminder clock');
   }
  }
+ for(const e of doc.events.filter(e=>e.sessionOrderEvidence)){
+  const proof=e.sessionOrderEvidence,order=e.scheduleEvidence;
+  assert(proof.kind==='official-session-order'&&proof.tournamentId===e.tournamentId&&proof.court===e.court&&proof.sourceUrl===e.sourceUrl&&proof.checkedAt===e.sourceCheckedAt&&proof.sourceSha256===order.sourceSha256,'session order must carry the same official receipt as its bound court row');
+  assert(proof.fixtureIds.length<=20&&new Set(proof.fixtureIds).size===proof.fixtureIds.length&&proof.fixtureIds[order.playOrder-1]===e.id,'session order must bind each published fixture once in its actual play order');
+  assert.deepEqual(proof.participantIdsByFixture[e.id],e.participantIds);
+  for(const id of proof.fixtureIds)assert(doc.events.some(row=>row.id===id&&row.court===e.court&&row.tournamentId===e.tournamentId),'all preceding source rows must be retained, even if not personally followed');
+  const first=doc.events.find(row=>row.id===proof.fixtureIds[0]);assert(first.scheduleEvidence.playOrder===1&&first.startTimeUtc===proof.startsAt&&first.timePrecision==='exact','the first named row owns the confirmed session start');
+ }
  for(const e of doc.events.filter(e=>e.drawEvidence)){
   const proof=e.drawEvidence;
   assert(proof.kind==='official-draw-pairing'&&proof.fixtureId===e.id&&proof.sourceUrl===e.timingEvidence.drawSourceUrl&&proof.checkedAt===e.timingEvidence.drawCheckedAt&&/^[a-f0-9]{64}$/.test(proof.sourceSha256)&&proof.sourceSha256===e.timingEvidence.drawSourceSha256,'reviewed pairing requires the exact dated organiser draw receipt');
@@ -98,5 +106,5 @@ function apply({root='.',doc=document}={}){validate(doc);const plans=[];for(cons
   const rules=require('./lib/storyline-card-rules'),storyline=rules.storylineFor(e),safe=rules.spoilerSafeRootCopy(e,storyline);
   const {editorialPreview,...retained}=e;
   return {...retained,storyline,selectedSentence:safe.hook,fullSpiel:safe.synopsis};
- });data.events=[...data.events.filter(e=>!ids.has(identity(e))),...reviewed];plans.push({file,target,before,after:JSON.stringify(data,null,2)+'\n'});}for(const p of plans)if(p.after!==p.before)fs.writeFileSync(p.target,p.after);return plans.map(p=>({file:p.file,fixtures:doc.events.length}));}
+ });data.events=require('../lib/session-order-estimates').apply([...data.events.filter(e=>!ids.has(identity(e))),...reviewed]);plans.push({file,target,before,after:JSON.stringify(data,null,2)+'\n'});}for(const p of plans)if(p.after!==p.before)fs.writeFileSync(p.target,p.after);return plans.map(p=>({file:p.file,fixtures:doc.events.length}));}
 module.exports={apply,validate};if(require.main===module)console.log(JSON.stringify(apply()));

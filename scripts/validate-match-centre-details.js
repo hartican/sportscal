@@ -1,0 +1,13 @@
+'use strict';
+const assert=require('node:assert/strict'),model=require('../config/match-centre');
+const cricket={id:'fixture:cricket:CA:39990',sourceFixtureId:'CA:39990',key:'cricket',sourceType:'official',sourceUrl:'https://www.cricket.com.au/matches/',innings:[{participantId:'team:cricket:australia',team:'Australia Men',inningNumber:1,runsScored:187,numberOfWicketsFallen:6,oversBowled:'65.2',batting:[{name:'Beau Webster',runs:4,balls:2,fours:1,sixes:0,dismissal:'c: Kyle Verreynne b: Anrich Nortje',bowledBy:'Anrich Nortje'}],bowling:[{name:'Anrich Nortje',overs:'13.2',maidens:2,runs:40,wickets:2}]}]};
+const value=model.compact(cricket);assert.equal(value.score.innings[0].batting[0].dismissal,'c: Kyle Verreynne b: Anrich Nortje');assert.equal(value.score.innings[0].batting[0].bowledBy,'Anrich Nortje');assert.equal(value.score.innings[0].batting[0].sixes,0);assert.equal(value.score.innings[0].bowling[0].wickets,2);assert.equal(value.scorecardUrl,'https://www.cricket.com.au/matches/CA%3A39990');assert(value.scorecardOfficial);
+assert(!model.compact({...cricket,innings:[{runs:3}]}).score.innings[0].batting?.length,'Missing player tables stay absent');
+const tennis={id:'fixture:tennis:duration',key:'tennis',displayClock:'10:10',actualStartTimeUtc:'2026-10-10T01:00:00Z',startTimeUtc:'2026-10-10T00:00:00Z'};
+assert.equal(model.compact(tennis).clock,null,'A generic source clock or start timestamp is not a supplied tennis duration');assert.equal(model.compact({...tennis,matchDuration:'1:47',durationSourceUrl:'https://provider.example/match'}).clock,'1:47','Provider interruption treatment is preserved');
+assert.equal(model.compact({...tennis,matchDurationSeconds:6420}).clock,'1:47:00');
+assert.equal(model.compact({...cricket,scorecardUrl:'javascript:alert(1)'}).scorecardUrl,value.scorecardUrl);
+assert.equal(model.compact({key:'nrl',incidents:[{type:'Try',name:'Published scorer',minute:0}]}).incidents[0].time,0);
+console.log('Match Centre details: bounded verified innings/player tables, zero values, official match link, incidents and provider-only tennis duration passed.');
+
+const receipt=require('../feeds/provider-exports/tennis/scoreboard-contract.v1.json'),payload=structuredClone(receipt.payloads.wta),match=payload.events[0].groupings[0].competitions.find(e=>e.id==='184351');match.duration={displayValue:'1:47',seconds:6420};const parsed=require('../lib/tennis-scoreboard').parse(payload,{tour:'wta',checkedAt:receipt.checkedAt,now:new Date(receipt.checkedAt),catalogue:require('../data/canonical/tennis-catalogue-2026.json')}).fixtures.find(e=>e.tennisProviderMatchId===match.id);assert.equal(model.compact(parsed).clock,'1:47','Actual source adapter preserves a supplied match duration');
