@@ -63,13 +63,20 @@ assert.equal(funnelAudio.playCalls, 1, "the funnel cue must play once after the 
 
 const html = fs.readFileSync("index.html", "utf8");
 const worker = fs.readFileSync("service-worker.js", "utf8");
+const navigationUrl = html.match(/loadDeferredScript\('(assets\/js\/fixture-navigation\.js\?v=\d+)'\)/)?.[1];
+assert(navigationUrl, "fixture navigation must be loaded by the application");
+assert(worker.includes(`"/${navigationUrl}"`), "fixture navigation must remain available offline");
+const navigation = fs.readFileSync(navigationUrl.split("?")[0], "utf8");
+assert.doesNotThrow(() => new Function(navigation), "the loaded fixture navigation must parse");
+assert(html.includes("NOTHINGSPORTS_FIXTURE_NAVIGATION[method](...args)"), "the loaded fixture navigation must be called");
+const application = html + "\n" + navigation;
 require("./app-shell-test-utils").assertShellModule(html,"config/loading-progress.js");
 assert(html.includes('id="startupProgressRing"') && html.includes('id="headerHydrationSlot"'), "startup and in-session surfaces must share percentage-ring hosts");
 assert(html.includes("loadingController.complete(\"feed-page\")"), "usable feed arrival must drive the weighted progress controller");
 assert(html.includes("function beginInSessionLoading(label)"), "one shared ring controller must cover in-session hydration");
 assert(html.includes("LOADING_PROGRESS?.INDICATOR_DELAY_MS || 150") && html.includes("LOADING_PROGRESS?.INDICATOR_MIN_VISIBLE_MS || 300"), "in-session loading must suppress flicker with the agreed delay and minimum visibility");
 for (const label of ["Loading Events", "Loading Standings", "Loading Schedule", "Refreshing Feed", "Saving settings"]){
-  assert(html.includes(`beginInSessionLoading(\"${label}\")`), `${label} must use the shared loading ring`);
+  assert(application.includes(`beginInSessionLoading(\"${label}\")`), `${label} must use the shared loading ring`);
 }
 assert(require("./offline-shell-module")("config/loading-progress.js"), "the loading controller must be available offline");
 
