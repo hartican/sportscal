@@ -47403,42 +47403,6 @@
       }
     },
     {
-      "id": "projection:feed:bledisloe-sydney-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8"
-      ],
-      "researchDepth": 5,
-      "hook": "Sydney gives the Wallabies a home-ground chance to challenge New Zealand's long hold, with a World Cup reunion already on the calendar.",
-      "synopsis": "Australia host New Zealand at Accor Stadium on Saturday 17 October, one week after the first Bledisloe Test at Eden Park. This closes the Wallabies' home Test programme before their northern tour. Whether Sydney can decide the cup depends on Auckland's result; that claim should wait until the first match is played. The teams meet here again in the 2027 World Cup pool stage, on 9 October.",
-      "formCopy": "Australia enter the Bledisloe fortnight buoyed by their recent Springboks performance; New Zealand have come through a demanding four-Test South Africa series. Codie Taylor captains the All Blacks while Ardie Savea recovers from shoulder surgery, with Scott Barrett returning after back surgery. Those are the current squad-level changes, not a confirmed Sydney starting XV.",
-      "closingCopy": "For Wallabies supporters, home advantage is an invitation to believe rather than accept another familiar ending. For New Zealand, protecting a trophy held since 2003 is a matter of standards as well as silverware. Les Kiss is building towards a home World Cup; Taylor must lead through an injury-hit period. This same stadium hosts the countries' first World Cup pool meeting next October, giving both teams a chance to shape the atmosphere of a rivalry that will return on an even bigger stage.",
-      "threadIds": [
-        "thread:fixture-research:rugby-australia-new-zealand-2026-10-17"
-      ],
-      "factIds": [
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:0",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:1",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:2",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:3",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:4",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:5"
-      ],
-      "sourceIds": [
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:0",
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:1",
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:2"
-      ],
-      "researchedAt": "2026-10-02T17:57:04.283Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-17T05:00:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-02T17:57:04.283Z"
-      }
-    },
-    {
       "id": "projection:rolling:epl-2026-27-128973",
       "targetType": "feed-event",
       "targetIds": [
@@ -50359,10 +50323,14 @@
       }
     },
     {
-      "id": "projection:fixture-research:rugby-australia-new-zealand-2026-10-17",
+      "id": "projection:feed:bledisloe-sydney-2026",
       "targetType": "feed-event",
       "targetIds": [
-        "rugby-australia-new-zealand-2026-10-17"
+        "rugby-australia-new-zealand-2026-10-17",
+        "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "fixture-rugby-wr-e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "fixture:rugby:ra:949627",
+        "fixture-rugby-ra-949627"
       ],
       "researchDepth": 5,
       "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
