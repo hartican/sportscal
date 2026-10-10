@@ -59,7 +59,7 @@ assert.deepEqual(aflViewing.slice(0, 4).map(option => option.providerId), ["kayo
 const aflGrandFinal = followFirst.viewingOptions({ key:"afl", competitionId:"competition:afl", stage:"Grand Final" });
 assert.equal(aflGrandFinal[0]?.providerId, "seven", "AFL Grand Final must apply its event-specific Australian rights exception");
 
-assert(html.includes("const verb=viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';") && html.includes("link.title=`${verb} on ${viewingLink.label}`;link.setAttribute('aria-label',link.title)"), "watch actions must put the accessible Watch / Replay labels on provider marks");
+assert(html.includes("const verb=viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';") && html.includes("link.title=`${verb} on ${viewingLink.label} · ${access}`;link.setAttribute('aria-label',link.title)"), "watch actions must put the accessible Watch / Replay labels on provider marks");
 const providerMarkSource = html.match(/function buildViewingProviderMark\(viewing\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(providerMarkSource.includes("mark.appendChild(image)") && providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider logos and provider-name fallbacks must be mutually exclusive");
 assert(html.includes('rel = "noopener noreferrer external"'), "web fallbacks must leave the standalone PWA in a separate external window");

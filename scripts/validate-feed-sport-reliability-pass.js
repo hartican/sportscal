@@ -18,7 +18,8 @@ const identities = require(path.join(ROOT, "config/card-identities.js"));
 const html = read("index.html");
 const exposedSports = taxonomy.exposedSportNodes.filter(node => Number(node.level) === 2);
 const exposedIds = exposedSports.map(node => node.id);
-assert.equal(exposedSports.length, 38, "the user-facing catalogue must expose the approved categories with separate women sports including NBL");
+assert.equal(exposedSports.length, 39, "the user-facing catalogue must expose the approved categories with separate women sports including NBL");
+assert(exposedIds.includes("sport:baseball"), "the published Baseball addition must remain exposed");
 assert(exposedIds.includes("sport:ice-hockey"), "Ice Hockey must be a first-class exposed sport");
 for (const retiredId of ["sport:hockey", "sport:gymnastics", "sport:multi-sport"]){
   assert(!exposedIds.includes(retiredId), `${retiredId} must not remain user-facing`);
@@ -43,7 +44,7 @@ assert(migratedPreferences.followFirst.followedMajorEventIds.includes("commonwea
 assert.deepEqual(followFirst.migratePreferences(migratedPreferences), migratedPreferences, "the retired-sport preference migration must be idempotent");
 
 const manifest = json("data/follow-directory/manifest.v1.json");
-assert.equal(manifest.sports.length, 45, "the lazy Follow manifest must include separate gender chunks and AFLW, NRLW, F1, MotoGP, WRC and Bathurst-only Supercars child codes");
+assert.equal(manifest.sports.length, 46, "the lazy Follow manifest must include separate gender chunks and AFLW, NRLW, F1, MotoGP, WRC and Bathurst-only Supercars child codes");
 const chunks = new Map(manifest.sports.map(sport => [sport.key, json(sport.jsonUrl)]));
 const swimming = [...(chunks.get("swimming")?.records || []),...(chunks.get("swimming-women")?.records || [])];
 assert(chunks.get("swimming").records.every(r=>r.genderCategory!=="female"));

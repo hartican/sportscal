@@ -13,7 +13,7 @@ assert.doesNotThrow(() => new Function(inlineScript), "the Events and Fixtures b
 assert(html.includes('let eventsViewTab = "overviews"'), "fresh visits default to followed tournament and series overviews");
 assert(html.includes('[["overviews", "Events"], ["major-events", "Major Events"], ["ticket-alerts", "Tickets"]]'), "Events tabs must place Major Events before Ticket alerts");
 assert(html.includes('tabs.setAttribute("role", "tablist")') && html.includes('tab.setAttribute("role", "tab")') && html.includes('panel.setAttribute("role", "tabpanel")'), "Events tabs must expose the accessible tab pattern");
-assert(html.includes('eventsDeepLinkHash("major"') && html.includes('eventsDeepLinkHash("alert"') && html.includes('/^#events\\/(major|alert)\\/(.+)$/'), "Major Events and Ticket alerts must support deterministic deep links");
+assert(html.includes('eventsDeepLinkHash(tournament ? "tournament" : "major"') && html.includes('eventsDeepLinkHash("alert"') && html.includes('/^#events\\/(major|alert|tournament)\\/(.+)$/'), "Major Events, tournaments and Ticket alerts must support deterministic deep links");
 assert(html.includes("pendingMajorEventFocusId") && html.includes("pendingTicketAlertFocusId") && html.includes("focusTicketAlertCard"), "deep links must select and focus either card collection");
 assert(/function focusMajorEventCard[\s\S]{0,900}requestAnimationFrame\(restoreTargetFocus\)[\s\S]{0,500}setTimeout/.test(html), "major-event deep links must restore focus after late Events rerenders");
 
