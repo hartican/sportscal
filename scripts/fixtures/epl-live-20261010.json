@@ -1,0 +1,165 @@
+{
+  "checkedAt": "2026-10-10T13:23:13.778Z",
+  "sourceUrl": "https://footballapi.pulselive.com/football/fixtures?comps=1&comp=1&compSeasons=841&page=0&pageSize=100&altIds=true",
+  "sourceSha256": "340cbe2103dcba160df7ff4a22bd135a467c7d655512ba8fc2fcde1a76527b68",
+  "scope": "One actual naturally observed live fixture, from a100-record partial page; not full-season or non-playing certification.",
+  "labelsReceipt": {
+    "receipt": {
+      "url": "https://translations.premier-league-prod.pulselive.com/premierleague/en.js",
+      "status": 200,
+      "observedAt": "2026-10-10T13:26:17.258Z",
+      "serverDate": "Sat, 10 Oct 2026 13:25:15 GMT",
+      "lastModified": "Thu, 08 Oct 2026 10:59:02 GMT",
+      "bytes": 402177,
+      "sha256": "5e908bae34bea04bd9759d005610cc5771e95218e1ed3c87d7b7ecdba931f692"
+    },
+    "labels": {
+      "C": "Full Time",
+      "U": "Upcoming",
+      "L": "Live Match"
+    }
+  },
+  "fixture": {
+    "gameweek": {
+      "id": 19766.0,
+      "compSeason": {
+        "label": "English Premier League Season 2026/2027",
+        "competition": {
+          "abbreviation": "EN_PR",
+          "description": "Premier League",
+          "level": "SEN",
+          "source": "",
+          "id": 1.0,
+          "altIds": {
+            "opta": "8"
+          }
+        },
+        "id": 841.0
+      },
+      "gameweek": 6.0,
+      "competitionPhase": {
+        "id": 8163.0,
+        "type": "L",
+        "gameweekRange": [
+          1.0,
+          38.0
+        ]
+      }
+    },
+    "kickoff": {
+      "completeness": 3.0,
+      "millis": 1791631800000.0,
+      "label": "Sat 10 Oct 2026, 12:30 BST",
+      "gmtOffset": 1.0
+    },
+    "provisionalKickoff": {
+      "completeness": 3.0,
+      "millis": 1791631800000.0,
+      "label": "Sat 10 Oct 2026, 12:30 BST",
+      "gmtOffset": 1.0
+    },
+    "teams": [
+      {
+        "team": {
+          "name": "Arsenal",
+          "club": {
+            "name": "Arsenal",
+            "shortName": "Arsenal",
+            "abbr": "ARS",
+            "id": 1.0
+          },
+          "teamType": "FIRST",
+          "shortName": "Arsenal",
+          "id": 1.0,
+          "altIds": {
+            "opta": "t3"
+          }
+        },
+        "score": 2.0
+      },
+      {
+        "team": {
+          "name": "Leeds United",
+          "club": {
+            "name": "Leeds United",
+            "shortName": "Leeds",
+            "abbr": "LEE",
+            "id": 9.0
+          },
+          "teamType": "FIRST",
+          "shortName": "Leeds",
+          "id": 9.0,
+          "altIds": {
+            "opta": "t2"
+          }
+        },
+        "score": 1.0
+      }
+    ],
+    "replay": false,
+    "ground": {
+      "name": "Emirates Stadium",
+      "city": "London",
+      "source": "OPTA",
+      "id": 9523.0
+    },
+    "neutralGround": false,
+    "status": "L",
+    "phase": "2",
+    "attendance": 60315.0,
+    "clock": {
+      "secs": 5580.0,
+      "label": "90+3'00"
+    },
+    "fixtureType": "REGULAR",
+    "extraTime": false,
+    "shootout": false,
+    "goals": [
+      {
+        "personId": 13515.0,
+        "assistId": 75543.0,
+        "clock": {
+          "secs": 3300.0,
+          "label": "55'00"
+        },
+        "phase": "2",
+        "type": "G",
+        "description": "G"
+      },
+      {
+        "personId": 69914.0,
+        "assistId": 14548.0,
+        "clock": {
+          "secs": 3720.0,
+          "label": "62'00"
+        },
+        "phase": "2",
+        "type": "G",
+        "description": "G"
+      },
+      {
+        "personId": 74761.0,
+        "assistId": 15202.0,
+        "clock": {
+          "secs": 4200.0,
+          "label": "70'00"
+        },
+        "phase": "2",
+        "type": "G",
+        "description": "G"
+      }
+    ],
+    "penaltyShootouts": [],
+    "behindClosedDoors": false,
+    "id": 128973.0,
+    "altIds": {
+      "opta": "g2645245"
+    }
+  },
+  "pageInfo": {
+    "page": 0,
+    "numPages": 4,
+    "pageSize": 100,
+    "numEntries": 380
+  }
+}

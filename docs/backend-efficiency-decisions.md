@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Observed EPL live source — 11 October 2026 Sydney
+
+The existing Premier League primary adapter admits the naturally observed raw L live code, alongside retained C/U, only for numbered playing periods1/2 and two non-negative integer scores. Actual phase2 and the league's own L label are captured; phase1 remains an explicitly disclosed inference/control, and unknown pauses/non-playing codes stay rejected. Complete four-page validation, last-good fallback, final-only delayed backup and completed-result continuity remain. Preserve all fixture/activity IDs, schedule/viewing facts and genuine observation dates; live facts do not create final copy or replay eligibility.
+
+This is shared by the current canonical updater and live adapter. No new source call, owner, cron, retry, request/page budget, schema or customer operation is introduced. Freshness remains separate from fact revisions: unchanged live observations keep the same content hash. Existing ResultsOFF, notifications, source priority and timing rules remain. Source/adapter/actual file-writer regressions and two-browser captured-record rehearsals are in the existing EPL/status validators. [Dated evidence and limits](quality/epl-observed-live-source-2026-10-11.md) remain separate from whole-Football, physical-device and normal-operation approval.
+
 ## Find Your Sport delivery — 8 October 2026
 
 Participant-specific athletes reads return paginated published fixtures through the rolling twelve-month horizon; favourites retain one next appearance per participant. Both reuse the existing catalogue, exclusions, account-keyed cache, fifty-item page limit and live overlays. Public global search uses a compact generated identity index, loaded and searched in a Worker on demand rather than fetching all detailed directories. Canonical update-cards remains the owner of directory, standings and search projections; no scheduler, source subscription, provider call per user, database schema or notification consent change is added.

@@ -3,6 +3,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),https=require('node:https');
 const {EventEmitter}=require('node:events');
 const pl=require('./refresh-premier-league-cards');
+const liveReceipt=require('./fixtures/epl-live-20261010.json');
 // A controlled 20-club double round robin, never published sporting evidence.
 const fixtures=[],ring=Array.from({length:20},(_,i)=>i+1);
 for(let round=0;round<19;round++){
@@ -46,6 +47,25 @@ async function interruptedResponse(kind){
  try{await assert.rejects(pl.loadFixtures,kind==='error'?/QA response error/:/page ended before completion/);}finally{https.get=original;}
 }
 (async()=>{
+ const actualLive=pl.cardForFixture(liveReceipt.fixture,liveReceipt.checkedAt);
+ assert.equal(actualLive.status,'live','The actual naturally observed L record is admitted through the existing card builder');
+ assert.equal(actualLive.homeScore,2);assert.equal(actualLive.awayScore,1);
+ assert.equal(actualLive.scoreDisplay,'2–1');assert.equal(actualLive.statusCheckedAt,liveReceipt.checkedAt);
+ assert.equal(actualLive.scoreCheckedAt,liveReceipt.checkedAt);assert(!actualLive.outcomeText&&!actualLive.recapText&&!actualLive.resultSourceCheckedAt,'A live score cannot become a completed outcome');
+ assert.equal(actualLive.id,'epl-2026-27-128973');assert.equal(actualLive.canonicalEventId,'event:premier-league:128973');
+ assert.equal(require('../config/card-timing').presentation(actualLive,new Date(liveReceipt.checkedAt)).status,'LIVE');
+ assert.equal(require('../config/card-timing').presentation(actualLive,new Date(Date.parse(liveReceipt.checkedAt)+31*60000)).status,'Awaiting match update','Old captured play does not remain live');
+ for(const phase of ['1','2'])assert.equal(pl.cardForFixture({...liveReceipt.fixture,phase},liveReceipt.checkedAt).status,'live','Only the playing-period admission is supported; no halftime/interruption label is inferred');
+ for(const phase of [undefined,null,'H','HT','P','F','QA_UNKNOWN',2])assert.throws(()=>pl.cardForFixture({...liveReceipt.fixture,phase},liveReceipt.checkedAt),/unreviewed.*phase|phase.*unreviewed/,'Unreviewed or missing live periods keep last-good data');
+ for(const score of [undefined,null,-1,1.5,Infinity,'2']){const bad=structuredClone(liveReceipt.fixture);bad.teams[0].score=score;assert.throws(()=>pl.cardForFixture(bad,liveReceipt.checkedAt),/integer score/);}
+ const zeroLive=structuredClone(liveReceipt.fixture);zeroLive.teams.forEach(t=>t.score=0);assert.equal(pl.cardForFixture(zeroLive,liveReceipt.checkedAt).scoreDisplay,'0–0');
+ assert.throws(()=>pl.cardForFixture(liveReceipt.fixture,'invalid'),/observation/);
+ const laterChecked=new Date(Date.parse(liveReceipt.checkedAt)+60000).toISOString();
+ assert.equal(require('../lib/live-fixtures').contentHash([actualLive]),require('../lib/live-fixtures').contentHash([pl.cardForFixture(liveReceipt.fixture,laterChecked)]),'Repeated real-source checks cannot create a new fact revision just from observation clocks');
+ const withLive=p=>{const fixture=p[0].content[1];fixture.status='L';fixture.phase='2';fixture.teams[0].score=2;fixture.teams[1].score=1;};
+ await responseSequence(withLive,async calls=>{const source=require('../lib/live-source-adapters').liveSources(async()=>{throw Error('QA must not call another provider');},{environment:{}}).find(s=>s.id==='live-premier-league');const events=await source.fetch({now:new Date(liveReceipt.checkedAt)});assert.equal(events.length,380);assert.equal(events.filter(e=>e.status==='live').length,1);assert.equal(events.find(e=>e.status==='live').scoreDisplay,'2–1');assert.deepEqual(calls,[0,1,2,3],'The real live adapter keeps the same four complete page reads');});
+ await rejects('unreviewed live period',p=>{withLive(p);p[0].content[1].phase='HT';},1);
+ await rejects('incomplete live scores',p=>{withLive(p);delete p[0].content[1].teams[0].score;},1);
  await streamingDeadline();
  await interruptedResponse('error');await interruptedResponse('aborted');
  await responseSequence(()=>{},async calls=>{const loaded=await pl.loadFixtures();assert.equal(loaded.length,380);assert.deepEqual(calls,[0,1,2,3]);assert.equal(pl.cardForFixture(loaded[0],'2026-10-03T00:00:00Z').homeScore,0,'zero is a confirmed final');});
@@ -93,6 +113,20 @@ async function interruptedResponse(kind){
   });
   assert.equal(publishes,0,'the actual live owner cannot publish an invented upcoming observation');assert.equal(failures,1,'the existing live failure path records the exception');assert.equal(JSON.stringify(prior),priorBytes,'the live snapshot and its original fixture clocks remain intact');
   await responseSequence(()=>{},async()=>pl.refreshPremierLeagueCards(file,file,options));assert.deepEqual(fs.readFileSync(file),saved,'a reviewed primary response recovers without changing unchanged facts or clocks');
+  const liveOptions={...options,checkedAt:liveReceipt.checkedAt};
+  await responseSequence(withLive,async()=>pl.refreshPremierLeagueCards(file,file,liveOptions));
+  const liveSaved=fs.readFileSync(file),liveEvents=JSON.parse(liveSaved).events,live=liveEvents.find(e=>e.id===`epl-2026-27-${fixtures[1].id}`);
+  assert.equal(live.status,'live');assert.equal(live.scoreDisplay,'2–1');assert.equal(live.scoreCheckedAt,liveReceipt.checkedAt);
+  assert(!live.outcomeText&&!live.recapText&&!live.resultSourceCheckedAt,'The actual writer persists live facts without final copy');
+  assert.deepEqual(liveEvents.map(e=>e.id).sort(),actual.events.map(e=>e.id).sort(),'Live ingestion preserves every existing fixture identity');
+  await responseSequence(withLive,async()=>pl.refreshPremierLeagueCards(file,file,liveOptions));assert.deepEqual(fs.readFileSync(file),liveSaved,'An unchanged live source rerun retains bytes');
+  await responseSequence(p=>{withLive(p);p[0].content[1].phase='HT';},async()=>assert.rejects(pl.refreshPremierLeagueCards(file,file,{...liveOptions,checkedAt:laterChecked}),/unreviewed.*phase/));
+  assert.deepEqual(fs.readFileSync(file),liveSaved,'Unknown non-playing phases preserve the actual live snapshot and its original clocks');
+  await responseSequence(p=>{withLive(p);p[0].content[1].status='C';},async()=>pl.refreshPremierLeagueCards(file,file,{...liveOptions,checkedAt:laterChecked}));
+  const finalSaved=fs.readFileSync(file),final=JSON.parse(finalSaved).events.find(e=>e.id===live.id);
+  assert.equal(final.status,'completed');assert.equal(final.homeScore,2);assert.equal(final.awayScore,1);assert.equal(final.resultSourceCheckedAt,laterChecked,'Validated primary completion advances the existing fixture');
+  await responseSequence(withLive,async()=>assert.rejects(pl.refreshPremierLeagueCards(file,file,liveOptions),/continuity failed/));
+  assert.deepEqual(fs.readFileSync(file),finalSaved,'An older live response cannot reopen the persisted final');
  }finally{fs.rmSync(directory,{recursive:true,force:true});}
  console.log('EPL source shape: bounded four-page reads, complete directed pairings, valid season/round/status admission, reschedules, zero finals and actual last-good writer preservation/recovery passed; controlled source, no network.');
 })().catch(error=>{console.error(error.stack||error.message);process.exitCode=1;});
