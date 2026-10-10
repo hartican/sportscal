@@ -1,0 +1,23 @@
+{
+  "capturedAt": "2026-10-10T14:37:49.048Z",
+  "source": "Read-only selected Match Centre handler against the existing shared store, matching public MISS response",
+  "fixture": {
+    "id": "fixture:cricket:CA:39990",
+    "eventId": "fixture:cricket:CA:39990",
+    "canonicalEventId": "fixture:cricket:CA:39990",
+    "key": "cricket",
+    "sourceType": "trusted-reporting",
+    "sourceFixtureId": "1525659",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+    "sourceEventIds": [
+      "fixture:cricket:CA:39990",
+      "fixture:cricket:espn:1525659",
+      "evt_87"
+    ],
+    "scoreCheckedAt": "2026-10-10T14:36:00.757+00:00",
+    "statusCheckedAt": "2026-10-10T14:36:00.757+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "status": "live"
+  },
+  "expectedScorecardUrl": "https://www.cricket.com.au/matches/CA%3A39990"
+}

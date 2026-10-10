@@ -13,7 +13,9 @@ async function main(){
  let selectedCount=0;
  if(ids.length){
   const selected=await read('ids='+encodeURIComponent(ids.join(',')));assert.equal(selected.enabled,true);assert(Array.isArray(selected.fixtures));const byId=new Map(selected.fixtures.map(f=>[f.id,f]));
-  for(const fixture of listing.fixtures){const current=byId.get(fixture.id);assert(current,'Displayed fixture remains available to score polling: '+fixture.id);assert.equal(current.sport,fixture.sport);assert.equal(current.homeParticipantId,fixture.homeParticipantId);assert.equal(current.awayParticipantId,fixture.awayParticipantId);}
+  for(const fixture of listing.fixtures){const current=byId.get(fixture.id);assert(current,'Displayed fixture remains available to score polling: '+fixture.id);assert.equal(current.sport,fixture.sport);assert.equal(current.homeParticipantId,fixture.homeParticipantId);assert.equal(current.awayParticipantId,fixture.awayParticipantId);
+   if(/^fixture:cricket:CA:\d+$/.test(fixture.id)&&fixture.scorecardUrl&&fixture.scorecardOfficial){assert.equal(current.scorecardUrl,fixture.scorecardUrl,'Score polling preserves the canonical official scorecard: '+fixture.id);assert.equal(current.scorecardOfficial,true);}
+  }
   selectedCount=byId.size;
  }
  console.log(JSON.stringify({schemaVersion:'match-centre-public-release.v1',sha,healthyMembership:true,displayed:ids.length,selected:selectedCount,emptyQuietWindowAccepted:ids.length===0,limits:'No cold-server or physical-device performance certification.'}));

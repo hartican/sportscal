@@ -71,8 +71,9 @@
  function scorecard(e){
   const supplied=safeUrl(e.officialScorecardUrl)||safeUrl(e.scorecardUrl);
   const ca=[id(e),e.sourceFixtureId].map(value=>String(value||'').match(/^(?:fixture:cricket:)?CA:(\d+)$/)).find(Boolean);
-  const url=supplied||(sport(e)==='cricket'&&e.sourceType==='official'&&ca?`https://www.cricket.com.au/matches/CA%3A${ca[1]}`:null);
-  return {scorecardUrl:url,scorecardOfficial:Boolean(url&&e.sourceType==='official')};
+  const caUrl=sport(e)==='cricket'&&ca?`https://www.cricket.com.au/matches/CA%3A${ca[1]}`:null;
+  const url=supplied||caUrl;
+  return {scorecardUrl:url,scorecardOfficial:Boolean(url&&(url===caUrl||e.sourceType==='official'))};
  }
  const label=value=>typeof value==='string'?value.slice(0,180):null;
  const count=value=>Number.isFinite(value)&&value>=0?value:null;

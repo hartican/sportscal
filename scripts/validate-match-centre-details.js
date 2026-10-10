@@ -6,6 +6,9 @@ assert(!model.compact({...cricket,innings:[{runs:3}]}).score.innings[0].batting?
 const legacyAlias={...cricket,canonicalEventId:cricket.id,sourceFixtureId:'CD_M308735',sourceUrl:'https://www.cricket.com.au/matches/series/CA%3A4568/'};
 assert.equal(model.compact(legacyAlias).scorecardUrl,value.scorecardUrl,'A retained provider alias cannot replace the canonical match scorecard with the series page');
 assert.equal(model.compact({...legacyAlias,sourceFixtureId:'CA:4568'}).scorecardUrl,value.scorecardUrl,'The canonical match identity takes precedence over a provider series identity');
+const capturedAlias=require('./fixtures/cricket-selected-score-alias-20261010.json');
+assert.equal(model.compact(capturedAlias.fixture).scorecardUrl,capturedAlias.expectedScorecardUrl,'Captured trusted-reporting metadata preserves the known official CA match link');
+assert.equal(model.compact(capturedAlias.fixture).scorecardOfficial,true,'Official match-link provenance is independent of broader provider classification');
 const tennis={id:'fixture:tennis:duration',key:'tennis',displayClock:'10:10',actualStartTimeUtc:'2026-10-10T01:00:00Z',startTimeUtc:'2026-10-10T00:00:00Z'};
 assert.equal(model.compact(tennis).clock,null,'A generic source clock or start timestamp is not a supplied tennis duration');assert.equal(model.compact({...tennis,matchDuration:'1:47',durationSourceUrl:'https://provider.example/match'}).clock,'1:47','Provider interruption treatment is preserved');
 assert.equal(model.compact({...tennis,matchDurationSeconds:6420}).clock,'1:47:00');
