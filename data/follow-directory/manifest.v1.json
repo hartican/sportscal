@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-10-08T21:00:48.348Z",
+  "generatedAt": "2026-10-10T19:13:52.774Z",
   "sports": [
     {
       "key": "afl",
@@ -110,7 +110,7 @@
       "key": "rugby",
       "label": "Rugby Union",
       "status": "available",
-      "recordCount": 183,
+      "recordCount": 184,
       "jsonUrl": "data/follow-directory/rugby.v1.json",
       "scriptUrl": "data/follow-directory/rugby.v1.js"
     },
