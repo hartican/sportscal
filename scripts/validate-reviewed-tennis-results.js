@@ -45,6 +45,18 @@ assert.equal(policy.automatic(timedShanghai,{...followed,followFirst:{notificati
 assert.equal(require('../config/feed-controls').isLiveNow(timedShanghai,scheduleCheckpoint),false,'a published not-before clock cannot establish live play');
 assert.equal(require('../lib/reminder-fixtures').index([timedShanghai,{...timedShanghai,id:'fixture-tennis-espn-atp-184917'}]).fixtures.length,1,'existing provider and nested aliases share one reminder identity');
 const fixtureIdentity=require('../config/fixture-identity');
+const alcarazShanghai=doc.events.find(e=>e.id==='fixture:tennis:espn:atp:184941'),alcarazCheckpoint=Date.parse(alcarazShanghai.sourceCheckedAt)+1000;
+assert.equal(alcarazShanghai.scheduleEvidence.playOrder,4,'the empty third Stadium Court slot is not the fourth match');
+assert.equal(alcarazShanghai.startTimeUtc,'2026-10-12T10:00:00.000Z');assert.equal(alcarazShanghai.time,'21:00');assert.equal(alcarazShanghai.timePrecision,'not-before');
+assert.equal(policy.timing(alcarazShanghai,alcarazCheckpoint).remindAt,'2026-10-12T09:45:00.000Z','the named fourth match owns its not-before reminder, not the noon court session');
+const followedAlcaraz={version:24,preferenceGraph:{entityFollows:[{participantId:'athlete:tennis:carlos-alcaraz',followLevel:'follow'}]},followFirst:{notifications:{}}};
+assert.equal(policy.automatic(alcarazShanghai,followedAlcaraz,{},alcarazCheckpoint),true,'the existing Alcaraz follow resolves the canonical provider participant alias');
+assert.equal(policy.intent(alcarazShanghai,followedAlcaraz,{[alcarazShanghai.id]:{reminderChoice:'off'}},{},alcarazCheckpoint).enabled,false,'the new organiser clock cannot restore fixture OFF');
+assert.equal(policy.automatic(alcarazShanghai,{...followedAlcaraz,followFirst:{notifications:{autoRemindersEnabled:false}}},{},alcarazCheckpoint),false);
+const alcarazPlanning={id:alcarazShanghai.id,fixtureObservationSchema:'fixture-observations.v1',status:'scheduled',statusCheckedAt:new Date(alcarazCheckpoint).toISOString(),sourceUrl:alcarazShanghai.statusSourceUrl,sourceCheckedAt:new Date(alcarazCheckpoint).toISOString(),startTimeUtc:null,time:null,timePrecision:'unresolved',scheduleStatus:'unresolved',timeTbc:true};
+const alcarazRetained=fixtureIdentity.mergeOverlays([alcarazShanghai],[alcarazPlanning])[0];assert.deepEqual(policy.timing(alcarazRetained,alcarazCheckpoint),policy.timing(alcarazShanghai,alcarazCheckpoint),'clockless provider refresh retains the independently reviewed fourth-match clock');assert.equal(alcarazRetained.sourceCheckedAt,alcarazShanghai.sourceCheckedAt);
+assert.equal(require('../config/feed-controls').isLiveNow(alcarazRetained,alcarazCheckpoint),false,'a verified future clock cannot establish live play');
+for(const mutate of [e=>{e.scheduleEvidence.participantIds.reverse();},e=>{e.startTimeUtc=e.scheduleEvidence.startsAt='2026-10-12T04:00:00.000Z';},e=>{e.court='Grandstand 2';},e=>{e.scheduleEvidence.sourcePublishedAtLocal='2100-01-01T00:00:00Z';}]){const bad=clone();mutate(bad.events.find(e=>e.id===alcarazShanghai.id));assert.throws(()=>validate(bad),'another participant, court, session or future receipt cannot time Alcaraz');}
 const beijingFinal=doc.events.find(e=>e.id==='fixture:tennis:espn:wta:184356'),beijingCheckpoint=Date.parse(beijingFinal.sourceCheckedAt)+1000;
 assert.equal(beijingFinal.timePrecision,'not-before');assert.equal(beijingFinal.startTimeUtc,'2026-10-11T11:30:00.000Z');assert.equal(beijingFinal.time,'22:30','Beijing 19:30 converts to Sydney daylight-saving 22:30');
 assert.equal(beijingFinal.scheduleEvidence.playOrder,2,'the singles final has its own not-before clock after the doubles final');

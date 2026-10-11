@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Reviewed Alcaraz Shanghai start — 12 October 2026 Sydney
+
+The complete official 12 October order of play now attaches Not Before 18:00 Shanghai / 21:00 AEDT to Zizou Bergs–Carlos Alcaraz, Stadium Court match four. Bind it to existing canonical fixture `fixture:tennis:espn:atp:184941`; retain the same participants, action aliases, original provider status clock and separately dated organiser PDF/draw receipts. The noon court session and empty third slot cannot time this match. The existing followed-player Masters knockout policy schedules T−15 at 20:45 AEDT, subject to future schedule/status evidence and fixture/global/device OFF. No new consent, Follow migration, source adapter, scheduler or notification category.
+
+This individually reviewed schedule implements the authorised journey experiment. It does not certify systematic organiser reuse, complete ATP/WTA events or physical-phone receipt. The separate Khachanov–Mannarino iPhone send was recorded once on 11 October; actual arrival, NS closed condition and correct match opening remain awaiting the once-issued owner question. Do not repeat it or replay the past match. Regression extends reviewed-tennis and actual fixture-route contracts for fourth-slot binding, participant aliases, Sydney daylight saving, OFF and clockless provider updates.
+
 ## Presidents Cup overview routing restored — 11 October 2026
 
 This repairs implementation of the existing 25 September decision; it adds no new opt-in. A recognised sourced Presidents Cup overview follows explicit Golf selection, while sourced competitive sessions require a direct Cup follow or explicit saved fixture. The multi-day Cup parent must not enter tennis admission. Browser and authenticated server evaluation retain the same boundary. Explicit Cup exclusion suppresses its overview and competitive children, including saved cards; dismiss/archive and original fixture facts remain authoritative. Ordinary golf and tennis admission are unchanged.

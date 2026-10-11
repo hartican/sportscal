@@ -2084,6 +2084,184 @@
         "startsAt": "2026-10-11T11:30:00.000Z",
         "localTime": "19:30"
       }
+    },
+    {
+      "id": "fixture:tennis:espn:atp:184941",
+      "eventId": "fixture:tennis:espn:atp:184941",
+      "canonicalEventId": "fixture:tennis:espn:atp:184941",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184941",
+        "fixture-tennis-espn-atp-184941"
+      ],
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:atp-tour",
+      "competitionName": "Rolex Shanghai Masters",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tournamentName": "Rolex Shanghai Masters",
+      "eventFamilyId": "shanghai-masters",
+      "tour": "ATP",
+      "gender": "men",
+      "discipline": "singles",
+      "eventType": "mens-singles",
+      "season": 2026,
+      "tennisProviderMatchId": "184941",
+      "tennisProviderEventId": "315-2026",
+      "tennisProviderTour": "atp",
+      "tournamentLevel": "1000",
+      "round": "knockout",
+      "roundLabel": "Round of 32",
+      "stage": "Round of 32",
+      "name": "Zizou Bergs v Carlos Alcaraz",
+      "date": "2026-10-12",
+      "time": "21:00",
+      "startTimeUtc": "2026-10-12T10:00:00.000Z",
+      "estimatedStartTimeUtc": null,
+      "timePrecision": "not-before",
+      "scheduleStatus": "confirmed",
+      "timeTbc": false,
+      "scheduleNote": "Not before 18:00 Shanghai (21:00 Sydney), 12 October; directly attached to Bergs–Alcaraz in the official order of play.",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "contestUnit": "match",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:atp:zizou-bergs",
+        "competitor:tennis:atp:carlos-alcaraz"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:zizou-bergs",
+          "name": "Zizou Bergs",
+          "displayName": "Zizou Bergs",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "BE"
+        },
+        {
+          "id": "competitor:tennis:atp:carlos-alcaraz",
+          "name": "Carlos Alcaraz",
+          "displayName": "Carlos Alcaraz",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "ES"
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:zizou-bergs",
+      "awayParticipantId": "competitor:tennis:atp:carlos-alcaraz",
+      "venue": "Stadium Court",
+      "venueCity": "Shanghai",
+      "sourceName": "Rolex Shanghai Masters official order of play",
+      "sourceType": "official",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "sourceCheckedAt": "2026-10-11T13:22:43.864228+00:00",
+      "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184941",
+      "statusSourceName": "ESPN",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184941",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      ],
+      "broadcaster": "beIN SPORTS",
+      "viewingOptions": [
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en",
+          "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+          "verifiedAt": "2026-10-11T05:19:19.930Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "expected": null,
+      "liveWindow": 5,
+      "court": "Stadium Court",
+      "statusSourceType": "reputable",
+      "sourceTrust": "unverified",
+      "displayTitleCompact": "Zizou Bergs v Carlos Alcaraz",
+      "broadcastOptions": [],
+      "narrativeType": "knockout",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "participantSlots": [],
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "consensusTags": [
+        {
+          "label": "Knockout",
+          "confidence": 0.9,
+          "sourceUrls": [
+            "https://www.espn.com/tennis/matchstats?gameId=184941"
+          ],
+          "method": "published-schedule.v1"
+        }
+      ],
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "schedulePrecision": "not-before",
+      "startTimeTbc": false,
+      "dateOnly": false,
+      "timingVerified": true,
+      "timingEvidence": {
+        "matchRow": "12 October, Stadium Court, match 4: Zizou BERGS v Carlos ALCARAZ, Not Before 18:00",
+        "clockAssociation": "Not Before 18:00 belongs directly to the named fourth Stadium Court match. The court starts at 12:00, match two is Followed By and match three is blank; none supplies this match clock.",
+        "publishedAtLocal": "2026-10-11T13:13:23+08:00",
+        "reviewMethod": "Complete official court-column PDF and both draw pages rendered and visually checked against the retained TLS-verified files.",
+        "sourceSha256": "4f7b8376b8390aa917e77b968ea7780fa2e427e87fcccab367beeef2c4c7d6cc",
+        "drawSourceUrl": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
+        "drawCheckedAt": "2026-10-11T13:22:43.923018+00:00",
+        "drawSourceSha256": "2e4a310578bd120d441574b4c5eda46463efcff906132023a613755d8bde7f06"
+      },
+      "scheduleEvidence": {
+        "kind": "official-order-of-play",
+        "fixtureId": "fixture:tennis:espn:atp:184941",
+        "tournamentId": "tournament:tennis:atp-shanghai-2026",
+        "roundLabel": "Round of 32",
+        "participantIds": [
+          "competitor:tennis:atp:zizou-bergs",
+          "competitor:tennis:atp:carlos-alcaraz"
+        ],
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+        "checkedAt": "2026-10-11T13:22:43.864228+00:00",
+        "sourceSha256": "4f7b8376b8390aa917e77b968ea7780fa2e427e87fcccab367beeef2c4c7d6cc",
+        "sourcePublishedAtLocal": "2026-10-11T13:13:23+08:00",
+        "court": "Stadium Court",
+        "playOrder": 4,
+        "matchRow": "12 October, Stadium Court, match 4: Zizou BERGS v Carlos ALCARAZ, Not Before 18:00",
+        "clockAssociation": "Not Before 18:00 belongs directly to the named fourth Stadium Court match. The court starts at 12:00, match two is Followed By and match three is blank; none supplies this match clock.",
+        "timePrecision": "not-before",
+        "matchDateLocal": "2026-10-12",
+        "timeZone": "Asia/Shanghai",
+        "startsAt": "2026-10-12T10:00:00.000Z",
+        "localTime": "18:00"
+      },
+      "drawEvidence": {
+        "kind": "official-draw-pairing",
+        "fixtureId": "fixture:tennis:espn:atp:184941",
+        "participantIds": [
+          "competitor:tennis:atp:zizou-bergs",
+          "competitor:tennis:atp:carlos-alcaraz"
+        ],
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
+        "checkedAt": "2026-10-11T13:22:43.923018+00:00",
+        "sourceSha256": "2e4a310578bd120d441574b4c5eda46463efcff906132023a613755d8bde7f06",
+        "sourcePublishedAtLocal": "2026-10-11T16:21:36+08:00",
+        "roundLabel": "Round of 32",
+        "matchRow": "Bottom-half draw rows 121–128: Z. Bergs and C. Alcaraz named in Round of 32; subsequent winner cell empty.",
+        "winnerCell": "unpublished"
+      }
     }
   ],
   "reviews": [

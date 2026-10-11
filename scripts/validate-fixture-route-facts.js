@@ -1,7 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),identity=require('../config/fixture-identity'),server=require('../lib/nothingscore-server');
 const actual=require('../data/follow-schedule/tennis.json').fixtures;
-const ids=['fixture:tennis:espn:atp:184942','fixture:tennis:espn:wta:184356'];
+const ids=['fixture:tennis:espn:atp:184942','fixture:tennis:espn:wta:184356','fixture:tennis:espn:atp:184941'];
 (async()=>{for(const id of ids){
  const base=actual.find(e=>[e.id,e.eventId,e.canonicalEventId,...(e.sourceEventIds||[])].includes(id));assert(base&&base.scheduleEvidence?.kind==='official-order-of-play');
  const old={...base,id,eventId:id,canonicalEventId:id,startTimeUtc:null,time:null,timePrecision:'tbc',scheduleStatus:'unresolved',timeTbc:true,startTimeTbc:true,timingVerified:undefined,scheduleEvidence:null,timingEvidence:null,fixtureObservationSchema:'fixture-observations.v1',status:'scheduled',statusCheckedAt:new Date().toISOString(),sourceType:'reputable',sourceUrl:'https://www.espn.com/tennis/matchstats?gameId='+id.split(':').pop(),sourceCheckedAt:new Date().toISOString()};
@@ -13,5 +13,5 @@ const ids=['fixture:tennis:espn:atp:184942','fixture:tennis:espn:wta:184356'];
  const ctx={NOTHINGSPORTS_FIXTURE_IDENTITY:identity,activeEvents:[retained],getEventAction:()=>({}),matchesFeedViewFilters:()=>true,setCardState:(e,s)=>states.push([e.id,s]),calendarChoice:{active:false},calendarInitialJumpPending:false,pendingNotificationEventId:'',activeView:'',activeTab:'follow',activateTopLevelTab:()=>{ctx.activeTab='feed';focused.push(ctx.pendingNotificationEventId);},requestAnimationFrame:fn=>fn(),focusPendingNotificationEvent:()=>{},CSS:{escape:s=>s},document:{querySelector:()=>null},window:{},stickyFeedChromeHeight:()=>0,showToast:()=>assert.fail('No error'),localStorage:{removeItem:()=>assert.fail('No persisted filter mutation')}};
  vm.runInNewContext(fs.readFileSync('assets/js/fixture-navigation.js','utf8'),ctx);ctx.NOTHINGSPORTS_FIXTURE_NAVIGATION.feed(base,{temporary:true});assert.equal(ctx.activeEvents.length,1);assert.deepEqual(focused,[retained.id]);assert.deepEqual(states,[[retained.id,'opened']]);assert.equal(ctx.pendingNotificationEventId,retained.id,'Temporary reveal uses the retained rendering ID');
  }
- console.log('Fixture route facts: actual ATP184942/WTA184356 clocks survive unresolved stored planning, and source aliases open one expanded retained Feed card without extra reads or consent changes.');
+ console.log('Fixture route facts: actual ATP184942/WTA184356/ATP184941 clocks survive unresolved stored planning, and source aliases open one expanded retained Feed card without extra reads or consent changes.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
