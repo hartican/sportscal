@@ -1,6 +1,6 @@
 # CTO delivery programme — authoritative current queue
 
-**Current decision — 12 October 2026:** The sports-data and offline fixes are live, and the small calendar-return repair is now verified live too. The next checked update makes Football tables and team records honour each match’s Hide/Show results choice, including while a table loads. Both browser engines, the wider Football check and both app-update rehearsals pass; publish this separate update and verify the live site. Football stays the main product priority. Then finish table freshness and unusual match states, and check the next normal overnight update without starting another updater. Real-phone use remains separate. No new subscription or routine for Jack; Passwords/iCloud stays parked.
+**Current decision — 12 October 2026:** The sports-data, offline and calendar-return fixes are live. Football tables and team records now honour each match’s Hide/Show results choice, including while a table loads. The normal release passed, the live files match the checked update, and both browser checks pass on the live site. Football stays the main product priority. Next check whether tables warn when they fall behind newer results, then finish unusual match states and observe the next normal overnight update without starting another updater. Real-phone use remains separate. No new subscription or routine for Jack; Passwords/iCloud stays parked.
 
 **Full approval:** 0/17 carried families and 0/3 Football pilots, targeting at least 14/17 families. This means no sport has passed the entire launch checklist yet. It does not mean the repairs have achieved nothing: users already get more accurate cards and clearer viewing links. Full approval also needs reliable updates, permission to use the material commercially and checks on a real phone. Baseball joined coverage on 6 October; older report chapters keep their original counts.
 
@@ -9,14 +9,14 @@
 | Requirement | Where we are |
 | --- | --- |
 | Matches, times and results | Dated EPL and European comparisons agree on the checked fixtures and scores. Confirmed half-time is supported. Other interruptions and wider approval remain open |
-| Tables | The checked EPL and European tables agree at their recorded checkpoints. Later-round maintenance, final phases and qualification still need proof |
+| Tables | The checked EPL and European tables agree at their recorded checkpoints, and the live cards now respect each match’s result choice. Keeping tables honest after newer results, later rounds, final phases and qualification still need proof |
 | Australian viewing | Clear access labels and useful links are live in the checked cards. Actual playback and current commercial rights remain separate |
 | Presentation | Delivered repairs pass the affected browser and small-screen checks. Actual-phone use and broader accessibility remain open |
 | Reliable operation | The score and speed release is verified live. The full sports update passed its data checks and published the refreshed cards. Historical race tests are now fixed in place, with separate checks that the actual final cannot become live again or stay in Match Centre beyond its original hour. The MotoGP timetable and its source now agree after repairing their publication path. The combined tennis-time and offline fixes pass both full browser update rehearsals. The combined update passed the normal release, exact live-file checks and affected card display checks. Follow dates remain unknown where no genuine source check exists. A successful normal overnight update still needs to be observed |
 
 **Next five actions, in order:**
 
-- Publish and verify the checked Football result-choice repair. Preserve the delivered sports, offline and calendar fixes. Observe the next normal overnight update separately.
+- Check that Football tables warn when newer results leave them behind. Preserve the delivered result-choice, sports, offline and calendar fixes. Observe the next normal overnight update separately.
 - Finish the Football pilots: remaining match states, table upkeep, Australian viewing and actual-phone use. Reuse the completed dated comparisons.
 - Repair demonstrated gaps in the other carried sports toward at least 14/17 approved families. Keep uncertain times, participants and results unknown.
 - Use the prepared short phone session when available, then measure real return visits among authorised invitees. Existing owner questions stay pending.
