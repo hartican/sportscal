@@ -1,6 +1,6 @@
 # Useful baseball and tennis descriptions — 11 October 2026
 
-The repair is prepared and checked locally. It has not yet reached the live cards. The last full sports update stopped because nine baseball games and the Beijing women's tennis final lacked required descriptions. The prepared repair fills those gaps without changing match facts or saved choices. A fresh complete update and its exact production release remain required.
+The repair is prepared and checked locally. It has not yet reached the live cards. The last full sports update stopped because nine baseball games and the Beijing women's tennis final lacked required descriptions. The prepared repair fills those gaps without changing match facts or saved choices. After incorporating the latest racing release, the same check also caught two vague duplicate race descriptions. Those now use the reviewed venue, distance and entry stage, without inventing a final field or start time. A fresh complete update and its exact production release remain required.
 
 ## What users should get
 
@@ -15,11 +15,11 @@ The baseball explanation runs through the existing sport-context step for the re
 | Check | Result and limit |
 | --- | --- |
 | Last actual full update | Run 38104475980 stopped before publication at 10/19 descriptions. Its fresh batch was discarded; it is not reconstructed here |
-| Saved published input | The same ten failing IDs reproduce at 10/17. The complete prepared input now passes 17/17, using no provider refresh and leaving real files unchanged |
-| Real local writer chain | Preview application, ordinary spoiler protection, existing fixture research, sport context, narrative projection, preview audit and both feed spoiler checks pass in a private folder |
+| Saved published input | The same ten failing IDs reproduce at 10/17. The earlier prepared input passed 17/17. Rebased on current main 375acb7a, the complete prepared input now passes 19/19, using no provider refresh and leaving real files unchanged |
+| Real local writer chain | Retained horse-stage publication, preview application, ordinary spoiler protection, existing fixture research, sport context, narrative projection, preview audit and both feed spoiler checks pass in a private folder |
 | Source and identity regression | Nine retained MLB cases and the named WTA final cover original facts/dates, conditional clocks, cancelled/postponed/suspended copy, final protection, repeated runs and genuinely missing targets |
 | Research observations | Each WTA source keeps its actual receipt time. Each fact uses the latest supporting source observation. Missing, mismatched, invalid and future dates reject; older research inputs retain their existing contract |
-| Small-screen card replay | 288 local cases pass in Chromium/WebKit at 320/390 pixels, across Feed, Events and Follow card modes. Prepared canonical cards are replayed with disposable preferences and API writes blocked. This is not a physical-phone or natural production test |
+| Small-screen card replay | 432 local cases pass in Chromium/WebKit at 320/390 pixels, using the shared schedule-card builder with Feed, Events and Follow surface flags. Six prepared cases (including two races and one controlled cancellation) are replayed with disposable preferences and API writes blocked. Horse descriptions pass the publisher/data checks but were not exposed by this schedule component; no visible-description claim is made for those races. This is a component replay, not normal tab navigation, a physical-phone or natural production test |
 
 MLB's dated official explanation supports [five-game Division Series and seven-game Championship Series](https://www.mlb.com/news/mlb-playoff-tiebreaker-rules). The [official postseason bracket](https://www.mlb.com/postseason) supplies the progression context. Reviewed fixtures supply each pairing, game number, venue and conditional status. The rules remain explicitly scoped to 2026; broader formats and seasons require evidence.
 
@@ -29,9 +29,11 @@ The shared curated-preview writer also recognises permanent and provider identit
 
 ### Honest test limitations
 
-The first private subset omitted the other sports' required retained evidence. A shortened writer rehearsal then omitted the normal spoiler-protection step. Both rehearsal setups were corrected; neither established a product defect. The first screen observer compared new fixture text with the old canonical browser card, and mistook intentional internal clipping for page overflow. The corrected observer supplies the prepared canonical card, checks visible content and actual horizontal page overflow, and records the component measurements. No display-code fix is claimed from those false failures.
+The first private subset omitted the other sports' required retained evidence. A shortened writer rehearsal then omitted the normal spoiler-protection step. Both rehearsal setups were corrected; neither established a product defect. The expanded rehearsal initially injected a synthetic canonical tennis ID before an earlier normal publisher reconciled it. The injection now follows that publisher, so the editorial preservation check measures only the intended writers. The first screen observer compared new fixture text with the old canonical browser card, and mistook intentional internal clipping for page overflow. The corrected observer supplies the prepared canonical card, checks visible content and actual horizontal page overflow, and records the component measurements. No display-code fix is claimed from those false failures.
 
 The broader architecture still couples accurate sports publication to descriptive-content checks. A small private experiment that separates validated facts from last-approved commentary is worth assessing later, with equivalent spoiler, freshness and release safeguards. This module fixes the demonstrated omissions and preserves the existing gate; it does not implement that architectural change.
+
+The horse description is derived during the existing requested-sports publisher, using retained official calendar/field evidence. Caulfield Cup keeps its reviewed 2400 metres, venue and nomination stage; The Everest keeps Royal Randwick and 1200 metres while explicitly retaining an unverified entry list. Unknown race times stay unknown. Nominations, acceptances and final declarations are distinguished; malformed or mismatched fields cannot supply a count, and completed results stay behind the existing spoiler rules. No horse source or source clock is changed by preparing these descriptions.
 
 ## Value, cost and next action
 

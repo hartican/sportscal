@@ -90,8 +90,12 @@ try {
   write('feeds/editorial-preview-overrides.json',overrides);
   for(const file of ['data/editorial-fixture-research.v1.json','data/follow-sources/coverage.v1.json','data/tennis-feed-parents.v1.json'])write(file,read(file));
   const incoming={...tennis,id:tennis.canonicalEventId,eventId:tennis.canonicalEventId};
+  for(const file of ['feeds/incoming/events.json','data/events.json'])write(file,read(file));
+  // The full owner publishes retained horse stages before its editorial pass.
+  // Rehearse that publisher before injecting the controlled identity cases.
+  for(const file of ['feeds/incoming/events.json','data/events.json'])assertPass(invoke('sync-requested-sports-to-feed.js',[file,file,'--horse-racing-only']));
   for (const [file,event] of [['feeds/incoming/events.json',incoming],['data/events.json',tennis]]){
-    const document=read(file);
+    const document=JSON.parse(fs.readFileSync(path.join(temporary,file)));
     document.events=document.events.map(old => old.canonicalEventId === tennis.canonicalEventId ? event : fixtures.find(f=>f.canonicalEventId===old.canonicalEventId) || old);
     write(file,document);
   }

@@ -124,6 +124,7 @@ function validateNrlwFinals(schedule){
 }
 
 function cardForEvent(event, schedule, participantsById){
+  if(event.horseFeature)event={...event,...require('../lib/horse-racing').preview(event)};
   const source = schedule.sources[event.sourceId];
   const result = event.result || null;
   const resultSource = result ? schedule.sources[result.sourceId] : null;
