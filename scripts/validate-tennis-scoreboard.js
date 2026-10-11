@@ -58,6 +58,7 @@ const unknown=structuredClone(source.payloads.wta);unknown.events[0].groupings[0
 assert.throws(()=>owner.parse(source.payloads.wta,{tour:'wta',checkedAt:'2099-01-01T00:00:00Z',now,catalogue}),/observation/);
 assert.throws(()=>owner.parse(source.payloads.wta,{tour:'wta',checkedAt:source.checkedAt,now:new Date(+now+6*3600000+1),catalogue}),/stale observation/,'A successful fetch cannot renew a stale source timestamp');
 (async()=>{
+ await require('./validate-reviewed-tennis-pairing-corrections').run();
  const roundedAt=Math.ceil(+now/1000)*1000+1000,receivedAt=roundedAt-768;
  let transportClock=receivedAt,transportRequests=0,transportWaits=[];
  const roundedResponse=async()=>{transportRequests++;return {ok:true,status:200,headers:new Headers({date:new Date(roundedAt).toUTCString()}),json:async()=>source.payloads.atp};};

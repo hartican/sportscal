@@ -2161,5 +2161,119 @@
       "sourceLabel": "Official singles draw",
       "validUntil": "2026-10-18"
     }
+  ],
+  "pairingCorrections": [
+    {
+      "kind": "reviewed-official-draw-update",
+      "fixtureId": "fixture:tennis:espn:wta:185344",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "roundLabel": "Round of 64",
+      "priorParticipantIds": [
+        "competitor:tennis:wta:janice-tjen",
+        "competitor:tennis:wta:oleksandra-oliynykova"
+      ],
+      "participantIds": [
+        "competitor:tennis:wta:janice-tjen",
+        "competitor:tennis:wta:aoi-ito"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:janice-tjen",
+          "name": "Janice Tjen",
+          "displayName": "Janice Tjen",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "ID",
+          "officialDrawLabel": "J. Tjen"
+        },
+        {
+          "id": "competitor:tennis:wta:aoi-ito",
+          "name": "Aoi Ito",
+          "displayName": "Aoi Ito",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "officialDrawLabel": "A. Ito"
+        }
+      ],
+      "officialPlayerLabels": [
+        "J. Tjen",
+        "A. Ito"
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+      "sourceSha256": "33646037b8e4fdb3d852d3c7ccbd0a713518d356e79b3a22f607af0ff545f3e0",
+      "checkedAt": "2026-10-11T11:08:55.586Z",
+      "validBefore": "2026-10-12T00:00:00+08:00",
+      "publisher": {
+        "fixtureId": "fixture:tennis:espn:wta:185344",
+        "eventId": "381-2026",
+        "roundLabel": "Round of 64",
+        "participantIds": [
+          "competitor:tennis:wta:janice-tjen",
+          "competitor:tennis:wta:aoi-ito"
+        ],
+        "status": "scheduled",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261011",
+        "sourceSha256": "9c166c7d1ea2ff503a7b4f3c2baa21aedc7e3b8e0a9c9fc1c359d8c60f5b96c0",
+        "checkedAt": "2026-10-11T09:22:06.343Z"
+      }
+    },
+    {
+      "kind": "reviewed-official-draw-update",
+      "fixtureId": "fixture:tennis:espn:wta:185340",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "roundLabel": "Round of 64",
+      "priorParticipantIds": [
+        "competitor:tennis:wta:belinda-bencic",
+        "competitor:tennis:wta:zhang-shuai"
+      ],
+      "participantIds": [
+        "competitor:tennis:wta:anna-kalinskaya",
+        "competitor:tennis:wta:zhang-shuai"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:anna-kalinskaya",
+          "name": "Anna Kalinskaya",
+          "displayName": "Anna Kalinskaya",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "RU",
+          "officialDrawLabel": "A. Kalinskaya"
+        },
+        {
+          "id": "competitor:tennis:wta:zhang-shuai",
+          "name": "Zhang Shuai",
+          "displayName": "Zhang Shuai",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "officialDrawLabel": "S. Zhang"
+        }
+      ],
+      "officialPlayerLabels": [
+        "A. Kalinskaya",
+        "S. Zhang"
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+      "sourceSha256": "33646037b8e4fdb3d852d3c7ccbd0a713518d356e79b3a22f607af0ff545f3e0",
+      "checkedAt": "2026-10-11T11:08:55.586Z",
+      "validBefore": "2026-10-12T00:00:00+08:00",
+      "publisher": {
+        "fixtureId": "fixture:tennis:espn:wta:185340",
+        "eventId": "381-2026",
+        "roundLabel": "Round of 64",
+        "participantIds": [
+          "competitor:tennis:wta:anna-kalinskaya",
+          "competitor:tennis:wta:zhang-shuai"
+        ],
+        "status": "scheduled",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261011",
+        "sourceSha256": "9c166c7d1ea2ff503a7b4f3c2baa21aedc7e3b8e0a9c9fc1c359d8c60f5b96c0",
+        "checkedAt": "2026-10-11T09:22:06.343Z"
+      }
+    }
   ]
 }

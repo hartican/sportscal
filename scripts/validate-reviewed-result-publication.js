@@ -34,6 +34,7 @@ try{
  const row=selected[1],result=applyOfficialResults([{id:row.id,name:'Reviewed final'}],{checkedAt:evidence.checkedAt,results:[row]}).events[0];
  assert.equal(result.resultPublishedAt,row.resultPublishedAt);assert.equal(result.lastReviewedAt,row.lastReviewedAt);assert.equal(result.sourceCheckedAt,row.sourceCheckedAt);
  const doc=structuredClone(participant.validate()),pending=doc.events.find(e=>e.id.includes('alcaraz-arnaldi'));assert(pending);
+ doc.pairingCorrections=[]; // This isolated historical availability case has no Wuhan fixtures.
  // Controlled historical availability branch after the actual draw result
  // has arrived; it cannot be mistaken for a current publication.
  Object.assign(pending,{status:'scheduled',resultStatus:'pending',score:null,resultSourceCheckedAt:'2026-10-03T06:30:54.629Z',resultAvailabilityEvidence:{kind:'official-draw-result-unpublished',fixtureId:pending.id,sourceUrl:pending.resultSourceUrl,checkedAt:'2026-10-03T06:30:54.629Z',sourceSha256:'3708c48a839d83d58ff943873469ec1545b7a70c3051ae8df7b0e7e4d4c751d7',matchRow:'Round of 16: C. Alcaraz [1] v M. Arnaldi',winnerCell:'unpublished'}});
