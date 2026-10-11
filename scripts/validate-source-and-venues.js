@@ -82,6 +82,15 @@ assert.equal(beijingCourt.audited, false, "unconfirmed current court identities 
 assert.equal(beijingCourt.reviewDisposition, "court_identity_pending_review");
 assert.equal(beijingCourt.displayName, "Court 4", "retain the source-listed court label");
 assert.equal(venues.resolve("Shanghai", { key: "tennis", tournamentId: "tournament:tennis:atp-shanghai-2026" }).id, "qizhong-tennis-center");
+assert.equal(venues.resolve("Shanghai, CHN", {key:"tennis",tournamentId:"tournament:tennis:atp-shanghai-2026"}).id,"qizhong-tennis-center","The observed country-code label uses the same reviewed tournament, never a global city alias");
+for(const context of [{},{key:'baseball',tournamentId:'tournament:tennis:atp-shanghai-2026'},{key:'tennis',tournamentId:'tournament:tennis:atp-shanghai-2027'},{key:'tennis',tournamentId:'tournament:tennis:wta-shanghai-2026'},{key:'tennis',tennisTournamentId:'tournament:tennis:atp-shanghai-2026',tournamentId:'tournament:tennis:wta-beijing-2026'}])assert.equal(venues.resolve('Shanghai, CHN',context).audited,false);
+for(const [value,id] of [['Caulfield','caulfield-racecourse'],['Flemington','flemington-racecourse']]){
+  assert.equal(venues.resolve(value,{key:'horse-racing'}).id,id);
+  for(const context of [{},{key:'football'},{key:'tennis'}])assert.equal(venues.resolve(value,context).audited,false,'A suburb cannot globally select a racecourse');
+}
+assert.equal(venues.resolve('Royal Randwick').officialName,'Royal Randwick Racecourse');
+assert.equal(venues.resolve('Rosehill Gardens').officialName,'Rosehill Gardens Racecourse');
+assert.equal(venues.resolve('Randwick').audited,false);assert.equal(venues.resolve('Rosehill').audited,false);
 for (const context of [{}, { key: "baseball", tournamentId: "tournament:tennis:atp-shanghai-2026" }, { key: "tennis", tournamentId: "tournament:tennis:atp-shanghai-2027" }, { key: "tennis", tennisTournamentId: "tournament:tennis:atp-shanghai-2026", tournamentId: "tournament:tennis:wta-beijing-2026" }]) {
   assert.equal(venues.resolve("Shanghai", context).audited, false, "a city must not resolve without a consistent reviewed tournament context");
   assert.equal(venues.resolve("Court 4", context).reviewDisposition, "unclassified", "unsupported court contexts must fail closed despite a familiar label");

@@ -1,6 +1,6 @@
 # Melbourne Cup background and the next complete update — 11 October 2026
 
-The missing Melbourne Cup background is repaired locally. It has not yet reached production. The previous full update ran the new description writer (18 baseball projections), then stopped at the persistent-background check for the Cup. It stopped before the later fresh preview audit. No rejected sports batch was published and no deployment was requested by that failed run.
+The missing Melbourne Cup background is published on GitHub as c9a3833d. It has not yet reached production. The next full run, 38109735652, passed the background checks and all 27 required previews, then stopped at the source/venue register on five location labels. It published no batch. The previous full update ran the new description writer (18 baseball projections), then stopped at the persistent-background check for the Cup. It stopped before the later fresh preview audit. No rejected sports batch was published and no deployment was requested by that failed run.
 
 The existing fixture-research owner now supplies five dated facts from three official VRC pages, at the full marquee depth. The card keeps its original IDs, entries, date, unknown race clock, viewing uncertainty and sporting observation dates. Early nominations are explicitly dated 1 September and do not describe today's final field. No runner, winner, clock, viewing permission or betting advice is inferred.
 

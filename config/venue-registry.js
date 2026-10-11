@@ -170,7 +170,11 @@
     ["china-national-tennis-center", "China National Tennis Center"],
     ["ariake-tennis-forest-park", "Ariake Tennis Forest Park"],
     ["qizhong-tennis-center", "Qizhong Tennis Centre", "Qizhong Forest Sports City Tennis Center"],
-    ["optics-valley-tennis-center", "Optics Valley International Tennis Centre"]
+    ["optics-valley-tennis-center", "Optics Valley International Tennis Centre"],
+    ["caulfield-racecourse", "Caulfield Racecourse"],
+    ["flemington-racecourse", "Flemington Racecourse"],
+    ["royal-randwick-racecourse", "Royal Randwick", "Royal Randwick Racecourse", ["Royal Randwick", "Royal Randwick Racecourse"]],
+    ["rosehill-gardens-racecourse", "Rosehill Gardens", "Rosehill Gardens Racecourse", ["Rosehill Gardens", "Rosehill Gardens Racecourse"]]
   ].map(([id, displayName, third, fourth]) => {
     const officialName = Array.isArray(third) ? displayName : third || displayName;
     const aliases = Array.isArray(third) ? third : fourth || [officialName];
@@ -178,6 +182,8 @@
   }));
 
   const CONTEXTUAL_ALIASES = Object.freeze({
+    "caulfield": Object.freeze({id:"caulfield-racecourse",keys:Object.freeze(["horse-racing"])}),
+    "flemington": Object.freeze({id:"flemington-racecourse",keys:Object.freeze(["horse-racing"])}),
     "grandstand": Object.freeze({id:"usta-billie-jean-king-national-tennis-center", keys:Object.freeze(["tennis"]), eventSeriesId:"event-series:us-open"}),
     "court 6": Object.freeze({id:"usta-billie-jean-king-national-tennis-center", keys:Object.freeze(["tennis"]), eventSeriesId:"event-series:us-open"}),
     "court 7": Object.freeze({id:"usta-billie-jean-king-national-tennis-center", keys:Object.freeze(["tennis"]), eventSeriesId:"event-series:us-open"}),
@@ -283,7 +289,7 @@
     const site = TENNIS_SITES.find(([city, tours]) => tours.some(tour => tournament === `tournament:tennis:${tour}-${city}-2026`));
     if (!site) return null;
     const [city, , facilityId, reviewed, pending] = site;
-    if (normalized === city) return { ...entriesById.get(facilityId), audited: true };
+    if (normalized === city || (city === "shanghai" && normalized === "shanghai chn")) return { ...entriesById.get(facilityId), audited: true };
     const name = [...reviewed, ...pending].find(name => normalise(name) === normalized);
     if (!name) return null;
     const audited = reviewed.includes(name);
