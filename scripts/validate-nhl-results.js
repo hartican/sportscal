@@ -26,6 +26,10 @@ for(const mutate of [p=>p.standings.pop(),p=>p.standings.push(clone(p.standings[
 assert.throws(()=>facts.parseWeek(sample.weeks[0],{...options,checkedAt:'2026-10-04T16:10:26.488Z'}),/future observation/);rejected++;
 const futureTable=clone(sample.standings),futureTableAt=new Date(+now+1).toISOString();futureTable.standingsDateTimeUtc=futureTableAt;
 assert.throws(()=>facts.parseStandings(futureTable,{teams,fixtures:merged,checkedAt,now}),error=>error.message.includes('standings publication')&&error.message.includes(futureTableAt)&&error.message.includes(now.toISOString()),'A rejected provider publication identifies its own clock separately from the validation clock');
+const afterObservation=clone(sample.standings),afterObservationAt=new Date(+now+1).toISOString(),laterValidation=new Date(+now+10000);
+afterObservation.standingsDateTimeUtc=afterObservationAt;
+const rejectsTableOrder=error=>error.message.includes('table published after observation')&&error.message.includes(`standings publication: ${afterObservationAt}`)&&error.message.includes(`source observation: ${checkedAt}`)&&error.message.includes(`validation: ${laterValidation.toISOString()}`);
+assert.throws(()=>facts.parseStandings(afterObservation,{teams,fixtures:merged,checkedAt,now:laterValidation}),rejectsTableOrder,'Later processing cannot renew the original table observation; the error identifies all three independent clocks');
 assert.throws(()=>facts.parseWeek(sample.weeks[0],{...options,now:new Date('invalid')}),/invalid validation time/,'An invalid validation clock cannot admit observations');
 // Even internally consistent day/count removal cannot erase known fixtures.
 const removed=clone(sample.weeks[0]);removed.gameWeek[1].games.pop();removed.gameWeek[1].numberOfGames--;removed.numberOfGames--;assert.throws(()=>facts.parseWeek(removed,options),/disappeared/);rejected++;
@@ -53,6 +57,22 @@ module.exports=(async()=>{
   const conflicting=clubs.map(clone),side=conflicting.find(c=>c.payload.games.some(g=>g.id===2026020001));side.payload.games.find(g=>g.id===2026020001).awayTeam.score=2;assert.throws(()=>facts.parseClubSchedules(conflicting,{teams,checkedAt,now}),/conflicting mirrored/);
   const full=await owner.buildNhl({previous:baseline,clock:()=>now,fetchChl:async()=>({seasonName:'2026/27',teams:baseline.teams.filter(t=>t.leagueId==='competition:chl'),players:[],fixtures:baseline.fixtures.filter(f=>f.competitionId==='competition:chl'),standings:baseline.standings.filter(r=>r.participantId.startsWith('team:chl:')),sourceStatus:baseline.sourceStatus.chl}),fetchSource:async url=>url===facts.TABLE_URL?clone(sample.standings):url.includes('/roster/')?{forwards:[],defensemen:[],goalies:[]}:clone(clubs.find(c=>url.includes('/'+c.abbreviation+'/')).payload)});
   assert.deepEqual(full.fixtures.find(f=>f.id===named.id),after.fixtures.find(f=>f.id===named.id));assert.deepEqual(full.standings.filter(r=>r.competitionId==='competition:nhl'),after.standings.filter(r=>r.competitionId==='competition:nhl'));
+  async function tableClockCase({publication,receivedAt,scheduleAt}){
+    let moment=now;
+    return owner.buildNhl({previous:baseline,clock:()=>moment,
+      fetchChl:async()=>({seasonName:'2026/27',teams:baseline.teams.filter(t=>t.leagueId==='competition:chl'),players:[],fixtures:baseline.fixtures.filter(f=>f.competitionId==='competition:chl'),standings:baseline.standings.filter(r=>r.participantId.startsWith('team:chl:')),sourceStatus:baseline.sourceStatus.chl}),
+      fetchSource:async url=>{
+        if(url===facts.TABLE_URL){moment=receivedAt;return {...clone(sample.standings),standingsDateTimeUtc:publication};}
+        if(url.includes('/roster/'))return {forwards:[],defensemen:[],goalies:[]};
+        moment=scheduleAt;return clone(clubs.find(c=>url.includes('/'+c.abbreviation+'/')).payload);
+      },
+    });
+  }
+  await assert.rejects(tableClockCase({publication:afterObservationAt,receivedAt:now,scheduleAt:laterValidation}),rejectsTableOrder,'The actual full owner retains the table read clock while later club reads advance');
+  const receivedAt=new Date(+now+20000),scheduleAt=new Date(+now+30000),publication=new Date(+now+19000).toISOString();
+  const receivedTable=await tableClockCase({publication,receivedAt,scheduleAt});
+  assert(receivedTable.standings.filter(r=>r.competitionId==='competition:nhl').every(r=>r.sourceCheckedAt===receivedAt.toISOString()&&r.sourcePublishedAt===publication),'The actual full owner observes the complete table after its response, separately from later club responses');
+  assert(receivedTable.fixtures.filter(f=>f.competitionId==='competition:nhl').every(f=>f.sourceCheckedAt===scheduleAt.toISOString()),'Club observations retain their own response clocks');
   const liveSample=require('./fixtures/nhl-live-20261005.json'),liveNow=new Date(liveSample.capturedAt),liveClubs=clubs.map(clone);
   for(const club of liveClubs)club.payload.games=club.payload.games.map(g=>g.id===liveSample.game.id?clone(liveSample.game):g);
   const fullLive=await owner.buildNhl({previous:baseline,clock:()=>liveNow,fetchChl:async()=>({seasonName:'2026/27',teams:baseline.teams.filter(t=>t.leagueId==='competition:chl'),players:[],fixtures:baseline.fixtures.filter(f=>f.competitionId==='competition:chl'),standings:baseline.standings.filter(r=>r.participantId.startsWith('team:chl:')),sourceStatus:baseline.sourceStatus.chl}),fetchSource:async url=>url===facts.TABLE_URL?clone(sample.standings):url.includes('/roster/')?{forwards:[],defensemen:[],goalies:[]}:clone(liveClubs.find(c=>url.includes('/'+c.abbreviation+'/')).payload)});

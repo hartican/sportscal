@@ -102,7 +102,9 @@ function mergeFixtures(previous,fixtures){
  return [...previous.fixtures.map(f=>changes.get(f.id)||f),...fixtures.filter(f=>!originals.has(f.id))];
 }
 function parseStandings(payload,{teams,fixtures,checkedAt,now=new Date()}={}){
- observed(checkedAt,now);observed(payload?.standingsDateTimeUtc,now,'standings publication');if(Date.parse(payload.standingsDateTimeUtc)>Date.parse(checkedAt))fail('table published after observation');const ids=knownTeams(teams),seen=new Set(),ranks=new Set(),groups=new Map();
+ observed(checkedAt,now);observed(payload?.standingsDateTimeUtc,now,'standings publication');
+ if(Date.parse(payload.standingsDateTimeUtc)>Date.parse(checkedAt))fail(`table published after observation (standings publication: ${new Date(payload.standingsDateTimeUtc).toISOString()}; source observation: ${new Date(checkedAt).toISOString()}; validation: ${new Date(+now).toISOString()})`);
+ const ids=knownTeams(teams),seen=new Set(),ranks=new Set(),groups=new Map();
  if(!Array.isArray(payload.standings)||payload.standings.length!==32)fail('incomplete league table');
  const totals=new Map([...ids].map(id=>[id,{gamesPlayed:0,wins:0,goalsFor:0,goalsAgainst:0}]));for(const f of fixtures.filter(f=>f.competitionId==='competition:nhl'&&f.roundLabel==='Regular season'&&f.status==='completed'))for(const s of f.participantSlots){if(!totals.has(s.participantId))fail('unknown retained final participant');const other=f.participantSlots.find(o=>o.participantId!==s.participantId),t=totals.get(s.participantId);if(!Number.isInteger(s.score)||!Number.isInteger(other?.score))fail('invalid retained final score');t.gamesPlayed++;t.wins+=s.score>other.score;t.goalsFor+=s.score;t.goalsAgainst+=other.score;}
  const rows=payload.standings.map(r=>{
