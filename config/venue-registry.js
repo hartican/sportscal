@@ -289,7 +289,7 @@
     const audited = reviewed.includes(name);
     return Object.freeze({
       id: `${facilityId}/${normalise(name).replace(/\s+/g, "-")}`,
-      displayName: name, officialName: name, aliases: Object.freeze([name]), facilityId,
+      displayName: name, officialName: name, aliases: Object.freeze([name]),
       audited, ...(!audited ? { reviewDisposition: "court_identity_pending_review" } : {}),
     });
   }
@@ -341,6 +341,6 @@
     });
   }
 
-  // The browser uses the resolver. The complete audit remains a Node release check.
-  return Object.freeze({ VERSION, ENTRIES, CONTEXTUAL_ALIASES, REVIEW_DISPOSITIONS, normalise, resolve, ...(typeof module !== "undefined" && module.exports ? { audit } : {}) });
+  // The browser uses the resolver; inventory and audit are Node release checks.
+  return Object.freeze({ VERSION, normalise, resolve, ...(typeof module !== "undefined" && module.exports ? { ENTRIES, CONTEXTUAL_ALIASES, REVIEW_DISPOSITIONS, audit } : {}) });
 });
