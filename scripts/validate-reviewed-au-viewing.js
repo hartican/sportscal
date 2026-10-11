@@ -113,7 +113,9 @@ assert.deepEqual(providers(independentlyReviewed),['seven'],'independent fixture
 const nhlRule=audit.reviewedWindows.find(r=>r.competitionIds?.includes('competition:nhl'));
 const nhlRights=follow.COMPETITION_VIEWING_RIGHTS['competition:nhl:2026-27'];
 assert(nhlRule&&nhlRights);assert.equal(nhlRights.fixtureIdPattern,nhlRule.fixtureIdPattern);assert.equal(nhlRights.roundLabel,nhlRule.roundLabel);
-for(const rule of audit.reviewedWindows){assert(Number.isFinite(Date.parse(rule.verifiedAt)));assert(Date.parse(rule.notBefore)<Date.parse(rule.notAfter));assert(/^https:\/\//.test(rule.sourceUrl));assert(rule.fixtureIds?.length||rule.competitionIds?.length);}
+for(const rule of audit.reviewedWindows){assert(Number.isFinite(Date.parse(rule.verifiedAt)));assert(Date.parse(rule.notBefore)<Date.parse(rule.notAfter));assert(/^https:\/\//.test(rule.sourceUrl));assert(rule.fixtureIds?.length||rule.competitionIds?.length);
+ if(rule.tournamentIds){assert(Array.isArray(rule.tournamentIds)&&rule.tournamentIds.length);assert(rule.tournamentIds.every(id=>typeof id==='string'&&id.startsWith('tournament:tennis:')&&id.endsWith('-'+rule.season)));assert.equal(rule.sportKey,'tennis');assert(['ATP','WTA'].includes(rule.tour));assert.equal(rule.rightsScope,'competition');}
+}
 const beijingId='fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur';
 const beijing=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.find(f=>f.id===beijingId);assert(beijing);
 const beijingOptions=follow.viewingOptions(review({...beijing,broadcaster:'Stan Sport',viewingOptions:[{providerId:'stan',rightsScope:'fixture',sourceUrl:'https://example.test/old-incorrect-rights',verifiedAt:'2026-10-01T00:00:00Z'}]}));
@@ -161,3 +163,5 @@ if(process.argv.includes('--published')){
  for(const f of feed.filter(f=>f.key==='rugby'||f.viewingOptions?.some(o=>o.reviewId==='au-viewing-20261002')))assert.deepEqual(f.viewingOptions,review(f).viewingOptions,'published cards retain evidence and original dates');
 }
 console.log('Reviewed AU viewing: free/paid ordering, exact competitions, three Tests, two LPGA windows, 1344 NHL regular-season fixtures and 65 preseason exclusions, expiry, original facts/dates, honest replay and both projections passed.');
+
+require('./validate-shanghai-au-viewing').validate();

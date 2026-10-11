@@ -832,6 +832,32 @@
         }
       ],
       "notes": "The organiser confirms Seven/7plus, Foxtel, Kayo and Binge for this final. Existing supported providers are shown free first. Binge is confirmed in source evidence but has no existing app provider entry; this list is not exhaustive. Sport/service destinations, no verified future match permalink or playback."
+    },
+    {
+      "id": "shanghai-masters-2026-au-viewing",
+      "tournamentIds": [
+        "tournament:tennis:atp-shanghai-2026"
+      ],
+      "sportKey": "tennis",
+      "tour": "ATP",
+      "season": 2026,
+      "notBefore": "2026-10-07",
+      "notAfter": "2026-10-19",
+      "verifiedAt": "2026-10-11T05:19:19.930Z",
+      "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "bein",
+          "url": "https://connect-au.beinsports.com/en",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ],
+      "competitionIds": [
+        "competition:atp-tour",
+        "competition:tennis:atp-shanghai-2026"
+      ]
     }
   ]
 }
