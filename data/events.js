@@ -152478,8 +152478,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "fixture:cricket:espn:1525660",
     "eventId": "fixture:cricket:espn:1525660",
     "displayTitleCompact": "South Africa v Australia — Second Test",
-    "selectedSentence": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
-    "fullSpiel": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
+    "selectedSentence": "Inglis is returning to the squad, not yet the XI: Australia's Gqeberha puzzle combines batting places with a possible second spinner.",
+    "fullSpiel": "The middle Test leaves both sides one match still to come at Newlands, so this combination must fit a short three-Test tour rather than a single afternoon. Durban is still in progress at this check; no series lead, clincher or comeback is asserted. Gqeberha's spin history makes patience against slow bowling and the allocation of batting depth central questions, not a prediction of the pitch. Announced teams and verified fitness updates must resolve the options; an arrival at training is not a selection or medical clearance.",
     "sourceName": "Cricket Australia",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
@@ -152497,15 +152497,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "archetype": "international test",
-      "hookSpoilerOff": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
-      "hookSpoilerOn": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
-      "synopsisSpoilerOff": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
-      "synopsisSpoilerOn": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
+      "hookSpoilerOff": "Inglis is returning to the squad, not yet the XI: Australia's Gqeberha puzzle combines batting places with a possible second spinner.",
+      "hookSpoilerOn": "Inglis is returning to the squad, not yet the XI: Australia's Gqeberha puzzle combines batting places with a possible second spinner.",
+      "synopsisSpoilerOff": "The middle Test leaves both sides one match still to come at Newlands, so this combination must fit a short three-Test tour rather than a single afternoon. Durban is still in progress at this check; no series lead, clincher or comeback is asserted. Gqeberha's spin history makes patience against slow bowling and the allocation of batting depth central questions, not a prediction of the pitch. Announced teams and verified fitness updates must resolve the options; an arrival at training is not a selection or medical clearance.",
+      "synopsisSpoilerOn": "The middle Test leaves both sides one match still to come at Newlands, so this combination must fit a short three-Test tour rather than a single afternoon. Durban is still in progress at this check; no series lead, clincher or comeback is asserted. Gqeberha's spin history makes patience against slow bowling and the allocation of batting depth central questions, not a prediction of the pitch. Announced teams and verified fitness updates must resolve the options; an arrival at training is not a selection or medical clearance.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+      "lastReviewedAt": "2026-10-11T22:08:34.441Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T22:08:34.441Z",
     "participants": [
       {
         "id": "team:cricket:south-africa",
@@ -152520,17 +152520,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Cricket — south africa persistent series",
+      "angle": "South Africa v Australia - Second Test",
       "contextSignals": [
         "event-specific",
-        "narrative:path",
-        "narrative:consequence",
+        "narrative:form",
         "narrative:matchup",
-        "narrative:history"
+        "narrative:history",
+        "narrative:path",
+        "narrative:consequence"
       ],
-      "sourceName": "Cricket Australia South Africa Test tour guide",
-      "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
-      "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
+      "sourceName": "South Africa v Australia - Second Test — official research 1",
+      "sourceUrl": "https://www.cricket.com.au/news/4590116/josh-inglis-fractured-finger-update-second-test-gqeberha-australia-south-africa-green-renshaw-maddinson-selection",
+      "sourceCheckedAt": "2026-10-11T22:08:34.441Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "verified",
@@ -152550,31 +152551,36 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:sport-depth:fixture-cricket-espn-1525660",
       "researchTier": "marquee",
-      "hook": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
-      "synopsis": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
+      "hook": "Inglis is returning to the squad, not yet the XI: Australia's Gqeberha puzzle combines batting places with a possible second spinner.",
+      "synopsis": "The middle Test leaves both sides one match still to come at Newlands, so this combination must fit a short three-Test tour rather than a single afternoon. Durban is still in progress at this check; no series lead, clincher or comeback is asserted. Gqeberha's spin history makes patience against slow bowling and the allocation of batting depth central questions, not a prediction of the pitch. Announced teams and verified fitness updates must resolve the options; an arrival at training is not a selection or medical clearance.",
+      "formCopy": "Inglis will rejoin the tour after positive news about his fractured finger, but officials still need to assess whether he can play in Gqeberha or Cape Town. Green is also hopeful of returning from an abdominal strain. Renshaw has said he is willing to move between opening and the middle order. Kuhnemann remains an option alongside Lyon at a ground where Cricket Australia's squad analysis records more spin wickets than pace since the pandemic. South Africa's Maharaj-Harmer combination in Durban does not announce its second-Test XI.",
+      "closingCopy": "For Australian supporters, the selection debate is now about belonging as well as balance: returning players cannot be promised a place while fitness remains unresolved. Renshaw's willingness to change roles offers flexibility, but a second specialist spinner could reshape the batting too. South Africa face their own choice between familiarity and the combination this ground demands. Neither loyalty to an established name nor excitement about a comeback answers the harder question of which eleven can sustain pressure for five days.",
       "threadIds": [
-        "thread:depth:cricket:south-africa"
+        "thread:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc"
       ],
       "factIds": [
-        "fact:depth:cricket:fixture-cricket-espn-1525660:1",
-        "fact:depth:cricket:fixture-cricket-espn-1525660:2",
-        "fact:depth:cricket:fixture-cricket-espn-1525660:3",
-        "fact:depth:cricket:fixture-cricket-espn-1525659:1",
-        "fact:depth:cricket:fixture-cricket-espn-1525659:2",
-        "fact:depth:cricket:fixture-cricket-espn-1525659:3"
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:0",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:1",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:2",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:3",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:4",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:5"
       ],
       "sourceIds": [
-        "source:depth:cricket:south-africa",
-        "source:depth:cricket:season",
-        "source:depth:cricket:test-workload"
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:0",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:1",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:2",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:3",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:4"
       ],
       "dimensions": [
-        "path",
-        "consequence",
+        "form",
         "matchup",
-        "history"
+        "history",
+        "path",
+        "consequence"
       ],
-      "researchedAt": "2026-09-30T22:50:31.966Z",
+      "researchedAt": "2026-10-11T22:08:34.441Z",
       "refreshAfter": "2026-10-18T08:00:00.000Z",
       "generationMode": "researched",
       "phase": "preview"
