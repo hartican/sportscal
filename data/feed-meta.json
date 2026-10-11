@@ -1,14 +1,13 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20261011124055974",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261011124055974-20261011134043854",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-11T12:40:55.974Z",
+  "publishedAt": "2026-10-11T13:40:43.854Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
     "sailgp",
     "wrc",
     "nfl",
-    "motogp",
     "wsl",
     "masters",
     "giro",
@@ -37,7 +36,8 @@
     "ski",
     "big-wave",
     "goodwood",
-    "downhill-mtb"
+    "downhill-mtb",
+    "motogp"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -72,11 +72,6 @@
         "count": 1,
         "firstEventDate": "2026-02-09",
         "lastEventDate": "2026-02-09"
-      },
-      "motogp": {
-        "count": 205,
-        "firstEventDate": "2026-02-27",
-        "lastEventDate": "2027-10-01"
       },
       "wsl": {
         "count": 12,
@@ -207,6 +202,11 @@
         "count": 4,
         "firstEventDate": "2027-03-05",
         "lastEventDate": "2027-03-20"
+      },
+      "motogp": {
+        "count": 205,
+        "firstEventDate": "2026-02-27",
+        "lastEventDate": "2027-10-01"
       }
     }
   }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-11T12:40:55.974Z",
+  "generatedAt": "2026-10-11T13:40:43.854Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
@@ -99,7 +99,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-11T12:40:55.974Z",
+      "freshAt": "2026-10-11T13:40:43.854Z",
       "chunkPath": "data/code-inspector/motorsport.json",
       "coverageNote": "Motorsport coverage is partial. Goodwood is an organiser calendar window with UK-local dates, not a scheduled competitive fixture. Sydney session starts and Australian viewing are unconfirmed."
     },
@@ -456,7 +456,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-11T12:40:55.974Z",
+      "freshAt": "2026-10-11T13:40:43.854Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/motogp.json"
     },

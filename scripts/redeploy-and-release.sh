@@ -22,6 +22,7 @@ CARD_OUTPUT_FILES=(
   "data/f1-editorial-digest.json"
   "feeds/editorial-preview-overrides.json"
   "feeds/provider-exports/tennis"
+  "feeds/provider-exports/motogp"
   "data/canonical/afl-nrl-2026.json"
   "data/canonical/contexts.js"
   "data/canonical/joint-tennis-tournament-2026.js"

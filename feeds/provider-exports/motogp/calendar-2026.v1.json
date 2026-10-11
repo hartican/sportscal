@@ -3,7 +3,7 @@
   "year": 2026,
   "sourceUrl": "https://api.pulselive.motogp.com/motogp/v1/events?seasonYear=2026",
   "calendarUrl": "https://www.motogp.com/en/calendar/2026",
-  "checkedAt": "2026-10-04T04:26:21.292Z",
+  "checkedAt": "2026-10-11T13:40:40.662Z",
   "weekends": [
     {
       "id": "364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
@@ -1409,7 +1409,7 @@
           "name": "Grand Prix",
           "date_start": "2026-10-04T14:00:00+0900",
           "date_end": "2026-10-04T14:00:00+0900",
-          "status": "NOT-STARTED"
+          "status": "FINISHED"
         }
       ]
     },
@@ -1441,39 +1441,39 @@
           "name": "Free Practice Nr. 1",
           "date_start": "2026-10-09T10:45:00+0800",
           "date_end": "2026-10-09T11:30:00+0800",
-          "status": "NOT-STARTED"
+          "status": "FINISHED"
         },
         {
           "id": "dba6b54a-da07-4988-86ec-906082d09db8",
           "shortname": "PR",
           "name": "Practice",
-          "date_start": "2026-10-09T15:00:00+0800",
-          "date_end": "2026-10-09T16:00:00+0800",
-          "status": "NOT-STARTED"
+          "date_start": "2026-10-09T15:35:00+0800",
+          "date_end": "2026-10-09T16:35:00+0800",
+          "status": "FINISHED"
         },
         {
           "id": "024495bb-a689-4053-9b2b-e822fd1e97b1",
           "shortname": "FP2",
           "name": "Free Practice Nr. 2",
           "date_start": "2026-10-10T10:10:00+0800",
-          "date_end": "2026-10-10T10:40:00+0800",
-          "status": "NOT-STARTED"
+          "date_end": "2026-10-10T10:43:00+0800",
+          "status": "FINISHED"
         },
         {
           "id": "96ea2d7a-9d8a-4976-a1d8-b1035b97fe03",
           "shortname": "Q1",
           "name": "Qualifying Nr. 1 ",
-          "date_start": "2026-10-10T10:50:00+0800",
-          "date_end": "2026-10-10T11:05:00+0800",
-          "status": "NOT-STARTED"
+          "date_start": "2026-10-10T10:55:00+0800",
+          "date_end": "2026-10-10T11:10:00+0800",
+          "status": "FINISHED"
         },
         {
           "id": "ee15044f-d0f2-43c8-9126-4c063702345e",
           "shortname": "Q2",
           "name": "Qualifying Nr. 2 ",
-          "date_start": "2026-10-10T11:15:00+0800",
-          "date_end": "2026-10-10T11:30:00+0800",
-          "status": "NOT-STARTED"
+          "date_start": "2026-10-10T11:20:00+0800",
+          "date_end": "2026-10-10T11:35:00+0800",
+          "status": "FINISHED"
         },
         {
           "id": "eafef520-3755-4cbb-a7de-a449b4af523a",
@@ -1481,7 +1481,7 @@
           "name": "Tissot Sprint",
           "date_start": "2026-10-10T15:00:00+0800",
           "date_end": "2026-10-10T15:00:00+0800",
-          "status": "NOT-STARTED"
+          "status": "FINISHED"
         },
         {
           "id": "f48e4e22-165c-4f5f-bdb5-17391c75e6ff",
@@ -1489,7 +1489,7 @@
           "name": "Warm Up",
           "date_start": "2026-10-11T10:40:00+0800",
           "date_end": "2026-10-11T10:50:00+0800",
-          "status": "NOT-STARTED"
+          "status": "FINISHED"
         },
         {
           "id": "144c860d-fe00-4eb5-b9f3-87dbe989b328",
@@ -1497,7 +1497,7 @@
           "name": "Grand Prix",
           "date_start": "2026-10-11T15:00:00+0800",
           "date_end": "2026-10-11T15:00:00+0800",
-          "status": "NOT-STARTED"
+          "status": "FINISHED"
         }
       ]
     },
