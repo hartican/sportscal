@@ -82,11 +82,16 @@ assert(!retainedFeedProjectionSteps(['EPL standings source check','European Foot
  const computed=retainReviewedResultEditorial([{...generic,storyline:{...generic.storyline,stakes:5,intensity:4}}],[reviewed])[0];assert.equal(computed.storyline.stakes,5);assert.equal(computed.storyline.intensity,4);assert.equal(computed.storyline.hookSpoilerOff,reviewed.storyline.hookSpoilerOff,'fresh computed metrics survive retained reviewed text');
  for(const changed of [{score:'0-0',homeScore:0,awayScore:0},{status:'upcoming'},{startTimeUtc:new Date(Date.parse(generic.startTimeUtc)+3600000).toISOString()},{participantIds:['different-home','different-away']}])assert.deepEqual(retainReviewedResultEditorial([{...generic,...changed}],[reviewed])[0],{...generic,...changed},'changed results/participants/schedule cannot resurrect old copy');
  const unsafe={...reviewed,selectedSentence:'The home side defeated its opponent 4-0.'};assert.deepEqual(retainReviewedResultEditorial([generic],[unsafe])[0],generic,'unsafe old root copy is not restored');
- const document=JSON.parse(fs.readFileSync(path.join(root,'data/events.json')));document.events=document.events.map(event=>event.id===reviewed.id?reviewed:event);
+ const historicalBathurst=require('./fixtures/bathurst-prematch-editorial-20261011.json');
+ assert.equal(historicalBathurst.event.status,'scheduled','the captured restoration regression must remain pre-match');
+ assert(/^[a-f0-9]{40}$/.test(historicalBathurst.sourceSnapshot),'historical inputs retain their exact source snapshot');
+ const document=JSON.parse(fs.readFileSync(path.join(root,'data/events.json')));document.events=document.events.map(event=>event.id===reviewed.id?reviewed:event.id===historicalBathurst.event.id?structuredClone(historicalBathurst.event):event);
  const bathurst=document.events.find(event=>event.id==='supercars-bathurst-1000-2026'),fullBathurst=structuredClone(bathurst);
  bathurst.editorialNarrative={...bathurst.editorialNarrative,hook:'Retained old Mountain preview',synopsis:'Retained old context',formCopy:undefined,closingCopy:undefined,researchedAt:'2026-09-24T01:50:44.155Z'};
  bathurst.selectedSentence=bathurst.editorialNarrative.hook;bathurst.fullSpiel=bathurst.editorialNarrative.synopsis;
- fs.copyFileSync(path.join(root,'data/editorial-knowledge.v1.json'),path.join(directory,'data/editorial-knowledge.v1.json'));
+ // This restoration case is pre-match. The same live catalogue card later
+ // completing must not turn it into an invalid short final or restore a preview.
+ fs.writeFileSync(path.join(directory,'data/editorial-knowledge.v1.json'),JSON.stringify(historicalBathurst.knowledge));
  for(const name of ['feeds/incoming/events.json','data/events.json'])fs.writeFileSync(path.join(directory,name),JSON.stringify(document));
  fs.symlinkSync(path.join(root,'scripts'),path.join(directory,'scripts'),'dir');
  const projected=cp.spawnSync(process.execPath,['-e',`const q=require(${JSON.stringify(path.join(root,'scripts/quick-results'))});q.runProjectionSteps([['scripts/enrich-storyline-cards.js','--write'],['scripts/select-result-editorial.js'],['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known']],{editorialBaseline:new Map(['feeds/incoming/events.json','data/events.json'].map(file=>[file,JSON.parse(require('fs').readFileSync(file)).events]))});`],{cwd:directory,encoding:'utf8'});
@@ -98,6 +103,22 @@ assert(!retainedFeedProjectionSteps(['EPL standings source check','European Foot
   for(const key of ['date','time','startTimeUtc','venue','status','sourceCheckedAt'])assert.deepEqual(restored[key],fullBathurst[key],key+' remains a sporting fact');
  }
  for(const key of ['selectedSentence','fullSpiel','storyline','editorialPreview'])assert.deepEqual(persistedCopy[key],reviewed[key],'ordinary enrichment/select/publication must persist unchanged reviewed result copy');
+ // Replay the actual current published data independently, including a later
+ // official Bathurst final. No synthetic short-copy corruption enters it.
+ for(const name of ['feeds/incoming/events.json','data/events.json','data/editorial-knowledge.v1.json'])fs.copyFileSync(path.join(root,name),path.join(directory,name));
+ const current=JSON.parse(fs.readFileSync(path.join(root,'data/events.json'))),currentBathurst=current.events.find(event=>event.id===bathurst.id);
+ const currentRun=cp.spawnSync(process.execPath,['-e',`const q=require(${JSON.stringify(path.join(root,'scripts/quick-results'))});q.runProjectionSteps([['scripts/enrich-storyline-cards.js','--write'],['scripts/select-result-editorial.js'],['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known']],{editorialBaseline:new Map(['feeds/incoming/events.json','data/events.json'].map(file=>[file,JSON.parse(require('fs').readFileSync(file)).events]))});`],{cwd:directory,encoding:'utf8'});
+ assert.equal(currentRun.status,0,currentRun.stdout+'\n'+currentRun.stderr);
+ for(const name of ['feeds/incoming/events.json','data/events.json']){
+  const after=JSON.parse(fs.readFileSync(path.join(directory,name))).events.find(event=>event.id===bathurst.id);
+  assert(require('../config/editorial-maintenance').equalCopy(require('../config/editorial-maintenance').copy(after),require('../config/editorial-maintenance').copy(currentBathurst)),'current source-backed copy remains on '+name);
+  for(const key of ['id','date','time','startTimeUtc','endTimeUtc','venue','status','score','fixtureResults','sourceCheckedAt','resultSourceCheckedAt','firstConfirmedCompleteAt'])assert.deepEqual(after[key],currentBathurst[key],key+' stays independent of editorial projection');
+ }
+ if(['completed','finished','final'].includes(currentBathurst.status)){
+  const shortFinal={...currentBathurst,editorialNarrative:{...currentBathurst.editorialNarrative,synopsis:'Retained old context'}};
+  assert.deepEqual(require('./lib/editorial-publication').reconcileFullPreviews([shortFinal],historicalBathurst.knowledge),[shortFinal],'a pre-match projection cannot repair or overwrite a later final');
+  assert(require('./lib/feed-utils').validateFeed({...current,events:[shortFinal]}).some(issue=>issue.includes('synopsis must be 80-700')),'short final copy still fails the real publication schema');
+ }
  assert(quick.includes('runProjectionSteps(projectionSteps(changes,')&&quick.includes("if(file==='scripts/publish-feed.js'&&editorialBaseline)"),'the ordinary publication boundary must execute retention after enrichment');
  console.log('Football daily table: one request, genuine observation, fixture/other-sport retention, idempotence, failure/date retention and scoped projections passed.');
 }finally{fs.rmSync(directory,{recursive:true,force:true});}})().catch(error=>{console.error(error);process.exitCode=1;});
