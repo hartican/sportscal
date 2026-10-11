@@ -2,7 +2,7 @@
 
 Compact Feed cards showed the scheduled kick-off but left the current match status out of the visible card. A person could miss that a match was live, at half-time or waiting for a source update. The existing screen-reader label already had the right information. Reusing that label makes the status visible while retaining the original scheduled Sydney time and stage.
 
-**Current state:** locally checked at shell 503; GitHub publication, exact production release and hosted checks remain pending. The preceding table/privacy fixes remain verified live at shell 502. The change adds no new source, data, polling or owner routine.
+**Current state:** live and verified at shell 503. The exact published change passed the normal release, production-file checks and both hosted browser checks. Hidden-result checks and both full installed-app update rehearsals also pass. The preceding table/privacy fixes are preserved. The change adds no new source, data, polling or owner routine.
 
 ## Evidence and correction
 
@@ -16,16 +16,20 @@ Two observer defects are recorded separately from the product bug. The old gener
 
 ## Acceptance and delivery
 
+Published application snapshot `36b88cda7b4f96a6719f11ccc0ad16f06071a6b4` passed normal production run `38162491081`, attempt 1. Production deployment `dpl_337bQc2pYqALwyMB2vc6FtXXjX5g` is READY at that exact snapshot and owns all three expected aliases. The receipt reconstructs 17 served files from their exact Git blobs and recorded packaging transformations, then verifies their live hashes, plus three packaged runtime dependencies. Both hosted engines pass 144 captured-source cases and 468 controlled cases each, at shell 503; all 134 hosted privacy cases pass. The normal frozen startup gate passed at eight requests and 1.23% gzip growth. No second dispatch or release-gate exception was needed.
+
 The unchanged critical-startup check passes at its frozen 1.25% limit, with eight critical requests; local exact metrics are saved. No limit or baseline is changed. The 141-asset installed shell remains within 3 MiB. Both original complete 502-to-503 keep-open browser upgrade/offline rehearsals pass, including exact candidate cache and preserved preferences. All 134 existing privacy cases pass. Original card-timing, Football status, Follow, cache/version and runtime-build checks pass. No sporting data, API, source adapter, stored clock or credential is changed.
 
 The rendered status still comes from existing reviewed rules: fresh live/half-time is explicit; stale, invalid or future observations remain awaiting update; non-playing states cannot become live or final; published final state does not create a new completion time. Results OFF still hides the captured scores. The backend and source budgets remain unchanged. Unknown EPL raw statuses/phases retain last-good data under existing checks; additional source mappings remain unverified.
 
 **Business value:** people can understand a match's present state without expanding the card or interpreting an old clock. **Effort:** a small shared copy repair plus checks at the real caller. **Dependencies:** existing qualified timing facts, normal release and installed-app update proof. **New cash commitment/owner routine:** A$0 and none; existing assistant and runner usage is not priced. **Acceptance:** visible status and original scheduled time, preserved source facts/IDs/choices, hidden scores, readable small screens, passing unchanged budgets and exact live delivery. **Why now:** captured facts reproduced an actual missing display; the strengthened automatic check prevents a recurrence. **Remaining:** fresh provider interruption evidence, normal overnight publication, actual-phone use, playback, rights and repeat visits. This does not approve a whole Football pilot or family.
 
-Receipts: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/football-unusual-states-20261012`, including `compact-status-red.json`, `regression-red.log`, `fast-regression-red.log`, `fast-regression-final.log`, `original-reproduction-green.json`, both actual/default browser files, both original upgrade logs, `privacy-browser.json` and `local-acceptance.json`.
+Receipts: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/football-unusual-states-20261012`, including `compact-status-red.json`, `regression-red.log`, `fast-regression-red.log`, `fast-regression-final.log`, `original-reproduction-green.json`, both local and hosted actual/default browser files, both original upgrade logs, `privacy-browser.json`, `hosted-privacy.json`, `local-acceptance.json`, `delivery-acceptance.json` and `release-503/production-proof.json`.
 
 ## Ordinary update review
 
 The enabled existing workflow and mainline schedule are retained. GitHub currently supports an IANA timezone beside its scheduled trigger, so the existing Australia/Sydney setting is supported. Its official documentation also allows delayed or dropped scheduled runs under load. These are platform facts, not a verified cause of this repository's missing later run. Preserve one owner and diagnose actual run evidence rather than adding another scheduler or claiming success from an active configuration. [GitHub schedule documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule), [timezone release note](https://github.blog/changelog/2026-03-19-github-actions-late-march-2026-updates/).
+
+A fresh read-only observation during this release still found no later scheduled run than failed run `38080828429`; `ordinary-scheduled-observation.json` records its dated state. Successful app deployment does not prove a normal overnight sports publication. No source refresh, scheduler or database change was made in this module.
 
 Full approval remains 0/17 carried families and 0/3 Football pilots; target at least 14/17. The original 51 audit chapters and three diagrams remain intact. The programme is still active.
