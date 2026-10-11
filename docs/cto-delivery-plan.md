@@ -1,6 +1,6 @@
 # CTO delivery programme — authoritative current queue
 
-**Current decision — 12 October 2026:** The sports-data, offline and calendar-return fixes are live. Football tables and team records now honour each match’s Hide/Show results choice, including while a table loads. The normal release passed, the live files match the checked update, and both browser checks pass on the live site. Football stays the main product priority. Next check whether tables warn when they fall behind newer results, then finish unusual match states and observe the next normal overnight update without starting another updater. Real-phone use remains separate. No new subscription or routine for Jack; Passwords/iCloud stays parked.
+**Current decision — 12 October 2026:** The sports-data, offline, calendar-return and Football result-choice fixes are live. The next checked update warns when Football tables and recorded results disagree. It also lets the full standings check recognise the existing Premier League update. Both browser checks, result-hiding checks and installed-app update rehearsals pass locally; publish this separate update and verify it live. Football stays the main product priority. Then finish unusual match states and observe the next normal overnight update without starting another updater. Real-phone use remains separate. No new subscription or routine for Jack; Passwords/iCloud stays parked.
 
 **Full approval:** 0/17 carried families and 0/3 Football pilots, targeting at least 14/17 families. This means no sport has passed the entire launch checklist yet. It does not mean the repairs have achieved nothing: users already get more accurate cards and clearer viewing links. Full approval also needs reliable updates, permission to use the material commercially and checks on a real phone. Baseball joined coverage on 6 October; older report chapters keep their original counts.
 
@@ -16,7 +16,7 @@
 
 **Next five actions, in order:**
 
-- Check that Football tables warn when newer results leave them behind. Preserve the delivered result-choice, sports, offline and calendar fixes. Observe the next normal overnight update separately.
+- Publish and verify the checked Football table-warning and update-connection repair. Preserve the delivered result-choice, sports, offline and calendar fixes. Observe the next normal overnight update separately.
 - Finish the Football pilots: remaining match states, table upkeep, Australian viewing and actual-phone use. Reuse the completed dated comparisons.
 - Repair demonstrated gaps in the other carried sports toward at least 14/17 approved families. Keep uncertain times, participants and results unknown.
 - Use the prepared short phone session when available, then measure real return visits among authorised invitees. Existing owner questions stay pending.

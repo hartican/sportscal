@@ -61,7 +61,8 @@ async function standings(ev,visible=()=>isSpoilerVisible(ev)){
    if(!showResults()){await paint();return;}
    const rows=doc.standings.filter(r=>r.competitionId===ev.competitionId&&(ev.participantIds||[]).includes(r.participantId));
    if(!rows.length)throw Error('No published table rows');
-   if(rows.some(row=>row.stale)){const warning=document.createElement('p');warning.className='standings-stale-note';warning.textContent=rows.find(row=>row.stale)?.staleNote||'Table awaits primary-source confirmation.';section.append(warning);}
+   const tableWarning=NOTHINGSPORTS_FEED_CARD_PRESENTATION.footballTableWarning(doc,rows,[ev]);
+   if(tableWarning){const warning=document.createElement('p');warning.className='standings-stale-note';warning.textContent=tableWarning;section.append(warning);}
    const list=document.createElement('ul');for(const r of rows){const row=document.createElement('li');row.textContent=NOTHINGSPORTS_FEED_CARD_PRESENTATION.standingPosition(r)+' · '+r.displayName+' · '+r.played+' played · '+r.ladderPoints+' pts';list.append(row);}section.append(list);
    const note=document.createElement('p'),checked=rows.map(r=>r.asOf).filter(Boolean).sort().at(-1);note.className='standings-source-note';note.textContent=(rows[0].tableNote||'')+(checked?' Table checked '+new Intl.DateTimeFormat('en-AU',{dateStyle:'medium',timeStyle:'short',timeZone:'Australia/Sydney'}).format(new Date(checked))+' (Sydney).':'');section.append(note);
    if(/^https:\/\//.test(rows[0].sourceUrl||'')){const link=document.createElement('a');link.href=rows[0].sourceUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Standings source';section.append(link);}

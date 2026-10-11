@@ -13,6 +13,7 @@ class Element {
  set textContent(v){this.children.forEach(c=>{if(c instanceof Element)c.parent=null;});this.children=[];this._text=String(v??'');}
  get textContent(){return this._text+this.children.map(c=>c instanceof Element?c.textContent:String(c)).join('');}
  append(...items){for(const c of items){if(c instanceof Element)c.parent=this;this.children.push(c);}}
+ appendChild(item){this.append(item);return item;}
  replaceChildren(...items){this.textContent='';this.append(...items);}
  replaceWith(item){assert(this.parent);const parent=this.parent,i=parent.children.indexOf(this);assert(i>=0);parent.children.splice(i,1,item);item.parent=parent;this.parent=null;}
  remove(){if(this.parent){const p=this.parent;p.children.splice(p.children.indexOf(this),1);this.parent=null;}}
@@ -24,7 +25,7 @@ function environment({global=false,override='inherit',strict=false,fetchDocument
  const doc={code:{id:'sport:football'},fixtures:capture.fixtures,standings:capture.standings};
  let reads=0;
  const context=vm.createContext({document:{head,createElement:tag=>new Element(tag),createTextNode:v=>String(v)},userPreferences:{showSpoilers:global,feedControls:{spoilers:strict?'strict':global?'results_visible':'standard'}},getEventSpoilerState:()=>choices,codeInspectorChunk:fetchDocument?null:doc,fetchJson:()=>{reads++;return fetchDocument();},loadDeferredScript:()=>Promise.resolve(),NOTHINGSPORTS_FEED_CARD_PRESENTATION:{standingPosition:r=>r.position},Intl,Date,console});
- vm.runInContext(policy+caller+renderer,context);
+ vm.runInContext(fs.readFileSync(path.join(root,'config/feed-card-presentation.js'),'utf8')+policy+caller+renderer,context);
  return {context,choices,mount,doc,reads:()=>reads};
 }
 function section(env){return all(env.mount,n=>n.className==='football-card-standings')[0];}
@@ -70,3 +71,4 @@ async function validate(){
 }
 if(require.main===module)validate().catch(e=>{console.error(e.message);process.exitCode=1;});
 module.exports=validate;
+Object.assign(module.exports,{environment,render,all,Element});

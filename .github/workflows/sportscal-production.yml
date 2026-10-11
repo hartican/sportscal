@@ -116,6 +116,7 @@ jobs:
           node scripts/validate-generated-shell-version.js
           node scripts/validate-football-quick-refresh.js
           node scripts/validate-football-card-privacy.js
+          node scripts/validate-football-table-freshness.js
           node scripts/validate-empty-startup-meta.js
           node scripts/validate-hobby-feed-cache.js
           node scripts/validate-hobby-feed-client.js

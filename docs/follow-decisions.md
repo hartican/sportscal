@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## Football tables disclose disagreement with recorded results — 12 October 2026 Sydney
+
+Expanded Football cards and the full Follow table share the retained-facts comparison in the existing presentation module. Only the complete reviewed current EPL season and UEFA league phase can establish a discrepancy. Warn when the published table's sporting totals disagree with valid recorded finals; keep its ranks, points, source attribution and actual check date. Card and full-table Results choices still govern all rows and warnings. A later clock, playing score, reschedule, ambiguous identity or incomplete collection cannot invent a new final or establish the comparison. Existing delayed-backup degradation remains visible.
+
+This changes no Follow admission, discovery, fixture/user identity, consent, refresh, database or notification choice. Regressions use the actual deferred card and full Follow renderer, archived current/earlier EPL facts, and the existing live Schedule merge. Two browser engines and both normal installed-update rehearsals remain required before release; this repair does not certify full Football coverage or physical-phone operation.
+
+Within the existing live Schedule merge, explicit canonical Football source membership takes priority over a legacy Premier League key. A captured genuine source update proves the formerly missed selection; explicit American Football cannot enter Football. Preserve source IDs, original status/score dates and the existing continuity rules. Static card and live-source records retain their different provenance; do not invent new live observation dates to make a rehearsal pass.
+
 ## Football card records share fixture result choices — 12 October 2026 Sydney
 
 Expanded Football standings and pre-match team records use the existing effective fixture result choice: a per-fixture Hide/Show overrides the global setting, and strict protection always hides records. Pass the shared visibility predicate across the deferred card boundary and recheck it after a standings read and on Retry. Do not copy only the global Results switch. Keep the existing explicit boolean context-helper contract for its direct callers. The same shared pre-match context renderer preserves this behaviour for NBL.
