@@ -7,7 +7,7 @@ function installFeedLiveScore(card,event){
   const render=()=>globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES?.install(card,event,{resultsOn:isSpoilerVisible(event),label:id=>cardIdentityParticipants().find(p=>p.id===id)?.displayName||null});
   if(globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES){render();return;}
   const owner=serverSyncClient?.sessionSubject()||'public';
-  feedLiveScoreLoading ||= loadDeferredScript('config/match-centre.js?v=493').then(()=>loadDeferredScript('config/feed-live-scores.js?v=491')).catch(error=>{feedLiveScoreLoading=null;throw error;});
+  feedLiveScoreLoading ||= loadDeferredScript('config/match-centre.js?v=494').then(()=>loadDeferredScript('config/feed-live-scores.js?v=494')).catch(error=>{feedLiveScoreLoading=null;throw error;});
   void feedLiveScoreLoading.then(()=>{if(card.isConnected&&activeTab===tab&&owner===(serverSyncClient?.sessionSubject()||'public'))render();}).catch(()=>{});
 };
 
@@ -15,7 +15,7 @@ async function refreshLiveFixtureSnapshot(){
   if(document.hidden || globalThis.location?.protocol==='file:' || startupCoordinator.isHydrating() || activeTab==='follow' || activeTab==='athletes')return;
   if(liveFixtureRefresh){liveFixtureRefreshQueued=true;return liveFixtureRefresh;}
   const refreshOwner=JSON.stringify([serverSyncClient?.sessionSubject()||'public',userPreferences,eventActions]);
-  const mountedIds=[...new Set([...document.querySelectorAll('.feed-card-slot .event-card:not(.tennis-feed-parent)')].map(card=>card.closest('[data-feed-event-id]')?.dataset.feedEventId).filter(Boolean))].sort().slice(0,60);
+  const mountedIds=[...new Set([...document.querySelectorAll('.feed-card-slot [data-card-event-id],.feed-card-slot .event-card,.feed-card-slot .joint-tournament-card')].map(card=>card.closest('[data-feed-event-id]')?.dataset.feedEventId).filter(Boolean))].sort().slice(0,60);
   const recent=Date.now()-liveFixtureLastRequestedAt<30_000;
   const ids=recent?mountedIds.filter(id=>!liveFixtureRequestedIds.has(id)):mountedIds;
   if(!ids.length)return;
@@ -27,7 +27,7 @@ async function refreshLiveFixtureSnapshot(){
       if(response.status===304)return;
       if(!response.ok)throw new Error('Live source unavailable');
       const snapshot=await response.json();
-      if(document.hidden || refreshOwner!==JSON.stringify([serverSyncClient?.sessionSubject()||'public',userPreferences,eventActions]) || !['feed','events','athletes'].includes(activeTab))return;
+      if(document.hidden || refreshOwner!==JSON.stringify([serverSyncClient?.sessionSubject()||'public',userPreferences,eventActions]))return;
       if(snapshot.schemaVersion!=='live-fixtures.v1'||!Array.isArray(snapshot.sources)||!snapshot.revision)throw new Error('Invalid live snapshot');
       fantasySourceState=snapshot.fantasySources||{};
       globalThis.fantasyDeadlineController?.sync();
@@ -49,12 +49,13 @@ async function refreshLiveFixtureSnapshot(){
           if(mounted)profileFixtureEvents.set(String(id),{...mounted,...event});
         }
       }
+      const byId=new Map(nextEvents.flatMap(event=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].filter(Boolean).map(id=>[String(id),event])));
       for(const item of feedCardSlots.values()){
-        const known=profileFixtureEvents.get(String(item.event.eventId||item.event.id));
+        const known=byId.get(String(item.event.eventId||item.event.id));
         if(known){item.event={...item.event,...known};const card=item.slot.querySelector('.event-card');if(card)installFeedLiveScore(card,item.event);}
       }
       globalThis.fantasyDeadlineController?.sync();
-      queueScrollIdleMutation(()=>renderFeedIfPresentationChanged({preserveViewport:true}));
+      if(['feed','events'].includes(activeTab))queueScrollIdleMutation(()=>renderFeedIfPresentationChanged({preserveViewport:true}));
     }catch(error){/* Keep static and last-good fixtures; a network failure is not an empty calendar. */}
     finally{liveFixtureRefresh=null;if(liveFixtureRefreshQueued){liveFixtureRefreshQueued=false;queueLiveFixtureSnapshot();}}
   globalThis.NOTHINGSPORTS_FEED_SCORE_UI={install:installFeedLiveScore,refresh:refreshLiveFixtureSnapshot};

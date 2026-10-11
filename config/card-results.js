@@ -6,16 +6,17 @@
   "use strict";
 
   const VERSION = "card-results.v1";
+  const scalar=value=>typeof value==='string'?value.trim():typeof value==='number'&&Number.isFinite(value)?String(value):null;
 
   function escapePattern(value){
     return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
   function structuredScore(event){
-    if (event?.scoreDisplay) return String(event.scoreDisplay).trim();
+    if (scalar(event?.scoreDisplay)) return scalar(event.scoreDisplay);
     const home = event?.homeScore;
     const away = event?.awayScore;
-    if (home !== undefined && home !== null && away !== undefined && away !== null) return `${home}-${away}`;
+    if (scalar(home)!==null && scalar(away)!==null) return `${home}-${away}`;
     return null;
   }
 
@@ -29,7 +30,7 @@
 
   function scoreLine(event, displayTitle, result){
     const structured = structuredScore(event);
-    const original = String(structured || result?.score || result?.outcome || "").trim();
+    const original = structured || scalar(result?.score) || scalar(result?.outcome);
     if (!original) return null;
     // Multi-driver classifications need each ranked identity, even when participants are shown elsewhere.
     if(event?.key==='wrc'||event?.key==='f1' && event?.fixtureResults?.rows?.length)return original;

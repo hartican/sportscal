@@ -68,6 +68,9 @@ jobs:
           node scripts/validate-racing-details.js
           node scripts/validate-horse-racing.js
           node scripts/validate-full-scorecards.js
+          node scripts/validate-golf-live.js
+          node scripts/validate-live-score-continuity.js
+          node scripts/validate-view-cache.js
           node scripts/validate-fixture-route-facts.js
           node scripts/validate-session-order-estimates.js
           node scripts/validate-current-score-placement.js

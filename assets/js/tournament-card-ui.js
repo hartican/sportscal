@@ -28,9 +28,9 @@ async function render(container,parent){
   if(data.latest.length){container.append(node('h4','Latest followed results'));mount(container,data.latest);}
   if(data.older.length){const more=node('details'),summary=node('summary','Older followed results');more.append(summary);mount(more,data.older);container.append(more);}
   if(parent.key==='golf'){
-   const scores=merged.filter(f=>NOTHINGSPORTS_TOURNAMENT_DETAILS.related(edition,f)).flatMap(f=>f.roundScores||[]).filter(r=>follows(r.participantId));
-   if(scores.length){container.append(node('h4','Followed round scores'));for(const r of scores){if(!isSpoilerVisible(parent))continue;container.append(node('p',r.name+' · '+r.position+' · '+r.total+' · '+r.rounds.map((s,i)=>'R'+(i+1)+' '+(s??'—')).join(' · ')+' · '+(r.roundStatus||r.thru||'')+(r.stale?' · Last available scores':'')));}}
-   else container.append(node('p','Round scores and positions have not been supplied by the current source.'));
+   await loadDeferredScript('config/golf-score-details.js?v=494');
+   const current=merged.filter(f=>NOTHINGSPORTS_TOURNAMENT_DETAILS.related(edition,f)&&(f.score?.golf?.rows||f.roundScores)).sort((a,b)=>String(b.scoreCheckedAt||b.sourceCheckedAt||'').localeCompare(String(a.scoreCheckedAt||a.sourceCheckedAt||'')))[0]||parent;
+   const slot=node('div',null,'fixture-golf-details');container.append(slot);NOTHINGSPORTS_GOLF_SCORES.mount(slot,current,{followed:follows,visible:isSpoilerVisible(parent)});
   }
   const link=node('a',parent.key==='golf'?'Official tee times and leaderboard':'Official tournament');link.href=parent.key==='golf'?(edition.sourceUrl||parent.sourceUrl)?.replace(/tee-times$/,'leaderboard'):edition.sourceUrl||parent.sourceUrl;link.target='_blank';link.rel='noopener noreferrer';container.append(link);
  }catch{if(!container.isConnected)return;container.textContent='Followed appearances could not load. ';const retry=node('button','Retry','btn ghost');retry.type='button';retry.onclick=()=>void render(container,parent);container.append(retry);}
