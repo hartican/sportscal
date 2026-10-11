@@ -2,7 +2,7 @@
 
 Reference date: 2026-10-11
 
-Compared 8 live/delayed listings with 1788 canonical events. Found 8 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 0 high-priority recommendations.
+Compared 8 live/delayed listings with 1820 canonical events. Found 8 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 0 high-priority recommendations.
 
 ## Australian source health
 
@@ -23,7 +23,7 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 
 | Date | Candidate | Match | Confidence | Priority | Suggested action | AU option | Blockers |
 |---|---|---|---:|---|---|---|---|
-| 2026-10-11 | WTA 1000 | new | 0.08 | normal | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-11 | WTA 1000 | new | 0.13 | normal | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-10-14 | UEFA Champions League | new | 0.00 | normal | review | Stan Sport (included) | new_catalogue_identity |
 | 2026-10-16 | UEFA Conference League | new | 0.00 | normal | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-10-16 | UEFA Europa League | new | 0.00 | normal | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |

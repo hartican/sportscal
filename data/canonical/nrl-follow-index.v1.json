@@ -1,6 +1,6 @@
 {
   "schemaVersion": "nrl-follow-index.v1",
-  "generatedAt": "2026-10-04T05:50:15.886Z",
+  "generatedAt": "2026-10-11T12:37:19.576Z",
   "teams": [
     {
       "id": "team:nrl:322",
@@ -1598,11 +1598,6 @@
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:keenan-palasia",
-      "currentTeamId": "team:nrl:337",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
       "id": "competitor:nrl:kelma-tuilagi",
       "currentTeamId": "team:nrl:328",
       "leagueId": "competition:nrl-premiership-2026"
@@ -2905,6 +2900,11 @@
     {
       "id": "competitor:nrl:zakauri-clarke",
       "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:zane-harrison",
+      "currentTeamId": "team:nrl:337",
       "leagueId": "competition:nrl-premiership-2026"
     }
   ]

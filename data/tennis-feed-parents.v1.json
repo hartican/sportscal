@@ -16333,26 +16333,17 @@
       "participationEvidence": [],
       "excludedParticipantIds": [],
       "participantIds": [
-        "competitor:tennis:atp:rei-sakamoto",
-        "competitor:tennis:atp:quentin-halys",
-        "competitor:tennis:atp:zhou-yi",
         "competitor:tennis:atp:arthur-gea",
-        "competitor:tennis:atp:adrian-mannarino",
-        "competitor:tennis:atp:adolfo-daniel-vallejo",
         "competitor:tennis:atp:dalibor-svrcina",
         "competitor:tennis:atp:stefanos-tsitsipas",
         "competitor:tennis:atp:pablo-carreno-busta",
         "competitor:tennis:atp:hubert-hurkacz",
         "competitor:tennis:atp:botic-van-de-zandschulp",
-        "competitor:tennis:atp:sebastian-baez",
         "competitor:tennis:atp:zizou-bergs",
-        "competitor:tennis:atp:juan-manuel-cerundolo",
         "athlete:tennis:alex-de-minaur",
         "competitor:tennis:atp:frances-tiafoe",
         "competitor:tennis:atp:karen-khachanov",
         "competitor:tennis:atp:alejandro-davidovich-fokina",
-        "competitor:tennis:atp:ben-shelton",
-        "competitor:tennis:atp:francisco-cerundolo",
         "competitor:tennis:atp:jakub-mensik",
         "competitor:tennis:atp:alexander-bublik",
         "competitor:tennis:atp:brandon-nakashima",
@@ -16360,16 +16351,15 @@
         "competitor:tennis:atp:taylor-fritz",
         "competitor:tennis:atp:tommy-paul",
         "competitor:tennis:atp:valentin-vacherot",
-        "competitor:tennis:atp:ignacio-buse",
         "competitor:tennis:atp:carlos-alcaraz",
         "competitor:tennis:atp:arthur-fils",
-        "competitor:tennis:atp:alex-michelsen",
         "competitor:tennis:atp:jiri-lehecka",
         "competitor:tennis:atp:felix-auger-aliassime",
         "competitor:tennis:atp:daniil-medvedev",
         "competitor:tennis:atp:rafael-jodar",
         "competitor:tennis:atp:learner-tien",
-        "competitor:tennis:atp:casper-ruud"
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:alex-de-minaur"
       ],
       "expected": 5,
       "sourceParticipation": [
@@ -16406,13 +16396,13 @@
         {
           "participantId": "competitor:tennis:atp:rei-sakamoto",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
           "participantId": "competitor:tennis:atp:quentin-halys",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -16466,7 +16456,7 @@
         {
           "participantId": "competitor:tennis:atp:zhou-yi",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -16496,7 +16486,7 @@
         {
           "participantId": "competitor:tennis:atp:adrian-mannarino",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -16556,7 +16546,7 @@
         {
           "participantId": "competitor:tennis:atp:adolfo-daniel-vallejo",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -16718,7 +16708,7 @@
         {
           "participantId": "competitor:tennis:atp:sebastian-baez",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -16748,7 +16738,7 @@
         {
           "participantId": "competitor:tennis:atp:juan-manuel-cerundolo",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -16808,7 +16798,7 @@
         {
           "participantId": "competitor:tennis:atp:ben-shelton",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -16820,7 +16810,7 @@
         {
           "participantId": "competitor:tennis:atp:francisco-cerundolo",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -16886,7 +16876,7 @@
         {
           "participantId": "competitor:tennis:atp:ignacio-buse",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -16904,7 +16894,7 @@
         {
           "participantId": "competitor:tennis:atp:alex-michelsen",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -16948,30 +16938,27 @@
           "draw": "mens-singles",
           "active": false,
           "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:atp:alex-de-minaur",
+          "draw": "mens-singles",
+          "active": true,
+          "excluded": false
         }
       ],
       "participantsConfirmed": true,
       "sourceParticipantIds": [
-        "competitor:tennis:atp:rei-sakamoto",
-        "competitor:tennis:atp:quentin-halys",
-        "competitor:tennis:atp:zhou-yi",
         "competitor:tennis:atp:arthur-gea",
-        "competitor:tennis:atp:adrian-mannarino",
-        "competitor:tennis:atp:adolfo-daniel-vallejo",
         "competitor:tennis:atp:dalibor-svrcina",
         "competitor:tennis:atp:stefanos-tsitsipas",
         "competitor:tennis:atp:pablo-carreno-busta",
         "competitor:tennis:atp:hubert-hurkacz",
         "competitor:tennis:atp:botic-van-de-zandschulp",
-        "competitor:tennis:atp:sebastian-baez",
         "competitor:tennis:atp:zizou-bergs",
-        "competitor:tennis:atp:juan-manuel-cerundolo",
         "athlete:tennis:alex-de-minaur",
         "competitor:tennis:atp:frances-tiafoe",
         "competitor:tennis:atp:karen-khachanov",
         "competitor:tennis:atp:alejandro-davidovich-fokina",
-        "competitor:tennis:atp:ben-shelton",
-        "competitor:tennis:atp:francisco-cerundolo",
         "competitor:tennis:atp:jakub-mensik",
         "competitor:tennis:atp:alexander-bublik",
         "competitor:tennis:atp:brandon-nakashima",
@@ -16979,18 +16966,33 @@
         "competitor:tennis:atp:taylor-fritz",
         "competitor:tennis:atp:tommy-paul",
         "competitor:tennis:atp:valentin-vacherot",
-        "competitor:tennis:atp:ignacio-buse",
         "competitor:tennis:atp:carlos-alcaraz",
         "competitor:tennis:atp:arthur-fils",
-        "competitor:tennis:atp:alex-michelsen",
         "competitor:tennis:atp:jiri-lehecka",
         "competitor:tennis:atp:felix-auger-aliassime",
         "competitor:tennis:atp:daniil-medvedev",
         "competitor:tennis:atp:rafael-jodar",
         "competitor:tennis:atp:learner-tien",
-        "competitor:tennis:atp:casper-ruud"
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:alex-de-minaur"
       ],
-      "contestCount": 77
+      "contestCount": 82,
+      "viewingOptions": [
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en",
+          "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+          "verifiedAt": "2026-10-11T05:19:19.930Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:paris-masters:2026:main",
@@ -18149,18 +18151,18 @@
         "hook": "Beijing puts Rybakina, Sabalenka, Gauff and Andreeva on four separate paths through a deep draw.",
         "synopsis": "The early rounds are about earning the marquee meetings, not assuming them. Gauff and Swiatek share a quarter, while Andreeva could run into Noskova and Sabalenka has Osaka in her section. Those are possible later matchups, not booked fixtures. With a 96-player singles field, the first weekend tests who can turn a favourable seed into a sustained run.",
         "threadIds": [
-          "thread:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02"
+          "thread:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:revision-4161be39cf0d9a91e272a1793cc1114c298cd2b23f48d44ffded9806867f581b"
         ],
         "factIds": [
-          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:0",
-          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:1",
-          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:2",
-          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:3"
+          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:revision-4161be39cf0d9a91e272a1793cc1114c298cd2b23f48d44ffded9806867f581b:0",
+          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:revision-4161be39cf0d9a91e272a1793cc1114c298cd2b23f48d44ffded9806867f581b:1",
+          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:revision-4161be39cf0d9a91e272a1793cc1114c298cd2b23f48d44ffded9806867f581b:2",
+          "fact:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:revision-4161be39cf0d9a91e272a1793cc1114c298cd2b23f48d44ffded9806867f581b:3"
         ],
         "sourceIds": [
-          "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:0",
-          "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:1",
-          "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:2"
+          "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:revision-4161be39cf0d9a91e272a1793cc1114c298cd2b23f48d44ffded9806867f581b:0",
+          "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:revision-4161be39cf0d9a91e272a1793cc1114c298cd2b23f48d44ffded9806867f581b:1",
+          "source:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02:revision-4161be39cf0d9a91e272a1793cc1114c298cd2b23f48d44ffded9806867f581b:2"
         ],
         "dimensions": [
           "format",
@@ -18249,40 +18251,51 @@
       "participantIds": [
         "competitor:tennis:wta:anhelina-kalinina",
         "competitor:tennis:wta:sonay-kartal",
-        "competitor:tennis:wta:guo-hanyu",
-        "competitor:tennis:wta:sorana-cirstea",
+        "competitor:tennis:wta:catherine-mcnally",
+        "competitor:tennis:wta:yuliia-starodubtseva",
         "competitor:tennis:wta:jasmine-paolini",
         "competitor:tennis:wta:sara-bejlek",
-        "competitor:tennis:wta:lilli-tagger",
-        "competitor:tennis:wta:nikola-bartunkova",
-        "competitor:tennis:wta:katie-boulter",
-        "competitor:tennis:wta:diana-shnaider",
-        "competitor:tennis:wta:dayana-yastremska",
-        "competitor:tennis:wta:cristina-bucsa",
         "competitor:tennis:wta:maria-sakkari",
         "competitor:tennis:wta:donna-vekic",
-        "competitor:tennis:wta:katerina-siniakova",
-        "competitor:tennis:wta:liudmila-samsonova",
         "competitor:tennis:wta:clara-tauson",
         "competitor:tennis:wta:marie-bouzkova",
-        "competitor:tennis:wta:mayar-sherif",
-        "competitor:tennis:wta:maja-chwalinska",
         "competitor:tennis:wta:iva-jovic",
         "competitor:tennis:wta:mia-pohankova",
         "competitor:tennis:wta:wang-xiyu",
         "competitor:tennis:wta:wang-xinyu",
         "competitor:tennis:wta:ekaterina-alexandrova",
         "competitor:tennis:wta:leylah-fernandez",
-        "competitor:tennis:wta:daria-snigur",
-        "competitor:tennis:wta:elise-mertens",
-        "competitor:tennis:wta:belinda-bencic",
-        "competitor:tennis:wta:zhang-shuai",
         "competitor:tennis:wta:diane-parry",
         "competitor:tennis:wta:anna-kalinskaya",
-        "competitor:tennis:wta:ann-li",
-        "competitor:tennis:wta:zheng-qinwen",
+        "competitor:tennis:wta:mananchaya-sawangkaew",
+        "competitor:tennis:wta:magdalena-frech",
         "competitor:tennis:wta:janice-tjen",
-        "competitor:tennis:wta:oleksandra-oliynykova"
+        "competitor:tennis:wta:aoi-ito",
+        "competitor:tennis:wta:guo-hanyu",
+        "competitor:tennis:wta:sorana-cirstea",
+        "competitor:tennis:wta:lilli-tagger",
+        "competitor:tennis:wta:nikola-bartunkova",
+        "competitor:tennis:wta:yulia-putintseva",
+        "competitor:tennis:wta:zeynep-sonmez",
+        "competitor:tennis:wta:katie-boulter",
+        "competitor:tennis:wta:diana-shnaider",
+        "competitor:tennis:wta:alexandra-eala",
+        "competitor:tennis:wta:shi-han",
+        "competitor:tennis:wta:dayana-yastremska",
+        "competitor:tennis:wta:cristina-bucsa",
+        "competitor:tennis:wta:katerina-siniakova",
+        "competitor:tennis:wta:liudmila-samsonova",
+        "competitor:tennis:wta:mayar-sherif",
+        "competitor:tennis:wta:maja-chwalinska",
+        "competitor:tennis:wta:kimberly-birrell",
+        "competitor:tennis:wta:katie-volynets",
+        "competitor:tennis:wta:daria-kasatkina",
+        "competitor:tennis:wta:jelena-ostapenko",
+        "competitor:tennis:wta:daria-snigur",
+        "competitor:tennis:wta:elise-mertens",
+        "competitor:tennis:wta:zhang-shuai",
+        "competitor:tennis:wta:ann-li",
+        "competitor:tennis:wta:zheng-qinwen"
       ],
       "expected": 5,
       "sourceParticipation": [
@@ -18299,13 +18312,13 @@
           "excluded": false
         },
         {
-          "participantId": "competitor:tennis:wta:guo-hanyu",
+          "participantId": "competitor:tennis:wta:catherine-mcnally",
           "draw": "womens-singles",
           "active": true,
           "excluded": false
         },
         {
-          "participantId": "competitor:tennis:wta:sorana-cirstea",
+          "participantId": "competitor:tennis:wta:yuliia-starodubtseva",
           "draw": "womens-singles",
           "active": true,
           "excluded": false
@@ -18323,42 +18336,6 @@
           "excluded": false
         },
         {
-          "participantId": "competitor:tennis:wta:lilli-tagger",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:nikola-bartunkova",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:katie-boulter",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:diana-shnaider",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:dayana-yastremska",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:cristina-bucsa",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
           "participantId": "competitor:tennis:wta:maria-sakkari",
           "draw": "womens-singles",
           "active": true,
@@ -18371,18 +18348,6 @@
           "excluded": false
         },
         {
-          "participantId": "competitor:tennis:wta:katerina-siniakova",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:liudmila-samsonova",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
           "participantId": "competitor:tennis:wta:clara-tauson",
           "draw": "womens-singles",
           "active": true,
@@ -18390,18 +18355,6 @@
         },
         {
           "participantId": "competitor:tennis:wta:marie-bouzkova",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:mayar-sherif",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:maja-chwalinska",
           "draw": "womens-singles",
           "active": true,
           "excluded": false
@@ -18443,6 +18396,162 @@
           "excluded": false
         },
         {
+          "participantId": "competitor:tennis:wta:diane-parry",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:anna-kalinskaya",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:mananchaya-sawangkaew",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:magdalena-frech",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:janice-tjen",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:aoi-ito",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:guo-hanyu",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:sorana-cirstea",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:lilli-tagger",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:nikola-bartunkova",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:yulia-putintseva",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:zeynep-sonmez",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:katie-boulter",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:diana-shnaider",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:alexandra-eala",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:shi-han",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:dayana-yastremska",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:cristina-bucsa",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:katerina-siniakova",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:liudmila-samsonova",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:mayar-sherif",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:maja-chwalinska",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:kimberly-birrell",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:katie-volynets",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:daria-kasatkina",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:jelena-ostapenko",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
           "participantId": "competitor:tennis:wta:daria-snigur",
           "draw": "womens-singles",
           "active": true,
@@ -18455,25 +18564,7 @@
           "excluded": false
         },
         {
-          "participantId": "competitor:tennis:wta:belinda-bencic",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
           "participantId": "competitor:tennis:wta:zhang-shuai",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:diane-parry",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:anna-kalinskaya",
           "draw": "womens-singles",
           "active": true,
           "excluded": false
@@ -18489,60 +18580,59 @@
           "draw": "womens-singles",
           "active": true,
           "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:janice-tjen",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:oleksandra-oliynykova",
-          "draw": "womens-singles",
-          "active": true,
-          "excluded": false
         }
       ],
       "participantsConfirmed": true,
       "sourceParticipantIds": [
         "competitor:tennis:wta:anhelina-kalinina",
         "competitor:tennis:wta:sonay-kartal",
-        "competitor:tennis:wta:guo-hanyu",
-        "competitor:tennis:wta:sorana-cirstea",
+        "competitor:tennis:wta:catherine-mcnally",
+        "competitor:tennis:wta:yuliia-starodubtseva",
         "competitor:tennis:wta:jasmine-paolini",
         "competitor:tennis:wta:sara-bejlek",
-        "competitor:tennis:wta:lilli-tagger",
-        "competitor:tennis:wta:nikola-bartunkova",
-        "competitor:tennis:wta:katie-boulter",
-        "competitor:tennis:wta:diana-shnaider",
-        "competitor:tennis:wta:dayana-yastremska",
-        "competitor:tennis:wta:cristina-bucsa",
         "competitor:tennis:wta:maria-sakkari",
         "competitor:tennis:wta:donna-vekic",
-        "competitor:tennis:wta:katerina-siniakova",
-        "competitor:tennis:wta:liudmila-samsonova",
         "competitor:tennis:wta:clara-tauson",
         "competitor:tennis:wta:marie-bouzkova",
-        "competitor:tennis:wta:mayar-sherif",
-        "competitor:tennis:wta:maja-chwalinska",
         "competitor:tennis:wta:iva-jovic",
         "competitor:tennis:wta:mia-pohankova",
         "competitor:tennis:wta:wang-xiyu",
         "competitor:tennis:wta:wang-xinyu",
         "competitor:tennis:wta:ekaterina-alexandrova",
         "competitor:tennis:wta:leylah-fernandez",
-        "competitor:tennis:wta:daria-snigur",
-        "competitor:tennis:wta:elise-mertens",
-        "competitor:tennis:wta:belinda-bencic",
-        "competitor:tennis:wta:zhang-shuai",
         "competitor:tennis:wta:diane-parry",
         "competitor:tennis:wta:anna-kalinskaya",
-        "competitor:tennis:wta:ann-li",
-        "competitor:tennis:wta:zheng-qinwen",
+        "competitor:tennis:wta:mananchaya-sawangkaew",
+        "competitor:tennis:wta:magdalena-frech",
         "competitor:tennis:wta:janice-tjen",
-        "competitor:tennis:wta:oleksandra-oliynykova"
+        "competitor:tennis:wta:aoi-ito",
+        "competitor:tennis:wta:guo-hanyu",
+        "competitor:tennis:wta:sorana-cirstea",
+        "competitor:tennis:wta:lilli-tagger",
+        "competitor:tennis:wta:nikola-bartunkova",
+        "competitor:tennis:wta:yulia-putintseva",
+        "competitor:tennis:wta:zeynep-sonmez",
+        "competitor:tennis:wta:katie-boulter",
+        "competitor:tennis:wta:diana-shnaider",
+        "competitor:tennis:wta:alexandra-eala",
+        "competitor:tennis:wta:shi-han",
+        "competitor:tennis:wta:dayana-yastremska",
+        "competitor:tennis:wta:cristina-bucsa",
+        "competitor:tennis:wta:katerina-siniakova",
+        "competitor:tennis:wta:liudmila-samsonova",
+        "competitor:tennis:wta:mayar-sherif",
+        "competitor:tennis:wta:maja-chwalinska",
+        "competitor:tennis:wta:kimberly-birrell",
+        "competitor:tennis:wta:katie-volynets",
+        "competitor:tennis:wta:daria-kasatkina",
+        "competitor:tennis:wta:jelena-ostapenko",
+        "competitor:tennis:wta:daria-snigur",
+        "competitor:tennis:wta:elise-mertens",
+        "competitor:tennis:wta:zhang-shuai",
+        "competitor:tennis:wta:ann-li",
+        "competitor:tennis:wta:zheng-qinwen"
       ],
-      "contestCount": 18
+      "contestCount": 24
     },
     {
       "id": "tennis-parent:mubadala-citi-dc-open:2026:main",
@@ -19701,18 +19791,18 @@
         "hook": "Eight nations arrive in Shenzhen with three ties separating them from the title; Italy carry the weight of two consecutive championships.",
         "synopsis": "The knockout draw leaves no recovery round. Two singles matches and a possible doubles decider make selection and pairings central to each tie, with the first team to two wins progressing. Italy enter as champions of the previous two editions, while hosts China and seven qualifying winners share one venue across six days.",
         "threadIds": [
-          "thread:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22"
+          "thread:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:revision-b29e536001e861182264586d8d0b48f07c55f57cdc336b1674f4e29c2daa3586"
         ],
         "factIds": [
-          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:0",
-          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:1",
-          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:2",
-          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:3"
+          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:revision-b29e536001e861182264586d8d0b48f07c55f57cdc336b1674f4e29c2daa3586:0",
+          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:revision-b29e536001e861182264586d8d0b48f07c55f57cdc336b1674f4e29c2daa3586:1",
+          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:revision-b29e536001e861182264586d8d0b48f07c55f57cdc336b1674f4e29c2daa3586:2",
+          "fact:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:revision-b29e536001e861182264586d8d0b48f07c55f57cdc336b1674f4e29c2daa3586:3"
         ],
         "sourceIds": [
-          "source:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:0",
-          "source:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:1",
-          "source:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:2"
+          "source:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:revision-b29e536001e861182264586d8d0b48f07c55f57cdc336b1674f4e29c2daa3586:0",
+          "source:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:revision-b29e536001e861182264586d8d0b48f07c55f57cdc336b1674f4e29c2daa3586:1",
+          "source:fixture-research:tennis-tournament-bjk-cup-finals-2026-2026-09-22:revision-b29e536001e861182264586d8d0b48f07c55f57cdc336b1674f4e29c2daa3586:2"
         ],
         "dimensions": [
           "path",

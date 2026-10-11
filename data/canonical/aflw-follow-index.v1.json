@@ -1,6 +1,6 @@
 {
   "schemaVersion": "aflw-follow-index.v1",
-  "generatedAt": "2026-10-04T05:50:15.886Z",
+  "generatedAt": "2026-10-11T12:37:19.576Z",
   "teams": [
     {
       "id": "team:aflw:cd_t8098",
@@ -2933,6 +2933,11 @@
     },
     {
       "id": "competitor:aflw:tyla-hanks",
+      "currentTeamId": "team:aflw:cd_t7386",
+      "leagueId": "competition:aflw-2026"
+    },
+    {
+      "id": "competitor:aflw:tylah-burn",
       "currentTeamId": "team:aflw:cd_t7386",
       "leagueId": "competition:aflw-2026"
     },

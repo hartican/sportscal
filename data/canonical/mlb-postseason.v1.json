@@ -2793,7 +2793,7 @@
       "startTimeUtc": "2026-10-11T00:00:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "venue": "Progressive Field",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -2833,13 +2833,15 @@
           "participantId": "team:mlb:114",
           "label": "Cleveland Guardians",
           "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 2
         },
         {
           "participantId": "team:mlb:145",
           "label": "Chicago White Sox",
           "logoUrl": "https://www.mlbstatic.com/team-logos/145.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 0
         }
       ],
       "sourceName": "MLB",
@@ -2847,22 +2849,32 @@
       "sourceUrl": "https://www.mlb.com/gameday/849831",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849831",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
-      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-      "selectedSentence": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
-      "fullSpiel": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
+      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
+      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
+      "score": "Cleveland Guardians 2–0 Chicago White Sox",
+      "resultStatus": "official",
+      "outcomeText": "Cleveland Guardians 2–0 Chicago White Sox",
+      "recapText": "ALDS 'B' Game 5: Cleveland Guardians 2–0 Chicago White Sox. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:114",
+      "homeScore": 2,
+      "awayScore": 0,
+      "scoreCheckedAt": "2026-10-11T12:38:02.024Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849831",
+      "resultSourceCheckedAt": "2026-10-11T12:38:02.024Z",
+      "selectedSentence": "ALDS 'B' Game 5 is complete. Reveal results for the outcome.",
+      "fullSpiel": "ALDS 'B' Game 5 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
-        "hookSpoilerOn": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates."
+        "arcStage": "recap",
+        "hookSpoilerOff": "ALDS 'B' Game 5 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "ALDS 'B' Game 5 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Cleveland Guardians 2–0 Chicago White Sox",
+        "synopsisSpoilerOn": "Cleveland Guardians 2–0 Chicago White Sox"
       }
     },
     {
@@ -3600,8 +3612,652 @@
         "hookSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
         "synopsisSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates."
       }
+    },
+    {
+      "id": "fixture:mlb:849820",
+      "eventId": "fixture:mlb:849820",
+      "canonicalEventId": "fixture:mlb:849820",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Tampa Bay Rays v Cleveland Guardians",
+      "roundLabel": "ALCS Game 1",
+      "stage": "ALCS Game 1",
+      "date": "2026-10-13",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-13T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "Tropicana Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        },
+        {
+          "id": "team:mlb:114",
+          "name": "Cleveland Guardians",
+          "displayName": "Cleveland Guardians",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:139",
+        "team:mlb:114"
+      ],
+      "homeParticipantId": "team:mlb:139",
+      "awayParticipantId": "team:mlb:114",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:114",
+          "label": "Cleveland Guardians",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849820",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849820",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
+      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
+      "selectedSentence": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
+      "fullSpiel": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
+        "hookSpoilerOn": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "ALCS Game 1 at Tropicana Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849813",
+      "eventId": "fixture:mlb:849813",
+      "canonicalEventId": "fixture:mlb:849813",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Tampa Bay Rays v Cleveland Guardians",
+      "roundLabel": "ALCS Game 2",
+      "stage": "ALCS Game 2",
+      "date": "2026-10-14",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-14T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "Tropicana Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        },
+        {
+          "id": "team:mlb:114",
+          "name": "Cleveland Guardians",
+          "displayName": "Cleveland Guardians",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:139",
+        "team:mlb:114"
+      ],
+      "homeParticipantId": "team:mlb:139",
+      "awayParticipantId": "team:mlb:114",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:114",
+          "label": "Cleveland Guardians",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849813",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849813",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
+      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
+      "selectedSentence": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+      "fullSpiel": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+        "hookSpoilerOn": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "ALCS Game 2 at Tropicana Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849818",
+      "eventId": "fixture:mlb:849818",
+      "canonicalEventId": "fixture:mlb:849818",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Cleveland Guardians v Tampa Bay Rays",
+      "roundLabel": "ALCS Game 3",
+      "stage": "ALCS Game 3",
+      "date": "2026-10-16",
+      "time": "09:00",
+      "startTimeUtc": "2026-10-15T22:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "Progressive Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:114",
+          "name": "Cleveland Guardians",
+          "displayName": "Cleveland Guardians",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg"
+        },
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:114",
+        "team:mlb:139"
+      ],
+      "homeParticipantId": "team:mlb:114",
+      "awayParticipantId": "team:mlb:139",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:114",
+          "label": "Cleveland Guardians",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849818",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849818",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
+      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
+      "selectedSentence": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+      "fullSpiel": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+        "hookSpoilerOn": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "ALCS Game 3 at Progressive Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849817",
+      "eventId": "fixture:mlb:849817",
+      "canonicalEventId": "fixture:mlb:849817",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Cleveland Guardians v Tampa Bay Rays",
+      "roundLabel": "ALCS Game 4",
+      "stage": "ALCS Game 4",
+      "date": "2026-10-17",
+      "time": "09:00",
+      "startTimeUtc": "2026-10-16T22:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "Progressive Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:114",
+          "name": "Cleveland Guardians",
+          "displayName": "Cleveland Guardians",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg"
+        },
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:114",
+        "team:mlb:139"
+      ],
+      "homeParticipantId": "team:mlb:114",
+      "awayParticipantId": "team:mlb:139",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:114",
+          "label": "Cleveland Guardians",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849817",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849817",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
+      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
+      "selectedSentence": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+      "fullSpiel": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+        "hookSpoilerOn": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "ALCS Game 4 at Progressive Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849816",
+      "eventId": "fixture:mlb:849816",
+      "canonicalEventId": "fixture:mlb:849816",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Cleveland Guardians v Tampa Bay Rays",
+      "roundLabel": "ALCS Game 5",
+      "stage": "ALCS Game 5",
+      "date": "2026-10-18",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "tbc",
+      "scheduleStatus": "conditional",
+      "status": "upcoming",
+      "venue": "Progressive Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:114",
+          "name": "Cleveland Guardians",
+          "displayName": "Cleveland Guardians",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg"
+        },
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:114",
+        "team:mlb:139"
+      ],
+      "homeParticipantId": "team:mlb:114",
+      "awayParticipantId": "team:mlb:139",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:114",
+          "label": "Cleveland Guardians",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849816",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849816",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
+      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
+      "selectedSentence": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+      "fullSpiel": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+        "hookSpoilerOn": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "ALCS Game 5 at Progressive Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849815",
+      "eventId": "fixture:mlb:849815",
+      "canonicalEventId": "fixture:mlb:849815",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Tampa Bay Rays v Cleveland Guardians",
+      "roundLabel": "ALCS Game 6",
+      "stage": "ALCS Game 6",
+      "date": "2026-10-20",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "tbc",
+      "scheduleStatus": "conditional",
+      "status": "upcoming",
+      "venue": "Tropicana Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        },
+        {
+          "id": "team:mlb:114",
+          "name": "Cleveland Guardians",
+          "displayName": "Cleveland Guardians",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:139",
+        "team:mlb:114"
+      ],
+      "homeParticipantId": "team:mlb:139",
+      "awayParticipantId": "team:mlb:114",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:114",
+          "label": "Cleveland Guardians",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849815",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849815",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
+      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
+      "selectedSentence": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+      "fullSpiel": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+        "hookSpoilerOn": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "ALCS Game 6 at Tropicana Field. Check the official game page for updates."
+      }
+    },
+    {
+      "id": "fixture:mlb:849814",
+      "eventId": "fixture:mlb:849814",
+      "canonicalEventId": "fixture:mlb:849814",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Tampa Bay Rays v Cleveland Guardians",
+      "roundLabel": "ALCS Game 7",
+      "stage": "ALCS Game 7",
+      "date": "2026-10-21",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "tbc",
+      "scheduleStatus": "conditional",
+      "status": "upcoming",
+      "venue": "Tropicana Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        },
+        {
+          "id": "team:mlb:114",
+          "name": "Cleveland Guardians",
+          "displayName": "Cleveland Guardians",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:139",
+        "team:mlb:114"
+      ],
+      "homeParticipantId": "team:mlb:139",
+      "awayParticipantId": "team:mlb:114",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:114",
+          "label": "Cleveland Guardians",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849814",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849814",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
+      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
+      "selectedSentence": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+      "fullSpiel": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+        "hookSpoilerOn": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "ALCS Game 7 at Tropicana Field. Check the official game page for updates."
+      }
     }
   ],
-  "checkedAt": "2026-10-09T06:52:22.809Z",
-  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+  "checkedAt": "2026-10-11T12:38:02.024Z",
+  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
 }

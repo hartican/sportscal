@@ -1,21 +1,21 @@
 {
   "schemaVersion": "aflw-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-10-04T05:50:15.886Z",
+  "generatedAt": "2026-10-11T12:37:19.576Z",
   "sources": [
     {
       "id": "source:aflw:teams",
       "provider": "AFLW",
       "url": "https://www.afl.com.au/aflw/teams",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:50:15.886Z"
+      "checkedAt": "2026-10-11T12:37:19.576Z"
     },
     {
       "id": "source:aflw:players",
       "provider": "AFLW",
       "url": "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000",
       "sourceType": "official",
-      "checkedAt": "2026-10-04T05:50:15.886Z"
+      "checkedAt": "2026-10-11T12:37:19.576Z"
     }
   ],
   "leagues": [
@@ -12867,6 +12867,28 @@
       "photoURL": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1009853.png?im=Scale,width=0.6,height=0.6",
       "headshotUrl": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1009853.png?im=Scale,width=0.6,height=0.6",
       "profileRef": "profile:aflw:tyla-hanks",
+      "active": true
+    },
+    {
+      "id": "competitor:aflw:tylah-burn",
+      "displayName": "Tylah Burn",
+      "sortName": "Tylah Burn",
+      "currentTeamId": "team:aflw:cd_t7386",
+      "leagueId": "competition:aflw-2026",
+      "position": "Midfielder",
+      "sourceUrl": "https://www.afl.com.au/aflw/players/4095/tylah-burn",
+      "sourceRefs": [
+        "source:aflw:players",
+        "source:aflw:teams"
+      ],
+      "providerId": "CD_I1021849",
+      "jumperNumber": 44,
+      "competitionNumber": 44,
+      "competitionNumberKind": "guernsey",
+      "competitionNumberSeason": "2026",
+      "photoURL": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1021849.png?im=Scale,width=0.6,height=0.6",
+      "headshotUrl": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1021849.png?im=Scale,width=0.6,height=0.6",
+      "profileRef": "profile:aflw:tylah-burn",
       "active": true
     },
     {

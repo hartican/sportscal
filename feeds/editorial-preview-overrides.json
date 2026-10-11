@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-previews.v1",
-  "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+  "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
   "events": {
     "nrl-raiders-broncos-2026-08-21": {
       "selectedSentence": "Round 25 puts {{homeRankOrdinal}}-placed Canberra against {{awayRankOrdinal}}-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
@@ -678,7 +678,7 @@
       "fullSpiel": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -694,11 +694,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
+        "digestFingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Official fixture context",
         "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+        "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
         "needsPreviewRefresh": false
       }
     },
@@ -833,18 +833,18 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
+        "digestFingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+        "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
         "needsPreviewRefresh": false
       }
     },
@@ -853,18 +853,18 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
+        "digestFingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+        "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
         "needsPreviewRefresh": false
       }
     },
@@ -873,18 +873,18 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
+        "digestFingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+        "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
         "needsPreviewRefresh": false
       }
     },
@@ -893,18 +893,18 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
+        "digestFingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+        "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
         "needsPreviewRefresh": false
       }
     },
@@ -913,18 +913,18 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
+        "digestFingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+        "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
         "needsPreviewRefresh": false
       }
     },
@@ -933,18 +933,58 @@
       "fullSpiel": "",
       "sourceName": "",
       "sourceUrl": "",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "withheld",
         "angle": "",
         "contextSignals": [],
         "evidenceReferences": [],
-        "digestFingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
+        "digestFingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "",
         "sourceUrl": "",
-        "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+        "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+        "needsPreviewRefresh": false
+      }
+    },
+    "evt_40": {
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "withheld",
+        "angle": "",
+        "contextSignals": [],
+        "evidenceReferences": [],
+        "digestFingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
+        "promptVersion": "f1-editorial.v1",
+        "sourceName": "",
+        "sourceUrl": "",
+        "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+        "needsPreviewRefresh": false
+      }
+    },
+    "evt_41": {
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "withheld",
+        "angle": "",
+        "contextSignals": [],
+        "evidenceReferences": [],
+        "digestFingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
+        "promptVersion": "f1-editorial.v1",
+        "sourceName": "",
+        "sourceUrl": "",
+        "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
         "needsPreviewRefresh": false
       }
     }

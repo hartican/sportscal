@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cricket",
   "label": "Cricket",
-  "generatedAt": "2026-10-10T23:29:09.110Z",
+  "generatedAt": "2026-10-11T12:35:50.120Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -73,7 +73,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
       "sourceReviewAfter": null
     },
     {
@@ -94,8 +94,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4568",
-      "leagueName": "South Africa v Australia Tests 2026 - Men",
+      "leagueId": "competition:cricket:espn:24270",
+      "leagueName": "New Zealand tour of Australia 2026/27",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:australia",
@@ -106,12 +106,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.cricket.com.au/",
-        "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39990&jsconfig=eccn%3Atrue&format=json"
+        "https://www.espn.in/cricket/series/24270/game/1528714/australia-vs-new-zealand-4th-test-24270"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
       "sourceReviewAfter": null
     },
     {
@@ -203,8 +203,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:3207",
-      "leagueName": "England v Sri Lanka T20s 2026 - Men",
+      "leagueId": "competition:cricket:espn:24198",
+      "leagueName": "England tour of South Africa 2026/27",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:england",
@@ -215,12 +215,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.ecb.co.uk/",
-        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+        "https://www.espn.in/cricket/series/24198/game/1525673/south-africa-vs-england-3rd-test-24198"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-02T05:00:01.034Z",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
       "sourceReviewAfter": null
     },
     {
@@ -275,8 +275,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4613",
-      "leagueName": "India v West Indies T20Is 2026 - Men",
+      "leagueId": "competition:cricket:espn:24283",
+      "leagueName": "Zimbabwe tour of India 2026/27",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:india",
@@ -287,12 +287,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.bcci.tv/",
-        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+        "https://www.espn.in/cricket/series/24283/game/1529243/india-vs-zimbabwe-3rd-odi-24283"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
       "sourceReviewAfter": null
     },
     {
@@ -427,12 +427,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.nzc.nz/",
-        "https://www.espn.in/cricket/series/24270/game/1528713/australia-vs-new-zealand-3rd-test-24270"
+        "https://www.espn.in/cricket/series/24270/game/1528714/australia-vs-new-zealand-4th-test-24270"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-04T05:48:59.057Z",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
       "sourceReviewAfter": null
     },
     {
@@ -469,7 +469,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
       "sourceReviewAfter": null
     },
     {
@@ -525,8 +525,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4568",
-      "leagueName": "South Africa v Australia Tests 2026 - Men",
+      "leagueId": "competition:cricket:espn:24198",
+      "leagueName": "England tour of South Africa 2026/27",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:south-africa",
@@ -537,12 +537,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://cricket.co.za/the-proteas/",
-        "https://apiv2.cricket.com.au/web/views/scorecard?fixtureId=39990&jsconfig=eccn%3Atrue&format=json"
+        "https://www.espn.in/cricket/series/24198/game/1525673/south-africa-vs-england-3rd-test-24198"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
       "sourceReviewAfter": null
     },
     {
@@ -579,7 +579,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
       "sourceReviewAfter": null
     },
     {
@@ -670,8 +670,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4613",
-      "leagueName": "India v West Indies T20Is 2026 - Men",
+      "leagueId": "competition:cricket:espn:24289",
+      "leagueName": "West Indies tour of India 2026/27",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:west-indies",
@@ -682,17 +682,17 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.windiescricket.com/",
-        "https://apiv2.cricket.com.au/web/fixtures/yearfilter?isCompleted=true&limit=13&isInningInclude=true&jsconfig=eccn%3Atrue&format=json"
+        "https://www.espn.in/cricket/series/24289/game/1529232/india-vs-west-indies-3rd-t20i-24289"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-10-10T23:29:09.110Z",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
       "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:zimbabwe",
-      "displayName": "Zimbabwe Men",
+      "displayName": "Zimbabwe",
       "shortName": null,
       "aliases": [
         "ZIM"
@@ -706,8 +706,8 @@
       "ladderPosition": null,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": "competition:cricket:4621",
-      "leagueName": "Zimbabwe v Australia ODIs 2026 - Men",
+      "leagueId": "competition:cricket:espn:24283",
+      "leagueName": "Zimbabwe tour of India 2026/27",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:zimbabwe",
@@ -717,12 +717,12 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.cricket.com.au/news/4578209/match-report-second-odi-zimbabwe-australia-harare-sports-club-hazlewood-stanlake-return-head-century-ollie-peake"
+        "https://www.espn.in/cricket/series/24283/game/1529243/india-vs-zimbabwe-3rd-odi-24283"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "sourceCheckedAt": "2026-10-11T12:35:50.120Z",
       "sourceReviewAfter": null
     }
   ],

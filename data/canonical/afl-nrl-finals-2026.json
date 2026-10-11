@@ -1310,18 +1310,18 @@
             "hook": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
             "synopsis": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
             "threadIds": [
-              "thread:fixture-research:event-afl-cd_m20260142801"
+              "thread:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873"
             ],
             "factIds": [
-              "fact:fixture-research:event-afl-cd_m20260142801:0",
-              "fact:fixture-research:event-afl-cd_m20260142801:1",
-              "fact:fixture-research:event-afl-cd_m20260142801:2",
-              "fact:fixture-research:event-afl-cd_m20260142801:3"
+              "fact:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:0",
+              "fact:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:1",
+              "fact:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:2",
+              "fact:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:3"
             ],
             "sourceIds": [
-              "source:fixture-research:event-afl-cd_m20260142801:0",
-              "source:fixture-research:event-afl-cd_m20260142801:1",
-              "source:fixture-research:event-afl-cd_m20260142801:2"
+              "source:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:0",
+              "source:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:1",
+              "source:fixture-research:event-afl-cd_m20260142801:revision-099e7a698f754ce1f3a9606ba797de5d34906fbca8cc7864fd7f8f8c8b077873:2"
             ],
             "dimensions": [
               "matchup",
@@ -1451,18 +1451,18 @@
             "hook": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
             "synopsis": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
             "threadIds": [
-              "thread:fixture-research:event-afl-cd_m20260142802"
+              "thread:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884"
             ],
             "factIds": [
-              "fact:fixture-research:event-afl-cd_m20260142802:0",
-              "fact:fixture-research:event-afl-cd_m20260142802:1",
-              "fact:fixture-research:event-afl-cd_m20260142802:2",
-              "fact:fixture-research:event-afl-cd_m20260142802:3"
+              "fact:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:0",
+              "fact:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:1",
+              "fact:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:2",
+              "fact:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:3"
             ],
             "sourceIds": [
-              "source:fixture-research:event-afl-cd_m20260142802:0",
-              "source:fixture-research:event-afl-cd_m20260142802:1",
-              "source:fixture-research:event-afl-cd_m20260142802:2"
+              "source:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:0",
+              "source:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:1",
+              "source:fixture-research:event-afl-cd_m20260142802:revision-68f1447014b59f8b78dc59cc2e3d15f26fd2892014dbc8e971d86ebaad69b884:2"
             ],
             "dimensions": [
               "matchup",
@@ -1911,18 +1911,18 @@
             "hook": "The minor premiers meet fourth-placed Sydney with a week off within reach.",
             "synopsis": "Penrith secured top spot in the final round. Nathan Cleary faces Daly Cherry-Evans in a qualifying final that rewards the winner with direct passage to a preliminary final. The loser gets another chance, but must play next week.",
             "threadIds": [
-              "thread:fixture-research:major-match:nrl-finals-2026:qualifying-final-1"
+              "thread:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d"
             ],
             "factIds": [
-              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:0",
-              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:1",
-              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:2",
-              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:3"
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:3"
             ],
             "sourceIds": [
-              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:0",
-              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:1",
-              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:2"
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:0",
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:1",
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-1:revision-de2de8e34268148dc56892b6e6c0bbf19ee9a5d7ef654ea6d6cf7ff1eb91b53d:2"
             ],
             "dimensions": [
               "matchup",
@@ -2000,18 +2000,18 @@
             "hook": "The Dolphins begin their first finals campaign against second-placed New Zealand.",
             "synopsis": "The Dolphins arrive with Cobbo, Finefeuiaki and Nikorima returning. The Warriors regain Ford and Halasima for a qualifying final offering the winner a week off. A defeat preserves one life but adds a sudden-death semi-final to the route.",
             "threadIds": [
-              "thread:fixture-research:major-match:nrl-finals-2026:qualifying-final-2"
+              "thread:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2"
             ],
             "factIds": [
-              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:0",
-              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:1",
-              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:2",
-              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:3"
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:3"
             ],
             "sourceIds": [
-              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:0",
-              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:1",
-              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:2"
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:0",
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:1",
+              "source:fixture-research:major-match:nrl-finals-2026:qualifying-final-2:revision-0d4c4b4ed1fd922cb3428e63a6c5335f6ce4c9dbc9ff743cba75794a8b2269c2:2"
             ],
             "dimensions": [
               "history",
@@ -2090,18 +2090,18 @@
             "hook": "Trindall returns for Cronulla as fifth meets eighth with no second chance.",
             "synopsis": "Trindall rejoins Hynes after a shoulder injury. The Cowboys regain Neame, Nanai and Laybutt, but their eighth-place finish leaves them on the elimination path. The winner must then get past a qualifying-final loser to reach the preliminary finals.",
             "threadIds": [
-              "thread:fixture-research:major-match:nrl-finals-2026:elimination-final-1"
+              "thread:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6"
             ],
             "factIds": [
-              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:0",
-              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:1",
-              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:2",
-              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:3"
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:3"
             ],
             "sourceIds": [
-              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-1:0",
-              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-1:1",
-              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-1:2"
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:0",
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:1",
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-1:revision-cdeb43b8b7c8cf5c43472eb2a07b8d2269bc5c754009f6d27f0bd1c3d5961dc6:2"
             ],
             "dimensions": [
               "matchup",
@@ -2179,18 +2179,18 @@
             "hook": "Sixth meets seventh to open the finals, with one season ending on Friday.",
             "synopsis": "South Sydney and Newcastle begin on the sudden-death side of the draw. Ponga is named at fullback for the Knights, opposite Dufty. Winning this elimination final earns another game against a top-four opponent; losing ends the premiership campaign.",
             "threadIds": [
-              "thread:fixture-research:major-match:nrl-finals-2026:elimination-final-2"
+              "thread:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca"
             ],
             "factIds": [
-              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:0",
-              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:1",
-              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:2",
-              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:3"
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:3"
             ],
             "sourceIds": [
-              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-2:0",
-              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-2:1",
-              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-2:2"
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:0",
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:1",
+              "source:fixture-research:major-match:nrl-finals-2026:elimination-final-2:revision-1ca62f371bd3b91552c5a0178b46a223022d167c13f3f4117742aadfc1b02dca:2"
             ],
             "dimensions": [
               "matchup",
@@ -2384,18 +2384,18 @@
             "hook": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
             "synopsis": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
             "threadIds": [
-              "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-1"
+              "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e"
             ],
             "factIds": [
-              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:0",
-              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:1",
-              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:2",
-              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:3"
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:3"
             ],
             "sourceIds": [
-              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:0",
-              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:1",
-              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:2"
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:0",
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:1",
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-1:revision-804aea587421d1fb42ec6532cf0570eadc367949d64b864a09fc97a9dfa5ef3e:2"
             ],
             "dimensions": [
               "matchup",
@@ -2483,18 +2483,18 @@
             "hookSpoilerOn": "Roosters defeated Dolphins 36-20 to reach the Grand Final.",
             "synopsisSpoilerOn": "Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage.",
             "threadIds": [
-              "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-2"
+              "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5"
             ],
             "factIds": [
-              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:0",
-              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:1",
-              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:2",
-              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:3"
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:0",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:1",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:2",
+              "fact:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:3"
             ],
             "sourceIds": [
-              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:0",
-              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:1",
-              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:2"
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:0",
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:1",
+              "source:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5:2"
             ],
             "dimensions": [
               "matchup",
@@ -2580,27 +2580,27 @@
             "formCopy": "Sydney arrived through a 36–20 win over the Dolphins. Newcastle earned their place by beating Penrith 22–14 with 12 men, keeping the Panthers scoreless after half-time. The Roosters bring attacking momentum; the Knights bring evidence that they can absorb severe pressure and still find a way through.",
             "closingCopy": "Sandon Smith now has the chance to win a premiership against the Roosters, the club he left after they signed Daly Cherry-Evans. Cherry-Evans is preparing for his final NRL match, while Mark Nawaqanitawase is heading back to rugby union. Newcastle’s revival meets a Sydney side with farewells riding on the same result.",
             "threadIds": [
-              "thread:fixture-research:evt_84"
+              "thread:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505"
             ],
             "factIds": [
-              "fact:fixture-research:evt_84:0",
-              "fact:fixture-research:evt_84:1",
-              "fact:fixture-research:evt_84:2",
-              "fact:fixture-research:evt_84:3",
-              "fact:fixture-research:evt_84:4",
-              "fact:fixture-research:evt_84:5",
-              "fact:fixture-research:evt_84:6",
-              "fact:fixture-research:evt_84:7",
-              "fact:fixture-research:evt_84:8"
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:0",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:1",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:2",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:3",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:4",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:5",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:6",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:7",
+              "fact:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:8"
             ],
             "sourceIds": [
-              "source:fixture-research:evt_84:0",
-              "source:fixture-research:evt_84:1",
-              "source:fixture-research:evt_84:2",
-              "source:fixture-research:evt_84:3",
-              "source:fixture-research:evt_84:4",
-              "source:fixture-research:evt_84:5",
-              "source:fixture-research:evt_84:6"
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:0",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:1",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:2",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:3",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:4",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:5",
+              "source:fixture-research:evt_84:revision-124f786b9e3d7cc0b8aa3fd7e32994555895ffc4c78dca015e233c18a2de0505:6"
             ],
             "dimensions": [
               "matchup",
@@ -2613,7 +2613,11 @@
             "researchedAt": "2026-10-01T23:58:25.032Z",
             "refreshAfter": "2026-10-04T08:30:00.000Z",
             "generationMode": "researched",
-            "phase": "preview"
+            "resultResearchRequired": false,
+            "phase": "preview",
+            "resultSignature": "[\"completed\",\"Sydney Roosters 19, Newcastle Knights 18.\",\"Roosters 19-18 Knights\",\"The official NRL match centre reports a 19-18 Grand Final result.\"]",
+            "hookSpoilerOn": "Sydney Roosters 19, Newcastle Knights 18.",
+            "synopsisSpoilerOn": "The official NRL match centre reports a 19-18 Grand Final result."
           },
           "storyline": {
             "stakes": 5,

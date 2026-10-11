@@ -2,48 +2,10 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "aflw",
   "label": "AFLW",
-  "generatedAt": "2026-10-07T23:14:37.555Z",
+  "generatedAt": "2026-10-11T12:38:08.39871Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
-    {
-      "id": "team:aflw:cd_t8467",
-      "displayName": "Geelong Cats",
-      "shortName": "Geelong Cats",
-      "aliases": [
-        "Geelong Cats",
-        "Cats"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": 1,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:aflw-2026",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:aflw:cd_t8467",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Round 8",
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
-      "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "competitionId": "competition:aflw-2026"
-    },
     {
       "id": "team:aflw:cd_t8466",
       "displayName": "North Melbourne",
@@ -58,7 +20,7 @@
       "countryBasis": null,
       "genderCategory": "female",
       "ranking": null,
-      "ladderPosition": 2,
+      "ladderPosition": 1,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:aflw-2026",
@@ -78,7 +40,45 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
+      "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
+      "competitionId": "competition:aflw-2026"
+    },
+    {
+      "id": "team:aflw:cd_t8467",
+      "displayName": "Geelong Cats",
+      "shortName": "Geelong Cats",
+      "aliases": [
+        "Geelong Cats",
+        "Cats"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": 2,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:aflw-2026",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:aflw:cd_t8467",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Round 8",
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -116,7 +116,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -154,45 +154,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
-      "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "competitionId": "competition:aflw-2026"
-    },
-    {
-      "id": "team:aflw:cd_t7387",
-      "displayName": "Western Bulldogs",
-      "shortName": "Western Bulldogs",
-      "aliases": [
-        "Western Bulldogs",
-        "Bulldogs"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": 5,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:aflw-2026",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:aflw:cd_t7387",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Round 8",
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -210,7 +172,7 @@
       "countryBasis": null,
       "genderCategory": "female",
       "ranking": null,
-      "ladderPosition": 6,
+      "ladderPosition": 5,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:aflw-2026",
@@ -230,7 +192,45 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
+      "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
+      "competitionId": "competition:aflw-2026"
+    },
+    {
+      "id": "team:aflw:cd_t7387",
+      "displayName": "Western Bulldogs",
+      "shortName": "Western Bulldogs",
+      "aliases": [
+        "Western Bulldogs",
+        "Bulldogs"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": 6,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:aflw-2026",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:aflw:cd_t7387",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Round 8",
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -268,83 +268,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
-      "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "competitionId": "competition:aflw-2026"
-    },
-    {
-      "id": "team:aflw:cd_t7886",
-      "displayName": "Fremantle",
-      "shortName": "Fremantle",
-      "aliases": [
-        "Fremantle",
-        "Dockers"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": 8,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:aflw-2026",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:aflw:cd_t7886",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Round 8",
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
-      "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
-      "competitionId": "competition:aflw-2026"
-    },
-    {
-      "id": "team:aflw:cd_t8098",
-      "displayName": "Adelaide Crows",
-      "shortName": "Adelaide Crows",
-      "aliases": [
-        "Adelaide Crows",
-        "Crows"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": 9,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:aflw-2026",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:aflw:cd_t8098",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": "After Round 8",
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -362,7 +286,7 @@
       "countryBasis": null,
       "genderCategory": "female",
       "ranking": null,
-      "ladderPosition": 10,
+      "ladderPosition": 8,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:aflw-2026",
@@ -382,7 +306,83 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
+      "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
+      "competitionId": "competition:aflw-2026"
+    },
+    {
+      "id": "team:aflw:cd_t7886",
+      "displayName": "Fremantle",
+      "shortName": "Fremantle",
+      "aliases": [
+        "Fremantle",
+        "Dockers"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": 9,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:aflw-2026",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:aflw:cd_t7886",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Round 8",
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-11",
+      "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
+      "competitionId": "competition:aflw-2026"
+    },
+    {
+      "id": "team:aflw:cd_t8098",
+      "displayName": "Adelaide Crows",
+      "shortName": "Adelaide Crows",
+      "aliases": [
+        "Adelaide Crows",
+        "Crows"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": 10,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:aflw-2026",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:aflw:cd_t8098",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": "After Round 8",
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -420,7 +420,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -458,7 +458,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -495,7 +495,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -533,7 +533,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -571,7 +571,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -609,7 +609,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -647,7 +647,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -684,7 +684,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.afl.com.au/aflw/ladder",
       "competitionId": "competition:aflw-2026"
     },
@@ -1004,7 +1004,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:abbie-mckay",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:abby-favell",
@@ -1043,7 +1043,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:abby-favell",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:abby-hobson",
@@ -1159,7 +1159,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:aileen-gilroy",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:aine-mcdonagh",
@@ -1198,7 +1198,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:aine-mcdonagh",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:aine-tighe",
@@ -1237,7 +1237,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:aine-tighe",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:airlie-runnalls",
@@ -1315,7 +1315,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:aishling-moloney",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:aisling-mccarthy",
@@ -1354,7 +1354,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:aisling-mccarthy",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:aisling-reidy",
@@ -1393,7 +1393,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:aisling-reidy",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:alana-barba",
@@ -1705,7 +1705,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:alexis-gregor",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:alice-burke",
@@ -1783,7 +1783,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:alice-edmonds",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:alice-mitchell",
@@ -1861,7 +1861,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:alice-oloughlin",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:alice-tentye",
@@ -1900,7 +1900,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:alice-tentye",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:alicia-blizard",
@@ -1939,7 +1939,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:alicia-blizard",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:alicia-eva",
@@ -2056,7 +2056,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:alissa-brook",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:ally-dallaway",
@@ -2290,7 +2290,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:amaia-wain",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:amber-clarke",
@@ -2563,7 +2563,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:amelia-velardo",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:amelie-borg",
@@ -2641,7 +2641,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:amy-boyle-carr",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:amy-franklin",
@@ -2719,7 +2719,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:amy-gavin-mangan",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:amy-gaylor",
@@ -2797,7 +2797,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:amy-mcdonald",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:amy-smith",
@@ -2836,7 +2836,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:amy-smith",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:ana-mulholland",
@@ -2914,7 +2914,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:analea-mckee",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:angelique-stannett",
@@ -2953,7 +2953,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:angelique-stannett",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:annabel-kievit",
@@ -3031,7 +3031,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:annabelle-embelton",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:anne-hatchard",
@@ -3109,7 +3109,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:annie-lee",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:aoibhin-cleary",
@@ -3226,7 +3226,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:aoife-healy",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:aoife-horisk",
@@ -3343,7 +3343,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:ash-riddell",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:ash-van-loon",
@@ -3460,7 +3460,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:ashleigh-brazill",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:ashleigh-richards",
@@ -3652,7 +3652,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:ava-stewart",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:ava-usher",
@@ -3808,7 +3808,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:bella-eddey",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:bella-smith",
@@ -3847,7 +3847,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:bella-smith",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:bess-keaney",
@@ -4042,7 +4042,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:blaithin-bogue",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:blaithin-mackin",
@@ -4159,7 +4159,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:breann-harrington",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:breanna-koenen",
@@ -4315,7 +4315,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:bridie-hipwell",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:britney-gutknecht",
@@ -4354,7 +4354,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:britney-gutknecht",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:brittany-bonnici",
@@ -4510,7 +4510,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:brooke-barwick",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:brooke-boileau",
@@ -4549,7 +4549,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:brooke-boileau",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:brooke-brown",
@@ -4627,7 +4627,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:brooke-smith",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:brooke-tonon",
@@ -4666,7 +4666,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:brooke-tonon",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:brooke-vickers",
@@ -4705,7 +4705,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:brooke-vickers",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:brooke-walker",
@@ -4783,7 +4783,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:bryde-orourke",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:caitlin-fletcher",
@@ -4861,7 +4861,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:caitlin-gould",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:caitlin-greiser",
@@ -5056,7 +5056,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:caitlin-tipping",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:caitlin-wendland",
@@ -5251,7 +5251,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:casey-sherriff",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:catherine-svarc",
@@ -5329,7 +5329,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:chantal-mason",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:chantel-emonson",
@@ -5368,7 +5368,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:chantel-emonson",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:charli-hazelhurst",
@@ -5407,7 +5407,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:charli-hazelhurst",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:charli-wicksteed",
@@ -5485,7 +5485,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:charlie-oconnor-moreira",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:charlie-rowbottom",
@@ -5797,7 +5797,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:chelsea-biddell",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:chelsea-randall",
@@ -5836,7 +5836,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:chelsea-randall",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:chelsea-sutton",
@@ -6031,7 +6031,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:chloe-bown",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:chloe-gaunt",
@@ -6148,7 +6148,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:chloe-scheer",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:christina-leuzzi",
@@ -6187,7 +6187,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:christina-leuzzi",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:ciara-fitzgerald",
@@ -6226,7 +6226,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:ciara-fitzgerald",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:claire-mahony",
@@ -6265,7 +6265,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:claire-mahony",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:clara-fitzpatrick",
@@ -6343,7 +6343,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:claudia-gunjaca",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:claudia-whitfort",
@@ -6382,7 +6382,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:claudia-whitfort",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:claudia-wright",
@@ -6460,7 +6460,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:cleo-buttifant",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:courtney-hodder",
@@ -6694,7 +6694,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:daisy-flockart",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:daisy-walker",
@@ -6850,7 +6850,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:danielle-ponter",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:darcie-davies",
@@ -7006,7 +7006,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:darcy-vescio",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:daria-bannister",
@@ -7084,7 +7084,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:dayna-finn",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:deanna-berry",
@@ -7123,7 +7123,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:deanna-berry",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:dekota-baron",
@@ -7240,7 +7240,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:dominique-carruthers",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:ebony-marinoff",
@@ -7279,7 +7279,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:ebony-marinoff",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:ebony-odea",
@@ -7357,7 +7357,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:eden-zanker",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:eilish-odowd",
@@ -7435,7 +7435,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:eilish-sheerin",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:elaine-grigg",
@@ -7474,7 +7474,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:elaine-grigg",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:eleanor-brown",
@@ -7591,7 +7591,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:elisabeth-georgostathis",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:elise-barwick",
@@ -7747,7 +7747,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:eliza-shannon",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:eliza-west",
@@ -7786,7 +7786,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:eliza-west",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:ella-boag",
@@ -8020,7 +8020,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:elle-bennetts",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:elli-symonds",
@@ -8059,7 +8059,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:elli-symonds",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:ellie-blackburn",
@@ -8098,7 +8098,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:ellie-blackburn",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:ellie-brady",
@@ -8176,7 +8176,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:ellie-gavalas",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:ellie-hampson",
@@ -8332,7 +8332,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:eloise-jones",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:emelia-yassir",
@@ -8410,7 +8410,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:emily-bates",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:emily-elkington",
@@ -8488,7 +8488,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:emily-everist",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:emily-gough",
@@ -8683,7 +8683,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:emma-kearney",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:emma-kilpatrick",
@@ -8722,7 +8722,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:emma-kilpatrick",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:emma-king",
@@ -8761,7 +8761,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:emma-king",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:emma-mcdonald",
@@ -8800,7 +8800,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:emma-mcdonald",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:emma-murray",
@@ -8839,7 +8839,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:emma-murray",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:emma-odriscoll",
@@ -8878,7 +8878,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:emma-odriscoll",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:emma-swanson",
@@ -8995,7 +8995,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:erika-oshea",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:erone-fitzpatrick",
@@ -9034,7 +9034,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:erone-fitzpatrick",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:evie-cowcher",
@@ -9073,7 +9073,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:evie-cowcher",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:evie-long",
@@ -9151,7 +9151,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:evie-parker",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:fina-dethlefsen",
@@ -9268,7 +9268,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:gabby-osullivan",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:gabby-seymour",
@@ -9346,7 +9346,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:gabriella-pound",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:gabrielle-newton",
@@ -9385,7 +9385,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:gabrielle-newton",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:gemma-houghton",
@@ -9775,7 +9775,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:georgia-mckee",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:georgia-nanscawen",
@@ -9931,7 +9931,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:georgie-brisbane",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:georgie-cleaver",
@@ -10009,7 +10009,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:georgie-prespakis",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:georgie-rankin",
@@ -10048,7 +10048,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:georgie-rankin",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:georja-davies",
@@ -10126,7 +10126,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:grace-baba",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:grace-beasley",
@@ -10243,7 +10243,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:grace-egan",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:grace-kelly",
@@ -10282,7 +10282,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:grace-kelly",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:grace-kos",
@@ -10438,7 +10438,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:greta-bodey",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:hannah-ewings",
@@ -10477,7 +10477,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:hannah-ewings",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:hannah-looney",
@@ -10516,7 +10516,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:hannah-looney",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:hannah-munyard",
@@ -10555,7 +10555,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:hannah-munyard",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:hannah-priest",
@@ -10633,7 +10633,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:harriet-cordner",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:havana-harris",
@@ -10711,7 +10711,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:hayley-mclaughlin",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:hayley-miller",
@@ -10750,7 +10750,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:hayley-miller",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:heidi-talbot",
@@ -10828,7 +10828,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:heidi-woodley",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:holly-cooper",
@@ -10906,7 +10906,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:holly-egan",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:holly-ridewood",
@@ -11101,7 +11101,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:indi-strom",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:india-rasheed",
@@ -11140,7 +11140,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:india-rasheed",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:indiana-west",
@@ -11179,7 +11179,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:indiana-west",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:indiana-williams",
@@ -11449,7 +11449,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:isabella-grant",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:isabella-lewis",
@@ -11566,7 +11566,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:isabelle-pritchard",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:jnoemi-anderson",
@@ -11683,7 +11683,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jacqueline-dupuy",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:jacqueline-parry",
@@ -11722,7 +11722,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jacqueline-parry",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:jade-ellenger",
@@ -11995,7 +11995,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jasmin-stewart",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:jasmine-evans",
@@ -12073,7 +12073,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jasmine-ferguson",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:jasmine-fleming",
@@ -12112,7 +12112,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jasmine-fleming",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:jasmine-garner",
@@ -12151,7 +12151,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jasmine-garner",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:jasmine-sowden",
@@ -12229,7 +12229,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jasmyn-smith",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:jemma-charity",
@@ -12346,7 +12346,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jemmika-douglas",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:jenna-bruton",
@@ -12385,7 +12385,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jenna-bruton",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:jenna-richardson",
@@ -12424,7 +12424,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jenna-richardson",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:jennifer-dunne",
@@ -12502,7 +12502,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jess-allan",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:jess-fitzgerald",
@@ -12541,7 +12541,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jess-fitzgerald",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:jess-vukic",
@@ -12580,7 +12580,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jess-vukic",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:jesse-tawhiao-wardlaw",
@@ -12697,7 +12697,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jessica-good",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:jessica-low",
@@ -12736,7 +12736,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:jessica-low",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:jessica-rentsch",
@@ -13048,7 +13048,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:julia-crockett-grills",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:julia-teakle",
@@ -13165,7 +13165,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:juliet-kelly",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:justine-mules-robinson",
@@ -13243,7 +13243,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kaitlyn-ashmore",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:kaitlyn-srhoj",
@@ -13438,7 +13438,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kate-kenny",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:kate-shierlaw",
@@ -13477,7 +13477,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kate-shierlaw",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:kate-surman",
@@ -13516,7 +13516,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kate-surman",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:katelyn-pope",
@@ -13711,7 +13711,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kaylee-kimber",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:kayleigh-cronin",
@@ -13750,7 +13750,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kayleigh-cronin",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:keeley-hardingham",
@@ -13789,7 +13789,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:keeley-hardingham",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:keeley-kustermann",
@@ -13828,7 +13828,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:keeley-kustermann",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:keeley-sherar",
@@ -13867,7 +13867,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:keeley-sherar",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:keeley-skepper",
@@ -13945,7 +13945,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:keely-coyne",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:kellie-gibson",
@@ -14101,7 +14101,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kiara-bischa",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:kiara-bowers",
@@ -14140,7 +14140,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kiara-bowers",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:kiera-mueller",
@@ -14179,7 +14179,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kiera-mueller",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:kiera-yerbury",
@@ -14257,7 +14257,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kim-rennie",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:kirsty-lamb",
@@ -14335,7 +14335,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kristie-lee-weston-turner",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:kyla-forbes",
@@ -14491,7 +14491,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:laura-elliott",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:laura-gardiner",
@@ -14608,7 +14608,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:laura-pugh",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:laura-stone",
@@ -14647,7 +14647,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:laura-stone",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:lauren-ahrens",
@@ -14686,7 +14686,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lauren-ahrens",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:lauren-bella",
@@ -14725,7 +14725,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lauren-bella",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:lauren-butler",
@@ -14959,7 +14959,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lavinia-cox",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:libby-birch",
@@ -14998,7 +14998,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:libby-birch",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:libby-graham",
@@ -15076,7 +15076,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lila-keck",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:lilly-baker",
@@ -15154,7 +15154,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lilly-ann-ryder",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:lily-baxter",
@@ -15193,7 +15193,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lily-baxter",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:lily-goss",
@@ -15232,7 +15232,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lily-goss",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:lily-johnson",
@@ -15271,7 +15271,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lily-johnson",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:lily-mithen",
@@ -15544,7 +15544,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lily-tarlinton",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:lily-rose-williamson",
@@ -15760,7 +15760,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lou-lou-field",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:louise-stephenson",
@@ -15799,7 +15799,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:louise-stephenson",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:lucia-painter",
@@ -16033,7 +16033,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lucy-wales",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:lucy-waye",
@@ -16072,7 +16072,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:lucy-waye",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:lulu-pullar",
@@ -16150,7 +16150,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mackenzie-eardley",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:mackenzie-ford",
@@ -16345,7 +16345,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:maddison-torpey",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:maddy-brancatisano",
@@ -16423,7 +16423,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:madeleine-guerin",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:madeleine-scanlon",
@@ -16462,7 +16462,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:madeleine-scanlon",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:madeline-hendrie",
@@ -16501,7 +16501,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:madeline-hendrie",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:madison-brazendale",
@@ -16657,7 +16657,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:madison-newman",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:madison-prespakis",
@@ -16774,7 +16774,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:maggie-gorham",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:maggie-johnstone",
@@ -17164,7 +17164,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:matilda-banfield",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:matilda-dyke",
@@ -17281,7 +17281,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:matilda-van-berkel",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:mattea-breed",
@@ -17359,7 +17359,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:maya-dear",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:maya-louvel-finn",
@@ -17515,7 +17515,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:meg-robertson",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:megan-fitzsimon",
@@ -17593,7 +17593,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:megan-kauffman",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:mekah-morrissy",
@@ -17632,7 +17632,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mekah-morrissy",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:mia-anderson",
@@ -17671,7 +17671,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mia-anderson",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:mia-austin",
@@ -17788,7 +17788,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mia-king",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:mia-russo",
@@ -17905,7 +17905,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mikala-cann",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:mikayla-bowen",
@@ -17944,7 +17944,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mikayla-bowen",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:mikayla-nurse",
@@ -18100,7 +18100,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mikayla-williamson",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:mikaylah-antony",
@@ -18139,7 +18139,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mikaylah-antony",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:mim-strom",
@@ -18178,7 +18178,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mim-strom",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:mimi-hill",
@@ -18217,7 +18217,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mimi-hill",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:mischa-barwin",
@@ -18295,7 +18295,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mizuki-brothwell",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:molly-brooksby",
@@ -18490,7 +18490,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:monique-bessen",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:monique-conti",
@@ -18685,7 +18685,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:najwa-allen",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:nalu-brothwell",
@@ -18880,7 +18880,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:nell-morris-dalton",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:niamh-kelly",
@@ -18919,7 +18919,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:niamh-kelly",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:niamh-martin",
@@ -18958,7 +18958,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:niamh-martin",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:niamh-mclaughlin",
@@ -19075,7 +19075,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:nicola-stevens",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:nicola-xenos",
@@ -19153,7 +19153,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:nicole-bresnehan",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:nina-morrison",
@@ -19192,7 +19192,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:nina-morrison",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:noa-mcnaughton",
@@ -19231,7 +19231,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:noa-mcnaughton",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:nyalli-milne",
@@ -19348,7 +19348,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:olivia-gorman",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:olivia-lacy",
@@ -19621,7 +19621,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:orlagh-lally",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:paige-price",
@@ -19855,7 +19855,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:piper-dunlop",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:piper-window",
@@ -20011,7 +20011,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:poppy-scholz",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:poppy-stockwell",
@@ -20050,7 +20050,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:poppy-stockwell",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:priya-bowering",
@@ -20089,7 +20089,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:priya-bowering",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:rachel-kearns",
@@ -20128,7 +20128,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:rachel-kearns",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:rania-crozier",
@@ -20284,7 +20284,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:rebecca-webster",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:rene-caris",
@@ -20362,7 +20362,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:renee-morgan",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:rhianna-ingram",
@@ -20557,7 +20557,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:ruby-tripodi",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:ryleigh-wotherspoon",
@@ -20635,7 +20635,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:rylie-wilcox",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:sabrina-frederick",
@@ -20869,7 +20869,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:sarah-allan",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:sarah-goodwin",
@@ -20908,7 +20908,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:sarah-goodwin",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:sarah-grunden",
@@ -20986,7 +20986,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:sarah-hartwig",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:sarah-hosking",
@@ -21142,7 +21142,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:sarah-poustie",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:sarah-rowe",
@@ -21259,7 +21259,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:sarah-verrier",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:sarah-wall",
@@ -21298,7 +21298,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:sarah-wall",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:saraid-taylor",
@@ -21532,7 +21532,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:shauna-mcelligott",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:shelley-heath-barker",
@@ -21727,7 +21727,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:sienna-tallariti",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:sierra-grieves",
@@ -21805,7 +21805,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:simone-nalder",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:sinead-goldrick",
@@ -21883,7 +21883,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:siofra-oconnell",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:sofia-hurley",
@@ -22194,7 +22194,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:sophie-mckay",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:sophie-peters",
@@ -22584,7 +22584,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:tahlia-randall",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:tamara-smith",
@@ -22623,7 +22623,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:tamara-smith",
-      "currentTeamRank": 10
+      "currentTeamRank": 8
     },
     {
       "id": "competitor:aflw:tanya-kennedy",
@@ -22701,7 +22701,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:tara-bohanna",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:tara-harrington",
@@ -22935,7 +22935,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:tayla-mcmillan",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:taylah-gatt",
@@ -22974,7 +22974,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:taylah-gatt",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:taylah-levy",
@@ -23130,7 +23130,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:teah-charlton",
-      "currentTeamRank": 9
+      "currentTeamRank": 10
     },
     {
       "id": "competitor:aflw:tess-craven",
@@ -23169,7 +23169,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:tess-craven",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:tessa-boyd",
@@ -23208,7 +23208,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:tessa-boyd",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:tilly-lucas-rodd",
@@ -23286,7 +23286,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:tunisha-kikoak",
-      "currentTeamRank": 8
+      "currentTeamRank": 9
     },
     {
       "id": "competitor:aflw:tyanna-smith",
@@ -23367,6 +23367,45 @@
       "currentTeamRank": 3
     },
     {
+      "id": "competitor:aflw:tylah-burn",
+      "displayName": "Tylah Burn",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:aflw:cd_t7386",
+      "leagueId": "competition:aflw-2026",
+      "teamKind": null,
+      "position": "Midfielder",
+      "identityId": "competitor:aflw:tylah-burn",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1021849.png?im=Scale,width=0.6,height=0.6",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4095/tylah-burn",
+        "source:aflw:players",
+        "source:aflw:teams"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "competitionNumber": 44,
+      "competitionNumberKind": "guernsey",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:aflw:tylah-burn",
+      "currentTeamRank": 3
+    },
+    {
       "id": "competitor:aflw:vaomua-laloifi",
       "displayName": "Vaomua Laloifi",
       "shortName": null,
@@ -23403,7 +23442,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:vaomua-laloifi",
-      "currentTeamRank": 5
+      "currentTeamRank": 6
     },
     {
       "id": "competitor:aflw:vikki-wall",
@@ -23442,7 +23481,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:vikki-wall",
-      "currentTeamRank": 2
+      "currentTeamRank": 1
     },
     {
       "id": "competitor:aflw:violet-patterson",
@@ -23799,7 +23838,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:yasmin-duursma",
-      "currentTeamRank": 6
+      "currentTeamRank": 5
     },
     {
       "id": "competitor:aflw:zali-friswell",
@@ -23838,7 +23877,7 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:zali-friswell",
-      "currentTeamRank": 1
+      "currentTeamRank": 2
     },
     {
       "id": "competitor:aflw:zara-neuwirth",

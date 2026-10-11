@@ -306,7 +306,7 @@
     }
   ],
   "summary": {
-    "canonicalEventsCompared": 1788,
+    "canonicalEventsCompared": 1820,
     "priorityAuSources": 8,
     "priorityAuSourcesLoaded": 1,
     "sourceListingsLoaded": 9,
@@ -335,7 +335,7 @@
       "startsAt": null,
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0.08,
+      "matchConfidence": 0.13,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "normal",
@@ -358,11 +358,17 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0.08,
+        "confidence": 0.13,
         "reasonCodes": [
-          "same_calendar_date"
+          "same_calendar_date",
+          "title_tokens_match"
         ],
         "alternatives": [
+          {
+            "canonicalEventId": "tennis-tournament-wta-beijing-2026-2026-10-11",
+            "title": "China Open — WTA 1000",
+            "confidence": 0.13
+          },
           {
             "canonicalEventId": "fixture-tennis-espn-atp-184929",
             "title": "Alex de Minaur v Rei Sakamoto",
@@ -371,11 +377,6 @@
           {
             "canonicalEventId": "fixture-tennis-espn-atp-184930",
             "title": "Alexander Zverev v Quentin Halys",
-            "confidence": 0.08
-          },
-          {
-            "canonicalEventId": "fixture-tennis-espn-atp-184931",
-            "title": "Alexander Bublik v Brandon Nakashima",
             "confidence": 0.08
           }
         ]

@@ -86,7 +86,7 @@
       "venueCountryCode": "AU",
       "venueVerified": true,
       "sourceId": "event:horse-racing:melbourne-cup:2026",
-      "sourceCheckedAt": "2026-10-11T02:49:03.464Z",
+      "sourceCheckedAt": "2026-10-11T12:37:29.370Z",
       "time": null,
       "dateOnly": true,
       "timeTbc": true,
@@ -123,7 +123,7 @@
           },
           "providerAt": null,
           "providerClock": "Last Published:",
-          "checkedAt": "2026-10-11T02:49:03.464Z",
+          "checkedAt": "2026-10-11T12:37:29.370Z",
           "phase": "acceptances",
           "status": "upcoming",
           "statusText": "First acceptances · published weights",
@@ -1057,8 +1057,8 @@
           ]
         }
       },
-      "scoreCheckedAt": "2026-10-11T02:49:03.464Z",
-      "statusCheckedAt": "2026-10-11T02:49:03.464Z",
+      "scoreCheckedAt": "2026-10-11T12:37:29.370Z",
+      "statusCheckedAt": "2026-10-11T12:37:29.370Z",
       "sourceName": "Racing Australia",
       "sourceType": "official",
       "acceptanceReview": {
@@ -1170,7 +1170,7 @@
       "venueCountryCode": "AU",
       "venueVerified": true,
       "sourceId": "event:horse-racing:caulfield-cup:2026",
-      "sourceCheckedAt": "2026-10-11T02:49:03.464Z",
+      "sourceCheckedAt": "2026-10-11T12:37:29.370Z",
       "time": null,
       "dateOnly": true,
       "timeTbc": true,
@@ -1202,7 +1202,7 @@
           "officialUrl": "https://racingaustralia.horse/FreeFields/Nominations.aspx?Key=2026Oct17%2CVIC%2CCaulfield",
           "providerAt": null,
           "providerClock": "Last Published:",
-          "checkedAt": "2026-10-11T02:49:03.464Z",
+          "checkedAt": "2026-10-11T12:37:29.370Z",
           "phase": "nominations",
           "status": "upcoming",
           "statusText": "Nominations",
@@ -1655,8 +1655,8 @@
           ]
         }
       },
-      "scoreCheckedAt": "2026-10-11T02:49:03.464Z",
-      "statusCheckedAt": "2026-10-11T02:49:03.464Z",
+      "scoreCheckedAt": "2026-10-11T12:37:29.370Z",
+      "statusCheckedAt": "2026-10-11T12:37:29.370Z",
       "sourceName": "Racing Australia",
       "sourceType": "official"
     },
@@ -1687,7 +1687,7 @@
       "venueCountryCode": "AU",
       "venueVerified": true,
       "sourceId": "event:horse-racing:cox-plate:2026",
-      "sourceCheckedAt": "2026-10-11T02:49:03.464Z",
+      "sourceCheckedAt": "2026-10-11T12:37:29.370Z",
       "time": null,
       "dateOnly": true,
       "timeTbc": true,
@@ -1719,7 +1719,7 @@
           "officialUrl": "https://racingaustralia.horse/FreeFields/Nominations.aspx?Key=2026Oct24%2CVIC%2CFlemington",
           "providerAt": null,
           "providerClock": "Last Published:",
-          "checkedAt": "2026-10-11T02:49:03.464Z",
+          "checkedAt": "2026-10-11T12:37:29.370Z",
           "phase": "nominations",
           "status": "upcoming",
           "statusText": "Nominations",
@@ -2029,8 +2029,8 @@
           ]
         }
       },
-      "scoreCheckedAt": "2026-10-11T02:49:03.464Z",
-      "statusCheckedAt": "2026-10-11T02:49:03.464Z",
+      "scoreCheckedAt": "2026-10-11T12:37:29.370Z",
+      "statusCheckedAt": "2026-10-11T12:37:29.370Z",
       "sourceName": "Racing Australia",
       "sourceType": "official"
     },
@@ -2362,7 +2362,7 @@
     }
   ],
   "coverage": {
-    "checkedAt": "2026-10-11T02:49:03.464Z",
+    "checkedAt": "2026-10-11T12:37:29.370Z",
     "featureCount": 12,
     "publishedDateCount": 9,
     "failures": [
@@ -2371,11 +2371,11 @@
         "code": "field-unavailable"
       },
       {
-        "id": "event:horse-racing:victoria-derby:2026",
+        "id": "event:horse-racing:vrc-oaks:2026",
         "code": "field-unavailable"
       },
       {
-        "id": "event:horse-racing:vrc-oaks:2026",
+        "id": "event:horse-racing:victoria-derby:2026",
         "code": "field-unavailable"
       },
       {

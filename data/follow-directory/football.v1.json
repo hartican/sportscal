@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "football",
   "label": "Football",
-  "generatedAt": "2026-10-07T23:14:37.555Z",
+  "generatedAt": "2026-10-11T12:38:08.39871Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -43,7 +43,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -84,7 +84,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -124,7 +124,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -161,7 +161,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -198,7 +198,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -237,7 +237,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -276,7 +276,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -313,7 +313,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -350,7 +350,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -390,7 +390,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -427,7 +427,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -464,7 +464,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -505,7 +505,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -544,7 +544,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -581,7 +581,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -621,7 +621,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -661,7 +661,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -698,7 +698,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -738,7 +738,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -780,7 +780,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -820,7 +820,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -857,7 +857,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -897,7 +897,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -934,7 +934,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -976,7 +976,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1013,7 +1013,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -1058,7 +1058,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1099,7 +1099,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1140,7 +1140,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1177,7 +1177,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1214,7 +1214,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -1254,7 +1254,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1294,7 +1294,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1339,7 +1339,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1376,7 +1376,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1415,7 +1415,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "competitionId": "competition:premier-league-2026-27"
     },
@@ -1452,7 +1452,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -1489,7 +1489,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -1526,7 +1526,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1563,7 +1563,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -1600,7 +1600,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1637,7 +1637,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -1682,7 +1682,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1719,7 +1719,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1764,7 +1764,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1801,7 +1801,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1838,7 +1838,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -1875,7 +1875,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1920,7 +1920,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -1957,7 +1957,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -1994,7 +1994,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/uel2026/2026",
       "competitionId": "competition:uefa-europa-league"
     },
@@ -2039,7 +2039,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },
@@ -2084,7 +2084,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-10",
+      "rankingCheckedOn": "2026-10-11",
       "rankingSourceUrl": "https://api.openligadb.de/getmatchdata/ucl/2026",
       "competitionId": "competition:uefa-champions-league"
     },

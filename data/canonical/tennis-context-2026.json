@@ -2,21 +2,21 @@
   "schemaVersion": "sport-context.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-10-04T05:49:58.519Z",
+  "generatedAt": "2026-10-11T12:36:44.014Z",
   "sources": [
     {
       "provider": "ATP Tour",
       "sourceUrl": "https://www.protennislive.com/posting/ramr/singles_entry_numerical.pdf",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "checkedAt": "2026-10-04T05:49:58.519Z"
+      "checkedAt": "2026-10-11T12:36:44.014Z"
     },
     {
       "provider": "WTA",
       "sourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "checkedAt": "2026-10-04T05:49:58.519Z"
+      "checkedAt": "2026-10-11T12:36:44.014Z"
     },
     {
       "provider": "ATP Tour",
@@ -121,9 +121,9 @@
         ],
         "rankingSingles": 1,
         "rankingPoints": 11000,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ITA",
         "isAustralian": false,
         "providerAlias": "atp:player:s0ag",
@@ -146,10 +146,10 @@
           "Zverev"
         ],
         "rankingSingles": 2,
-        "rankingPoints": 9630,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingPoints": 9720,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "GER",
         "isAustralian": false,
         "providerAlias": "atp:player:z355",
@@ -172,10 +172,10 @@
           "Alcaraz"
         ],
         "rankingSingles": 3,
-        "rankingPoints": 5060,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingPoints": 5560,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ESP",
         "isAustralian": false,
         "providerAlias": "atp:player:a0e2",
@@ -199,9 +199,9 @@
         ],
         "rankingSingles": 4,
         "rankingPoints": 4680,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "atp:player:s0s1",
@@ -225,9 +225,9 @@
         ],
         "rankingSingles": 5,
         "rankingPoints": 3890,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CAN",
         "isAustralian": false,
         "providerAlias": "atp:player:ag37",
@@ -251,9 +251,9 @@
         ],
         "rankingSingles": 6,
         "rankingPoints": 3860,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "RUS",
         "isAustralian": false,
         "providerAlias": "atp:player:mm58",
@@ -277,13 +277,66 @@
         ],
         "rankingSingles": 7,
         "rankingPoints": 3680,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ITA",
         "isAustralian": false,
         "providerAlias": "atp:player:c0e9",
         "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:novak-djokovic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Novak Djokovic",
+      "shortName": "Djokovic",
+      "canonicalName": "Novak Djokovic",
+      "countryCode": "RS",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Djokovic"
+        ],
+        "rankingSingles": 8,
+        "rankingPoints": 3480,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "SRB",
+        "isAustralian": false,
+        "providerAlias": "atp:player:d643",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:alex-de-minaur",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alex De Minaur",
+      "shortName": "Minaur",
+      "canonicalName": "Alex De Minaur",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Minaur"
+        ],
+        "rankingSingles": 9,
+        "rankingPoints": 3430,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:dh58",
+        "selectionReasons": [
+          "australian",
           "top_50"
         ]
       }
@@ -301,11 +354,11 @@
         "titleAliases": [
           "Tiafoe"
         ],
-        "rankingSingles": 8,
+        "rankingSingles": 10,
         "rankingPoints": 3380,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "atp:player:td51",
@@ -327,67 +380,14 @@
         "titleAliases": [
           "Fils"
         ],
-        "rankingSingles": 9,
-        "rankingPoints": 3150,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 11,
+        "rankingPoints": 3275,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "FRA",
         "isAustralian": false,
         "providerAlias": "atp:player:f0f1",
-        "selectionReasons": [
-          "top_50"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:alex-de-minaur",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Alex De Minaur",
-      "shortName": "Minaur",
-      "canonicalName": "Alex De Minaur",
-      "countryCode": "AU",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Minaur"
-        ],
-        "rankingSingles": 10,
-        "rankingPoints": 3150,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "AUS",
-        "isAustralian": true,
-        "providerAlias": "atp:player:dh58",
-        "selectionReasons": [
-          "australian",
-          "top_50"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:novak-djokovic",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Novak Djokovic",
-      "shortName": "Djokovic",
-      "canonicalName": "Novak Djokovic",
-      "countryCode": "RS",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Djokovic"
-        ],
-        "rankingSingles": 11,
-        "rankingPoints": 2980,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "SRB",
-        "isAustralian": false,
-        "providerAlias": "atp:player:d643",
         "selectionReasons": [
           "top_50"
         ]
@@ -408,9 +408,9 @@
         ],
         "rankingSingles": 12,
         "rankingPoints": 2880,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "atp:player:fb98",
@@ -434,12 +434,38 @@
         ],
         "rankingSingles": 13,
         "rankingPoints": 2659,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ESP",
         "isAustralian": false,
         "providerAlias": "atp:player:j0dz",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:valentin-vacherot",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Valentin Vacherot",
+      "shortName": "Vacherot",
+      "canonicalName": "Valentin Vacherot",
+      "countryCode": "MC",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Vacherot"
+        ],
+        "rankingSingles": 14,
+        "rankingPoints": 2450,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "MON",
+        "isAustralian": false,
+        "providerAlias": "atp:player:va25",
         "selectionReasons": [
           "top_50"
         ]
@@ -458,14 +484,40 @@
         "titleAliases": [
           "Mensik"
         ],
-        "rankingSingles": 14,
-        "rankingPoints": 2405,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 15,
+        "rankingPoints": 2445,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CZE",
         "isAustralian": false,
         "providerAlias": "atp:player:m0ni",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jiri-lehecka",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jiri Lehecka",
+      "shortName": "Lehecka",
+      "canonicalName": "Jiri Lehecka",
+      "countryCode": "CZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Lehecka"
+        ],
+        "rankingSingles": 16,
+        "rankingPoints": 2440,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "CZE",
+        "isAustralian": false,
+        "providerAlias": "atp:player:l0bv",
         "selectionReasons": [
           "top_50"
         ]
@@ -484,11 +536,11 @@
         "titleAliases": [
           "Tien"
         ],
-        "rankingSingles": 15,
+        "rankingSingles": 17,
         "rankingPoints": 2395,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "atp:player:t0ha",
@@ -510,11 +562,11 @@
         "titleAliases": [
           "Paul"
         ],
-        "rankingSingles": 16,
+        "rankingSingles": 18,
         "rankingPoints": 2375,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "atp:player:pl56",
@@ -536,11 +588,11 @@
         "titleAliases": [
           "Nakashima"
         ],
-        "rankingSingles": 17,
+        "rankingSingles": 19,
         "rankingPoints": 2335,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "atp:player:n0ae",
@@ -550,26 +602,26 @@
       }
     },
     {
-      "id": "competitor:tennis:atp:valentin-vacherot",
+      "id": "competitor:tennis:atp:francisco-cerundolo",
       "type": "competitor",
       "sportDomainId": "sport:tennis:atp",
-      "displayName": "Valentin Vacherot",
-      "shortName": "Vacherot",
-      "canonicalName": "Valentin Vacherot",
-      "countryCode": "MC",
+      "displayName": "Francisco Cerundolo",
+      "shortName": "Cerundolo",
+      "canonicalName": "Francisco Cerundolo",
+      "countryCode": "AR",
       "metadata": {
         "active": true,
         "titleAliases": [
-          "Vacherot"
+          "Cerundolo"
         ],
-        "rankingSingles": 18,
-        "rankingPoints": 2250,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 20,
+        "rankingPoints": 2220,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "MON",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "ARG",
         "isAustralian": false,
-        "providerAlias": "atp:player:va25",
+        "providerAlias": "atp:player:c0au",
         "selectionReasons": [
           "top_50"
         ]
@@ -588,11 +640,11 @@
         "titleAliases": [
           "Darderi"
         ],
-        "rankingSingles": 19,
+        "rankingSingles": 21,
         "rankingPoints": 2200,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ITA",
         "isAustralian": false,
         "providerAlias": "atp:player:d0fj",
@@ -614,92 +666,14 @@
         "titleAliases": [
           "Bublik"
         ],
-        "rankingSingles": 20,
+        "rankingSingles": 22,
         "rankingPoints": 2185,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "KAZ",
         "isAustralian": false,
         "providerAlias": "atp:player:bk92",
-        "selectionReasons": [
-          "top_50"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:casper-ruud",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Casper Ruud",
-      "shortName": "Ruud",
-      "canonicalName": "Casper Ruud",
-      "countryCode": "NO",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Ruud"
-        ],
-        "rankingSingles": 21,
-        "rankingPoints": 2145,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "NOR",
-        "isAustralian": false,
-        "providerAlias": "atp:player:rh16",
-        "selectionReasons": [
-          "top_50"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:francisco-cerundolo",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Francisco Cerundolo",
-      "shortName": "Cerundolo",
-      "canonicalName": "Francisco Cerundolo",
-      "countryCode": "AR",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Cerundolo"
-        ],
-        "rankingSingles": 22,
-        "rankingPoints": 2130,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "ARG",
-        "isAustralian": false,
-        "providerAlias": "atp:player:c0au",
-        "selectionReasons": [
-          "top_50"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:jiri-lehecka",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Jiri Lehecka",
-      "shortName": "Lehecka",
-      "canonicalName": "Jiri Lehecka",
-      "countryCode": "CZ",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Lehecka"
-        ],
-        "rankingSingles": 23,
-        "rankingPoints": 2120,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "CZE",
-        "isAustralian": false,
-        "providerAlias": "atp:player:l0bv",
         "selectionReasons": [
           "top_50"
         ]
@@ -718,14 +692,40 @@
         "titleAliases": [
           "Rublev"
         ],
-        "rankingSingles": 24,
-        "rankingPoints": 2085,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 23,
+        "rankingPoints": 2175,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "RUS",
         "isAustralian": false,
         "providerAlias": "atp:player:re44",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:casper-ruud",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Casper Ruud",
+      "shortName": "Ruud",
+      "canonicalName": "Casper Ruud",
+      "countryCode": "NO",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Ruud"
+        ],
+        "rankingSingles": 24,
+        "rankingPoints": 2145,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "NOR",
+        "isAustralian": false,
+        "providerAlias": "atp:player:rh16",
         "selectionReasons": [
           "top_50"
         ]
@@ -746,9 +746,9 @@
         ],
         "rankingSingles": 25,
         "rankingPoints": 2010,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ITA",
         "isAustralian": false,
         "providerAlias": "atp:player:m0ej",
@@ -772,9 +772,9 @@
         ],
         "rankingSingles": 26,
         "rankingPoints": 1930,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ESP",
         "isAustralian": false,
         "providerAlias": "atp:player:dh50",
@@ -797,10 +797,10 @@
           "Khachanov"
         ],
         "rankingSingles": 27,
-        "rankingPoints": 1800,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingPoints": 1900,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "RUS",
         "isAustralian": false,
         "providerAlias": "atp:player:ke29",
@@ -824,9 +824,9 @@
         ],
         "rankingSingles": 28,
         "rankingPoints": 1787,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "BEL",
         "isAustralian": false,
         "providerAlias": "atp:player:b0pg",
@@ -850,38 +850,12 @@
         ],
         "rankingSingles": 29,
         "rankingPoints": 1750,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "BRA",
         "isAustralian": false,
         "providerAlias": "atp:player:f0fv",
-        "selectionReasons": [
-          "top_50"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:tomas-martin-etcheverry",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Tomas Martin Etcheverry",
-      "shortName": "Etcheverry",
-      "canonicalName": "Tomas Martin Etcheverry",
-      "countryCode": "AR",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Etcheverry"
-        ],
-        "rankingSingles": 30,
-        "rankingPoints": 1590,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "ARG",
-        "isAustralian": false,
-        "providerAlias": "atp:player:ea24",
         "selectionReasons": [
           "top_50"
         ]
@@ -900,14 +874,40 @@
         "titleAliases": [
           "Tabilo"
         ],
-        "rankingSingles": 31,
-        "rankingPoints": 1565,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 30,
+        "rankingPoints": 1605,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CHI",
         "isAustralian": false,
         "providerAlias": "atp:player:te30",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:tomas-martin-etcheverry",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Tomas Martin Etcheverry",
+      "shortName": "Etcheverry",
+      "canonicalName": "Tomas Martin Etcheverry",
+      "countryCode": "AR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Etcheverry"
+        ],
+        "rankingSingles": 31,
+        "rankingPoints": 1590,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "ARG",
+        "isAustralian": false,
+        "providerAlias": "atp:player:ea24",
         "selectionReasons": [
           "top_50"
         ]
@@ -927,10 +927,10 @@
           "Humbert"
         ],
         "rankingSingles": 32,
-        "rankingPoints": 1535,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingPoints": 1575,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "FRA",
         "isAustralian": false,
         "providerAlias": "atp:player:hh26",
@@ -954,12 +954,38 @@
         ],
         "rankingSingles": 33,
         "rankingPoints": 1520,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "FRA",
         "isAustralian": false,
         "providerAlias": "atp:player:rc91",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:hubert-hurkacz",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Hubert Hurkacz",
+      "shortName": "Hurkacz",
+      "canonicalName": "Hubert Hurkacz",
+      "countryCode": "PL",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Hurkacz"
+        ],
+        "rankingSingles": 34,
+        "rankingPoints": 1475,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "POL",
+        "isAustralian": false,
+        "providerAlias": "atp:player:public-hubert-hurkacz",
         "selectionReasons": [
           "top_50"
         ]
@@ -978,11 +1004,11 @@
         "titleAliases": [
           "Michelsen"
         ],
-        "rankingSingles": 34,
+        "rankingSingles": 35,
         "rankingPoints": 1460,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "atp:player:m0qi",
@@ -1004,11 +1030,11 @@
         "titleAliases": [
           "Buse"
         ],
-        "rankingSingles": 35,
+        "rankingSingles": 36,
         "rankingPoints": 1447,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "PER",
         "isAustralian": false,
         "providerAlias": "atp:player:b0id",
@@ -1030,11 +1056,11 @@
         "titleAliases": [
           "Fery"
         ],
-        "rankingSingles": 36,
+        "rankingSingles": 37,
         "rankingPoints": 1413,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "GBR",
         "isAustralian": false,
         "providerAlias": "atp:player:f0dm",
@@ -1056,11 +1082,11 @@
         "titleAliases": [
           "Arnaldi"
         ],
-        "rankingSingles": 37,
-        "rankingPoints": 1336,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 38,
+        "rankingPoints": 1386,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ITA",
         "isAustralian": false,
         "providerAlias": "atp:player:a0fc",
@@ -1082,40 +1108,14 @@
         "titleAliases": [
           "Bergs"
         ],
-        "rankingSingles": 38,
+        "rankingSingles": 39,
         "rankingPoints": 1320,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "BEL",
         "isAustralian": false,
         "providerAlias": "atp:player:bu13",
-        "selectionReasons": [
-          "top_50"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:hubert-hurkacz",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Hubert Hurkacz",
-      "shortName": "Hurkacz",
-      "canonicalName": "Hubert Hurkacz",
-      "countryCode": "PL",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Hurkacz"
-        ],
-        "rankingSingles": 39,
-        "rankingPoints": 1285,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "POL",
-        "isAustralian": false,
-        "providerAlias": "atp:player:public-hubert-hurkacz",
         "selectionReasons": [
           "top_50"
         ]
@@ -1136,9 +1136,9 @@
         ],
         "rankingSingles": 40,
         "rankingPoints": 1275,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "GBR",
         "isAustralian": false,
         "providerAlias": "atp:player:n771",
@@ -1162,12 +1162,64 @@
         ],
         "rankingSingles": 41,
         "rankingPoints": 1258,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "NED",
         "isAustralian": false,
         "providerAlias": "atp:player:public-botic-van-de-zandschulp",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:denis-shapovalov",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Denis Shapovalov",
+      "shortName": "Shapovalov",
+      "canonicalName": "Denis Shapovalov",
+      "countryCode": "CA",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Shapovalov"
+        ],
+        "rankingSingles": 42,
+        "rankingPoints": 1245,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "CAN",
+        "isAustralian": false,
+        "providerAlias": "atp:player:su55",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:stefanos-tsitsipas",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Stefanos Tsitsipas",
+      "shortName": "Tsitsipas",
+      "canonicalName": "Stefanos Tsitsipas",
+      "countryCode": "GR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Tsitsipas"
+        ],
+        "rankingSingles": 43,
+        "rankingPoints": 1230,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "GRE",
+        "isAustralian": false,
+        "providerAlias": "atp:player:public-stefanos-tsitsipas",
         "selectionReasons": [
           "top_50"
         ]
@@ -1186,11 +1238,11 @@
         "titleAliases": [
           "Merida"
         ],
-        "rankingSingles": 42,
+        "rankingSingles": 44,
         "rankingPoints": 1210,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ESP",
         "isAustralian": false,
         "providerAlias": "atp:player:public-daniel-merida",
@@ -1212,92 +1264,14 @@
         "titleAliases": [
           "Assche"
         ],
-        "rankingSingles": 43,
+        "rankingSingles": 45,
         "rankingPoints": 1180,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "FRA",
         "isAustralian": false,
         "providerAlias": "atp:player:public-luca-van-assche",
-        "selectionReasons": [
-          "top_50"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:stefanos-tsitsipas",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Stefanos Tsitsipas",
-      "shortName": "Tsitsipas",
-      "canonicalName": "Stefanos Tsitsipas",
-      "countryCode": "GR",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Tsitsipas"
-        ],
-        "rankingSingles": 44,
-        "rankingPoints": 1165,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "GRE",
-        "isAustralian": false,
-        "providerAlias": "atp:player:public-stefanos-tsitsipas",
-        "selectionReasons": [
-          "top_50"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:mariano-navone",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Mariano Navone",
-      "shortName": "Navone",
-      "canonicalName": "Mariano Navone",
-      "countryCode": "AR",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Navone"
-        ],
-        "rankingSingles": 45,
-        "rankingPoints": 1155,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "ARG",
-        "isAustralian": false,
-        "providerAlias": "atp:player:n0bs",
-        "selectionReasons": [
-          "top_50"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:denis-shapovalov",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Denis Shapovalov",
-      "shortName": "Shapovalov",
-      "canonicalName": "Denis Shapovalov",
-      "countryCode": "CA",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Shapovalov"
-        ],
-        "rankingSingles": 46,
-        "rankingPoints": 1155,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "CAN",
-        "isAustralian": false,
-        "providerAlias": "atp:player:su55",
         "selectionReasons": [
           "top_50"
         ]
@@ -1316,11 +1290,11 @@
         "titleAliases": [
           "Berrettini"
         ],
-        "rankingSingles": 47,
-        "rankingPoints": 1128,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 46,
+        "rankingPoints": 1168,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ITA",
         "isAustralian": false,
         "providerAlias": "atp:player:bk40",
@@ -1330,52 +1304,26 @@
       }
     },
     {
-      "id": "competitor:tennis:atp:raphael-collignon",
+      "id": "competitor:tennis:atp:mariano-navone",
       "type": "competitor",
       "sportDomainId": "sport:tennis:atp",
-      "displayName": "Raphael Collignon",
-      "shortName": "Collignon",
-      "canonicalName": "Raphael Collignon",
-      "countryCode": "BE",
+      "displayName": "Mariano Navone",
+      "shortName": "Navone",
+      "canonicalName": "Mariano Navone",
+      "countryCode": "AR",
       "metadata": {
         "active": true,
         "titleAliases": [
-          "Collignon"
+          "Navone"
         ],
-        "rankingSingles": 48,
-        "rankingPoints": 1078,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 47,
+        "rankingPoints": 1155,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "BEL",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "ARG",
         "isAustralian": false,
-        "providerAlias": "atp:player:c0jp",
-        "selectionReasons": [
-          "top_50"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:nuno-borges",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Nuno Borges",
-      "shortName": "Borges",
-      "canonicalName": "Nuno Borges",
-      "countryCode": "PT",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Borges"
-        ],
-        "rankingSingles": 49,
-        "rankingPoints": 1070,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "POR",
-        "isAustralian": false,
-        "providerAlias": "atp:player:public-nuno-borges",
+        "providerAlias": "atp:player:n0bs",
         "selectionReasons": [
           "top_50"
         ]
@@ -1394,14 +1342,66 @@
         "titleAliases": [
           "Halys"
         ],
-        "rankingSingles": 50,
-        "rankingPoints": 1070,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 48,
+        "rankingPoints": 1107,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "FRA",
         "isAustralian": false,
         "providerAlias": "atp:player:public-quentin-halys",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jaume-munar",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jaume Munar",
+      "shortName": "Munar",
+      "canonicalName": "Jaume Munar",
+      "countryCode": "ES",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Munar"
+        ],
+        "rankingSingles": 49,
+        "rankingPoints": 1100,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "ESP",
+        "isAustralian": false,
+        "providerAlias": "atp:player:public-jaume-munar",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:raphael-collignon",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Raphael Collignon",
+      "shortName": "Collignon",
+      "canonicalName": "Raphael Collignon",
+      "countryCode": "BE",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Collignon"
+        ],
+        "rankingSingles": 50,
+        "rankingPoints": 1078,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "BEL",
+        "isAustralian": false,
+        "providerAlias": "atp:player:c0jp",
         "selectionReasons": [
           "top_50"
         ]
@@ -1420,11 +1420,11 @@
         "titleAliases": [
           "Duckworth"
         ],
-        "rankingSingles": 63,
+        "rankingSingles": 64,
         "rankingPoints": 877,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:d994",
@@ -1446,11 +1446,11 @@
         "titleAliases": [
           "Hijikata"
         ],
-        "rankingSingles": 82,
+        "rankingSingles": 85,
         "rankingPoints": 711,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:h0bh",
@@ -1472,11 +1472,11 @@
         "titleAliases": [
           "Walton"
         ],
-        "rankingSingles": 97,
+        "rankingSingles": 98,
         "rankingPoints": 630,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:w09e",
@@ -1498,11 +1498,11 @@
         "titleAliases": [
           "Sweeny"
         ],
-        "rankingSingles": 110,
-        "rankingPoints": 538,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 112,
+        "rankingPoints": 551,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:s0ia",
@@ -1524,11 +1524,11 @@
         "titleAliases": [
           "Vukic"
         ],
-        "rankingSingles": 112,
+        "rankingSingles": 115,
         "rankingPoints": 532,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:v832",
@@ -1550,11 +1550,11 @@
         "titleAliases": [
           "O'connell"
         ],
-        "rankingSingles": 114,
+        "rankingSingles": 117,
         "rankingPoints": 529,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:o483",
@@ -1578,9 +1578,9 @@
         ],
         "rankingSingles": 129,
         "rankingPoints": 458,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:p09z",
@@ -1602,11 +1602,11 @@
         "titleAliases": [
           "Schoolkate"
         ],
-        "rankingSingles": 153,
+        "rankingSingles": 155,
         "rankingPoints": 365,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:s0n0",
@@ -1628,11 +1628,11 @@
         "titleAliases": [
           "Bolt"
         ],
-        "rankingSingles": 183,
-        "rankingPoints": 307,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 170,
+        "rankingPoints": 332,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:bi81",
@@ -1654,11 +1654,11 @@
         "titleAliases": [
           "Tomic"
         ],
-        "rankingSingles": 184,
-        "rankingPoints": 307,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 185,
+        "rankingPoints": 314,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:ta46",
@@ -1680,11 +1680,11 @@
         "titleAliases": [
           "Mccabe"
         ],
-        "rankingSingles": 253,
+        "rankingSingles": 259,
         "rankingPoints": 219,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:m0oq",
@@ -1706,11 +1706,11 @@
         "titleAliases": [
           "Dellavedova"
         ],
-        "rankingSingles": 278,
+        "rankingSingles": 283,
         "rankingPoints": 199,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:d0a2",
@@ -1732,11 +1732,11 @@
         "titleAliases": [
           "Hewitt"
         ],
-        "rankingSingles": 322,
+        "rankingSingles": 331,
         "rankingPoints": 167,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:h0k0",
@@ -1758,11 +1758,11 @@
         "titleAliases": [
           "Winter"
         ],
-        "rankingSingles": 343,
+        "rankingSingles": 350,
         "rankingPoints": 151,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:w0c4",
@@ -1784,11 +1784,11 @@
         "titleAliases": [
           "Delaney"
         ],
-        "rankingSingles": 350,
+        "rankingSingles": 357,
         "rankingPoints": 147,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:dc38",
@@ -1810,11 +1810,11 @@
         "titleAliases": [
           "Sekulic"
         ],
-        "rankingSingles": 357,
+        "rankingSingles": 363,
         "rankingPoints": 145,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:s0ti",
@@ -1836,40 +1836,14 @@
         "titleAliases": [
           "Kokkinakis"
         ],
-        "rankingSingles": 413,
+        "rankingSingles": 419,
         "rankingPoints": 118,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:kd46",
-        "selectionReasons": [
-          "australian"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:marc-polmans",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Marc Polmans",
-      "shortName": "Polmans",
-      "canonicalName": "Marc Polmans",
-      "countryCode": "AU",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Polmans"
-        ],
-        "rankingSingles": 424,
-        "rankingPoints": 115,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "AUS",
-        "isAustralian": true,
-        "providerAlias": "atp:player:pg94",
         "selectionReasons": [
           "australian"
         ]
@@ -1888,14 +1862,40 @@
         "titleAliases": [
           "Jasika"
         ],
-        "rankingSingles": 428,
-        "rankingPoints": 115,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 422,
+        "rankingPoints": 118,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:j553",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:marc-polmans",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Marc Polmans",
+      "shortName": "Polmans",
+      "canonicalName": "Marc Polmans",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Polmans"
+        ],
+        "rankingSingles": 429,
+        "rankingPoints": 115,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:pg94",
         "selectionReasons": [
           "australian"
         ]
@@ -1914,11 +1914,11 @@
         "titleAliases": [
           "Thompson"
         ],
-        "rankingSingles": 432,
+        "rankingSingles": 438,
         "rankingPoints": 113,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:tc61",
@@ -1940,11 +1940,11 @@
         "titleAliases": [
           "Aguiard"
         ],
-        "rankingSingles": 438,
-        "rankingPoints": 111,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 439,
+        "rankingPoints": 113,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:a0ku",
@@ -1966,11 +1966,11 @@
         "titleAliases": [
           "Ellis"
         ],
-        "rankingSingles": 456,
+        "rankingSingles": 462,
         "rankingPoints": 105,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:ea27",
@@ -1992,11 +1992,11 @@
         "titleAliases": [
           "Bouzige"
         ],
-        "rankingSingles": 471,
+        "rankingSingles": 475,
         "rankingPoints": 99,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:b0ek",
@@ -2018,40 +2018,14 @@
         "titleAliases": [
           "Sach"
         ],
-        "rankingSingles": 504,
+        "rankingSingles": 510,
         "rankingPoints": 88,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:s0u5",
-        "selectionReasons": [
-          "australian"
-        ]
-      }
-    },
-    {
-      "id": "competitor:tennis:atp:jason-kubler",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Jason Kubler",
-      "shortName": "Kubler",
-      "canonicalName": "Jason Kubler",
-      "countryCode": "AU",
-      "metadata": {
-        "active": true,
-        "titleAliases": [
-          "Kubler"
-        ],
-        "rankingSingles": 528,
-        "rankingPoints": 81,
-        "rankingSnapshotDate": "2026-09-28",
-        "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
-        "representedCountryCode": "AUS",
-        "isAustralian": true,
-        "providerAlias": "atp:player:kb95",
         "selectionReasons": [
           "australian"
         ]
@@ -2070,14 +2044,40 @@
         "titleAliases": [
           "Tu"
         ],
-        "rankingSingles": 529,
-        "rankingPoints": 81,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSingles": 527,
+        "rankingPoints": 85,
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:tc01",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jason-kubler",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jason Kubler",
+      "shortName": "Kubler",
+      "canonicalName": "Jason Kubler",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Kubler"
+        ],
+        "rankingSingles": 540,
+        "rankingPoints": 81,
+        "rankingSnapshotDate": "2026-10-05",
+        "rankingSourceTrust": "verified",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:kb95",
         "selectionReasons": [
           "australian"
         ]
@@ -2096,11 +2096,11 @@
         "titleAliases": [
           "Marinkov"
         ],
-        "rankingSingles": 572,
+        "rankingSingles": 578,
         "rankingPoints": 69,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:m0te",
@@ -2122,11 +2122,11 @@
         "titleAliases": [
           "Ferguson"
         ],
-        "rankingSingles": 585,
+        "rankingSingles": 595,
         "rankingPoints": 67,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:f0c0",
@@ -2148,11 +2148,11 @@
         "titleAliases": [
           "Purcell"
         ],
-        "rankingSingles": 680,
+        "rankingSingles": 685,
         "rankingPoints": 49,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:ph71",
@@ -2174,11 +2174,11 @@
         "titleAliases": [
           "Bradshaw"
         ],
-        "rankingSingles": 683,
+        "rankingSingles": 687,
         "rankingPoints": 49,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:b0ot",
@@ -2200,11 +2200,11 @@
         "titleAliases": [
           "Fancutt"
         ],
-        "rankingSingles": 692,
+        "rankingSingles": 697,
         "rankingPoints": 48,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:fa50",
@@ -2226,11 +2226,11 @@
         "titleAliases": [
           "Hulme"
         ],
-        "rankingSingles": 752,
+        "rankingSingles": 755,
         "rankingPoints": 40,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:h0hs",
@@ -2252,11 +2252,11 @@
         "titleAliases": [
           "Jones"
         ],
-        "rankingSingles": 820,
+        "rankingSingles": 829,
         "rankingPoints": 33,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:j0a6",
@@ -2278,11 +2278,11 @@
         "titleAliases": [
           "Charlton"
         ],
-        "rankingSingles": 831,
+        "rankingSingles": 841,
         "rankingPoints": 33,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:c09y",
@@ -2304,11 +2304,11 @@
         "titleAliases": [
           "Ziegann"
         ],
-        "rankingSingles": 843,
+        "rankingSingles": 852,
         "rankingPoints": 32,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:r0dp",
@@ -2330,11 +2330,11 @@
         "titleAliases": [
           "Kyrgios"
         ],
-        "rankingSingles": 915,
+        "rankingSingles": 917,
         "rankingPoints": 25,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:ke17",
@@ -2356,11 +2356,11 @@
         "titleAliases": [
           "O'connell"
         ],
-        "rankingSingles": 939,
+        "rankingSingles": 947,
         "rankingPoints": 24,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:o0a6",
@@ -2382,11 +2382,11 @@
         "titleAliases": [
           "Markovina"
         ],
-        "rankingSingles": 989,
+        "rankingSingles": 995,
         "rankingPoints": 20,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:m0u9",
@@ -2408,11 +2408,11 @@
         "titleAliases": [
           "Vujic"
         ],
-        "rankingSingles": 1092,
+        "rankingSingles": 1101,
         "rankingPoints": 15,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:va31",
@@ -2434,11 +2434,11 @@
         "titleAliases": [
           "Mcfadzean"
         ],
-        "rankingSingles": 1113,
+        "rankingSingles": 1122,
         "rankingPoints": 14,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:m0zk",
@@ -2460,11 +2460,11 @@
         "titleAliases": [
           "Pearson"
         ],
-        "rankingSingles": 1121,
+        "rankingSingles": 1128,
         "rankingPoints": 13,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:pl69",
@@ -2486,11 +2486,11 @@
         "titleAliases": [
           "Dong"
         ],
-        "rankingSingles": 1137,
+        "rankingSingles": 1143,
         "rankingPoints": 13,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:d0fn",
@@ -2512,11 +2512,11 @@
         "titleAliases": [
           "Delaney"
         ],
-        "rankingSingles": 1146,
+        "rankingSingles": 1149,
         "rankingPoints": 13,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:d0be",
@@ -2538,11 +2538,11 @@
         "titleAliases": [
           "Viiala"
         ],
-        "rankingSingles": 1250,
+        "rankingSingles": 1259,
         "rankingPoints": 9,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:v0fl",
@@ -2564,11 +2564,11 @@
         "titleAliases": [
           "Jones"
         ],
-        "rankingSingles": 1260,
+        "rankingSingles": 1268,
         "rankingPoints": 9,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:j0d5",
@@ -2590,11 +2590,11 @@
         "titleAliases": [
           "Cook"
         ],
-        "rankingSingles": 1304,
+        "rankingSingles": 1307,
         "rankingPoints": 8,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:c0ms",
@@ -2616,11 +2616,11 @@
         "titleAliases": [
           "Mcleod"
         ],
-        "rankingSingles": 1319,
+        "rankingSingles": 1321,
         "rankingPoints": 8,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:m0z0",
@@ -2642,11 +2642,11 @@
         "titleAliases": [
           "Zhang"
         ],
-        "rankingSingles": 1337,
+        "rankingSingles": 1339,
         "rankingPoints": 7,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:z0cn",
@@ -2668,11 +2668,11 @@
         "titleAliases": [
           "Anderson"
         ],
-        "rankingSingles": 1343,
+        "rankingSingles": 1346,
         "rankingPoints": 7,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:ad23",
@@ -2694,11 +2694,11 @@
         "titleAliases": [
           "Ibraimi"
         ],
-        "rankingSingles": 1352,
+        "rankingSingles": 1355,
         "rankingPoints": 7,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:i0cd",
@@ -2720,11 +2720,11 @@
         "titleAliases": [
           "Host"
         ],
-        "rankingSingles": 1364,
+        "rankingSingles": 1367,
         "rankingPoints": 7,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:h0li",
@@ -2746,11 +2746,11 @@
         "titleAliases": [
           "Storch"
         ],
-        "rankingSingles": 1367,
+        "rankingSingles": 1369,
         "rankingPoints": 7,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:s0if",
@@ -2772,11 +2772,11 @@
         "titleAliases": [
           "Jovanovski"
         ],
-        "rankingSingles": 1407,
+        "rankingSingles": 1411,
         "rankingPoints": 6,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:j0fy",
@@ -2798,11 +2798,11 @@
         "titleAliases": [
           "Mehrotra"
         ],
-        "rankingSingles": 1421,
+        "rankingSingles": 1428,
         "rankingPoints": 6,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:m0ce",
@@ -2824,11 +2824,11 @@
         "titleAliases": [
           "Satara"
         ],
-        "rankingSingles": 1446,
+        "rankingSingles": 1453,
         "rankingPoints": 5,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:s1g9",
@@ -2850,11 +2850,11 @@
         "titleAliases": [
           "Dembo"
         ],
-        "rankingSingles": 1473,
+        "rankingSingles": 1481,
         "rankingPoints": 5,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:d0nq",
@@ -2876,11 +2876,11 @@
         "titleAliases": [
           "Arcon"
         ],
-        "rankingSingles": 1482,
+        "rankingSingles": 1490,
         "rankingPoints": 5,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:a0in",
@@ -2902,11 +2902,11 @@
         "titleAliases": [
           "Beale"
         ],
-        "rankingSingles": 1507,
+        "rankingSingles": 1516,
         "rankingPoints": 4,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:bu34",
@@ -2928,11 +2928,11 @@
         "titleAliases": [
           "Sik"
         ],
-        "rankingSingles": 1549,
+        "rankingSingles": 1558,
         "rankingPoints": 4,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:s1d0",
@@ -2954,11 +2954,11 @@
         "titleAliases": [
           "Smith"
         ],
-        "rankingSingles": 1708,
+        "rankingSingles": 1725,
         "rankingPoints": 3,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:b0v4",
@@ -2980,11 +2980,11 @@
         "titleAliases": [
           "Pade"
         ],
-        "rankingSingles": 1773,
+        "rankingSingles": 1789,
         "rankingPoints": 2,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:p0nf",
@@ -3006,11 +3006,11 @@
         "titleAliases": [
           "Pham"
         ],
-        "rankingSingles": 1807,
+        "rankingSingles": 1817,
         "rankingPoints": 2,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:p0kj",
@@ -3032,11 +3032,11 @@
         "titleAliases": [
           "Brownrigg"
         ],
-        "rankingSingles": 1807,
+        "rankingSingles": 1817,
         "rankingPoints": 2,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:b0wt",
@@ -3058,11 +3058,11 @@
         "titleAliases": [
           "Stevens"
         ],
-        "rankingSingles": 1807,
+        "rankingSingles": 1817,
         "rankingPoints": 2,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:s19y",
@@ -3084,11 +3084,11 @@
         "titleAliases": [
           "Takizawa"
         ],
-        "rankingSingles": 1832,
+        "rankingSingles": 1844,
         "rankingPoints": 2,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:t0km",
@@ -3110,11 +3110,11 @@
         "titleAliases": [
           "Talic"
         ],
-        "rankingSingles": 1871,
+        "rankingSingles": 1882,
         "rankingPoints": 2,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:t0h6",
@@ -3136,11 +3136,11 @@
         "titleAliases": [
           "Bataljin"
         ],
-        "rankingSingles": 1912,
+        "rankingSingles": 1920,
         "rankingPoints": 2,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:bm09",
@@ -3162,11 +3162,11 @@
         "titleAliases": [
           "Volonski"
         ],
-        "rankingSingles": 2003,
+        "rankingSingles": 2007,
         "rankingPoints": 1,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:v0d2",
@@ -3188,11 +3188,11 @@
         "titleAliases": [
           "Patton"
         ],
-        "rankingSingles": 2083,
+        "rankingSingles": 2093,
         "rankingPoints": 1,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:public-thomas-patton",
@@ -3214,11 +3214,11 @@
         "titleAliases": [
           "Hamill"
         ],
-        "rankingSingles": 2083,
+        "rankingSingles": 2093,
         "rankingPoints": 1,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:h0lp",
@@ -3240,11 +3240,11 @@
         "titleAliases": [
           "Gadecki"
         ],
-        "rankingSingles": 2147,
+        "rankingSingles": 2160,
         "rankingPoints": 1,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:g0ki",
@@ -3266,11 +3266,11 @@
         "titleAliases": [
           "Gedge"
         ],
-        "rankingSingles": 2207,
+        "rankingSingles": 2219,
         "rankingPoints": 1,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:a0j4",
@@ -3292,11 +3292,11 @@
         "titleAliases": [
           "Vickery"
         ],
-        "rankingSingles": 2237,
+        "rankingSingles": 2250,
         "rankingPoints": 1,
-        "rankingSnapshotDate": "2026-09-28",
+        "rankingSnapshotDate": "2026-10-05",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "atp:player:v0hv",
@@ -3322,7 +3322,7 @@
         "rankingPoints": 9901,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "KAZ",
         "isAustralian": false,
         "providerAlias": "wta:player:324166",
@@ -3348,7 +3348,7 @@
         "rankingPoints": 7810,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "BLR",
         "isAustralian": false,
         "providerAlias": "wta:player:320760",
@@ -3374,7 +3374,7 @@
         "rankingPoints": 7265,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "wta:player:316956",
@@ -3400,7 +3400,7 @@
         "rankingPoints": 7244,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "wta:player:328560",
@@ -3426,7 +3426,7 @@
         "rankingPoints": 5841,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "RUS",
         "isAustralian": false,
         "providerAlias": "wta:player:331809",
@@ -3452,7 +3452,7 @@
         "rankingPoints": 5328,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CZE",
         "isAustralian": false,
         "providerAlias": "wta:player:329668",
@@ -3478,7 +3478,7 @@
         "rankingPoints": 4809,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "UKR",
         "isAustralian": false,
         "providerAlias": "wta:player:316738",
@@ -3504,7 +3504,7 @@
         "rankingPoints": 4683,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CZE",
         "isAustralian": false,
         "providerAlias": "wta:player:322191",
@@ -3530,7 +3530,7 @@
         "rankingPoints": 4119,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "POL",
         "isAustralian": false,
         "providerAlias": "wta:player:326408",
@@ -3556,7 +3556,7 @@
         "rankingPoints": 4040,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "UKR",
         "isAustralian": false,
         "providerAlias": "wta:player:326482",
@@ -3582,7 +3582,7 @@
         "rankingPoints": 3363,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "wta:player:326384",
@@ -3608,7 +3608,7 @@
         "rankingPoints": 2925,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "SUI",
         "isAustralian": false,
         "providerAlias": "wta:player:319001",
@@ -3634,7 +3634,7 @@
         "rankingPoints": 2841,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "wta:player:332285",
@@ -3660,7 +3660,7 @@
         "rankingPoints": 2588,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "RUS",
         "isAustralian": false,
         "providerAlias": "wta:player:330482",
@@ -3686,7 +3686,7 @@
         "rankingPoints": 2521,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CAN",
         "isAustralian": false,
         "providerAlias": "wta:player:331006",
@@ -3712,7 +3712,7 @@
         "rankingPoints": 2464,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ROU",
         "isAustralian": false,
         "providerAlias": "wta:player:312469",
@@ -3738,7 +3738,7 @@
         "rankingPoints": 2296,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "JPN",
         "isAustralian": false,
         "providerAlias": "wta:player:319998",
@@ -3764,7 +3764,7 @@
         "rankingPoints": 2276,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "PHI",
         "isAustralian": false,
         "providerAlias": "wta:player:330332",
@@ -3790,7 +3790,7 @@
         "rankingPoints": 2165,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "BEL",
         "isAustralian": false,
         "providerAlias": "wta:player:317964",
@@ -3816,7 +3816,7 @@
         "rankingPoints": 2122,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ITA",
         "isAustralian": false,
         "providerAlias": "wta:player:319280",
@@ -3842,7 +3842,7 @@
         "rankingPoints": 2082,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "POL",
         "isAustralian": false,
         "providerAlias": "wta:player:325639",
@@ -3868,7 +3868,7 @@
         "rankingPoints": 2043,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "RUS",
         "isAustralian": false,
         "providerAlias": "wta:player:323942",
@@ -3894,7 +3894,7 @@
         "rankingPoints": 2029,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "wta:player:316959",
@@ -3920,7 +3920,7 @@
         "rankingPoints": 2024,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "wta:player:325410",
@@ -3946,7 +3946,7 @@
         "rankingPoints": 1926,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUT",
         "isAustralian": false,
         "providerAlias": "wta:player:325601",
@@ -3972,7 +3972,7 @@
         "rankingPoints": 1894,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CAN",
         "isAustralian": false,
         "providerAlias": "wta:player:326735",
@@ -3998,7 +3998,7 @@
         "rankingPoints": 1873,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CZE",
         "isAustralian": false,
         "providerAlias": "wta:player:320983",
@@ -4024,7 +4024,7 @@
         "rankingPoints": 1811,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "RUS",
         "isAustralian": false,
         "providerAlias": "wta:player:319007",
@@ -4050,7 +4050,7 @@
         "rankingPoints": 1710,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CZE",
         "isAustralian": false,
         "providerAlias": "wta:player:330375",
@@ -4076,7 +4076,7 @@
         "rankingPoints": 1573,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "wta:player:326096",
@@ -4102,7 +4102,7 @@
         "rankingPoints": 1551,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "FRA",
         "isAustralian": false,
         "providerAlias": "wta:player:327077",
@@ -4128,7 +4128,7 @@
         "rankingPoints": 1481,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "LAT",
         "isAustralian": false,
         "providerAlias": "wta:player:319939",
@@ -4154,7 +4154,7 @@
         "rankingPoints": 1462,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "GRE",
         "isAustralian": false,
         "providerAlias": "wta:player:318312",
@@ -4180,7 +4180,7 @@
         "rankingPoints": 1352,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CZE",
         "isAustralian": false,
         "providerAlias": "wta:player:330364",
@@ -4206,7 +4206,7 @@
         "rankingPoints": 1349,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "ESP",
         "isAustralian": false,
         "providerAlias": "wta:player:321158",
@@ -4232,7 +4232,7 @@
         "rankingPoints": 1316,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "wta:player:327573",
@@ -4258,7 +4258,7 @@
         "rankingPoints": 1301,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:329393",
@@ -4285,7 +4285,7 @@
         "rankingPoints": 1288,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CHN",
         "isAustralian": false,
         "providerAlias": "wta:player:326376",
@@ -4311,7 +4311,7 @@
         "rankingPoints": 1284,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "RUS",
         "isAustralian": false,
         "providerAlias": "wta:player:322222",
@@ -4337,7 +4337,7 @@
         "rankingPoints": 1278,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CRO",
         "isAustralian": false,
         "providerAlias": "wta:player:318516",
@@ -4363,7 +4363,7 @@
         "rankingPoints": 1255,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:320728",
@@ -4390,7 +4390,7 @@
         "rankingPoints": 1230,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "USA",
         "isAustralian": false,
         "providerAlias": "wta:player:327101",
@@ -4416,7 +4416,7 @@
         "rankingPoints": 1198,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "CZE",
         "isAustralian": false,
         "providerAlias": "wta:player:318314",
@@ -4442,7 +4442,7 @@
         "rankingPoints": 1184,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "DEN",
         "isAustralian": false,
         "providerAlias": "wta:player:327793",
@@ -4468,7 +4468,7 @@
         "rankingPoints": 1165,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "UKR",
         "isAustralian": false,
         "providerAlias": "wta:player:325338",
@@ -4494,7 +4494,7 @@
         "rankingPoints": 1163,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "UKR",
         "isAustralian": false,
         "providerAlias": "wta:player:327845",
@@ -4520,7 +4520,7 @@
         "rankingPoints": 1126,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "UKR",
         "isAustralian": false,
         "providerAlias": "wta:player:327182",
@@ -4546,7 +4546,7 @@
         "rankingPoints": 1120,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "POL",
         "isAustralian": false,
         "providerAlias": "wta:player:320277",
@@ -4572,7 +4572,7 @@
         "rankingPoints": 1120,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "INA",
         "isAustralian": false,
         "providerAlias": "wta:player:328818",
@@ -4598,7 +4598,7 @@
         "rankingPoints": 1112,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "UKR",
         "isAustralian": false,
         "providerAlias": "wta:player:320567",
@@ -4624,7 +4624,7 @@
         "rankingPoints": 934,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:330544",
@@ -4650,7 +4650,7 @@
         "rankingPoints": 883,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:322082",
@@ -4676,7 +4676,7 @@
         "rankingPoints": 848,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:330291",
@@ -4702,7 +4702,7 @@
         "rankingPoints": 742,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:315232",
@@ -4728,7 +4728,7 @@
         "rankingPoints": 573,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:333111",
@@ -4754,7 +4754,7 @@
         "rankingPoints": 536,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:321179",
@@ -4780,7 +4780,7 @@
         "rankingPoints": 429,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:317810",
@@ -4806,7 +4806,7 @@
         "rankingPoints": 332,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:320543",
@@ -4832,7 +4832,7 @@
         "rankingPoints": 264,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:326653",
@@ -4858,7 +4858,7 @@
         "rankingPoints": 262,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:330920",
@@ -4884,7 +4884,7 @@
         "rankingPoints": 224,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:320013",
@@ -4910,7 +4910,7 @@
         "rankingPoints": 128,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:332661",
@@ -4936,7 +4936,7 @@
         "rankingPoints": 123,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:312413",
@@ -4962,7 +4962,7 @@
         "rankingPoints": 108,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:333011",
@@ -4988,7 +4988,7 @@
         "rankingPoints": 75,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:331634",
@@ -5014,7 +5014,7 @@
         "rankingPoints": 69,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:326908",
@@ -5040,7 +5040,7 @@
         "rankingPoints": 67,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:325827",
@@ -5066,7 +5066,7 @@
         "rankingPoints": 65,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:330075",
@@ -5092,7 +5092,7 @@
         "rankingPoints": 65,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:325430",
@@ -5118,7 +5118,7 @@
         "rankingPoints": 45,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:331645",
@@ -5144,7 +5144,7 @@
         "rankingPoints": 37,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:332736",
@@ -5170,7 +5170,7 @@
         "rankingPoints": 35,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:329185",
@@ -5196,7 +5196,7 @@
         "rankingPoints": 30,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:335473",
@@ -5222,7 +5222,7 @@
         "rankingPoints": 27,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:328327",
@@ -5248,7 +5248,7 @@
         "rankingPoints": 17,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:332380",
@@ -5274,7 +5274,7 @@
         "rankingPoints": 14,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:320585",
@@ -5300,7 +5300,7 @@
         "rankingPoints": 14,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:335810",
@@ -5326,7 +5326,7 @@
         "rankingPoints": 13,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:335471",
@@ -5352,7 +5352,7 @@
         "rankingPoints": 13,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:333885",
@@ -5378,7 +5378,7 @@
         "rankingPoints": 13,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:321903",
@@ -5404,7 +5404,7 @@
         "rankingPoints": 12,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:336364",
@@ -5430,7 +5430,7 @@
         "rankingPoints": 11,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:319696",
@@ -5456,7 +5456,7 @@
         "rankingPoints": 11,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:334185",
@@ -5482,7 +5482,7 @@
         "rankingPoints": 10,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:332865",
@@ -5508,7 +5508,7 @@
         "rankingPoints": 9,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:334184",
@@ -5534,7 +5534,7 @@
         "rankingPoints": 8,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:334992",
@@ -5560,7 +5560,7 @@
         "rankingPoints": 8,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:331640",
@@ -5586,7 +5586,7 @@
         "rankingPoints": 7,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:333882",
@@ -5612,7 +5612,7 @@
         "rankingPoints": 7,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:332375",
@@ -5638,7 +5638,7 @@
         "rankingPoints": 6,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:332384",
@@ -5664,7 +5664,7 @@
         "rankingPoints": 5,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:325489",
@@ -5690,7 +5690,7 @@
         "rankingPoints": 4,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:332645",
@@ -5716,7 +5716,7 @@
         "rankingPoints": 3,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:333234",
@@ -5742,7 +5742,7 @@
         "rankingPoints": 3,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:335370",
@@ -5768,7 +5768,7 @@
         "rankingPoints": 3,
         "rankingSnapshotDate": "2026-09-28",
         "rankingSourceTrust": "verified",
-        "rankingPublicationCheckedAt": "2026-10-04T05:49:58.519Z",
+        "rankingPublicationCheckedAt": "2026-10-11T12:36:44.014Z",
         "representedCountryCode": "AUS",
         "isAustralian": true,
         "providerAlias": "wta:player:322579",
@@ -5876,11 +5876,11 @@
   ],
   "ladderSnapshots": [
     {
-      "id": "ranking:atp-singles-2026:2026-09-28",
+      "id": "ranking:atp-singles-2026:2026-10-05",
       "competitionId": "competition:atp-singles-2026",
       "seasonLabel": "2026",
       "roundLabel": "ATP singles ranking",
-      "snapshotTimeUtc": "2026-09-28T00:00:00.000Z",
+      "snapshotTimeUtc": "2026-10-05T00:00:00.000Z",
       "entries": [
         {
           "participantId": "competitor:tennis:atp:jannik-sinner",
@@ -5890,12 +5890,12 @@
         {
           "participantId": "competitor:tennis:atp:alexander-zverev",
           "rank": 2,
-          "points": 9630
+          "points": 9720
         },
         {
           "participantId": "competitor:tennis:atp:carlos-alcaraz",
           "rank": 3,
-          "points": 5060
+          "points": 5560
         },
         {
           "participantId": "competitor:tennis:atp:ben-shelton",
@@ -5918,24 +5918,24 @@
           "points": 3680
         },
         {
-          "participantId": "competitor:tennis:atp:frances-tiafoe",
+          "participantId": "competitor:tennis:atp:novak-djokovic",
           "rank": 8,
+          "points": 3480
+        },
+        {
+          "participantId": "competitor:tennis:atp:alex-de-minaur",
+          "rank": 9,
+          "points": 3430
+        },
+        {
+          "participantId": "competitor:tennis:atp:frances-tiafoe",
+          "rank": 10,
           "points": 3380
         },
         {
           "participantId": "competitor:tennis:atp:arthur-fils",
-          "rank": 9,
-          "points": 3150
-        },
-        {
-          "participantId": "competitor:tennis:atp:alex-de-minaur",
-          "rank": 10,
-          "points": 3150
-        },
-        {
-          "participantId": "competitor:tennis:atp:novak-djokovic",
           "rank": 11,
-          "points": 2980
+          "points": 3275
         },
         {
           "participantId": "competitor:tennis:atp:taylor-fritz",
@@ -5948,59 +5948,59 @@
           "points": 2659
         },
         {
-          "participantId": "competitor:tennis:atp:jakub-mensik",
+          "participantId": "competitor:tennis:atp:valentin-vacherot",
           "rank": 14,
-          "points": 2405
+          "points": 2450
+        },
+        {
+          "participantId": "competitor:tennis:atp:jakub-mensik",
+          "rank": 15,
+          "points": 2445
+        },
+        {
+          "participantId": "competitor:tennis:atp:jiri-lehecka",
+          "rank": 16,
+          "points": 2440
         },
         {
           "participantId": "competitor:tennis:atp:learner-tien",
-          "rank": 15,
+          "rank": 17,
           "points": 2395
         },
         {
           "participantId": "competitor:tennis:atp:tommy-paul",
-          "rank": 16,
+          "rank": 18,
           "points": 2375
         },
         {
           "participantId": "competitor:tennis:atp:brandon-nakashima",
-          "rank": 17,
+          "rank": 19,
           "points": 2335
         },
         {
-          "participantId": "competitor:tennis:atp:valentin-vacherot",
-          "rank": 18,
-          "points": 2250
+          "participantId": "competitor:tennis:atp:francisco-cerundolo",
+          "rank": 20,
+          "points": 2220
         },
         {
           "participantId": "competitor:tennis:atp:luciano-darderi",
-          "rank": 19,
+          "rank": 21,
           "points": 2200
         },
         {
           "participantId": "competitor:tennis:atp:alexander-bublik",
-          "rank": 20,
+          "rank": 22,
           "points": 2185
         },
         {
-          "participantId": "competitor:tennis:atp:casper-ruud",
-          "rank": 21,
-          "points": 2145
-        },
-        {
-          "participantId": "competitor:tennis:atp:francisco-cerundolo",
-          "rank": 22,
-          "points": 2130
-        },
-        {
-          "participantId": "competitor:tennis:atp:jiri-lehecka",
-          "rank": 23,
-          "points": 2120
-        },
-        {
           "participantId": "competitor:tennis:atp:andrey-rublev",
+          "rank": 23,
+          "points": 2175
+        },
+        {
+          "participantId": "competitor:tennis:atp:casper-ruud",
           "rank": 24,
-          "points": 2085
+          "points": 2145
         },
         {
           "participantId": "competitor:tennis:atp:lorenzo-musetti",
@@ -6015,7 +6015,7 @@
         {
           "participantId": "competitor:tennis:atp:karen-khachanov",
           "rank": 27,
-          "points": 1800
+          "points": 1900
         },
         {
           "participantId": "competitor:tennis:atp:alexander-blockx",
@@ -6028,19 +6028,19 @@
           "points": 1750
         },
         {
-          "participantId": "competitor:tennis:atp:tomas-martin-etcheverry",
+          "participantId": "competitor:tennis:atp:alejandro-tabilo",
           "rank": 30,
-          "points": 1590
+          "points": 1605
         },
         {
-          "participantId": "competitor:tennis:atp:alejandro-tabilo",
+          "participantId": "competitor:tennis:atp:tomas-martin-etcheverry",
           "rank": 31,
-          "points": 1565
+          "points": 1590
         },
         {
           "participantId": "competitor:tennis:atp:ugo-humbert",
           "rank": 32,
-          "points": 1535
+          "points": 1575
         },
         {
           "participantId": "competitor:tennis:atp:arthur-rinderknech",
@@ -6048,34 +6048,34 @@
           "points": 1520
         },
         {
-          "participantId": "competitor:tennis:atp:alex-michelsen",
+          "participantId": "competitor:tennis:atp:hubert-hurkacz",
           "rank": 34,
+          "points": 1475
+        },
+        {
+          "participantId": "competitor:tennis:atp:alex-michelsen",
+          "rank": 35,
           "points": 1460
         },
         {
           "participantId": "competitor:tennis:atp:ignacio-buse",
-          "rank": 35,
+          "rank": 36,
           "points": 1447
         },
         {
           "participantId": "competitor:tennis:atp:arthur-fery",
-          "rank": 36,
+          "rank": 37,
           "points": 1413
         },
         {
           "participantId": "competitor:tennis:atp:matteo-arnaldi",
-          "rank": 37,
-          "points": 1336
+          "rank": 38,
+          "points": 1386
         },
         {
           "participantId": "competitor:tennis:atp:zizou-bergs",
-          "rank": 38,
-          "points": 1320
-        },
-        {
-          "participantId": "competitor:tennis:atp:hubert-hurkacz",
           "rank": 39,
-          "points": 1285
+          "points": 1320
         },
         {
           "participantId": "competitor:tennis:atp:cameron-norrie",
@@ -6088,78 +6088,78 @@
           "points": 1258
         },
         {
-          "participantId": "competitor:tennis:atp:daniel-merida",
+          "participantId": "competitor:tennis:atp:denis-shapovalov",
           "rank": 42,
+          "points": 1245
+        },
+        {
+          "participantId": "competitor:tennis:atp:stefanos-tsitsipas",
+          "rank": 43,
+          "points": 1230
+        },
+        {
+          "participantId": "competitor:tennis:atp:daniel-merida",
+          "rank": 44,
           "points": 1210
         },
         {
           "participantId": "competitor:tennis:atp:luca-van-assche",
-          "rank": 43,
+          "rank": 45,
           "points": 1180
         },
         {
-          "participantId": "competitor:tennis:atp:stefanos-tsitsipas",
-          "rank": 44,
-          "points": 1165
+          "participantId": "competitor:tennis:atp:matteo-berrettini",
+          "rank": 46,
+          "points": 1168
         },
         {
           "participantId": "competitor:tennis:atp:mariano-navone",
-          "rank": 45,
-          "points": 1155
-        },
-        {
-          "participantId": "competitor:tennis:atp:denis-shapovalov",
-          "rank": 46,
-          "points": 1155
-        },
-        {
-          "participantId": "competitor:tennis:atp:matteo-berrettini",
           "rank": 47,
-          "points": 1128
-        },
-        {
-          "participantId": "competitor:tennis:atp:raphael-collignon",
-          "rank": 48,
-          "points": 1078
-        },
-        {
-          "participantId": "competitor:tennis:atp:nuno-borges",
-          "rank": 49,
-          "points": 1070
+          "points": 1155
         },
         {
           "participantId": "competitor:tennis:atp:quentin-halys",
+          "rank": 48,
+          "points": 1107
+        },
+        {
+          "participantId": "competitor:tennis:atp:jaume-munar",
+          "rank": 49,
+          "points": 1100
+        },
+        {
+          "participantId": "competitor:tennis:atp:raphael-collignon",
           "rank": 50,
-          "points": 1070
+          "points": 1078
         },
         {
           "participantId": "competitor:tennis:atp:james-duckworth",
-          "rank": 63,
+          "rank": 64,
           "points": 877
         },
         {
           "participantId": "competitor:tennis:atp:rinky-hijikata",
-          "rank": 82,
+          "rank": 85,
           "points": 711
         },
         {
           "participantId": "competitor:tennis:atp:adam-walton",
-          "rank": 97,
+          "rank": 98,
           "points": 630
         },
         {
           "participantId": "competitor:tennis:atp:dane-sweeny",
-          "rank": 110,
-          "points": 538
+          "rank": 112,
+          "points": 551
         },
         {
           "participantId": "competitor:tennis:atp:aleksandar-vukic",
-          "rank": 112,
+          "rank": 115,
           "points": 532
         },
         {
           "participantId": "competitor:tennis:atp:christopher-o-connell",
-          "rank": 114,
+          "rank": 117,
           "points": 529
         },
         {
@@ -6169,332 +6169,332 @@
         },
         {
           "participantId": "competitor:tennis:atp:tristan-schoolkate",
-          "rank": 153,
+          "rank": 155,
           "points": 365
         },
         {
           "participantId": "competitor:tennis:atp:alex-bolt",
-          "rank": 183,
-          "points": 307
+          "rank": 170,
+          "points": 332
         },
         {
           "participantId": "competitor:tennis:atp:bernard-tomic",
-          "rank": 184,
-          "points": 307
+          "rank": 185,
+          "points": 314
         },
         {
           "participantId": "competitor:tennis:atp:james-mccabe",
-          "rank": 253,
+          "rank": 259,
           "points": 219
         },
         {
           "participantId": "competitor:tennis:atp:matthew-dellavedova",
-          "rank": 278,
+          "rank": 283,
           "points": 199
         },
         {
           "participantId": "competitor:tennis:atp:cruz-hewitt",
-          "rank": 322,
+          "rank": 331,
           "points": 167
         },
         {
           "participantId": "competitor:tennis:atp:edward-winter",
-          "rank": 343,
+          "rank": 350,
           "points": 151
         },
         {
           "participantId": "competitor:tennis:atp:jake-delaney",
-          "rank": 350,
+          "rank": 357,
           "points": 147
         },
         {
           "participantId": "competitor:tennis:atp:philip-sekulic",
-          "rank": 357,
+          "rank": 363,
           "points": 145
         },
         {
           "participantId": "competitor:tennis:atp:thanasi-kokkinakis",
-          "rank": 413,
+          "rank": 419,
+          "points": 118
+        },
+        {
+          "participantId": "competitor:tennis:atp:omar-jasika",
+          "rank": 422,
           "points": 118
         },
         {
           "participantId": "competitor:tennis:atp:marc-polmans",
-          "rank": 424,
-          "points": 115
-        },
-        {
-          "participantId": "competitor:tennis:atp:omar-jasika",
-          "rank": 428,
+          "rank": 429,
           "points": 115
         },
         {
           "participantId": "competitor:tennis:atp:jordan-thompson",
-          "rank": 432,
+          "rank": 438,
           "points": 113
         },
         {
           "participantId": "competitor:tennis:atp:enzo-aguiard",
-          "rank": 438,
-          "points": 111
+          "rank": 439,
+          "points": 113
         },
         {
           "participantId": "competitor:tennis:atp:blake-ellis",
-          "rank": 456,
+          "rank": 462,
           "points": 105
         },
         {
           "participantId": "competitor:tennis:atp:moerani-bouzige",
-          "rank": 471,
+          "rank": 475,
           "points": 99
         },
         {
           "participantId": "competitor:tennis:atp:tai-sach",
-          "rank": 504,
+          "rank": 510,
           "points": 88
         },
         {
-          "participantId": "competitor:tennis:atp:jason-kubler",
-          "rank": 528,
-          "points": 81
+          "participantId": "competitor:tennis:atp:li-tu",
+          "rank": 527,
+          "points": 85
         },
         {
-          "participantId": "competitor:tennis:atp:li-tu",
-          "rank": 529,
+          "participantId": "competitor:tennis:atp:jason-kubler",
+          "rank": 540,
           "points": 81
         },
         {
           "participantId": "competitor:tennis:atp:pavle-marinkov",
-          "rank": 572,
+          "rank": 578,
           "points": 69
         },
         {
           "participantId": "competitor:tennis:atp:chase-ferguson",
-          "rank": 585,
+          "rank": 595,
           "points": 67
         },
         {
           "participantId": "competitor:tennis:atp:max-purcell",
-          "rank": 680,
+          "rank": 685,
           "points": 49
         },
         {
           "participantId": "competitor:tennis:atp:jacob-bradshaw",
-          "rank": 683,
+          "rank": 687,
           "points": 49
         },
         {
           "participantId": "competitor:tennis:atp:thomas-fancutt",
-          "rank": 692,
+          "rank": 697,
           "points": 48
         },
         {
           "participantId": "competitor:tennis:atp:matt-hulme",
-          "rank": 752,
+          "rank": 755,
           "points": 40
         },
         {
           "participantId": "competitor:tennis:atp:scott-jones",
-          "rank": 820,
+          "rank": 829,
           "points": 33
         },
         {
           "participantId": "competitor:tennis:atp:joshua-charlton",
-          "rank": 831,
+          "rank": 841,
           "points": 33
         },
         {
           "participantId": "competitor:tennis:atp:sam-ryan-ziegann",
-          "rank": 843,
+          "rank": 852,
           "points": 32
         },
         {
           "participantId": "competitor:tennis:atp:nick-kyrgios",
-          "rank": 915,
+          "rank": 917,
           "points": 25
         },
         {
           "participantId": "competitor:tennis:atp:benjamin-o-connell",
-          "rank": 939,
+          "rank": 947,
           "points": 24
         },
         {
           "participantId": "competitor:tennis:atp:duje-markovina",
-          "rank": 989,
+          "rank": 995,
           "points": 20
         },
         {
           "participantId": "competitor:tennis:atp:stefan-vujic",
-          "rank": 1092,
+          "rank": 1101,
           "points": 15
         },
         {
           "participantId": "competitor:tennis:atp:lachlan-james-mcfadzean",
-          "rank": 1113,
+          "rank": 1122,
           "points": 14
         },
         {
           "participantId": "competitor:tennis:atp:kody-pearson",
-          "rank": 1121,
+          "rank": 1128,
           "points": 13
         },
         {
           "participantId": "competitor:tennis:atp:chen-dong",
-          "rank": 1137,
+          "rank": 1143,
           "points": 13
         },
         {
           "participantId": "competitor:tennis:atp:jesse-delaney",
-          "rank": 1146,
+          "rank": 1149,
           "points": 13
         },
         {
           "participantId": "competitor:tennis:atp:zack-viiala",
-          "rank": 1250,
+          "rank": 1259,
           "points": 9
         },
         {
           "participantId": "competitor:tennis:atp:hayden-jones",
-          "rank": 1260,
+          "rank": 1268,
           "points": 9
         },
         {
           "participantId": "competitor:tennis:atp:ethan-cook",
-          "rank": 1304,
+          "rank": 1307,
           "points": 8
         },
         {
           "participantId": "competitor:tennis:atp:ashton-mcleod",
-          "rank": 1319,
+          "rank": 1321,
           "points": 8
         },
         {
           "participantId": "competitor:tennis:atp:jeremy-zhang",
-          "rank": 1337,
+          "rank": 1339,
           "points": 7
         },
         {
           "participantId": "competitor:tennis:atp:oliver-anderson",
-          "rank": 1343,
+          "rank": 1346,
           "points": 7
         },
         {
           "participantId": "competitor:tennis:atp:ymerali-ibraimi",
-          "rank": 1352,
+          "rank": 1355,
           "points": 7
         },
         {
           "participantId": "competitor:tennis:atp:ty-host",
-          "rank": 1364,
-          "points": 7
-        },
-        {
-          "participantId": "competitor:tennis:atp:stefan-storch",
           "rank": 1367,
           "points": 7
         },
         {
+          "participantId": "competitor:tennis:atp:stefan-storch",
+          "rank": 1369,
+          "points": 7
+        },
+        {
           "participantId": "competitor:tennis:atp:daniel-jovanovski",
-          "rank": 1407,
+          "rank": 1411,
           "points": 6
         },
         {
           "participantId": "competitor:tennis:atp:arjun-mehrotra",
-          "rank": 1421,
+          "rank": 1428,
           "points": 6
         },
         {
           "participantId": "competitor:tennis:atp:harrison-satara",
-          "rank": 1446,
+          "rank": 1453,
           "points": 5
         },
         {
           "participantId": "competitor:tennis:atp:jake-dembo",
-          "rank": 1473,
+          "rank": 1481,
           "points": 5
         },
         {
           "participantId": "competitor:tennis:atp:adrian-arcon",
-          "rank": 1482,
+          "rank": 1490,
           "points": 5
         },
         {
           "participantId": "competitor:tennis:atp:jeremy-beale",
-          "rank": 1507,
+          "rank": 1516,
           "points": 4
         },
         {
           "participantId": "competitor:tennis:atp:mustafa-ege-sik",
-          "rank": 1549,
+          "rank": 1558,
           "points": 4
         },
         {
           "participantId": "competitor:tennis:atp:jack-bruce-smith",
-          "rank": 1708,
+          "rank": 1725,
           "points": 3
         },
         {
           "participantId": "competitor:tennis:atp:charlie-pade",
-          "rank": 1773,
+          "rank": 1789,
           "points": 2
         },
         {
           "participantId": "competitor:tennis:atp:derek-pham",
-          "rank": 1807,
+          "rank": 1817,
           "points": 2
         },
         {
           "participantId": "competitor:tennis:atp:noah-brownrigg",
-          "rank": 1807,
+          "rank": 1817,
           "points": 2
         },
         {
           "participantId": "competitor:tennis:atp:zane-stevens",
-          "rank": 1807,
+          "rank": 1817,
           "points": 2
         },
         {
           "participantId": "competitor:tennis:atp:taiki-takizawa",
-          "rank": 1832,
+          "rank": 1844,
           "points": 2
         },
         {
           "participantId": "competitor:tennis:atp:zaharije-zak-talic",
-          "rank": 1871,
+          "rank": 1882,
           "points": 2
         },
         {
           "participantId": "competitor:tennis:atp:lawrence-bataljin",
-          "rank": 1912,
+          "rank": 1920,
           "points": 2
         },
         {
           "participantId": "competitor:tennis:atp:nikita-volonski",
-          "rank": 2003,
+          "rank": 2007,
           "points": 1
         },
         {
           "participantId": "competitor:tennis:atp:thomas-patton",
-          "rank": 2083,
+          "rank": 2093,
           "points": 1
         },
         {
           "participantId": "competitor:tennis:atp:zac-hamill",
-          "rank": 2083,
+          "rank": 2093,
           "points": 1
         },
         {
           "participantId": "competitor:tennis:atp:thomas-nicholas-gadecki",
-          "rank": 2147,
+          "rank": 2160,
           "points": 1
         },
         {
           "participantId": "competitor:tennis:atp:zachary-adam-gedge",
-          "rank": 2207,
+          "rank": 2219,
           "points": 1
         },
         {
           "participantId": "competitor:tennis:atp:lachlan-vickery",
-          "rank": 2237,
+          "rank": 2250,
           "points": 1
         }
       ],
@@ -6503,7 +6503,7 @@
         "sourceUrl": "https://www.protennislive.com/posting/ramr/singles_entry_numerical.pdf",
         "sourceType": "official",
         "sourceTrust": "verified",
-        "checkedAt": "2026-10-04T05:49:58.519Z"
+        "checkedAt": "2026-10-11T12:36:44.014Z"
       },
       "metadata": {
         "scope": "Top 50 plus every ranked Australian from the latest independently checked ATP or WTA publication",
@@ -7000,7 +7000,7 @@
         "sourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
         "sourceType": "official",
         "sourceTrust": "verified",
-        "checkedAt": "2026-10-04T05:49:58.519Z"
+        "checkedAt": "2026-10-11T12:36:44.014Z"
       },
       "metadata": {
         "scope": "Top 50 plus every ranked Australian from the latest independently checked ATP or WTA publication",

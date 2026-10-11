@@ -1,7 +1,7 @@
 {
   "schemaVersion": "athlete-profile-chunk.v1",
   "sportKey": "aflw",
-  "generatedAt": "2026-10-04T05:50:24.226Z",
+  "generatedAt": "2026-10-11T12:37:53.931Z",
   "profiles": [
     {
       "schemaVersion": "athlete-profile.v1",
@@ -37,11 +37,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 31.6
+          "value": 31.7
         },
         {
           "label": "Goals avg",
@@ -49,44 +49,67 @@
         },
         {
           "label": "Tackles avg",
-          "value": 4.9
+          "value": 4.4
         },
         {
           "label": "Clearances avg",
-          "value": 5.8
+          "value": 5.6
         },
         {
           "label": "Marks avg",
-          "value": 2.4
+          "value": 2.6
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 111
+          "value": 112
         },
         {
           "label": "Disposals",
-          "value": 2495
+          "value": 2527
         },
         {
           "label": "Goals",
-          "value": 105
+          "value": 106
         },
         {
           "label": "Tackles",
-          "value": 587
+          "value": 588
         },
         {
           "label": "Clearances",
-          "value": 494
+          "value": 498
         },
         {
           "label": "Marks",
-          "value": 398
+          "value": 402
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 8",
+          "opponent": "Sydney Swans",
+          "result": "W 71-16",
+          "stats": [
+            {
+              "label": "D",
+              "value": 32
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 9
+            }
+          ]
+        },
         {
           "label": "Round 7",
           "opponent": "Melbourne",
@@ -178,29 +201,6 @@
               "value": 11
             }
           ]
-        },
-        {
-          "label": "Round 3",
-          "opponent": "Western Bulldogs",
-          "result": "W 70-23",
-          "stats": [
-            {
-              "label": "D",
-              "value": 27
-            },
-            {
-              "label": "G",
-              "value": 1
-            },
-            {
-              "label": "T",
-              "value": 7
-            },
-            {
-              "label": "C",
-              "value": 2
-            }
-          ]
         }
       ],
       "selection": {
@@ -220,7 +220,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -439,7 +439,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -475,11 +475,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 34.5
+          "value": 34.9
         },
         {
           "label": "Goals avg",
@@ -487,44 +487,67 @@
         },
         {
           "label": "Tackles avg",
-          "value": 4.4
+          "value": 4
         },
         {
           "label": "Clearances avg",
-          "value": 3.6
+          "value": 3.7
         },
         {
           "label": "Marks avg",
-          "value": 3
+          "value": 3.2
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 93
+          "value": 94
         },
         {
           "label": "Disposals",
-          "value": 2610
+          "value": 2648
         },
         {
           "label": "Goals",
-          "value": 21
+          "value": 22
         },
         {
           "label": "Tackles",
-          "value": 440
+          "value": 441
         },
         {
           "label": "Clearances",
-          "value": 427
+          "value": 431
         },
         {
           "label": "Marks",
-          "value": 296
+          "value": 301
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 8",
+          "opponent": "Sydney Swans",
+          "result": "W 71-16",
+          "stats": [
+            {
+              "label": "D",
+              "value": 30
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 3
+            }
+          ]
+        },
         {
           "label": "Round 7",
           "opponent": "Melbourne",
@@ -616,29 +639,6 @@
               "value": 3
             }
           ]
-        },
-        {
-          "label": "Round 3",
-          "opponent": "Western Bulldogs",
-          "result": "W 70-23",
-          "stats": [
-            {
-              "label": "D",
-              "value": 32
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 5
-            },
-            {
-              "label": "C",
-              "value": 4
-            }
-          ]
         }
       ],
       "selection": {
@@ -658,7 +658,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -694,56 +694,102 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 7
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 26
+          "value": 25.1
         },
         {
           "label": "Goals avg",
-          "value": 0.1
+          "value": 0.2
         },
         {
           "label": "Tackles avg",
-          "value": 7.6
+          "value": 6.9
         },
         {
           "label": "Clearances avg",
-          "value": 6.3
+          "value": 5.9
         },
         {
           "label": "Marks avg",
-          "value": 3.6
+          "value": 3.4
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 50
+          "value": 52
         },
         {
           "label": "Disposals",
-          "value": 1046
+          "value": 1090
         },
         {
           "label": "Goals",
-          "value": 19
+          "value": 20
         },
         {
           "label": "Tackles",
-          "value": 270
+          "value": 279
         },
         {
           "label": "Clearances",
-          "value": 175
+          "value": 184
         },
         {
           "label": "Marks",
-          "value": 202
+          "value": 208
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Port Adelaide",
+          "result": "L 22-26",
+          "stats": [
+            {
+              "label": "D",
+              "value": 22
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "label": "Round 8",
+          "opponent": "Fremantle",
+          "result": "W 39-27",
+          "stats": [
+            {
+              "label": "D",
+              "value": 22
+            },
+            {
+              "label": "G",
+              "value": 1
+            },
+            {
+              "label": "T",
+              "value": 6
+            },
+            {
+              "label": "C",
+              "value": 3
+            }
+          ]
+        },
         {
           "label": "Round 7",
           "opponent": "Essendon",
@@ -812,52 +858,6 @@
               "value": 11
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Melbourne",
-          "result": "L 44-81",
-          "stats": [
-            {
-              "label": "D",
-              "value": 26
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 12
-            },
-            {
-              "label": "C",
-              "value": 9
-            }
-          ]
-        },
-        {
-          "label": "Round 3",
-          "opponent": "Adelaide Crows",
-          "result": "L 43-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 27
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 8
-            },
-            {
-              "label": "C",
-              "value": 8
-            }
-          ]
         }
       ],
       "selection": {
@@ -877,7 +877,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -913,11 +913,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 18.6
+          "value": 18.2
         },
         {
           "label": "Goals avg",
@@ -929,21 +929,21 @@
         },
         {
           "label": "Clearances avg",
-          "value": 2.4
+          "value": 2.3
         },
         {
           "label": "Marks avg",
-          "value": 4
+          "value": 3.8
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 43
+          "value": 44
         },
         {
           "label": "Disposals",
-          "value": 653
+          "value": 668
         },
         {
           "label": "Goals",
@@ -951,18 +951,41 @@
         },
         {
           "label": "Tackles",
-          "value": 138
+          "value": 141
         },
         {
           "label": "Clearances",
-          "value": 159
+          "value": 161
         },
         {
           "label": "Marks",
-          "value": 124
+          "value": 126
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "West Coast Eagles",
+          "result": "W 26-22",
+          "stats": [
+            {
+              "label": "D",
+              "value": 15
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 2
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Adelaide Crows",
@@ -1054,29 +1077,6 @@
               "value": 2
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Gold Coast SUNS",
-          "result": "L 14-17",
-          "stats": [
-            {
-              "label": "D",
-              "value": 15
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 5
-            },
-            {
-              "label": "C",
-              "value": 3
-            }
-          ]
         }
       ],
       "selection": {
@@ -1096,7 +1096,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1269,7 +1269,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1305,11 +1305,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 24.4
+          "value": 26
         },
         {
           "label": "Goals avg",
@@ -1317,7 +1317,7 @@
         },
         {
           "label": "Tackles avg",
-          "value": 11
+          "value": 11.2
         },
         {
           "label": "Clearances avg",
@@ -1325,36 +1325,59 @@
         },
         {
           "label": "Marks avg",
-          "value": 2.5
+          "value": 2.7
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 115
+          "value": 116
         },
         {
           "label": "Disposals",
-          "value": 2810
+          "value": 2849
         },
         {
           "label": "Goals",
-          "value": 19
+          "value": 20
         },
         {
           "label": "Tackles",
-          "value": 1114
+          "value": 1127
         },
         {
           "label": "Clearances",
-          "value": 531
+          "value": 537
         },
         {
           "label": "Marks",
-          "value": 345
+          "value": 349
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Richmond",
+          "result": "W 62-30",
+          "stats": [
+            {
+              "label": "D",
+              "value": 39
+            },
+            {
+              "label": "G",
+              "value": 1
+            },
+            {
+              "label": "T",
+              "value": 13
+            },
+            {
+              "label": "C",
+              "value": 6
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Port Adelaide",
@@ -1446,29 +1469,6 @@
               "value": 6
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Hawthorn",
-          "result": "W 67-39",
-          "stats": [
-            {
-              "label": "D",
-              "value": 24
-            },
-            {
-              "label": "G",
-              "value": 1
-            },
-            {
-              "label": "T",
-              "value": 13
-            },
-            {
-              "label": "C",
-              "value": 4
-            }
-          ]
         }
       ],
       "selection": {
@@ -1488,7 +1488,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1524,11 +1524,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 28.9
+          "value": 30.1
         },
         {
           "label": "Goals avg",
@@ -1536,25 +1536,25 @@
         },
         {
           "label": "Tackles avg",
-          "value": 4.3
+          "value": 4.1
         },
         {
           "label": "Clearances avg",
-          "value": 7.6
+          "value": 8
         },
         {
           "label": "Marks avg",
-          "value": 1.9
+          "value": 2
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 61
+          "value": 62
         },
         {
           "label": "Disposals",
-          "value": 1367
+          "value": 1407
         },
         {
           "label": "Goals",
@@ -1562,18 +1562,41 @@
         },
         {
           "label": "Tackles",
-          "value": 382
+          "value": 385
         },
         {
           "label": "Clearances",
-          "value": 365
+          "value": 376
         },
         {
           "label": "Marks",
-          "value": 85
+          "value": 88
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "GWS GIANTS",
+          "result": "W 96-33",
+          "stats": [
+            {
+              "label": "D",
+              "value": 40
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 11
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Richmond",
@@ -1665,29 +1688,6 @@
               "value": 9
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Essendon",
-          "result": "W 83-51",
-          "stats": [
-            {
-              "label": "D",
-              "value": 26
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 7
-            },
-            {
-              "label": "C",
-              "value": 5
-            }
-          ]
         }
       ],
       "selection": {
@@ -1707,7 +1707,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1743,19 +1743,19 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 15.6
+          "value": 16
         },
         {
           "label": "Goals avg",
-          "value": 1.6
+          "value": 1.8
         },
         {
           "label": "Tackles avg",
-          "value": 3.3
+          "value": 3.1
         },
         {
           "label": "Clearances avg",
@@ -1769,30 +1769,53 @@
       "careerStats": [
         {
           "label": "Matches",
-          "value": 77
+          "value": 78
         },
         {
           "label": "Disposals",
-          "value": 1026
+          "value": 1045
         },
         {
           "label": "Goals",
-          "value": 89
+          "value": 92
         },
         {
           "label": "Tackles",
-          "value": 238
+          "value": 240
         },
         {
           "label": "Clearances",
-          "value": 123
+          "value": 124
         },
         {
           "label": "Marks",
-          "value": 237
+          "value": 240
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 8",
+          "opponent": "North Melbourne",
+          "result": "L 16-71",
+          "stats": [
+            {
+              "label": "D",
+              "value": 11
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 5
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 7",
           "opponent": "Brisbane Lions",
@@ -1884,29 +1907,6 @@
               "value": 1
             }
           ]
-        },
-        {
-          "label": "Round 3",
-          "opponent": "St Kilda",
-          "result": "W 38-15",
-          "stats": [
-            {
-              "label": "D",
-              "value": 12
-            },
-            {
-              "label": "G",
-              "value": 1
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -1926,7 +1926,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1962,23 +1962,23 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 7
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 26
+          "value": 24.9
         },
         {
           "label": "Goals avg",
-          "value": 0.6
+          "value": 0.8
         },
         {
           "label": "Tackles avg",
-          "value": 7.6
+          "value": 7.8
         },
         {
           "label": "Clearances avg",
-          "value": 4.3
+          "value": 4
         },
         {
           "label": "Marks avg",
@@ -1988,30 +1988,76 @@
       "careerStats": [
         {
           "label": "Matches",
-          "value": 94
+          "value": 96
         },
         {
           "label": "Disposals",
-          "value": 1744
+          "value": 1786
         },
         {
           "label": "Goals",
-          "value": 27
+          "value": 30
         },
         {
           "label": "Tackles",
-          "value": 498
+          "value": 515
         },
         {
           "label": "Clearances",
-          "value": 303
+          "value": 309
         },
         {
           "label": "Marks",
-          "value": 181
+          "value": 185
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Gold Coast SUNS",
+          "result": "L 39-61",
+          "stats": [
+            {
+              "label": "D",
+              "value": 18
+            },
+            {
+              "label": "G",
+              "value": 2
+            },
+            {
+              "label": "T",
+              "value": 5
+            },
+            {
+              "label": "C",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "label": "Round 8",
+          "opponent": "Collingwood",
+          "result": "W 42-21",
+          "stats": [
+            {
+              "label": "D",
+              "value": 24
+            },
+            {
+              "label": "G",
+              "value": 1
+            },
+            {
+              "label": "T",
+              "value": 12
+            },
+            {
+              "label": "C",
+              "value": 3
+            }
+          ]
+        },
         {
           "label": "Round 7",
           "opponent": "North Melbourne",
@@ -2080,52 +2126,6 @@
               "value": 2
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "West Coast Eagles",
-          "result": "W 81-44",
-          "stats": [
-            {
-              "label": "D",
-              "value": 29
-            },
-            {
-              "label": "G",
-              "value": 1
-            },
-            {
-              "label": "T",
-              "value": 13
-            },
-            {
-              "label": "C",
-              "value": 7
-            }
-          ]
-        },
-        {
-          "label": "Round 3",
-          "opponent": "Brisbane Lions",
-          "result": "W 89-33",
-          "stats": [
-            {
-              "label": "D",
-              "value": 24
-            },
-            {
-              "label": "G",
-              "value": 1
-            },
-            {
-              "label": "T",
-              "value": 8
-            },
-            {
-              "label": "C",
-              "value": 5
-            }
-          ]
         }
       ],
       "selection": {
@@ -2145,7 +2145,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2181,37 +2181,37 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 10.3
+          "value": 9.6
         },
         {
           "label": "Goals avg",
-          "value": 0.5
+          "value": 0.4
         },
         {
           "label": "Tackles avg",
-          "value": 3.5
+          "value": 3.1
         },
         {
           "label": "Clearances avg",
-          "value": 0.5
+          "value": 0.4
         },
         {
           "label": "Marks avg",
-          "value": 1.3
+          "value": 1.2
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 87
+          "value": 88
         },
         {
           "label": "Disposals",
-          "value": 1263
+          "value": 1267
         },
         {
           "label": "Goals",
@@ -2227,10 +2227,33 @@
         },
         {
           "label": "Marks",
-          "value": 150
+          "value": 151
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 4
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 0
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -2322,29 +2345,6 @@
               "value": 1
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 8
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -2356,7 +2356,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1693/alicia-eva"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2392,19 +2392,19 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 25.4
+          "value": 24.9
         },
         {
           "label": "Goals avg",
-          "value": 0.5
+          "value": 0.4
         },
         {
           "label": "Tackles avg",
-          "value": 6.1
+          "value": 5.8
         },
         {
           "label": "Clearances avg",
@@ -2412,17 +2412,17 @@
         },
         {
           "label": "Marks avg",
-          "value": 2.6
+          "value": 2.4
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 69
+          "value": 70
         },
         {
           "label": "Disposals",
-          "value": 1543
+          "value": 1564
         },
         {
           "label": "Goals",
@@ -2430,18 +2430,41 @@
         },
         {
           "label": "Tackles",
-          "value": 339
+          "value": 342
         },
         {
           "label": "Clearances",
-          "value": 370
+          "value": 376
         },
         {
           "label": "Marks",
-          "value": 187
+          "value": 188
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 21
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 6
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -2533,29 +2556,6 @@
               "value": 9
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 31
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 5
-            }
-          ]
         }
       ],
       "selection": {
@@ -2567,7 +2567,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2062/alyce-parker"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2603,19 +2603,19 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 4
+          "value": 5
         },
         {
           "label": "Disposals avg",
-          "value": 12.8
+          "value": 12.4
         },
         {
           "label": "Goals avg",
-          "value": 0.8
+          "value": 0.6
         },
         {
           "label": "Tackles avg",
-          "value": 4.3
+          "value": 4.6
         },
         {
           "label": "Clearances avg",
@@ -2623,17 +2623,17 @@
         },
         {
           "label": "Marks avg",
-          "value": 2.5
+          "value": 2.2
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 44
+          "value": 45
         },
         {
           "label": "Disposals",
-          "value": 359
+          "value": 370
         },
         {
           "label": "Goals",
@@ -2641,18 +2641,41 @@
         },
         {
           "label": "Tackles",
-          "value": 151
+          "value": 157
         },
         {
           "label": "Clearances",
-          "value": 14
+          "value": 15
         },
         {
           "label": "Marks",
-          "value": 75
+          "value": 76
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 11
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 6
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 4",
           "opponent": "Brisbane Lions",
@@ -2755,7 +2778,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4264/brodee-mowbray"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2966,7 +2989,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12279/caitlin-fletcher"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3002,11 +3025,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 18.9
+          "value": 17.9
         },
         {
           "label": "Goals avg",
@@ -3022,17 +3045,17 @@
         },
         {
           "label": "Marks avg",
-          "value": 2.4
+          "value": 2.2
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 43
+          "value": 44
         },
         {
           "label": "Disposals",
-          "value": 516
+          "value": 526
         },
         {
           "label": "Goals",
@@ -3040,7 +3063,7 @@
         },
         {
           "label": "Tackles",
-          "value": 140
+          "value": 143
         },
         {
           "label": "Clearances",
@@ -3048,10 +3071,33 @@
         },
         {
           "label": "Marks",
-          "value": 78
+          "value": 79
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 10
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -3143,29 +3189,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 16
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 5
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -3177,7 +3200,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/8540/cambridge-mccormick"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3213,11 +3236,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 6
+          "value": 7
         },
         {
           "label": "Disposals avg",
-          "value": 8
+          "value": 8.3
         },
         {
           "label": "Goals avg",
@@ -3225,7 +3248,7 @@
         },
         {
           "label": "Tackles avg",
-          "value": 3.2
+          "value": 3.3
         },
         {
           "label": "Clearances avg",
@@ -3233,17 +3256,17 @@
         },
         {
           "label": "Marks avg",
-          "value": 1.2
+          "value": 1
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 47
+          "value": 48
         },
         {
           "label": "Disposals",
-          "value": 336
+          "value": 346
         },
         {
           "label": "Goals",
@@ -3251,7 +3274,7 @@
         },
         {
           "label": "Tackles",
-          "value": 136
+          "value": 140
         },
         {
           "label": "Clearances",
@@ -3263,6 +3286,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 10
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 4
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -3354,29 +3400,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 2",
-          "opponent": "Melbourne",
-          "result": "L 12-60",
-          "stats": [
-            {
-              "label": "D",
-              "value": 4
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -3388,7 +3411,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/3609/daisy-walker"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3424,11 +3447,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 13.3
+          "value": 13
         },
         {
           "label": "Goals avg",
@@ -3436,25 +3459,25 @@
         },
         {
           "label": "Tackles avg",
-          "value": 3.3
+          "value": 3.2
         },
         {
           "label": "Clearances avg",
-          "value": 0.5
+          "value": 0.4
         },
         {
           "label": "Marks avg",
-          "value": 1.9
+          "value": 1.8
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 31
+          "value": 32
         },
         {
           "label": "Disposals",
-          "value": 464
+          "value": 475
         },
         {
           "label": "Goals",
@@ -3462,7 +3485,7 @@
         },
         {
           "label": "Tackles",
-          "value": 97
+          "value": 100
         },
         {
           "label": "Clearances",
@@ -3470,10 +3493,33 @@
         },
         {
           "label": "Marks",
-          "value": 71
+          "value": 72
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 11
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -3565,29 +3611,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 12
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 6
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -3599,7 +3622,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12278/eilish-odowd"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3694,7 +3717,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2024/eleanor-brown"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3730,11 +3753,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 6
+          "value": 7
         },
         {
           "label": "Disposals avg",
-          "value": 8.3
+          "value": 8.6
         },
         {
           "label": "Goals avg",
@@ -3742,7 +3765,7 @@
         },
         {
           "label": "Tackles avg",
-          "value": 2.2
+          "value": 2
         },
         {
           "label": "Clearances avg",
@@ -3750,17 +3773,17 @@
         },
         {
           "label": "Marks avg",
-          "value": 1.7
+          "value": 1.6
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 53
+          "value": 54
         },
         {
           "label": "Disposals",
-          "value": 647
+          "value": 657
         },
         {
           "label": "Goals",
@@ -3768,7 +3791,7 @@
         },
         {
           "label": "Tackles",
-          "value": 187
+          "value": 188
         },
         {
           "label": "Clearances",
@@ -3776,10 +3799,33 @@
         },
         {
           "label": "Marks",
-          "value": 93
+          "value": 94
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 10
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 1
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -3871,29 +3917,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 3
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -3905,7 +3928,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4015/emily-pease"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4000,7 +4023,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/6158/fleur-davies"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4188,7 +4211,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4134/georgia-clark"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4224,19 +4247,19 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 9.1
+          "value": 10.1
         },
         {
           "label": "Goals avg",
-          "value": 0.8
+          "value": 0.7
         },
         {
           "label": "Tackles avg",
-          "value": 2.4
+          "value": 2.2
         },
         {
           "label": "Clearances avg",
@@ -4244,17 +4267,17 @@
         },
         {
           "label": "Marks avg",
-          "value": 4.4
+          "value": 4.7
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 64
+          "value": 65
         },
         {
           "label": "Disposals",
-          "value": 668
+          "value": 686
         },
         {
           "label": "Goals",
@@ -4262,7 +4285,7 @@
         },
         {
           "label": "Tackles",
-          "value": 154
+          "value": 155
         },
         {
           "label": "Clearances",
@@ -4270,10 +4293,33 @@
         },
         {
           "label": "Marks",
-          "value": 248
+          "value": 255
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 18
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 1
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -4365,29 +4411,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 7
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -4399,7 +4422,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2145/georgia-garnett"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4435,11 +4458,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 8.6
+          "value": 8.8
         },
         {
           "label": "Goals avg",
@@ -4447,25 +4470,25 @@
         },
         {
           "label": "Tackles avg",
-          "value": 3.6
+          "value": 3.3
         },
         {
           "label": "Clearances avg",
-          "value": 1.8
+          "value": 1.6
         },
         {
           "label": "Marks avg",
-          "value": 0.9
+          "value": 1
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 13
+          "value": 14
         },
         {
           "label": "Disposals",
-          "value": 97
+          "value": 107
         },
         {
           "label": "Goals",
@@ -4473,7 +4496,7 @@
         },
         {
           "label": "Tackles",
-          "value": 38
+          "value": 39
         },
         {
           "label": "Clearances",
@@ -4481,10 +4504,33 @@
         },
         {
           "label": "Marks",
-          "value": 10
+          "value": 12
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 10
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 1
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -4576,29 +4622,6 @@
               "value": 1
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 12
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 0
-            },
-            {
-              "label": "C",
-              "value": 2
-            }
-          ]
         }
       ],
       "selection": {
@@ -4610,7 +4633,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/15571/grace-kos"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4646,11 +4669,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 7
+          "value": 8
         },
         {
           "label": "Disposals avg",
-          "value": 7.6
+          "value": 7.1
         },
         {
           "label": "Goals avg",
@@ -4658,7 +4681,7 @@
         },
         {
           "label": "Tackles avg",
-          "value": 2.1
+          "value": 2
         },
         {
           "label": "Clearances avg",
@@ -4666,17 +4689,17 @@
         },
         {
           "label": "Marks avg",
-          "value": 1.7
+          "value": 1.5
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 19
+          "value": 20
         },
         {
           "label": "Disposals",
-          "value": 166
+          "value": 170
         },
         {
           "label": "Goals",
@@ -4684,7 +4707,7 @@
         },
         {
           "label": "Tackles",
-          "value": 28
+          "value": 29
         },
         {
           "label": "Clearances",
@@ -4696,6 +4719,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 4
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 1
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -4787,29 +4833,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 3",
-          "opponent": "Port Adelaide",
-          "result": "L 48-52",
-          "stats": [
-            {
-              "label": "D",
-              "value": 9
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -4821,7 +4844,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13753/grace-martin"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4857,11 +4880,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 8
+          "value": 7.7
         },
         {
           "label": "Goals avg",
@@ -4869,7 +4892,7 @@
         },
         {
           "label": "Tackles avg",
-          "value": 1.6
+          "value": 1.7
         },
         {
           "label": "Clearances avg",
@@ -4877,25 +4900,25 @@
         },
         {
           "label": "Marks avg",
-          "value": 2.9
+          "value": 2.7
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 57
+          "value": 58
         },
         {
           "label": "Disposals",
-          "value": 480
+          "value": 485
         },
         {
           "label": "Goals",
-          "value": 29
+          "value": 30
         },
         {
           "label": "Tackles",
-          "value": 87
+          "value": 89
         },
         {
           "label": "Clearances",
@@ -4903,10 +4926,33 @@
         },
         {
           "label": "Marks",
-          "value": 181
+          "value": 182
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 5
+            },
+            {
+              "label": "G",
+              "value": 1
+            },
+            {
+              "label": "T",
+              "value": 2
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -4998,29 +5044,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 6
-            },
-            {
-              "label": "G",
-              "value": 1
-            },
-            {
-              "label": "T",
-              "value": 1
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -5032,7 +5055,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1921/isabel-huntington"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5068,15 +5091,15 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 9.4
+          "value": 9.6
         },
         {
           "label": "Goals avg",
-          "value": 0.4
+          "value": 0.3
         },
         {
           "label": "Tackles avg",
@@ -5088,17 +5111,17 @@
         },
         {
           "label": "Marks avg",
-          "value": 3
+          "value": 3.3
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 50
+          "value": 51
         },
         {
           "label": "Disposals",
-          "value": 315
+          "value": 326
         },
         {
           "label": "Goals",
@@ -5106,7 +5129,7 @@
         },
         {
           "label": "Tackles",
-          "value": 81
+          "value": 83
         },
         {
           "label": "Clearances",
@@ -5114,10 +5137,33 @@
         },
         {
           "label": "Marks",
-          "value": 88
+          "value": 94
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 11
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 2
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -5209,29 +5255,6 @@
               "value": 2
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 11
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 1
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -5243,7 +5266,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4310/jessica-doyle"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5338,7 +5361,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12273/kaitlyn-srhoj"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5374,11 +5397,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 5
+          "value": 6
         },
         {
           "label": "Disposals avg",
-          "value": 9.4
+          "value": 9
         },
         {
           "label": "Goals avg",
@@ -5390,21 +5413,21 @@
         },
         {
           "label": "Clearances avg",
-          "value": 0
+          "value": 0.2
         },
         {
           "label": "Marks avg",
-          "value": 1.2
+          "value": 1
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 5
+          "value": 6
         },
         {
           "label": "Disposals",
-          "value": 47
+          "value": 54
         },
         {
           "label": "Goals",
@@ -5412,11 +5435,11 @@
         },
         {
           "label": "Tackles",
-          "value": 11
+          "value": 13
         },
         {
           "label": "Clearances",
-          "value": 0
+          "value": 1
         },
         {
           "label": "Marks",
@@ -5424,6 +5447,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 7
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 2
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -5515,29 +5561,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 1",
-          "opponent": "West Coast Eagles",
-          "result": "W 54-42",
-          "stats": [
-            {
-              "label": "D",
-              "value": 8
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -5549,7 +5572,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13519/kiera-yerbury"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5585,37 +5608,37 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 15.5
+          "value": 15.3
         },
         {
           "label": "Goals avg",
-          "value": 0.3
+          "value": 0.2
         },
         {
           "label": "Tackles avg",
-          "value": 4.4
+          "value": 4.3
         },
         {
           "label": "Clearances avg",
-          "value": 0.5
+          "value": 0.6
         },
         {
           "label": "Marks avg",
-          "value": 2.6
+          "value": 2.8
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 44
+          "value": 45
         },
         {
           "label": "Disposals",
-          "value": 546
+          "value": 560
         },
         {
           "label": "Goals",
@@ -5623,18 +5646,41 @@
         },
         {
           "label": "Tackles",
-          "value": 149
+          "value": 153
         },
         {
           "label": "Clearances",
-          "value": 29
+          "value": 30
         },
         {
           "label": "Marks",
-          "value": 82
+          "value": 86
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 14
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 4
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -5726,29 +5772,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 15
-            },
-            {
-              "label": "G",
-              "value": 1
-            },
-            {
-              "label": "T",
-              "value": 1
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -5760,7 +5783,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4191/madison-brazendale"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5792,11 +5815,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 0
+          "value": 1
         },
         {
           "label": "Disposals avg",
-          "value": 0
+          "value": 8
         },
         {
           "label": "Goals avg",
@@ -5804,11 +5827,11 @@
         },
         {
           "label": "Tackles avg",
-          "value": 0
+          "value": 2
         },
         {
           "label": "Clearances avg",
-          "value": 0
+          "value": 2
         },
         {
           "label": "Marks avg",
@@ -5818,11 +5841,11 @@
       "careerStats": [
         {
           "label": "Matches",
-          "value": 0
+          "value": 1
         },
         {
           "label": "Disposals",
-          "value": 0
+          "value": 8
         },
         {
           "label": "Goals",
@@ -5830,18 +5853,42 @@
         },
         {
           "label": "Tackles",
-          "value": 0
+          "value": 2
         },
         {
           "label": "Clearances",
-          "value": 0
+          "value": 2
         },
         {
           "label": "Marks",
           "value": 0
         }
       ],
-      "recentFive": [],
+      "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 8
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 2
+            },
+            {
+              "label": "C",
+              "value": 2
+            }
+          ]
+        }
+      ],
       "selection": {
         "topTen": false
       },
@@ -5851,7 +5898,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/17551/maisy-evans"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5887,37 +5934,37 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 9.3
+          "value": 8.9
         },
         {
           "label": "Goals avg",
-          "value": 0.4
+          "value": 0.3
         },
         {
           "label": "Tackles avg",
-          "value": 3.1
+          "value": 3
         },
         {
           "label": "Clearances avg",
-          "value": 0.9
+          "value": 0.8
         },
         {
           "label": "Marks avg",
-          "value": 1.4
+          "value": 1.3
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 44
+          "value": 45
         },
         {
           "label": "Disposals",
-          "value": 374
+          "value": 380
         },
         {
           "label": "Goals",
@@ -5925,7 +5972,7 @@
         },
         {
           "label": "Tackles",
-          "value": 131
+          "value": 133
         },
         {
           "label": "Clearances",
@@ -5933,10 +5980,33 @@
         },
         {
           "label": "Marks",
-          "value": 43
+          "value": 44
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 6
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 2
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -6028,29 +6098,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 13
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 1
-            }
-          ]
         }
       ],
       "selection": {
@@ -6062,7 +6109,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4231/mikayla-pauga"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6273,7 +6320,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11804/poppy-boltz"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6309,49 +6356,49 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 20.8
+          "value": 19.9
         },
         {
           "label": "Goals avg",
-          "value": 0.6
+          "value": 0.7
         },
         {
           "label": "Tackles avg",
-          "value": 4.4
+          "value": 4.3
         },
         {
           "label": "Clearances avg",
-          "value": 4.8
+          "value": 4.7
         },
         {
           "label": "Marks avg",
-          "value": 1.5
+          "value": 1.3
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 81
+          "value": 82
         },
         {
           "label": "Disposals",
-          "value": 1470
+          "value": 1483
         },
         {
           "label": "Goals",
-          "value": 18
+          "value": 19
         },
         {
           "label": "Tackles",
-          "value": 339
+          "value": 343
         },
         {
           "label": "Clearances",
-          "value": 277
+          "value": 281
         },
         {
           "label": "Marks",
@@ -6359,6 +6406,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 13
+            },
+            {
+              "label": "G",
+              "value": 1
+            },
+            {
+              "label": "T",
+              "value": 4
+            },
+            {
+              "label": "C",
+              "value": 4
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -6450,29 +6520,6 @@
               "value": 8
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 25
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 6
-            },
-            {
-              "label": "C",
-              "value": 7
-            }
-          ]
         }
       ],
       "selection": {
@@ -6484,7 +6531,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1629/rebecca-beeson"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6695,7 +6742,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4671/sara-howley"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6786,7 +6833,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11274/scarlett-johnson"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6877,7 +6924,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/15399/sophia-gaukrodger"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6917,19 +6964,19 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 11.1
+          "value": 11
         },
         {
           "label": "Goals avg",
-          "value": 0.9
+          "value": 1.1
         },
         {
           "label": "Tackles avg",
-          "value": 3.5
+          "value": 3.2
         },
         {
           "label": "Clearances avg",
@@ -6943,30 +6990,53 @@
       "careerStats": [
         {
           "label": "Matches",
-          "value": 59
+          "value": 60
         },
         {
           "label": "Disposals",
-          "value": 723
+          "value": 733
         },
         {
           "label": "Goals",
-          "value": 30
+          "value": 33
         },
         {
           "label": "Tackles",
-          "value": 166
+          "value": 167
         },
         {
           "label": "Clearances",
-          "value": 24
+          "value": 25
         },
         {
           "label": "Marks",
-          "value": 163
+          "value": 167
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 10
+            },
+            {
+              "label": "G",
+              "value": 3
+            },
+            {
+              "label": "T",
+              "value": 1
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -7058,29 +7128,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 11
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -7092,7 +7139,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4040/tarni-evans"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7187,7 +7234,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11803/taylah-levy"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7223,11 +7270,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 21.3
+          "value": 21.8
         },
         {
           "label": "Goals avg",
@@ -7235,11 +7282,11 @@
         },
         {
           "label": "Tackles avg",
-          "value": 3.4
+          "value": 3.1
         },
         {
           "label": "Clearances avg",
-          "value": 1.3
+          "value": 1.2
         },
         {
           "label": "Marks avg",
@@ -7249,11 +7296,11 @@
       "careerStats": [
         {
           "label": "Matches",
-          "value": 98
+          "value": 99
         },
         {
           "label": "Disposals",
-          "value": 1671
+          "value": 1697
         },
         {
           "label": "Goals",
@@ -7261,18 +7308,41 @@
         },
         {
           "label": "Tackles",
-          "value": 432
+          "value": 433
         },
         {
           "label": "Clearances",
-          "value": 178
+          "value": 179
         },
         {
           "label": "Marks",
-          "value": 231
+          "value": 233
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 26
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 1
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -7364,29 +7434,6 @@
               "value": 0
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 20
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 0
-            },
-            {
-              "label": "C",
-              "value": 0
-            }
-          ]
         }
       ],
       "selection": {
@@ -7398,7 +7445,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1420/tilly-lucas-rodd"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7434,11 +7481,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals avg",
-          "value": 7.6
+          "value": 7.3
         },
         {
           "label": "Goals avg",
@@ -7446,25 +7493,25 @@
         },
         {
           "label": "Tackles avg",
-          "value": 3.6
+          "value": 3.8
         },
         {
           "label": "Clearances avg",
-          "value": 1.5
+          "value": 1.3
         },
         {
           "label": "Marks avg",
-          "value": 0.5
+          "value": 0.4
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 8
+          "value": 9
         },
         {
           "label": "Disposals",
-          "value": 61
+          "value": 66
         },
         {
           "label": "Goals",
@@ -7472,7 +7519,7 @@
         },
         {
           "label": "Tackles",
-          "value": 29
+          "value": 34
         },
         {
           "label": "Clearances",
@@ -7484,6 +7531,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 5
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 5
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -7575,29 +7645,6 @@
               "value": 3
             }
           ]
-        },
-        {
-          "label": "Round 4",
-          "opponent": "Brisbane Lions",
-          "result": "L 24-55",
-          "stats": [
-            {
-              "label": "D",
-              "value": 9
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 3
-            }
-          ]
         }
       ],
       "selection": {
@@ -7609,7 +7656,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13525/yasmeen-janschek"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -7645,7 +7692,7 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 1
+          "value": 2
         },
         {
           "label": "Disposals avg",
@@ -7661,7 +7708,7 @@
         },
         {
           "label": "Clearances avg",
-          "value": 3
+          "value": 1.5
         },
         {
           "label": "Marks avg",
@@ -7671,11 +7718,11 @@
       "careerStats": [
         {
           "label": "Matches",
-          "value": 42
+          "value": 43
         },
         {
           "label": "Disposals",
-          "value": 678
+          "value": 689
         },
         {
           "label": "Goals",
@@ -7683,7 +7730,7 @@
         },
         {
           "label": "Tackles",
-          "value": 248
+          "value": 254
         },
         {
           "label": "Clearances",
@@ -7695,6 +7742,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 9",
+          "opponent": "Geelong Cats",
+          "result": "L 33-96",
+          "stats": [
+            {
+              "label": "D",
+              "value": 11
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 6
+            },
+            {
+              "label": "C",
+              "value": 0
+            }
+          ]
+        },
         {
           "label": "Round 8",
           "opponent": "Essendon",
@@ -7728,7 +7798,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/5862/zarlie-goldsworthy"
         }
       ],
-      "sourceCheckedAt": "2026-10-04T05:50:24.226Z"
+      "sourceCheckedAt": "2026-10-11T12:37:53.931Z"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20261010224127155-20261010225649165-20261010233745414-20261010234456601-20261011022745264-20261011022826977-20261011024910647",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261011124055974",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-11T02:49:10.647Z",
+  "publishedAt": "2026-10-11T12:40:55.974Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -33,11 +33,11 @@
     "football",
     "baseball",
     "supercars",
+    "horse-racing",
     "ski",
     "big-wave",
     "goodwood",
-    "downhill-mtb",
-    "horse-racing"
+    "downhill-mtb"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -49,8 +49,8 @@
     },
     "status": "scaffolded",
     "firstEventDate": "2026-01-03",
-    "lastEventDate": "2027-10-01",
-    "daysAhead": 355,
+    "lastEventDate": "2027-10-10",
+    "daysAhead": 364,
     "coversStandardPreloadWindow": true,
     "sports": {
       "dakar": {
@@ -59,9 +59,9 @@
         "lastEventDate": "2027-01-15"
       },
       "sailgp": {
-        "count": 46,
+        "count": 48,
         "firstEventDate": "2026-01-17",
-        "lastEventDate": "2027-09-12"
+        "lastEventDate": "2027-10-10"
       },
       "wrc": {
         "count": 15,
@@ -174,9 +174,9 @@
         "lastEventDate": "2026-11-01"
       },
       "tennis": {
-        "count": 269,
+        "count": 282,
         "firstEventDate": "2026-09-03",
-        "lastEventDate": "2026-10-12"
+        "lastEventDate": "2026-10-13"
       },
       "fiba-women": {
         "count": 17,
@@ -189,24 +189,24 @@
         "lastEventDate": "2026-09-29"
       },
       "baseball": {
-        "count": 36,
+        "count": 43,
         "firstEventDate": "2026-09-30",
-        "lastEventDate": "2026-10-20"
+        "lastEventDate": "2026-10-21"
       },
       "supercars": {
         "count": 1,
         "firstEventDate": "2026-10-11",
         "lastEventDate": "2026-10-11"
       },
-      "ski": {
-        "count": 4,
-        "firstEventDate": "2027-03-05",
-        "lastEventDate": "2027-03-20"
-      },
       "horse-racing": {
         "count": 9,
         "firstEventDate": "2026-10-17",
         "lastEventDate": "2027-03-27"
+      },
+      "ski": {
+        "count": 4,
+        "firstEventDate": "2027-03-05",
+        "lastEventDate": "2027-03-20"
       }
     }
   }

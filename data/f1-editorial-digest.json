@@ -1,102 +1,9 @@
 {
   "schemaVersion": "nothingsport.f1-editorial-digest.v1",
-  "generatedAt": "2026-10-04T05:51:14.341Z",
+  "generatedAt": "2026-10-11T12:38:56.615Z",
   "promptVersion": "f1-editorial.v1",
-  "fingerprint": "cbe929f5110e5f5214ba28a475eb9cc3f380df7c8cfd5637ed4fece902bb82d1",
+  "fingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
   "entries": [
-    {
-      "eventId": "evt_f1_2026_bahrain_race",
-      "selectedSentence": "",
-      "fullSpiel": "The Formula 1 Gulf Air Bahrain Grand Prix in Malaysia brings the championship to Sepang on 2–4 October 2026. The event was relocated following safety concerns over regional conflict in the Middle East, which prevented the original April race in Bahrain. F1 and the FIA prioritised the safety of teams, officials and fans when arranging the replacement venue.",
-      "angle": "Researched event-specific context",
-      "contextSignals": [
-        "fixture-specific",
-        "researched"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Official fixture context",
-          "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-          "sourceType": "official"
-        },
-        {
-          "title": "Official fixture context",
-          "url": "https://www.formula1.com/en/latest/article/bahrain-and-saudi-arabian-grands-prix-will-not-take-place-in-april.1hnqllVG85RSt8pbFc5Ivx",
-          "sourceType": "official"
-        }
-      ],
-      "sourceName": "Official fixture context",
-      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-      "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
-      "generationMode": "researched"
-    },
-    {
-      "eventId": "evt_f1_2026_singapore_sprint_qualifying",
-      "selectedSentence": "Singapore’s first Sprint grid will be decided on Friday, after only one practice at Marina Bay.",
-      "fullSpiel": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
-      "angle": "Researched event-specific context",
-      "contextSignals": [
-        "fixture-specific",
-        "researched"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Official fixture context",
-          "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-          "sourceType": "official"
-        }
-      ],
-      "sourceName": "Official fixture context",
-      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-      "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
-      "generationMode": "researched"
-    },
-    {
-      "eventId": "evt_f1_2026_singapore_sprint",
-      "selectedSentence": "The first Singapore Sprint adds a second race to Formula 1’s Marina Bay weekend.",
-      "fullSpiel": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
-      "angle": "Researched event-specific context",
-      "contextSignals": [
-        "fixture-specific",
-        "researched"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Official fixture context",
-          "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-          "sourceType": "official"
-        }
-      ],
-      "sourceName": "Official fixture context",
-      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-      "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
-      "generationMode": "researched"
-    },
-    {
-      "eventId": "evt_32",
-      "selectedSentence": "Marina Bay’s first Sprint Saturday places Grand Prix qualifying after a race on the same day.",
-      "fullSpiel": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
-      "angle": "Researched event-specific context",
-      "contextSignals": [
-        "fixture-specific",
-        "researched"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Official fixture context",
-          "url": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-          "sourceType": "official"
-        }
-      ],
-      "sourceName": "Official fixture context",
-      "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
-      "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
-      "generationMode": "researched"
-    },
     {
       "eventId": "evt_33",
       "selectedSentence": "Singapore’s first Sprint weekend culminates in Sunday’s Grand Prix after competitive running on all three days.",
@@ -116,7 +23,7 @@
       "sourceName": "Official fixture context",
       "sourceUrl": "https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "generationMode": "researched"
     },
     {
@@ -129,7 +36,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "generationMode": "withheld"
     },
     {
@@ -142,7 +49,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "generationMode": "withheld"
     },
     {
@@ -155,7 +62,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "generationMode": "withheld"
     },
     {
@@ -168,7 +75,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "generationMode": "withheld"
     },
     {
@@ -181,7 +88,7 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "generationMode": "withheld"
     },
     {
@@ -194,7 +101,33 @@
       "sourceName": "",
       "sourceUrl": "",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-04T05:51:14.341Z",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "generationMode": "withheld"
+    },
+    {
+      "eventId": "evt_40",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "angle": "",
+      "contextSignals": [],
+      "evidenceReferences": [],
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+      "generationMode": "withheld"
+    },
+    {
+      "eventId": "evt_41",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "angle": "",
+      "contextSignals": [],
+      "evidenceReferences": [],
+      "sourceName": "",
+      "sourceUrl": "",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
       "generationMode": "withheld"
     }
   ]
