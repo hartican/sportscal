@@ -12,3 +12,9 @@
 .mc-score-table-wrap:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 .mc-event-mark svg,.mc-event-mark .event-sport-mark,.mc-event-mark .event-sport-logo{width:32px;height:32px;max-width:100%;object-fit:contain}.mc-event-mark .event-identity-wordmark{font-size:.7rem;line-height:1.2}
+
+/* Long multi-innings scores move below the team rather than squeezing its name. */
+.mc-participant-row{flex-wrap:wrap}
+.mc-participant-row .compact-matchup-side{flex:1 0 140px;max-width:100%}
+.mc-participant-score{max-width:100%;flex-wrap:wrap;justify-content:flex-end;margin-inline-start:auto}
+.mc-row .compact-participant-mark,.mc-row .compact-participant-fallback{flex-basis:30px}
