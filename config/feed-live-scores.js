@@ -15,7 +15,8 @@
   const stamp=Date.parse(snapshot.scoreCheckedAt||(event.fixtureObservationSchema?null:snapshot.checkedAt)||''),observed=Number.isFinite(stamp)&&stamp<=now,settled=model.final(event),fresh=observed&&now-stamp<=model.interval(event,now)*2&&(score.racing||!event.stale&&!event.sourceStale);
   const status=score.racing?.kind==='horse'?score.racing.statusText:settled?(score.racing?.phase==='provisional-result'?'Provisional classification':'Finished'):fresh&&/^(live|in-progress)$/.test(event.status)?score.racing?.statusText||'Live':model.interrupted(event)&&(!model.halftime(event)||fresh)?model.pausedLabel(event):score.racing?'Awaiting update':'Last available score';
   if(snapshot.cricketBalance)text+=' · '+snapshot.cricketBalance;
-  return {text,status,stale:Boolean(event.stale)||(!settled&&!fresh),checkedAt:observed?new Date(stamp).toISOString():null};
+  const start=Date.parse(event.startTimeUtc||''),advanceField=score.racing?.kind==='horse'&&['nominations','acceptances','final-declarations'].includes(score.racing.phase)&&(!Number.isFinite(start)||now<start-3600000);
+  return {text,status,stale:Boolean(event.stale)||(!settled&&!fresh&&!advanceField),checkedAt:observed?new Date(stamp).toISOString():null};
  }
  function install(card,event,options){
   const racingSlot=card.querySelector('.fixture-racing-details');if(racingSlot&&globalThis.NOTHINGSPORTS_RACING_DETAILS)globalThis.NOTHINGSPORTS_RACING_DETAILS.mount(racingSlot,event,{visible:()=>options.resultsOn,followed:entry=>cardIdentityParticipants().some(p=>entry.drivers?.includes(p.displayName||p.name)&&cachedParticipantFollow(p.id).followed)});

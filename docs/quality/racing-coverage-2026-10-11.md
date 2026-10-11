@@ -37,7 +37,9 @@ start: one shared horse source, at most two due races per pass, four seconds
 per collection and a four-minute active source minimum. Unresolved results
 later use the existing quiet cadence; an explicit official result or
 cancellation stops checks. Advance entry lists without a confirmed start
-cannot establish live or activate near-start source polling.
+cannot establish live or activate near-start source polling. Advance field
+stages keep their dated receipt without a false eight-minute missed-live-check
+warning; near-start fields and explicit failure flags still show the warning.
 
 ## Shared racing presentation and source limits
 
@@ -48,7 +50,7 @@ Results OFF suppresses fields and classifications. Existing Follow admission,
 exclusions, choices, notifications and reminder ownership remain unchanged.
 
 Verified 2026 F1 classifications require the complete 22-entry official field,
-unique car numbers, a bound circuit/event/session, valid check time and an
+unique car numbers, a bound circuit/event/session, nonempty driver/car identities, valid check time and an
 appropriate completed status. A different source, incomplete field or live
 status falls back to verified session detail and the official timing link.
 The official F1 public live page has not passed actual-session validation;
