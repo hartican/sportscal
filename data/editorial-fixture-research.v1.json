@@ -2878,6 +2878,83 @@
       ],
       "researchedAt": "2026-10-10T22:41:26.276Z",
       "researchDepth": 5
+    },
+    {
+      "id": "fixture:tennis:espn:wta:184356",
+      "title": "Qinwen Zheng v Mirra Andreeva — China Open final",
+      "hook": "Zheng's home milestone meets Andreeva's fifth final of 2026 in Beijing.",
+      "synopsis": "The China Open singles final pairs wildcard Qinwen Zheng with fourth seed Mirra Andreeva. Zheng is the first Chinese player to reach this final; Andreeva brings a season already featuring three titles. Capital Group Diamond hosts the final on 11 October, not before 19:30 Beijing / 22:30 Sydney, after the doubles final. The announced time remains a not-before start.",
+      "formCopy": "Both arrive after straight-sets semifinals. Andreeva is in her fifth final of the season, following titles at Roland Garros, Adelaide and Linz and a Madrid final. Their only earlier tour meeting was a three-set Beijing quarter-final in 2024, where Zheng had the advantage. That history gives the match context without deciding this final.",
+      "closingCopy": "Zheng's chance to become the first Chinese singles champion at the China Open gives the home crowd a clear story. Andreeva has the fourth seed and a strong season behind her. The final asks whether Zheng can turn that local milestone into a title, or Andreeva can add another trophy. Those are possibilities, with the result still to be decided.",
+      "sources": [
+        "https://www.wtatennis.com/news/4589836/mirra-andreeva-vs-zheng-qinwen-everything-to-know-about-china-open-beijing-final",
+        "https://www.wtatennis.com/news/4590078/zheng-becomes-first-chinese-finalist-in-beijing-with-straight-sets-win-over-mertens",
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "WTA official Beijing final preview",
+          "url": "https://www.wtatennis.com/news/4589836/mirra-andreeva-vs-zheng-qinwen-everything-to-know-about-china-open-beijing-final",
+          "checkedAt": "2026-10-11T03:04:23.039Z",
+          "bytes": 209946,
+          "sha256": "253a3b52d2908b861b466c89bbb7ec9add05cff138f6947d519d680b9a4c5d92"
+        },
+        {
+          "name": "WTA official Zheng semifinal report",
+          "url": "https://www.wtatennis.com/news/4590078/zheng-becomes-first-chinese-finalist-in-beijing-with-straight-sets-win-over-mertens",
+          "checkedAt": "2026-10-11T03:04:24.191Z",
+          "bytes": 187130,
+          "sha256": "4fe19f441e23e87b83f24526504d9ef2520bd187a9a463c79f277a7363fe5af5"
+        },
+        {
+          "name": "China Open official order of play",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+          "checkedAt": "2026-10-11T03:04:25.854Z",
+          "bytes": 2822919,
+          "sha256": "cd9e86a0ae8f3ecc42b0a2404f8b8699ea74e28ab9ae4e4561ddc5d3b024aa4f"
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "Zheng is the first Chinese player to reach the China Open singles final.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Andreeva reaches her fifth final of 2026, after titles at Roland Garros, Adelaide and Linz and a Madrid final.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Their only earlier tour meeting was the 2024 China Open quarter-final, where Zheng came through in three sets.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "The official singles final pairs wildcard Qinwen Zheng with fourth seed Mirra Andreeva.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The official named singles final is on Capital Group Diamond on 11 October, not before 19:30 Beijing, equivalent to 22:30 AEDT.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "changeReason": "Replace the missing marquee preview with source-backed participant-specific context through the existing research owner; preserve all sporting facts and source dates.",
+      "researchedAt": "2026-10-11T03:06:32.411Z"
     }
   ]
 }

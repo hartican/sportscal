@@ -70,3 +70,4 @@ for (const sport of ["football", "cricket", "afl"]){
 }
 
 console.log(`Editorial sport depth valid: ${targets.length} current targets and ${retainedSamples.length} retained off-season samples have non-generic L0 and L1/L2 narratives.`);
+require('./validate-postseason-editorial');

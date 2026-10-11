@@ -35,10 +35,17 @@ function apply(knowledge,feed,majorEvents,research,catalogue=[]){
     const subjectId=`subject:${prefix}`,threadId=`thread:${prefix}`;
     const sourceIds=entry.sources.map((url,index)=>`source:${prefix}:${index}`);
     upsert('subjects',{id:subjectId,kind:'event',name:entry.title});
-    entry.sources.forEach((url,index)=>upsert('sources',{id:sourceIds[index],name:`${entry.title} — official research ${index+1}`,url,sourceType:'official',checkedAt:entry.researchedAt}));
+    const observations=entry.sourceObservations;
+    if(observations!==undefined && (!Array.isArray(observations) || observations.length!==entry.sources.length))throw new Error('Incomplete research source observations for '+entry.id);
+    entry.sources.forEach((url,index)=>{
+      const observation=observations?.[index];
+      if(observations && (!observation || observation.url!==url || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(observation.checkedAt || '') || !Number.isFinite(Date.parse(observation.checkedAt)) || new Date(observation.checkedAt).toISOString().slice(0,19)!==observation.checkedAt.slice(0,19) || Date.parse(observation.checkedAt)>Date.parse(entry.researchedAt)))throw new Error('Invalid research source observation for '+entry.id);
+      upsert('sources',{id:sourceIds[index],name:observation?.name || `${entry.title} — official research ${index+1}`,url,sourceType:'official',checkedAt:observation?.checkedAt || entry.researchedAt});
+    });
     const factIds=entry.facts.map((fact,index)=>{
       const id=`fact:${prefix}:${index}`;
-      upsert('narrativeFacts',{id,subjectIds:[subjectId],statement:fact.statement,dimension:fact.dimension,sourceIds:fact.sourceIndexes.map(index=>sourceIds[index]),observedAt:entry.researchedAt,expiresAt:null});return id;
+      const observedAt=observations ? new Date(Math.max(...fact.sourceIndexes.map(index=>Date.parse(observations[index]?.checkedAt)))).toISOString() : entry.researchedAt;
+      upsert('narrativeFacts',{id,subjectIds:[subjectId],statement:fact.statement,dimension:fact.dimension,sourceIds:fact.sourceIndexes.map(index=>sourceIds[index]),observedAt,expiresAt:null});return id;
     });
     upsert('narrativeThreads',{id:threadId,subjectIds:[subjectId],title:entry.title,summary:entry.synopsis,factIds,status:entry.promotedReplay?'resolved':'active',updatedAt:entry.researchedAt});
     knowledge.eventProjections=knowledge.eventProjections.map(projection=>projection.targetType==='feed-event'?{...projection,targetIds:projection.targetIds.filter(id=>id!==entry.id&&!targetIds.includes(id))}:projection).filter(projection=>projection.targetIds.length);

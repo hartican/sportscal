@@ -4,7 +4,7 @@ const path = require("path");
 const { readJson, writeJson } = require("./lib/feed-utils");
 const { stakesFor, lifecycleFor } = require("./lib/storyline-card-rules");
 const { previewState } = require("./lib/editorial-preview-quality");
-const { fixtureSourceMetadata } = require("./lib/editorial-narrative");
+const { fixtureSourceMetadata, projectionTargetIds } = require("./lib/editorial-narrative");
 const {
   buildStandingsIndex,
   resolveStandingsAwareOverride,
@@ -21,6 +21,7 @@ if (!overrides || overrides.schemaVersion !== "sportscal.editorial-previews.v1" 
 
 const overrideIds = new Set(Object.keys(overrides.events));
 const foundIds = new Set();
+const prepared = [];
 
 inputs.forEach(input => {
   const absolute = path.resolve(input);
@@ -28,9 +29,10 @@ inputs.forEach(input => {
   let applied = 0;
   let queued = 0;
   feed.events = feed.events.map(event => {
-    const override = overrides.events[event.id] || overrides.events[event.eventId];
+    const overrideId = projectionTargetIds(event).find(id => Object.hasOwn(overrides.events, id));
+    const override = overrideId && overrides.events[overrideId];
     if (override) {
-      foundIds.add(event.id);
+      foundIds.add(overrideId);
       const hasVerifiedResultOverride = override.status === "completed"
         && override.score
         && override.outcomeText
@@ -63,8 +65,7 @@ inputs.forEach(input => {
       },
     };
   });
-  writeJson(absolute, feed);
-  console.log(`Applied ${applied} editorial previews and queued ${queued} future cards in ${input}.`);
+  prepared.push({absolute, feed, applied, queued, input});
 });
 
 const missing = [...overrideIds].filter(id => !foundIds.has(id));
@@ -72,3 +73,7 @@ if (missing.length) {
   console.error(`Editorial overrides reference missing event ids: ${missing.join(", ")}`);
   process.exit(1);
 }
+prepared.forEach(({absolute, feed, applied, queued, input}) => {
+  writeJson(absolute, feed);
+  console.log(`Applied ${applied} editorial previews and queued ${queued} future cards in ${input}.`);
+});

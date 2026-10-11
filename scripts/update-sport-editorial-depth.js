@@ -354,6 +354,56 @@ function repairMissing({reference=new Date(),root=process.cwd()}={}){
   return {changed:true,repaired:[...missing]};
 }
 
+function buildMlb(knowledge, events, reference){
+  CHECKED_AT = reference.toISOString();
+  const rules = require('../config/mlb-editorial-rules-2026.json');
+  let generated = 0;
+  for (const event of events){
+    if (event.key !== 'baseball' || event.competitionId !== 'competition:mlb'
+      || Number(event.season) !== rules.season || event.status === 'completed'
+      || !['upcoming', 'scheduled', 'live', 'cancelled', 'postponed', 'suspended'].includes(event.status)
+      || researchDepthFor(event) !== 2 || require('../config/editorial-locks').activeFor(event)) continue;
+    const identity = String(event.canonicalEventId || event.eventId || event.id);
+    const gameId = /^fixture:mlb:(\d+)$/.exec(identity)?.[1];
+    const stage = /^(AL|NL)(DS|CS)(?: '[AB]')? Game (\d+)$/.exec(event.roundLabel || '');
+    const format = stage && rules.formats[stage[2]];
+    if (!gameId || !format || Number(stage[3]) < 1 || Number(stage[3]) > format.maxGames
+      || event.sourceName !== 'MLB' || event.sourceType !== 'official'
+      || event.sourceUrl !== `https://www.mlb.com/gameday/${gameId}`
+      || !['confirmed', 'conditional', 'tbc'].includes(event.scheduleStatus)) continue;
+    const participants = event.participants || [];
+    if (participants.length !== 2 || new Set(participants.map(p => p.id)).size !== 2
+      || participants.some(p => !/^team:mlb:\d+$/.test(p.id) || !p.name)
+      || event.homeParticipantId !== participants[0].id || event.awayParticipantId !== participants[1].id) continue;
+    const projectionId = `projection:mlb-context:${gameId}`;
+    const prior = require('./lib/editorial-narrative').projectionForTarget(knowledge, 'feed-event', event);
+    // Preserve deeper independently researched copy and explicit owner choices.
+    if (prior && prior.id !== projectionId) continue;
+    const fixtureSource = addSource(knowledge, `source:mlb-fixture:${gameId}`, 'MLB official game', event.sourceUrl, event.sourceCheckedAt);
+    const formatSource = addSource(knowledge, 'source:mlb-postseason-rules:2026', rules.formatSource.name, rules.formatSource.url, rules.formatSource.checkedAt);
+    const pathSource = addSource(knowledge, 'source:mlb-postseason-path:2026', rules.pathSource.name, rules.pathSource.url, rules.pathSource.checkedAt);
+    const subjectId = addSubject(knowledge, `subject:mlb-context:${gameId}`, 'event', event.name);
+    const league = stage[1] === 'AL' ? 'American League' : 'National League';
+    const next = stage[2] === 'DS' ? `${league} Championship Series` : 'World Series';
+    const match = `${participants[0].name} v ${participants[1].name}`;
+    const conditional = event.scheduleStatus === 'conditional';
+    const interrupted = ['cancelled', 'postponed', 'suspended'].includes(event.status);
+    const game = Number(stage[3]);
+    const hook = fit(interrupted ? `${match}: ${event.roundLabel} is ${event.status}.` : `${match}: ${event.roundLabel}${conditional ? ', if needed' : ''}, in the race for the ${next}.`, 180);
+    const synopsis = `${interrupted ? `MLB lists ${event.roundLabel} as ${event.status}. ` : ''}${league} ${format.label} Game ${game} is part of a best-of-${format.maxGames === 5 ? 'five' : 'seven'} series. The first team to ${format.winsRequired} wins advances to the ${next}.${event.venue && !interrupted ? ` MLB lists ${event.venue} as the venue.` : ''}${!interrupted && conditional ? ' This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.' : !interrupted && event.timePrecision === 'tbc' ? ' Its start time remains unconfirmed.' : ''}`;
+    const factIds = [
+      addFact(knowledge, {id:`fact:mlb-context:${gameId}:format`, subjectIds:[subjectId], statement:`The ${format.label} is a best-of-${format.maxGames === 5 ? 'five' : 'seven'} series.`, dimension:'format', sourceIds:[formatSource]}),
+      addFact(knowledge, {id:`fact:mlb-context:${gameId}:path`, subjectIds:[subjectId], statement:`The ${league} ${format.label} series winner advances to the ${next}.`, dimension:'path', sourceIds:[pathSource]}),
+      addFact(knowledge, {id:`fact:mlb-context:${gameId}:fixture`, subjectIds:[subjectId], statement:interrupted ? `MLB lists ${match}, ${event.roundLabel}, as ${event.status}.` : `MLB identifies ${match} for ${event.roundLabel}${conditional ? ', if necessary' : ''}${event.venue ? ` at ${event.venue}` : ''}.`, dimension:'matchup', sourceIds:[fixtureSource]}),
+    ];
+    const threadId = `thread:mlb-context:${gameId}`;
+    addThread(knowledge, {id:threadId, subjectIds:[subjectId], title:`${event.roundLabel}: the path to the ${next}`, summary:synopsis, factIds});
+    replaceProjection(knowledge, {id:projectionId, targetType:'feed-event', targetIds:[idFor(event)], researchDepth:2, hook, synopsis, threadIds:[threadId], factIds, sourceIds:[fixtureSource, formatSource, pathSource], refreshAfter:null, generationMode:'researched', originalityReview:{method:'independent-summary-no-source-prose-retained', reviewedAt:reference.toISOString()}});
+    generated += 1;
+  }
+  return generated;
+}
+
 function main(){
   if(process.argv.includes('--repair-missing'))return console.log(JSON.stringify(repairMissing()));
   const write = process.argv.includes("--write");
@@ -375,6 +425,7 @@ function main(){
   const football = buildEpl(knowledge, feed.events, context, reference);
   const afl = buildAfl(knowledge, feed.events, reference);
   const cricket = buildCricket(knowledge, feed.events, reference);
+  const baseball = buildMlb(knowledge, feed.events, reference);
   // Carry source-backed series context into the deeper fixture research record.
   // Never invent a fourth fact or cite a source that supports none of its facts.
   const factsById=new Map(knowledge.narrativeFacts.map(fact=>[fact.id,fact]));
@@ -391,9 +442,9 @@ function main(){
   const issues = validateKnowledge(knowledge);
   if (issues.length) throw new Error(`Sport editorial depth invalid:\n- ${issues.join("\n- ")}`);
   if (write){ writeJson(KNOWLEDGE_PATH, knowledge); writeJson(FEED_PATH, feed); writeJson(PUBLISHED_FEED_PATH, published); }
-  console.log(`${write ? "Updated" : "Validated"} sport editorial depth: ${football} football, ${afl} AFL and ${cricket} cricket projections.`);
+  console.log(`${write ? "Updated" : "Validated"} sport editorial depth: ${football} football, ${afl} AFL, ${cricket} cricket and ${baseball} baseball projections.`);
 }
 
 if (require.main === module){ try { main(); } catch (error){ console.error(error.message); process.exitCode = 1; } }
 
-module.exports = { AFL_STORIES, CRICKET_CORRECTIONS, CRICKET_STORIES, EPL_PROFILES, reconcileCricket, addSource, addFact, replaceProjection, repairMissing };
+module.exports = { AFL_STORIES, CRICKET_CORRECTIONS, CRICKET_STORIES, EPL_PROFILES, reconcileCricket, addSource, addFact, replaceProjection, repairMissing, buildMlb };

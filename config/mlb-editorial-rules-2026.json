@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "mlb-postseason-editorial.v1",
+  "season": 2026,
+  "reviewedAt": "2026-10-11T02:39:29.237Z",
+  "formatSource": {
+    "name": "MLB postseason format",
+    "url": "https://www.mlb.com/news/mlb-playoff-tiebreaker-rules",
+    "checkedAt": "2026-10-11T02:39:29.007Z",
+    "httpStatus": 200,
+    "bytes": 310577,
+    "sha256": "7300c1253d4415c8bdca26908fa0af30f9e2cb04bb263650524ebc4b80a39dda"
+  },
+  "pathSource": {
+    "name": "MLB official postseason bracket",
+    "url": "https://www.mlb.com/postseason",
+    "checkedAt": "2026-10-11T02:39:29.237Z",
+    "httpStatus": 200,
+    "bytes": 1553119,
+    "sha256": "6b4ad8375e3c7081f1f19438f91748e9a6966556994c006ba99dd5c8ce965e6d"
+  },
+  "formats": {
+    "DS": {
+      "label": "Division Series",
+      "maxGames": 5,
+      "winsRequired": 3
+    },
+    "CS": {
+      "label": "Championship Series",
+      "maxGames": 7,
+      "winsRequired": 4
+    }
+  },
+  "review": "Current 2026 Division and Championship Series only. Reuse validated fixture identities, published game numbers, conditional status and original source observations. No series lead, pitchers, viewing deal or future winner is inferred."
+}

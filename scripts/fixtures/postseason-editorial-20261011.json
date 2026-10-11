@@ -1,0 +1,1187 @@
+{
+  "schemaVersion": "postseason-editorial-regression.v1",
+  "capturedAt": "2026-10-11T02:45:20.828Z",
+  "snapshotGitSha": "8cf90819",
+  "note": "Retained official fixture facts and reviewed tennis timing. Historical controlled rehearsal input, not new source observations or a current match result.",
+  "fixtures": [
+    {
+      "id": "fixture-mlb-849831",
+      "eventId": "fixture-mlb-849831",
+      "canonicalEventId": "fixture:mlb:849831",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Cleveland Guardians v Chicago White Sox",
+      "roundLabel": "ALDS 'B' Game 5",
+      "stage": "ALDS 'B' Game 5",
+      "date": "2026-10-11",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-11T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "Progressive Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:114",
+          "name": "Cleveland Guardians",
+          "displayName": "Cleveland Guardians",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg"
+        },
+        {
+          "id": "team:mlb:145",
+          "name": "Chicago White Sox",
+          "displayName": "Chicago White Sox",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/145.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:114",
+        "team:mlb:145"
+      ],
+      "homeParticipantId": "team:mlb:114",
+      "awayParticipantId": "team:mlb:145",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:114",
+          "label": "Cleveland Guardians",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:145",
+          "label": "Chicago White Sox",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/145.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849831",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849831",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+      "selectedSentence": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
+      "fullSpiel": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-10T19:14:48.469Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
+        "hookSpoilerOn": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "ALDS 'B' Game 5 at Progressive Field. Check the official game page for updates.",
+        "expectedSpectacle": 1,
+        "intensitySource": "computed"
+      },
+      "sourceTrust": "verified",
+      "displayTitleCompact": "Cleveland Guardians v Chicago White Sox",
+      "broadcastOptions": [
+        "Australian viewing unconfirmed"
+      ],
+      "round": "all",
+      "narrativeType": "all",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "broadcaster": "Australian viewing unconfirmed",
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "sourceEventIds": [
+        "fixture-mlb-849831"
+      ],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture-mlb-849836",
+      "eventId": "fixture-mlb-849836",
+      "canonicalEventId": "fixture:mlb:849836",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Tampa Bay Rays v New York Yankees",
+      "roundLabel": "ALDS 'A' Game 5",
+      "stage": "ALDS 'A' Game 5",
+      "date": "2026-10-11",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "tbc",
+      "scheduleStatus": "conditional",
+      "status": "upcoming",
+      "venue": "Tropicana Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:139",
+          "name": "Tampa Bay Rays",
+          "displayName": "Tampa Bay Rays",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg"
+        },
+        {
+          "id": "team:mlb:147",
+          "name": "New York Yankees",
+          "displayName": "New York Yankees",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/147.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:139",
+        "team:mlb:147"
+      ],
+      "homeParticipantId": "team:mlb:139",
+      "awayParticipantId": "team:mlb:147",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:139",
+          "label": "Tampa Bay Rays",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:147",
+          "label": "New York Yankees",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/147.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849836",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849836",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-29&endDate=2026-10-20&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
+      "statusCheckedAt": "2026-10-06T04:12:36.040Z",
+      "selectedSentence": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+      "fullSpiel": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-10T19:14:48.469Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+        "hookSpoilerOn": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+        "expectedSpectacle": 1,
+        "intensitySource": "computed"
+      },
+      "sourceTrust": "verified",
+      "displayTitleCompact": "Tampa Bay Rays v New York Yankees",
+      "broadcastOptions": [
+        "Australian viewing unconfirmed"
+      ],
+      "round": "all",
+      "narrativeType": "all",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "broadcaster": "Australian viewing unconfirmed",
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "sourceEventIds": [
+        "fixture-mlb-849836"
+      ],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture-mlb-849809",
+      "eventId": "fixture-mlb-849809",
+      "canonicalEventId": "fixture:mlb:849809",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Milwaukee Brewers v Los Angeles Dodgers",
+      "roundLabel": "NLCS Game 1",
+      "stage": "NLCS Game 1",
+      "date": "2026-10-12",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-12T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "American Family Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        },
+        {
+          "id": "team:mlb:119",
+          "name": "Los Angeles Dodgers",
+          "displayName": "Los Angeles Dodgers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:158",
+        "team:mlb:119"
+      ],
+      "homeParticipantId": "team:mlb:158",
+      "awayParticipantId": "team:mlb:119",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:119",
+          "label": "Los Angeles Dodgers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849809",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849809",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+      "selectedSentence": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+      "fullSpiel": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-10T19:14:48.469Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+        "hookSpoilerOn": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+        "expectedSpectacle": 1,
+        "intensitySource": "computed"
+      },
+      "sourceTrust": "verified",
+      "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
+      "broadcastOptions": [
+        "Australian viewing unconfirmed"
+      ],
+      "round": "all",
+      "narrativeType": "all",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "sourceEventIds": [
+        "fixture-mlb-849809"
+      ],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture-mlb-849812",
+      "eventId": "fixture-mlb-849812",
+      "canonicalEventId": "fixture:mlb:849812",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Milwaukee Brewers v Los Angeles Dodgers",
+      "roundLabel": "NLCS Game 2",
+      "stage": "NLCS Game 2",
+      "date": "2026-10-13",
+      "time": "08:00",
+      "startTimeUtc": "2026-10-12T21:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "American Family Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        },
+        {
+          "id": "team:mlb:119",
+          "name": "Los Angeles Dodgers",
+          "displayName": "Los Angeles Dodgers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:158",
+        "team:mlb:119"
+      ],
+      "homeParticipantId": "team:mlb:158",
+      "awayParticipantId": "team:mlb:119",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:119",
+          "label": "Los Angeles Dodgers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849812",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849812",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+      "selectedSentence": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+      "fullSpiel": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-10T19:14:48.469Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+        "hookSpoilerOn": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+        "expectedSpectacle": 1,
+        "intensitySource": "computed"
+      },
+      "sourceTrust": "verified",
+      "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
+      "broadcastOptions": [
+        "Australian viewing unconfirmed"
+      ],
+      "round": "all",
+      "narrativeType": "all",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "sourceEventIds": [
+        "fixture-mlb-849812"
+      ],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture-mlb-849811",
+      "eventId": "fixture-mlb-849811",
+      "canonicalEventId": "fixture:mlb:849811",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Los Angeles Dodgers v Milwaukee Brewers",
+      "roundLabel": "NLCS Game 3",
+      "stage": "NLCS Game 3",
+      "date": "2026-10-15",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-15T00:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "UNIQLO Field at Dodger Stadium",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:119",
+          "name": "Los Angeles Dodgers",
+          "displayName": "Los Angeles Dodgers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+        },
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:119",
+        "team:mlb:158"
+      ],
+      "homeParticipantId": "team:mlb:119",
+      "awayParticipantId": "team:mlb:158",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:119",
+          "label": "Los Angeles Dodgers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849811",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849811",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+      "selectedSentence": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "fullSpiel": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-10T19:14:48.469Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "synopsisSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "hookSpoilerOn": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "synopsisSpoilerOn": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "expectedSpectacle": 1,
+        "intensitySource": "computed"
+      },
+      "sourceTrust": "verified",
+      "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
+      "broadcastOptions": [
+        "Australian viewing unconfirmed"
+      ],
+      "round": "all",
+      "narrativeType": "all",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "sourceEventIds": [
+        "fixture-mlb-849811"
+      ],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture-mlb-849810",
+      "eventId": "fixture-mlb-849810",
+      "canonicalEventId": "fixture:mlb:849810",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Los Angeles Dodgers v Milwaukee Brewers",
+      "roundLabel": "NLCS Game 4",
+      "stage": "NLCS Game 4",
+      "date": "2026-10-16",
+      "time": "12:00",
+      "startTimeUtc": "2026-10-16T01:00:00.000Z",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "venue": "UNIQLO Field at Dodger Stadium",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:119",
+          "name": "Los Angeles Dodgers",
+          "displayName": "Los Angeles Dodgers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+        },
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:119",
+        "team:mlb:158"
+      ],
+      "homeParticipantId": "team:mlb:119",
+      "awayParticipantId": "team:mlb:158",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:119",
+          "label": "Los Angeles Dodgers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849810",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849810",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+      "selectedSentence": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "fullSpiel": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-10T19:14:48.469Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "synopsisSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "hookSpoilerOn": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "synopsisSpoilerOn": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "expectedSpectacle": 1,
+        "intensitySource": "computed"
+      },
+      "sourceTrust": "verified",
+      "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
+      "broadcastOptions": [
+        "Australian viewing unconfirmed"
+      ],
+      "round": "all",
+      "narrativeType": "all",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "sourceEventIds": [
+        "fixture-mlb-849810"
+      ],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture-mlb-849808",
+      "eventId": "fixture-mlb-849808",
+      "canonicalEventId": "fixture:mlb:849808",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Los Angeles Dodgers v Milwaukee Brewers",
+      "roundLabel": "NLCS Game 5",
+      "stage": "NLCS Game 5",
+      "date": "2026-10-17",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "tbc",
+      "scheduleStatus": "conditional",
+      "status": "upcoming",
+      "venue": "UNIQLO Field at Dodger Stadium",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:119",
+          "name": "Los Angeles Dodgers",
+          "displayName": "Los Angeles Dodgers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+        },
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:119",
+        "team:mlb:158"
+      ],
+      "homeParticipantId": "team:mlb:119",
+      "awayParticipantId": "team:mlb:158",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:119",
+          "label": "Los Angeles Dodgers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849808",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849808",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+      "selectedSentence": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "fullSpiel": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-10T19:14:48.469Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "synopsisSpoilerOff": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "hookSpoilerOn": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "synopsisSpoilerOn": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "expectedSpectacle": 1,
+        "intensitySource": "computed"
+      },
+      "sourceTrust": "verified",
+      "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
+      "broadcastOptions": [
+        "Australian viewing unconfirmed"
+      ],
+      "round": "all",
+      "narrativeType": "all",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "sourceEventIds": [
+        "fixture-mlb-849808"
+      ],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture-mlb-849806",
+      "eventId": "fixture-mlb-849806",
+      "canonicalEventId": "fixture:mlb:849806",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Milwaukee Brewers v Los Angeles Dodgers",
+      "roundLabel": "NLCS Game 6",
+      "stage": "NLCS Game 6",
+      "date": "2026-10-19",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "tbc",
+      "scheduleStatus": "conditional",
+      "status": "upcoming",
+      "venue": "American Family Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        },
+        {
+          "id": "team:mlb:119",
+          "name": "Los Angeles Dodgers",
+          "displayName": "Los Angeles Dodgers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:158",
+        "team:mlb:119"
+      ],
+      "homeParticipantId": "team:mlb:158",
+      "awayParticipantId": "team:mlb:119",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:119",
+          "label": "Los Angeles Dodgers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849806",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849806",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+      "selectedSentence": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+      "fullSpiel": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-10T19:14:48.469Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+        "hookSpoilerOn": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+        "expectedSpectacle": 1,
+        "intensitySource": "computed"
+      },
+      "sourceTrust": "verified",
+      "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
+      "broadcastOptions": [
+        "Australian viewing unconfirmed"
+      ],
+      "round": "all",
+      "narrativeType": "all",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "sourceEventIds": [
+        "fixture-mlb-849806"
+      ],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture-mlb-849807",
+      "eventId": "fixture-mlb-849807",
+      "canonicalEventId": "fixture:mlb:849807",
+      "key": "baseball",
+      "sportDomainId": "sport:baseball",
+      "competitionId": "competition:mlb",
+      "competitionName": "MLB postseason",
+      "gender": "men",
+      "broadcaster": "Australian viewing unconfirmed",
+      "liveWindow": 6,
+      "season": 2026,
+      "name": "Milwaukee Brewers v Los Angeles Dodgers",
+      "roundLabel": "NLCS Game 7",
+      "stage": "NLCS Game 7",
+      "date": "2026-10-20",
+      "time": null,
+      "startTimeUtc": null,
+      "timePrecision": "tbc",
+      "scheduleStatus": "conditional",
+      "status": "upcoming",
+      "venue": "American Family Field",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "participantsConfirmed": true,
+      "participants": [
+        {
+          "id": "team:mlb:158",
+          "name": "Milwaukee Brewers",
+          "displayName": "Milwaukee Brewers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg"
+        },
+        {
+          "id": "team:mlb:119",
+          "name": "Los Angeles Dodgers",
+          "displayName": "Los Angeles Dodgers",
+          "entityType": "team",
+          "type": "team",
+          "sportDomainId": "sport:baseball",
+          "competitionId": "competition:mlb",
+          "countryCode": "US",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg"
+        }
+      ],
+      "participantIds": [
+        "team:mlb:158",
+        "team:mlb:119"
+      ],
+      "homeParticipantId": "team:mlb:158",
+      "awayParticipantId": "team:mlb:119",
+      "participantSlots": [
+        {
+          "participantId": "team:mlb:158",
+          "label": "Milwaukee Brewers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
+          "homeAway": "home"
+        },
+        {
+          "participantId": "team:mlb:119",
+          "label": "Los Angeles Dodgers",
+          "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
+          "homeAway": "away"
+        }
+      ],
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceUrl": "https://www.mlb.com/gameday/849807",
+      "sourceRefs": [
+        "https://www.mlb.com/gameday/849807",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+      ],
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+      "selectedSentence": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+      "fullSpiel": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+      "lastReviewedAt": "2026-10-10T19:14:48.469Z",
+      "stakesScore": 4,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+        "hookSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+        "synopsisSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+        "expectedSpectacle": 1,
+        "intensitySource": "computed"
+      },
+      "sourceTrust": "verified",
+      "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
+      "broadcastOptions": [
+        "Australian viewing unconfirmed"
+      ],
+      "round": "all",
+      "narrativeType": "all",
+      "expected": null,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "sourceEventIds": [
+        "fixture-mlb-849807"
+      ],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture-tennis-espn-wta-184356",
+      "key": "tennis",
+      "date": "2026-10-11",
+      "kind": "fixture",
+      "name": "Zheng Qinwen v Mirra Andreeva",
+      "time": "22:30",
+      "tour": "WTA",
+      "court": "Capital Group Diamond",
+      "round": "final",
+      "sport": "Tennis",
+      "stage": "Final",
+      "venue": "Capital Group Diamond",
+      "gender": "women",
+      "season": 2026,
+      "status": "scheduled",
+      "eventId": "fixture-tennis-espn-wta-184356",
+      "timeTbc": false,
+      "cardKind": "fixture",
+      "expected": null,
+      "eventType": "womens-singles",
+      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+      "venueCity": "Beijing",
+      "broadcasts": [],
+      "discipline": "singles",
+      "liveWindow": 5,
+      "roundLabel": "Final",
+      "sourceName": "China Open official order of play",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184356",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261010"
+      ],
+      "sourceType": "official",
+      "broadcaster": "Australian viewing unconfirmed",
+      "contestUnit": "match",
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:zheng-qinwen",
+          "name": "Zheng Qinwen",
+          "type": "athlete",
+          "entityType": "athlete",
+          "displayName": "Zheng Qinwen",
+          "sportDomainId": "sport:tennis"
+        },
+        {
+          "id": "competitor:tennis:wta:mirra-andreeva",
+          "name": "Mirra Andreeva",
+          "type": "athlete",
+          "entityType": "athlete",
+          "countryCode": "RU",
+          "displayName": "Mirra Andreeva",
+          "sportDomainId": "sport:tennis"
+        }
+      ],
+      "scheduleNote": "Not before 19:30 Beijing (22:30 Sydney), 11 October; directly attached to Zheng–Andreeva in the official order of play.",
+      "startTimeUtc": "2026-10-11T11:30:00.000Z",
+      "tournamentId": "tournament:tennis:wta-beijing-2026",
+      "competitionId": "competition:wta-tour",
+      "consensusTags": [
+        {
+          "label": "Final",
+          "confidence": 0.9,
+          "sourceUrls": [
+            "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf"
+          ],
+          "method": "published-schedule.v1"
+        }
+      ],
+      "eventFamilyId": "china-open",
+      "sportDomainId": "sport:tennis",
+      "timePrecision": "not-before",
+      "broadcasterIds": [],
+      "participantIds": [
+        "competitor:tennis:wta:zheng-qinwen",
+        "competitor:tennis:wta:mirra-andreeva"
+      ],
+      "scheduleStatus": "confirmed",
+      "sourceEventIds": [
+        "fixture:tennis:espn:wta:184356",
+        "fixture-tennis-espn-wta-184356"
+      ],
+      "tournamentName": "China Open",
+      "viewingOptions": [],
+      "competitionName": "China Open",
+      "sourceCheckedAt": "2026-10-10T23:40:16.252996+00:00",
+      "statusCheckedAt": "2026-10-10T12:42:02.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184356",
+      "tournamentLevel": "1000",
+      "broadcastOptions": [],
+      "canonicalEventId": "fixture:tennis:espn:wta:184356",
+      "participantSlots": [],
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "awayParticipantId": "competitor:tennis:wta:mirra-andreeva",
+      "homeParticipantId": "competitor:tennis:wta:zheng-qinwen",
+      "tennisProviderTour": "wta",
+      "tennisTournamentId": "tournament:tennis:wta-beijing-2026",
+      "displayTitleCompact": "Zheng Qinwen v Mirra Andreeva",
+      "estimatedStartTimeUtc": null,
+      "participantsConfirmed": true,
+      "tennisProviderEventId": "959-2026",
+      "tennisProviderMatchId": "184356",
+      "participantCountryCodes": [],
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "representativeCountryCodes": [],
+      "startTimeTbc": false,
+      "timingVerified": true,
+      "timingEvidence": {
+        "matchRow": "11 October, Capital Group Diamond, match 2: [WC] Qinwen ZHENG v [4] Mirra ANDREEVA (WTA Final), Not before 7:30 PM",
+        "clockAssociation": "Not before 7:30 PM is directly attached to the named singles final; the earlier 4:30 PM heading belongs to the doubles final. Asia/Shanghai UTC+08:00.",
+        "publishedAtLocal": "2026-10-10T15:35:00+08:00",
+        "sourceSha256": "cd9e86a0ae8f3ecc42b0a2404f8b8699ea74e28ab9ae4e4561ddc5d3b024aa4f",
+        "reviewMethod": "Complete official PDF pixels and text checked together; singles final and preceding doubles row independently bound. Published download link discovered on the official WTA order-of-play page."
+      },
+      "scheduleEvidence": {
+        "kind": "official-order-of-play",
+        "fixtureId": "fixture:tennis:espn:wta:184356",
+        "tournamentId": "tournament:tennis:wta-beijing-2026",
+        "roundLabel": "Final",
+        "participantIds": [
+          "competitor:tennis:wta:zheng-qinwen",
+          "competitor:tennis:wta:mirra-andreeva"
+        ],
+        "sourceUrl": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf",
+        "checkedAt": "2026-10-10T23:40:16.252996+00:00",
+        "sourceSha256": "cd9e86a0ae8f3ecc42b0a2404f8b8699ea74e28ab9ae4e4561ddc5d3b024aa4f",
+        "sourcePublishedAtLocal": "2026-10-10T15:35:00+08:00",
+        "court": "Capital Group Diamond",
+        "playOrder": 2,
+        "matchRow": "11 October, Capital Group Diamond, match 2: [WC] Qinwen ZHENG v [4] Mirra ANDREEVA (WTA Final), Not before 7:30 PM",
+        "clockAssociation": "Not before 7:30 PM is directly attached to the named singles final; the earlier 4:30 PM heading belongs to the doubles final. Asia/Shanghai UTC+08:00.",
+        "timePrecision": "not-before",
+        "matchDateLocal": "2026-10-11",
+        "timeZone": "Asia/Shanghai",
+        "startsAt": "2026-10-11T11:30:00.000Z",
+        "localTime": "19:30"
+      },
+      "sourceTrust": "verified",
+      "narrativeType": "final",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false
+    }
+  ]
+}
