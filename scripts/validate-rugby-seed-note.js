@@ -25,6 +25,10 @@ assert.deepEqual(notes.qualify(primary),primary,'Independent verified fixture re
 assert.throws(()=>notes.qualify({...primary,sourceCheckedAt:'2099-01-01T00:00:00Z'}));
 const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ns-rugby-note-'));
 try{
+ // A historical Tennis replay imports the shared updater under a frozen clock.
+ // Loading an unrelated source must not apply a later Rugby review. Applying
+ // that review before its actual observation must still fail closed.
+ execFileSync(process.execPath,['-e',`const assert=require('node:assert/strict');const mock=require('node:test').mock;mock.timers.enable({apis:['Date'],now:Date.parse('2026-10-08T05:00:00Z')});try{const updater=require('./scripts/update-cards');assert.throws(()=>updater.parseOptions(['--live-source=unknown','--live']),/Scoped live/);const api=require('./scripts/lib/rugby-seed-note'),seed=require('./scripts/fixtures/rugby-seed-evt-100-20261012.json');assert.throws(()=>api.qualify(seed),/future source evidence/);}finally{mock.timers.reset();}`],{cwd:root,stdio:'pipe'});
  const files=['feeds/incoming/events.json','data/events.json'].map(file=>path.join(temporary,file)),other={id:'unrelated',time:'17:00',sourceCheckedAt:'2020-01-01T00:00:00Z'};
  for(const file of files){fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,JSON.stringify({...document,events:[clone(seed),other]}));}
  assert(notes.applyRetained({root:temporary,selectedIds:[seed.id]}).every(s=>s.changed.length===1));const bytes=files.map(file=>fs.readFileSync(file));

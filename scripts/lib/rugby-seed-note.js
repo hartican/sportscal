@@ -14,7 +14,6 @@ function validate(value=review){
  assert(!value.date&&!value.time&&!value.startTimeUtc&&!value.localDateWindow,'Unconfirmed named listing cannot acquire a fixture window');
  return value;
 }
-validate();
 function isReviewedNote(event){
  const note=event?.calendarNote,original=event?.importedSeedFacts;
  return !!(event?.id===review.id&&event.key==='rugby'&&event.cardKind==='calendar-note'&&event.sourceType==='personal-calendar'&&event.sourceTrust==='unverified'
@@ -37,6 +36,9 @@ function qualify(event){
   assert(/^https:\/\//.test(event.sourceUrl||'')&&Number.isFinite(Date.parse(event.sourceCheckedAt))&&Date.parse(event.sourceCheckedAt)<=Date.now(),'Verified recovery requires a genuine dated source');return event;
  }
  if(!['upcoming','scheduled'].includes(event.status)||event.score||event.result||event.scoreDisplay||event.canonicalResultScoreline)return event;
+ // Validate only when this review is applied. An unrelated historical source
+ // replay may import the updater under its own clock without using this note.
+ validate();
  if(event.calendarNote){assert(isReviewedNote(event),'Invalid retained Rugby note');return event;}
  assert(event.key==='rugby'&&event.name===review.originalName&&event.date===review.originalDate&&event.time===review.originalTime&&!event.startTimeUtc&&!event.competitionId
   &&event.sourceTrust==='unverified'&&event.sourceName==='Bundled nothingsport seed data'&&event.sourceUrl===review.originalSourceUrl&&event.sourceCheckedAt===review.originalSourceCheckedAt,'Changed Rugby seed needs a new review before qualification');
