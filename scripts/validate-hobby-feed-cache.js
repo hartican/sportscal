@@ -51,6 +51,26 @@ async function main(){
       assert(raceReads.at(-1).preserveIds.includes(near.id)&&raceReads.at(-1).preserveIds.includes('race-near-alias'),'Preserve known near-window identities and aliases for source corrections');
     }
   }
+  // Actual browser parent selection includes enabled descendant domain rows.
+  // Normalization must not convert approved Bathurst inheritance to a mute.
+  const inherited={version:27,selectedSelectorEntityIds:['sport:motorsport'],followedSports:['motorsport','supercars'],preferenceGraph:{domainPreferences:[{sportDomainId:'sport:motorsport',enabled:true},{sportDomainId:'sport:supercars',enabled:true},{sportDomainId:'sport:dakar',enabled:true}],entityFollows:[],competitionPreferences:[]}};
+  const originalInherited=JSON.stringify(inherited);
+  for(const signedIn of [false,true]){
+    const parentHandler=createFeedHandler({load:()=>raceData,clock:()=>raceNow,authenticate:()=>({bearerToken:()=>'',authenticatedUser:async()=>({id:'parent-follower'}),loadUserState:async()=>({preferences:inherited})})});
+    const result=response();await parentHandler({method:signedIn?'GET':'POST',url:'/api/feed?scope=match-centre',body:{preferences:inherited},headers:{}},result);
+    assert(result.body.events.some(e=>e.id===bathurst.id),'An enabled Supercars domain under an explicit Motorsport parent must retain approved Bathurst admission');
+  }
+  const parentNormalized=pipeline.normalizeUserFollowState({preferences:inherited}).preferences;
+  assert.deepEqual(parentNormalized.selectedSelectorEntityIds,['sport:motorsport'],'Inherited Bathurst must not create a separate child follow');
+  assert.equal(parentNormalized.preferenceGraph.domainPreferences.find(d=>d.sportDomainId==='sport:dakar').enabled,false,'The Bathurst exception cannot enable new Dakar coverage');
+  for(const change of ['domain','competition']){
+    const preferences=structuredClone(inherited);
+    if(change==='domain')preferences.preferenceGraph.domainPreferences.find(d=>d.sportDomainId==='sport:supercars').enabled=false;
+    else preferences.preferenceGraph.competitionPreferences=[{competitionId:'competition:supercars',enabled:false}];
+    const result=response();await createFeedHandler({load:()=>raceData,clock:()=>raceNow})({method:'POST',url:'/api/feed?scope=match-centre',body:{preferences},headers:{}},result);
+    assert(!result.body.events.some(e=>e.id===bathurst.id),'An explicit '+change+' exclusion must still suppress inherited Bathurst');
+  }
+  assert.equal(JSON.stringify(inherited),originalInherited,'Normalizing the parent selection must preserve its original settings');
   const excluded=response();await createFeedHandler({load:()=>raceData,clock:()=>raceNow})({method:'POST',url:'/api/feed?scope=match-centre',body:{preferences:{version:26,followedSports:['supercars']},eventUserState:{[bathurst.id]:{dismissed:true}}},headers:{}},excluded);
   assert(!excluded.body.events.some(e=>e.id===bathurst.id),'The bounded read cannot override a dismissal');
   // Frozen input proves copy-on-write composition does not mutate shared event data.

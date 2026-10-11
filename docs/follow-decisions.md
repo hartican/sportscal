@@ -370,6 +370,8 @@ User explicitly authorises V8 Supercars under Motorsport and default Bathurst 10
 
 Bathurst inheritance implementation clarification - 24 September 2026: Motorsport parent selections must load the Supercars schedule as well as qualify its Bathurst fixture for automatic Feed admission. Schedule projections must retain source-backed marquee classification so Follow and Feed use the same eligibility evidence. Explicit exclusions continue to win; this does not opt users into other Supercars rounds.
 
+Bathurst server normalization repair - 11 October 2026: preserve an existing enabled Supercars domain when the explicit selector is Motorsport. The browser already supplies that enabled inherited preference; converting it to disabled before server admission broke the approved Bathurst exception. Keep the selector as Motorsport only and preserve explicit Supercars/competition disables. No other child domain or new coverage opt-in is enabled. The actual public/authenticated Feed caller regression lives in `validate-hobby-feed-cache.js`, alongside the bounded Match Centre read repair.
+
 ## Tennis parent cards and contest admission — 24 September 2026
 
 Approved in the 22 September PSD interview and authorised for implementation on 24 September. This supersedes fixture-only Feed exclusion for tennis parents and the tennis singles-finals restriction. Other sports retain their admission rules.
