@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const capture=require('./fixtures/football-table-freshness-20261012.json');
 const {environment,render,all,Element}=require('./validate-football-card-privacy');
-const helper=require('../config/feed-card-presentation');
+const helper=environment().context.NOTHINGSPORTS_FOOTBALL_CONTEXT;
 const current=require('../data/code-inspector/football.json');
 const note='Table and recorded match results do not yet agree.';
 const original=capture.fixtures.find(f=>f.id===capture.currentFixture.id);
@@ -14,12 +14,15 @@ async function card(doc,fixture,state={global:true}){
  assert.equal(JSON.stringify(env.context.userPreferences),preferences);assert.equal(env.reads(),0);
  return table;
 }
-function fullTable(doc){
+function fullTable(doc,deferred=false){
  const env=environment({global:true});env.context.codeInspectorChunk=doc;
  Object.assign(env.context,{standingsRevealApproved:false,appendFootballCalendarFilters:()=>{},NOTHINGSPORTS_SURFACE_CATEGORY:{genderMatches:()=>true},followBrowseState:()=>({sportId:'sport:football'}),CANONICAL_TAXONOMY:{competitions:[]},buildFixtureDataAttribution:()=>null});
  const source=fs.readFileSync(require('node:path').join(__dirname,'../assets/js/follow-schedule-panel.js'),'utf8');
  const start=source.indexOf('function renderCodeInspectorStandings('),end=source.indexOf('function followScheduleScopeMatches(',start);assert(start>=0&&end>start);
- vm.runInContext(source.slice(start,end),env.context);const panel=new Element('main');env.context.renderCodeInspectorStandings(panel,{id:'sport:football'});return panel;
+ let resolve;const loaded=env.context.NOTHINGSPORTS_FOOTBALL_CONTEXT;
+ if(deferred){env.context.NOTHINGSPORTS_FOOTBALL_CONTEXT=undefined;env.context.loadDeferredScript=()=>new Promise(r=>resolve=r);}
+ vm.runInContext(source.slice(start,end),env.context);const panel=new Element('main');panel.connected=true;env.context.renderCodeInspectorStandings(panel,{id:'sport:football'});
+ panel.finish=()=>{env.context.NOTHINGSPORTS_FOOTBALL_CONTEXT=loaded;resolve();};panel.hide=()=>{env.context.userPreferences.showSpoilers=false;};return panel;
 }
 (async()=>{
  const clean=await card(baseline(),original);assert(!clean.textContent.includes(note),'Archived matching table has no new warning');
@@ -35,6 +38,8 @@ function fullTable(doc){
  const merged=baseline();merged.fixtures=require('../config/fixture-identity').mergeOverlays(merged.fixtures,[capture.liveFixture]);
  const mergedFinal=merged.fixtures.find(f=>f.id===original.id);assert.equal(mergedFinal.status,'completed');assert.equal(mergedFinal.homeScore,2);assert.equal(mergedFinal.statusCheckedAt,capture.liveFixture.statusCheckedAt,'Actual captured live observation stays unchanged');
  assert(fullTable(merged).textContent.includes(note),'Full Follow standings shares the same warning after the existing fixture overlay');
+ const cold=fullTable(merged,true);assert(cold.textContent.includes('Checking table against recorded results'),cold.textContent);cold.finish();await new Promise(r=>setImmediate(r));assert(cold.textContent.includes(note),'Deferred comparison preserves complete published rows');
+ const lateHide=fullTable(merged,true);lateHide.hide();lateHide.finish();await new Promise(r=>setImmediate(r));assert(!lateHide.textContent.includes(note),'Late comparison cannot reveal information after Results is off');
  const positive=[
   ['native Schedule finished status',{...capture.currentFixture,status:'finished'}],
   ['zero-score final',{...capture.currentFixture,homeScore:0,awayScore:0}],

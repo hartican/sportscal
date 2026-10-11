@@ -47,6 +47,53 @@ function attribution(ev){
   const checked=new Date(ev.delayedResultSource.updatedAt);if(Number.isFinite(checked.getTime()))note.append(document.createTextNode(' Result source updated '+new Intl.DateTimeFormat('en-AU',{dateStyle:'medium',timeStyle:'short',timeZone:'Australia/Sydney'}).format(checked)+'.'));
   wrapper.append(note);return wrapper;
 }
+  // Compare sporting totals only. Keep the publisher's rank, points and dates.
+  // A partial collection or a newer timestamp alone cannot establish a mismatch.
+  function footballTableWarning(document,rows,observations=[],now=Date.now()){
+    const retained=rows.find(row=>row.stale);
+    if(retained)return retained.staleNote||'Table awaits primary-source confirmation.';
+    const competitionId=rows[0]?.competitionId;
+    const scope={
+      'competition:premier-league-2026-27':[380,20],
+      'competition:uefa-champions-league':[144,36],
+      'competition:uefa-europa-league':[144,36],
+    }[competitionId];
+    if(!scope||rows.some(row=>row.competitionId!==competitionId))return '';
+    const european=scope[0]===144;
+    const inScope=fixture=>fixture.competitionId===competitionId&&fixture.season==='2026/27'&&(!european||fixture.stage==='League phase');
+    let fixtures=(document.fixtures||[]).filter(inScope);
+    const table=(document.standings||[]).filter(row=>row.competitionId===competitionId);
+    const identity=fixture=>fixture.canonicalEventId||fixture.id;
+    if(fixtures.length!==scope[0]||new Set(fixtures.map(f=>f.id)).size!==scope[0]||new Set(fixtures.map(identity)).size!==scope[0]||table.length!==scope[1]||new Set(table.map(r=>r.participantId)).size!==scope[1])return '';
+    const validScore=fixture=>[fixture.homeScore,fixture.awayScore].every(n=>Number.isSafeInteger(n)&&n>=0);
+    const final=fixture=>['completed','finished'].includes(fixture.status);
+    for(const observation of observations){
+      if(!inScope(observation)||!final(observation)||!validScore(observation))continue;
+      const checked=Date.parse(observation.resultSourceCheckedAt||observation.scoreCheckedAt),start=Date.parse(observation.startTimeUtc);
+      if(!Number.isFinite(checked)||checked>now||!Number.isFinite(start)||start>checked)continue;
+      const matches=fixtures.filter(f=>f.id===observation.id||identity(f)===identity(observation));
+      if(matches.length!==1)continue;
+      const previous=matches[0],ids=previous.participantIds||[];
+      if(ids.length!==2||JSON.stringify(ids)!==JSON.stringify(observation.participantIds))continue;
+      const previousCheck=Date.parse(previous.resultSourceCheckedAt||previous.scoreCheckedAt);
+      if(Number.isFinite(previousCheck)&&previousCheck>checked)continue;
+      fixtures=fixtures.map(f=>f===previous?observation:f);
+    }
+    const fields=['played','won','drawn','lost','pointsFor','pointsAgainst','pointsDifference'];
+    const totals=new Map(table.map(row=>[row.participantId,Object.fromEntries(fields.map(k=>[k,0]))]));
+    for(const fixture of fixtures){
+      const ids=fixture.participantIds||[];
+      if(ids.length!==2||ids[0]===ids[1]||!ids.every(id=>totals.has(id)))return '';
+      if(!final(fixture))continue;
+      if(!validScore(fixture))return '';
+      for(const [id,scored,conceded] of [[ids[0],fixture.homeScore,fixture.awayScore],[ids[1],fixture.awayScore,fixture.homeScore]]){
+        const total=totals.get(id);total.played++;total.pointsFor+=scored;total.pointsAgainst+=conceded;total.pointsDifference+=scored-conceded;
+        total[scored>conceded?'won':scored===conceded?'drawn':'lost']++;
+      }
+    }
+    if(rows.some(row=>!totals.has(row.participantId)||fields.some(k=>!Number.isSafeInteger(row[k]))))return '';
+    return rows.some(row=>fields.some(k=>row[k]!==totals.get(row.participantId)[k]))?'Table and recorded match results do not yet agree.':'';
+  }
 let tableDocument=null,tableLoading=null;
 async function standings(ev,visible=()=>isSpoilerVisible(ev)){
  const showResults=typeof visible==='function'?visible:()=>Boolean(visible);
@@ -61,7 +108,7 @@ async function standings(ev,visible=()=>isSpoilerVisible(ev)){
    if(!showResults()){await paint();return;}
    const rows=doc.standings.filter(r=>r.competitionId===ev.competitionId&&(ev.participantIds||[]).includes(r.participantId));
    if(!rows.length)throw Error('No published table rows');
-   const tableWarning=NOTHINGSPORTS_FEED_CARD_PRESENTATION.footballTableWarning(doc,rows,[ev]);
+   const tableWarning=footballTableWarning(doc,rows,[ev]);
    if(tableWarning){const warning=document.createElement('p');warning.className='standings-stale-note';warning.textContent=tableWarning;section.append(warning);}
    const list=document.createElement('ul');for(const r of rows){const row=document.createElement('li');row.textContent=NOTHINGSPORTS_FEED_CARD_PRESENTATION.standingPosition(r)+' · '+r.displayName+' · '+r.played+' played · '+r.ladderPoints+' pts';list.append(row);}section.append(list);
    const note=document.createElement('p'),checked=rows.map(r=>r.asOf).filter(Boolean).sort().at(-1);note.className='standings-source-note';note.textContent=(rows[0].tableNote||'')+(checked?' Table checked '+new Intl.DateTimeFormat('en-AU',{dateStyle:'medium',timeStyle:'short',timeZone:'Australia/Sydney'}).format(new Date(checked))+' (Sydney).':'');section.append(note);
@@ -70,5 +117,5 @@ async function standings(ev,visible=()=>isSpoilerVisible(ev)){
   section.append(full);
  };await paint();return section;
 }
-globalThis.NOTHINGSPORTS_FOOTBALL_CONTEXT={context,attribution,standings};
+globalThis.NOTHINGSPORTS_FOOTBALL_CONTEXT={context,attribution,standings,footballTableWarning};
 })();

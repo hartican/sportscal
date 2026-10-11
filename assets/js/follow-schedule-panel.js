@@ -208,8 +208,16 @@ function renderCodeInspectorStandings(panel, code){
       });
       const asOf=rows.map(entry=>entry.asOf).filter(Boolean).sort().at(-1);
       section.append(title);
-      const tableWarning=NOTHINGSPORTS_FEED_CARD_PRESENTATION.footballTableWarning(codeInspectorChunk,rows);
-      if(tableWarning){const note=document.createElement('p');note.className='standings-stale-note';note.textContent=tableWarning;section.append(note);}
+      if(['competition:premier-league-2026-27','competition:uefa-champions-league','competition:uefa-europa-league'].includes(competitionId)){
+        const note=document.createElement('p'),tableDocument=codeInspectorChunk;
+        note.className='standings-stale-note';section.append(note);
+        const paint=()=>{const message=NOTHINGSPORTS_FOOTBALL_CONTEXT.footballTableWarning(tableDocument,rows);if(message)note.textContent=message;else note.remove();};
+        if(globalThis.NOTHINGSPORTS_FOOTBALL_CONTEXT?.footballTableWarning)paint();
+        else{
+          note.textContent=rows.find(row=>row.stale)?.staleNote||'Checking table against recorded results…';
+          void loadDeferredScript('assets/js/football-card-context.js?v=502').then(()=>{if(!section.isConnected)return;if(!userPreferences.showSpoilers&&!standingsRevealApproved){note.remove();return;}paint();}).catch(()=>{if(section.isConnected)note.textContent='Table comparison unavailable.';});
+        }
+      }else if(rows.some(row=>row.stale)){const note=document.createElement('p');note.textContent=rows.find(row=>row.stale)?.staleNote||'Table awaits primary-source confirmation.';section.append(note);}
       if(asOf){const checked=document.createElement('p');checked.textContent=`Table checked ${new Intl.DateTimeFormat('en-AU',{dateStyle:'medium',timeStyle:'short',timeZone:'Australia/Sydney'}).format(new Date(asOf))} (Sydney)`;section.append(checked);}
       if(rows[0]?.tableNote){const note=document.createElement('p');note.className='standings-source-note';note.textContent=rows[0].tableNote;section.append(note);const attribution=buildFixtureDataAttribution(rows[0]);if(attribution)section.append(attribution);}
       if(/^https:\/\//i.test(rows[0]?.sourceUrl||'')){const source=document.createElement('a');source.href=rows[0].sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Standings source';section.append(source);}

@@ -8,53 +8,6 @@
     if(!Number.isSafeInteger(rank)||rank<1)return '—';
     return `${entry.sharedRank===true?'Joint ':''}${rank}`;
   }
-  // Compare sporting totals only. Keep the publisher's rank, points and dates.
-  // A partial collection or a newer timestamp alone cannot establish a mismatch.
-  function footballTableWarning(document,rows,observations=[],now=Date.now()){
-    const retained=rows.find(row=>row.stale);
-    if(retained)return retained.staleNote||'Table awaits primary-source confirmation.';
-    const competitionId=rows[0]?.competitionId;
-    const scope={
-      'competition:premier-league-2026-27':[380,20],
-      'competition:uefa-champions-league':[144,36],
-      'competition:uefa-europa-league':[144,36],
-    }[competitionId];
-    if(!scope||rows.some(row=>row.competitionId!==competitionId))return '';
-    const european=scope[0]===144;
-    const inScope=fixture=>fixture.competitionId===competitionId&&fixture.season==='2026/27'&&(!european||fixture.stage==='League phase');
-    let fixtures=(document.fixtures||[]).filter(inScope);
-    const table=(document.standings||[]).filter(row=>row.competitionId===competitionId);
-    const identity=fixture=>fixture.canonicalEventId||fixture.id;
-    if(fixtures.length!==scope[0]||new Set(fixtures.map(f=>f.id)).size!==scope[0]||new Set(fixtures.map(identity)).size!==scope[0]||table.length!==scope[1]||new Set(table.map(r=>r.participantId)).size!==scope[1])return '';
-    const validScore=fixture=>[fixture.homeScore,fixture.awayScore].every(n=>Number.isSafeInteger(n)&&n>=0);
-    const final=fixture=>['completed','finished'].includes(fixture.status);
-    for(const observation of observations){
-      if(!inScope(observation)||!final(observation)||!validScore(observation))continue;
-      const checked=Date.parse(observation.resultSourceCheckedAt||observation.scoreCheckedAt),start=Date.parse(observation.startTimeUtc);
-      if(!Number.isFinite(checked)||checked>now||!Number.isFinite(start)||start>checked)continue;
-      const matches=fixtures.filter(f=>f.id===observation.id||identity(f)===identity(observation));
-      if(matches.length!==1)continue;
-      const previous=matches[0],ids=previous.participantIds||[];
-      if(ids.length!==2||JSON.stringify(ids)!==JSON.stringify(observation.participantIds))continue;
-      const previousCheck=Date.parse(previous.resultSourceCheckedAt||previous.scoreCheckedAt);
-      if(Number.isFinite(previousCheck)&&previousCheck>checked)continue;
-      fixtures=fixtures.map(f=>f===previous?observation:f);
-    }
-    const fields=['played','won','drawn','lost','pointsFor','pointsAgainst','pointsDifference'];
-    const totals=new Map(table.map(row=>[row.participantId,Object.fromEntries(fields.map(k=>[k,0]))]));
-    for(const fixture of fixtures){
-      const ids=fixture.participantIds||[];
-      if(ids.length!==2||ids[0]===ids[1]||!ids.every(id=>totals.has(id)))return '';
-      if(!final(fixture))continue;
-      if(!validScore(fixture))return '';
-      for(const [id,scored,conceded] of [[ids[0],fixture.homeScore,fixture.awayScore],[ids[1],fixture.awayScore,fixture.homeScore]]){
-        const total=totals.get(id);total.played++;total.pointsFor+=scored;total.pointsAgainst+=conceded;total.pointsDifference+=scored-conceded;
-        total[scored>conceded?'won':scored===conceded?'drawn':'lost']++;
-      }
-    }
-    if(rows.some(row=>!totals.has(row.participantId)||fields.some(k=>!Number.isSafeInteger(row[k]))))return '';
-    return rows.some(row=>fields.some(k=>row[k]!==totals.get(row.participantId)[k]))?'Table and recorded match results do not yet agree.':'';
-  }
   function dateBanner(value,now=new Date()){
     if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return 'DATE UNCONFIRMED';
     const dates=globalThis.NOTHINGSPORTS_AUSTRALIAN_DATES||(typeof require==='function'?require('./australian-dates'):null);
@@ -159,5 +112,5 @@
     const name=String(event.venue||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
     const id=circuits.find(([namePart])=>name.includes(namePart))?.[1];return id?`assets/identities/f1/circuits/${id}.svg`:null;
   }
-  return Object.freeze({dateBanner,venue,ranking,standingPosition,footballTableWarning,palette,ordinal,displayLabel,parentCompact,cricketCompact,circuitAsset,raceLabel,circuitCaption,venueArtwork});
+  return Object.freeze({dateBanner,venue,ranking,standingPosition,palette,ordinal,displayLabel,parentCompact,cricketCompact,circuitAsset,raceLabel,circuitCaption,venueArtwork});
 });
