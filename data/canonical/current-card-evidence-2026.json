@@ -1628,7 +1628,7 @@
       "scoreCheckedAt": "2026-10-11T07:45:02.471Z",
       "statusCheckedAt": "2026-10-11T07:45:02.471Z",
       "scoreFactObservedAt": "2026-10-11T07:45:02.471Z",
-      "statusFactObservedAt": "2026-10-11T07:45:02.471Z",
+      "statusFactObservedAt": "2026-10-11T06:32:02.035+00:00",
       "endTimeUtc": null,
       "resultPublishedAt": null,
       "fixtureResults": {
@@ -1880,7 +1880,8 @@
         ],
         "sourceUrl": "https://www.supercars.com/results/2026/2026-bathurst-1000/R17",
         "checkedAt": "2026-10-11T07:45:02.471Z"
-      }
+      },
+      "firstConfirmedCompleteAt": "2026-10-11T06:32:05.755533+00:00"
     }
   ],
   "broadcastOverrides": [

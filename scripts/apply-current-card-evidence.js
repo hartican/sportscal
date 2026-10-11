@@ -108,6 +108,15 @@ function applyArray(records, overrides, checkedAt, { upsert=false, child=false }
   if(upsert) for(const override of overrides) if(!next.some(record => matches(record, override))) next.push(fixtureSeed(override, checkedAt));
   return next;
 }
+function observedCompletionBoundary(record){
+  const clocks=[record.statusFactObservedAt,record.firstConfirmedCompleteAt,record.resultSourceCheckedAt||record.sourceCheckedAt];
+  if(clocks.some(value=>typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?(?:Z|[+-]\d{2}:\d{2})$/.test(value)))return false;
+  const observed=Date.parse(record.statusFactObservedAt||''),confirmed=Date.parse(record.firstConfirmedCompleteAt||'');
+  const checked=Date.parse(record.resultSourceCheckedAt||record.sourceCheckedAt||''),start=Date.parse(record.startTimeUtc||'');
+  return record.status==='completed' && record.resultStatus==='official' && record.sourceType==='official'
+    && [observed,confirmed,checked].every(Number.isFinite) && observed<=confirmed && confirmed<=checked && checked<=Date.now()
+    && (!Number.isFinite(start)||start<=observed);
+}
 function applyEvidence({ check=false, root=ROOT } = {}){
   const read=relative=>JSON.parse(fs.readFileSync(path.join(root,relative),'utf8'));
   const write=(relative,value)=>fs.writeFileSync(path.join(root,relative),`${JSON.stringify(value,null,2)}\n`);
@@ -153,7 +162,7 @@ function applyEvidence({ check=false, root=ROOT } = {}){
         || coverage.events.find(item => matches(item, override));
       assert(record, `${override.id} must exist in Feed or detailed Event fixtures`);
       assert.equal(record.score, override.score, `${override.id} score`);
-      assert(record.endTimeUtc || (record.dateOnly===true && /^\d{4}-\d{2}-\d{2}$/.test(record.endDate)), `${override.id} must have a stable completion boundary or explicit date-only window`);
+      assert(record.endTimeUtc || (record.dateOnly===true && /^\d{4}-\d{2}-\d{2}$/.test(record.endDate)) || observedCompletionBoundary(record), `${override.id} must have a stable completion boundary or explicit date-only window`);
     }
     for(const group of evidence.broadcastOverrides) for(const id of group.ids) assert.equal(coverage.events.find(record => identity(record) === id)?.broadcaster, group.broadcaster, `${id} broadcaster`);
     console.log("Current card evidence is fully applied.");
@@ -251,4 +260,4 @@ if(require.main === module){
   else if(process.argv.includes('--timing-only'))applySelectedTimings();
   else if(scope)applySelectedResults(scope.slice(6).split(','));else applyEvidence({ check:process.argv.includes("--check") });
 }
-module.exports = { restorePublishedEditorial, applySelectedResults, applySelectedTimings, applyEvidence, normalizeCompletedTiming, mergeRecord, retainNewerReviewedEditorial };
+module.exports = { restorePublishedEditorial, applySelectedResults, applySelectedTimings, applyEvidence, normalizeCompletedTiming, observedCompletionBoundary, mergeRecord, retainNewerReviewedEditorial };
