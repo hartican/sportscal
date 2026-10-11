@@ -886,6 +886,7 @@ async function main(){
   const aflwRoundPayloads = await mapWithConcurrency(aflwRounds, 6, round =>
     fetchJson(`${AFL_API}/matches?compSeasonId=${aflwSeason.id}&roundNumber=${round.roundNumber}&pageSize=50`, aflHeaders)
   );
+  const aflwCollectionCompletedAt = new Date().toISOString();
   const aflwMatches = aflwRoundPayloads.flatMap(payload => payload.matches || []);
   const aflwLadderRaw = await fetchJson(
     `${AFL_API}/compseasons/${aflwSeason.id}/ladders?roundNumber=${aflwSeason.currentRoundNumber}`,
@@ -966,6 +967,22 @@ async function main(){
 
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(bundle, null, 2)}\n`);
+  // Keep bounded source/parser/merge evidence when a later card gate fails.
+  // This collection clock is diagnostic only; it never renews sporting facts.
+  const aflwId = value => typeof value === "string" && /^event:aflw:cd_m\d{11}$/.test(value) ? value : null;
+  const rawPlaying = aflwMatches.filter(match => ["LIVE", "IN_PROGRESS"].includes(String(match.status).toUpperCase()));
+  const parsedPlaying = aflwRecords.map(record => record.event).filter(event => event.status === "live");
+  const mergedPlaying = bundle.events.filter(event => event.competitionId === "competition:aflw-2026" && event.status === "live");
+  const incompleteFinals = aflwRecords.map(record => record.event).filter(event => event.status === "completed" && !event.result?.scorelineText);
+  console.log(`AFLW source-state diagnostics: ${JSON.stringify({
+    collectionCompletedAt:aflwCollectionCompletedAt,
+    parsedMatchesSha256:require("node:crypto").createHash("sha256").update(JSON.stringify(aflwMatches)).digest("hex"),
+    rawPlayingCount:rawPlaying.length,
+    rawPlaying:rawPlaying.slice(0,20).map(match => ({ providerId:/^CD_M\d{11}$/i.test(String(match.providerId)) ? String(match.providerId) : null, status:String(match.status).toUpperCase(), scoreTypes:[match.home?.score?.totalScore,match.away?.score?.totalScore].map(value=>value===null?"null":typeof value) })),
+    parsedPlayingCount:parsedPlaying.length, parsedPlayingIds:parsedPlaying.slice(0,20).map(event=>aflwId(event.id)),
+    mergedPlayingCount:mergedPlaying.length, mergedPlayingIds:mergedPlaying.slice(0,20).map(event=>aflwId(event.id)),
+    incompleteFinalCount:incompleteFinals.length, incompleteFinalIds:incompleteFinals.slice(0,20).map(event=>aflwId(event.id)),
+  })}`);
   console.log(`Canonical sports refreshed: ${aflMatches.length} AFL fixtures, ${aflwMatches.length} AFLW fixtures, ${nrlMatches.length} NRL fixtures, ${participants.length} preserved/current teams.`);
   console.log(`NRL result reconciliation: ${officialNrlCorrections.correctedMatchIds.length} direct-official corrections, ${nrlReconciliation.verifiedMatchIds.length} independently verified, ${nrlReconciliation.promotedMatchIds.length} supplemented, ${supplementalNrl.failedDates.length} scoreboard fetch failures.`);
   console.log(`NRL independent standings check: ${nrlLadder.metadata.independentValidation.status}.`);
