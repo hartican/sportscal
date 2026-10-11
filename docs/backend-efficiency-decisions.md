@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Official NHL CRIT playing-state evidence — 11 October 2026 Sydney
+
+The league's published game-centre code explicitly classifies LIVE and CRIT as live, separately from its final states. The official landing and existing Detroit club season response both report 2026020075 as CRIT/OK with paired 0–0 scores; the exact league page displays SO for the same participants. The shared NHL full/quick source boundary may accept CRIT under its existing known identity, integer score, OK schedule and genuine post-start observation rules. This supersedes the dated 5 October unreviewed-CRIT exclusion only; unknown/non-playing states remain rejected. No elapsed-time, shootout clock, winner, completed result or reminder is inferred.
+
+Existing independent schedule/status/score dates, frozen finals, mirrored full collection completeness, three daily resource requests, deadlines, no retries, 30-minute display staleness, spoiler controls and one canonical owner remain. No provider, competition, migration, browser timer, scheduler, subscription or owner routine is added. Actual captured-record source/full-owner and temporary file-writer tests cover zero scores, final progression, stale replay/regression, original schedule dates, unchanged other fixtures and last-good retention. Controlled browser replay is distinct from a fresh production source publication or physical phone.
+
 ## Bounded rejected public calendar receipt — 11 October 2026 Sydney
 
 The existing canonical refresh may retain a rejected WRC competition-calendar response in its existing 14-day diagnostic artifact, capped at 128 KiB of already-read public body bytes plus fixed source/hash/date metadata. It does not save request headers, error messages, environment files, customer data or a checkout. Local test inputs carry local provenance. Validation subprocesses must lose the configured production report path, preventing test fixtures from overwriting genuine source evidence. Parser rejection, last-good source clocks, request/deadline budgets and manual profile-picture scope remain unchanged. Diagnostic write failure cannot mask the original source rejection; no automatic retry, provider call, scheduler, purchase or owner routine is added. A later healthy local response does not establish the earlier CI failure's cause.
