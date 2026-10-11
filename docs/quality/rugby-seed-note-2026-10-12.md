@@ -2,7 +2,7 @@
 
 The saved Australia–Ireland November listing looked like a midnight appointment and offered a Stan Sport viewing promise. The official current Australia programme does not confirm that appointment. The correction keeps the saved listing and its history, but clearly marks the match details as unconfirmed. It offers no match time, calendar appointment, rating prompt or unsupported viewing promise. The warning and title now wrap inside the small-screen card.
 
-**Delivery state:** the focused checks, actual publication check and full offline update check pass locally. GitHub publication, installed-app upgrades and live verification remain pending behind the already authorised Match Centre release. This report does not claim the correction is live.
+**Delivery state:** published to GitHub main and verified live in shell 508, snapshot 87ad6bce62781152aa71494672b6432530485dfc. The normal release [38176834260](https://github.com/hartican/sportscal/actions/runs/38176834260) passed its full safety and public checks. Vercel deployment dpl_HmYeKALSYj1zgNTVn2Kj48dSUJvv is READY, with all three expected aliases and 26 served files matching the exact published source and packaging records. Both Chromium and WebKit installed upgrades from the actual live shell 507 passed. Hosted rendering and original unknown-time checks are recorded separately below; physical-phone and whole-sport approval remain open.
 
 ## Why this correction is justified
 
@@ -34,9 +34,11 @@ Only evt_100 changes sporting meaning in the incoming and published feeds, Rugby
 | Full offline update | The existing full contract passes, including failed-update rollback; no provider refresh was triggered |
 | Browser presentation | 24 visible local renderer cases across Chromium and WebKit at 320, 390 and 1280 pixels pass, including text inside the card; this is not a native navigation or real phone check |
 | Startup budget | Passes the unchanged eight-request and compressed-size limits after removing ten internal comments; executable inline JavaScript compares exactly |
-| Installed upgrade and live site | Pending on the final combined release |
+| Installed upgrade and live site | Both 507→508 browser rehearsals pass with saved choices and offline use; exact live artifacts and hosted note checks pass. Native discovery and real-phone evidence are distinguished in hosted-note-proof.json |
 
-This is a narrow trust repair with high confidence in the demonstrated defect and preservation behaviour. A$0 new cash commitment, zero extra source requests and no recurring owner task. Existing assistant, runner and hosting charges remain unpriced. Dependencies are the existing reviewed-note path, generated projections, cache versioning and normal release checks. Accept only after the exact published snapshot passes those checks and the live listing shows the honest unknown state.
+Hosted checks used the actual served record and released renderer in prepared anonymous browsers. Follow/Sports attempts did not establish a native Rugby listing route; this remains unverified, rather than proving the listing is undiscoverable. The model and real hosted calendar export both reject the unsupported appointment.
+
+This is a narrow trust repair with high confidence in the demonstrated defect and preservation behaviour. A$0 new cash commitment, zero extra source requests and no recurring owner task. Existing assistant, runner and hosting charges remain unpriced. Dependencies are the existing reviewed-note path, generated projections, cache versioning and normal release checks. The exact snapshot passed those checks; the hosted listing preserves the honest unknown state. No actual phone or playback claim is made.
 
 The next work remains dependable Football pilots and other demonstrated coverage gaps. Full approval stays 0/18 carried families and 0/3 Football pilots, targeting at least 15/18 families. Actual-phone use, permitted commercial rights and genuine return visits remain separate. This individual repair earns no whole-sport approval.
 
