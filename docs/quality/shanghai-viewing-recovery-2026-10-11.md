@@ -1,6 +1,6 @@
 # Shanghai viewing repair — 11 October 2026
 
-The full sports update passed the earlier cricket and location checks, then stopped because its new Shanghai tournament card had no Australian viewing information. A dated Australian beIN guide supports paid viewing for this edition. The prepared repair adds that guidance without changing sporting facts or saved user choices. Publication and the next full update still need their normal checks.
+The Shanghai viewing repair is confirmed live. A dated Australian beIN guide supports paid viewing for this edition; the repair adds that guidance without changing sporting facts or saved user choices. It closes the full sports update's latest demonstrated gap. One successful fresh full update and later ordinary overnight proof remain open.
 
 ## What changes for people
 
@@ -41,6 +41,18 @@ These browser checks use disposable preferences, blocked account APIs and privat
 All **178/178** current normal release safety checks pass locally on main base `8a8c521c` plus this scoped change. The runner also verifies that every candidate source/data input remains unchanged throughout. No check is waived or filtered. Normal cloud release and exact production proof remain pending.
 
 The first cloud request, [38116344225](https://github.com/hartican/sportscal/actions/runs/38116344225), also passed all 178 checks and shared input preflights. An additional fresh-publication rehearsal then exposed a test assumption: the producer's card was required to be absent from the starting document. That would fail once a successful canonical update had saved it. The request was cancelled before its public verification, while deployment was starting; it is not a verified release. The corrected test now exercises both first appearance and retained appearance, with full-document real publication and stable reruns. Both the current document and a controlled document already containing the actual producer's card pass. Application rules are unchanged by this test correction; the final snapshot still requires a complete normal release.
+
+## Confirmed delivery
+
+The corrected published snapshot **`d21b6cf121ef8b513a7c8bd4fdc86345d91de05f`** passed complete normal [production run 38116842050](https://github.com/hartican/sportscal/actions/runs/38116842050), including all 178 safety checks, live preflights and public verification. Exact Vercel **`dpl_9HdQPbcnvLvP4U5Gu6JSANVLETEf`** is READY at `sportscal-1pa32qhxc-harticans-projects.vercel.app`, with all three production aliases independently checked. Shell **492** remains unchanged.
+
+Fourteen served core/sport artifacts and the additional public viewing-review file match the exact sealed deployment inventory. Five deployed function copies each of the new review and helper match the published, correctly transformed bytes. The verification uses Vercel's official [deployment-file listing](https://vercel.com/docs/rest-api/deployments/list-deployment-files); source claims and production behaviour remain separate.
+
+A real ordinary selected-fixture request returns Shanghai's original canonical identity and the dated beIN option. Both hosted browser engines then pass four 320/390-pixel cases comprising **eight** native Feed/Schedule card-builder checks using that actual response. Paid captions, destination, hidden set scores, original input and saved preferences pass. APIs are blocked inside the disposable browser contexts; this is hosted component rendering, not normal Feed admission, signed-in acceptance, playback, an installed app or a physical phone.
+
+The earlier cancelled request did reach READY after cancellation (`eab9e807`, `dpl_3hZcDwbkUovofWNPJ9E7gdP8ndBU`). Cancellation did not stop the already-started cloud deployment. It lacked completed public verification and is superseded by the fully passing exact release above. No failed fresh card batch was replayed.
+
+Evidence: `live/production-proof.json`, `live/viewing-package-proof.json`, `live/selected-fixture-read.json`, `live/hosted-browser.json`, final workflow receipt and preserved first-request/correction evidence alongside the saved Markdown/HTML report. Local checks took 251.61 seconds in one measured run; the slowest entrypoint was the canonical updater validator at 62.695 seconds. These are local elapsed times, not bills or promised savings; no safeguard is shortened or removed.
 
 ## Recommendation and acceptance
 
