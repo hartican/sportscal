@@ -130,4 +130,20 @@ assert.equal(motogp.records.filter(record => record.entityType === "athlete" && 
 assert.ok(motogp.records.filter(record=>!record.profileOnly).every(record => Number(record.competitionNumber) > 0 && record.competitionNumberKind === "racing"), "MotoGP riders need current racing numbers");
 const sailgp = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/sailgp.v1.json"), "utf8"));
 assert.equal(sailgp.records.filter(record => record.entityType === "team").length, 13, "SailGP must expose all thirteen 2026 teams");
-console.log(`Follow directory manifest valid: ${manifest.sports.length} chunks, tolerant search and current-only records.`);
+{
+const {participantObservation}=require('./lib/participant-source-observation');
+const requested=JSON.parse(fs.readFileSync(path.join(ROOT,'data/canonical/fiba-women-sailgp-motogp-2026.json'),'utf8'));
+const nrlw=JSON.parse(fs.readFileSync(path.join(ROOT,'data/follow-directory/nrlw.v1.json'),'utf8'));
+for(const record of requested.participants.filter(e=>e.sportKey==='nrlw')){
+ assert.equal(participantObservation(record,requested.sources),null,'No NRLW source receipt can be inferred from a MotoGP document rebuild');
+ assert.equal(nrlw.records.find(e=>e.id===record.id).sourceCheckedAt,null,'The real persisted NRLW directory must preserve unknown source observation');
+}
+const observed='2026-10-11T05:10:00+00:00',reference=Date.parse('2026-10-11T13:40:00Z');
+assert.equal(participantObservation({sourceCheckedAt:observed},{},reference),observed,'Explicit original participant observation remains verbatim');
+assert.equal(participantObservation({sourceIds:['own']},{own:{checkedAt:observed}},reference),observed,'Only the participant matching source can supply its receipt');
+assert.equal(participantObservation({sourceIds:['own']},{other:{checkedAt:observed}},reference),null,'An unrelated source cannot supply freshness');
+for(const bad of ['invalid','2026-02-30T05:10:00Z','2026-10-11T13:40:00.001Z'])assert.equal(participantObservation({sourceCheckedAt:bad},{},reference),null,'Invalid or future observations stay unknown');
+assert.equal(participantObservation({sourceIds:['a','b']},{a:{checkedAt:observed},b:{checkedAt:'2026-10-11T05:11:00Z'}},reference),null,'Distinct source receipts cannot invent one participant observation');
+assert.equal(participantObservation({sourceIds:['a','b']},{a:{checkedAt:observed}},reference),null,'A missing source receipt stays unknown');
+}
+console.log(`Follow directory manifest valid: ${manifest.sports.length} chunks, tolerant search, current-only records and genuine source observations.`);

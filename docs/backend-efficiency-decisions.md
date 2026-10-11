@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Participant source dates and dependent outputs — 12 October 2026 Sydney
+
+A shared canonical document build date is not a new observation of every sport in it. Follow directory records use their valid explicit participant observation or one unambiguous matching source receipt. Missing, invalid, future or distinct receipts remain unknown; a MotoGP check cannot refresh NRLW identity dates. Preserve IDs, source references, actual schedule/status/score observations and saved choices. Existing MotoGP and reviewed participant-schedule routes rebuild and check dependent Follow directories from retained data, without a new source owner or request. The existing Events overview projection must publish with its fixture outputs. Required generation checks remain strict.
+
 ## Match Centre module survives installed-shell activation — 12 October 2026 Sydney
 
 The existing worker must precache the current deferred Match Centre UI module in its own required shell. During a genuine Chromium upgrade, the new document and activating controller can temporarily receive that unchanged module from the previous worker's cache. A broad cache lookup then passes, but activation deletes the old cache and the next offline opening fails. The required installed-PWA upgrade regression now checks the exact candidate-version cache before and after offline restart, rather than accepting bytes from any surviving old cache. The original full Chromium and WebKit journeys, saved preferences, source clocks and privacy assertions remain mandatory.

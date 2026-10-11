@@ -220,9 +220,8 @@ function main(){
     const key = String(record.sportKey || "");
     if (!chunks.has(key)) return;
     const sourceRefs = (record.sourceIds || []).map(sourceId => requestedSports.sources?.[sourceId]?.url).filter(Boolean);
-    chunks.get(key).set(record.id, normalizeRecord(record, {
+    chunks.get(key).set(record.id, normalizeRecord({...record,sourceCheckedAt:require('./lib/participant-source-observation').participantObservation(record,requestedSports.sources)}, {
       countryBasis:"official-roster",
-      sourceCheckedAt:requestedSports.generatedAt,
       sourceRefs,
     }));
   });
