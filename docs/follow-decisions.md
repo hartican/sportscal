@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Compact cards retain visible source status — 12 October 2026 Sydney
+
+A minimal Feed card must show the same qualified match status that its existing timing model supplies to its accessible label. Actual retained EPL first-half, second-half and half-time records reproduced missing visible status while the scheduled clock and accessible label remained. Reuse that existing label in the compact timing line: fresh play and half-time stay explicit, old observations say Awaiting match update, and terminal/non-playing states remain distinct. Keep the originally scheduled Sydney time and the existing stage. This adds no score, winner, inferred clock, source interpretation or new status admission.
+
+Global/per-event Results, Follow admission, personal state, IDs, provider clocks, source failures, reminders, polling and owner budgets remain unchanged. The required card-timing check now runs the actual compact renderer against captured EPL records, stale receipts, two sampled published NRL/AFL finals and clearly controlled non-playing cases. Both native browsers check compact/expanded Feed and Schedule. The browser observer now seeds the selected canonical record instead of assuming a changed Inspector ID prevents older alias selection; compact checks require the status to be visible, not merely present for a screen reader. Normal cache/release proof remains required. Additional raw interruption codes, physical phone and whole Football approval remain separate.
+
 ## Football tables disclose disagreement with recorded results — 12 October 2026 Sydney
 
 Expanded Football cards and the full Follow table share the retained-facts comparison in the existing deferred Football module. Only the complete reviewed current EPL season and UEFA league phase can establish a discrepancy. Warn when the published table's sporting totals disagree with valid recorded finals; keep its ranks, points, source attribution and actual check date. Card and full-table Results choices still govern all rows and warnings. A later clock, playing score, reschedule, ambiguous identity or incomplete collection cannot invent a new final or establish the comparison. Existing delayed-backup degradation remains visible.

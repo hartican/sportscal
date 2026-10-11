@@ -45,3 +45,4 @@ assert.equal(p({...notBefore,status:'completed'},now).label,'FINISHED');
 assert.notEqual(p(notBefore,'2026-10-01T00:00:00Z').label,'FINISHED','not-before does not create a completion status');
 assert.equal(p({...fixture,featuredSubjects:[{id:'driver:one'},{id:'driver:two'}]},now).label,p(fixture,now).label);
 console.log('Card timing: calendar boundaries, DST, source status, uncertainty and sporting-start semantics passed.');
+require('./validate-compact-fixture-status')();
