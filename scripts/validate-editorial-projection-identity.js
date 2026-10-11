@@ -56,6 +56,16 @@ const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ns-editorial-target-'));
 try{
   fs.mkdirSync(path.join(temporary,'data'));fs.mkdirSync(path.join(temporary,'feeds/incoming'),{recursive:true});
   const target={...structuredClone(original),id:'test:editorial:retained',eventId:'test:editorial:event',canonicalEventId:'test:editorial:canonical',sourceEventIds:['test:editorial:provider']};
+  for(const validator of ['validate-editorial-narratives.js','validate-editorial-render-coverage.js']){
+    const source=fs.readFileSync(path.join(__dirname,validator),'utf8'),helpers=[source.match(/function identities\(record\)\{[\s\S]*?\n\}/)?.[0],source.match(/function byIdentity\(records\)\{[\s\S]*?\n\}/)?.[0]].filter(Boolean).join('\n');
+    assert(helpers.includes('function byIdentity('),'actual editorial validator lookup');
+    const context={require};require('node:vm').createContext(context);require('node:vm').runInContext(helpers,context);const index=context.byIdentity([target]);
+    for(const identifier of [target.id,target.eventId,target.canonicalEventId,...target.sourceEventIds])assert.equal(index.get(identifier),target,validator+' recognises '+identifier);
+    assert.equal(index.get('test:editorial:genuinely-missing'),undefined,'unknown identifiers cannot acquire a fixture');
+    const first={id:'test-first',canonicalEventId:'test:second'},second={id:'test-second',canonicalEventId:'test:first'},paired=context.byIdentity([first,second]);
+    assert.equal(paired.get(first.id),first,'derived alias cannot overwrite another fixture actual ID');assert.equal(paired.get(second.id),second);assert.equal(paired.get(first.canonicalEventId),first);assert.equal(paired.get(second.canonicalEventId),second);
+    const duplicate={...target,name:'Existing last-record precedence'};assert.equal(context.byIdentity([target,duplicate]).get(target.id),duplicate,'existing duplicate precedence is retained within the actual-ID tier');
+  }
   const fields=['id','eventId','canonicalEventId','sourceEventIds','date','endDate','time','startTimeUtc','status','participantIds','homeParticipantId','awayParticipantId','sourceCheckedAt','resultSourceCheckedAt','resultStatus','result'];
   const facts=record=>JSON.stringify(fields.map(key=>[key,record[key]??null]));
   const paths=['data/editorial-knowledge.v1.json','feeds/incoming/events.json','data/events.json','data/major-events.v1.json'];

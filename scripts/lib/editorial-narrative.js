@@ -251,9 +251,23 @@ function indexesFor(document){
   };
 }
 
-function projectionForTarget(document, targetType, record){
+function projectionTargetIds(record){
   const ids = unique([record?.id, record?.eventId, record?.canonicalEventId,...(record?.sourceEventIds||[])].flatMap(value=>require('../../config/fixture-identity').fixtureAliases(value)).map(value => String(value || "")).filter(Boolean));
-  for(const id of [record?.id,record?.eventId,record?.canonicalEventId,...ids,...ids.map(id=>id.replace(/:/g,'-'))]){
+  return unique([record?.id,record?.eventId,record?.canonicalEventId,...ids,...ids.map(id=>id.replace(/:/g,'-'))].map(value=>String(value||'')).filter(Boolean));
+}
+function projectionRecordIndex(records){
+  const index=new Map();
+  // Derived spellings and aliases cannot override another fixture's actual
+  // identifier. Preserve existing last-record precedence within each tier.
+  for(const record of records)for(const id of projectionTargetIds(record))index.set(id,record);
+  for(const field of ['sourceEventIds','canonicalEventId','eventId','id'])for(const record of records){
+    const values=field==='sourceEventIds'?(record[field]||[]):[record[field]];
+    for(const id of values)if(id)index.set(String(id),record);
+  }
+  return index;
+}
+function projectionForTarget(document, targetType, record){
+  for(const id of projectionTargetIds(record)){
     const projection=document.eventProjections.find(p=>p.targetType===targetType&&p.targetIds.includes(id));if(projection)return projection;
   }
   return null;
@@ -382,6 +396,8 @@ module.exports = {
   editorialNarrativeFor,
   idFor,
   indexesFor,
+  projectionTargetIds,
+  projectionRecordIndex,
   projectionForTarget,
   validateConsequence,
   validateKnowledge,

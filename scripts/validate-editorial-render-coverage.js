@@ -14,14 +14,8 @@ function readJson(filePath){
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
-function identities(record){
-  return [record?.id, record?.eventId, record?.canonicalEventId].filter(Boolean).flatMap(id=>require("../config/fixture-identity").fixtureAliases(id));
-}
-
 function byIdentity(records){
-  const result = new Map();
-  records.forEach(record => identities(record).forEach(id => result.set(id, record)));
-  return result;
+  return require('./lib/editorial-narrative').projectionRecordIndex(records);
 }
 
 const incoming = readJson("feeds/incoming/events.json");

@@ -9,6 +9,8 @@ const {
   applyToFeedEvent,
   applyToMajorEvent,
   indexesFor,
+  projectionTargetIds,
+  projectionRecordIndex,
   projectionForTarget,
   validateKnowledge,
 } = require("./lib/editorial-narrative.js");
@@ -31,9 +33,11 @@ function main(){
   if (issues.length) throw new Error(`Editorial knowledge invalid:\n- ${issues.join("\n- ")}`);
   const locks=require('../config/editorial-locks');
   const retained=[...readJson(FEED_PATH).events,...readJson(PUBLISHED_FEED_PATH).events];
+  const retainedOrder=new WeakMap(retained.map((event,index)=>[event,index]));
+  const retainedByIdentity=projectionRecordIndex([...retained].reverse());
   knowledge.eventProjections=knowledge.eventProjections.map(projection=>{
     if(projection.targetType!=='feed-event')return projection;
-    const event=retained.find(event=>projection.targetIds.some(id=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(id)));
+    const event=projection.targetIds.map(id=>retainedByIdentity.get(id)).filter(Boolean).sort((a,b)=>retainedOrder.get(a)-retainedOrder.get(b))[0];
     return event ? locks.projection(event,projection) : projection;
   });
   const indexes = indexesFor(knowledge);
@@ -124,7 +128,7 @@ function main(){
     .flatMap(item => item.targetIds)
     .filter(id => competitionClassification.belongsInEvents(id)));
   const catalogueEvents=[...(require('../data/follow-sources/coverage.v1.json').events || []),...require('../data/tennis-feed-parents.v1.json').parents];
-  const foundFeed = new Set([...feed.events,...publishedFeed.events,...catalogueEvents].flatMap(event => [event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])]).filter(id => expectedFeed.has(id)));
+  const foundFeed = new Set([...feed.events,...publishedFeed.events,...catalogueEvents].flatMap(projectionTargetIds).filter(id => expectedFeed.has(id)));
   const foundMajor = new Set(majorEvents.events.map(record => record.id).filter(id => expectedMajor.has(id)));
   const missing = [...expectedFeed].filter(id => !foundFeed.has(id)).concat([...expectedMajor].filter(id => !foundMajor.has(id)));
   if (missing.length) throw new Error(`Editorial projections reference missing targets: ${missing.join(", ")}`);

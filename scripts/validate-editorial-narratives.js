@@ -74,9 +74,7 @@ function stakesFor(event){
   return expected >= 10 ? 5 : expected >= 8 ? 4 : expected >= 6 ? 3 : expected >= 4 ? 2 : 1;
 }
 function byIdentity(records){
-  const index = new Map();
-  records.forEach(record => [record.id, record.eventId, record.canonicalEventId].filter(Boolean).flatMap(id=>require("../config/fixture-identity").fixtureAliases(id)).forEach(id => index.set(id, record)));
-  return index;
+  return require('./lib/editorial-narrative').projectionRecordIndex(records);
 }
 function activeFeedMarquee(events){
   return events.filter(event => !require("../config/coverage-pauses").womensT20(event) && event.status !== "completed" && event.schedulePrecision !== "week" && stakesFor(event) === 5 && Number.isFinite(eventTime(event)) && eventTime(event)<=reference.getTime()+30*DAY_MS);
