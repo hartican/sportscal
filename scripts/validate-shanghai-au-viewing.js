@@ -54,15 +54,21 @@ function validate(){
  for(const event of inputs)assert.deepEqual(follow.reasonForEvent(review(event),preferences),follow.reasonForEvent(event,preferences),'viewing presentation cannot change explicit follow/exclusion choices');
  const temp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-shanghai-viewing-'));
  try{
-  const document=structuredClone(require('../data/events.json'));assert(!document.events.some(e=>e.id===raw.id));document.events.push(raw);
+  const retainedDocument=require('../data/events.json'),withoutCard={...retainedDocument,events:retainedDocument.events.filter(e=>e.id!==raw.id)};
+  for(const state of ['first-appearance','retained-appearance']){
+  const document=structuredClone(state==='first-appearance'?withoutCard:retainedDocument);
+  if(!document.events.some(e=>e.id===raw.id))document.events.push(raw);
+  const original=document.events.find(e=>e.id===raw.id);
   const input=path.join(temp,'incoming.json'),output=path.join(temp,'events.json');fs.writeFileSync(input,JSON.stringify(document));fs.writeFileSync(output,JSON.stringify(document));
+  if(state==='first-appearance')fs.writeFileSync(output,JSON.stringify(withoutCard));
   const args=[path.join(__dirname,'publish-feed.js'),input,output,path.join(temp,'meta.json'),path.join(temp,'events.js'),'--preserve-known'];
   execFileSync(process.execPath,args,{cwd:root,stdio:'pipe'});const actual=JSON.parse(fs.readFileSync(output));
   assert.deepEqual(actual.events.map(e=>e.id),document.events.map(e=>e.id),'real publisher preserves every fixture identity and order');
   const event=actual.events.find(e=>e.id===raw.id);assert.deepEqual(providers(event),['bein'],'actual publisher persists viewing guidance for the failed card producer');
-  for(const key of ['id','eventId','date','time','timeTbc','tennisTournamentId','competitionId','sourceUrl','sourceCheckedAt','lastReviewedAt','status'])assert.deepEqual(event[key],raw[key],'publication retains '+key);
+  for(const key of ['id','eventId','date','time','timeTbc','tennisTournamentId','competitionId','sourceUrl','sourceCheckedAt','lastReviewedAt','status'])assert.deepEqual(event[key],original[key],state+': publication retains '+key);
   assert(event.startTimeUtc==null,'publication does not invent a sporting clock');
   const first=structuredClone(actual.events);execFileSync(process.execPath,args,{cwd:root,stdio:'pipe'});assert.deepEqual(JSON.parse(fs.readFileSync(output)).events,first,'unchanged publication retains facts and viewing observations');
+  }
  }finally{fs.rmSync(temp,{recursive:true,force:true});}
  console.log('Shanghai AU viewing: actual failed-card producer, retained parent/match, scoped paid guidance, identity/tour/date guards, independent fixture overrides and real publication preserve facts, clocks, choices and unchanged reruns.');
 }

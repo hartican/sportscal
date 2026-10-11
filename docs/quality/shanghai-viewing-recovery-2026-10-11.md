@@ -40,6 +40,8 @@ These browser checks use disposable preferences, blocked account APIs and privat
 
 All **178/178** current normal release safety checks pass locally on main base `8a8c521c` plus this scoped change. The runner also verifies that every candidate source/data input remains unchanged throughout. No check is waived or filtered. Normal cloud release and exact production proof remain pending.
 
+The first cloud request, [38116344225](https://github.com/hartican/sportscal/actions/runs/38116344225), also passed all 178 checks and shared input preflights. An additional fresh-publication rehearsal then exposed a test assumption: the producer's card was required to be absent from the starting document. That would fail once a successful canonical update had saved it. The request was cancelled before its public verification, while deployment was starting; it is not a verified release. The corrected test now exercises both first appearance and retained appearance, with full-document real publication and stable reruns. Both the current document and a controlled document already containing the actual producer's card pass. Application rules are unchanged by this test correction; the final snapshot still requires a complete normal release.
+
 ## Recommendation and acceptance
 
 | Item | Assessment |
