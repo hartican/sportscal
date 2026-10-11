@@ -37,7 +37,13 @@ assert.equal(m.interval({...base,status:'suspended'}),1800000);
 assert.deepEqual(m.select([{...base,id:'b'},{...base,id:'a'}],now).map(m.id),['a','b']);
 assert(!JSON.stringify(m.compact({...base,key:'tennis',points:'40-30',games:{home:3,away:2}})).includes('40-30'));
 assert.equal(m.compact({...base,sourceUrl:'javascript:alert(1)'}).officialUrl,'https://www.nrl.com/draw/');
-const {createMatchCentreHandler}=require('../lib/match-centre-handler');
+const {createMatchCentreHandler:makeMatchCentreHandler}=require('../lib/match-centre-handler');
+// Every controlled API case owns both external read boundaries. In a refresh
+// job, real service credentials must not add current fixtures to frozen tests.
+const createMatchCentreHandler=options=>{
+ assert.equal(typeof options.request,'function','Controlled cases supply their compact-score read');
+ return makeMatchCentreHandler({snapshotRead:async()=>({readAt:now,stale:false,sources:[]}),...options});
+};
 (async()=>{let reads=0;const handler=createMatchCentreHandler({enabled:()=>true,published:()=>[base],request:async()=>{reads++;return [];}});const response=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},status(n){this.code=n;return this;},json(v){this.body=v;return this;}});
 let r=response();await handler({url:'/api/match-centre?ids='+Array.from({length:61},(_,i)=>i).join(',')},r);assert.equal(r.code,400);assert.equal(reads,0);
 r=response();await handler({url:'/api/match-centre?ids=fixture:nrl:one'},r);assert.equal(r.body.fixtures.length,1);assert.equal(reads,1);
@@ -47,7 +53,7 @@ r=response();await list({url:'/api/match-centre?membership=everything&limit=50'}
 r=response();await list({url:'/api/match-centre?membership=everything&limit=50&cursor=50'},r);assert.equal(r.body.events.length,15);assert.equal(r.body.pagination.nextCursor,null);
 r=response();await list({url:'/api/match-centre?membership=everything&limit=61'},r);assert.equal(r.code,400);
 const settled=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[fresh],request:async()=>[{checked_at:new Date(now).toISOString(),fixture:{...fresh,status:'completed',completedAt:new Date(now-3600001).toISOString()}}]});r=response();await settled({url:'/api/match-centre?membership=everything'},r);assert.equal(r.body.events.length,0,'terminal overlay reconciles membership before return');
-const offline=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[fresh],request:async()=>{throw Error('offline');}});r=response();await offline({url:'/api/match-centre?membership=everything'},r);assert.equal(r.body.events.length,1);assert.equal(r.body.fixtures[0].stale,true);assert.equal(r.headers['Cache-Control'],'no-store','A degraded membership response cannot occupy the public cache');
+const offline=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[fresh],snapshotRead:async()=>{throw Error('offline');},request:async()=>{throw Error('offline');}});r=response();await offline({url:'/api/match-centre?membership=everything'},r);assert.equal(r.body.events.length,1);assert.equal(r.body.fixtures[0].stale,true);assert.equal(r.body.membershipStale,true);assert.equal(r.headers['Cache-Control'],'no-store','A degraded membership response cannot occupy the public cache');
 const liveOnly={...fresh,id:'fixture:cricket:live-only',key:'cricket',format:'Test',homeParticipantId:'team:cricket:australia',awayParticipantId:'team:cricket:south-africa',sourceEventIds:['fixture:cricket:publisher-alias'],innings:[{participantId:fresh.homeParticipantId,runs:71,wickets:2,overs:'10.1'}],scoreCheckedAt:new Date(now).toISOString()},liveReads=[];
 const liveRead=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[],snapshotRead:async()=>({stale:false,sources:[{source_id:'live-cricket',checked_at:new Date(now).toISOString(),fixtures:[liveOnly]}]}),request:async(_path,options)=>{
  const ids=options.body.p_fixture_ids;assert(ids.length>=1&&ids.length<=60);assert.equal(options.timeoutMs,3000);liveReads.push(ids);
