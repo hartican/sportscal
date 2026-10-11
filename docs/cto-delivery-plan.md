@@ -1,6 +1,6 @@
 # CTO delivery programme — authoritative current queue
 
-**Current decision — 11 October 2026:** Keep Football first. The hockey, location and Shanghai viewing repairs are confirmed live. The full sports update safely stopped at two upcoming Wuhan matches whose opponents had changed. Both corrected pairings now agree with the official draw and pass the checks. Saved match choices stay intact, and unknown times stay unknown. The approved score and speed update is verified live. The tennis correction is published and its results checks passed in the full update. That run stopped at three unrecognised Wuhan court labels. The small correction keeps those locations explicitly unconfirmed and passes the location and browser-upgrade checks. Publish it, rerun the full update and check the exact new version on the live site. Prepared baseball, tennis and racing improvements still need that successful full update. Give short everyday-language updates; keep supporting detail in the reports. No new subscription or routine for Jack. Passwords/iCloud remains parked.
+**Current decision — 11 October 2026:** Keep Football first. The hockey, location, Shanghai viewing and score/speed repairs are verified live. The full sports update now passed its data checks and published the corrected tennis matchups, reviewed Bathurst result and fresh supporting data. Deployment stopped at a separate Football release check involving a summary in its rehearsal. Diagnose that exact check and deploy the passing snapshot; do not repeat the successful sports-data collection. The site still serves the verified previous version. Use short everyday-language updates; keep detail in the reports. No new subscription or routine for Jack. Passwords/iCloud remains parked.
 
 **Full approval:** 0/17 carried families and 0/3 Football pilots, targeting at least 14/17 families. This means no sport has passed the entire launch checklist yet. It does not mean the repairs have achieved nothing: users already get more accurate cards and clearer viewing links. Full approval also needs reliable updates, permission to use the material commercially and checks on a real phone. Baseball joined coverage on 6 October; older report chapters keep their original counts.
 
@@ -16,7 +16,7 @@
 
 **Next five actions, in order:**
 
-- Publish the checked court-label correction, complete the normal full sports update and check its exact version on the live site. The score and speed release is already live; the tennis and results checks passed. Diagnose any further failure before trying again. Check the normal overnight update separately.
+- Resolve the specific Football release-check failure, deploy the already prepared fresh data with its checked correction, and verify the live site. Keep the passed sports update. Check the normal overnight update separately.
 - Finish the Football pilots: remaining match states, table upkeep, Australian viewing and actual-phone use. Reuse the completed dated comparisons.
 - Repair demonstrated gaps in the other carried sports toward at least 14/17 approved families. Keep uncertain times, participants and results unknown.
 - Use the prepared short phone session when available, then measure real return visits among authorised invitees. Existing owner questions stay pending.
