@@ -74,7 +74,15 @@ function createFeedHandler({load=feedDependencies,authenticate=()=>require('../l
       const limit=request.url?bounded(route.searchParams.get('limit')||20,20,50):d.eventFeed.events.length;
       const rawCursor=Number(route.searchParams.get('cursor'));
       const cursor=Number.isFinite(rawCursor)?Math.max(0,Math.floor(rawCursor)):0;
-      t=performance.now();const snapshot=await d.readLiveSnapshots().catch(()=>null);mark('live',performance.now()-t);
+      // Followed needs the same bounded current-window bundle as Everything.
+      // The full-season read can time out and lose live-only observations.
+      // Preserve published/saved member aliases so source reschedules still
+      // reconcile them, and finish local selection before the remote deadline.
+      const matchModel=matchCentreOnly?require('../config/match-centre'):null;
+      const preserveIds=matchCentreOnly?[...d.contextualEvents,...selectedFixtureEvents(userState)]
+        .filter(e=>matchModel.eligible(e,+clock()))
+        .flatMap(e=>[matchModel.id(e),e.id,e.eventId,...(e.sourceEventIds||[]),...(e.fixtureIdAliases||[])]).filter(Boolean):[];
+      t=performance.now();const snapshot=await d.readLiveSnapshots(matchCentreOnly?{scope:'match-centre',preserveIds}:undefined).catch(()=>null);mark('live',performance.now()-t);
       const now=clock();
       const {SERVER_FEED_BUILD_VERSION,SERVER_FEED_SCHEMA_VERSION,eventFeed}=d;
       const key=digest({matchCentreOnly,athletesOnly,participantId,userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});

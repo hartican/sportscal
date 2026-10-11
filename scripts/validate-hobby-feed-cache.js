@@ -28,6 +28,31 @@ async function main(){
     const result=response();await followed({method:'POST',url:'/api/feed?scope=match-centre',body:{preferences:{}},headers:{}},result);
     assert.equal(result.statusCode,200);assert.equal(result.body.membershipStale,!snapshot||snapshot.stale,'Followed membership exposes shared-store degradation to the retention path');
   }
+  // Replay the actual failure: the full-season read times out while the
+  // existing bounded Match Centre bundle has the live Bathurst observation.
+  const raceNow=new Date('2026-10-11T05:10:00Z');
+  const bathurst=require('../data/events.json').events.find(e=>e.id==='supercars-bathurst-1000-2026');
+  assert(bathurst);
+  const liveBathurst={...bathurst,status:'live',statusCheckedAt:raceNow.toISOString(),scoreCheckedAt:raceNow.toISOString(),fixtureObservationSchema:'fixture-observations.v1'};
+  const near={...bathurst,id:'race-near',eventId:'race-near',canonicalEventId:'race-near',status:'upcoming',startTimeUtc:new Date(+raceNow+600000).toISOString(),sourceEventIds:['race-near-alias']};
+  const raceReads=[];
+  const raceData={...pipeline,eventFeed:{version:'race-replay',publishedAt:raceNow.toISOString()},contextualEvents:[bathurst,near],canonicalSportContext:{participants:[]},resolveUserFollowFixtures:({events})=>({events,participants:[]}),overlaySnapshots:require('../lib/live-fixtures').overlaySnapshots,
+    readLiveSnapshots:async options=>{raceReads.push(options);if(options?.scope!=='match-centre')throw Error('Full-season read exceeded its unchanged three-second deadline');return {revision:'race-current',stale:false,sources:[{source_id:'live-supercars-bathurst',checked_at:raceNow.toISOString(),fixtures:[liveBathurst,{...near,startTimeUtc:new Date(+raceNow+3600000).toISOString()}]}]};}};
+  for(const sport of ['supercars','motorsport']){
+    for(const signedIn of [false,true]){
+      const preferences={version:26,followedSports:[sport]},state={preferences,event_user_state:{}};
+      const raceHandler=createFeedHandler({load:()=>raceData,clock:()=>raceNow,authenticate:()=>({bearerToken:()=>'',authenticatedUser:async()=>({id:'race-follower'}),loadUserState:async()=>state})});
+      const result=response();await raceHandler({method:signedIn?'GET':'POST',url:'/api/feed?scope=match-centre',body:{preferences},headers:{}},result);
+      assert.equal(result.statusCode,200);
+      assert(result.body.events.some(e=>e.id===bathurst.id),'Bathurst must survive the Followed caller when the global read is unavailable');
+      assert.equal(result.body.membershipStale,false);
+      assert(!result.body.events.some(e=>e.id===near.id),'A source-corrected start outside the current window must leave membership');
+      assert.equal(raceReads.at(-1).scope,'match-centre');
+      assert(raceReads.at(-1).preserveIds.includes(near.id)&&raceReads.at(-1).preserveIds.includes('race-near-alias'),'Preserve known near-window identities and aliases for source corrections');
+    }
+  }
+  const excluded=response();await createFeedHandler({load:()=>raceData,clock:()=>raceNow})({method:'POST',url:'/api/feed?scope=match-centre',body:{preferences:{version:26,followedSports:['supercars']},eventUserState:{[bathurst.id]:{dismissed:true}}},headers:{}},excluded);
+  assert(!excluded.body.events.some(e=>e.id===bathurst.id),'The bounded read cannot override a dismissal');
   // Frozen input proves copy-on-write composition does not mutate shared event data.
   const event=Object.freeze({id:'frozen',key:'afl',date:'2026-09-15',startTimeUtc:'2026-09-15T04:00:00Z',participantIds:Object.freeze([]),storyline:Object.freeze({stakes:3})});
   pipeline.buildServerFeed({events:[event],userId:'a',userState:{},now:new Date('2026-09-15T03:00:00Z'),copyEvents:false});
