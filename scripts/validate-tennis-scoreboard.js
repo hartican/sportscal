@@ -58,6 +58,16 @@ const unknown=structuredClone(source.payloads.wta);unknown.events[0].groupings[0
 assert.throws(()=>owner.parse(source.payloads.wta,{tour:'wta',checkedAt:'2099-01-01T00:00:00Z',now,catalogue}),/observation/);
 assert.throws(()=>owner.parse(source.payloads.wta,{tour:'wta',checkedAt:source.checkedAt,now:new Date(+now+6*3600000+1),catalogue}),/stale observation/,'A successful fetch cannot renew a stale source timestamp');
 (async()=>{
+ const roundedAt=Math.ceil(+now/1000)*1000+1000,receivedAt=roundedAt-768;
+ let transportClock=receivedAt,transportRequests=0,transportWaits=[];
+ const roundedResponse=async()=>{transportRequests++;return {ok:true,status:200,headers:new Headers({date:new Date(roundedAt).toUTCString()}),json:async()=>source.payloads.atp};};
+ const caughtUp=await owner.observe({tour:'atp',now:new Date(receivedAt),fetchImpl:roundedResponse,catalogue,clock:()=>transportClock,waitImpl:async(ms,signal)=>{assert(!signal.aborted);transportWaits.push(ms);transportClock+=ms;}});
+ assert.equal(transportRequests,1);assert.deepEqual(transportWaits,[768]);assert(caughtUp.fixtures.length);assert(caughtUp.fixtures.every(f=>f.sourceCheckedAt===new Date(roundedAt).toISOString()),'Whole-second HTTP receipt remains exact after the real validation clock catches up');
+ for(const [stamp,validation,message]of [[new Date(roundedAt).toUTCString(),roundedAt-1001,'ahead of validation'],[new Date(roundedAt+200).toISOString(),roundedAt,'ahead of validation'],[new Date(roundedAt-7*3600000).toUTCString(),roundedAt,'older than six hours']]){
+  let requests=0,waits=0;await assert.rejects(()=>owner.observe({tour:'atp',now:new Date(validation),catalogue,clock:()=>validation,waitImpl:async()=>{waits++;},fetchImpl:async()=>{requests++;return {ok:true,status:200,headers:new Headers({date:stamp}),json:async()=>source.payloads.atp};}}),new RegExp(message));assert.equal(requests,1);assert.equal(waits,0,'Unsupported clocks reject without waiting or retrying');
+ }
+ let stalledWaits=0;await assert.rejects(()=>owner.observe({tour:'atp',now:new Date(receivedAt),fetchImpl:roundedResponse,catalogue,clock:()=>receivedAt,waitImpl:async()=>{stalledWaits++;}}),/ahead of validation/,'An early timer cannot bypass the strict future check');assert.equal(stalledWaits,1);
+ const controller=new AbortController();await assert.rejects(()=>owner.observe({tour:'atp',now:new Date(receivedAt),fetchImpl:roundedResponse,catalogue,signal:controller.signal,clock:()=>receivedAt,waitImpl:async(ms,signal)=>{controller.abort();signal.throwIfAborted();}}),{name:'AbortError'},'The bounded wait remains cancellable under the request deadline');
  // The synthetic response and freshness check must share the contract clock.
  // Real wall time would eventually expire this fixture and reject every mock.
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'ns-tennis-source-')),realNow=Date.now;

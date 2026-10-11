@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Preserve whole-second tennis HTTP receipts — 11 October 2026 Sydney
+
+The actual canonical owner rejected all four free ESPN responses because their whole-second HTTP Date was 0.760–0.806 seconds ahead of the local validation clock. Keep the original header observation and strict future/six-hour freshness checks. Once the response body is complete, the existing observer may wait once for at most one second for the real clock to reach a whole-second HTTP receipt; validate afterwards without changing either date. Larger, fractional or still-future timestamps and old observations reject. The same existing abort/deadline signal governs this short wait.
+
+This shared observer already serves canonical full/quick refreshes and the existing live tennis source. Four canonical resources, fifteen-second request deadlines, live cadence/budgets and no retries remain. No extra request, scheduler, polling, database change, coverage expansion, purchase or owner routine. Controlled prior/current transport reproduction, current complete-payload parser and both existing-card merges, unchanged-result clocks, stale/future controls and abort behaviour pass. A successful whole owner and exact production release remain required; local evidence does not certify tennis or a physical phone.
+
 ## Official NHL CRIT playing-state evidence — 11 October 2026 Sydney
 
 The league's published game-centre code explicitly classifies LIVE and CRIT as live, separately from its final states. The official landing and existing Detroit club season response both report 2026020075 as CRIT/OK with paired 0–0 scores; the exact league page displays SO for the same participants. The shared NHL full/quick source boundary may accept CRIT under its existing known identity, integer score, OK schedule and genuine post-start observation rules. This supersedes the dated 5 October unreviewed-CRIT exclusion only; unknown/non-playing states remain rejected. No elapsed-time, shootout clock, winner, completed result or reminder is inferred.
