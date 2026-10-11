@@ -20,7 +20,7 @@
  }
  function install(card,event,options){
   card.querySelector('.cricket-test-day')?.remove();
-  if(Number.isSafeInteger(event.matchDay)&&event.matchDay>0&&event.matchDay<=event.numberOfDays&&event.matchDaySourceUrl){const day=document.createElement('strong');day.className='cricket-test-day';day.textContent='TEST · DAY '+event.matchDay+' OF '+event.numberOfDays;day.style.cssText='display:block;grid-column:1/-1;font-size:.8rem;padding:6px 12px';(card.querySelector('.compact-card-summary,.event-card-copy')||card).append(day);}
+  if(Number.isSafeInteger(event.matchDay)&&event.matchDay>0&&event.matchDay<=event.numberOfDays&&event.matchDaySourceUrl){const day=document.createElement('strong');day.className='cricket-test-day';day.textContent=(/^test$/i.test(event.format||'')?'TEST · ':'')+'DAY '+event.matchDay+' OF '+event.numberOfDays;day.style.cssText='display:block;grid-column:1/-1;font-size:.8rem;padding:6px 12px';(card.querySelector('.compact-card-summary,.event-card-copy')||card).append(day);}
   const golfSlot=card.querySelector('.fixture-golf-details');if(golfSlot&&globalThis.NOTHINGSPORTS_GOLF_SCORES)globalThis.NOTHINGSPORTS_GOLF_SCORES.mount(golfSlot,event,{visible:options.resultsOn,followed:id=>cachedParticipantFollow(id).followed});
   const racingSlot=card.querySelector('.fixture-racing-details');if(racingSlot&&globalThis.NOTHINGSPORTS_RACING_DETAILS)globalThis.NOTHINGSPORTS_RACING_DETAILS.mount(racingSlot,event,{visible:()=>options.resultsOn,followed:entry=>cardIdentityParticipants().some(p=>entry.drivers?.includes(p.displayName||p.name)&&cachedParticipantFollow(p.id).followed)});
   card.querySelector('.feed-live-score')?.remove();

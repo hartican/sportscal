@@ -190,7 +190,7 @@
         for(const key of ['statusText','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','cricketBalance','cricketPhaseConfirmed','cricketPhaseCheckedAt'])if(event[key]===undefined)event[key]=null;
       }else{
         event.status=base.status;event.statusCheckedAt=factTime(base,'status');
-        for(const key of ['statusText','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','cricketPhaseConfirmed','cricketPhaseCheckedAt','matchDay','matchDaySourceUrl','matchDayCheckedAt'])if(base[key]!==undefined)event[key]=base[key];
+        for(const key of ['statusText','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','cricketPhaseConfirmed','cricketPhaseCheckedAt','matchDay','matchDaySourceUrl'])if(base[key]!==undefined)event[key]=base[key];
       }
     }
     // Only a changed score observed from a live source establishes continuing play.
