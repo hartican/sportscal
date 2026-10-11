@@ -38,4 +38,5 @@ console.warn=(...args)=>warnings.push(args);
   console.warn=()=>{throw Error('logger unavailable');};await assert.rejects(cached.read({scope:'match-centre'}),e=>e.status===504,'logging cannot replace or hide the original read failure');
   console.warn=warn;console.log('Snapshot read diagnosis passed: safe phase/status/timing, no retries, original errors and last-good facts preserved.');
  }finally{console.warn=warn;}
+ await require('./validate-supabase-response-deadline')();
 })().catch(e=>{console.error(e);process.exitCode=1});
