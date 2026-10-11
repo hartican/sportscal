@@ -66,6 +66,7 @@ jobs:
           node scripts/validate-match-centre.js
           node scripts/validate-match-centre-details.js
           node scripts/validate-racing-details.js
+          node scripts/validate-horse-racing.js
           node scripts/validate-full-scorecards.js
           node scripts/validate-fixture-route-facts.js
           node scripts/validate-session-order-estimates.js

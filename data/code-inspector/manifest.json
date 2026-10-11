@@ -1,7 +1,19 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-10T23:44:56.601Z",
+  "generatedAt": "2026-10-11T02:49:10.647Z",
   "codes": [
+    {
+      "followSchedulePath": "data/follow-schedule/horse-racing.json",
+      "id": "sport:horse-racing",
+      "slug": "horse-racing",
+      "label": "Horse Racing",
+      "fixtureCount": 9,
+      "hasStandings": false,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-10-11T02:49:10.647Z",
+      "chunkPath": "data/code-inspector/horse-racing.json"
+    },
     {
       "followSchedulePath": "data/follow-schedule/baseball.json",
       "id": "sport:baseball",

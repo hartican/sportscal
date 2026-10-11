@@ -6,6 +6,7 @@
   "use strict";
 
   const sportDomains = [
+    {id:'sport:horse-racing',slug:'horse-racing',name:'Horse Racing',kind:'sport',sortOrder:116,isActive:true,supportsLadders:false,supportsAllFixtures:false,supportsNarrative:false,supportsTeams:false,supportsCompetitors:false,defaultTemplateId:'template:like',metadata:{region:'AU',coverageScope:'Marquee thoroughbred races'}},
     {id:"sport:baseball",slug:"baseball",name:"Baseball",kind:"sport",sortOrder:115,isActive:true,supportsLadders:false,supportsAllFixtures:false,supportsNarrative:false,supportsTeams:true,supportsCompetitors:false,defaultTemplateId:"template:like",metadata:{region:"global",neutralGlyph:"sport:baseball"}},
     {
       id: "sport:supercars", slug: "supercars", name: "V8 Supercars",

@@ -17,17 +17,17 @@ async function render(container){
  const today=formatDateKey(nowAEST()),scope=prefs.eventsScope==='all'?'all':'followed';
  const target=globalThis.pendingTournamentFocusFixture||activeEvents.find(e=>String(e.eventId||e.id)===pendingMajorEventFocusId)||tennisFeedParentDocument?.parents?.find(e=>e.id===pendingMajorEventFocusId);
  const isTarget=e=>e.id===pendingMajorEventFocusId || e.fixtureIds?.includes(pendingMajorEventFocusId) || target&&e.tournamentId&&[target.tournamentId,target.tennisTournamentId,...(target.tournamentIds||[])].includes(e.tournamentId)||target&&e.fixtureIds?.some(id=>[target.id,target.eventId,target.canonicalEventId,...(target.sourceEventIds||[])].includes(id));
- const current=eventOverviewsDocument.events.filter(e=>FOLLOW_FEED_POLICY.activeEligible({...e,key:e.sportKey})&&((e.endDate||e.date)>=today||isTarget(e)));
+ const current=eventOverviewsDocument.events.filter(e=>FOLLOW_FEED_POLICY.activeEligible({...e,key:e.sportKey})&&(e.calendarPending||(e.endDate||e.date)>=today||isTarget(e)));
  const available=current.filter(e=>isTarget(e)||scope==='all'||!FOLLOW_FEED_POLICY.eventExcluded(e,prefs)&&(FOLLOW_FEED_POLICY.editionDecision(e,prefs)==='followed'||followsEvent(e)));
  const controls=document.createElement('nav');controls.className='events-view-tabs';controls.setAttribute('aria-label','Events scope');
  for(const [value,label]of [['followed','Followed events'],['all','All events']]){const button=text('button',label,'events-view-tab'+(scope===value?' active':''));button.type='button';button.setAttribute('aria-pressed',String(scope===value));button.onclick=()=>{const next=clonePreferences(userPreferences);next.eventsScope=value;savePreferences(next,{viewOnly:true});renderEventsView();};controls.append(button);}
  const jump=text('button','Jump to Now','btn ghost');jump.type='button';jump.onclick=()=>node.querySelector('.events-now-marker')?.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});controls.append(jump);
  const choice=buildSurfaceCategoryChooser('events',available,renderEventsView,{includeAll:true});node.replaceChildren(controls,choice.select);
  const marker=text('div','Now','events-now-marker is-active');marker.setAttribute('role','separator');marker.setAttribute('aria-label','Current and upcoming events');node.append(marker);
- const visible=available.filter(e=>isTarget(e)||choice.selected==='all'||NOTHINGSPORTS_SURFACE_CATEGORY.category(e)===choice.selected).sort((a,b)=>Math.max(a.date.localeCompare(today),0)-Math.max(b.date.localeCompare(today),0)||a.date.localeCompare(b.date)||a.id.localeCompare(b.id));
+ const visible=available.filter(e=>isTarget(e)||choice.selected==='all'||NOTHINGSPORTS_SURFACE_CATEGORY.category(e)===choice.selected).sort((a,b)=>Math.max((a.date||'9999').localeCompare(today),0)-Math.max((b.date||'9999').localeCompare(today),0)||(a.date||'9999').localeCompare(b.date||'9999')||a.id.localeCompare(b.id));
  for(const event of visible){
   const card=document.createElement('article');card.className='match-centre-card events-overview-card';card.dataset.eventOverviewId=event.id;card.dataset.eventId=event.id;card.tabIndex=-1;
-  const title=text('h3',event.name),dates=text('p',NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.date)+(event.endDate!==event.date?' – '+NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.endDate):''));card.append(title,dates);
+  const title=text('h3',event.name),dates=text('p',event.calendarPending?'Edition date pending':NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.date)+(event.endDate!==event.date?' – '+NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.endDate):''));card.append(title,dates);
   const upcoming=(event.upcomingFixtures||[]).filter(f=>(f.date||'')>=today),next=upcoming.filter(f=>(f.participantIds||[]).some(follows));
   const stage=upcoming[0]?.roundLabel||upcoming[0]?.round;
   const context=[event.venueCity,event.tour,event.tournamentLevel,stage].filter(Boolean);if(context.length)card.append(text('p',[...new Set(context)].join(' · ')));
@@ -37,9 +37,9 @@ async function render(container){
   const details=document.createElement('details'),summary=text('summary','Fixtures');details.append(summary);details.open=Boolean(isTarget(event));card.append(details);let loaded=false;
   const mount=async()=>{if(!details.open||loaded)return;loaded=true;const list=document.createElement('div');list.textContent='Loading published fixtures…';details.append(list);try{
     let fixtures;if(event.sportKey.startsWith('tennis'))fixtures=(await loadTennisFeedContests()).fixtures.filter(f=>(f.tournamentId||f.tennisTournamentId)===event.tournamentId);
-    else if(event.sportKey==='f1'){
-      if(!sessionSchedules.has('f1'))sessionSchedules.set('f1',fetchJson('data/follow-schedule/f1.json',{cache:'no-cache'}).catch(error=>{sessionSchedules.delete('f1');throw error;}));
-      const schedule=await sessionSchedules.get('f1');fixtures=(schedule.fixtures||[]).filter(f=>event.fixtureIds.includes(f.id));
+    else if(['f1','horse-racing'].includes(event.sportKey)){
+      if(!sessionSchedules.has(event.sportKey))sessionSchedules.set(event.sportKey,fetchJson('data/follow-schedule/'+event.sportKey+'.json',{cache:'no-cache'}).catch(error=>{sessionSchedules.delete(event.sportKey);throw error;}));
+      const schedule=await sessionSchedules.get(event.sportKey);fixtures=(schedule.fixtures||[]).filter(f=>event.fixtureIds.includes(f.id));
     }else {await loadDeferredScript('assets/js/tournament-fixture-ui.js?v=467');const horizon=await loadTournamentHorizon();fixtures=horizon.tournaments?.find(t=>t.tournamentId===event.tournamentId)?.publishedFixtures||[];}
     if(!list.isConnected)return;fixtures=fixtures.filter(f=>!FOLLOW_FEED_POLICY.multiDayMarker(f)&&FOLLOW_FEED_POLICY.scheduleVisible(f,prefs,collections));
     list.replaceChildren();let count=0;const more=()=>{for(const f of fixtures.slice(count,count+20))list.append(buildEventCard(NOTHINGSPORTS_FIXTURE_IDENTITY.fromSchedule(f,event.sportKey),{mode:'schedule'}));count+=20;if(count<fixtures.length){const b=text('button','More fixtures','btn ghost');b.type='button';b.onclick=()=>{b.remove();more();};list.append(b);}};more();if(!fixtures.length)list.append(text('p','No published fixtures match this view.'));

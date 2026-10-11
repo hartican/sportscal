@@ -7,13 +7,13 @@
   const snapshot=model.compact(event),score=snapshot.score;
   const name=id=>(event.participants||[]).find(p=>p.id===id)?.displayName||(event.participantSlots||[]).find(s=>s.participantId===id)?.label||label(id);
   let text='';
-  if(score.racing){const r=score.racing,l=r.leader;text=[l?.currentDriver||l?.drivers?.join(' / '),l?.laps!=null?'Lap '+l.laps+(r.totalLaps?' / '+r.totalLaps:''):null].filter(Boolean).join(' · ');}
+  if(score.racing){const r=score.racing,l=r.leader;text=r.kind==='horse'?[r.statusText,r.entryCount+' entries',r.raceTime?'Race time '+r.raceTime:null].filter(Boolean).join(' · '):[l?.currentDriver||l?.drivers?.join(' / '),l?.laps!=null?'Lap '+l.laps+(r.totalLaps?' / '+r.totalLaps:''):null].filter(Boolean).join(' · ');}
   else if(score.innings?.length)text=score.innings.map(i=>`${i.team||name(i.participantId)||'Innings'} ${i.runs??'—'}/${i.wickets??'—'} (${i.overs??'—'} overs)`).join(' · ');
   else if(score.sets?.length||score.games){const sides=[snapshot.homeParticipantId,snapshot.awayParticipantId].map(id=>id&&name(id));text=(sides.every(Boolean)?sides.join(' / ')+': ':'')+(score.sets||[]).map(s=>`${s.home??'—'}–${s.away??'—'}`).join('  ')+(score.games?` · Games ${score.games.home??'—'}–${score.games.away??'—'}`:'');}
   else if(score.home!=null&&score.away!=null){const home=`${snapshot.homeParticipantId&&name(snapshot.homeParticipantId)||'Home'} ${score.home}`,away=`${snapshot.awayParticipantId&&name(snapshot.awayParticipantId)||'Away'} ${score.away}`;text=snapshot.sport==='ice-hockey'&&event.participantSlots?.[0]?.homeAway==='away'?`${away} · ${home}`:`${home} · ${away}`;}
   if(!text)return null;
   const stamp=Date.parse(snapshot.scoreCheckedAt||(event.fixtureObservationSchema?null:snapshot.checkedAt)||''),observed=Number.isFinite(stamp)&&stamp<=now,settled=model.final(event),fresh=observed&&now-stamp<=model.interval(event,now)*2&&(score.racing||!event.stale&&!event.sourceStale);
-  const status=settled?(score.racing?.phase==='provisional-result'?'Provisional classification':'Finished'):fresh&&/^(live|in-progress)$/.test(event.status)?score.racing?.statusText||'Live':model.interrupted(event)&&(!model.halftime(event)||fresh)?model.pausedLabel(event):score.racing?'Awaiting update':'Last available score';
+  const status=score.racing?.kind==='horse'?score.racing.statusText:settled?(score.racing?.phase==='provisional-result'?'Provisional classification':'Finished'):fresh&&/^(live|in-progress)$/.test(event.status)?score.racing?.statusText||'Live':model.interrupted(event)&&(!model.halftime(event)||fresh)?model.pausedLabel(event):score.racing?'Awaiting update':'Last available score';
   if(snapshot.cricketBalance)text+=' · '+snapshot.cricketBalance;
   return {text,status,stale:Boolean(event.stale)||(!settled&&!fresh),checkedAt:observed?new Date(stamp).toISOString():null};
  }

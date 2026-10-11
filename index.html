@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="490">
+<meta name="app-shell-version" content="491">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=490" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=491" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7176,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=490"></script>
+<script src="assets/js/app-shell-runtime.js?v=491"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7199,7 +7199,6 @@ const cardIdentitiesReady = CARD_IDENTITIES
       console.warn("Card identities could not be loaded; cards will retain semantic text labels", error);
       return null;
     });
-// JSON first; script fallback for offline and local files.
 const EVENTS = globalThis.NOTHINGSPORTS_EVENTS || [];
 
 const VECTOR_ASSETS = globalThis.NOTHINGSPORTS_VECTOR_ASSETS;
@@ -8379,8 +8378,6 @@ const MAJOR_EVENTS_CONFIG = Object.freeze({
   url: "data/major-events.v1.json",
 });
 
-// Compatibility projection for a saved pre-canonical Events child. The
-// release validator keeps this copy aligned with the canonical researched card.
 
 const JOINT_TOURNAMENT_CONFIG = Object.freeze({
   moduleScriptUrl: "config/joint-tennis-tournament.js",
@@ -8763,7 +8760,6 @@ async function openAthleteProfile(id,label,sportKey,trigger){
 
 if (startupReloadRestoreState){
   activeFilter = String(startupReloadRestoreState.activeFilter || activeFilter);
-  // Retired Month View keeps its navigation context and resumes in the list.
   activeView = startupReloadRestoreState.activeView === "month" ? "list" : "list";
   activeTab = ["feed","events","follow","match-centre"].includes(startupReloadRestoreState.activeTab) ? startupReloadRestoreState.activeTab : activeTab;
   eventsViewTab = ["overviews","major-events","ticket-alerts"].includes(startupReloadRestoreState.eventsViewTab) ? startupReloadRestoreState.eventsViewTab : eventsViewTab;
@@ -9305,8 +9301,6 @@ function mergePreferences(saved){
     viewing: activeProfileBundle.viewingPreference || null,
     learning: activeProfileBundle.learningPreference || null,
   } : null;
-  // Native graph sections must be hydrated before migrations can create a graph.
-  // An explicitly supplied graph (including an empty one) still wins.
   if (!saved.preferenceGraph && profileGraph) saved = { ...saved, preferenceGraph: profileGraph };
   saved = FOLLOW_FIRST?.migratePreferences?.(saved) || saved;
   const savedPreferenceVersion = Number(saved.version || 0);
@@ -9915,9 +9909,7 @@ function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
 
 let userPreferences = loadPreferences();
 void ensureFollowCollectionDirectories(userPreferences).then(() => {
-  // Collection membership is lazy data, but its consequences are not. Once
-  // the saved group directory arrives, immediately correct any Feed or Events
-  // surface that rendered while it was still loading.
+  // Reconcile Feed and Events after collection hydration.
   if (document.readyState !== "loading") renderAll({ preserveViewport:true });
 }).catch(() => {});
 let ratings = loadRatings();
@@ -10348,8 +10340,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
         if (!scope.verify(latest)) return null;
         setPreferenceRecovery(latest.preferenceRecovery);
         currentState = serverAuthoritativeFixturePins(latest.state, currentState);
-        // Keep the original edit baseline: a newer cloud value is not a local
-        // change, and temporary agreement must not erase deliberate intent.
+        // Cloud refresh must preserve the original edit baseline.
         localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
           baseUpdatedAt: latest.state?.updatedAt || null,
         });
@@ -10502,8 +10493,7 @@ async function hydrateUserMetaSeed(scope = serverStateSyncScope()){
   let meta = payload?.meta || null;
   if (!meta){
     const localMeta = FOLLOW_FIRST.normalizeMeta(userPreferences.followFirst?.startupMeta);
-    // Legacy accounts can have saved follows without an onboarding seed.
-    // An empty seed is neither a valid metadata row nor a new follow decision.
+    // Preserve legacy follows when the onboarding seed is empty.
     if (!localMeta.sports.length) return null;
     const created = await serverSyncClient.saveMeta(localMeta, { accountId:scope.accountId });
     if (!scope.current()) return null;
@@ -10673,8 +10663,7 @@ function reloadBundledEventsScript(){
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
     const source = new URL(FEED_CONFIG.eventsScriptUrl, document.baseURI);
-    // Preserve the stable URL so the service-worker's offline fallback can
-    // satisfy this request from its precache. Fresh online starts use JSON.
+    // Preserve the stable URL so the service-worker can use its precache.
     script.src = source.href;
     script.async = true;
     script.onload = () => {
@@ -10856,8 +10845,7 @@ async function loadFootballDirectoryData(){
       }),
     ]);
     if (data?.schemaVersion !== api.SCHEMA_VERSION) throw new Error("Football directory schema is unsupported");
-    // Football's league directory must also expose canonical national sides.
-    // Their canonical IDs are the same IDs carried by international fixtures.
+    // League directories also retain canonical national sides.
     const nationalTeams = (globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES?.allTeams || [])
       .filter(team => team.sportDomainId === 'sport:football' || team.id.startsWith('team:football:'))
       .map(team => ({...team, name:team.displayName, leagueId:'competition:football:international-friendlies',
@@ -10988,7 +10976,7 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 }
 
 let feedScoreUiLoading=null;
-function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=486').catch(error=>{feedScoreUiLoading=null;throw error;});}
+function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=491').catch(error=>{feedScoreUiLoading=null;throw error;});}
 function installFeedLiveScore(card,event){
   if(globalThis.NOTHINGSPORTS_FEED_SCORE_UI){globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);return;}
   const owner=serverSyncClient?.sessionSubject()||'public';
@@ -11026,8 +11014,7 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
           const previous = followedScheduleFixtures.get(code.id) || [];
           const context=buildFollowEligibilityContext();
           const retainedIds = new Set([...previous,...activeEvents].map(event => String(event.id || event.eventId)));
-          // Explicit participation corrections must replace previously admitted golf cards,
-          // even when a withdrawal means the new observation no longer qualifies.
+          // Explicit withdrawals replace previously admitted golf cards.
           const incoming = document.fixtures.filter(fixture => fixture?.id && identity.retainedInActiveTimeline(fixture) && (automaticEventFollowReason(identity.fromSchedule(fixture,code),context) || code.id === 'sport:golf' && retainedIds.has(String(fixture.id)) && fixture.participantsConfirmed === true)).map(fixture => identity.fromSchedule(fixture,code));
           // A shortened response is not a deletion. Explicit statuses/mutes still apply.
           const events = mergeCanonicalEventPages(incoming,previous).filter(event => eventMeetsDerivedRetention(event));
@@ -11556,8 +11543,7 @@ async function performRemoteFeedRefresh({ quiet = false, signedInHint = false } 
         message: "Your local copy is active. The central feed rebuild is temporarily unavailable.",
       });
     }
-    // A failed request is not a new catalogue. Keep the last validated pages
-    // and their cursor; switching sources here silently changed Feed membership.
+    // Failed reads retain validated pages, cursor and membership.
     if(activeEvents.length && derivedCardCache?.derivedCards?.length){
       if(!quiet)showToast('Refresh unavailable. Your saved fixtures are still available.');
       return {source:'last-valid',eventCount:activeEvents.length,cardCount:derivedCardCache.derivedCards.length,rendered:false};
@@ -16927,9 +16913,9 @@ function buildFixtureCardEssentials(ev, {matchupIdentity, timingState, options, 
 }
 
 function buildExpandedScoreDetails(ev){
- if(!(isSpoilerVisible(ev)&&(ev.score?.racing||ev.key==='cricket'||/football|soccer|fifa|premier-league|uefa-/.test(ev.key))))return null;
+ if(!(isSpoilerVisible(ev)&&(ev.score?.racing||/^(f1|supercars|motogp|wrc|horse-racing)$/.test(ev.key)||ev.key==='cricket'||/football|soccer|fifa|premier-league|uefa-/.test(ev.key))))return null;
  const slot=document.createElement('div');slot.dataset.cardArea='expanded-information';slot.className='fixture-scorecard';
- loadDeferredScript('config/score-details.js?v=490').then(()=>NOTHINGSPORTS_SCORE_DETAILS.feed(slot,ev,()=>isSpoilerVisible(ev))).catch(()=>{if(slot.isConnected&&isSpoilerVisible(ev))slot.textContent='Scorecard unavailable.';});return slot;
+ loadDeferredScript('config/score-details.js?v=491').then(()=>NOTHINGSPORTS_SCORE_DETAILS.feed(slot,ev,()=>isSpoilerVisible(ev))).catch(()=>{if(slot.isConnected&&isSpoilerVisible(ev))slot.textContent='Scorecard unavailable.';});return slot;
 }
 function buildFootballMatchContext(ev){return ev.footballMatchContext||ev.teamMatchContext?buildEuropeanDetail(ev,'context'):null;}
 
@@ -18872,7 +18858,7 @@ async function loadMatchCentre(){
   const panel=document.getElementById('listView');
   if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return;}
   panel.className='match-centre';panel.textContent='Loading Match Centre…';
-  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=490'),loadDeferredScript('config/score-details.js?v=486'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=490')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
+  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=491'),loadDeferredScript('config/score-details.js?v=491'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=491')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
 }
 function renderTeamsAndPlayersDirectory(container){
   if(typeof globalThis.renderTeamsAndPlayersDirectoryLoaded==='function')return globalThis.renderTeamsAndPlayersDirectoryLoaded(container);
@@ -19746,7 +19732,7 @@ function buildDismissedEventStub(record){
 
 async function renderEventOverviews(container){
  const host=document.createElement('div');host.className='event-overviews-host';container.append(host);
- try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=486');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=491');
  if(!host.isConnected)return;
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(host);
  }catch{if(!host.isConnected)return;const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';host.append(notice);}

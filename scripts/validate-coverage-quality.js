@@ -4,7 +4,7 @@ const assert=require('node:assert/strict'),{audit,projectionDigest}=require('./a
 const contract=require('../config/quality/coverage-contract.json');
 require('./validate-canonical-family-repair');
 const baseline=audit();
-assert.equal(baseline.summary.carriedFamilies,17);assert.equal(baseline.summary.requiredFamilies,14);
+assert.equal(baseline.summary.carriedFamilies,18);assert.equal(baseline.summary.requiredFamilies,15);
 assert.equal(baseline.summary.pilotTotal,3);
 if(contract.certifications.length===0)assert.equal(baseline.summary.certifiedFamilies,0);
 assert(baseline.families.find(f=>f.id==='skiing').carried,'published skiing cards remain in denominator');
@@ -171,3 +171,5 @@ assert.throws(()=>calendarsRun([...league,calendar],{reviewChange:r=>{r.competit
 assert(calendarRow(calendarsRun([...league,calendar],{copies:[{...calendar,participantIds:['home','away']}]})).certificationFailures.includes('conflicting-projections'),'all overlapping views remain bound');
 console.log('Record semantics: 151 actual UCL matches and five retained calendars; raw gaps, strict context validation, explicit counts and full certification gates preserved.');
 require('./validate-chl-calendar-quality');
+
+assert.equal(baseline.families.find(f=>f.id==='horse-racing').status,'unverified','The approved feature catalogue is carried but partial fields, viewing and outcomes do not certify the family');

@@ -1,0 +1,16 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),horse=require('../lib/horse-racing');
+async function refresh({root=path.resolve(__dirname,'..'),fetchImpl=globalThis.fetch,now=new Date()}={}){
+ const review=JSON.parse(fs.readFileSync(path.join(root,'feeds/provider-exports/horse-racing/marquee-calendar.v1.json'))),file=path.join(root,'data/canonical/horse-features.v1.json'),prior=fs.existsSync(file)?JSON.parse(fs.readFileSync(file)):{events:[]};
+ assert(review.schemaVersion==='horse-features-reviewed-calendar.v1'&&review.entries.length===12&&new Set(review.entries.map(e=>e.id)).size===12,'Incomplete feature review');
+ const events=[],failures=[],sources={};
+ // Advance maintenance is invoked only by update-cards. Two bounded collectors
+ // at a time; failed/missing source stages retain the last complete collection.
+ const queue=review.entries.filter(e=>e.date),collected=new Map();async function worker(){while(queue.length){const e=queue.shift();if(Date.parse(e.date)>+now+60*86400000)continue;try{collected.set(e.id,await horse.read({...prior.events.find(p=>p.id===e.id),...e},{fetchImpl,now}));}catch(error){failures.push({id:e.id,code:'field-unavailable'});}}}await Promise.all([worker(),worker()]);
+ for(const e of review.entries){if(!e.date)continue;assert(/^https:\/\//.test(e.sourceUrl)&&/^20\d\d-\d\d-\d\d$/.test(e.date));const sourceId=e.id; sources[sourceId]={name:'Official race organiser calendar',url:e.sourceUrl,type:'official',checkedAt:review.checkedAt};
+  const old=prior.events.find(p=>p.id===e.id),event={...old,...e,sportKey:'horse-racing',key:'horse-racing',codeId:'sport:horse-racing',taxonomyNodeId:'sport:horse-racing',sportDomainId:'sport:horse-racing',competitionId:'competition:australian-thoroughbred',horseFeature:true,gender:'mixed',eventFamilyId:e.slug,weekendId:'carnival:'+e.carnival.toLowerCase().replace(/[^a-z0-9]+/g,'-')+':'+e.date.slice(0,4),tournamentName:e.carnival,season:e.date.slice(0,4),venue:e.meeting,venueCountryCode:'AU',venueVerified:true,sourceId,sourceUrl:e.sourceUrl,sourceCheckedAt:old?.sourceCheckedAt||review.checkedAt,time:old?.time||null,dateOnly:!old?.startTimeUtc,timeTbc:!old?.startTimeUtc,timePrecision:old?.startTimeUtc?'exact':'date-only',status:old?.status||'upcoming',participantsConfirmed:false,participantIds:[],expected:e.slug==='melbourne-cup'?10:8,liveWindow:1,hook:'Published feature race date. Expand for the latest verified entry stage.',context:'Race clock and final field remain unconfirmed until published by the official source.',scheduleNote:'Feature race clock unconfirmed. Entry lists are labelled by their published stage.',calendarProvenance:{sourceUrl:e.sourceUrl,checkedAt:review.checkedAt},officialTimingUrl:horse.url(e)};
+  const detail=collected.get(e.id);events.push(detail?horse.fixture(event,detail):event);
+ }
+ const doc={schemaVersion:'horse-features.v1',sources,participants:[],events,pending:review.entries.filter(e=>!e.date),coverage:{checkedAt:now.toISOString(),featureCount:12,publishedDateCount:events.length,failures}};fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,JSON.stringify(doc,null,2)+'\n');return doc.coverage;
+}
+module.exports={refresh};

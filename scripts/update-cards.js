@@ -175,6 +175,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-lemans-calendar.js"],
   ["scripts/refresh-dakar-calendars.js"],
   ["scripts/refresh-golf-major-calendars.js"],
+  ["scripts/update-cards.js", "--horse-fields-only", "--local-only"],
   ["scripts/refresh-nbl-schedule.js"],
   ["scripts/refresh-athlete-profiles.js"],
   ["scripts/refresh-athlete-profiles.js", "--check"],
@@ -653,6 +654,11 @@ async function runMain() {
   if(process.argv.includes('--golf-major-venues')){
     for(const step of [["scripts/refresh-golf-major-calendars.js"], ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json", "--golf-majors-only"], ["scripts/sync-requested-sports-to-feed.js", "data/events.json", "data/events.json", "--golf-majors-only"], ["scripts/publish-feed.js", "data/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"], ["scripts/build-follow-fixtures.js"], ["scripts/build-paged-feed.js"], ["scripts/build-code-inspector.js", "--codes=golf"], ["scripts/build-app-shell-runtime.js"], ["scripts/validate-golf-major-calendars.js", "--published"], ["scripts/validate-follow-policy-parity.js"], ["scripts/validate-feed.js", "feeds/incoming/events.json"], ["scripts/validate-feed.js", "data/events.json"], ["scripts/qa-storyline-spoilers.js", "data/events.json"]])runStep(step);
     console.log('Reviewed men’s major rounds and venue publication complete through the canonical owner.');return;
+  }
+  if(process.argv.includes('--horse-fields-only')){
+    console.log(JSON.stringify(await require('./refresh-horse-racing').refresh()));
+    for(const step of [["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json", "--horse-racing-only"], ["scripts/sync-requested-sports-to-feed.js", "data/events.json", "data/events.json", "--horse-racing-only"], ["scripts/publish-feed.js", "data/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"], ["scripts/build-follow-fixtures.js"], ["scripts/build-paged-feed.js"], ["scripts/build-code-inspector.js", "--codes=horse-racing"], ["scripts/build-app-shell-runtime.js"], ["scripts/version-generated-shell.js"], ["scripts/validate-horse-racing.js"], ["scripts/validate-follow-policy-parity.js"], ["scripts/validate-feed.js", "data/events.json"]])runStep(step);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);return;
   }
   if(process.argv.includes('--grand-tours-venues')){
     for(const step of [["scripts/refresh-grand-tour-calendars.js"], ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json", "--grand-tours-only"], ["scripts/sync-requested-sports-to-feed.js", "data/events.json", "data/events.json", "--grand-tours-only"], ["scripts/publish-feed.js", "data/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"], ["scripts/build-follow-fixtures.js"], ["scripts/build-paged-feed.js"], ["scripts/build-code-inspector.js", "--codes=tour-de-france,giro-ditalia,vuelta-a-espana,cycling"], ["scripts/build-app-shell-runtime.js"], ["scripts/validate-grand-tour-calendars.js", "--published"], ["scripts/validate-cycling-context.js"], ["scripts/validate-follow-policy-parity.js"], ["scripts/validate-feed.js", "feeds/incoming/events.json"], ["scripts/validate-feed.js", "data/events.json"], ["scripts/qa-storyline-spoilers.js", "data/events.json"]])runStep(step);

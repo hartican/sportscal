@@ -12,6 +12,7 @@ const {
 
 const ROOT = path.resolve(__dirname, "..");
 const SCHEDULE_PATHS = [
+  path.join(ROOT, "data/canonical/horse-features.v1.json"),
   path.join(ROOT, "data/canonical/lemans-calendar.v1.json"),
   path.join(ROOT, "data/canonical/dakar-calendar.v1.json"),
   path.join(ROOT, "data/canonical/grand-tours-calendar.v1.json"),
@@ -48,12 +49,13 @@ function broadcasterFor(sportKey){
   }
   if (sportKey === "fiba-women") return { label:"ESPN via Kayo / Foxtel", options:["Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
   if (sportKey === "nbl") return { label:"ESPN via Disney+ / Kayo / Foxtel", options:["Disney+", "Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
-  if (["golf","wsl","tdf","giro","vuelta","dakar","lemans"].includes(sportKey)) return { label:"Broadcast TBC", options:[], ids:[] };
+  if (["horse-racing","golf","wsl","tdf","giro","vuelta","dakar","lemans"].includes(sportKey)) return { label:"Broadcast TBC", options:[], ids:[] };
   return { label:"Fox Sports via Kayo / Foxtel", options:["Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
 }
 
 function sportLabel(sportKey){
   return ({
+    "horse-racing":"Horse Racing",
     nrlw:"NRLW",
     "fiba-women":"FIBA Women",
     sailgp:"SailGP",
@@ -161,6 +163,7 @@ function cardForEvent(event, schedule, participantsById){
     id,
     eventId:id,
     canonicalEventId:event.id,
+    ...(event.horseFeature?Object.fromEntries(['horseFeature','slug','meeting','state','racePattern','timeZone','carnival','officialTimingUrl','score','scoreCheckedAt','distanceMetres'].filter(k=>event[k]!=null).map(k=>[k,event[k]])):{}),
     sport:sportLabel(event.sportKey),
     key:event.sportKey === "nbl" ? "basketball" : event.sportKey,
     name:event.name,
@@ -220,7 +223,7 @@ function cardForEvent(event, schedule, participantsById){
         consensusResult:{ winner:participantsById.get(result.winnerParticipantId)?.displayName || null, summary:result.outcomeText },
       } : {}),
     } : {}),
-    sportDomainId:['tdf','giro','vuelta'].includes(event.sportKey)?"sport:cycling":event.sportKey === "wsl" ? "sport:surf"
+    sportDomainId:event.sportKey==='horse-racing'?'sport:horse-racing':['tdf','giro','vuelta'].includes(event.sportKey)?"sport:cycling":event.sportKey === "wsl" ? "sport:surf"
       : event.sportKey === "golf" ? "sport:golf"
       : event.sportKey === "sailgp" ? "sport:sailing"
       : event.sportKey === "fiba-women" ? "sport:basketball"
@@ -282,7 +285,7 @@ function main(){
   require('./lib/nrlw-season-review').validateSeasonBackfill(nrlwReview,schedules.find(schedule=>schedule.nrlwFinalsReview));
   const cards=schedules.flatMap(schedule=>{
     const participantsById = new Map((schedule.participants || []).map(participant => [participant.id, participant]));
-    return (schedule.events || []).filter(event=>(!process.argv.includes('--motogp-only')||event.sportKey==='motogp')&&(!process.argv.includes('--sailgp-only')||event.sportKey==='sailgp')&&(!process.argv.includes('--wsl-only')||event.sportKey==='wsl')&&(!process.argv.includes('--grand-tours-only')||['tdf','giro','vuelta'].includes(event.sportKey))&&(!process.argv.includes('--lemans-only')||event.lemansCalendar===true)&&(!process.argv.includes('--dakar-only')||event.dakarCalendar===true)&&(!process.argv.includes('--golf-majors-only')||event.golfMajorCalendar===true)).map(event => cardForEvent(event, schedule, participantsById));
+    return (schedule.events || []).filter(event=>(!process.argv.includes('--horse-racing-only')||event.horseFeature===true)&&(!process.argv.includes('--motogp-only')||event.sportKey==='motogp')&&(!process.argv.includes('--sailgp-only')||event.sportKey==='sailgp')&&(!process.argv.includes('--wsl-only')||event.sportKey==='wsl')&&(!process.argv.includes('--grand-tours-only')||['tdf','giro','vuelta'].includes(event.sportKey))&&(!process.argv.includes('--lemans-only')||event.lemansCalendar===true)&&(!process.argv.includes('--dakar-only')||event.dakarCalendar===true)&&(!process.argv.includes('--golf-majors-only')||event.golfMajorCalendar===true)).map(event => cardForEvent(event, schedule, participantsById));
   });
   if(process.argv.includes('--nrlw-finals-only'))cards.splice(0,cards.length,...cards.filter(card=>card.key==='nrlw'&&card.resultStatus==='official'&&card.canonicalEventId?.includes(':2026:')&&schedules.some(schedule=>schedule.nrlwFinalsReview?.fixtureIds.includes(card.canonicalEventId))));
   if(process.argv.includes('--nrlw-season-only'))cards.splice(0,cards.length,...cards.filter(card=>nrlwReview.addedFixtureIds.includes(card.canonicalEventId)));
@@ -300,17 +303,20 @@ function main(){
   const existingByF1=new Map((feed.events||[]).map(event=>[f1Identity(event),event]).filter(([key])=>key));
   const existingById=new Map((feed.events||[]).map(event=>[event.id,event]));
   cards.forEach((card,index)=>{
+    if(card.horseFeature&&existingById.has(card.id)){const old=existingById.get(card.id);cards[index]={...old,...card,...(Date.parse(old.score?.racing?.checkedAt)>Date.parse(card.score?.racing?.checkedAt||0)?{score:old.score,status:old.status,scoreCheckedAt:old.scoreCheckedAt}:{})};return;}
     if(card.key==='nrlw'&&card.resultStatus==='official'&&existingById.has(card.id)){cards[index]=mergeNrlwFinalCard(card,existingById.get(card.id));return;}
     if(card.lemansCalendar&&existingById.has(card.id)){cards[index]=mergeLemansCard(card,existingById.get(card.id));return;}
     if((card.golfMajorCalendar||['sailgp','wsl','tdf','giro','vuelta','dakar','dakar'].includes(card.key))&&existingById.has(card.id))cards[index]=mergeSailgpCard(card,existingById.get(card.id));
   });
   // Published MotoGP race IDs retain ratings, chat, reminders and results.
   cards.forEach((card,index)=>{
+    if(card.horseFeature&&existingById.has(card.id)){const old=existingById.get(card.id);cards[index]={...old,...card,...(Date.parse(old.score?.racing?.checkedAt)>Date.parse(card.score?.racing?.checkedAt||0)?{score:old.score,status:old.status,scoreCheckedAt:old.scoreCheckedAt}:{})};return;}
     if(card.key!=='motogp')return;
     const existing=existingById.get(card.id);
     if(existing?.fixtureResults?.sourceUrl||existing?.resultPublishedAt)cards[index]={...card,...Object.fromEntries(['status','endTimeUtc','endTimeBasis','fixtureResults','resultPublishedAt','resultStatus','resultSourceUrl','resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt','outcomeText','recapText','score','resultLabels','storyline','editorialNarrative','selectedSentence','fullSpiel'].filter(key=>existing[key]!=null).map(key=>[key,existing[key]]))};
   });
   cards.forEach((card,index)=>{
+    if(card.horseFeature&&existingById.has(card.id)){const old=existingById.get(card.id);cards[index]={...old,...card,...(Date.parse(old.score?.racing?.checkedAt)>Date.parse(card.score?.racing?.checkedAt||0)?{score:old.score,status:old.status,scoreCheckedAt:old.scoreCheckedAt}:{})};return;}
     const identity=f1Identity(card),legacyId=F1_LEGACY_STABLE_IDS[identity],existing=existingByF1.get(identity)||existingById.get(legacyId)||existingById.get(card.id);
     if(!identity)return;
     // A published schedule cannot revoke a sourced result. Conversely, an old
