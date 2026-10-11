@@ -92,12 +92,14 @@ loadMatchCentreStyles();
   if(!ordered.length)sides.append(node('h3',spoilerSafeDisplayTitle(e)));
   const balance=node('p',null,'mc-cricket-balance'),status=node('span',null,'mc-status'),freshness=node('small',null,'mc-row-freshness'),classification=node('div',null,'mc-classification');summary.append(classification,status,balance,freshness);details.append(summary);
   const content=node('div',null,'mc-expanded'),timing=buildFixtureTimingGroup(e);timing.querySelector('.fixture-timing-badge').onclick=click=>{click.stopPropagation();void openFixtureFromTimingCapsule(currentFixture(e));};content.append(timing);if(e.venue||e.court)content.append(node('p',[e.venue,e.court&&e.court!==e.venue?e.court:null].filter(Boolean).join(' · ')));const updates=node('div',null,'mc-score-details');content.append(updates);
+  const racing=node('div',null,'fixture-racing-details');content.append(racing);
   const actions=node('div',null,'match-centre-actions');actions.append(feedButton(e));appendEventQuickActions(actions,e,{chat:false,viewing:false});const sourceLink=node('a',null,'btn ghost');sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';actions.append(sourceLink);content.append(actions);details.append(content);card.append(details);
   details.ontoggle=()=>{if(!details.isConnected)return;if(details.open){expanded.add(id);if(isSpoilerVisible(e)&&e.rubbers)void poll([e],true);}else expanded.delete(id);const view=cards.get(id);if(view?.details===details)patchCard(view,e);};
-  return {card,details,rows,status,balance,freshness,classification,updates,sourceLink,updateKey:'',scoreKeys:new Map()};
+  return {card,details,rows,status,balance,freshness,classification,updates,racing,sourceLink,updateKey:'',scoreKeys:new Map()};
  }
  function patchCard(view,e){
   const snapshot=m().observation(m().compact(e),scores.get(m().id(e))||m().compact(e)),score=snapshot.score||{},visible=isSpoilerVisible(e);
+  if(score.racing){view.classification.textContent=visible?[score.racing.leader?.currentDriver,score.racing.leader?.laps!=null?'Lap '+score.racing.leader.laps+(score.racing.totalLaps?' / '+score.racing.totalLaps:''):null].filter(Boolean).join(' · '):'';view.racing.hidden=!view.details.open||!visible;if(view.details.open&&visible)void loadDeferredScript('config/racing-details.js?v=490').then(()=>NOTHINGSPORTS_RACING_DETAILS.mount(view.racing,{...e,...snapshot},{visible:()=>view.details.open&&isSpoilerVisible(e),followed:entry=>cardIdentityParticipants().some(p=>entry.drivers?.includes(p.displayName||p.name)&&cachedParticipantFollow(p.id).followed)}));else view.racing.replaceChildren();}
   patchText(view.balance,visible?snapshot.cricketBalance||'':'');view.balance.hidden=!visible||!snapshot.cricketBalance;
   patchText(view.status,[statusText(e,snapshot),visible&&snapshot.clock?(m().sport(e)==='tennis'?'Duration '+snapshot.clock:snapshot.clock):null].filter(Boolean).join(' · '));view.status.classList.toggle('mc-active-live',m().liveState({...e,...snapshot})==='playing');
   const link=snapshot.scorecardUrl||snapshot.officialUrl;view.sourceLink.hidden=!link;if(link){view.sourceLink.href=link;patchText(view.sourceLink,snapshot.scorecardUrl?(snapshot.scorecardOfficial?'Official scorecard':'Source scorecard'):e.sourceType==='official'?'Official fixture':(e.sourceName||'Published')+' source');}
@@ -109,7 +111,7 @@ loadMatchCentreStyles();
   }
   const data=visible?JSON.stringify([view.details.open,snapshot.statusText,snapshot.restartTimeUtc,snapshot.cricketBalance,snapshot.incidents,snapshot.rubbers,score.classification,score.innings]):'hidden';
   if(data!==view.updateKey){
-   view.updateKey=data;view.updates.replaceChildren();view.classification.replaceChildren();
+    view.updateKey=data;view.updates.replaceChildren();if(!score.racing)view.classification.replaceChildren();
    if(visible){
     if(view.details.open){
      if(snapshot.statusText)view.updates.append(node('p',snapshot.statusText));if(snapshot.restartTimeUtc)view.updates.append(node('p','Play resumes '+new Date(snapshot.restartTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney',weekday:'short',hour:'numeric',minute:'2-digit',timeZoneName:'short'})));cricketDetails(view.updates,score.innings,snapshot.id);
@@ -157,7 +159,8 @@ loadMatchCentreStyles();
   inflight=(async()=>{try{
    for(let offset=0;offset<ids.length;offset+=60){
     if(!valid(t)||document.hidden)return false;
-    const r=await fetch(`/api/match-centre?ids=${encodeURIComponent(ids.slice(offset,offset+60).join(','))}${rubbers?'&rubbers=1':''}`,{signal:AbortSignal.timeout(5000)});
+    const racing=events.some(e=>expanded.has(m().id(e))&&e.score?.racing);
+    const r=await fetch(`/api/match-centre?ids=${encodeURIComponent(ids.slice(offset,offset+60).join(','))}${rubbers?'&rubbers=1':''}${racing?'&details=racing':''}`,{signal:AbortSignal.timeout(5000)});
     if(!r.ok)throw Error();const data=await r.json();if(!data.enabled)throw Error();if(!valid(t))return false;
     if(!Array.isArray(data.fixtures))throw Error('Invalid score list');
     const received=new Set();for(const s of data.fixtures){
