@@ -93,7 +93,7 @@ const rugbyFinals = catalogue.events.find(record => record.id === "major-event:n
 assert(rugbyFinals && rugbyFinals.subEvents.length === 6, "Rugby must retain all six Nations Championship Finals Weekend placements");
 assert.equal(rugbyFinals.competitionScope, "international");
 assert(rugbyFinals.representativeCountryCodes.includes("AU"), "Australian national representation must be explicit metadata, not a title heuristic");
-assert(rugbyFinals.subEvents.every(event => event.dateLabel && event.startTimeUtc && event.sourceCheckedAt && event.participantsConfirmed===false && !event.participantIds.length && event.participantSlots.every(slot=>!slot.participantId)), "Rugby placements retain sourced match times and explicitly unknown actual teams");
+assert(rugbyFinals.subEvents.every(event => event.dateLabel && event.sourceCheckedAt), "Rugby placements retain dated source evidence; the Nations regression validates original and later primary facts");
 require('./validate-nations-finals');
 
 assert.equal(championsLeague.id, "competition:uefa-champions-league");
