@@ -503,7 +503,7 @@ async function runMain() {
     for(const args of [
       ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
       ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
-      ['scripts/build-code-inspector.js',surfOnly?'--codes=surf':'--codes=surf,motorsport'],['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/build-code-inspector.js',surfOnly?'--codes=surf':'--codes=surf,motorsport,rugby-union'],['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
       ['scripts/validate-surf-calendar-notes.js'],['scripts/validate-feed.js','feeds/incoming/events.json'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-follow-policy-parity.js'],['scripts/validate-startup-budget.js']
     ])runStep(args);
     if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);

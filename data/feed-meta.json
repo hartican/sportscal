@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20261011195543866",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261011195543866-20261011205341659",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-11T19:55:43.866Z",
+  "publishedAt": "2026-10-11T20:53:41.659Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -119,9 +119,9 @@
         "lastEventDate": "2026-07-13"
       },
       "rugby": {
-        "count": 15,
+        "count": 14,
         "firstEventDate": "2026-07-04",
-        "lastEventDate": "2026-11-28"
+        "lastEventDate": "2026-11-22"
       },
       "tdf": {
         "count": 24,

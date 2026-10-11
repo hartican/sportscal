@@ -55,13 +55,15 @@ async function assertCachedReviewedCalendarNotes(page){
   const api=require('./lib/reviewed-calendar-notes'),legacy=JSON.parse(baselineFile('data/events.json')).events.filter(e=>api.ids.includes(e.id));
   // MTB has no carried Code. Exercise its retained renderer without inventing one.
   const mtb=require('../data/events.json').events.find(e=>e.id===api.manualIds[1]);
-  const result=await page.evaluate(async ({legacy,mtb})=>{
+  const rugby=require('../data/events.json').events.find(e=>e.id==='evt_100');
+  const result=await page.evaluate(async ({legacy,mtb,rugby})=>{
     const fixtures=(await Promise.all(['surf','motorsport'].map(async slug=>(await(await fetch('/data/code-inspector/'+slug+'.json')).json()).fixtures.filter(f=>f.calendarNote)))).flat();
     const before=JSON.stringify(userPreferences),priorTab=activeTab,checks=[];
-    try{activeTab='feed';const host=document.getElementById('listView');for(const [origin,records] of [['current-code',fixtures],['retained-mtb-mount',[mtb]],['archived-baseline',legacy]])for(const event of records){const original=JSON.stringify(event);host.replaceChildren(buildEventCard(event));checks.push({id:event.id,origin,text:host.innerText,hasWindow:!!event.calendarNote?.localDateWindow,noClock:!eventReminderTiming(NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(event)),unchanged:JSON.stringify(event)===original});}return {checks,preferencesPreserved:JSON.stringify(userPreferences)===before};}finally{activeTab=priorTab;}
-  },{legacy,mtb});
-  assert.equal(result.checks.length,8,'Three carried notes, separately mounted MTB and four actual archived records must be rehearsed');assert(result.preferencesPreserved);
-  for(const check of result.checks){assert(check.noClock&&check.unchanged);assert(check.hasWindow?/15–18 July 2027.*UK dates.*Sydney time TBC/s.test(check.text):/DATE TBC.*TIME TBC/s.test(check.text));assert(!/22 JAN|7 FEB|7:00 PM|2:00 AM|10 JUL|5 NOV|10:00 AM|8:00 AM|Tap to rate|Remind/.test(check.text),'An upgraded/offline cache cannot restore unsupported seed claims');}
+    try{activeTab='feed';const host=document.getElementById('listView');for(const [origin,records] of [['current-code',fixtures],['retained-mtb-mount',[mtb]],['retained-rugby-mount',[rugby]],['archived-baseline',legacy]])for(const event of records){const original=JSON.stringify(event);host.replaceChildren(buildEventCard(event));checks.push({id:event.id,origin,text:host.innerText,hasWindow:!!event.calendarNote?.localDateWindow,noClock:!eventReminderTiming(NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(event)),unchanged:JSON.stringify(event)===original});}return {checks,preferencesPreserved:JSON.stringify(userPreferences)===before};}finally{activeTab=priorTab;}
+  },{legacy,mtb,rugby});
+  assert.equal(result.checks.length,api.ids.length*2,'Every retained reviewed identity must have current and actual archived/offline evidence');assert(result.preferencesPreserved);
+  for(const id of api.ids){assert.equal(result.checks.filter(c=>c.id===id).length,2);assert(result.checks.some(c=>c.id===id&&c.origin==='archived-baseline'));}
+  for(const check of result.checks){assert(check.noClock&&check.unchanged);assert(check.hasWindow?/15–18 July 2027.*UK dates.*Sydney time TBC/s.test(check.text):/DATE TBC.*TIME TBC/s.test(check.text));assert(!/22 JAN|7 FEB|7:00 PM|2:00 AM|10 JUL|5 NOV|10:00 AM|8:00 AM|28 NOV|Watch via Stan Sport|Tap to rate|Remind/.test(check.text),'An upgraded/offline cache cannot restore unsupported seed claims');}
 }
 async function assertCachedCanonicalResults(page){
   await page.evaluate(()=>loadDeferredScript('config/cricket-innings.js?v=431'));

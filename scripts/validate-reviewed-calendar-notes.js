@@ -27,18 +27,20 @@ try{
  const oldSurf=api.surfIds.map(id=>clone(document.events.find(e=>e.id===id))),other={id:'unrelated',date:'2027-01-01',time:'12:00',sourceCheckedAt:'2020-01-01T00:00:00Z'};
  const files=['feeds/incoming/events.json','data/events.json'].map(file=>path.join(temporary,file));
  for(const file of files){fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,JSON.stringify({...document,events:[...oldSurf,...seeds,other]}));}
- assert(api.applyRetained({root:temporary}).every(s=>s.changed.length===2));const bytes=files.map(f=>fs.readFileSync(f,'utf8'));
- assert(api.applyRetained({root:temporary}).every(s=>s.changed.length===0));assert.deepEqual(files.map(f=>fs.readFileSync(f,'utf8')),bytes);
+ const selectedIds=[...api.surfIds,...ids];
+ assert(api.applyRetained({root:temporary,selectedIds}).every(s=>s.changed.length===2));const bytes=files.map(f=>fs.readFileSync(f,'utf8'));
+ assert(api.applyRetained({root:temporary,selectedIds}).every(s=>s.changed.length===0));assert.deepEqual(files.map(f=>fs.readFileSync(f,'utf8')),bytes);
  assert.deepEqual(JSON.parse(bytes[0]).events.slice(0,2),oldSurf,'Existing Surf/WSL boundaries must remain exact');assert.deepEqual(JSON.parse(bytes[0]).events.at(-1),other);
  const input=path.join(temporary,'input.json'),output=path.join(temporary,'published.json');fs.writeFileSync(input,JSON.stringify({...document,events:[...oldSurf,...seeds.map(api.qualify)]}));
  execFileSync(process.execPath,[path.join(root,'scripts/publish-feed.js'),input,output,path.join(temporary,'meta.json'),path.join(temporary,'bundle.js'),'--preserve-known'],{cwd:root,stdio:'pipe'});
  for(const event of JSON.parse(fs.readFileSync(output)).events)assert(api.isReviewedNote(event),'Actual publication retains strict note semantics');
  const invalid=JSON.parse(bytes[1]);invalid.events[2]={...invalid.events[2],startTimeUtc:'2027-07-10T00:00:00.000Z'};fs.writeFileSync(files[1],JSON.stringify(invalid));
- assert.throws(()=>api.applyRetained({root:temporary}));assert.equal(fs.readFileSync(files[0],'utf8'),bytes[0],'Invalid peer document cannot partly write the first surface');
+ assert.throws(()=>api.applyRetained({root:temporary,selectedIds}));assert.equal(fs.readFileSync(files[0],'utf8'),bytes[0],'Invalid peer document cannot partly write the first surface');
 }finally{fs.rmSync(temporary,{recursive:true,force:true});}
 if(!process.argv.includes('--unit-only'))for(const file of ['feeds/incoming/events.json','data/events.json']){
  const events=JSON.parse(fs.readFileSync(path.join(root,file))).events;for(const id of api.ids){const event=events.find(e=>e.id===id);assert(event);assert.deepEqual(api.qualify(event),event,'Persistent shared qualification is current');}
 }
 if(!process.argv.includes('--unit-only'))for(const slug of ['surf','motorsport'])for(const note of require('../data/code-inspector/'+slug+'.json').fixtures.filter(f=>f.calendarNote)){assert.equal(note.expected,null,'Calendar projections cannot invent zero stakes');assert.equal(note.timePrecision,'unknown');}
-const quick=require('./quick-results').projectionSteps(['Reviewed calendar notes']);assert(quick.some(s=>s[0]==='scripts/publish-feed.js')&&quick.some(s=>s[0]==='scripts/build-code-inspector.js'&&JSON.stringify(s.find(a=>a.startsWith('--codes='))?.slice(8).split(',').sort())===JSON.stringify(['motorsport','surf'])),'Daily owner must retain both existing note projections');
+const quick=require('./quick-results').projectionSteps(['Reviewed calendar notes']);assert(quick.some(s=>s[0]==='scripts/publish-feed.js')&&quick.some(s=>s[0]==='scripts/build-code-inspector.js'&&JSON.stringify(s.find(a=>a.startsWith('--codes='))?.slice(8).split(',').sort())===JSON.stringify(['motorsport','rugby-union','surf'])),'Daily owner must retain all reviewed note projections');
 console.log('Reviewed manual notes: actual imported records, truthful local calendar window/unmatched identity, source dates, privacy and clock rejection pass.');
+require('./validate-rugby-seed-note');

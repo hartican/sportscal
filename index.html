@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="507">
+<meta name="app-shell-version" content="508">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=507" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=508" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7176,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=507"></script>
+<script src="assets/js/app-shell-runtime.js?v=508"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7577,7 +7577,7 @@ function decodeIdentityImageInPlace(image){
   image.dataset.identityImage = "true";
   image.classList.add("identity-image-pending");
   const reveal = () => {
-    // Reveal cached logos off-DOM too.
+
     if (image.naturalWidth <= 0) return;
     finalizeLoadedIdentityImage(image);
   };
@@ -9366,7 +9366,7 @@ function mergePreferences(saved){
         ? new Date(saved.swipeCoaching.dismissedAt).toISOString()
         : null,
     },
-    // Follow location replaces the retired venue shortlist.
+
     localVenueIds: [],
     selectedSelectorEntityIds: migratedSelectorEntityIds,
     followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
@@ -9909,7 +9909,7 @@ function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
 
 let userPreferences = loadPreferences();
 void ensureFollowCollectionDirectories(userPreferences).then(() => {
-  // Reconcile Feed and Events after collection hydration.
+
   if (document.readyState !== "loading") renderAll({ preserveViewport:true });
 }).catch(() => {});
 let ratings = loadRatings();
@@ -10340,7 +10340,7 @@ async function reconcileCurrentServerState({ notify = false, scope = serverState
         if (!scope.verify(latest)) return null;
         setPreferenceRecovery(latest.preferenceRecovery);
         currentState = serverAuthoritativeFixturePins(latest.state, currentState);
-        // Cloud refresh retains the original edit baseline.
+
         localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
           baseUpdatedAt: latest.state?.updatedAt || null,
         });
@@ -10493,7 +10493,7 @@ async function hydrateUserMetaSeed(scope = serverStateSyncScope()){
   let meta = payload?.meta || null;
   if (!meta){
     const localMeta = FOLLOW_FIRST.normalizeMeta(userPreferences.followFirst?.startupMeta);
-    // Preserve legacy follows when the onboarding seed is empty.
+
     if (!localMeta.sports.length) return null;
     const created = await serverSyncClient.saveMeta(localMeta, { accountId:scope.accountId });
     if (!scope.current()) return null;
@@ -10663,7 +10663,7 @@ function reloadBundledEventsScript(){
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
     const source = new URL(FEED_CONFIG.eventsScriptUrl, document.baseURI);
-    // Preserve the stable URL so the service-worker can use its precache.
+
     script.src = source.href;
     script.async = true;
     script.onload = () => {
@@ -10701,7 +10701,7 @@ async function fetchJson(url, { cache = "no-store" } = {}){
 }
 
 function loadDeferredScript(url){
-  // Function-owned cache also serves the first hoisted call.
+
   const requests = loadDeferredScript.requests ||= new Map();
   const key = new URL(url, document.baseURI).href;
   if (requests.has(key)) return requests.get(key);
@@ -10845,7 +10845,7 @@ async function loadFootballDirectoryData(){
       }),
     ]);
     if (data?.schemaVersion !== api.SCHEMA_VERSION) throw new Error("Football directory schema is unsupported");
-    // League directories also retain canonical national sides.
+
     const nationalTeams = (globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES?.allTeams || [])
       .filter(team => team.sportDomainId === 'sport:football' || team.id.startsWith('team:football:'))
       .map(team => ({...team, name:team.displayName, leagueId:'competition:football:international-friendlies',
@@ -10999,7 +10999,7 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
   const manifest = await loadCodeInspectorManifest();
   const codes = identity.followedScheduleCodes(preferences, manifest.codes);
   const updates = [];
-  // Bounded parallel reads; one failed sport must not prevent another loading.
+
   for (let offset = 0; offset < codes.length; offset += 3){
     const results = await Promise.allSettled(codes.slice(offset, offset + 3).map(code => {
       if (followedScheduleLoads.has(code.id)) return followedScheduleLoads.get(code.id);
@@ -11014,7 +11014,7 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
           const previous = followedScheduleFixtures.get(code.id) || [];
           const context=buildFollowEligibilityContext();
           const retainedIds = new Set([...previous,...activeEvents].map(event => String(event.id || event.eventId)));
-          // Explicit withdrawals replace previously admitted golf cards.
+
           const incoming = document.fixtures.filter(fixture => fixture?.id && identity.retainedInActiveTimeline(fixture) && (automaticEventFollowReason(identity.fromSchedule(fixture,code),context) || code.id === 'sport:golf' && retainedIds.has(String(fixture.id)) && fixture.participantsConfirmed === true)).map(fixture => identity.fromSchedule(fixture,code));
           // Short responses retain cards; explicit statuses/mutes apply.
           const events = mergeCanonicalEventPages(incoming,previous).filter(event => eventMeetsDerivedRetention(event));
@@ -16816,6 +16816,7 @@ function buildFixtureFallbackCard(event, options = {}){
   copy.className = "compact-card-copy";
   const title = document.createElement("h3");
   title.className = "compact-card-name";
+  if(ev.calendarNote){copy.style.minWidth="0";title.style.whiteSpace="normal";}
   let label = ev.name;
   try { label = spoilerSafeDisplayTitle(ev) || label; } catch {}
   title.textContent = label;

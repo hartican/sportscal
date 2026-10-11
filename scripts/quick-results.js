@@ -59,7 +59,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  if(changes.some(change=>change.startsWith('Known finals WRC')))['wrc','motorsport'].forEach(code=>codes.add(code));
  if(changes.includes('Skiing calendar review'))codes.add('skiing');
  if(changes.includes('Surf calendar notes'))codes.add('surf');
- if(changes.includes('Reviewed calendar notes'))['surf','motorsport'].forEach(code=>codes.add(code));
+ if(changes.includes('Reviewed calendar notes'))['surf','motorsport','rugby-union'].forEach(code=>codes.add(code));
  for(const change of changes)if(change.startsWith('Live coverage '))codes.add(change.slice('Live coverage '.length));
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');

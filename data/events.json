@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-official-results-2026-09-15-v1-20261011195543866",
-  "publishedAt": "2026-10-11T19:55:43.866Z",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261011195543866-20261011205341659",
+  "publishedAt": "2026-10-11T20:53:41.659Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -177536,59 +177536,30 @@
     {
       "sport": "Rugby",
       "key": "rugby",
-      "name": "Australia v Ireland (Nov tour)",
-      "date": "2026-11-28",
-      "time": "00:00",
+      "name": "Australia–Ireland — unconfirmed listing",
+      "date": "",
+      "time": null,
       "broadcaster": "Australian viewing unconfirmed",
-      "expected": 8,
+      "expected": null,
       "venue": null,
       "liveWindow": 3,
       "id": "evt_100",
       "eventId": "evt_100",
-      "displayTitleCompact": "Australia v Ireland (Nov tour)",
-      "selectedSentence": "A Wallabies Test with selection, form, and international stakes.",
-      "fullSpiel": "Wallabies v Ireland (Nov tour) is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches. Watch via Stan Sport.",
-      "sourceName": "Bundled nothingsport seed data",
+      "displayTitleCompact": "Australia–Ireland — unconfirmed listing",
+      "selectedSentence": "This saved November listing is unconfirmed; the Nations finals do not yet name their teams.",
+      "fullSpiel": "The official 2026 schedule lists England, Scotland and Wales as Australia’s November opponents, followed by ranked Nations Championship final slots. It does not confirm this saved Australia–Ireland appointment. This is not a cancellation or a confirmed final pairing. Match date, start time, venue and Australian viewing for this listing remain unconfirmed.",
+      "sourceName": "Saved unconfirmed Rugby listing",
       "sourceUrl": "https://github.com/hartican/sportscal",
       "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
       "broadcastOptions": [],
       "round": "all",
       "narrativeType": "all",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true,
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
       "status": "upcoming",
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "arcStage": "preview",
-        "expectedSpectacle": 8,
-        "hookSpoilerOff": "A Wallabies Test with selection, form, and international stakes.",
-        "hookSpoilerOn": "A Wallabies Test with selection, form, and international stakes.",
-        "synopsisSpoilerOff": "Wallabies v Ireland (Nov tour) is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches. Watch via Stan Sport.",
-        "synopsisSpoilerOn": "Wallabies v Ireland (Nov tour) is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches. Watch via Stan Sport.",
-        "intensitySource": "computed"
-      },
       "lastReviewedAt": "2026-08-14T02:56:19.695Z",
-      "participants": [
-        {
-          "name": "Wallabies",
-          "role": "home",
-          "id": ""
-        },
-        {
-          "name": "Ireland (Nov tour)",
-          "role": "away",
-          "id": ""
-        }
-      ],
-      "editorialPreview": {
-        "status": "research-required",
-        "needsPreviewRefresh": true,
-        "editorialWindowDays": 10,
-        "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-      },
       "sourceTrust": "unverified",
       "competitionScope": "international",
       "isInternational": true,
@@ -177596,10 +177567,7 @@
         "AUS"
       ],
       "representativeSportKey": "rugby",
-      "participantIds": [
-        "team:rugby:wallabies",
-        "team:rugby:ireland"
-      ],
+      "participantIds": [],
       "statusCheckedAt": "2026-07-10T08:30:00+10:00",
       "participantSlots": [],
       "participantCountryCodes": [],
@@ -177610,7 +177578,90 @@
       "sourceEventIds": [
         "evt_100"
       ],
-      "consensusTags": []
+      "consensusTags": [],
+      "sourceType": "personal-calendar",
+      "cardKind": "calendar-note",
+      "dateStatus": "tbc",
+      "timePrecision": "unknown",
+      "schedulePrecision": "unknown",
+      "scheduleStatus": "tbc",
+      "timeTbc": true,
+      "startTimeTbc": true,
+      "dateOnly": false,
+      "displayDateLabel": "Dates TBC",
+      "participantsConfirmed": false,
+      "schedulingWindow": null,
+      "resultCoverage": "unconfirmed-calendar-note",
+      "importedSeedFacts": {
+        "name": "Australia v Ireland (Nov tour)",
+        "date": "2026-11-28",
+        "time": "00:00",
+        "participantIds": [
+          "team:rugby:wallabies",
+          "team:rugby:ireland"
+        ],
+        "participantSlots": [],
+        "participants": [
+          {
+            "name": "Wallabies",
+            "role": "home",
+            "id": ""
+          },
+          {
+            "name": "Ireland (Nov tour)",
+            "role": "away",
+            "id": ""
+          }
+        ],
+        "participantCountryCodes": [],
+        "viewingOptions": [],
+        "broadcastOptions": [],
+        "broadcasts": [],
+        "broadcasterIds": [],
+        "consensusTags": [],
+        "sourceName": "Bundled nothingsport seed data",
+        "sourceUrl": "https://github.com/hartican/sportscal",
+        "sourceTrust": "unverified",
+        "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+        "statusCheckedAt": "2026-07-10T08:30:00+10:00",
+        "broadcaster": "Australian viewing unconfirmed",
+        "expected": 8,
+        "round": "all",
+        "narrativeType": "all",
+        "selectedSentence": "A Wallabies Test with selection, form, and international stakes.",
+        "fullSpiel": "Wallabies v Ireland (Nov tour) is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches. Watch via Stan Sport.",
+        "storyline": {
+          "stakes": 4,
+          "intensity": 4,
+          "arcStage": "preview",
+          "expectedSpectacle": 8,
+          "hookSpoilerOff": "A Wallabies Test with selection, form, and international stakes.",
+          "hookSpoilerOn": "A Wallabies Test with selection, form, and international stakes.",
+          "synopsisSpoilerOff": "Wallabies v Ireland (Nov tour) is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches. Watch via Stan Sport.",
+          "synopsisSpoilerOn": "Wallabies v Ireland (Nov tour) is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches. Watch via Stan Sport.",
+          "intensitySource": "computed"
+        },
+        "lastReviewedAt": "2026-08-14T02:56:19.695Z"
+      },
+      "calendarNote": {
+        "reviewId": "rugby-seed-2026-10-12",
+        "state": "unconfirmed",
+        "identityStatus": "unresolved",
+        "sourceUrl": "https://www.rugby.com.au/news/2026-nations-rugby-championship-fixtures-schedule-how-to-watch-international-rugby-wallabies-fixtures-2026-2026630",
+        "observedAt": "2026-10-11T20:45:56.555Z",
+        "sourceSha256": "9db9d76eb8e062db229d7194da35edb03e8760b7d04e862b375903030bd1d345",
+        "observationBasis": "response-received"
+      },
+      "endDate": null,
+      "startDate": null,
+      "startTimeUtc": null,
+      "endTimeUtc": null,
+      "estimatedStartTimeUtc": null,
+      "timelineSortTimeUtc": null,
+      "sessionStartTimeUtc": null,
+      "notBeforeTimeUtc": null,
+      "actualStartTimeUtc": null,
+      "actualEndTimeUtc": null
     },
     {
       "id": "evt_sailgp_2026_abu_dhabi_day_1",

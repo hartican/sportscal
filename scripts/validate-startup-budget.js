@@ -4,6 +4,7 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const vm = require("node:vm");
 
 const serviceWorker = fs.readFileSync("service-worker.js", "utf8");
 const html = fs.readFileSync("index.html", "utf8");
@@ -22,7 +23,20 @@ assert(bytes <= 3 * 1024 * 1024, `lean app shell must stay under 3 MB, received 
 assert(!assets.includes("/") && assets.includes("/index.html"), "installation must fetch one canonical HTML shell, not a duplicate root alias");
 assert(!html.includes('src="data/events.js"'), "the 1.6 MB fallback bundle must not block HTML parsing");
 assert(html.includes('function loadLatestBundledEvents()') && html.includes('return reloadBundledEventsScript();'), "offline fallback must remain available on demand");
-assert(html.includes('Preserve the stable URL so the service-worker'), "the on-demand fallback must use a cache-matchable URL");
+// Exercise the real fallback function. A comment is not proof that the script
+// URL still matches the installed cache after a release.
+const fallback=html.match(/function reloadBundledEventsScript\(\)\{[\s\S]*?\n\}/)?.[0];
+assert(fallback,"the on-demand fallback function must remain available");
+function fallbackUrl(source){
+  let inserted;
+  const context={URL,EVENTS:[],FEED_CONFIG:{eventsScriptUrl:"data/events.js"},
+    document:{baseURI:"https://qa.nothingsport.invalid/",createElement:()=>({}),head:{appendChild:script=>{inserted=script;}}}};
+  vm.runInNewContext(source+'\nreloadBundledEventsScript();',context);
+  return inserted?.src;
+}
+const cachedFallback=new URL('/data/events.js','https://qa.nothingsport.invalid/').href;
+assert.equal(fallbackUrl(fallback),cachedFallback,"the on-demand fallback must use a cache-matchable URL");
+assert.notEqual(fallbackUrl(fallback.replace('script.src = source.href;','script.src = source.href + "?cacheBust=1";')),cachedFallback,"the URL check must catch a cache-busting regression");
 assert(!assets.includes("/data/events.json"), "duplicate JSON feed must not be precached");
 assert(!assets.includes("/data/marquee-candidates.v1.json"), "server owner candidate data must not be precached");
 assert(!assets.includes("/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"), "optional soundtrack must not be precached");

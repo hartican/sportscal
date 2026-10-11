@@ -2,10 +2,11 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const review=require('../../data/canonical/surf-calendar-note-review.v1.json');
 const manualReview=require('../../data/canonical/manual-calendar-note-review.v1.json');
+const rugbyNote=require('./rugby-seed-note');
 const prefix='calendar-nothingsport-manual-seed-';
 const surfIds=['big-wave-nazare-2026','big-wave-pipe-masters-2026'].map(id=>prefix+id);
 const manualIds=['goodwood-festival-of-speed-2027','uci-downhill-mtb-world-cup-2026'].map(id=>prefix+id);
-const ids=[...surfIds,...manualIds];
+const ids=[...surfIds,...manualIds,rugbyNote.id];
 const rules=new Map([
  [surfIds[0],{key:'big-wave',state:'unconfirmed',identityStatus:'unresolved',sourceUrl:'https://www.worldsurfleague.com/events/2027/bwt?all=1'}],
  [surfIds[1],{key:'big-wave',state:'unconfirmed',identityStatus:'unresolved',sourceUrl:'https://www.worldsurfleague.com/events/2026/ct?all=1'}],
@@ -32,6 +33,7 @@ function validate(document){
 }
 const rows=new Map([...validate(review),...validate(manualReview)]),clockKeys=['date','endDate','time','startDate','startTimeUtc','endTimeUtc','estimatedStartTimeUtc','timelineSortTimeUtc','sessionStartTimeUtc','notBeforeTimeUtc','actualStartTimeUtc','actualEndTimeUtc'];
 function isReviewedNote(event){
+ if(event?.id===rugbyNote.id)return rugbyNote.isReviewedNote(event);
  const row=rows.get(event.id),note=event.calendarNote;
  return !!(row&&event.key===row.key&&event.cardKind==='calendar-note'&&event.sourceType==='personal-calendar'&&event.sourceTrust==='unverified'
   &&event.dateStatus==='tbc'&&event.timePrecision==='unknown'&&event.scheduleStatus==='tbc'&&event.status==='upcoming'&&event.timeTbc===true&&event.startTimeTbc===true
@@ -44,6 +46,7 @@ function isReviewedNote(event){
   &&note?.reviewId===row.reviewId&&note.state===row.state&&note.identityStatus===row.identityStatus&&note.observedAt===row.observedAt&&note.sourceUrl===row.sourceUrl&&note.observationBasis===row.observationBasis&&same(note.localDateWindow,row.localDateWindow)&&note.localDateLabel===row.localDateLabel&&(row.identityStatus!=='unmatched'||event.venue==null));
 }
 function qualify(event){
+ if(event.id===rugbyNote.id)return rugbyNote.qualify(event);
  const row=rows.get(event.id);if(!row)return event;
  // Never use an old import review to undo subsequently sourced sporting facts.
  if(event.sourceTrust==='verified'&&['official','broadcaster','explicitly-permitted'].includes(event.sourceType)){
