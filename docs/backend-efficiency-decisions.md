@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Match Centre module survives installed-shell activation — 12 October 2026 Sydney
+
+The existing worker must precache the current deferred Match Centre UI module in its own required shell. During a genuine Chromium upgrade, the new document and activating controller can temporarily receive that unchanged module from the previous worker's cache. A broad cache lookup then passes, but activation deletes the old cache and the next offline opening fails. The required installed-PWA upgrade regression now checks the exact candidate-version cache before and after offline restart, rather than accepting bytes from any surviving old cache. The original full Chromium and WebKit journeys, saved preferences, source clocks and privacy assertions remain mandatory.
+
+Keep the existing 3 MiB startup ceiling and deferred runtime loading. This adds one required local script to the existing install owner; no source request, database change, customer-state write, reminder-policy change, timer, retry or scheduler is introduced. Browser upgrade evidence cannot certify a physical iPhone notification or app-closed receipt.
+
 ## Preserve whole-second tennis HTTP receipts — 11 October 2026 Sydney
 
 The actual canonical owner rejected all four free ESPN responses because their whole-second HTTP Date was 0.760–0.806 seconds ahead of the local validation clock. Keep the original header observation and strict future/six-hour freshness checks. Once the response body is complete, the existing observer may wait once for at most one second for the real clock to reach a whole-second HTTP receipt; validate afterwards without changing either date. Larger, fractional or still-future timestamps and old observations reject. The same existing abort/deadline signal governs this short wait.

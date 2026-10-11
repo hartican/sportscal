@@ -232,7 +232,7 @@ async function assertCachedFootballStatus(page){
   await page.evaluate(async url=>{await loadDeferredScript(url);},candidateMatchCentrePath);
   const centreUi=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/loadDeferredScript\('([^']*assets\/js\/match-centre-ui\.js\?v=\d+)'\)/)[1];
   await page.evaluate(async url=>{await loadDeferredScript(url);},centreUi);
-  assert.equal(await page.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),centreUi),fs.readFileSync(path.join(root,'assets/js/match-centre-ui.js'),'utf8'),'Upgraded and offline Match Centre uses the exact current recovery module');
+  assert.equal(await page.evaluate(async({url,version})=>{const cache=await caches.open('nothingsport-shell-v'+version);return (await cache.match('/'+url))?.text();},{url:centreUi,version:candidateVersion}),fs.readFileSync(path.join(root,'assets/js/match-centre-ui.js'),'utf8'),'The candidate cache owns the exact Match Centre module before the old worker cache is removed and after offline restart');
   const status=await page.evaluate(fixture=>{
     const event={...fixture,status:'upcoming',scheduleStatus:'upcoming',statusCheckedAt:null,statusSource:null,timingSource:null};
     return globalThis.NOTHINGSPORTS_CARD_TIMING.presentation(event,new Date(Date.parse(event.startTimeUtc)+30*60000)).status;
