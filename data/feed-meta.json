@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20261011124055974-20261011134043854-20261011135433501-20261011140922933-20261011141724166-20261011142703867",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261011195543866",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-11T14:27:03.867Z",
+  "publishedAt": "2026-10-11T19:55:43.866Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -169,7 +169,7 @@
         "lastEventDate": "2026-11-01"
       },
       "tennis": {
-        "count": 282,
+        "count": 284,
         "firstEventDate": "2026-09-03",
         "lastEventDate": "2026-10-13"
       },

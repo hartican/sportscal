@@ -25772,7 +25772,7 @@
       "scheduleStatus": "unresolved",
       "timeTbc": true,
       "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-      "status": "live",
+      "status": "completed",
       "cardKind": "fixture",
       "kind": "fixture",
       "contestUnit": "match",
@@ -25808,8 +25808,8 @@
       "sourceName": "ESPN",
       "sourceType": "reputable",
       "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184931",
-      "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-      "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+      "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusCheckedAt": "2026-10-11T19:55:36.000Z",
       "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184931",
       "statusSourceName": "ESPN",
       "sourceRefs": [
@@ -25834,17 +25834,29 @@
           "away": 3
         },
         {
-          "home": 6,
+          "home": 7,
           "away": 6,
-          "homeTiebreak": 5,
-          "awayTiebreak": 3
+          "homeTiebreak": 7,
+          "awayTiebreak": 5
         }
       ],
-      "score": "6–7, 6–3, 6–6",
-      "scoreDisplay": "6–7, 6–3, 6–6",
-      "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+      "score": "6–7, 6–3, 7–6",
+      "scoreDisplay": "6–7, 6–3, 7–6",
+      "scoreCheckedAt": "2026-10-11T19:55:36.000Z",
       "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184931",
-      "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z"
+      "resultSourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "winnerParticipantId": "competitor:tennis:atp:alexander-bublik",
+      "loserParticipantId": "competitor:tennis:atp:brandon-nakashima",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:atp:brandon-nakashima"
+      ],
+      "resultStatus": "published",
+      "result": "6–7, 6–3, 7–6",
+      "resultLabels": [
+        "Completed"
+      ],
+      "outcomeText": "Alexander Bublik won. 6–7, 6–3, 7–6",
+      "recapText": "ESPN reports Alexander Bublik as the winner of this round of 32 match. 6–7, 6–3, 7–6"
     },
     {
       "id": "fixture:tennis:espn:atp:184930",
@@ -25999,12 +26011,12 @@
       "date": "2026-10-11",
       "time": null,
       "startTimeUtc": null,
-      "estimatedStartTimeUtc": "2026-10-11T12:40:00.000Z",
+      "estimatedStartTimeUtc": "2026-10-11T12:50:00.000Z",
       "timePrecision": "unresolved",
       "scheduleStatus": "unresolved",
       "timeTbc": true,
       "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-      "status": "scheduled",
+      "status": "completed",
       "cardKind": "fixture",
       "kind": "fixture",
       "contestUnit": "match",
@@ -26040,8 +26052,8 @@
       "sourceName": "ESPN",
       "sourceType": "reputable",
       "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184936",
-      "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-      "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+      "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusCheckedAt": "2026-10-11T19:55:36.000Z",
       "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184936",
       "statusSourceName": "ESPN",
       "sourceRefs": [
@@ -26053,7 +26065,42 @@
       "expected": null,
       "liveWindow": 5,
       "court": "Stadium Court",
-      "statusSourceType": "reputable"
+      "statusSourceType": "reputable",
+      "sets": [
+        {
+          "home": 7,
+          "away": 6,
+          "homeTiebreak": 7,
+          "awayTiebreak": 4
+        },
+        {
+          "home": 4,
+          "away": 6
+        },
+        {
+          "home": 7,
+          "away": 6,
+          "homeTiebreak": 8,
+          "awayTiebreak": 6
+        }
+      ],
+      "score": "7–6, 4–6, 7–6",
+      "scoreDisplay": "7–6, 4–6, 7–6",
+      "scoreCheckedAt": "2026-10-11T19:55:36.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184936",
+      "resultSourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "winnerParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
+      "loserParticipantId": "competitor:tennis:atp:frances-tiafoe",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:atp:frances-tiafoe"
+      ],
+      "resultStatus": "published",
+      "result": "7–6, 4–6, 7–6",
+      "resultLabels": [
+        "Completed"
+      ],
+      "outcomeText": "Alejandro Davidovich Fokina won. 7–6, 4–6, 7–6",
+      "recapText": "ESPN reports Alejandro Davidovich Fokina as the winner of this round of 32 match. 7–6, 4–6, 7–6"
     },
     {
       "id": "fixture:tennis:espn:atp:184932",
@@ -26530,7 +26577,7 @@
       "scheduleStatus": "unresolved",
       "timeTbc": true,
       "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-      "status": "live",
+      "status": "completed",
       "cardKind": "fixture",
       "kind": "fixture",
       "contestUnit": "match",
@@ -26565,13 +26612,13 @@
       "sourceName": "ESPN",
       "sourceType": "reputable",
       "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184350",
-      "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-      "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+      "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusCheckedAt": "2026-10-11T19:55:36.000Z",
       "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184350",
       "statusSourceName": "ESPN",
       "sourceRefs": [
         "https://www.espn.com/tennis/matchstats?gameId=184350",
-        "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261010"
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261011"
       ],
       "broadcaster": "Australian viewing unconfirmed",
       "viewingOptions": [],
@@ -26585,15 +26632,27 @@
           "away": 5
         },
         {
-          "home": 4,
-          "away": 1
+          "home": 6,
+          "away": 2
         }
       ],
-      "score": "7–5, 4–1",
-      "scoreDisplay": "7–5, 4–1",
-      "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+      "score": "7–5, 6–2",
+      "scoreDisplay": "7–5, 6–2",
+      "scoreCheckedAt": "2026-10-11T19:55:36.000Z",
       "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184350",
-      "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z"
+      "resultSourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "winnerParticipantId": "competitor:tennis:wta:zheng-qinwen",
+      "loserParticipantId": "competitor:tennis:wta:elise-mertens",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:wta:elise-mertens"
+      ],
+      "resultStatus": "published",
+      "result": "7–5, 6–2",
+      "resultLabels": [
+        "Completed"
+      ],
+      "outcomeText": "Zheng Qinwen won. 7–5, 6–2",
+      "recapText": "ESPN reports Zheng Qinwen as the winner of this semifinal match. 7–5, 6–2"
     },
     {
       "id": "fixture:tennis:espn:wta:185314",
@@ -29246,6 +29305,296 @@
       "liveWindow": 5,
       "court": "",
       "statusSourceType": "reputable"
+    },
+    {
+      "id": "fixture:tennis:espn:atp:184952",
+      "eventId": "fixture:tennis:espn:atp:184952",
+      "canonicalEventId": "fixture:tennis:espn:atp:184952",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184952"
+      ],
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:atp-tour",
+      "competitionName": "Rolex Shanghai Masters",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tournamentName": "Rolex Shanghai Masters",
+      "eventFamilyId": "shanghai-masters",
+      "tour": "ATP",
+      "gender": "men",
+      "discipline": "singles",
+      "eventType": "mens-singles",
+      "season": 2026,
+      "tennisProviderMatchId": "184952",
+      "tennisProviderEventId": "315-2026",
+      "tennisProviderTour": "atp",
+      "tournamentLevel": "1000",
+      "round": "knockout",
+      "roundLabel": "Round of 16",
+      "stage": "Round of 16",
+      "name": "Hubert Hurkacz v Alejandro Davidovich Fokina",
+      "date": "2026-10-13",
+      "time": null,
+      "startTimeUtc": null,
+      "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+      "timePrecision": "unresolved",
+      "scheduleStatus": "unresolved",
+      "timeTbc": true,
+      "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "contestUnit": "match",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:atp:hubert-hurkacz",
+        "competitor:tennis:atp:alejandro-davidovich-fokina"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:hubert-hurkacz",
+          "name": "Hubert Hurkacz",
+          "displayName": "Hubert Hurkacz",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "PL"
+        },
+        {
+          "id": "competitor:tennis:atp:alejandro-davidovich-fokina",
+          "name": "Alejandro Davidovich Fokina",
+          "displayName": "Alejandro Davidovich Fokina",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "ES"
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:hubert-hurkacz",
+      "awayParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
+      "venue": "Shanghai",
+      "venueCity": "Shanghai",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
+      "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
+      "statusSourceName": "ESPN",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184952",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      ],
+      "broadcaster": "Australian viewing unconfirmed",
+      "viewingOptions": [],
+      "expected": null,
+      "liveWindow": 5,
+      "court": "",
+      "statusSourceType": "reputable"
+    },
+    {
+      "id": "fixture:tennis:espn:atp:184959",
+      "eventId": "fixture:tennis:espn:atp:184959",
+      "canonicalEventId": "fixture:tennis:espn:atp:184959",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184959"
+      ],
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:atp-tour",
+      "competitionName": "Rolex Shanghai Masters",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tournamentName": "Rolex Shanghai Masters",
+      "eventFamilyId": "shanghai-masters",
+      "tour": "ATP",
+      "gender": "men",
+      "discipline": "singles",
+      "eventType": "mens-singles",
+      "season": 2026,
+      "tennisProviderMatchId": "184959",
+      "tennisProviderEventId": "315-2026",
+      "tennisProviderTour": "atp",
+      "tournamentLevel": "1000",
+      "round": "knockout",
+      "roundLabel": "Round of 16",
+      "stage": "Round of 16",
+      "name": "Alexander Zverev v Alexander Bublik",
+      "date": "2026-10-13",
+      "time": null,
+      "startTimeUtc": null,
+      "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+      "timePrecision": "unresolved",
+      "scheduleStatus": "unresolved",
+      "timeTbc": true,
+      "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "contestUnit": "match",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:atp:alexander-zverev",
+        "competitor:tennis:atp:alexander-bublik"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:alexander-zverev",
+          "name": "Alexander Zverev",
+          "displayName": "Alexander Zverev",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:tennis:atp:alexander-bublik",
+          "name": "Alexander Bublik",
+          "displayName": "Alexander Bublik",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "KZ"
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:alexander-zverev",
+      "awayParticipantId": "competitor:tennis:atp:alexander-bublik",
+      "venue": "Shanghai",
+      "venueCity": "Shanghai",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
+      "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
+      "statusSourceName": "ESPN",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184959",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      ],
+      "broadcaster": "Australian viewing unconfirmed",
+      "viewingOptions": [],
+      "expected": null,
+      "liveWindow": 5,
+      "court": "",
+      "statusSourceType": "reputable"
+    },
+    {
+      "id": "fixture:tennis:espn:wta:184356",
+      "eventId": "fixture:tennis:espn:wta:184356",
+      "canonicalEventId": "fixture:tennis:espn:wta:184356",
+      "sourceEventIds": [
+        "fixture:tennis:espn:wta:184356"
+      ],
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:wta-tour",
+      "competitionName": "China Open",
+      "tournamentId": "tournament:tennis:wta-beijing-2026",
+      "tennisTournamentId": "tournament:tennis:wta-beijing-2026",
+      "tournamentName": "China Open",
+      "eventFamilyId": "china-open",
+      "tour": "WTA",
+      "gender": "women",
+      "discipline": "singles",
+      "eventType": "womens-singles",
+      "season": 2026,
+      "tennisProviderMatchId": "184356",
+      "tennisProviderEventId": "959-2026",
+      "tennisProviderTour": "wta",
+      "tournamentLevel": "1000",
+      "round": "final",
+      "roundLabel": "Final",
+      "stage": "Final",
+      "name": "Zheng Qinwen v Mirra Andreeva",
+      "date": "2026-10-11",
+      "time": null,
+      "startTimeUtc": null,
+      "estimatedStartTimeUtc": "2026-10-11T11:35:00.000Z",
+      "timePrecision": "unresolved",
+      "scheduleStatus": "unresolved",
+      "timeTbc": true,
+      "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+      "status": "completed",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "contestUnit": "match",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:wta:zheng-qinwen",
+        "competitor:tennis:wta:mirra-andreeva"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:zheng-qinwen",
+          "name": "Zheng Qinwen",
+          "displayName": "Zheng Qinwen",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis"
+        },
+        {
+          "id": "competitor:tennis:wta:mirra-andreeva",
+          "name": "Mirra Andreeva",
+          "displayName": "Mirra Andreeva",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "RU"
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:wta:zheng-qinwen",
+      "awayParticipantId": "competitor:tennis:wta:mirra-andreeva",
+      "venue": "Capital Group Diamond",
+      "venueCity": "Beijing",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184356",
+      "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184356",
+      "statusSourceName": "ESPN",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184356",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261011"
+      ],
+      "broadcaster": "Australian viewing unconfirmed",
+      "viewingOptions": [],
+      "expected": null,
+      "liveWindow": 5,
+      "court": "Capital Group Diamond",
+      "statusSourceType": "reputable",
+      "sets": [
+        {
+          "home": 7,
+          "away": 5
+        },
+        {
+          "home": 6,
+          "away": 4
+        }
+      ],
+      "score": "7–5, 6–4",
+      "scoreDisplay": "7–5, 6–4",
+      "scoreCheckedAt": "2026-10-11T19:55:36.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184356",
+      "resultSourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "winnerParticipantId": "competitor:tennis:wta:zheng-qinwen",
+      "loserParticipantId": "competitor:tennis:wta:mirra-andreeva",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:wta:mirra-andreeva"
+      ],
+      "resultStatus": "published",
+      "result": "7–5, 6–4",
+      "resultLabels": [
+        "Completed"
+      ],
+      "outcomeText": "Zheng Qinwen won. 7–5, 6–4",
+      "recapText": "ESPN reports Zheng Qinwen as the winner of this final match. 7–5, 6–4"
     }
   ],
   "editions": [
@@ -29253,20 +29602,26 @@
       "tournamentId": "tournament:tennis:atp-beijing-2026",
       "publisherEventId": "959-2026",
       "publishedContests": 43,
-      "checkedAt": "2026-10-11T12:36:55.000Z"
+      "checkedAt": "2026-10-11T19:55:36.000Z"
     },
     {
       "tournamentId": "tournament:tennis:atp-shanghai-2026",
       "publisherEventId": "315-2026",
       "publishedContests": 131,
-      "checkedAt": "2026-10-11T12:36:55.000Z"
+      "checkedAt": "2026-10-11T19:55:36.000Z"
+    },
+    {
+      "tournamentId": "tournament:tennis:wta-beijing-2026",
+      "publisherEventId": "959-2026",
+      "publishedContests": 131,
+      "checkedAt": "2026-10-11T19:55:36.000Z"
     },
     {
       "tournamentId": "tournament:tennis:wta-wuhan-2026",
       "publisherEventId": "381-2026",
       "publishedContests": 79,
-      "checkedAt": "2026-10-11T12:36:55.000Z"
+      "checkedAt": "2026-10-11T19:55:36.000Z"
     }
   ],
-  "checkedAt": "2026-10-11T12:36:54.180Z"
+  "checkedAt": "2026-10-11T19:54:46.043Z"
 }

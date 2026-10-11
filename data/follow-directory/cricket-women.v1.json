@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cricket-women",
   "label": "Cricket Women",
-  "generatedAt": "2026-10-11T12:38:08.39871Z",
+  "generatedAt": "2026-10-11T13:40:40.662Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -25,6 +25,7 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:cricket:4606",
+      "leagueName": "Australia v Bangladesh ODIs 2026 - Women",
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:australia-women",

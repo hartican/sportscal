@@ -1,7 +1,7 @@
 {
   "schemaVersion": "pga-tour-schedule.v1",
   "sourceName": "PGA TOUR official schedule",
-  "checkedAt": "2026-10-07T20:59:16.778Z",
+  "checkedAt": "2026-10-11T19:54:46.718Z",
   "tournaments": [
     {
       "id": "R2026006",
@@ -773,12 +773,17 @@
       "season": 2026,
       "startDate": "2026-10-08",
       "endDate": "2026-10-11",
-      "status": "live",
+      "status": "completed",
       "venue": "Yokohama Country Club",
       "city": "Yokohama",
       "countryCode": "JPN",
       "major": false,
-      "winners": [],
+      "winners": [
+        {
+          "id": "61522",
+          "name": "Michael Brennan"
+        }
+      ],
       "sourceUrl": "https://www.pgatour.com/schedule/2026"
     },
     {
@@ -5132,7 +5137,7 @@
       "dateOnly": true,
       "timePrecision": "date-only",
       "timeTbc": true,
-      "status": "live",
+      "status": "completed",
       "venue": "Yokohama Country Club",
       "venueCity": "Yokohama",
       "venueCountryCode": "JPN",
@@ -5145,7 +5150,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T12:35:49.116Z"
+          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
         },
         {
           "id": "competitor:golf:min-woo-lee",
@@ -5155,7 +5160,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T12:35:49.116Z"
+          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
         },
         {
           "id": "competitor:golf:xander-schauffele",
@@ -5165,7 +5170,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T12:35:49.116Z"
+          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
         },
         {
           "id": "competitor:golf:adam-scott",
@@ -5175,7 +5180,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T12:35:49.116Z"
+          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
         }
       ],
       "participantIds": [
@@ -5192,8 +5197,13 @@
       "sourceName": "PGA TOUR official schedule",
       "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-11T12:35:49.116Z",
+      "sourceCheckedAt": "2026-10-11T19:54:47.053Z",
       "sourceTrust": "verified",
+      "outcomeText": "Michael Brennan won Baycurrent Classic.",
+      "scoreDisplay": "Winner: Michael Brennan",
+      "resultLabels": [
+        "Official winner"
+      ],
       "cardType": "golf_tournament",
       "entries": [
         {
@@ -5204,7 +5214,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T12:35:49.116Z"
+          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
         },
         {
           "id": "competitor:golf:min-woo-lee",
@@ -5214,7 +5224,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T12:35:49.116Z"
+          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
         },
         {
           "id": "competitor:golf:xander-schauffele",
@@ -5224,7 +5234,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T12:35:49.116Z"
+          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
         },
         {
           "id": "competitor:golf:adam-scott",
@@ -5234,88 +5244,14 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T12:35:49.116Z"
+          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
         }
       ],
       "participantsConfirmed": true,
       "entryListPublished": true,
       "excludedParticipantIds": [],
       "appearances": [],
-      "participationCheckedAt": "2026-10-11T12:35:49.116Z",
-      "roundScores": [
-        {
-          "participantId": "competitor:golf:xander-schauffele",
-          "name": "Xander Schauffele",
-          "position": "T4",
-          "total": "-13",
-          "roundScore": "-4",
-          "thru": "F",
-          "currentRound": 4,
-          "rounds": [
-            "70",
-            "69",
-            "65",
-            "67"
-          ],
-          "roundStatus": "R4 Completed",
-          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
-          "sourceCheckedAt": "2026-10-11T12:35:49.254Z"
-        },
-        {
-          "participantId": "competitor:golf:min-woo-lee",
-          "name": "Min Woo Lee",
-          "position": "T9",
-          "total": "-12",
-          "roundScore": "-5",
-          "thru": "F",
-          "currentRound": 4,
-          "rounds": [
-            "67",
-            "67",
-            "72",
-            "66"
-          ],
-          "roundStatus": "R4 Completed",
-          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
-          "sourceCheckedAt": "2026-10-11T12:35:49.254Z"
-        },
-        {
-          "participantId": "competitor:golf:adam-scott",
-          "name": "Adam Scott",
-          "position": "T13",
-          "total": "-11",
-          "roundScore": "+1",
-          "thru": "F",
-          "currentRound": 4,
-          "rounds": [
-            "69",
-            "67",
-            "65",
-            "72"
-          ],
-          "roundStatus": "R4 Completed",
-          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
-          "sourceCheckedAt": "2026-10-11T12:35:49.254Z"
-        },
-        {
-          "participantId": "competitor:golf:wyndham-clark",
-          "name": "Wyndham Clark",
-          "position": "T63",
-          "total": "+1",
-          "roundScore": "-2",
-          "thru": "F*",
-          "currentRound": 4,
-          "rounds": [
-            "70",
-            "72",
-            "74",
-            "69"
-          ],
-          "roundStatus": "R4 Completed",
-          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
-          "sourceCheckedAt": "2026-10-11T12:35:49.254Z"
-        }
-      ],
+      "participationCheckedAt": "2026-10-11T19:54:47.053Z",
       "participationScope": "ranked-and-explicit-follows",
       "participationScopeCheckedOn": "2026-10-06"
     },

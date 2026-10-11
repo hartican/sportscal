@@ -23723,9 +23723,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Melbourne GP tickets - sale week TBC is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Melbourne GP tickets - sale week TBC is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Melbourne GP tickets - sale week TBC is complete.",
-      "synopsisSpoilerOn": "This week-long alert is the honest ticketing signal currently supported by the official sources. Formula 1 lists the 2027 Australian Grand Prix with a Join the waitlist action, while the Australian Grand Prix Corporation offers registration for release updates. The older grandstand page displays a 2025 sale date and is not treated as a reliable 2027 on-sale date."
+      "synopsisSpoilerOn": "Melbourne GP tickets - sale week TBC is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
-    "lastReviewedAt": "2026-10-11T12:38:58.048Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-07-16T08:30:00+10:00",
     "participantIds": [],
     "participantSlots": [],
@@ -24070,7 +24070,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992102",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -24256,7 +24256,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142008",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8205",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -24371,7 +24371,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992103",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -24486,7 +24486,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142004",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8210",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -25046,7 +25046,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142003",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8201",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -25159,7 +25159,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992104",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -25402,7 +25402,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142006",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8206",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -25517,7 +25517,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142005",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8208",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -25758,7 +25758,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992105",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -25873,7 +25873,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992106",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -26080,7 +26080,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142009",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8204",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -26572,7 +26572,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142002",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8203",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -26813,7 +26813,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992107",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -26928,7 +26928,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142007",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8207",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -27043,7 +27043,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992108",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -29165,7 +29165,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142102",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8213",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -29270,7 +29270,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992201",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -29535,7 +29535,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992202",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -29650,7 +29650,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992203",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -29765,7 +29765,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142104",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8218",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -30232,7 +30232,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142109",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8217",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -30473,7 +30473,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142106",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8212",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -30588,7 +30588,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992204",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -30918,7 +30918,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992205",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -31123,7 +31123,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142107",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8221",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -31238,7 +31238,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992206",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -31353,7 +31353,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142101",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8209",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -32066,7 +32066,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142108",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8214",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -32308,7 +32308,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992207",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -32423,7 +32423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142105",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8215",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -32664,7 +32664,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992208",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -33189,7 +33189,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142209",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8224",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -33306,7 +33306,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992301",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -33421,7 +33421,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992302",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -33536,7 +33536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142202",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8223",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -33651,7 +33651,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992303",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -33892,7 +33892,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142205",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8220",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -34007,7 +34007,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992304",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -34248,7 +34248,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142207",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8222",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -34363,7 +34363,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142203",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8219",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -34605,7 +34605,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992305",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -34720,7 +34720,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992306",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -34835,7 +34835,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142201",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8230",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35271,7 +35271,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142204",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8228",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35512,7 +35512,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992307",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -35629,7 +35629,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992308",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -35744,7 +35744,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142208",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8227",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35985,7 +35985,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142206",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8225",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -36110,7 +36110,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-30T22:50:31.966Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "score": "Bangladesh beat Australia by 9 wickets",
@@ -36249,7 +36249,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992401",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -36364,7 +36364,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992402",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -36479,7 +36479,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992403",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -36594,7 +36594,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142303",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8237",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -36709,7 +36709,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142308",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8238",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -36950,7 +36950,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992404",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -37284,7 +37284,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142306",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8231",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -37399,7 +37399,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142301",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8229",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -37640,7 +37640,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992405",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -37755,7 +37755,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992406",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -37870,7 +37870,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142305",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8244",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -37983,7 +37983,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142307",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8234",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -38224,7 +38224,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142304",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8233",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -38466,7 +38466,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992407",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -38581,7 +38581,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142309",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8232",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -38694,7 +38694,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992408",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -38809,7 +38809,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142302",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8226",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -39050,7 +39050,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142407",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8242",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -39165,7 +39165,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992501",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39290,7 +39290,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992502",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39395,7 +39395,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142402",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8239",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -39510,7 +39510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992503",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39757,7 +39757,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-30T22:50:31.966Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
@@ -40021,7 +40021,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142403",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8240",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40136,7 +40136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992504",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -40377,7 +40377,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142406",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8236",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40618,7 +40618,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992505",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -40733,7 +40733,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992506",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -40848,7 +40848,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142405",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8246",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40963,7 +40963,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142401",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8243",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42147,7 +42147,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142404",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8235",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42436,7 +42436,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992507",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -42594,7 +42594,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142408",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8245",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42756,7 +42756,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992508",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -43040,7 +43040,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142409",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8241",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -43738,7 +43738,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceTrust": "unverified",
     "score": "1 Lando Norris; 2 Kimi Antonelli +11.536s; 3 George Russell +15.906s",
     "outcomeText": "Lando Norris won the Dutch Grand Prix ahead of Kimi Antonelli and George Russell.",
@@ -45246,7 +45246,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992601",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -45501,7 +45501,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992602",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -45652,7 +45652,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -45661,7 +45661,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142502",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9020",
-    "canonicalSourceCheckedAt": "2026-10-10T19:14:13.352Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -45925,7 +45925,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992603",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -46354,7 +46354,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640301",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8897",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -46598,7 +46598,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640302",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8899",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -46716,7 +46716,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992604",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47004,7 +47004,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640303",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8902",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -47248,7 +47248,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992605",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47410,7 +47410,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992606",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47565,7 +47565,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -47574,7 +47574,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142501",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9021",
-    "canonicalSourceCheckedAt": "2026-10-10T19:14:13.352Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -48897,7 +48897,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640304",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8900",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49015,7 +49015,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640305",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8901",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49259,7 +49259,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992607",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -49569,7 +49569,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640306",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8903",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49687,7 +49687,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640307",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8904",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49805,7 +49805,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992608",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -49969,7 +49969,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640308",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8908",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -50213,7 +50213,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640309",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8906",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -51603,7 +51603,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Daniel Merida v Andrey Rublev is complete. Reveal results for the outcome.",
     "fullSpiel": "Daniel Merida v Andrey Rublev is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
     "outcomeText": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
@@ -51823,7 +51823,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Dino Prizmic v Tommy Paul is complete. Reveal results for the outcome.",
     "fullSpiel": "Dino Prizmic v Tommy Paul is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
     "outcomeText": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
@@ -52040,7 +52040,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "James Duckworth v Yibing Wu is complete. Reveal results for the outcome.",
     "fullSpiel": "James Duckworth v Yibing Wu is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
     "outcomeText": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
@@ -52129,7 +52129,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -52138,7 +52138,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992701",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -52296,7 +52296,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -52305,7 +52305,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142601",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9024",
-    "canonicalSourceCheckedAt": "2026-10-10T19:14:13.352Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -52783,7 +52783,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Alexei Popyrin v Alejandro Tabilo is complete. Reveal results for the outcome.",
     "fullSpiel": "Alexei Popyrin v Alejandro Tabilo is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
     "outcomeText": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
@@ -53000,7 +53000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Jakub Mensik v Jurij Rodionov is complete. Reveal results for the outcome.",
     "fullSpiel": "Jakub Mensik v Jurij Rodionov is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
     "outcomeText": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
@@ -53245,7 +53245,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
     "fullSpiel": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
@@ -53331,7 +53331,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -53340,7 +53340,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992702",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -53498,7 +53498,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -53507,7 +53507,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142603",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9022",
-    "canonicalSourceCheckedAt": "2026-10-10T19:14:13.352Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -53764,7 +53764,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -53773,7 +53773,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992703",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -54178,7 +54178,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers is complete. Reveal results for the outcome.",
     "fullSpiel": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
     "outcomeText": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
@@ -54395,7 +54395,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Alexander Bublik v Tommy Paul is complete. Reveal results for the outcome.",
     "fullSpiel": "Alexander Bublik v Tommy Paul is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
     "outcomeText": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
@@ -54802,7 +54802,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640401",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8905",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -54967,7 +54967,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640402",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8907",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -55132,7 +55132,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640403",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8910",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -55288,7 +55288,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -55297,7 +55297,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992704",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -55455,7 +55455,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -55464,7 +55464,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142602",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9029",
-    "canonicalSourceCheckedAt": "2026-10-10T19:14:13.352Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -55973,7 +55973,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -55982,7 +55982,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992705",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -56147,7 +56147,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640404",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8909",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -56303,7 +56303,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -56312,7 +56312,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992706",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -56470,7 +56470,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -56479,7 +56479,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142604",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9025",
-    "canonicalSourceCheckedAt": "2026-10-10T19:14:13.352Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -58713,7 +58713,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
     "fullSpiel": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
@@ -59239,7 +59239,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Jakub Mensik v Learner Tien is complete. Reveal results for the outcome.",
     "fullSpiel": "Jakub Mensik v Learner Tien is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
     "outcomeText": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
@@ -59471,7 +59471,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640405",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8911",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -59636,7 +59636,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640406",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8912",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -59918,7 +59918,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -59927,7 +59927,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992707",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -59954,8 +59954,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "standard",
       "hook": "Dragons and Eels met in Round 27 with a late-season test of where both clubs finish; the outcome stays hidden here.",
       "synopsis": "Dragons and Eels arrived at Round 27 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Dragons defeated Eels 24-22.",
-      "synopsisSpoilerOn": "Dragons defeated Eels 24-22. The current table now has Dragons 17th on 16 points and Eels 13th on 24, keeping the result connected to the wider NRL path.",
+      "hookSpoilerOn": "Dragons defeated Eels in Round 27.",
+      "synopsisSpoilerOn": "Dragons defeated Eels in Round 27. Dragons v Eels finished 24-22 in Round 27, with Dragons winning by 2 points.",
       "threadIds": [
         "thread:rolling:team-nrl-330",
         "thread:rolling:team-nrl-328"
@@ -60115,7 +60115,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640407",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8914",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -60280,7 +60280,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640408",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8916",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -60436,7 +60436,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -60445,7 +60445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992708",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -60472,8 +60472,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "standard",
       "hook": "Panthers and Wests Tigers met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
       "synopsis": "Panthers and Wests Tigers arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Panthers defeated Wests Tigers 38-10.",
-      "synopsisSpoilerOn": "Panthers defeated Wests Tigers 38-10. The current table now has Panthers 1st on 42 points and Wests Tigers 15th on 22, keeping the result connected to the wider NRL path.",
+      "hookSpoilerOn": "Panthers defeated Wests Tigers in Round 27.",
+      "synopsisSpoilerOn": "Panthers defeated Wests Tigers in Round 27. Panthers v Wests Tigers finished 38-10 in Round 27, with Panthers winning by 28 points.",
       "threadIds": [
         "thread:rolling:team-nrl-329",
         "thread:rolling:team-nrl-334"
@@ -60633,7 +60633,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640409",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8913",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -60974,7 +60974,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-valencia-day-2",
@@ -61165,7 +61165,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-china-czechia",
@@ -61445,7 +61445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:00:00.000Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceTrust": "unverified",
     "sourceType": "official",
     "startTimeUtc": "2026-09-06T13:00:00.000Z",
@@ -62419,7 +62419,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Tommy Paul v Carlos Alcaraz is complete. Reveal results for the outcome.",
     "fullSpiel": "Tommy Paul v Carlos Alcaraz is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
     "outcomeText": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
@@ -62580,7 +62580,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-puerto-rico-belgium",
@@ -62756,7 +62756,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-italy-usa",
@@ -62932,7 +62932,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-belgium-australia",
@@ -63460,7 +63460,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-nigeria-france",
@@ -63716,7 +63716,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
     "fullSpiel": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T14:15:34.766Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
@@ -63874,7 +63874,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-germany-mali",
@@ -64050,7 +64050,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-japan-spain",
@@ -64226,7 +64226,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-italy-china",
@@ -64402,7 +64402,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:06:42.638Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-usa-czechia",
@@ -64630,7 +64630,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Arthur Ashe Stadium",
     "summary": "US Open 2026 · Men's singles · Quarterfinals · Arthur Ashe Stadium.",
-    "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+    "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-08/frances_tiafoe_makes_epic_comeback_to_defeat_alex_michelsen_at_the_2026_us_open_qfs.html",
     "eventId": "fixture-us-open-2026-official-ms-1503",
     "canonicalEventId": "fixture:us-open-2026:official:ms:1503",
     "key": "tennis",
@@ -64667,10 +64667,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
-      "synopsisSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOn": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
+      "hookSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Frances Tiafoe defeated Alex Michelsen in five sets.",
+      "synopsisSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Tiafoe recovered from two sets down to win the US Open quarterfinal 5-7, 3-6, 7-5, 6-3, 7-6(6).",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 5,
@@ -64678,7 +64678,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchDepth": 5,
       "lastReviewedAt": "2026-09-08T12:00:00.000Z"
     },
-    "sourceName": "US Open official schedule",
+    "sourceName": "US Open",
     "sourceType": "official",
     "sourceTrust": "verified",
     "venueCountryCode": "US",
@@ -64697,10 +64697,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "Frances Tiafoe v Alex Michelsen is complete. Reveal results for the outcome.",
-    "fullSpiel": "Frances Tiafoe v Alex Michelsen is complete. Reveal results for the outcome.",
-    "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
-    "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+    "selectedSentence": "Frances Tiafoe v Alex Michelsen is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Frances Tiafoe v Alex Michelsen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ms:1503",
@@ -64748,9 +64748,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": false,
     "taxonomyNodeId": "event-series:us-open",
     "eventSeriesId": "event-series:us-open",
-    "score": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
-    "outcomeText": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
-    "recapText": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
+    "score": "Tiafoe 5-7, 3-6, 7-5, 6-3, 7-6(6) Michelsen",
+    "outcomeText": "Frances Tiafoe defeated Alex Michelsen in five sets.",
+    "recapText": "Tiafoe recovered from two sets down to win the US Open quarterfinal 5-7, 3-6, 7-5, 6-3, 7-6(6).",
     "resultPublishedAt": "2026-09-15T04:35:45.773Z",
     "resultLabels": [
       "Quarterfinals",
@@ -64869,7 +64869,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Arthur Ashe Stadium",
     "summary": "US Open 2026 · Women's singles · Quarterfinals · Arthur Ashe Stadium.",
-    "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+    "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-08/aryna_sabalenka_vs_linda_noskova_at_the_2026_us_open.html",
     "eventId": "fixture-us-open-2026-official-ws-2501",
     "canonicalEventId": "fixture:us-open-2026:official:ws:2501",
     "key": "tennis",
@@ -64906,10 +64906,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
-      "synopsisSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOn": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
+      "hookSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Aryna Sabalenka defeated Linda Noskova in three sets.",
+      "synopsisSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Sabalenka reached the US Open semifinals with a 7-6(1), 3-6, 7-6(7) quarterfinal win.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 5,
@@ -64917,7 +64917,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchDepth": 5,
       "lastReviewedAt": "2026-09-08T12:00:00.000Z"
     },
-    "sourceName": "US Open official schedule",
+    "sourceName": "US Open",
     "sourceType": "official",
     "sourceTrust": "verified",
     "venueCountryCode": "US",
@@ -64936,10 +64936,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "Aryna Sabalenka v Linda Noskova is complete. Reveal results for the outcome.",
-    "fullSpiel": "Aryna Sabalenka v Linda Noskova is complete. Reveal results for the outcome.",
-    "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
-    "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+    "selectedSentence": "Aryna Sabalenka v Linda Noskova is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Aryna Sabalenka v Linda Noskova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ws:2501",
@@ -64987,9 +64987,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": false,
     "taxonomyNodeId": "event-series:us-open",
     "eventSeriesId": "event-series:us-open",
-    "score": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
-    "outcomeText": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
-    "recapText": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
+    "score": "Sabalenka 7-6(1), 3-6, 7-6(7) Noskova",
+    "outcomeText": "Aryna Sabalenka defeated Linda Noskova in three sets.",
+    "recapText": "Sabalenka reached the US Open semifinals with a 7-6(1), 3-6, 7-6(7) quarterfinal win.",
     "resultPublishedAt": "2026-09-15T04:35:45.773Z",
     "resultLabels": [
       "Quarterfinals",
@@ -65069,8 +65069,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Qualification to quarterfinals",
     "stage": "qualification",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's World Cup — qualification day 1 is complete. Reveal results for the outcome.",
-    "fullSpiel": "FIBA Women's World Cup — qualification day 1 is complete. Reveal results for the outcome.",
+    "selectedSentence": "FIBA Women's World Cup — qualification day 1 is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's World Cup — qualification day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -65095,14 +65095,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia and China advanced to the quarterfinals.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Australia edged Italy 82-80 and China defeated Puerto Rico 75-72 in qualification games.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "Australia 82-80 Italy · China 75-72 Puerto Rico",
     "outcomeText": "Australia and China advanced to the quarterfinals.",
     "recapText": "Australia edged Italy 82-80 and China defeated Puerto Rico 75-72 in qualification games.",
@@ -65252,7 +65252,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Arthur Ashe Stadium",
     "summary": "US Open 2026 · Men's singles · Quarterfinals · Arthur Ashe Stadium.",
-    "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+    "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html",
     "eventId": "fixture-us-open-2026-official-ms-1504",
     "canonicalEventId": "fixture:us-open-2026:official:ms:1504",
     "key": "tennis",
@@ -65289,10 +65289,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
-      "synopsisSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOn": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
+      "hookSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Ben Shelton defeated Carlos Alcaraz in five sets.",
+      "synopsisSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Shelton ended Alcaraz's title defence with a 6-7(5), 6-1, 6-3, 1-6, 7-6(7) quarterfinal win.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 5,
@@ -65300,7 +65300,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchDepth": 5,
       "lastReviewedAt": "2026-09-08T12:00:00.000Z"
     },
-    "sourceName": "US Open official schedule",
+    "sourceName": "US Open",
     "sourceType": "official",
     "sourceTrust": "verified",
     "venueCountryCode": "US",
@@ -65319,10 +65319,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "Ben Shelton v Carlos Alcaraz is complete. Reveal results for the outcome.",
-    "fullSpiel": "Ben Shelton v Carlos Alcaraz is complete. Reveal results for the outcome.",
-    "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
-    "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+    "selectedSentence": "Ben Shelton v Carlos Alcaraz is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Ben Shelton v Carlos Alcaraz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ms:1504",
@@ -65370,9 +65370,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": false,
     "taxonomyNodeId": "event-series:us-open",
     "eventSeriesId": "event-series:us-open",
-    "score": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
-    "outcomeText": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
-    "recapText": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
+    "score": "Shelton 6-7(5), 6-1, 6-3, 1-6, 7-6(7) Alcaraz",
+    "outcomeText": "Ben Shelton defeated Carlos Alcaraz in five sets.",
+    "recapText": "Shelton ended Alcaraz's title defence with a 6-7(5), 6-1, 6-3, 1-6, 7-6(7) quarterfinal win.",
     "resultPublishedAt": "2026-09-15T04:35:45.773Z",
     "resultLabels": [
       "Quarterfinals",
@@ -65491,7 +65491,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Arthur Ashe Stadium",
     "summary": "US Open 2026 · Women's singles · Quarterfinals · Arthur Ashe Stadium.",
-    "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+    "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-08/pegula_rallies_past_navarro_sets_sabalenka_showdown_in_2026_us_open_sfs.html",
     "eventId": "fixture-us-open-2026-official-ws-2502",
     "canonicalEventId": "fixture:us-open-2026:official:ws:2502",
     "key": "tennis",
@@ -65528,10 +65528,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Jessica Pegula v Emma Navarro is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
-      "synopsisSpoilerOff": "Jessica Pegula v Emma Navarro is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOn": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
+      "hookSpoilerOff": "Jessica Pegula v Emma Navarro is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Jessica Pegula defeated Emma Navarro in three sets.",
+      "synopsisSpoilerOff": "Jessica Pegula v Emma Navarro is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Pegula recovered from a set down to win the US Open quarterfinal 3-6, 6-4, 6-3.",
       "arcStage": "recap",
       "intensity": 5,
       "expectedSpectacle": 5,
@@ -65539,7 +65539,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchDepth": 5,
       "lastReviewedAt": "2026-09-08T12:00:00.000Z"
     },
-    "sourceName": "US Open official schedule",
+    "sourceName": "US Open",
     "sourceType": "official",
     "sourceTrust": "verified",
     "venueCountryCode": "US",
@@ -65558,10 +65558,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "Jessica Pegula v Emma Navarro is complete. Reveal results for the outcome.",
-    "fullSpiel": "Jessica Pegula v Emma Navarro is complete. Reveal results for the outcome.",
-    "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
-    "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+    "selectedSentence": "Jessica Pegula v Emma Navarro is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Jessica Pegula v Emma Navarro is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ws:2502",
@@ -65611,9 +65611,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": false,
     "taxonomyNodeId": "event-series:us-open",
     "eventSeriesId": "event-series:us-open",
-    "score": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
-    "outcomeText": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
-    "recapText": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
+    "score": "Pegula 3-6, 6-4, 6-3 Navarro",
+    "outcomeText": "Jessica Pegula defeated Emma Navarro in three sets.",
+    "recapText": "Pegula recovered from a set down to win the US Open quarterfinal 3-6, 6-4, 6-3.",
     "resultPublishedAt": "2026-09-15T04:35:45.773Z",
     "resultLabels": [
       "Quarterfinals",
@@ -65809,7 +65809,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -66488,8 +66488,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Qualification to quarterfinals",
     "stage": "qualification",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's World Cup — qualification day 2 is complete. Reveal results for the outcome.",
-    "fullSpiel": "FIBA Women's World Cup — qualification day 2 is complete. Reveal results for the outcome.",
+    "selectedSentence": "FIBA Women's World Cup — qualification day 2 is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's World Cup — qualification day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -66514,14 +66514,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Germany and Hungary advanced to the quarterfinals.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Germany defeated Korea 94-56 and Hungary beat Japan 84-63 in qualification games.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "Germany 94-56 Korea · Hungary 84-63 Japan",
     "outcomeText": "Germany and Hungary advanced to the quarterfinals.",
     "recapText": "Germany defeated Korea 94-56 and Hungary beat Japan 84-63 in qualification games.",
@@ -66637,8 +66637,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Quarterfinals",
     "stage": "quarterfinal",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's World Cup — quarterfinals is complete. Reveal results for the outcome.",
-    "fullSpiel": "FIBA Women's World Cup — quarterfinals is complete. Reveal results for the outcome.",
+    "selectedSentence": "FIBA Women's World Cup — quarterfinals is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's World Cup — quarterfinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -66663,15 +66663,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Spain, Germany, France and USA reached the semifinals.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Spain, Germany, France and USA won the four World Cup quarterfinals in Berlin.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "archetype": "elimination",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "Spain 89-66 Australia · Germany 93-74 Belgium · France 90-61 China · USA 108-56 Hungary",
     "outcomeText": "Spain, Germany, France and USA reached the semifinals.",
     "recapText": "Spain, Germany, France and USA won the four World Cup quarterfinals in Berlin.",
@@ -66790,8 +66790,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. Reveal results for the outcome.",
-    "fullSpiel": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. Reveal results for the outcome.",
+    "selectedSentence": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/10/thursday-night-footy-roosters-v-bulldogs/",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -66846,14 +66846,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs 42-12.",
-      "synopsisSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "The Roosters completed an unbeaten regular season with a 42-12 Round 11 win.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 42,
     "awayScore": 12,
     "score": "Sydney Roosters 42-12 Canterbury-Bankstown Bulldogs",
@@ -67059,8 +67059,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Wests Tigers v Canberra Raiders is complete. Reveal results for the outcome.",
-    "fullSpiel": "Wests Tigers v Canberra Raiders is complete. Reveal results for the outcome.",
+    "selectedSentence": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/08/nrlw-team-lists-round-11/",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -67115,14 +67115,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Wests Tigers v Canberra Raiders is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Canberra Raiders defeated Wests Tigers 22-10.",
-      "synopsisSpoilerOff": "Wests Tigers v Canberra Raiders is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Canberra closed Round 11 with a 22-10 win over Wests Tigers.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 10,
     "awayScore": 22,
     "score": "Wests Tigers 10-22 Canberra Raiders",
@@ -67236,8 +67236,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Knights defeated Rabbitohs 20-10.\",\"Rabbitohs 10-20 Knights\",\"Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win.\"]",
-      "hookSpoilerOn": "Knights defeated Rabbitohs 20-10.",
-      "synopsisSpoilerOn": "Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win."
+      "hookSpoilerOn": "Knights defeated Rabbitohs in Elimination Final.",
+      "synopsisSpoilerOn": "Knights defeated Rabbitohs in Elimination Final. Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win."
     },
     "storyline": {
       "stakes": 5,
@@ -67308,7 +67308,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Rabbitohs v Knights is complete. Reveal results for the outcome.",
     "fullSpiel": "Rabbitohs v Knights is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:elimination-final-2",
       "major-match-nrl-finals-2026-elimination-final-2"
@@ -67420,7 +67420,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -67429,7 +67429,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142701",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9023",
-    "canonicalSourceCheckedAt": "2026-10-10T19:14:13.352Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -67473,8 +67473,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "marquee",
       "hook": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
       "synopsis": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
-      "hookSpoilerOn": "Fremantle defeated Geelong Cats 120-106.",
-      "synopsisSpoilerOn": "Fremantle defeated Geelong Cats 120-106. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "hookSpoilerOn": "Fremantle defeated Geelong Cats in Semi Finals.",
+      "synopsisSpoilerOn": "Fremantle defeated Geelong Cats in Semi Finals. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points.",
       "threadIds": [
         "thread:depth:afl:finals"
       ],
@@ -68090,8 +68090,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Parramatta Eels v North Queensland Cowboys is complete. Reveal results for the outcome.",
-    "fullSpiel": "Parramatta Eels v North Queensland Cowboys is complete. Reveal results for the outcome.",
+    "selectedSentence": "Parramatta Eels v North Queensland Cowboys is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Parramatta Eels v North Queensland Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -68146,14 +68146,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
-      "hookSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Parramatta Eels defeated North Queensland Cowboys 33-28.",
-      "synopsisSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Parramatta overturned a 22-6 deficit and sealed a 33-28 Round 11 win.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 33,
     "awayScore": 28,
     "score": "Parramatta Eels 33-28 North Queensland Cowboys",
@@ -68275,7 +68275,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640501",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8915",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -68440,7 +68440,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640502",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8919",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -68605,7 +68605,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640503",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8917",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -68763,8 +68763,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Dolphins defeated Warriors 26-16.\",\"Warriors 16-26 Dolphins\",\"The Dolphins came from behind to win 26-16 and advance to a preliminary final.\"]",
-      "hookSpoilerOn": "Dolphins defeated Warriors 26-16.",
-      "synopsisSpoilerOn": "The Dolphins came from behind to win 26-16 and advance to a preliminary final."
+      "hookSpoilerOn": "Dolphins defeated Warriors in Qualifying Final.",
+      "synopsisSpoilerOn": "Dolphins defeated Warriors in Qualifying Final. The Dolphins came from behind to win 26-16 and advance to a preliminary final."
     },
     "storyline": {
       "stakes": 5,
@@ -68835,7 +68835,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Warriors v Dolphins is complete. Reveal results for the outcome.",
     "fullSpiel": "Warriors v Dolphins is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:qualifying-final-2",
       "major-match-nrl-finals-2026-qualifying-final-2"
@@ -68955,7 +68955,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640504",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8918",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -69107,8 +69107,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. Reveal results for the outcome.",
-    "fullSpiel": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. Reveal results for the outcome.",
+    "selectedSentence": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -69163,14 +69163,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons 16-8.",
-      "synopsisSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Cronulla finished the regular season with a 16-8 Round 11 win.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 16,
     "awayScore": 8,
     "score": "Cronulla-Sutherland Sharks 16-8 St George Illawarra Dragons",
@@ -69388,7 +69388,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -69397,7 +69397,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142702",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9030",
-    "canonicalSourceCheckedAt": "2026-10-10T19:14:13.352Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -69441,8 +69441,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "marquee",
       "hook": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
       "synopsis": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
-      "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91.",
-      "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows in Semi Finals.",
+      "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows in Semi Finals. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points.",
       "threadIds": [
         "thread:depth:afl:finals"
       ],
@@ -69680,8 +69680,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Sharks defeated Cowboys 26-16.\",\"Sharks 26-16 Cowboys\",\"Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win.\"]",
-      "hookSpoilerOn": "Sharks defeated Cowboys 26-16.",
-      "synopsisSpoilerOn": "Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win."
+      "hookSpoilerOn": "Sharks defeated Cowboys in Elimination Final.",
+      "synopsisSpoilerOn": "Sharks defeated Cowboys in Elimination Final. Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win."
     },
     "storyline": {
       "stakes": 5,
@@ -69752,7 +69752,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Sharks v Cowboys is complete. Reveal results for the outcome.",
     "fullSpiel": "Sharks v Cowboys is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:elimination-final-1",
       "major-match-nrl-finals-2026-elimination-final-1"
@@ -70961,7 +70961,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 8,
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-09-08T13:52:45.257Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "resultPublishedAt": "2026-09-22T01:40:00.000Z",
     "outcomeText": "Lando Norris took pole for the Spanish Grand Prix.",
     "recapText": "Norris qualified first ahead of Antonelli and Verstappen in Madrid.",
@@ -71070,8 +71070,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Semifinals",
     "stage": "semifinal",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's World Cup — semifinals is complete. Reveal results for the outcome.",
-    "fullSpiel": "FIBA Women's World Cup — semifinals is complete. Reveal results for the outcome.",
+    "selectedSentence": "FIBA Women's World Cup — semifinals is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's World Cup — semifinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-semi-finals",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -71096,15 +71096,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 10,
-      "hookSpoilerOff": "FIBA Women's World Cup — semifinals is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's World Cup — semifinals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "USA and France reached the World Cup final.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — semifinals is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's World Cup — semifinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "USA defeated Spain 76-66 and France beat Germany 86-64 in the semifinals.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "archetype": "elimination",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "score": "USA 76-66 Spain · France 86-64 Germany",
     "outcomeText": "USA and France reached the World Cup final.",
     "recapText": "USA defeated Spain 76-66 and France beat Germany 86-64 in the semifinals.",
@@ -71571,8 +71571,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Brisbane Broncos v New Zealand Warriors is complete. Reveal results for the outcome.",
-    "fullSpiel": "Brisbane Broncos v New Zealand Warriors is complete. Reveal results for the outcome.",
+    "selectedSentence": "Brisbane Broncos v New Zealand Warriors is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brisbane Broncos v New Zealand Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -71628,14 +71628,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Brisbane Broncos defeated New Zealand Warriors 52-18.",
-      "synopsisSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Brisbane scored seven second-half tries in a 52-18 Round 11 win.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 52,
     "awayScore": 18,
     "score": "Brisbane Broncos 52-18 New Zealand Warriors",
@@ -71757,7 +71757,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640505",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8923",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -71922,7 +71922,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640506",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8921",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72074,8 +72074,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Newcastle Knights v Gold Coast Titans is complete. Reveal results for the outcome.",
-    "fullSpiel": "Newcastle Knights v Gold Coast Titans is complete. Reveal results for the outcome.",
+    "selectedSentence": "Newcastle Knights v Gold Coast Titans is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Newcastle Knights v Gold Coast Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -72130,14 +72130,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Gold Coast Titans defeated Newcastle Knights 32-20.",
-      "synopsisSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Gold Coast extended its winning run to ten matches with a 32-20 Round 11 victory.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 20,
     "awayScore": 32,
     "score": "Newcastle Knights 20-32 Gold Coast Titans",
@@ -72259,7 +72259,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640507",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8920",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72424,7 +72424,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640508",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8922",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72581,8 +72581,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Panthers defeated Roosters 19-12.\",\"Panthers 19-12 Roosters\",\"Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final.\"]",
-      "hookSpoilerOn": "Panthers defeated Roosters 19-12.",
-      "synopsisSpoilerOn": "Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final."
+      "hookSpoilerOn": "Panthers defeated Roosters in Qualifying Final.",
+      "synopsisSpoilerOn": "Panthers defeated Roosters in Qualifying Final. Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final."
     },
     "storyline": {
       "stakes": 5,
@@ -72653,7 +72653,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Panthers v Roosters is complete. Reveal results for the outcome.",
     "fullSpiel": "Panthers v Roosters is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:qualifying-final-1",
       "major-match-nrl-finals-2026-qualifying-final-1"
@@ -72776,7 +72776,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640509",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8924",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -73137,7 +73137,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 9,
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-09-08T13:52:45.257Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "resultPublishedAt": "2026-09-22T01:40:00.000Z",
     "outcomeText": "Kimi Antonelli won the Spanish Grand Prix.",
     "recapText": "Antonelli won in Madrid ahead of Verstappen and Norris to extend his championship lead.",
@@ -73343,8 +73343,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Third-place game",
     "stage": "medal",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's World Cup — bronze medal game is complete. Reveal results for the outcome.",
-    "fullSpiel": "FIBA Women's World Cup — bronze medal game is complete. Reveal results for the outcome.",
+    "selectedSentence": "FIBA Women's World Cup — bronze medal game is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's World Cup — bronze medal game is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -73369,14 +73369,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Spain defeated Germany 81-58 to win bronze.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Spain secured the World Cup bronze medal with an 81-58 win over hosts Germany.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 81,
     "awayScore": 58,
     "score": "Spain 81-58 Germany",
@@ -73667,8 +73667,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Final",
     "stage": "final",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's Basketball World Cup final is complete. Reveal results for the outcome.",
-    "fullSpiel": "FIBA Women's Basketball World Cup final is complete. Reveal results for the outcome.",
+    "selectedSentence": "FIBA Women's Basketball World Cup final is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "FIBA Women's Basketball World Cup final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -73693,15 +73693,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 10,
-      "hookSpoilerOff": "FIBA Women's Basketball World Cup final is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "FIBA Women's Basketball World Cup final is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "USA defeated France 97-79 to win the World Cup.",
-      "synopsisSpoilerOff": "FIBA Women's Basketball World Cup final is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "FIBA Women's Basketball World Cup final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "USA won a fifth consecutive and 12th overall Women's World Cup title with a 97-79 final victory.",
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "archetype": "championship decider",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-22T01:40:00.000Z",
     "homeScore": 97,
     "awayScore": 79,
     "score": "USA 97-79 France",
@@ -74008,7 +74008,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640601",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8925",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -74268,7 +74268,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Sydney Swans v Fremantle is complete. Reveal results for the outcome.",
     "fullSpiel": "Sydney Swans v Fremantle is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142802",
       "event-afl-cd_m20260142802"
@@ -74345,7 +74345,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142802",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9026",
-    "canonicalSourceCheckedAt": "2026-10-10T19:14:13.352Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "isInternational": false,
     "competitionScope": "domestic",
@@ -74752,7 +74752,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640602",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8926",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -74917,7 +74917,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640603",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8928",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -75082,7 +75082,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640604",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8927",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -75247,7 +75247,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640605",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8930",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -75641,7 +75641,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Hawthorn v Brisbane Lions is complete. Reveal results for the outcome.",
     "fullSpiel": "Hawthorn v Brisbane Lions is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142801",
       "event-afl-cd_m20260142801"
@@ -75718,7 +75718,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142801",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9027",
-    "canonicalSourceCheckedAt": "2026-10-10T19:14:13.352Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "isInternational": false,
     "competitionScope": "domestic",
@@ -76159,8 +76159,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Sydney Roosters defeated Cronulla-Sutherland Sharks 46-10.\",\"46-10\",\"The Roosters advanced to a preliminary final against the Dolphins after scoring five second-half tries.\"]",
-      "hookSpoilerOn": "Sydney Roosters defeated Cronulla-Sutherland Sharks 46-10.",
-      "synopsisSpoilerOn": "The Roosters advanced to a preliminary final against the Dolphins after scoring five second-half tries."
+      "hookSpoilerOn": "Sydney Roosters defeated Cronulla-Sutherland Sharks in Semi Final.",
+      "synopsisSpoilerOn": "Sydney Roosters defeated Cronulla-Sutherland Sharks in Semi Final. The Roosters advanced to a preliminary final against the Dolphins after scoring five second-half tries."
     },
     "storyline": {
       "stakes": 5,
@@ -76222,7 +76222,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Sydney Roosters v Cronulla-Sutherland Sharks is complete. Reveal results for the outcome.",
     "fullSpiel": "Sydney Roosters v Cronulla-Sutherland Sharks is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "lastReviewedAt": "2026-09-21T20:24:10.712468Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:semi-final-1",
       "major-match-nrl-finals-2026-semi-final-1"
@@ -76821,7 +76821,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-17T23:22:14.102Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "lastReviewedAt": "2026-09-21T20:24:10.712468Z",
     "score": "Day 1 leader: ROCKWOOL Racing",
     "scoreDisplay": "Day 1 leader: ROCKWOOL Racing",
     "outcomeText": "ROCKWOOL Racing led the Geneva standings after race day one.",
@@ -77667,7 +77667,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640606",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8929",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -77842,7 +77842,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640607",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8931",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -78241,7 +78241,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640608",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8932",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -78373,8 +78373,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "marquee",
       "hook": "Eden Park’s knockout afternoon tested Newcastle against the Warriors in front of a record New Zealand rugby league crowd.",
       "synopsis": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
-      "hookSpoilerOn": "Newcastle Knights defeated New Zealand Warriors 12–10.",
-      "synopsisSpoilerOn": "Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
+      "hookSpoilerOn": "Newcastle Knights defeated New Zealand Warriors in Semi Final.",
+      "synopsisSpoilerOn": "Newcastle Knights defeated New Zealand Warriors in Semi Final. Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
       "threadIds": [
         "thread:fixture-research:major-match-nrl-finals-2026-semi-final-2:revision-c7f2497eb773fcf4b4b0df7d8b03a205382b28ba9eadf3fa6698d395a09e415b"
       ],
@@ -78836,7 +78836,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640609",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8933",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -79568,7 +79568,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-17T23:22:14.102Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "lastReviewedAt": "2026-09-21T20:24:10.712468Z",
     "score": "1. Los Gallos; 2. BONDS Flying Roos; 3. ROCKWOOL Racing",
     "scoreDisplay": "1. Los Gallos; 2. BONDS Flying Roos; 3. ROCKWOOL Racing",
     "outcomeText": "Los Gallos won the Geneva Sail Grand Prix ahead of Australia.",
@@ -81154,7 +81154,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640701",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8935",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -82347,7 +82347,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640702",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8934",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -82512,7 +82512,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640703",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8936",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -82677,7 +82677,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640704",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8939",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -83408,7 +83408,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640705",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8937",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -83773,8 +83773,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "marquee",
       "hook": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
       "synopsis": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
-      "hookSpoilerOn": "Roosters defeated Dolphins 36-20 to reach the Grand Final.",
-      "synopsisSpoilerOn": "Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage.",
+      "hookSpoilerOn": "Roosters defeated Dolphins in Preliminary Final.",
+      "synopsisSpoilerOn": "Roosters defeated Dolphins in Preliminary Final. Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage.",
       "threadIds": [
         "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5"
       ],
@@ -83862,7 +83862,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
     "fullSpiel": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
-    "lastReviewedAt": "2026-09-27T06:46:37.622Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:preliminary-final-2",
       "major-match-nrl-finals-2026-preliminary-final-2"
@@ -83894,7 +83894,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "confirmed",
     "sourceRefs": [
       "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-      "https://www.nrl.com/tickets/"
+      "https://www.nrl.com/tickets/",
+      "https://www.nrl.com/news/2026/09/25/grand-final-awaits-dolphins-v-roosters/"
     ],
     "resultEditorialBranches": {
       "home": {
@@ -84079,7 +84080,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceTrust": "verified",
     "sourceCheckedAt": "2026-09-27T06:35:07.891Z",
-    "lastReviewedAt": "2026-09-27T06:35:07.891Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "selectedSentence": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
     "fullSpiel": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
     "replayEligible": true,
@@ -84099,8 +84100,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "marquee",
       "hook": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
       "synopsis": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
-      "hookSpoilerOn": "Socceroos and Brazil drew 1-1 in Townsville.",
-      "synopsisSpoilerOn": "Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench.",
+      "hookSpoilerOn": "Socceroos and Brazil finished level in International friendly.",
+      "synopsisSpoilerOn": "Socceroos and Brazil finished level in International friendly. Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench.",
       "threadIds": [
         "thread:fixture-research:football-australia-brazil-2026-09-25:revision-ff6bf3c2fd6f93171ab2cbcd0a3c1dee598a9c5527e3b04168b771720a5d356a"
       ],
@@ -84265,7 +84266,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "fixtureResults": {
       "schemaVersion": "fixture-results.v1",
       "columns": [
@@ -84845,7 +84846,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -84854,7 +84855,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142901",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9028",
-    "canonicalSourceCheckedAt": "2026-10-10T19:14:13.352Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -84880,8 +84881,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchTier": "marquee",
       "hook": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
       "synopsis": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
-      "hookSpoilerOn": "Brisbane Lions defeated Fremantle 96-89.",
-      "synopsisSpoilerOn": "Brisbane Lions defeated Fremantle 96-89. Fremantle v Brisbane Lions finished 89-96 in Grand Final, with Brisbane Lions winning by 7 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "hookSpoilerOn": "Brisbane Lions defeated Fremantle in the Grand Final.",
+      "synopsisSpoilerOn": "Brisbane Lions defeated Fremantle in the Grand Final. Fremantle v Brisbane Lions finished 89-96 in Grand Final, with Brisbane Lions winning by 7 points.",
       "threadIds": [
         "thread:depth:afl:finals"
       ],
@@ -85378,7 +85379,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "fixtureResults": {
       "schemaVersion": "fixture-results.v1",
       "columns": [
@@ -86185,7 +86186,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640707",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8938",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -86350,7 +86351,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640706",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8941",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -86640,7 +86641,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/aflw/matches/8940",
     "sourceCheckedAt": "2026-09-27T09:31:38Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T04:29:23.023Z",
+    "lastReviewedAt": "2026-09-27T09:31:38Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -86649,7 +86650,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640708",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8940",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -86931,7 +86932,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-04T05:51:53.694Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-10-04T05:51:53.694Z",
+    "lastReviewedAt": "2026-09-27T09:34:33.840Z",
     "endTimeUtc": "2026-09-27T09:00:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "resultPublishedAt": "2026-09-27T09:34:33.840Z",
@@ -87041,8 +87042,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Knights defeated Panthers 22-14.\",\"Panthers 14-22 Knights\",\"Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium.\"]",
-      "hookSpoilerOn": "Knights defeated Panthers 22-14.",
-      "synopsisSpoilerOn": "Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium."
+      "hookSpoilerOn": "Knights defeated Panthers in Preliminary Final.",
+      "synopsisSpoilerOn": "Knights defeated Panthers in Preliminary Final. Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium."
     },
     "storyline": {
       "stakes": 5,
@@ -87104,7 +87105,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Panthers v Knights is complete. Reveal results for the outcome.",
     "fullSpiel": "Panthers v Knights is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-09-22T08:30:00.000Z",
+    "lastReviewedAt": "2026-09-27T09:31:38Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:preliminary-final-1",
       "major-match-nrl-finals-2026-preliminary-final-1"
@@ -87136,7 +87137,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "confirmed",
     "sourceRefs": [
       "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
-      "https://www.nrl.com/tickets/"
+      "https://www.nrl.com/tickets/",
+      "https://www.nrl.com/news/2026/09/27/grand-final-awaits-panthers-v-knights/"
     ],
     "resultEditorialBranches": {
       "home": {
@@ -87243,7 +87245,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640709",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8942",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -87458,8 +87460,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 2,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Sydney Kings v Illawarra Hawks — Round 2 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Sydney Kings v Illawarra Hawks — Round 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Sydney Kings v Illawarra Hawks is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sydney Kings v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -87529,9 +87531,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Sydney Kings v Illawarra Hawks — Round 2 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Sydney Kings v Illawarra Hawks is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Sydney Kings 121, Illawarra Hawks 100",
-      "synopsisSpoilerOff": "Sydney Kings v Illawarra Hawks — Round 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Sydney Kings v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-04T05:51:53.694Z",
       "researchDepth": 2
@@ -87653,7 +87655,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-27T13:41:55.158384Z",
       "researchDepth": 3
     },
-    "lastReviewedAt": "2026-09-27T13:41:55.158384Z",
+    "lastReviewedAt": "2026-09-27T12:34:38.105Z",
     "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
@@ -87896,7 +87898,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceTrust": "verified",
     "sourceCheckedAt": "2026-09-29T23:26:24.078Z",
-    "lastReviewedAt": "2026-09-25T03:32:39.426090Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "selectedSentence": "Socceroos v Brazil is complete. Reveal results for the outcome.",
     "fullSpiel": "Socceroos v Brazil is complete. Reveal results for the outcome.",
     "replayEligible": true,
@@ -87942,8 +87944,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Brazil defeated Australia 4-2.\",\"Australia 2-4 Brazil\",\"Brazil defeated Australia 4-2 in their second September friendly.\"]",
-      "hookSpoilerOn": "Brazil defeated Australia 4-2.",
-      "synopsisSpoilerOn": "Brazil defeated Australia 4-2 in their second September friendly."
+      "hookSpoilerOn": "Brazil defeated Socceroos in International friendly.",
+      "synopsisSpoilerOn": "Brazil defeated Socceroos in International friendly. Brazil defeated Australia 4-2 in their second September friendly."
     },
     "resultEditorialBranches": {
       "home": {
@@ -88095,7 +88097,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Atlanta Braves v Philadelphia Phillies is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Philadelphia Phillies is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -88224,7 +88226,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Houston Astros v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Houston Astros v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -88472,7 +88474,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "New York Yankees v Boston Red Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "New York Yankees v Boston Red Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -88601,7 +88603,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "San Diego Padres v Chicago Cubs is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "San Diego Padres v Chicago Cubs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -88733,8 +88735,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 3,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "New Zealand Breakers v Cairns Taipans — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "New Zealand Breakers v Cairns Taipans — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "New Zealand Breakers v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "New Zealand Breakers v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -88805,9 +88807,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "New Zealand Breakers v Cairns Taipans — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "New Zealand Breakers v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "New Zealand Breakers 98, Cairns Taipans 75",
-      "synopsisSpoilerOff": "New Zealand Breakers v Cairns Taipans — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "New Zealand Breakers v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-04T05:51:53.694Z",
       "researchDepth": 2
@@ -88967,8 +88969,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 3,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Sydney Kings v Brisbane Bullets — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Sydney Kings v Brisbane Bullets — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Sydney Kings v Brisbane Bullets is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sydney Kings v Brisbane Bullets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -89038,9 +89040,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Sydney Kings v Brisbane Bullets — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Sydney Kings v Brisbane Bullets is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Sydney Kings 93, Brisbane Bullets 78",
-      "synopsisSpoilerOff": "Sydney Kings v Brisbane Bullets — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Sydney Kings v Brisbane Bullets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-04T05:51:53.694Z",
       "researchDepth": 2
@@ -92975,7 +92977,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-04T05:51:53.694Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -93712,7 +93714,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Atlanta Braves v Philadelphia Phillies is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Philadelphia Phillies is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -93841,7 +93843,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Houston Astros v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Houston Astros v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -93970,7 +93972,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "New York Yankees v Boston Red Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "New York Yankees v Boston Red Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -94099,7 +94101,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "San Diego Padres v Chicago Cubs is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "San Diego Padres v Chicago Cubs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -94189,7 +94191,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640801",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8943",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -94393,8 +94395,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 3,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Tasmania JackJumpers v Melbourne United — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Tasmania JackJumpers v Melbourne United — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Tasmania JackJumpers v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Tasmania JackJumpers v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -94449,9 +94451,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Tasmania JackJumpers v Melbourne United — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Tasmania JackJumpers v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Tasmania JackJumpers 84, Melbourne United 82",
-      "synopsisSpoilerOff": "Tasmania JackJumpers v Melbourne United — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Tasmania JackJumpers v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-04T05:51:53.694Z",
       "researchDepth": 2
@@ -100561,7 +100563,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Atlanta Braves v Philadelphia Phillies is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Philadelphia Phillies is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -101803,7 +101805,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640802",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8945",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -102012,8 +102014,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 3,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Illawarra Hawks v Adelaide 36ers — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Illawarra Hawks v Adelaide 36ers — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Illawarra Hawks v Adelaide 36ers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Illawarra Hawks v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -102068,9 +102070,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Illawarra Hawks v Adelaide 36ers — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Illawarra Hawks v Adelaide 36ers is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Illawarra Hawks 114, Adelaide 36ers 92",
-      "synopsisSpoilerOff": "Illawarra Hawks v Adelaide 36ers — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Illawarra Hawks v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-04T05:51:53.694Z",
       "researchDepth": 2
@@ -102245,8 +102247,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 3,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Perth Wildcats v South East Melbourne Phoenix — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Perth Wildcats v South East Melbourne Phoenix — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Perth Wildcats v South East Melbourne Phoenix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Perth Wildcats v South East Melbourne Phoenix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -102301,9 +102303,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Perth Wildcats v South East Melbourne Phoenix — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Perth Wildcats v South East Melbourne Phoenix is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Perth Wildcats 92, South East Melbourne Phoenix 88",
-      "synopsisSpoilerOff": "Perth Wildcats v South East Melbourne Phoenix — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Perth Wildcats v South East Melbourne Phoenix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-04T05:51:53.694Z",
       "researchDepth": 2
@@ -106105,7 +106107,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/aflw/matches/8946",
     "sourceCheckedAt": "2026-10-03T06:33:30.622Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T05:51:53.694Z",
+    "lastReviewedAt": "2026-10-03T06:33:30.622Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -106114,7 +106116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640803",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8946",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -106847,7 +106849,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/aflw/matches/8944",
     "sourceCheckedAt": "2026-10-03T10:54:07.910Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T05:51:53.694Z",
+    "lastReviewedAt": "2026-10-03T10:54:07.910Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -106856,7 +106858,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640804",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8944",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -107014,7 +107016,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/aflw/matches/8947",
     "sourceCheckedAt": "2026-10-03T10:54:08.970Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T05:51:53.694Z",
+    "lastReviewedAt": "2026-10-03T10:54:08.970Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -107023,7 +107025,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640805",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8947",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -107240,8 +107242,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 3,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Brisbane Bullets v Tasmania JackJumpers — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Brisbane Bullets v Tasmania JackJumpers — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Brisbane Bullets v Tasmania JackJumpers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Brisbane Bullets v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -107296,9 +107298,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Brisbane Bullets v Tasmania JackJumpers — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Brisbane Bullets v Tasmania JackJumpers is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Brisbane Bullets 99, Tasmania JackJumpers 109",
-      "synopsisSpoilerOff": "Brisbane Bullets v Tasmania JackJumpers — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Brisbane Bullets v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-04T05:51:53.694Z",
       "researchDepth": 2
@@ -107453,7 +107455,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-01T23:21:33.194Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-01T23:21:33.194Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:evt_f1_2026_bahrain_qualifying",
@@ -108042,7 +108044,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/aflw/matches/8948",
     "sourceCheckedAt": "2026-10-03T12:29:51.669Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-04T05:51:53.694Z",
+    "lastReviewedAt": "2026-10-03T12:29:51.669Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -108051,7 +108053,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640806",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8948",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -108268,8 +108270,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 3,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Melbourne United v Cairns Taipans — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Melbourne United v Cairns Taipans — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Melbourne United v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Melbourne United v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -108324,9 +108326,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Melbourne United v Cairns Taipans — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Melbourne United v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Melbourne United 95, Cairns Taipans 107",
-      "synopsisSpoilerOff": "Melbourne United v Cairns Taipans — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Melbourne United v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-04T05:51:53.694Z",
       "researchDepth": 2
@@ -112029,7 +112031,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Cleveland Guardians v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Cleveland Guardians v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -112158,7 +112160,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Los Angeles Dodgers v Atlanta Braves is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Los Angeles Dodgers v Atlanta Braves is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -112406,7 +112408,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Tampa Bay Rays v New York Yankees is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Tampa Bay Rays v New York Yankees is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -112535,7 +112537,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Milwaukee Brewers v San Diego Padres is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Milwaukee Brewers v San Diego Padres is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -112625,7 +112627,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640807",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8949",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -112834,8 +112836,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 3,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "South East Melbourne Phoenix v Illawarra Hawks is complete. Reveal results for the outcome.",
-    "fullSpiel": "South East Melbourne Phoenix v Illawarra Hawks is complete. Reveal results for the outcome.",
+    "selectedSentence": "South East Melbourne Phoenix v Illawarra Hawks is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "South East Melbourne Phoenix v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -112890,9 +112892,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "South East Melbourne Phoenix v Illawarra Hawks is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "South East Melbourne Phoenix v Illawarra Hawks is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "South East Melbourne Phoenix 113, Illawarra Hawks 96",
-      "synopsisSpoilerOff": "South East Melbourne Phoenix v Illawarra Hawks is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "South East Melbourne Phoenix v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-01T17:38:41.192Z",
       "researchDepth": 2
@@ -112952,6 +112954,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultStatus": "official",
     "homeParticipantId": "team:nbl:south-east-melbourne-phoenix",
     "awayParticipantId": "team:nbl:illawarra-hawks",
+    "resultLabels": [
+      "Round 3",
+      "113-96",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "South East Melbourne Phoenix",
+      "summary": "South East Melbourne Phoenix 113, Illawarra Hawks 96"
+    },
     "editorialPreview": {
       "status": "journalistic",
       "angle": "2026–27 NBL season — current path",
@@ -112965,15 +112976,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
       "needsPreviewRefresh": false
-    },
-    "resultLabels": [
-      "Round 3",
-      "113-96",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "South East Melbourne Phoenix",
-      "summary": "South East Melbourne Phoenix 113, Illawarra Hawks 96"
     }
   },
   {
@@ -113024,7 +113026,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640808",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8950",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -113240,7 +113242,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-01T23:21:33.194Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-01T23:21:33.194Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:evt_nrlw_2026_grand_final",
@@ -113443,8 +113445,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 3,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Adelaide 36ers v New Zealand Breakers is complete. Reveal results for the outcome.",
-    "fullSpiel": "Adelaide 36ers v New Zealand Breakers is complete. Reveal results for the outcome.",
+    "selectedSentence": "Adelaide 36ers v New Zealand Breakers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Adelaide 36ers v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -113500,9 +113502,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Adelaide 36ers v New Zealand Breakers is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "Adelaide 36ers v New Zealand Breakers is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Adelaide 36ers 72, New Zealand Breakers 88",
-      "synopsisSpoilerOff": "Adelaide 36ers v New Zealand Breakers is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Adelaide 36ers v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-01T17:38:41.192Z",
       "researchDepth": 2
@@ -113562,6 +113564,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultStatus": "official",
     "homeParticipantId": "team:nbl:adelaide-36ers",
     "awayParticipantId": "team:nbl:new-zealand-breakers",
+    "resultLabels": [
+      "Round 3",
+      "72-88",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "New Zealand Breakers",
+      "summary": "Adelaide 36ers 72, New Zealand Breakers 88"
+    },
     "editorialPreview": {
       "status": "journalistic",
       "angle": "2026–27 NBL season — current path",
@@ -113575,15 +113586,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
       "needsPreviewRefresh": false
-    },
-    "resultLabels": [
-      "Round 3",
-      "72-88",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "New Zealand Breakers",
-      "summary": "Adelaide 36ers 72, New Zealand Breakers 88"
     }
   },
   {
@@ -113634,7 +113636,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640809",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8953",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -113823,7 +113825,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-01T23:21:33.194Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-01T23:21:33.194Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:evt_f1_2026_bahrain_race",
@@ -113860,8 +113862,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Max Verstappen won Bahrain GP (Malaysia) · Race. 1. Max Verstappen (Red Bull Racing); 2. Kimi Antonelli (Mercedes); 3. Lewis Hamilton (Ferrari)."
     },
     "sourceRefs": [
-      "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf",
-      "https://www.formula1.com/en/results/2026/races/1308/bahrain/race-result"
+      "https://www.formula1.com/en/results/2026/races/1308/bahrain/race-result",
+      "https://www.formula1.com/en/latest/article/formula-1-and-fia-confirm-malaysia-will-join-2026-calendar-as-host-venue-for-bahrain-grand-prix.6lL7vjFEM2VVynRHvg1TCf"
     ],
     "statusCheckedAt": "2026-09-29T23:38:21.617Z",
     "participantIds": [
@@ -114389,7 +114391,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-01T23:58:25.032Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-01T23:58:25.032Z",
+    "lastReviewedAt": "2026-10-04T20:40:59.577Z",
     "sourceTrust": "verified",
     "sourceType": "official",
     "editorialNarrative": {
@@ -114437,8 +114439,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "resultResearchRequired": false,
       "phase": "preview",
       "resultSignature": "[\"completed\",\"Sydney Roosters 19, Newcastle Knights 18.\",\"Roosters 19-18 Knights\",\"The official NRL match centre reports a 19-18 Grand Final result.\"]",
-      "hookSpoilerOn": "Sydney Roosters 19, Newcastle Knights 18.",
-      "synopsisSpoilerOn": "The official NRL match centre reports a 19-18 Grand Final result."
+      "hookSpoilerOn": "Roosters defeated Knights in Grand Final.",
+      "synopsisSpoilerOn": "Roosters defeated Knights in Grand Final. The official NRL match centre reports a 19-18 Grand Final result."
     },
     "roundLabel": "Grand Final",
     "stage": "Grand Final",
@@ -116662,7 +116664,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Milwaukee Brewers v San Diego Padres is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Milwaukee Brewers v San Diego Padres is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -116791,7 +116793,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Los Angeles Dodgers v Atlanta Braves is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Los Angeles Dodgers v Atlanta Braves is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -118456,7 +118458,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Cleveland Guardians v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Cleveland Guardians v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -118585,7 +118587,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Tampa Bay Rays v New York Yankees is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Tampa Bay Rays v New York Yankees is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-06T04:14:20.205Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -119341,7 +119343,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-07T20:59:15.968Z",
     "selectedSentence": "Atlanta Braves v Los Angeles Dodgers is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T20:59:15.968Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -119470,7 +119472,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-07T20:59:15.968Z",
     "selectedSentence": "San Diego Padres v Milwaukee Brewers is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "San Diego Padres v Milwaukee Brewers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-07T20:59:15.968Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -119608,8 +119610,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 4,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Adelaide 36ers v Melbourne United — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Adelaide 36ers v Melbourne United — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Adelaide 36ers v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Adelaide 36ers v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -119664,9 +119666,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Adelaide 36ers v Melbourne United — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Adelaide 36ers v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Adelaide 36ers 91, Melbourne United 96",
-      "synopsisSpoilerOff": "Adelaide 36ers v Melbourne United — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Adelaide 36ers v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
       "researchDepth": 2
@@ -119727,6 +119729,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayParticipantId": "team:nbl:melbourne-united",
     "endTimeUtc": "2026-10-07T11:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
+    "resultLabels": [
+      "Round 4",
+      "91-96",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Melbourne United",
+      "summary": "Adelaide 36ers 91, Melbourne United 96"
+    },
     "editorialPreview": {
       "status": "journalistic",
       "angle": "2026–27 NBL season — current path",
@@ -119740,15 +119751,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
       "needsPreviewRefresh": false
-    },
-    "resultLabels": [
-      "Round 4",
-      "91-96",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Melbourne United",
-      "summary": "Adelaide 36ers 91, Melbourne United 96"
     }
   },
   {
@@ -122450,7 +122452,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-08T21:00:48.348Z",
     "selectedSentence": "Chicago White Sox v Cleveland Guardians is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Chicago White Sox v Cleveland Guardians is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -122579,7 +122581,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-08T21:00:48.348Z",
     "selectedSentence": "Atlanta Braves v Los Angeles Dodgers is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -122708,7 +122710,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-08T21:00:48.348Z",
     "selectedSentence": "New York Yankees v Tampa Bay Rays is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "New York Yankees v Tampa Bay Rays is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -122837,7 +122839,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-08T21:00:48.348Z",
     "selectedSentence": "San Diego Padres v Milwaukee Brewers is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "San Diego Padres v Milwaukee Brewers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-08T21:00:48.348Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -122975,8 +122977,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 4,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Cairns Taipans v Brisbane Bullets — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Cairns Taipans v Brisbane Bullets — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Cairns Taipans v Brisbane Bullets is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Cairns Taipans v Brisbane Bullets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -123031,9 +123033,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Cairns Taipans v Brisbane Bullets — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Cairns Taipans v Brisbane Bullets is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Cairns Taipans 97, Brisbane Bullets 91",
-      "synopsisSpoilerOff": "Cairns Taipans v Brisbane Bullets — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Cairns Taipans v Brisbane Bullets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
       "researchDepth": 2
@@ -123094,6 +123096,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayParticipantId": "team:nbl:brisbane-bullets",
     "endTimeUtc": "2026-10-08T11:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
+    "resultLabels": [
+      "Round 4",
+      "97-91",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Cairns Taipans",
+      "summary": "Cairns Taipans 97, Brisbane Bullets 91"
+    },
     "editorialPreview": {
       "status": "journalistic",
       "angle": "2026–27 NBL season — current path",
@@ -123107,15 +123118,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
       "needsPreviewRefresh": false
-    },
-    "resultLabels": [
-      "Round 4",
-      "97-91",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Cairns Taipans",
-      "summary": "Cairns Taipans 97, Brisbane Bullets 91"
     }
   },
   {
@@ -126791,7 +126793,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
     "selectedSentence": "Chicago White Sox v Cleveland Guardians is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Chicago White Sox v Cleveland Guardians is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-09T06:52:22.809Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -127048,7 +127050,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640901",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8951",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -127825,8 +127827,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 4,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Illawarra Hawks v Tasmania JackJumpers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Illawarra Hawks v Tasmania JackJumpers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Illawarra Hawks v Tasmania JackJumpers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Illawarra Hawks v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -127881,9 +127883,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Illawarra Hawks v Tasmania JackJumpers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Illawarra Hawks v Tasmania JackJumpers is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Illawarra Hawks 112, Tasmania JackJumpers 122",
-      "synopsisSpoilerOff": "Illawarra Hawks v Tasmania JackJumpers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Illawarra Hawks v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
       "researchDepth": 2
@@ -127944,6 +127946,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayParticipantId": "team:nbl:tasmania-jackjumpers",
     "endTimeUtc": "2026-10-09T11:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
+    "resultLabels": [
+      "Round 4",
+      "112-122",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Tasmania JackJumpers",
+      "summary": "Illawarra Hawks 112, Tasmania JackJumpers 122"
+    },
     "editorialPreview": {
       "status": "journalistic",
       "angle": "2026–27 NBL season — current path",
@@ -127957,15 +127968,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
       "needsPreviewRefresh": false
-    },
-    "resultLabels": [
-      "Round 4",
-      "112-122",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Tasmania JackJumpers",
-      "summary": "Illawarra Hawks 112, Tasmania JackJumpers 122"
     }
   },
   {
@@ -128038,7 +128040,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-11T12:40:36.882Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-11T12:40:36.882Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-f1-2026-singapore-sprint-qualifying",
@@ -131297,22 +131299,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-    "selectedSentence": "New York Yankees v Tampa Bay Rays: ALDS 'A' Game 4, if needed, in the race for the American League Championship Series.",
-    "fullSpiel": "American League Division Series Game 4 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Yankee Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-    "lastReviewedAt": "2026-10-11T02:39:29.237Z",
+    "selectedSentence": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
+    "fullSpiel": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "New York Yankees v Tampa Bay Rays: ALDS 'A' Game 4, if needed, in the race for the American League Championship Series.",
-      "synopsisSpoilerOff": "American League Division Series Game 4 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Yankee Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "hookSpoilerOn": "New York Yankees v Tampa Bay Rays: ALDS 'A' Game 4, if needed, in the race for the American League Championship Series.",
-      "synopsisSpoilerOn": "American League Division Series Game 4 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Yankee Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOff": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOff": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
+      "hookSpoilerOn": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOn": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+      "intensitySource": "computed"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "New York Yankees v Tampa Bay Rays",
@@ -131451,7 +131451,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640902",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8952",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -131618,7 +131618,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640903",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8955",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -131785,7 +131785,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640904",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8954",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -131957,7 +131957,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchDepth": 5,
       "lastReviewedAt": "2026-10-09T00:20:09.386Z"
     },
-    "lastReviewedAt": "2026-10-09T00:20:09.386Z",
+    "lastReviewedAt": "2026-10-10T12:12:01.544Z",
     "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
@@ -132145,7 +132145,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640905",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8958",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -132362,8 +132362,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 4,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "South East Melbourne Phoenix v Melbourne United — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "South East Melbourne Phoenix v Melbourne United — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "South East Melbourne Phoenix v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "South East Melbourne Phoenix v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -132418,9 +132418,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "South East Melbourne Phoenix v Melbourne United — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "South East Melbourne Phoenix v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "South East Melbourne Phoenix 99, Melbourne United 104",
-      "synopsisSpoilerOff": "South East Melbourne Phoenix v Melbourne United — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "South East Melbourne Phoenix v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
       "researchDepth": 2
@@ -132481,6 +132481,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayParticipantId": "team:nbl:melbourne-united",
     "endTimeUtc": "2026-10-10T11:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
+    "resultLabels": [
+      "Round 4",
+      "99-104",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Melbourne United",
+      "summary": "South East Melbourne Phoenix 99, Melbourne United 104"
+    },
     "editorialPreview": {
       "status": "journalistic",
       "angle": "2026–27 NBL season — current path",
@@ -132494,15 +132503,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
       "needsPreviewRefresh": false
-    },
-    "resultLabels": [
-      "Round 4",
-      "99-104",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Melbourne United",
-      "summary": "South East Melbourne Phoenix 99, Melbourne United 104"
     }
   },
   {
@@ -132575,7 +132575,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-11T12:40:36.882Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-11T12:40:36.882Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-f1-2026-singapore-sprint",
@@ -133144,7 +133144,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640906",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8956",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -133361,8 +133361,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 4,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Perth Wildcats v New Zealand Breakers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Perth Wildcats v New Zealand Breakers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Perth Wildcats v New Zealand Breakers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Perth Wildcats v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -133418,9 +133418,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Perth Wildcats v New Zealand Breakers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Perth Wildcats v New Zealand Breakers is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Perth Wildcats 100, New Zealand Breakers 84",
-      "synopsisSpoilerOff": "Perth Wildcats v New Zealand Breakers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Perth Wildcats v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
       "researchDepth": 2
@@ -133481,6 +133481,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayParticipantId": "team:nbl:new-zealand-breakers",
     "endTimeUtc": "2026-10-10T13:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
+    "resultLabels": [
+      "Round 4",
+      "100-84",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Perth Wildcats",
+      "summary": "Perth Wildcats 100, New Zealand Breakers 84"
+    },
     "editorialPreview": {
       "status": "journalistic",
       "angle": "2026–27 NBL season — current path",
@@ -133494,15 +133503,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
       "needsPreviewRefresh": false
-    },
-    "resultLabels": [
-      "Round 4",
-      "100-84",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Perth Wildcats",
-      "summary": "Perth Wildcats 100, New Zealand Breakers 84"
     }
   },
   {
@@ -133670,6 +133670,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "resultSourceCheckedAt": "2026-10-11T12:38:51.272Z",
     "scoreCheckedAt": "2026-10-11T12:38:51.272Z",
+    "canonicalResultScoreline": "Arsenal 2-1 Leeds United",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Arsenal — 2026/27 identity under pressure",
@@ -133683,8 +133684,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
       "needsPreviewRefresh": false
-    },
-    "canonicalResultScoreline": "Arsenal 2-1 Leeds United"
+    }
   },
   {
     "id": "fixture-tennis-espn-atp-184897",
@@ -136369,7 +136369,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "live",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -136404,13 +136404,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184350",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+    "statusCheckedAt": "2026-10-11T19:55:36.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184350",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184350",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261010"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261011"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -136424,17 +136424,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "away": 5
       },
       {
-        "home": 4,
-        "away": 1
+        "home": 6,
+        "away": 2
       }
     ],
-    "score": "7–5, 4–1",
-    "scoreDisplay": "7–5, 4–1",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "score": "7–5, 6–2",
+    "scoreDisplay": "7–5, 6–2",
+    "scoreCheckedAt": "2026-10-11T19:55:36.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184350",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "selectedSentence": "",
-    "fullSpiel": "",
+    "resultSourceCheckedAt": "2026-10-11T19:55:36.000Z",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Zheng Qinwen v Elise Mertens",
     "broadcastOptions": [
@@ -136459,7 +136457,32 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "winnerParticipantId": "competitor:tennis:wta:zheng-qinwen",
+    "loserParticipantId": "competitor:tennis:wta:elise-mertens",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:elise-mertens"
+    ],
+    "resultStatus": "published",
+    "result": "7–5, 6–2",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Zheng Qinwen won. 7–5, 6–2",
+    "recapText": "ESPN reports Zheng Qinwen as the winner of this semifinal match. 7–5, 6–2",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Zheng Qinwen v Elise Mertens is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Zheng Qinwen v Elise Mertens is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Zheng Qinwen won. 7–5, 6–2",
+      "synopsisSpoilerOn": "ESPN reports Zheng Qinwen as the winner of this semifinal match. 7–5, 6–2"
+    },
+    "selectedSentence": "Zheng Qinwen v Elise Mertens is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Zheng Qinwen v Elise Mertens is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-184357",
@@ -136692,22 +136715,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-    "selectedSentence": "Los Angeles Dodgers v Atlanta Braves: NLDS 'B' Game 5, if needed, in the race for the National League Championship Series.",
-    "fullSpiel": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-    "lastReviewedAt": "2026-10-11T02:39:29.237Z",
+    "selectedSentence": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "fullSpiel": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Los Angeles Dodgers v Atlanta Braves: NLDS 'B' Game 5, if needed, in the race for the National League Championship Series.",
-      "synopsisSpoilerOff": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "hookSpoilerOn": "Los Angeles Dodgers v Atlanta Braves: NLDS 'B' Game 5, if needed, in the race for the National League Championship Series.",
-      "synopsisSpoilerOn": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOff": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "hookSpoilerOn": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+      "intensitySource": "computed"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Los Angeles Dodgers v Atlanta Braves",
@@ -136875,22 +136896,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-    "selectedSentence": "Milwaukee Brewers v San Diego Padres: NLDS 'A' Game 5, if needed, in the race for the National League Championship Series.",
-    "fullSpiel": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-    "lastReviewedAt": "2026-10-11T02:39:29.237Z",
+    "selectedSentence": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
+    "fullSpiel": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Milwaukee Brewers v San Diego Padres: NLDS 'A' Game 5, if needed, in the race for the National League Championship Series.",
-      "synopsisSpoilerOff": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "hookSpoilerOn": "Milwaukee Brewers v San Diego Padres: NLDS 'A' Game 5, if needed, in the race for the National League Championship Series.",
-      "synopsisSpoilerOn": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOff": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOn": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+      "intensitySource": "computed"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Milwaukee Brewers v San Diego Padres",
@@ -137051,7 +137070,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-11T12:40:36.882Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-11T12:40:36.882Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-32",
@@ -137760,6 +137779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "resultSourceCheckedAt": "2026-10-11T12:38:51.272Z",
     "scoreCheckedAt": "2026-10-11T12:38:51.272Z",
+    "canonicalResultScoreline": "Aston Villa 2-2 Brentford",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Aston Villa — 2026/27 identity under pressure",
@@ -137773,8 +137793,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
       "needsPreviewRefresh": false
-    },
-    "canonicalResultScoreline": "Aston Villa 2-2 Brentford"
+    }
   },
   {
     "id": "epl-2026-27-128975",
@@ -137941,6 +137960,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "resultSourceCheckedAt": "2026-10-11T12:38:51.272Z",
     "scoreCheckedAt": "2026-10-11T12:38:51.272Z",
+    "canonicalResultScoreline": "Chelsea 5-1 Bournemouth",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Chelsea — 2026/27 identity under pressure",
@@ -137954,8 +137974,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
       "needsPreviewRefresh": false
-    },
-    "canonicalResultScoreline": "Chelsea 5-1 Bournemouth"
+    }
   },
   {
     "id": "epl-2026-27-128979",
@@ -138122,6 +138141,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "resultSourceCheckedAt": "2026-10-11T12:38:51.272Z",
     "scoreCheckedAt": "2026-10-11T12:38:51.272Z",
+    "canonicalResultScoreline": "Ipswich Town 2-1 Fulham",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Ipswich Town — 2026/27 identity under pressure",
@@ -138135,8 +138155,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
       "needsPreviewRefresh": false
-    },
-    "canonicalResultScoreline": "Ipswich Town 2-1 Fulham"
+    }
   },
   {
     "id": "epl-2026-27-128982",
@@ -138303,6 +138322,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "resultSourceCheckedAt": "2026-10-11T12:38:51.272Z",
     "scoreCheckedAt": "2026-10-11T12:38:51.272Z",
+    "canonicalResultScoreline": "Sunderland 0-2 Brighton & Hove Albion",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sunderland — 2026/27 identity under pressure",
@@ -138316,8 +138336,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
       "needsPreviewRefresh": false
-    },
-    "canonicalResultScoreline": "Sunderland 0-2 Brighton & Hove Albion"
+    }
   },
   {
     "id": "epl-2026-27-128981",
@@ -138484,6 +138503,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "resultSourceCheckedAt": "2026-10-11T12:38:51.272Z",
     "scoreCheckedAt": "2026-10-11T12:38:51.272Z",
+    "canonicalResultScoreline": "Manchester United 1-1 Tottenham Hotspur",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Manchester United — 2026/27 identity under pressure",
@@ -138497,8 +138517,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
       "needsPreviewRefresh": false
-    },
-    "canonicalResultScoreline": "Manchester United 1-1 Tottenham Hotspur"
+    }
   },
   {
     "id": "fixture-mlb-849831",
@@ -138581,7 +138600,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
     "selectedSentence": "Cleveland Guardians v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Cleveland Guardians v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -138736,61 +138755,32 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bathurst 1000 is complete. Reveal results for the outcome.",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:fixture-research:supercars-bathurst-1000-2026",
+      "projectionId": "projection:supercars-bathurst-1000-2026",
       "researchTier": "marquee",
-      "hook": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
-      "synopsis": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed.",
-      "formCopy": "Bates backed up Friday's record Gen3 qualifying lap by beating Brodie Kostecki in Saturday's Shootout. It is the first Bathurst pole for both the rookie and Matt Stone Racing. Kostecki starts alongside him; Anton De Pasquale is third. Broc Feeney, Cam Waters and Chaz Mostert missed the top ten, so several familiar contenders must build their challenge from further back.",
-      "closingCopy": "For Matt Stone Racing, the front row makes an underdog story tangible without making Sunday a fairytale already won. Kostecki remains the immediate benchmark beside Bates. Toyota's Bend 500 breakthrough still offers a reason for its supporters to believe, but Mostert's grid position asks the team to earn that belief over the distance. One exceptional lap and a complete endurance performance are different achievements.",
+      "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+      "synopsis": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
       "threadIds": [
-        "thread:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
+        "thread:bathurst2026:enduro"
       ],
       "factIds": [
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
-        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5"
+        "fact:bathurst2026:0",
+        "fact:bathurst2026:1",
+        "fact:bathurst2026:2",
+        "fact:bathurst2026:3"
       ],
       "sourceIds": [
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5",
-        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:6"
+        "source:bathurst2026:0",
+        "source:bathurst2026:1",
+        "source:bathurst2026:2"
       ],
       "dimensions": [
-        "form",
-        "history",
-        "matchup",
-        "path"
+        "format",
+        "consequence",
+        "venue"
       ],
-      "researchedAt": "2026-10-10T09:56:08Z",
+      "researchedAt": "2026-09-24T01:50:44.155Z",
       "refreshAfter": "2026-10-11T00:30:00.000Z",
-      "generationMode": "researched",
-      "resultResearchRequired": false,
-      "phase": "preview",
-      "resultSignature": "[\"completed\",\"Brodie Kostecki and Todd Hazelwood won the Bathurst 1000 for Shell V-Power Racing Team.\",\"1. Brodie Kostecki / Todd Hazelwood · 2. Will Brown / Scott Pye · 3. Zach Bates / Aaron Seton\",\"The official Race 30 classification records Kostecki and Hazelwood completing 161 laps in 5:54:04.749. Will Brown and Scott Pye finished second; Zach Bates and Aaron Seton finished third.\"]",
-      "hookSpoilerOn": "Brodie Kostecki and Todd Hazelwood won the Bathurst 1000 for Shell V-Power Racing Team.",
-      "synopsisSpoilerOn": "The official Race 30 classification records Kostecki and Hazelwood completing 161 laps in 5:54:04.749. Will Brown and Scott Pye finished second; Zach Bates and Aaron Seton finished third."
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Bathurst 1000",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:history",
-        "narrative:matchup",
-        "narrative:path"
-      ],
-      "sourceName": "Bathurst 1000 — official research 1",
-      "sourceUrl": "https://www.supercars.com/news/supercars-news-2026-bathurst-1000-top-10-shootout-report-zach-bates-pole-shock-fairytale-matt-stone-racing-results",
-      "sourceCheckedAt": "2026-10-10T09:56:08Z",
-      "needsPreviewRefresh": false
+      "generationMode": "researched"
     },
     "replayEligible": true,
     "highlightEligible": true,
@@ -138799,7 +138789,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timePrecision": "exact",
     "narrativeType": "all",
     "briefingEligible": true,
-    "lastReviewedAt": "2026-10-10T09:56:08Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T07:45:02.471Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -139078,7 +139068,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Bathurst 1000",
       "1. Brodie Kostecki / Todd Hazelwood · 2. Will Brown / Scott Pye · 3. Zach Bates / Aaron Seton",
       "Official result"
-    ]
+    ],
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Bathurst 1000",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup",
+        "narrative:path"
+      ],
+      "sourceName": "Bathurst 1000 — official research 1",
+      "sourceUrl": "https://www.supercars.com/news/supercars-news-2026-bathurst-1000-top-10-shootout-report-zach-bates-pole-shock-fairytale-matt-stone-racing-results",
+      "sourceCheckedAt": "2026-10-10T09:56:08Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "event-aflw-cd_m20262640907",
@@ -139128,7 +139133,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640907",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8957",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -139295,7 +139300,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640908",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8959",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -139504,8 +139509,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 4,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Sydney Kings v Adelaide 36ers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Sydney Kings v Adelaide 36ers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Sydney Kings v Adelaide 36ers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Sydney Kings v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -139560,26 +139565,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Sydney Kings v Adelaide 36ers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Sydney Kings v Adelaide 36ers is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Sydney Kings 78, Adelaide 36ers 84",
-      "synopsisSpoilerOff": "Sydney Kings v Adelaide 36ers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Sydney Kings v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
       "researchDepth": 2
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-      "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "editorialNarrative": {
@@ -139643,7 +139634,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusResult": {
       "winner": "Adelaide 36ers",
       "summary": "Sydney Kings 78, Adelaide 36ers 84"
-    }
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "2026–27 NBL season — current path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
+      "needsPreviewRefresh": false
+    },
+    "endTimeUtc": "2026-10-11T07:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640909",
@@ -139693,7 +139700,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640909",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8960",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -139902,8 +139909,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 4,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Illawarra Hawks v Cairns Taipans — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Illawarra Hawks v Cairns Taipans — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Illawarra Hawks v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Illawarra Hawks v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
     "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -139958,26 +139965,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 5,
-      "hookSpoilerOff": "Illawarra Hawks v Cairns Taipans — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOff": "Illawarra Hawks v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Illawarra Hawks 100, Cairns Taipans 110",
-      "synopsisSpoilerOff": "Illawarra Hawks v Cairns Taipans — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOff": "Illawarra Hawks v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Official NBL result.",
       "lastReviewedAt": "2026-10-11T12:40:11.243Z",
       "researchDepth": 2
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "2026–27 NBL season — current path",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceName": "NBL official schedule",
-      "sourceUrl": "https://schedule.nbl.com.au/nbl",
-      "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-      "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-11T12:40:11.243Z",
     "editorialNarrative": {
@@ -140041,7 +140034,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusResult": {
       "winner": "Cairns Taipans",
       "summary": "Illawarra Hawks 100, Cairns Taipans 110"
-    }
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "2026–27 NBL season — current path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
+      "needsPreviewRefresh": false
+    },
+    "endTimeUtc": "2026-10-11T09:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_33",
@@ -140080,14 +140089,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Race",
     "stage": "Race",
     "narrativeType": "all",
-    "selectedSentence": "Singapore’s first Sprint weekend culminates in Sunday’s Grand Prix after competitive running on all three days.",
-    "fullSpiel": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
-    "sourceCheckedAt": "2026-10-11T12:37:25.437Z",
+    "selectedSentence": "Singapore GP · Race is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Singapore GP · Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Formula 1 official session results",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/races/1296/singapore/race-result",
+    "sourceCheckedAt": "2026-10-11T19:54:46.043Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "upcoming",
+    "status": "completed",
     "sportDomainId": "sport:f1",
     "discoverySportId": "sport:f1",
     "competitionId": "competition:formula-one",
@@ -140103,12 +140112,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
+      "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Singapore’s first Sprint weekend culminates in Sunday’s Grand Prix after competitive running on all three days.",
-      "hookSpoilerOn": "Singapore’s first Sprint weekend culminates in Sunday’s Grand Prix after competitive running on all three days.",
-      "synopsisSpoilerOff": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
-      "synopsisSpoilerOn": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
+      "hookSpoilerOff": "Singapore GP · Race is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Max Verstappen won Singapore GP · Race.",
+      "synopsisSpoilerOff": "Singapore GP · Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Max Verstappen won Singapore GP · Race. 1. Max Verstappen (Red Bull Racing); 2. Charles Leclerc (Ferrari); 3. Kimi Antonelli (Mercedes).",
       "intensitySource": "computed",
       "researchDepth": 5,
       "lastReviewedAt": "2026-10-11T12:40:11.243Z"
@@ -140161,7 +140170,41 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "phase": "preview"
     },
     "statusCheckedAt": "2026-09-30T12:54:17.477Z",
-    "participantIds": [],
+    "participantIds": [
+      "competitor:f1:max-verstappen",
+      "team:f1:red-bull-racing",
+      "competitor:f1:charles-leclerc",
+      "team:f1:ferrari",
+      "competitor:f1:kimi-antonelli",
+      "team:f1:mercedes",
+      "competitor:f1:lando-norris",
+      "team:f1:mclaren",
+      "competitor:f1:oscar-piastri",
+      "competitor:f1:lewis-hamilton",
+      "competitor:f1:liam-lawson",
+      "team:f1:racing-bulls",
+      "competitor:f1:nico-hulkenberg",
+      "team:f1:audi",
+      "competitor:f1:george-russell",
+      "competitor:f1:isack-hadjar",
+      "competitor:f1:pierre-gasly",
+      "team:f1:alpine",
+      "competitor:f1:oliver-bearman",
+      "team:f1:haas",
+      "competitor:f1:esteban-ocon",
+      "competitor:f1:carlos-sainz",
+      "team:f1:williams",
+      "competitor:f1:arvid-lindblad",
+      "competitor:f1:fernando-alonso",
+      "team:f1:aston-martin",
+      "competitor:f1:sergio-perez",
+      "team:f1:cadillac",
+      "competitor:f1:alexander-albon",
+      "competitor:f1:valtteri-bottas",
+      "competitor:f1:lance-stroll",
+      "competitor:f1:franco-colapinto",
+      "competitor:f1:gabriel-bortoleto"
+    ],
     "participantSlots": [],
     "participantCountryCodes": [],
     "broadcasts": [],
@@ -140174,9 +140217,429 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "dateOnly": false,
     "endTimeUtc": "2026-10-11T14:00:00.000Z",
     "sessionType": "Race",
-    "resultStatus": "pending",
+    "resultStatus": "official",
     "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1296/singapore/race-result",
-    "resultSourceCheckedAt": "2026-10-11T12:38:55.768Z"
+    "resultSourceCheckedAt": "2026-10-11T19:54:46.043Z",
+    "score": "1. Max Verstappen · 2. Charles Leclerc · 3. Kimi Antonelli",
+    "outcomeText": "Max Verstappen won Singapore GP · Race.",
+    "recapText": "Max Verstappen won Singapore GP · Race. 1. Max Verstappen (Red Bull Racing); 2. Charles Leclerc (Ferrari); 3. Kimi Antonelli (Mercedes).",
+    "resultPublishedAt": "2026-10-11T19:54:46.043Z",
+    "scoreCheckedAt": "2026-10-11T19:54:46.043Z",
+    "fixtureResults": {
+      "schemaVersion": "fixture-results.v1",
+      "columns": [
+        "Pos",
+        "No",
+        "Driver",
+        "Car",
+        "Laps",
+        "Time / retired",
+        "Points"
+      ],
+      "rows": [
+        [
+          "1",
+          "3",
+          "Max Verstappen",
+          "Red Bull Racing",
+          "62",
+          "1:42:00.785",
+          "25"
+        ],
+        [
+          "2",
+          "16",
+          "Charles Leclerc",
+          "Ferrari",
+          "62",
+          "+7.335s",
+          "18"
+        ],
+        [
+          "3",
+          "12",
+          "Kimi Antonelli",
+          "Mercedes",
+          "62",
+          "+24.573s",
+          "15"
+        ],
+        [
+          "4",
+          "1",
+          "Lando Norris",
+          "McLaren",
+          "62",
+          "+40.506s",
+          "12"
+        ],
+        [
+          "5",
+          "81",
+          "Oscar Piastri",
+          "McLaren",
+          "62",
+          "+49.644s",
+          "10"
+        ],
+        [
+          "6",
+          "44",
+          "Lewis Hamilton",
+          "Ferrari",
+          "62",
+          "+53.188s",
+          "8"
+        ],
+        [
+          "7",
+          "30",
+          "Liam Lawson",
+          "Racing Bulls",
+          "62",
+          "+81.666s",
+          "6"
+        ],
+        [
+          "8",
+          "27",
+          "Nico Hulkenberg",
+          "Audi",
+          "62",
+          "+83.386s",
+          "4"
+        ],
+        [
+          "9",
+          "63",
+          "George Russell",
+          "Mercedes",
+          "62",
+          "+84.677s",
+          "2"
+        ],
+        [
+          "10",
+          "6",
+          "Isack Hadjar",
+          "Red Bull Racing",
+          "62",
+          "+90.862s",
+          "1"
+        ],
+        [
+          "11",
+          "10",
+          "Pierre Gasly",
+          "Alpine",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "12",
+          "87",
+          "Oliver Bearman",
+          "Haas F1 Team",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "13",
+          "31",
+          "Esteban Ocon",
+          "Haas F1 Team",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "14",
+          "55",
+          "Carlos Sainz",
+          "Williams",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "15",
+          "41",
+          "Arvid Lindblad",
+          "Racing Bulls",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "16",
+          "14",
+          "Fernando Alonso",
+          "Aston Martin",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "17",
+          "11",
+          "Sergio Perez",
+          "Cadillac",
+          "60",
+          "+2 laps",
+          "0"
+        ],
+        [
+          "18",
+          "23",
+          "Alexander Albon",
+          "Williams",
+          "59",
+          "DNF",
+          "0"
+        ],
+        [
+          "19",
+          "77",
+          "Valtteri Bottas",
+          "Cadillac",
+          "59",
+          "+3 laps",
+          "0"
+        ],
+        [
+          "NC",
+          "18",
+          "Lance Stroll",
+          "Aston Martin",
+          "36",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "43",
+          "Franco Colapinto",
+          "Alpine",
+          "29",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "5",
+          "Gabriel Bortoleto",
+          "Audi",
+          "7",
+          "DNF",
+          "0"
+        ]
+      ],
+      "sourceUrl": "https://www.formula1.com/en/results/2026/races/1296/singapore/race-result",
+      "checkedAt": "2026-10-11T19:54:46.043Z"
+    },
+    "participants": [
+      {
+        "id": "competitor:f1:max-verstappen",
+        "name": "Max Verstappen",
+        "displayName": "Max Verstappen",
+        "countryCode": "NL"
+      },
+      {
+        "id": "team:f1:red-bull-racing",
+        "name": "Red Bull Racing",
+        "displayName": "Red Bull Racing",
+        "countryCode": "AT"
+      },
+      {
+        "id": "competitor:f1:charles-leclerc",
+        "name": "Charles Leclerc",
+        "displayName": "Charles Leclerc",
+        "countryCode": "MC"
+      },
+      {
+        "id": "team:f1:ferrari",
+        "name": "Ferrari",
+        "displayName": "Ferrari",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:f1:kimi-antonelli",
+        "name": "Kimi Antonelli",
+        "displayName": "Kimi Antonelli",
+        "countryCode": "IT"
+      },
+      {
+        "id": "team:f1:mercedes",
+        "name": "Mercedes",
+        "displayName": "Mercedes",
+        "countryCode": "DE"
+      },
+      {
+        "id": "competitor:f1:lando-norris",
+        "name": "Lando Norris",
+        "displayName": "Lando Norris",
+        "countryCode": "GB"
+      },
+      {
+        "id": "team:f1:mclaren",
+        "name": "McLaren",
+        "displayName": "McLaren",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:oscar-piastri",
+        "name": "Oscar Piastri",
+        "displayName": "Oscar Piastri",
+        "countryCode": "AU"
+      },
+      {
+        "id": "competitor:f1:lewis-hamilton",
+        "name": "Lewis Hamilton",
+        "displayName": "Lewis Hamilton",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:liam-lawson",
+        "name": "Liam Lawson",
+        "displayName": "Liam Lawson",
+        "countryCode": "NZ"
+      },
+      {
+        "id": "team:f1:racing-bulls",
+        "name": "Racing Bulls",
+        "displayName": "Racing Bulls",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:f1:nico-hulkenberg",
+        "name": "Nico Hulkenberg",
+        "displayName": "Nico Hulkenberg",
+        "countryCode": "DE"
+      },
+      {
+        "id": "team:f1:audi",
+        "name": "Audi",
+        "displayName": "Audi",
+        "countryCode": "DE"
+      },
+      {
+        "id": "competitor:f1:george-russell",
+        "name": "George Russell",
+        "displayName": "George Russell",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:isack-hadjar",
+        "name": "Isack Hadjar",
+        "displayName": "Isack Hadjar",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:f1:pierre-gasly",
+        "name": "Pierre Gasly",
+        "displayName": "Pierre Gasly",
+        "countryCode": "FR"
+      },
+      {
+        "id": "team:f1:alpine",
+        "name": "Alpine",
+        "displayName": "Alpine",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:f1:oliver-bearman",
+        "name": "Oliver Bearman",
+        "displayName": "Oliver Bearman",
+        "countryCode": "GB"
+      },
+      {
+        "id": "team:f1:haas",
+        "name": "Haas F1 Team",
+        "displayName": "Haas F1 Team",
+        "countryCode": "US"
+      },
+      {
+        "id": "competitor:f1:esteban-ocon",
+        "name": "Esteban Ocon",
+        "displayName": "Esteban Ocon",
+        "countryCode": "FR"
+      },
+      {
+        "id": "competitor:f1:carlos-sainz",
+        "name": "Carlos Sainz",
+        "displayName": "Carlos Sainz",
+        "countryCode": "ES"
+      },
+      {
+        "id": "team:f1:williams",
+        "name": "Williams",
+        "displayName": "Williams",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:arvid-lindblad",
+        "name": "Arvid Lindblad",
+        "displayName": "Arvid Lindblad",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:fernando-alonso",
+        "name": "Fernando Alonso",
+        "displayName": "Fernando Alonso",
+        "countryCode": "ES"
+      },
+      {
+        "id": "team:f1:aston-martin",
+        "name": "Aston Martin",
+        "displayName": "Aston Martin",
+        "countryCode": "GB"
+      },
+      {
+        "id": "competitor:f1:sergio-perez",
+        "name": "Sergio Perez",
+        "displayName": "Sergio Perez",
+        "countryCode": "MX"
+      },
+      {
+        "id": "team:f1:cadillac",
+        "name": "Cadillac",
+        "displayName": "Cadillac",
+        "countryCode": "US"
+      },
+      {
+        "id": "competitor:f1:alexander-albon",
+        "name": "Alexander Albon",
+        "displayName": "Alexander Albon",
+        "countryCode": "TH"
+      },
+      {
+        "id": "competitor:f1:valtteri-bottas",
+        "name": "Valtteri Bottas",
+        "displayName": "Valtteri Bottas",
+        "countryCode": "FI"
+      },
+      {
+        "id": "competitor:f1:lance-stroll",
+        "name": "Lance Stroll",
+        "displayName": "Lance Stroll",
+        "countryCode": "CA"
+      },
+      {
+        "id": "competitor:f1:franco-colapinto",
+        "name": "Franco Colapinto",
+        "displayName": "Franco Colapinto",
+        "countryCode": "AR"
+      },
+      {
+        "id": "competitor:f1:gabriel-bortoleto",
+        "name": "Gabriel Bortoleto",
+        "displayName": "Gabriel Bortoleto",
+        "countryCode": "BR"
+      }
+    ],
+    "participantsConfirmed": true
   },
   {
     "id": "fixture-tennis-espn-atp-184930",
@@ -140548,12 +141011,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-11",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-11T12:40:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-11T12:50:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -140589,8 +141052,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184936",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+    "statusCheckedAt": "2026-10-11T19:55:36.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184936",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -140615,8 +141078,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Stadium Court",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alejandro Davidovich Fokina v Frances Tiafoe",
     "broadcastOptions": [],
@@ -140639,7 +141100,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 4
+      },
+      {
+        "home": 4,
+        "away": 6
+      },
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 8,
+        "awayTiebreak": 6
+      }
+    ],
+    "score": "7–6, 4–6, 7–6",
+    "scoreDisplay": "7–6, 4–6, 7–6",
+    "scoreCheckedAt": "2026-10-11T19:55:36.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184936",
+    "resultSourceCheckedAt": "2026-10-11T19:55:36.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
+    "loserParticipantId": "competitor:tennis:atp:frances-tiafoe",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:frances-tiafoe"
+    ],
+    "resultStatus": "published",
+    "result": "7–6, 4–6, 7–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Alejandro Davidovich Fokina won. 7–6, 4–6, 7–6",
+    "recapText": "ESPN reports Alejandro Davidovich Fokina as the winner of this round of 32 match. 7–6, 4–6, 7–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Alejandro Davidovich Fokina v Frances Tiafoe is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Alejandro Davidovich Fokina v Frances Tiafoe is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Alejandro Davidovich Fokina won. 7–6, 4–6, 7–6",
+      "synopsisSpoilerOn": "ESPN reports Alejandro Davidovich Fokina as the winner of this round of 32 match. 7–6, 4–6, 7–6"
+    },
+    "selectedSentence": "Alejandro Davidovich Fokina v Frances Tiafoe is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Alejandro Davidovich Fokina v Frances Tiafoe is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184943",
@@ -140885,22 +141394,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-    "selectedSentence": "Tampa Bay Rays v New York Yankees: ALDS 'A' Game 5, if needed, in the race for the American League Championship Series.",
-    "fullSpiel": "American League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-    "lastReviewedAt": "2026-10-11T02:39:29.237Z",
+    "selectedSentence": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+    "fullSpiel": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Tampa Bay Rays v New York Yankees: ALDS 'A' Game 5, if needed, in the race for the American League Championship Series.",
-      "synopsisSpoilerOff": "American League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "hookSpoilerOn": "Tampa Bay Rays v New York Yankees: ALDS 'A' Game 5, if needed, in the race for the American League Championship Series.",
-      "synopsisSpoilerOn": "American League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOff": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+      "hookSpoilerOn": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+      "intensitySource": "computed"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Tampa Bay Rays v New York Yankees",
@@ -141053,7 +141560,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -141062,11 +141569,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Nottingham Forest's Glasner reset comes to Crystal Palace, directly testing Crystal Palace's Pierre Sage transition.",
-    "fullSpiel": "Crystal Palace arrives with 1W-1D-3L, while Nottingham Forest brings 1W-2D-2L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new build-from-the-back version of their established shape against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
+    "selectedSentence": "Crystal Palace v Nottingham Forest is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Crystal Palace v Nottingham Forest is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-11T19:54:46.043Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-30T22:50:31.966Z",
@@ -141124,12 +141631,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Nottingham Forest's Glasner reset comes to Crystal Palace, directly testing Crystal Palace's Pierre Sage transition.",
-      "hookSpoilerOn": "Nottingham Forest's Glasner reset comes to Crystal Palace, directly testing Crystal Palace's Pierre Sage transition.",
-      "synopsisSpoilerOff": "Crystal Palace arrives with 1W-1D-3L, while Nottingham Forest brings 1W-2D-2L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new build-from-the-back version of their established shape against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Crystal Palace arrives with 1W-1D-3L, while Nottingham Forest brings 1W-2D-2L. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new build-from-the-back version of their established shape against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-30T22:50:31.966Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Crystal Palace v Nottingham Forest is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Crystal Palace defeated Nottingham Forest 3-1.",
+      "synopsisSpoilerOff": "Crystal Palace v Nottingham Forest is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Crystal Palace completed a 2-goal win in Premier League Matchweek 6.",
+      "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -141150,7 +141661,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Crystal Palace 3-1 Nottingham Forest",
+    "outcomeText": "Crystal Palace defeated Nottingham Forest 3-1.",
+    "recapText": "Crystal Palace completed a 2-goal win in Premier League Matchweek 6.",
+    "homeScore": 3,
+    "awayScore": 1,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-11T19:54:46.043Z",
+    "scoreCheckedAt": "2026-10-11T19:54:46.043Z"
   },
   {
     "id": "epl-2026-27-128978",
@@ -141214,7 +141733,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -141223,11 +141742,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Hull's top-flight return after nine years against Everton's search for more attack: one result will move two very different season stories.",
-    "fullSpiel": "Hull City arrives with 2W-2D-1L, while Everton brings 2W-3D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a playoff-built counterattack against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
+    "selectedSentence": "Hull City v Everton is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Hull City v Everton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-11T19:54:46.043Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-30T22:50:31.966Z",
@@ -141287,12 +141806,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Hull's top-flight return after nine years against Everton's search for more attack: one result will move two very different season stories.",
-      "hookSpoilerOn": "Hull's top-flight return after nine years against Everton's search for more attack: one result will move two very different season stories.",
-      "synopsisSpoilerOff": "Hull City arrives with 2W-2D-1L, while Everton brings 2W-3D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a playoff-built counterattack against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Hull City arrives with 2W-2D-1L, while Everton brings 2W-3D-0L. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a playoff-built counterattack against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-30T22:50:31.966Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Hull City v Everton is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Hull City drew Everton 2-2.",
+      "synopsisSpoilerOff": "Hull City v Everton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Hull City and Everton shared the points after a 2-2 draw.",
+      "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -141313,7 +141836,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Hull City 2-2 Everton",
+    "outcomeText": "Hull City drew Everton 2-2.",
+    "recapText": "Hull City and Everton shared the points after a 2-2 draw.",
+    "homeScore": 2,
+    "awayScore": 2,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-11T19:54:46.043Z",
+    "scoreCheckedAt": "2026-10-11T19:54:46.043Z"
   },
   {
     "id": "epl-2026-27-128980",
@@ -141377,7 +141908,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "expected": 6,
     "liveWindow": 3,
     "round": "all",
@@ -141386,11 +141917,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "competitionName": "Premier League",
     "season": "2026/27",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-    "fullSpiel": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+    "selectedSentence": "Liverpool v Manchester City is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Liverpool v Manchester City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
+    "sourceCheckedAt": "2026-10-11T19:54:46.043Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "lastReviewedAt": "2026-09-30T22:50:31.966Z",
@@ -141450,12 +141981,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "researchDepth": 2,
-      "arcStage": "preview",
-      "hookSpoilerOff": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-      "hookSpoilerOn": "Manchester City's first post-Guardiola campaign comes to Liverpool, directly testing Liverpool's high-press rebuild.",
-      "synopsisSpoilerOff": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
-      "synopsisSpoilerOn": "Liverpool arrives with 2W-3D-0L, while Manchester City brings 5 wins from 5. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
-      "lastReviewedAt": "2026-09-30T22:50:31.966Z"
+      "arcStage": "recap",
+      "hookSpoilerOff": "Liverpool v Manchester City is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Manchester City defeated Liverpool 3-0.",
+      "synopsisSpoilerOff": "Liverpool v Manchester City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Manchester City completed a 3-goal win in Premier League Matchweek 6.",
+      "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+      "stakes": 3,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
     },
     "statusCheckedAt": "2026-09-30T13:17:48.846Z",
     "timePrecision": "exact",
@@ -141476,7 +142011,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "checkedAt": "2026-10-03T20:55:46.267Z",
       "precision": "exact",
       "sourcePublishedAt": "2026-08-17"
-    }
+    },
+    "score": "Liverpool 0-3 Manchester City",
+    "outcomeText": "Manchester City defeated Liverpool 3-0.",
+    "recapText": "Manchester City completed a 3-goal win in Premier League Matchweek 6.",
+    "homeScore": 0,
+    "awayScore": 3,
+    "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
+    "resultSourceCheckedAt": "2026-10-11T19:54:46.043Z",
+    "scoreCheckedAt": "2026-10-11T19:54:46.043Z"
   },
   {
     "id": "fixture-mlb-849809",
@@ -141556,22 +142099,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 1, in the race for the World Series.",
-    "fullSpiel": "National League Championship Series Game 1 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue.",
-    "lastReviewedAt": "2026-10-11T02:39:29.237Z",
+    "selectedSentence": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 1, in the race for the World Series.",
-      "synopsisSpoilerOff": "National League Championship Series Game 1 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue.",
-      "hookSpoilerOn": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 1, in the race for the World Series.",
-      "synopsisSpoilerOn": "National League Championship Series Game 1 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue.",
+      "hookSpoilerOff": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+      "intensitySource": "computed"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
@@ -144126,22 +144667,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 2, in the race for the World Series.",
-    "fullSpiel": "National League Championship Series Game 2 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue.",
-    "lastReviewedAt": "2026-10-11T02:39:29.237Z",
+    "selectedSentence": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 2, in the race for the World Series.",
-      "synopsisSpoilerOff": "National League Championship Series Game 2 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue.",
-      "hookSpoilerOn": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 2, in the race for the World Series.",
-      "synopsisSpoilerOn": "National League Championship Series Game 2 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue.",
+      "hookSpoilerOff": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+      "intensitySource": "computed"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
@@ -144309,22 +144848,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 1, in the race for the World Series.",
-    "fullSpiel": "American League Championship Series Game 1 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue.",
-    "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+    "selectedSentence": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
+    "fullSpiel": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 1, in the race for the World Series.",
-      "synopsisSpoilerOff": "American League Championship Series Game 1 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue.",
-      "hookSpoilerOn": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 1, in the race for the World Series.",
-      "synopsisSpoilerOn": "American League Championship Series Game 1 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue.",
+      "hookSpoilerOff": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
+      "hookSpoilerOn": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
+      "intensitySource": "computed"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -146314,22 +146851,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 2, in the race for the World Series.",
-    "fullSpiel": "American League Championship Series Game 2 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue.",
-    "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+    "selectedSentence": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+    "fullSpiel": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 2, in the race for the World Series.",
-      "synopsisSpoilerOff": "American League Championship Series Game 2 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue.",
-      "hookSpoilerOn": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 2, in the race for the World Series.",
-      "synopsisSpoilerOn": "American League Championship Series Game 2 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue.",
+      "hookSpoilerOff": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+      "hookSpoilerOn": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
+      "intensitySource": "computed"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -146704,22 +147239,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 3, in the race for the World Series.",
-    "fullSpiel": "National League Championship Series Game 3 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
-    "lastReviewedAt": "2026-10-11T02:39:29.237Z",
+    "selectedSentence": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 3, in the race for the World Series.",
-      "synopsisSpoilerOff": "National League Championship Series Game 3 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
-      "hookSpoilerOn": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 3, in the race for the World Series.",
-      "synopsisSpoilerOn": "National League Championship Series Game 3 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
+      "hookSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+      "intensitySource": "computed"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
@@ -147233,22 +147766,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 3, in the race for the World Series.",
-    "fullSpiel": "American League Championship Series Game 3 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
-    "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+    "selectedSentence": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+    "fullSpiel": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 3, in the race for the World Series.",
-      "synopsisSpoilerOff": "American League Championship Series Game 3 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
-      "hookSpoilerOn": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 3, in the race for the World Series.",
-      "synopsisSpoilerOn": "American League Championship Series Game 3 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
+      "hookSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+      "hookSpoilerOn": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
+      "intensitySource": "computed"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -147416,22 +147947,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
-    "fullSpiel": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
-    "lastReviewedAt": "2026-10-11T02:39:29.237Z",
+    "selectedSentence": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
-      "synopsisSpoilerOff": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
-      "hookSpoilerOn": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
-      "synopsisSpoilerOn": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
+      "hookSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+      "intensitySource": "computed"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
@@ -147569,7 +148098,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641001",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8961",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -148046,22 +148575,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 4, in the race for the World Series.",
-    "fullSpiel": "American League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
-    "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+    "selectedSentence": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+    "fullSpiel": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 4, in the race for the World Series.",
-      "synopsisSpoilerOff": "American League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
-      "hookSpoilerOn": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 4, in the race for the World Series.",
-      "synopsisSpoilerOn": "American League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
+      "hookSpoilerOff": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+      "hookSpoilerOn": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
+      "intensitySource": "computed"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -148199,7 +148726,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641002",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8962",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -148337,7 +148864,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641003",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8964",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -148650,7 +149177,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641004",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8963",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -149002,7 +149529,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641005",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8966",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -150218,22 +150745,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 5, if needed, in the race for the World Series.",
-    "fullSpiel": "National League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-    "lastReviewedAt": "2026-10-11T02:39:29.237Z",
+    "selectedSentence": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 5, if needed, in the race for the World Series.",
-      "synopsisSpoilerOff": "National League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "hookSpoilerOn": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 5, if needed, in the race for the World Series.",
-      "synopsisSpoilerOn": "National League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOff": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+      "intensitySource": "computed"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
@@ -151023,7 +151548,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641006",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8965",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -151174,7 +151699,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641007",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8967",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -151506,7 +152031,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641008",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8968",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -151850,7 +152375,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641009",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8969",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -152181,22 +152706,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 5, if needed, in the race for the World Series.",
-    "fullSpiel": "American League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-    "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+    "selectedSentence": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+    "fullSpiel": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 5, if needed, in the race for the World Series.",
-      "synopsisSpoilerOff": "American League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "hookSpoilerOn": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 5, if needed, in the race for the World Series.",
-      "synopsisSpoilerOn": "American League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOff": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+      "hookSpoilerOn": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
+      "intensitySource": "computed"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -153014,22 +153537,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 6, if needed, in the race for the World Series.",
-    "fullSpiel": "National League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-    "lastReviewedAt": "2026-10-11T02:39:29.237Z",
+    "selectedSentence": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 6, if needed, in the race for the World Series.",
-      "synopsisSpoilerOff": "National League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "hookSpoilerOn": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 6, if needed, in the race for the World Series.",
-      "synopsisSpoilerOn": "National League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOff": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+      "intensitySource": "computed"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
@@ -153360,22 +153881,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 7, if needed, in the race for the World Series.",
-    "fullSpiel": "National League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-    "lastReviewedAt": "2026-10-11T02:39:29.237Z",
+    "selectedSentence": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+    "fullSpiel": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 7, if needed, in the race for the World Series.",
-      "synopsisSpoilerOff": "National League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "hookSpoilerOn": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 7, if needed, in the race for the World Series.",
-      "synopsisSpoilerOn": "National League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOff": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+      "intensitySource": "computed"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
@@ -153543,22 +154062,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 6, if needed, in the race for the World Series.",
-    "fullSpiel": "American League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-    "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+    "selectedSentence": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+    "fullSpiel": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 6, if needed, in the race for the World Series.",
-      "synopsisSpoilerOff": "American League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "hookSpoilerOn": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 6, if needed, in the race for the World Series.",
-      "synopsisSpoilerOn": "American League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOff": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+      "hookSpoilerOn": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
+      "intensitySource": "computed"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -153932,22 +154449,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 7, if needed, in the race for the World Series.",
-    "fullSpiel": "American League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-    "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+    "selectedSentence": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+    "fullSpiel": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 7, if needed, in the race for the World Series.",
-      "synopsisSpoilerOff": "American League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "hookSpoilerOn": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 7, if needed, in the race for the World Series.",
-      "synopsisSpoilerOn": "American League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOff": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+      "synopsisSpoilerOff": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+      "hookSpoilerOn": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+      "synopsisSpoilerOn": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "researchDepth": 2,
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
+      "intensitySource": "computed"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -154291,7 +154806,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641101",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8970",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -155058,7 +155573,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641102",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8971",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -155196,7 +155711,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641103",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8974",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -155334,7 +155849,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641104",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8972",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -155686,7 +156201,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641105",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8973",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -157375,7 +157890,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641106",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8977",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -157513,7 +158028,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641107",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8979",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -157858,7 +158373,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641108",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8976",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -158215,7 +158730,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641109",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8975",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -160151,7 +160666,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641201",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8978",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -160755,7 +161270,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641202",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8984",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -160893,7 +161408,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641203",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8980",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -161031,7 +161546,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641204",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8981",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -161169,7 +161684,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641205",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8982",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -163605,7 +164120,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641206",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8983",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -163730,7 +164245,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641207",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8986",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -164074,7 +164589,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641208",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8985",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -164418,7 +164933,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641209",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8987",
-    "canonicalSourceCheckedAt": "2026-10-11T12:36:10.127Z",
+    "canonicalSourceCheckedAt": "2026-10-11T19:55:06.709Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -234230,7 +234745,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Thailand Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -234239,6 +234754,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Thailand Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_thailand_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -234250,17 +234775,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_thailand_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_thailand_sprint",
@@ -234317,8 +234832,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 1,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Thailand Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Thailand Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Thailand Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Thailand Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -234377,15 +234892,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Thailand Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Thailand Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Thailand Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Thailand Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Thailand Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Thailand Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_thailand_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -234398,16 +234923,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_thailand_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-02-28T09:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_thailand_race",
@@ -234464,8 +234981,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 1,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Thailand Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Thailand Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Thailand Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Thailand Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -234524,15 +235041,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Thailand Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Thailand Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Thailand Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Thailand Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Thailand Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Thailand Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_thailand_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -234545,16 +235072,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_thailand_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-03-01T09:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_thailand_practice_1",
@@ -234668,7 +235187,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Thailand Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -234677,6 +235196,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Thailand Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_thailand_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -234688,17 +235217,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_thailand_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_thailand_practice",
@@ -234812,7 +235331,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Thailand Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -234821,6 +235340,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Thailand Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_thailand_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -234832,17 +235361,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_thailand_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_thailand_practice_2",
@@ -234956,7 +235475,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Thailand Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -234965,6 +235484,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Thailand Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_thailand_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -234976,17 +235505,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_thailand_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_thailand_warmup",
@@ -235100,7 +235619,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Thailand Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -235109,6 +235628,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Thailand Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_thailand_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -235120,17 +235649,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/thailand/364a0bd9-d3c2-4ab3-a4cd-211ff469953e",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_thailand_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_brazil_qualifying",
@@ -235249,7 +235768,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Brazil Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -235258,6 +235777,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Brazil Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_brazil_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -235269,17 +235798,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_brazil_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_brazil_sprint",
@@ -235336,8 +235855,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 2,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Brazil Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Brazil Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Brazil Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Brazil Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -235396,15 +235915,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Brazil Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Brazil Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Brazil Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Brazil Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Brazil Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Brazil Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_brazil_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -235417,16 +235946,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_brazil_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-03-21T20:20:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_brazil_race",
@@ -235483,8 +236004,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 2,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Brazil Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Brazil Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Brazil Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Brazil Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -235543,15 +236064,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Brazil Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Brazil Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Brazil Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Brazil Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Brazil Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Brazil Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_brazil_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -235564,16 +236095,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_brazil_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-03-22T19:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_brazil_practice_1",
@@ -235687,7 +236210,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Brazil Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -235696,6 +236219,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Brazil Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_brazil_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -235707,17 +236240,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_brazil_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_brazil_practice",
@@ -235831,7 +236354,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Brazil Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -235840,6 +236363,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Brazil Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_brazil_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -235851,17 +236384,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_brazil_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_brazil_practice_2",
@@ -235975,7 +236498,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Brazil Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -235984,6 +236507,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Brazil Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_brazil_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -235995,17 +236528,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_brazil_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_brazil_warmup",
@@ -236119,7 +236642,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Brazil Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -236128,6 +236651,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Brazil Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_brazil_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -236139,17 +236672,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/brasil/11588b5a-f76c-4c8e-ae06-acba82ff1303",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_brazil_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_united_states_qualifying",
@@ -236268,7 +236791,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Americas Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -236277,6 +236800,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Americas Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_united_states_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -236288,17 +236821,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_united_states_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_united_states_sprint",
@@ -236355,8 +236878,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 3,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Americas Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Americas Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Americas Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Americas Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -236415,15 +236938,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Americas Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Americas Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Americas Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Americas Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Americas Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Americas Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_united_states_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -236436,16 +236969,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_united_states_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-03-28T21:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_united_states_race",
@@ -236502,8 +237027,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 3,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Americas Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Americas Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Americas Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Americas Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -236562,15 +237087,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Americas Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Americas Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Americas Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Americas Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Americas Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Americas Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_united_states_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -236583,16 +237118,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_united_states_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-03-29T21:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_united_states_practice_1",
@@ -236706,7 +237233,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Americas Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -236715,6 +237242,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Americas Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_united_states_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -236726,17 +237263,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_united_states_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_united_states_practice",
@@ -236850,7 +237377,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Americas Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -236859,6 +237386,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Americas Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_united_states_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -236870,17 +237407,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_united_states_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_united_states_practice_2",
@@ -236994,7 +237521,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Americas Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -237003,6 +237530,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Americas Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_united_states_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -237014,17 +237551,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_united_states_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_united_states_warmup",
@@ -237138,7 +237665,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Americas Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -237147,6 +237674,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Americas Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_united_states_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -237158,17 +237695,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/americas/8c83648e-8ec9-40f1-9ba0-b0f19883e7d7",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_united_states_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_spain_qualifying",
@@ -237287,7 +237814,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Spain Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -237296,6 +237823,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Spain Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_spain_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -237307,17 +237844,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_spain_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_spain_sprint",
@@ -237374,8 +237901,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 4,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Spain Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Spain Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Spain Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Spain Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -237434,15 +237961,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Spain Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Spain Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Spain Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Spain Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Spain Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Spain Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_spain_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -237455,16 +237992,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_spain_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-04-25T14:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_spain_race",
@@ -237521,8 +238050,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 4,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Spain Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Spain Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Spain Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Spain Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -237581,15 +238110,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Spain Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Spain Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Spain Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Spain Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Spain Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Spain Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_spain_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -237602,16 +238141,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_spain_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-04-26T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_spain_practice_1",
@@ -237725,7 +238256,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Spain Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -237734,6 +238265,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Spain Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_spain_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -237745,17 +238286,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_spain_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_spain_practice",
@@ -237869,7 +238400,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Spain Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -237878,6 +238409,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Spain Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_spain_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -237889,17 +238430,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_spain_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_spain_practice_2",
@@ -238013,7 +238544,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Spain Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -238022,6 +238553,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Spain Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_spain_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -238033,17 +238574,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_spain_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_spain_warmup",
@@ -238157,7 +238688,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Spain Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -238166,6 +238697,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Spain Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_spain_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -238177,17 +238718,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/espa-a/a24be69b-8472-4aa4-9e83-d3610e0f1d98",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_spain_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_france_qualifying",
@@ -238306,7 +238837,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP France Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -238315,6 +238846,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP France Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_france_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -238326,17 +238867,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_france_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_france_sprint",
@@ -238393,8 +238924,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 5,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP France Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP France Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP France Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP France Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -238453,15 +238984,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP France Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP France Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP France Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP France Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP France Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP France Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_france_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -238474,16 +239015,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_france_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-05-09T14:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_france_race",
@@ -238601,7 +239134,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "MotoGP France Grand Prix is complete. A verified result is unavailable.",
@@ -238610,6 +239143,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP France Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_france_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -238621,17 +239164,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_france_race"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_france_practice_1",
@@ -238745,7 +239278,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP France Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -238754,6 +239287,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP France Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_france_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -238765,17 +239308,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_france_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_france_practice",
@@ -238889,7 +239422,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP France Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -238898,6 +239431,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP France Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_france_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -238909,17 +239452,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_france_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_france_practice_2",
@@ -239033,7 +239566,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP France Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -239042,6 +239575,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP France Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_france_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -239053,17 +239596,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_france_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_france_warmup",
@@ -239177,7 +239710,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP France Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -239186,6 +239719,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP France Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_france_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -239197,17 +239740,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/france/4237f175-c6a4-4d1e-b658-82962baf3fa3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_france_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_catalunya_qualifying",
@@ -239326,7 +239859,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Catalunya Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -239335,6 +239868,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Catalunya Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_catalunya_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -239346,17 +239889,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_catalunya_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_catalunya_sprint",
@@ -239413,8 +239946,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 6,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Catalunya Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Catalunya Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Catalunya Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Catalunya Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -239473,15 +240006,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Catalunya Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Catalunya Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Catalunya Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Catalunya Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Catalunya Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Catalunya Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_catalunya_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -239494,16 +240037,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_catalunya_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-05-16T14:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_catalunya_race",
@@ -239560,8 +240095,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 6,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Catalunya Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Catalunya Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Catalunya Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Catalunya Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -239620,15 +240155,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Catalunya Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Catalunya Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Catalunya Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Catalunya Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Catalunya Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Catalunya Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_catalunya_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -239641,16 +240186,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_catalunya_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-05-17T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_catalunya_practice_1",
@@ -239764,7 +240301,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Catalunya Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -239773,6 +240310,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Catalunya Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_catalunya_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -239784,17 +240331,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_catalunya_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_catalunya_practice",
@@ -239908,7 +240445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Catalunya Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -239917,6 +240454,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Catalunya Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_catalunya_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -239928,17 +240475,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_catalunya_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_catalunya_practice_2",
@@ -240052,7 +240589,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Catalunya Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -240061,6 +240598,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Catalunya Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_catalunya_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -240072,17 +240619,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_catalunya_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_catalunya_warmup",
@@ -240196,7 +240733,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Catalunya Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -240205,6 +240742,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Catalunya Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_catalunya_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -240216,17 +240763,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/catalunya/200bf59d-3db2-4e17-a903-4be204fa3496",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_catalunya_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_italy_qualifying",
@@ -240345,7 +240882,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Italy Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -240354,6 +240891,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Italy Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_italy_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -240365,17 +240912,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_italy_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_italy_sprint",
@@ -240432,8 +240969,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 7,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Italy Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Italy Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Italy Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Italy Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -240492,15 +241029,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Italy Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Italy Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Italy Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Italy Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Italy Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Italy Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_italy_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -240513,16 +241060,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_italy_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-05-30T14:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_italy_race",
@@ -240579,8 +241118,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 7,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Italy Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Italy Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Italy Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Italy Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -240639,15 +241178,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Italy Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Italy Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Italy Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Italy Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Italy Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Italy Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_italy_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -240660,16 +241209,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_italy_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-05-31T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_italy_practice_1",
@@ -240783,7 +241324,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Italy Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -240792,6 +241333,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Italy Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_italy_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -240803,17 +241354,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_italy_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_italy_practice",
@@ -240927,7 +241468,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Italy Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -240936,6 +241477,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Italy Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_italy_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -240947,17 +241498,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_italy_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_italy_practice_2",
@@ -241071,7 +241612,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Italy Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -241080,6 +241621,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Italy Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_italy_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -241091,17 +241642,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_italy_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_italy_warmup",
@@ -241215,7 +241756,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Italy Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -241224,6 +241765,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Italy Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_italy_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -241235,17 +241786,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/italy/bf2104f9-f5cc-4a99-a993-cb5d01bccd24",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_italy_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_hungary_qualifying",
@@ -241364,7 +241905,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Hungary Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -241373,6 +241914,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Hungary Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_hungary_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -241384,17 +241935,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_hungary_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_hungary_sprint",
@@ -241451,8 +241992,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 8,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Hungary Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Hungary Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Hungary Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Hungary Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -241511,15 +242052,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Hungary Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Hungary Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Hungary Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Hungary Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Hungary Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Hungary Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_hungary_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -241532,16 +242083,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_hungary_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-06-06T14:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_hungary_race",
@@ -241598,8 +242141,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 8,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Hungary Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Hungary Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Hungary Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Hungary Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -241658,15 +242201,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Hungary Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Hungary Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Hungary Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Hungary Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Hungary Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Hungary Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_hungary_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -241679,16 +242232,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_hungary_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-06-07T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_hungary_practice_1",
@@ -241802,7 +242347,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Hungary Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -241811,6 +242356,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Hungary Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_hungary_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -241822,17 +242377,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_hungary_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_hungary_practice",
@@ -241946,7 +242491,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Hungary Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -241955,6 +242500,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Hungary Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_hungary_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -241966,17 +242521,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_hungary_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_hungary_practice_2",
@@ -242090,7 +242635,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Hungary Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -242099,6 +242644,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Hungary Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_hungary_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -242110,17 +242665,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_hungary_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_hungary_warmup",
@@ -242234,7 +242779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Hungary Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -242243,6 +242788,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Hungary Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_hungary_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -242254,17 +242809,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/hungria/a37708ab-914c-433f-83d4-e55d1b95ccc3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_hungary_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_czechia_qualifying",
@@ -242383,7 +242928,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Czechia Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -242392,6 +242937,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Czechia Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_czechia_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -242403,17 +242958,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_czechia_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_czechia_sprint",
@@ -242470,8 +243015,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 9,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Czechia Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Czechia Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Czechia Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Czechia Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -242530,15 +243075,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Czechia Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Czechia Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Czechia Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Czechia Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Czechia Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Czechia Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_czechia_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -242551,16 +243106,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_czechia_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-06-20T14:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_czechia_race",
@@ -242617,8 +243164,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 9,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Czechia Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Czechia Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Czechia Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Czechia Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -242677,15 +243224,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Czechia Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Czechia Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Czechia Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Czechia Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Czechia Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Czechia Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_czechia_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -242698,16 +243255,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_czechia_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-06-21T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_czechia_practice_1",
@@ -242821,7 +243370,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Czechia Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -242830,6 +243379,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Czechia Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_czechia_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -242841,17 +243400,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_czechia_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_czechia_practice",
@@ -242965,7 +243514,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Czechia Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -242974,6 +243523,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Czechia Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_czechia_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -242985,17 +243544,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_czechia_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_czechia_practice_2",
@@ -243109,7 +243658,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Czechia Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -243118,6 +243667,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Czechia Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_czechia_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -243129,17 +243688,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_czechia_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_czechia_warmup",
@@ -243253,7 +243802,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Czechia Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -243262,6 +243811,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Czechia Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_czechia_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -243273,17 +243832,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/czeck-republiky/c2018c5e-fb82-4058-b359-1b7d9769e703",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_czechia_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_netherlands_qualifying",
@@ -243402,7 +243951,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Netherlands Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -243411,6 +243960,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Netherlands Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_netherlands_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -243422,17 +243981,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_netherlands_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_netherlands_sprint",
@@ -243489,8 +244038,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 10,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Netherlands Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Netherlands Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Netherlands Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Netherlands Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -243549,15 +244098,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Netherlands Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Netherlands Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Netherlands Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Netherlands Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Netherlands Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Netherlands Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_netherlands_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -243570,16 +244129,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_netherlands_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-06-27T14:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_netherlands_race",
@@ -243636,8 +244187,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 10,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Netherlands Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Netherlands Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Netherlands Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Netherlands Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -243696,15 +244247,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Netherlands Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Netherlands Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Netherlands Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Netherlands Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Netherlands Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Netherlands Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_netherlands_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -243717,16 +244278,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_netherlands_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-06-28T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_netherlands_practice_1",
@@ -243840,7 +244393,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Netherlands Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -243849,6 +244402,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Netherlands Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_netherlands_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -243860,17 +244423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_netherlands_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_netherlands_practice",
@@ -243984,7 +244537,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Netherlands Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -243993,6 +244546,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Netherlands Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_netherlands_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -244004,17 +244567,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_netherlands_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_netherlands_practice_2",
@@ -244128,7 +244681,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Netherlands Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -244137,6 +244690,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Netherlands Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_netherlands_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -244148,17 +244711,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_netherlands_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_netherlands_warmup",
@@ -244272,7 +244825,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Netherlands Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -244281,6 +244834,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Netherlands Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_netherlands_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -244292,17 +244855,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/netherlands/47c25c37-d307-4d45-b1ed-b1cb5e811975",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_netherlands_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_germany_qualifying",
@@ -244421,7 +244974,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Germany Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -244430,6 +244983,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Germany Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_germany_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -244441,17 +245004,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_germany_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_germany_sprint",
@@ -244508,8 +245061,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Germany Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Germany Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Germany Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Germany Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -244568,15 +245121,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Germany Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Germany Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Germany Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Germany Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Germany Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Germany Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_germany_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -244589,16 +245152,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_germany_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-07-11T14:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_germany_race",
@@ -244655,8 +245210,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Germany Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Germany Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Germany Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Germany Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -244715,15 +245270,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Germany Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Germany Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Germany Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Germany Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Germany Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Germany Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_germany_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -244736,16 +245301,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_germany_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-07-12T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_germany_practice_1",
@@ -244859,7 +245416,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Germany Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -244868,6 +245425,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Germany Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_germany_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -244879,17 +245446,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_germany_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_germany_practice",
@@ -245003,7 +245560,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Germany Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -245012,6 +245569,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Germany Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_germany_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -245023,17 +245590,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_germany_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_germany_practice_2",
@@ -245147,7 +245704,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Germany Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -245156,6 +245713,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Germany Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_germany_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -245167,17 +245734,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_germany_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_germany_warmup",
@@ -245291,7 +245848,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Germany Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -245300,6 +245857,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Germany Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_germany_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -245311,17 +245878,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/germany/259be6f4-c23c-4dc2-bc42-7664842f6409",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_germany_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_great_britain_qualifying",
@@ -245440,7 +245997,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Great Britain Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -245449,6 +246006,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Great Britain Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_great_britain_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -245460,17 +246027,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_great_britain_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_great_britain_sprint",
@@ -245527,8 +246084,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 12,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Great Britain Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Great Britain Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Great Britain Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Great Britain Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -245587,15 +246144,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Great Britain Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Great Britain Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Great Britain Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Great Britain Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Great Britain Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Great Britain Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_great_britain_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -245608,16 +246175,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_great_britain_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-08-08T16:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_great_britain_race",
@@ -245674,8 +246233,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 12,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Great Britain Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Great Britain Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Great Britain Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Great Britain Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -245734,15 +246293,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Great Britain Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Great Britain Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Great Britain Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Great Britain Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Great Britain Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Great Britain Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_great_britain_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -245755,16 +246324,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_great_britain_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-08-09T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_great_britain_practice_1",
@@ -245878,7 +246439,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Great Britain Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -245887,6 +246448,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Great Britain Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_great_britain_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -245898,17 +246469,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_great_britain_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_great_britain_practice",
@@ -246022,7 +246583,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Great Britain Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -246031,6 +246592,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Great Britain Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_great_britain_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -246042,17 +246613,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_great_britain_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_great_britain_practice_2",
@@ -246166,7 +246727,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Great Britain Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -246175,6 +246736,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Great Britain Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_great_britain_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -246186,17 +246757,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_great_britain_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_great_britain_warmup",
@@ -246310,7 +246871,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Great Britain Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -246319,6 +246880,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Great Britain Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_great_britain_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -246330,17 +246901,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/great-britain/41aa319a-8ec5-49d6-aa99-4e2059c88098",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_great_britain_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_aragon_qualifying",
@@ -246459,7 +247020,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Aragon Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -246468,6 +247029,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Aragon Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_aragon_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -246479,17 +247050,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_aragon_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_aragon_sprint",
@@ -246546,8 +247107,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 13,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Aragon Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Aragon Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Aragon Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Aragon Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -246606,15 +247167,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Aragon Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Aragon Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Aragon Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Aragon Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Aragon Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Aragon Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_aragon_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -246627,16 +247198,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_aragon_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-08-29T14:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_aragon_race",
@@ -246693,8 +247256,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 13,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Aragon Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Aragon Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Aragon Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Aragon Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -246753,15 +247316,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Aragon Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Aragon Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Aragon Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Aragon Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Aragon Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Aragon Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_aragon_race"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -246774,16 +247347,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_aragon_race"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-08-30T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_aragon_practice_1",
@@ -246897,7 +247462,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Aragon Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -246906,6 +247471,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Aragon Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_aragon_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -246917,17 +247492,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_aragon_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_aragon_practice",
@@ -247041,7 +247606,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Aragon Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -247050,6 +247615,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Aragon Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_aragon_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -247061,17 +247636,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_aragon_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_aragon_practice_2",
@@ -247185,7 +247750,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Aragon Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -247194,6 +247759,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Aragon Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_aragon_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -247205,17 +247780,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_aragon_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_aragon_warmup",
@@ -247329,7 +247894,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Aragon Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -247338,6 +247903,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Aragon Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_aragon_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -247349,17 +247924,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/spain/86abdbde-5e3d-45b1-a1f0-f74044a90eb3",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_aragon_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_san_marino_qualifying",
@@ -247478,7 +248043,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP San Marino Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -247487,6 +248052,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP San Marino Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_san_marino_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -247498,17 +248073,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_san_marino_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_san_marino_sprint",
@@ -247565,8 +248130,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 14,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP San Marino Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP San Marino Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP San Marino Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP San Marino Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -247625,15 +248190,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP San Marino Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP San Marino Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP San Marino Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP San Marino Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP San Marino Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP San Marino Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_san_marino_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -247646,16 +248221,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_san_marino_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-09-12T14:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_san_marino",
@@ -247714,9 +248281,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "narrativeType": "all",
     "selectedSentence": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
     "fullSpiel": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
-    "sourceName": "MotoGP official calendar and premier-class timetable",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
-    "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+    "sourceName": "MotoGP",
+    "sourceUrl": "https://www.motogp.com/en/news/2026/09/13/marc-marquez-capitalises-on-bezzecchi-error-to-seize-title-race-lead/1089345",
+    "sourceCheckedAt": "2026-10-03T11:33:43.704Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -247782,19 +248349,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Grand Prix",
-      "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
-      ],
-      "sourceName": "MotoGP official calendar and premier-class timetable",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
-      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-03T11:33:43.704Z",
     "endTimeUtc": "2026-09-13T13:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "resultPublishedAt": "2026-10-03T11:33:43.704Z",
@@ -247849,7 +248404,24 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_san_marino"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Grand Prix",
+      "contextSignals": [
+        "official-schedule",
+        "Grand Prix"
+      ],
+      "sourceName": "MotoGP official calendar and premier-class timetable",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
+      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+      "needsPreviewRefresh": false
+    },
+    "sourceRefs": [
+      "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
+      "https://www.motogp.com/en/news/2026/09/13/marc-marquez-capitalises-on-bezzecchi-error-to-seize-title-race-lead/1089345",
+      "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181"
+    ]
   },
   {
     "id": "evt_motogp_2026_san_marino_practice_1",
@@ -247963,7 +248535,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP San Marino Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -247972,6 +248544,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP San Marino Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_san_marino_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -247983,17 +248565,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_san_marino_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_san_marino_practice",
@@ -248107,7 +248679,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP San Marino Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -248116,6 +248688,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP San Marino Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_san_marino_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -248127,17 +248709,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_san_marino_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_san_marino_practice_2",
@@ -248251,7 +248823,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP San Marino Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -248260,6 +248832,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP San Marino Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_san_marino_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -248271,17 +248853,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_san_marino_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_san_marino_warmup",
@@ -248395,7 +248967,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP San Marino Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -248404,6 +248976,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP San Marino Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_san_marino_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -248415,17 +248997,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_san_marino_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_austria_qualifying",
@@ -248544,7 +249116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Austria Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -248553,6 +249125,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Austria Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_austria_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -248564,17 +249146,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_austria_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_austria_sprint",
@@ -248631,8 +249203,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 15,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Austria Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Austria Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Austria Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Austria Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -248691,15 +249263,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Austria Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Austria Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Austria Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Austria Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Austria Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Austria Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_austria_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -248712,16 +249294,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_austria_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-09-19T14:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_austria",
@@ -248778,11 +249352,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 15,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Austria Grand Prix is complete. Reveal results for the outcome.",
-    "fullSpiel": "MotoGP Austria Grand Prix is complete. Reveal results for the outcome.",
-    "sourceName": "MotoGP official calendar and premier-class timetable",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
-    "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+    "selectedSentence": "MotoGP Austria Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Austria Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "MotoGP official race classification",
+    "sourceUrl": "https://stats.motogp.com/en/gp-results",
+    "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -248841,26 +249415,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Austria Grand Prix is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "MotoGP Austria Grand Prix is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Pedro Acosta won the Austrian MotoGP race.",
-      "synopsisSpoilerOff": "MotoGP Austria Grand Prix is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "MotoGP Austria Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Acosta completed the race in 42 minutes 16.996 seconds, ahead of Jorge Martin and Marco Bezzecchi.",
       "lastReviewedAt": "2026-09-17T23:22:14.102Z",
       "researchDepth": 5
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Grand Prix",
-      "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
-      ],
-      "sourceName": "MotoGP official calendar and premier-class timetable",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
-      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-09-21T20:24:10.712468Z",
     "endTimeUtc": "2026-09-20T21:59:59.000Z",
     "endTimeBasis": "completed-event-local-date-boundary",
     "resultPublishedAt": "2026-09-21T20:24:10.712468Z",
@@ -248916,7 +249478,24 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_austria"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Grand Prix",
+      "contextSignals": [
+        "official-schedule",
+        "Grand Prix"
+      ],
+      "sourceName": "MotoGP official calendar and premier-class timetable",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
+      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+      "needsPreviewRefresh": false
+    },
+    "scoreDisplay": "1. Pedro Acosta; 2. Jorge Martin +1.017; 3. Marco Bezzecchi +1.209",
+    "sourceRefs": [
+      "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
+      "https://stats.motogp.com/en/gp-results"
+    ]
   },
   {
     "id": "evt_motogp_2026_austria_practice_1",
@@ -249030,7 +249609,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Austria Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -249039,6 +249618,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Austria Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_austria_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -249050,17 +249639,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_austria_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_austria_practice",
@@ -249174,7 +249753,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Austria Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -249183,6 +249762,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Austria Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_austria_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -249194,17 +249783,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_austria_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_austria_practice_2",
@@ -249318,7 +249897,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Austria Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -249327,6 +249906,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Austria Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_austria_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -249338,17 +249927,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_austria_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_austria_warmup",
@@ -249462,7 +250041,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Austria Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -249471,6 +250050,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Austria Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_austria_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -249482,17 +250071,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_austria_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_japan_qualifying",
@@ -249611,7 +250190,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "MotoGP Japan Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
@@ -249620,6 +250199,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Japan Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_japan_qualifying"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Qualifying (Q1 + Q2)",
@@ -249631,17 +250220,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_japan_qualifying"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_japan_sprint",
@@ -249698,8 +250277,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 16,
     "stage": "Sprint",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Japan Grand Prix · Sprint is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Japan Grand Prix · Sprint is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Japan Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Japan Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -249758,15 +250337,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP Japan Grand Prix · Sprint is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Japan Grand Prix · Sprint is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Japan Grand Prix · Sprint is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Japan Grand Prix · Sprint is complete.",
+      "synopsisSpoilerOff": "MotoGP Japan Grand Prix · Sprint is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Japan Grand Prix · Sprint is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_japan_sprint"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sprint",
@@ -249779,16 +250368,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_japan_sprint"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-10-03T07:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_japan",
@@ -249845,11 +250426,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 16,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Japan Grand Prix is complete. Reveal results for the outcome.",
-    "fullSpiel": "MotoGP Japan Grand Prix is complete. Reveal results for the outcome.",
-    "sourceName": "MotoGP official calendar and premier-class timetable",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
-    "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+    "selectedSentence": "MotoGP Japan Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Japan Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "MotoGP official race report",
+    "sourceUrl": "https://www.motogp.com/pt/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007",
+    "sourceCheckedAt": "2026-10-04T08:35:52.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -249908,26 +250489,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Japan Grand Prix is complete. Reveal results for the outcome.",
+      "hookSpoilerOff": "MotoGP Japan Grand Prix is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Marc Marquez won the Japanese MotoGP race.",
-      "synopsisSpoilerOff": "MotoGP Japan Grand Prix is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "MotoGP Japan Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Marc Marquez finished ahead of Jorge Martin and Marco Bezzecchi at Motegi. Official race report.",
       "lastReviewedAt": "2026-10-01T23:21:33.194Z",
       "researchDepth": 5
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Grand Prix",
-      "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
-      ],
-      "sourceName": "MotoGP official calendar and premier-class timetable",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
-      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-04T08:35:52.000Z",
     "endTimeUtc": "2026-10-04T06:20:00.000Z",
     "resultPublishedAt": "2026-10-04T08:35:52.000Z",
     "scoreCheckedAt": "2026-10-04T08:35:52.000Z",
@@ -249984,7 +250553,24 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_japan"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Grand Prix",
+      "contextSignals": [
+        "official-schedule",
+        "Grand Prix"
+      ],
+      "sourceName": "MotoGP official calendar and premier-class timetable",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
+      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+      "needsPreviewRefresh": false
+    },
+    "scoreDisplay": "1. Marc Marquez · 2. Jorge Martin · 3. Marco Bezzecchi",
+    "sourceRefs": [
+      "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
+      "https://www.motogp.com/pt/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007"
+    ]
   },
   {
     "id": "evt_motogp_2026_japan_practice_1",
@@ -250098,7 +250684,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Japan Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -250107,6 +250693,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Japan Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_japan_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -250118,17 +250714,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_japan_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_japan_practice",
@@ -250242,7 +250828,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Japan Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -250251,6 +250837,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Japan Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_japan_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -250262,17 +250858,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_japan_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_japan_practice_2",
@@ -250386,7 +250972,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Japan Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -250395,6 +250981,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Japan Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_japan_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -250406,17 +251002,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_japan_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_japan_warmup",
@@ -250530,7 +251116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Japan Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -250539,6 +251125,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Japan Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_japan_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -250550,17 +251146,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_japan_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_indonesia_qualifying",
@@ -250621,9 +251207,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "narrativeType": "all",
     "selectedSentence": "MotoGP Indonesia Grand Prix · Qualifying (Q1 + Q2) is complete. Reveal results for the outcome.",
     "fullSpiel": "MotoGP Indonesia Grand Prix · Qualifying (Q1 + Q2) is complete. Reveal results for the outcome.",
-    "sourceName": "MotoGP official calendar and premier-class timetable",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
-    "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+    "sourceName": "MotoGP",
+    "sourceUrl": "https://www.motogp.com/es/news/2026/10/10/raul-fernandez-se-luce-con-su-primera-pole-en-motogp/1174848",
+    "sourceCheckedAt": "2026-10-10T12:22:23.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -250689,19 +251275,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-09T00:20:09.386Z",
       "researchDepth": 5
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Qualifying (Q1 + Q2)",
-      "contextSignals": [
-        "official-schedule",
-        "Qualifying (Q1 + Q2)"
-      ],
-      "sourceName": "MotoGP official calendar and premier-class timetable",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
-      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-10T12:22:23.000Z",
     "resultPublishedAt": "2026-10-10T12:22:23.000Z",
     "scoreCheckedAt": "2026-10-10T12:22:23.000Z",
     "statusCheckedAt": "2026-10-10T12:22:23.000Z",
@@ -250760,7 +251334,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_indonesia_qualifying"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying (Q1 + Q2)",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying (Q1 + Q2)"
+      ],
+      "sourceName": "MotoGP official calendar and premier-class timetable",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+      "needsPreviewRefresh": false
+    },
+    "sourceRefs": [
+      "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+      "https://www.motogp.com/es/news/2026/10/10/raul-fernandez-se-luce-con-su-primera-pole-en-motogp/1174848"
+    ]
   },
   {
     "id": "evt_motogp_2026_indonesia_sprint",
@@ -250819,9 +251409,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "narrativeType": "all",
     "selectedSentence": "MotoGP Indonesia Grand Prix · Sprint is complete. Reveal results for the outcome.",
     "fullSpiel": "MotoGP Indonesia Grand Prix · Sprint is complete. Reveal results for the outcome.",
-    "sourceName": "MotoGP official calendar and premier-class timetable",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
-    "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+    "sourceName": "MotoGP",
+    "sourceUrl": "https://www.motogp.com/fr/news/2026/10/10/marc-marquez-wins-dramatic-mandalika-sprint-martin-loses-the-lead-after-rollercoaster-ride-to-fourth/1174849",
+    "sourceCheckedAt": "2026-10-10T12:22:23.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -250887,19 +251477,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-09T00:20:09.386Z",
       "researchDepth": 5
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Sprint",
-      "contextSignals": [
-        "official-schedule",
-        "Sprint"
-      ],
-      "sourceName": "MotoGP official calendar and premier-class timetable",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
-      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-10T12:22:23.000Z",
     "endTimeUtc": "2026-10-10T08:00:00.000Z",
     "endTimeBasis": "scheduled-live-window",
     "resultPublishedAt": "2026-10-10T12:22:23.000Z",
@@ -250961,7 +251539,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_indonesia_sprint"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Sprint",
+      "contextSignals": [
+        "official-schedule",
+        "Sprint"
+      ],
+      "sourceName": "MotoGP official calendar and premier-class timetable",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+      "needsPreviewRefresh": false
+    },
+    "sourceRefs": [
+      "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+      "https://www.motogp.com/fr/news/2026/10/10/marc-marquez-wins-dramatic-mandalika-sprint-martin-loses-the-lead-after-rollercoaster-ride-to-fourth/1174849"
+    ]
   },
   {
     "id": "evt_motogp_2026_indonesia",
@@ -251018,8 +251612,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 17,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Indonesia Grand Prix is complete. A verified result is unavailable.",
-    "fullSpiel": "MotoGP Indonesia Grand Prix is complete. A verified result is unavailable.",
+    "selectedSentence": "MotoGP Indonesia Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP Indonesia Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -251078,15 +251672,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Indonesia Grand Prix is complete. A verified result is unavailable.",
-      "hookSpoilerOn": "Result coverage is unavailable for this session.",
-      "synopsisSpoilerOff": "MotoGP Indonesia Grand Prix is complete. A verified result is unavailable.",
+      "hookSpoilerOff": "MotoGP Indonesia Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "MotoGP Indonesia Grand Prix is complete.",
+      "synopsisSpoilerOff": "MotoGP Indonesia Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "MotoGP Indonesia Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_indonesia"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Grand Prix",
@@ -251099,16 +251703,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_indonesia"
-    ],
-    "consensusTags": []
+    "endTimeUtc": "2026-10-11T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_motogp_2026_indonesia_practice_1",
@@ -251222,7 +251818,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Indonesia Grand Prix · Free Practice 1 is complete; the key moments are protected until you choose to reveal them.",
@@ -251231,6 +251827,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Indonesia Grand Prix · Free Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_indonesia_practice_1"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 1",
@@ -251242,17 +251848,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_indonesia_practice_1"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_indonesia_practice",
@@ -251366,7 +251962,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Indonesia Grand Prix · Practice is complete; the key moments are protected until you choose to reveal them.",
@@ -251375,6 +251971,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Indonesia Grand Prix · Practice is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_indonesia_practice"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Practice",
@@ -251386,17 +251992,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_indonesia_practice"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_indonesia_practice_2",
@@ -251510,7 +252106,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Indonesia Grand Prix · Free Practice 2 is complete; the key moments are protected until you choose to reveal them.",
@@ -251519,6 +252115,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Indonesia Grand Prix · Free Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_indonesia_practice_2"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Free Practice 2",
@@ -251530,17 +252136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_indonesia_practice_2"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_indonesia_warmup",
@@ -251654,7 +252250,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 2,
       "intensity": 2,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 3,
       "hookSpoilerOff": "MotoGP Indonesia Grand Prix · Warm-up is complete; the key moments are protected until you choose to reveal them.",
@@ -251663,6 +252259,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Indonesia Grand Prix · Warm-up is complete, but the official results page had not published a verified outcome at the latest check.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
+    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "sourceEventIds": [
+      "evt_motogp_2026_indonesia_warmup"
+    ],
+    "consensusTags": [],
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Warm-up",
@@ -251674,17 +252280,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
-    "statusCheckedAt": "2026-10-11T13:40:40.662Z",
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "sourceEventIds": [
-      "evt_motogp_2026_indonesia_warmup"
-    ],
-    "consensusTags": []
+    }
   },
   {
     "id": "evt_motogp_2026_australia_qualifying",
@@ -251799,7 +252395,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Phillip Island.",
@@ -251820,7 +252416,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -251942,7 +252538,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Phillip Island.",
@@ -251963,7 +252559,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -252085,7 +252681,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Phillip Island.",
@@ -252106,7 +252702,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -252806,7 +253402,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Petronas Sepang International Circuit.",
@@ -252827,7 +253423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -252949,7 +253545,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Petronas Sepang International Circuit.",
@@ -252970,7 +253566,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -253092,7 +253688,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Petronas Sepang International Circuit.",
@@ -253113,7 +253709,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -253813,7 +254409,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Lusail International Circuit.",
@@ -253834,7 +254430,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -253956,7 +254552,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Lusail International Circuit.",
@@ -253977,7 +254573,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -254099,7 +254695,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Lusail International Circuit.",
@@ -254120,7 +254716,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -254820,7 +255416,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Autódromo Internacional do Algarve.",
@@ -254841,7 +255437,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -254963,7 +255559,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Autódromo Internacional do Algarve.",
@@ -254984,7 +255580,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -255106,7 +255702,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Autódromo Internacional do Algarve.",
@@ -255127,7 +255723,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -255827,7 +256423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Circuit Ricardo Tormo.",
@@ -255848,7 +256444,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -255970,7 +256566,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Circuit Ricardo Tormo.",
@@ -255991,7 +256587,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -256113,7 +256709,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Circuit Ricardo Tormo.",
@@ -256134,7 +256730,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -256797,7 +257393,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Chang International Circuit.",
@@ -256818,7 +257414,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -256906,7 +257502,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Chang International Circuit.",
@@ -256927,7 +257523,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -257015,7 +257611,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Chang International Circuit.",
@@ -257036,7 +257632,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -257124,7 +257720,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Lusail International Circuit.",
@@ -257145,7 +257741,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -257233,7 +257829,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Lusail International Circuit.",
@@ -257254,7 +257850,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -257342,7 +257938,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Lusail International Circuit.",
@@ -257363,7 +257959,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -257451,7 +258047,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Autódromo Internacional de Goiânia – Ayrton Senna.",
@@ -257472,7 +258068,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -257560,7 +258156,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Autódromo Internacional de Goiânia – Ayrton Senna.",
@@ -257581,7 +258177,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -257669,7 +258265,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Autódromo Internacional de Goiânia – Ayrton Senna.",
@@ -257690,7 +258286,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -257772,7 +258368,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Autódromo Oscar y Juan Gálvez.",
@@ -257793,7 +258389,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -257875,7 +258471,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Autódromo Oscar y Juan Gálvez.",
@@ -257896,7 +258492,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -257978,7 +258574,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Autódromo Oscar y Juan Gálvez.",
@@ -257999,7 +258595,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -258087,7 +258683,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Circuit Of The Americas.",
@@ -258108,7 +258704,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -258196,7 +258792,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Circuit Of The Americas.",
@@ -258217,7 +258813,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -258305,7 +258901,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Circuit Of The Americas.",
@@ -258326,7 +258922,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -258414,7 +259010,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Circuito de Jerez - Ángel Nieto.",
@@ -258435,7 +259031,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -258523,7 +259119,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Circuito de Jerez - Ángel Nieto.",
@@ -258544,7 +259140,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -258632,7 +259228,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Circuito de Jerez - Ángel Nieto.",
@@ -258653,7 +259249,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -258741,7 +259337,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at the Bugatti Circuit.",
@@ -258762,7 +259358,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -258850,7 +259446,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at the Bugatti Circuit.",
@@ -258871,7 +259467,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -258959,7 +259555,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at the Bugatti Circuit.",
@@ -258980,7 +259576,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -259068,7 +259664,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Autodromo Internazionale del Mugello.",
@@ -259089,7 +259685,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -259177,7 +259773,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Autodromo Internazionale del Mugello.",
@@ -259198,7 +259794,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -259286,7 +259882,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Autodromo Internazionale del Mugello.",
@@ -259307,7 +259903,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -259395,7 +259991,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Circuit de Barcelona-Catalunya.",
@@ -259416,7 +260012,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -259504,7 +260100,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Circuit de Barcelona-Catalunya.",
@@ -259525,7 +260121,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -259613,7 +260209,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Circuit de Barcelona-Catalunya.",
@@ -259634,7 +260230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -259722,7 +260318,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at TT Circuit Assen.",
@@ -259743,7 +260339,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -259831,7 +260427,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at TT Circuit Assen.",
@@ -259852,7 +260448,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -259940,7 +260536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at TT Circuit Assen.",
@@ -259961,7 +260557,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -260049,7 +260645,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Sachsenring.",
@@ -260070,7 +260666,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -260158,7 +260754,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Sachsenring.",
@@ -260179,7 +260775,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -260267,7 +260863,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Sachsenring.",
@@ -260288,7 +260884,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -260376,7 +260972,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at CREDITAS Autodrom Brno.",
@@ -260397,7 +260993,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -260485,7 +261081,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at CREDITAS Autodrom Brno.",
@@ -260506,7 +261102,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -260594,7 +261190,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at CREDITAS Autodrom Brno.",
@@ -260615,7 +261211,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -260703,7 +261299,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Silverstone Circuit.",
@@ -260724,7 +261320,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -260812,7 +261408,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Silverstone Circuit.",
@@ -260833,7 +261429,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -260921,7 +261517,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Silverstone Circuit.",
@@ -260942,7 +261538,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -261030,7 +261626,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Red Bull Ring - Spielberg.",
@@ -261051,7 +261647,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -261139,7 +261735,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Red Bull Ring - Spielberg.",
@@ -261160,7 +261756,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -261248,7 +261844,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Red Bull Ring - Spielberg.",
@@ -261269,7 +261865,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -261357,7 +261953,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Misano World Circuit Marco Simoncelli.",
@@ -261378,7 +261974,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -261466,7 +262062,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Misano World Circuit Marco Simoncelli.",
@@ -261487,7 +262083,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -261575,7 +262171,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Misano World Circuit Marco Simoncelli.",
@@ -261596,7 +262192,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -261684,7 +262280,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at MotorLand Aragón.",
@@ -261705,7 +262301,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -261793,7 +262389,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at MotorLand Aragón.",
@@ -261814,7 +262410,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -261902,7 +262498,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at MotorLand Aragón.",
@@ -261923,7 +262519,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -262011,7 +262607,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Qualifying (Q1 + Q2) at Autódromo Internacional do Algarve.",
@@ -262032,7 +262628,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -262120,7 +262716,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Sprint at Autódromo Internacional do Algarve.",
@@ -262141,7 +262737,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -262229,7 +262825,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Grand Prix at Autódromo Internacional do Algarve.",
@@ -262250,7 +262846,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantIds": [],
     "participantSlots": [],
@@ -263138,7 +263734,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Carlos Alcaraz won. 7–6, 6–4",
       "synopsisSpoilerOn": "ESPN reports Carlos Alcaraz as the winner of this final match. 7–6, 6–4"
     },
-    "lastReviewedAt": "2026-10-06T02:59:54.191Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "storyline": {
       "researchDepth": 5,
       "arcStage": "recap",
@@ -264310,7 +264906,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "venue": "Capital Group Diamond",
     "gender": "women",
     "season": 2026,
-    "status": "scheduled",
+    "status": "completed",
     "eventId": "fixture-tennis-espn-wta-184356",
     "timeTbc": false,
     "cardKind": "fixture",
@@ -264325,7 +264921,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "China Open official order of play",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184356",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261010"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261011"
     ],
     "sourceType": "official",
     "broadcaster": "Australian viewing unconfirmed",
@@ -264334,19 +264930,19 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       {
         "id": "competitor:tennis:wta:zheng-qinwen",
         "name": "Zheng Qinwen",
+        "displayName": "Zheng Qinwen",
         "type": "athlete",
         "entityType": "athlete",
-        "displayName": "Zheng Qinwen",
         "sportDomainId": "sport:tennis"
       },
       {
         "id": "competitor:tennis:wta:mirra-andreeva",
         "name": "Mirra Andreeva",
+        "displayName": "Mirra Andreeva",
         "type": "athlete",
         "entityType": "athlete",
-        "countryCode": "RU",
-        "displayName": "Mirra Andreeva",
-        "sportDomainId": "sport:tennis"
+        "sportDomainId": "sport:tennis",
+        "countryCode": "RU"
       }
     ],
     "scheduleNote": "Not before 19:30 Beijing (22:30 Sydney), 11 October; directly attached to Zheng–Andreeva in the official order of play.",
@@ -264380,7 +264976,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "viewingOptions": [],
     "competitionName": "China Open",
     "sourceCheckedAt": "2026-10-10T23:40:16.252996+00:00",
-    "statusCheckedAt": "2026-10-10T12:42:02.000Z",
+    "statusCheckedAt": "2026-10-11T19:55:36.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184356",
     "tournamentLevel": "1000",
     "broadcastOptions": [],
@@ -264438,22 +265034,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": false,
     "briefingEligible": false,
     "catchupEligible": false,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "expectedSpectacle": 1,
-      "intensitySource": "computed",
-      "hookSpoilerOff": "Zheng's home milestone meets Andreeva's fifth final of 2026 in Beijing.",
-      "hookSpoilerOn": "Zheng's home milestone meets Andreeva's fifth final of 2026 in Beijing.",
-      "synopsisSpoilerOff": "The China Open singles final pairs wildcard Qinwen Zheng with fourth seed Mirra Andreeva. Zheng is the first Chinese player to reach this final; Andreeva brings a season already featuring three titles. Capital Group Diamond hosts the final on 11 October, not before 19:30 Beijing / 22:30 Sydney, after the doubles final. The announced time remains a not-before start.",
-      "synopsisSpoilerOn": "The China Open singles final pairs wildcard Qinwen Zheng with fourth seed Mirra Andreeva. Zheng is the first Chinese player to reach this final; Andreeva brings a season already featuring three titles. Capital Group Diamond hosts the final on 11 October, not before 19:30 Beijing / 22:30 Sydney, after the doubles final. The announced time remains a not-before start.",
-      "researchDepth": 5,
-      "lastReviewedAt": "2026-10-11T03:06:32.411Z"
-    },
-    "selectedSentence": "Zheng's home milestone meets Andreeva's fifth final of 2026 in Beijing.",
-    "fullSpiel": "The China Open singles final pairs wildcard Qinwen Zheng with fourth seed Mirra Andreeva. Zheng is the first Chinese player to reach this final; Andreeva brings a season already featuring three titles. Capital Group Diamond hosts the final on 11 October, not before 19:30 Beijing / 22:30 Sydney, after the doubles final. The announced time remains a not-before start.",
-    "lastReviewedAt": "2026-10-11T03:06:32.411Z",
+    "lastReviewedAt": "2026-10-11T19:55:42.473Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:tennis:espn:wta:184356",
@@ -264488,21 +265069,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Qinwen Zheng v Mirra Andreeva — China Open final",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup",
-        "narrative:schedule"
-      ],
-      "sourceName": "WTA official Beijing final preview",
-      "sourceUrl": "https://www.wtatennis.com/news/4589836/mirra-andreeva-vs-zheng-qinwen-everything-to-know-about-china-open-beijing-final",
-      "sourceCheckedAt": "2026-10-11T03:04:23.039Z",
-      "needsPreviewRefresh": false
-    }
+    "sets": [
+      {
+        "home": 7,
+        "away": 5
+      },
+      {
+        "home": 6,
+        "away": 4
+      }
+    ],
+    "score": "7–5, 6–4",
+    "scoreDisplay": "7–5, 6–4",
+    "scoreCheckedAt": "2026-10-11T19:55:36.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184356",
+    "resultSourceCheckedAt": "2026-10-11T19:55:36.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:zheng-qinwen",
+    "loserParticipantId": "competitor:tennis:wta:mirra-andreeva",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:mirra-andreeva"
+    ],
+    "resultStatus": "published",
+    "result": "7–5, 6–4",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Zheng Qinwen won. 7–5, 6–4",
+    "recapText": "ESPN reports Zheng Qinwen as the winner of this final match. 7–5, 6–4",
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Zheng Qinwen v Mirra Andreeva is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Zheng Qinwen v Mirra Andreeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Zheng Qinwen won. 7–5, 6–4",
+      "synopsisSpoilerOn": "ESPN reports Zheng Qinwen as the winner of this final match. 7–5, 6–4"
+    },
+    "selectedSentence": "Zheng Qinwen v Mirra Andreeva is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Zheng Qinwen v Mirra Andreeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "endTimeUtc": "2026-10-11T16:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-tennis-espn-atp-184929",
@@ -264779,7 +265387,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Official followed-by order; individual start unconfirmed.",
-    "status": "live",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -264816,12 +265424,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
     "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "statusCheckedAt": "2026-10-11T19:55:36.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184931",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184931",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261011"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -264933,8 +265541,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": false,
     "catchupEligible": false,
     "manualEstimateHeld": false,
-    "selectedSentence": "",
-    "fullSpiel": "",
     "manualStartEstimate": null,
     "estimatedEarliestStartTimeUtc": null,
     "estimatedLatestStartTimeUtc": null,
@@ -264950,17 +265556,42 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "away": 3
       },
       {
-        "home": 6,
+        "home": 7,
         "away": 6,
-        "homeTiebreak": 5,
-        "awayTiebreak": 3
+        "homeTiebreak": 7,
+        "awayTiebreak": 5
       }
     ],
-    "score": "6–7, 6–3, 6–6",
-    "scoreDisplay": "6–7, 6–3, 6–6",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "score": "6–7, 6–3, 7–6",
+    "scoreDisplay": "6–7, 6–3, 7–6",
+    "scoreCheckedAt": "2026-10-11T19:55:36.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184931",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z"
+    "resultSourceCheckedAt": "2026-10-11T19:55:36.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:alexander-bublik",
+    "loserParticipantId": "competitor:tennis:atp:brandon-nakashima",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:brandon-nakashima"
+    ],
+    "resultStatus": "published",
+    "result": "6–7, 6–3, 7–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Alexander Bublik won. 6–7, 6–3, 7–6",
+    "recapText": "ESPN reports Alexander Bublik as the winner of this round of 32 match. 6–7, 6–3, 7–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Alexander Bublik v Brandon Nakashima is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Alexander Bublik v Brandon Nakashima is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Alexander Bublik won. 6–7, 6–3, 7–6",
+      "synopsisSpoilerOn": "ESPN reports Alexander Bublik as the winner of this round of 32 match. 6–7, 6–3, 7–6"
+    },
+    "selectedSentence": "Alexander Bublik v Brandon Nakashima is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Alexander Bublik v Brandon Nakashima is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184944",
@@ -265706,5 +266337,257 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Nikola Bartunkova won. 6–4, 6–3",
       "synopsisSpoilerOn": "ESPN reports Nikola Bartunkova as the winner of this round of 32 match. 6–4, 6–3"
     }
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184952",
+    "eventId": "fixture-tennis-espn-atp-184952",
+    "canonicalEventId": "fixture:tennis:espn:atp:184952",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184952",
+      "fixture-tennis-espn-atp-184952"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184952",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 16",
+    "stage": "Round of 16",
+    "name": "Hubert Hurkacz v Alejandro Davidovich Fokina",
+    "date": "2026-10-13",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:hubert-hurkacz",
+      "competitor:tennis:atp:alejandro-davidovich-fokina"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:hubert-hurkacz",
+        "name": "Hubert Hurkacz",
+        "displayName": "Hubert Hurkacz",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "PL"
+      },
+      {
+        "id": "competitor:tennis:atp:alejandro-davidovich-fokina",
+        "name": "Alejandro Davidovich Fokina",
+        "displayName": "Alejandro Davidovich Fokina",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "ES"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:hubert-hurkacz",
+    "awayParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
+    "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+    "statusCheckedAt": "2026-10-11T19:55:36.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184952",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+    ],
+    "broadcaster": "beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+        "verifiedAt": "2026-10-11T05:19:19.930Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Hubert Hurkacz v Alejandro Davidovich Fokina",
+    "broadcastOptions": [],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184952"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184959",
+    "eventId": "fixture-tennis-espn-atp-184959",
+    "canonicalEventId": "fixture:tennis:espn:atp:184959",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184959",
+      "fixture-tennis-espn-atp-184959"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184959",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 16",
+    "stage": "Round of 16",
+    "name": "Alexander Zverev v Alexander Bublik",
+    "date": "2026-10-13",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:alexander-zverev",
+      "competitor:tennis:atp:alexander-bublik"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:alexander-zverev",
+        "name": "Alexander Zverev",
+        "displayName": "Alexander Zverev",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "DE"
+      },
+      {
+        "id": "competitor:tennis:atp:alexander-bublik",
+        "name": "Alexander Bublik",
+        "displayName": "Alexander Bublik",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "KZ"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:alexander-zverev",
+    "awayParticipantId": "competitor:tennis:atp:alexander-bublik",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
+    "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+    "statusCheckedAt": "2026-10-11T19:55:36.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184959",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+    ],
+    "broadcaster": "beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+        "verifiedAt": "2026-10-11T05:19:19.930Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Alexander Zverev v Alexander Bublik",
+    "broadcastOptions": [],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184959"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
   }
 ];
