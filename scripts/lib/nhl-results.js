@@ -24,9 +24,11 @@ function fixture(game,{teamIds=new Set(ABBREVS.map(a=>'team:nhl:'+a.toLowerCase(
  if(!Number.isInteger(game?.id)||String(game.id).length!==10||String(game.season)!==SEASON||![1,2,3].includes(game.gameType)||!String(game.id).startsWith('2026'+String(game.gameType).padStart(2,'0')))fail('invalid match identity, season or phase');
  instant(game.startTimeUTC);
  if(game.startTimeUTC<'2026-09-19T00:00:00Z'||game.startTimeUTC>='2027-06-12T00:00:00Z')fail('match outside reviewed season window');
- if(!['FUT','PRE','LIVE','OFF','FINAL'].includes(game.gameState)||game.gameScheduleState!=='OK')fail(`match ${game.id}: unreviewed playing/schedule state ${game.gameState}/${game.gameScheduleState}; retain last-good facts`);
+ if(!['FUT','PRE','LIVE','CRIT','OFF','FINAL'].includes(game.gameState)||game.gameScheduleState!=='OK')fail(`match ${game.id}: unreviewed playing/schedule state ${game.gameState}/${game.gameScheduleState}; retain last-good facts`);
  if(sourceGameDate&&leagueDay(game.startTimeUTC)!==day(sourceGameDate))fail('match does not belong to the declared league day');
- const completed=['OFF','FINAL'].includes(game.gameState),live=game.gameState==='LIVE',scored=completed||live,local=localParts(game.startTimeUTC);
+ // The league's own published isGameLive predicate includes LIVE and CRIT.
+ // Neither a critical game nor a shootout clock establishes a final result.
+ const completed=['OFF','FINAL'].includes(game.gameState),live=['LIVE','CRIT'].includes(game.gameState),scored=completed||live,local=localParts(game.startTimeUTC);
  if(live&&(!checkedAt||Date.parse(game.startTimeUTC)>Date.parse(checkedAt)))fail('live play requires a genuine observation after scheduled start');
  const slots=[game.awayTeam,game.homeTeam].map((team,index)=>{
   const id='team:nhl:'+String(team?.abbrev||'').toLowerCase(),label=[name(team?.placeName),name(team?.commonName)].filter(Boolean).join(' ').trim();
