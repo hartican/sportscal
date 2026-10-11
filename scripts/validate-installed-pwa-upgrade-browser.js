@@ -16,9 +16,12 @@ async function assertCachedParticipantCalendar(page){
   const fixtureRoutingPath=html.match(/assets\/js\/fixture-navigation\.js\?v=\d+/)?.[0];
   assert(modelPath&&uiPath&&fixtureRoutingPath,'Current participant and fixture routing cache URLs are explicit');
   for(const file of [modelPath,uiPath,fixtureRoutingPath])assert.equal(await page.evaluate(file=>caches.match('/'+file).then(r=>r?.text()),file),fs.readFileSync(path.join(root,file.split('?')[0]),'utf8'),'Updated participant calendar bytes remain cached exactly');
-  const parent=require('../lib/calendar-catalogue').catalogue().find(e=>e.tournamentId==='R2026527'&&e.cardType==='golf_tournament');
-  const result=await page.evaluate(async({modelPath,parent})=>{await loadDeferredScript(modelPath);return {included:NOTHINGSPORTS_ATHLETES.spansCurrentCalendarDay(parent,'2026-10-09','2027-10-09'),label:NOTHINGSPORTS_ATHLETES.calendarTiming(parent,Date.parse('2026-10-09T08:45:00Z'))};},{modelPath,parent});
-  assert(result.included);assert.match(result.label,/Tournament dates: 8–11 Oct 2026/);assert.match(result.label,/Next tee time not verified/);
+  const publishedParent=require('../lib/calendar-catalogue').catalogue().find(e=>e.tournamentId==='R2026527'&&e.cardType==='golf_tournament');
+  // Match the existing Node overlap replay: today's source may already be final.
+  // This controlled earlier observation cannot rewrite current published facts.
+  const parent={...publishedParent,status:'in-progress',sourceCheckedAt:'2026-10-09T07:45:00.000Z',statusCheckedAt:'2026-10-09T07:45:00.000Z'};
+  const result=await page.evaluate(async({modelPath,parent,publishedParent})=>{await loadDeferredScript(modelPath);const before=JSON.stringify(publishedParent);return {included:NOTHINGSPORTS_ATHLETES.spansCurrentCalendarDay(parent,'2026-10-09','2027-10-09'),terminalIncluded:NOTHINGSPORTS_ATHLETES.spansCurrentCalendarDay({...parent,status:'completed'},'2026-10-09','2027-10-09'),publishedIncluded:NOTHINGSPORTS_ATHLETES.spansCurrentCalendarDay(publishedParent,'2026-10-09','2027-10-09'),publishedStatus:publishedParent.status,publishedUnchanged:JSON.stringify(publishedParent)===before,label:NOTHINGSPORTS_ATHLETES.calendarTiming(parent,Date.parse('2026-10-09T08:45:00Z'))};},{modelPath,parent,publishedParent});
+  assert(result.included);assert.equal(result.terminalIncluded,false);assert(result.publishedUnchanged);if(result.publishedStatus==='completed')assert.equal(result.publishedIncluded,false,'A genuine final stays outside the cached calendar outlook');assert.match(result.label,/Tournament dates: 8–11 Oct 2026/);assert.match(result.label,/Next tee time not verified/);
 }
 async function assertCachedStageCalendarPolicy(page){
   const notes=['ice-hockey','champions-league'].flatMap(code=>require('../data/code-inspector/'+code+'.json').fixtures.filter(f=>f.timingProvenance?.precision==='competition-stage-calendar'));

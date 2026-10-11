@@ -68,10 +68,11 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
-  for (const route of ['--broadcaster-review', '--venue-review']) {
+  for (const route of ['--broadcaster-review', '--venue-review', '--nations-finals']) {
     if (!argv.includes(route)) continue;
     const allowed = new Set([route, '--local-only', '-p']);
-    if (argv.some(arg => !allowed.has(arg))) throw new Error(`${route === '--broadcaster-review' ? 'Broadcaster' : 'Venue'} review cannot be combined with other refresh routes. No source steps ran.`);
+    if(route==='--nations-finals')allowed.add('--rebuild');
+    if (argv.some(arg => !allowed.has(arg))) throw new Error(`${route === '--broadcaster-review' ? 'Broadcaster' : route==='--nations-finals'?'Nations finals':'Venue'} review cannot be combined with other refresh routes. No source steps ran.`);
   }
   if (argv.includes('--result-observations') && (!argv.includes('--reviewed-fixtures') || !argv.some(arg=>arg.startsWith('--ids=')) || argv.some(arg=>arg.startsWith('--restore-published=')))) {
     throw new Error('Result observations require --reviewed-fixtures with retained --ids= and no editorial restoration. No source steps ran.');
@@ -142,6 +143,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-premier-league-context.js"],
   ["scripts/migrate-competition-codes.js"],
   ["scripts/refresh-major-events-from-canonical.js"],
+  ["scripts/apply-reviewed-nations-finals.js"],
   ["scripts/migrate-competition-codes.js", "--check"],
   ["scripts/refresh-us-open-events.js"],
   ["scripts/refresh-us-open-events.js", "--check"],
@@ -471,6 +473,17 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if(process.argv.includes('--nations-finals')){
+    const result=require('./apply-reviewed-nations-finals').publish();console.log(JSON.stringify(result));
+    if(!result.changed&&!process.argv.includes('--rebuild')){console.log('Nations finals unchanged; no publication or source check.');return;}
+    for(const args of [
+      ['scripts/build-code-inspector.js','--codes=rugby-union'],
+      ['scripts/validate-major-events.js'],
+      ['scripts/validate-follow-policy-parity.js'],['scripts/validate-fixture-timing.js']
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Six existing Rugby final times published through canonical owner; no provider requests.');return;
+  }
   if (process.argv.includes('--venue-review')) {
     for (const args of buildVenueReviewSteps()) runStep(args);
     if (!options.localOnly) runStep(['scripts/redeploy-and-release.sh']);

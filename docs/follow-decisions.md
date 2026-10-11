@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Reviewed Nations Championship fixture times — 12 October 2026
+
+The six existing publisher-identified North/South placement fixtures now receive reconciled exact UTC clocks from the full reviewed final-stage payload and RFU timetable. Keep their canonical IDs and original rank labels, with explicit unknown actual participants and empty team IDs. These are six individually published placement matches, distinct from a general undrawn stage calendar. Their timing passes through the existing fixture rules; selecting a sport or event adds no new consent. A rank cannot establish an Australian-team follow or automatic team reminder. All exclusions, dismissal, saved actions, Results and Remind OFF choices remain authoritative.
+
+Original publisher observations remain original. Timetable evidence establishes no live play, result, winner, final qualification, Australian viewing or source permission. The review cannot replace later primary clocks, unknown starts, known participants or terminal states. Raw provider fixture numbers and match URLs remain provenance rather than new user-activity aliases. Regression: `validate-nations-finals.js` through the existing Major Events gate, actual server/Code/Schedule projections and local/hosted Events checks. Installed-update rehearsals are required for the combined incoming shell update; real-phone and whole-family approval remain separate.
+
 ## Compact cards retain visible source status — 12 October 2026 Sydney
 
 A minimal Feed card must show the same qualified match status that its existing timing model supplies to its accessible label. Actual retained EPL first-half, second-half and half-time records reproduced missing visible status while the scheduled clock and accessible label remained. Reuse that existing label in the compact timing line: fresh play and half-time stay explicit, old observations say Awaiting match update, and terminal/non-playing states remain distinct. Keep the originally scheduled Sydney time and the existing stage. This adds no score, winner, inferred clock, source interpretation or new status admission.

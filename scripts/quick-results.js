@@ -271,6 +271,8 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  if(skiReview.some(surface=>surface.changed.length))changes.push('Skiing calendar review');
  const calendarNotes=require('./lib/reviewed-calendar-notes').applyRetained();
  if(calendarNotes.some(surface=>surface.changed.length))changes.push('Reviewed calendar notes');
+ const nationsFinals=require('./apply-reviewed-nations-finals').publish();
+ if(nationsFinals.changed)changes.push('Reviewed Nations finals timing');
  const previewMaintenance=require('./update-sport-editorial-depth').repairMissing({reference:now});
  if(previewMaintenance.changed)changes.push('Editorial preview maintenance');
  runProjectionSteps(projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});

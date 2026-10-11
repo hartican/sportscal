@@ -655,6 +655,96 @@
             },
             "additionalProperties": false
           }
+        },
+        "participantsConfirmed": {
+          "type": "boolean"
+        },
+        "participantSlots": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "slot",
+              "participantId",
+              "label"
+            ],
+            "properties": {
+              "slot": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2
+              },
+              "participantId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "timingProvenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "precision",
+            "reviewId",
+            "sourceUrl",
+            "observedAt",
+            "sourceSha256",
+            "publisherFixtureId",
+            "worldRugbyMatchUrl",
+            "northRank",
+            "southRank"
+          ],
+          "properties": {
+            "kind": {
+              "const": "reviewed-publisher-fixture"
+            },
+            "precision": {
+              "const": "exact"
+            },
+            "reviewId": {
+              "type": "string"
+            },
+            "sourceUrl": {
+              "type": "string",
+              "format": "uri"
+            },
+            "observedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "sourceSha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "publisherFixtureId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "worldRugbyMatchUrl": {
+              "type": "string",
+              "format": "uri"
+            },
+            "northRank": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 6
+            },
+            "southRank": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 6
+            }
+          }
         }
       }
     },

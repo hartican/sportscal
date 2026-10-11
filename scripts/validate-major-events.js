@@ -15,7 +15,9 @@ const finalsCodePhases = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-fina
 const championsLeague = JSON.parse(fs.readFileSync("data/canonical/uefa-champions-league-2026-27.json", "utf8"));
 const usOpenScheduleSnapshot = JSON.parse(fs.readFileSync("feeds/provider-exports/tennis/us-open-2026-official-schedule.json", "utf8"));
 
-const REFERENCE = new Date(usOpenScheduleSnapshot.capturedAt);
+// Validate today's whole catalogue against today; the retained US Open source
+// is a fixture input, not the observation ceiling for newer sports evidence.
+const REFERENCE = new Date();
 const FUTURE_REFERENCE = new Date(REFERENCE.getTime() + 24 * 60 * 60 * 1000).toISOString();
 const catalogue = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
 const feed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
@@ -91,7 +93,8 @@ const rugbyFinals = catalogue.events.find(record => record.id === "major-event:n
 assert(rugbyFinals && rugbyFinals.subEvents.length === 6, "Rugby must retain all six Nations Championship Finals Weekend placements");
 assert.equal(rugbyFinals.competitionScope, "international");
 assert(rugbyFinals.representativeCountryCodes.includes("AU"), "Australian national representation must be explicit metadata, not a title heuristic");
-assert(rugbyFinals.subEvents.every(event => event.dateLabel && event.startTimeUtc === null), "Rugby placement sessions require a published label but no invented drawn fixture");
+assert(rugbyFinals.subEvents.every(event => event.dateLabel && event.startTimeUtc && event.sourceCheckedAt && event.participantsConfirmed===false && !event.participantIds.length && event.participantSlots.every(slot=>!slot.participantId)), "Rugby placements retain sourced match times and explicitly unknown actual teams");
+require('./validate-nations-finals');
 
 assert.equal(championsLeague.id, "competition:uefa-champions-league");
 assert.deepEqual(championsLeague.phases.map(record => record.phaseIdentity), ["qualification", "league", "knockout"], "Champions League Code coverage must retain chronological phases");

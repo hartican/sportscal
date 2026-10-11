@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Six reviewed Nations fixture clocks — 12 October 2026
+
+The existing full/daily canonical owner consumes one frozen, dated six-row final-stage review; its scoped publication remains under `update-cards.js`. Validate complete identities, actual publisher epochs, RFU/Sydney agreement and original receipt dates before writing. No new provider request, scraper, retry, polling, credential, scheduler, migration, customer write or reminder replay. Preserve later primary clocks, unknown starts, participant facts, terminal state and unrelated data; unchanged replays retain bytes and observations. Regression runs through the existing Major Events gate and actual temporary-file writer. Raw source identifiers are provenance only, with no activity merge.
+
+Scheduled refresh `38169920440` published source facts but its downstream release failed because the Golf validator expected a provider read after the real calendar became completed. The test now drives its retained controlled in-play transition and separately requires zero reads for a settled final; runtime cadence and completed-result protection are unchanged. A seven-byte startup overrun from the incoming refreshed runtime is resolved by shortening seven non-executable comments, preserving the fixed limit and inline executable code. The combined cached-shell release keeps the normal browser/upgrade and exact live checks. Neither this repair nor its manual deployment proves a future end-to-end ordinary unattended publication.
+
 ## Football table/result disagreement uses retained facts — 12 October 2026 Sydney
 
 The existing deferred Football module compares recorded games, wins/draws/losses and goals with published rows only for the complete 2026/27 EPL season or UEFA Champions/Europa league phase. Require the retained 380/20 or 144/36 fixture/team scope, unique identities, known ordered participants and integer final scores. A card may include its uniquely matched newer validated final in the comparison; reject an invalid/future/backwards observation, changed participant identity, different season or European qualifying stage. The existing full Follow table uses its already-overlaid fixtures. Partial or ambiguous collections cannot establish a complete comparison, and a later timestamp alone cannot create a warning.
