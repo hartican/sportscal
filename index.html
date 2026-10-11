@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="487">
+<meta name="app-shell-version" content="488">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=487" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=488" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7176,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=487"></script>
+<script src="assets/js/app-shell-runtime.js?v=488"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8763,8 +8763,7 @@ async function openAthleteProfile(id,label,sportKey,trigger){
 
 if (startupReloadRestoreState){
   activeFilter = String(startupReloadRestoreState.activeFilter || activeFilter);
-  // Saved Month View sessions retain their route, filter and scroll/card anchor,
-  // but the retired view itself always resumes in the list timeline.
+  // Retired Month View keeps its navigation context and resumes in the list.
   activeView = startupReloadRestoreState.activeView === "month" ? "list" : "list";
   activeTab = ["feed","events","follow","match-centre"].includes(startupReloadRestoreState.activeTab) ? startupReloadRestoreState.activeTab : activeTab;
   eventsViewTab = ["overviews","major-events","ticket-alerts"].includes(startupReloadRestoreState.eventsViewTab) ? startupReloadRestoreState.eventsViewTab : eventsViewTab;
@@ -9373,8 +9372,7 @@ function mergePreferences(saved){
         ? new Date(saved.swipeCoaching.dismissedAt).toISOString()
         : null,
     },
-    // The retired venue shortlist is deliberately discarded. Follow-first
-    // location is the single local-sport source of truth.
+    // Follow location replaces the retired venue shortlist.
     localVenueIds: [],
     selectedSelectorEntityIds: migratedSelectorEntityIds,
     followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
