@@ -72,6 +72,26 @@ function calendarResponseDiagnostic(html){
   return {bytes:Buffer.byteLength(text),sha256:crypto.createHash("sha256").update(text).digest("hex"),prerenderPresent:/<script[^>]+id="rb3-prerender-data-cache"[^>]*>/i.test(text)};
 }
 
+// Only the already-read competition calendar enters this optional failure
+// receipt. It contains no headers, environment, customer files or error text.
+function saveRejectedCalendarResponse(html,{file=process.env.WRC_SOURCE_FAILURE_REPORT,sourceKind='public-response',checkedAt=new Date().toISOString()}={}){
+  if(!file)return {state:'disabled'};
+  const body=Buffer.from(String(html||'')),captured=body.subarray(0,128*1024);
+  const report={schemaVersion:'wrc-source-failure.v1',checkedAt,sourceKind,sourceUrl:sourceKind==='public-response'?CALENDAR_URL:null,...calendarResponseDiagnostic(html),capturedBytes:captured.length,truncated:captured.length<body.length,bodyBase64:captured.toString('base64')};
+  const temporary=file+'.'+process.pid+'.tmp';
+  let created=false;
+  try{
+    fs.mkdirSync(path.dirname(file),{recursive:true});
+    fs.writeFileSync(temporary,JSON.stringify(report)+'\n',{mode:0o600,flag:'wx'});
+    created=true;
+    fs.renameSync(temporary,file);
+    return {state:'saved',bytes:captured.length,truncated:report.truncated};
+  }catch(_error){
+    if(created)try{fs.unlinkSync(temporary);}catch(_cleanup){}
+    return {state:'unavailable'};
+  }
+}
+
 function classificationFile(directory, roundNumber){
   if (!directory) return null;
   const candidates = [
@@ -124,7 +144,13 @@ async function main(){
     const withdrawalVerified=coverage.verifiedWithdrawal(revisionHtml);
     const diagnostic=calendarResponseDiagnostic(calendarHtml);
     if(!diagnostic.prerenderPresent)console.warn(`WRC calendar response diagnostic: ${JSON.stringify(diagnostic)}`);
-    const rounds = parseWrcCalendar(calendarHtml,{withdrawalVerified});
+    let rounds;
+    try{rounds=parseWrcCalendar(calendarHtml,{withdrawalVerified});}
+    catch(error){
+      const capture=saveRejectedCalendarResponse(calendarHtml,{sourceKind:calendarFile?'local-fixture':'public-response'});
+      if(capture.state!=='disabled')console.warn(`WRC rejected calendar capture: ${capture.state}`);
+      throw error;
+    }
     let future;
     try{
       const futureFile=optionValue(args,'--future-file');
@@ -172,6 +198,7 @@ module.exports = {
   assertValid,
   classificationFile,
   calendarResponseDiagnostic,
+  saveRejectedCalendarResponse,
   fetchText,
   main,
   preservedContextAfterCoreFailure,

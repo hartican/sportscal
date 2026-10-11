@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Bounded rejected public calendar receipt — 11 October 2026 Sydney
+
+The existing canonical refresh may retain a rejected WRC competition-calendar response in its existing 14-day diagnostic artifact, capped at 128 KiB of already-read public body bytes plus fixed source/hash/date metadata. It does not save request headers, error messages, environment files, customer data or a checkout. Local test inputs carry local provenance. Validation subprocesses must lose the configured production report path, preventing test fixtures from overwriting genuine source evidence. Parser rejection, last-good source clocks, request/deadline budgets and manual profile-picture scope remain unchanged. Diagnostic write failure cannot mask the original source rejection; no automatic retry, provider call, scheduler, purchase or owner routine is added. A later healthy local response does not establish the earlier CI failure's cause.
+
 ## Explain rejected source times without widening acceptance — 11 October 2026 Sydney
 
 The existing NHL and Tennis source errors distinguish a future provider publication or observation from an older-than-six-hours Tennis receipt, with independently labelled valid source/validation clocks. Invalid clock values fail closed and are never copied into messages. The same existing quick/live exception path carries the bounded error text; no report schema, additional source request, retry, scheduler, credential, polling, database operation or owner task is added. Valid source data and original observation values are unchanged; even a one-millisecond future observation stays rejected.

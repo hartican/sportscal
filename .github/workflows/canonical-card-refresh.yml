@@ -89,6 +89,7 @@ jobs:
           QUICK_RESULTS_REPORT: ${{ runner.temp }}/quick-results-report.json
           KNOWN_FINAL_RESULTS_REPORT: ${{ runner.temp }}/known-final-results-report.json
           GOLF_SOURCE_REPORT: ${{ runner.temp }}/golf-source-report.json
+          WRC_SOURCE_FAILURE_REPORT: ${{ runner.temp }}/wrc-source-failure.json
           RELEASE_COMMIT_MESSAGE: Automated canonical sports refresh
           QUICK_RESULTS: ${{ steps.cadence.outputs.quick }}
         run: bash scripts/update-sportscal-cards-and-release.sh
@@ -112,5 +113,6 @@ jobs:
             ${{ runner.temp }}/known-final-results-report.json
             ${{ runner.temp }}/football-data-backup-report.json
             ${{ runner.temp }}/golf-source-report.json
+            ${{ runner.temp }}/wrc-source-failure.json
           if-no-files-found: ignore
           retention-days: 14

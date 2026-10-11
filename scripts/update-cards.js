@@ -58,7 +58,7 @@ function runStep(args) {
   const display = commandLabel || command;
 
   console.log(`\n> ${display}`);
-  const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(command))for(const key of ["FOOTBALL_DATA_API_TOKEN","FOOTBALL_DATA_RUN_DIR","FOOTBALL_DATA_REPORT","GOLF_SOURCE_RUN_ID","GOLF_SOURCE_REPORT"])delete env[key];
+  const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(command))for(const key of ["FOOTBALL_DATA_API_TOKEN","FOOTBALL_DATA_RUN_DIR","FOOTBALL_DATA_REPORT","GOLF_SOURCE_RUN_ID","GOLF_SOURCE_REPORT","WRC_SOURCE_FAILURE_REPORT"])delete env[key];
   const result = spawnSync(runner, commandArgs, { stdio: "inherit",env });
   if (result.status !== 0) {
     const error = new Error(`${display} failed with exit code ${result.status || 1}`);
