@@ -1,9 +1,14 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const policy=require('../config/editorial-maintenance'),publication=require('./lib/editorial-publication');
-const knowledge=JSON.parse(fs.readFileSync('data/editorial-knowledge.v1.json'));
+const currentKnowledge=JSON.parse(fs.readFileSync('data/editorial-knowledge.v1.json'));
 const feed=JSON.parse(fs.readFileSync('data/events.json'));
-const id='supercars-bathurst-1000-2026',current=feed.events.find(event=>event.id===id);
+// The pre-race restoration case uses captured matching inputs. The live
+// catalogue completing this race cannot turn that case into a final overwrite.
+const captured=require('./fixtures/bathurst-prematch-editorial-20261011.json');
+const knowledge=captured.knowledge,current=structuredClone(captured.event);
+const id='supercars-bathurst-1000-2026',published=feed.events.find(event=>event.id===id);
+assert.equal(current.status,'scheduled');assert(/^[a-f0-9]{40}$/.test(captured.sourceSnapshot));assert(published);
 const projection=require('./lib/editorial-narrative').projectionForTarget(knowledge,'feed-event',current);
 // Keep temporal assertions relative to the real research, not a date that expires.
 const researchTime=Date.parse(current.editorialNarrative.researchedAt);
@@ -27,8 +32,9 @@ assert.equal(publication.publicationPlan([{...row,held:true}],[repaired],[repair
 assert.equal(publication.publicationPlan([row],[repaired],[]).deferred.length,1,'Missing served fixture is not publication');
 assert.equal(publication.publicationPlan([row],[repaired],[{...repaired,selectedSentence:'Old compatibility hook'}]).deferred.length,1);
 assert(publication.publicationMismatch(repaired,[old]));assert(!publication.publicationMismatch(repaired,[repaired]));
-assert(policy.equalCopy(policy.copy(current),projection),'Bathurst published full four-section preview');
-console.log('Editorial publication: stale seed/quick refresh, actual served four-section proof, independent gaps, unchanged sporting facts, newer editorial, holds and protected NRL passed.');
+assert(policy.equalCopy(policy.copy(current),projection),'Captured pre-race card and its full four-section research agree');
+if(['completed','finished','final'].includes(published.status))assert.deepEqual(publication.reconcileFullPreviews([published],currentKnowledge),[published],'The actual published final remains independent of pre-race restoration');
+console.log('Editorial publication: captured pre-race restoration, current final protection, independent gaps, unchanged sporting facts, newer editorial, holds and protected NRL passed.');
 
 const crypto=require('node:crypto'),release=require('./lib/editorial-source-release');
 const bytes=fs.readFileSync(release.sourcePath),sha='a'.repeat(40),hash=(algorithm,value)=>crypto.createHash(algorithm).update(value).digest('hex');

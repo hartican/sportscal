@@ -28,11 +28,13 @@ async function main(){
     const result=response();await followed({method:'POST',url:'/api/feed?scope=match-centre',body:{preferences:{}},headers:{}},result);
     assert.equal(result.statusCode,200);assert.equal(result.body.membershipStale,!snapshot||snapshot.stale,'Followed membership exposes shared-store degradation to the retention path');
   }
-  // Replay the actual failure: the full-season read times out while the
-  // existing bounded Match Centre bundle has the live Bathurst observation.
+  // Replay the historical live fallback against its captured pre-race card.
+  // A later official final must not become the base of an earlier live replay.
   const raceNow=new Date('2026-10-11T05:10:00Z');
-  const bathurst=require('../data/events.json').events.find(e=>e.id==='supercars-bathurst-1000-2026');
-  assert(bathurst);
+  const historicalBathurst=require('./fixtures/bathurst-prematch-editorial-20261011.json');
+  const bathurst=structuredClone(historicalBathurst.event);
+  assert.equal(bathurst.status,'scheduled');
+  assert(/^[a-f0-9]{40}$/.test(historicalBathurst.sourceSnapshot));
   const liveBathurst={...bathurst,status:'live',statusCheckedAt:raceNow.toISOString(),scoreCheckedAt:raceNow.toISOString(),fixtureObservationSchema:'fixture-observations.v1'};
   const near={...bathurst,id:'race-near',eventId:'race-near',canonicalEventId:'race-near',status:'upcoming',startTimeUtc:new Date(+raceNow+600000).toISOString(),sourceEventIds:['race-near-alias']};
   const raceReads=[];
@@ -73,6 +75,29 @@ async function main(){
   assert.equal(JSON.stringify(inherited),originalInherited,'Normalizing the parent selection must preserve its original settings');
   const excluded=response();await createFeedHandler({load:()=>raceData,clock:()=>raceNow})({method:'POST',url:'/api/feed?scope=match-centre',body:{preferences:{version:26,followedSports:['supercars']},eventUserState:{[bathurst.id]:{dismissed:true}}},headers:{}},excluded);
   assert(!excluded.body.events.some(e=>e.id===bathurst.id),'The bounded read cannot override a dismissal');
+  // Independently test the actual published final: an older live observation
+  // cannot reopen it or renew its one-hour Recently finished membership.
+  const currentBathurst=require('../data/events.json').events.find(e=>e.id===bathurst.id);
+  assert(currentBathurst);
+  if(['completed','finished','final'].includes(currentBathurst.status)){
+    const original=JSON.stringify(currentBathurst),completed=Date.parse(currentBathurst.firstConfirmedCompleteAt);
+    assert(Number.isFinite(completed),'Current final retains its original confirmed completion');
+    const preferences={version:26,followedSports:['supercars']};
+    for(const [offset,present] of [[600000,true],[3600001,false]])for(const signedIn of [false,true]){
+      const finalNow=new Date(completed+offset);
+      const finalData={...raceData,contextualEvents:[currentBathurst],readLiveSnapshots:async options=>{
+        assert.equal(options.scope,'match-centre');
+        return {revision:'older-race-live',stale:false,sources:[{source_id:'live-supercars-bathurst',checked_at:raceNow.toISOString(),fixtures:[liveBathurst]}]};
+      }};
+      const finalHandler=createFeedHandler({load:()=>finalData,clock:()=>finalNow,authenticate:()=>({bearerToken:()=>'',authenticatedUser:async()=>({id:'final-follower'}),loadUserState:async()=>({preferences})})});
+      const result=response();await finalHandler({method:signedIn?'GET':'POST',url:'/api/feed?scope=match-centre',body:{preferences},headers:{}},result);
+      assert.equal(result.statusCode,200);
+      const retained=result.body.events.find(e=>e.id===bathurst.id);
+      assert.equal(Boolean(retained),present,'Only the original one-hour completed window remains in Match Centre');
+      if(retained){assert.equal(retained.status,currentBathurst.status,'Old live data cannot reopen a final');assert.equal(retained.firstConfirmedCompleteAt,currentBathurst.firstConfirmedCompleteAt,'A read cannot renew completion');}
+    }
+    assert.equal(JSON.stringify(currentBathurst),original,'Final fallback checks preserve published facts');
+  }
   // Frozen input proves copy-on-write composition does not mutate shared event data.
   const event=Object.freeze({id:'frozen',key:'afl',date:'2026-09-15',startTimeUtc:'2026-09-15T04:00:00Z',participantIds:Object.freeze([]),storyline:Object.freeze({stakes:3})});
   pipeline.buildServerFeed({events:[event],userId:'a',userState:{},now:new Date('2026-09-15T03:00:00Z'),copyEvents:false});
