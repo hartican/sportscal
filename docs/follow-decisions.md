@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Football card records share fixture result choices — 12 October 2026 Sydney
+
+Expanded Football standings and pre-match team records use the existing effective fixture result choice: a per-fixture Hide/Show overrides the global setting, and strict protection always hides records. Pass the shared visibility predicate across the deferred card boundary and recheck it after a standings read and on Retry. Do not copy only the global Results switch. Keep the existing explicit boolean context-helper contract for its direct callers. The same shared pre-match context renderer preserves this behaviour for NBL.
+
+No match, table ordering, qualification, identity, original source clock, Follow admission, notification choice, API, database, source owner, polling, subscription or commercial permission changes. A hidden table does not fetch another document; the existing one shared static-table read is reused when visible. Regression: `validate-football-card-privacy.js` runs the actual deferred caller and renderer with dated captured EPL/UCL/Europa inputs; `validate-football-card-privacy-browser.js` exercises native Feed/Schedule cards in Chromium/WebKit and hides during the existing delayed read. Publication, exact live proof, real-phone use and whole-Football approval remain separate.
+
 ## Reviewed Alcaraz Shanghai start — 12 October 2026 Sydney
 
 The complete official 12 October order of play now attaches Not Before 18:00 Shanghai / 21:00 AEDT to Zizou Bergs–Carlos Alcaraz, Stadium Court match four. Bind it to existing canonical fixture `fixture:tennis:espn:atp:184941`; retain the same participants, action aliases, original provider status clock and separately dated organiser PDF/draw receipts. The noon court session and empty third slot cannot time this match. The existing followed-player Masters knockout policy schedules T−15 at 20:45 AEDT, subject to future schedule/status evidence and fixture/global/device OFF. No new consent, Follow migration, source adapter, scheduler or notification category.

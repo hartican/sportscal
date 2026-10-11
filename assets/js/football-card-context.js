@@ -2,6 +2,7 @@
 (function(){
 const style=document.createElement('style');style.textContent='.football-card-standings{background:rgba(255,255,255,.88);color:#182330;padding:12px;border-radius:12px;font-size:13px;text-align:left}.football-card-standings h3{font-size:13px;color:#182330;margin:0 0 8px}.football-card-standings ul{padding-left:18px}.football-card-standings p{font-size:12px;line-height:1.5;color:#455466}.football-card-standings a{color:#224f78}.football-card-standings .btn{color:#182330;background:transparent;border-color:#7c8794;margin:8px 0 0} .football-match-context{padding:12px;background:rgba(255,255,255,.88);color:#182330;border-radius:12px;font-size:13px;text-align:left;margin:8px 0}.football-match-context h3{font-size:13px;margin:0 0 8px}.football-match-context ul{padding-left:18px;margin:0}.football-match-context li{margin:6px 0;overflow-wrap:anywhere}.football-match-context p{font-size:12px;line-height:1.5;color:#455466;margin:8px 0 0}';document.head.append(style);
 function context(ev,showResults){
+  showResults=typeof showResults==='function'?showResults():showResults;
   const nbl=ev.teamMatchContext?.schemaVersion==='nbl-match-context.v1'&&ev.competitionId==='competition:nbl';
   const context=nbl?ev.teamMatchContext:ev.footballMatchContext;
   if(!Number.isFinite(Date.parse(context?.checkedAt||''))||context?.schemaVersion!==(nbl?'nbl-match-context.v1':'football-match-context.v1')||context.competitionId!==ev.competitionId||context.season!==ev.season||context.beforeKickoff!==ev.startTimeUtc||(nbl&&context.checkedAt!==ev.sourceCheckedAt)||Date.parse(context.checkedAt)>Date.now()+60000||!Array.isArray(context.teams)||context.teams.length!==2)return null;
@@ -47,16 +48,17 @@ function attribution(ev){
   wrapper.append(note);return wrapper;
 }
 let tableDocument=null,tableLoading=null;
-async function standings(ev){
+async function standings(ev,visible=()=>isSpoilerVisible(ev)){
+ const showResults=typeof visible==='function'?visible:()=>Boolean(visible);
  if(!['competition:premier-league-2026-27','competition:uefa-champions-league','competition:uefa-europa-league'].includes(ev.competitionId))return null;
  const section=document.createElement('section');section.className='football-card-standings';section.dataset.cardArea='expanded-information';
  const heading=document.createElement('h3');heading.textContent=ev.competitionName+' · published standings';section.append(heading);
  const full=document.createElement('button');full.type='button';full.className='btn ghost';full.textContent='View competition standings';full.onclick=async()=>{await loadDeferredScript('assets/js/follow-navigation.js?v=463');NOTHINGSPORTS_FOLLOW_NAV.setFilter('sport:football','competition',[ev.competitionId]);activeTab='follow';followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'standings',scheduleScope:null});renderAll();};
  const paint=async()=>{
   section.replaceChildren(heading);
-  if(!userPreferences.showSpoilers){const note=document.createElement('p');note.textContent='Standings hidden while Results is off.';section.append(note,full);return;}
+  if(!showResults()){const note=document.createElement('p');note.textContent='Standings hidden while Results is off.';section.append(note,full);return;}
   try{const doc=codeInspectorChunk?.code?.id==='sport:football'?codeInspectorChunk:tableDocument||(await(tableLoading||=(fetchJson('data/code-inspector/football.json',{cache:'default'}).then(d=>{if(d.code?.id!=='sport:football'||!Array.isArray(d.standings))throw Error('Invalid table document');return tableDocument=d;}).finally(()=>tableLoading=null))));
-   if(!userPreferences.showSpoilers){await paint();return;}
+   if(!showResults()){await paint();return;}
    const rows=doc.standings.filter(r=>r.competitionId===ev.competitionId&&(ev.participantIds||[]).includes(r.participantId));
    if(!rows.length)throw Error('No published table rows');
    if(rows.some(row=>row.stale)){const warning=document.createElement('p');warning.className='standings-stale-note';warning.textContent=rows.find(row=>row.stale)?.staleNote||'Table awaits primary-source confirmation.';section.append(warning);}
