@@ -126,7 +126,25 @@
   const value=score(e,{racing}),pair=pairedScore(e),hasScore=value.racing||value.home!=null||value.away!=null||value.sets?.length||value.games||value.innings?.length;
   const observationCheckedAt=e.scoreCheckedAt||(!hasScore?e.statusCheckedAt:null)||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt||e.canonicalSourceCheckedAt)||null;
   return {court:e.court||null,tournamentId:e.tournamentId||e.tennisTournamentId||null,statusSourceType:e.statusSourceType||null,format:e.format||e.matchFormat||null,actualStartTimeUtc:e.actualStartTimeUtc||null,livePlayObservedAt:e.livePlayObservedAt||null,id:id(e),sport:sport(e),status:e.status||'scheduled',homeParticipantId:e.homeParticipantId||pair?.home.participantId||e.matchupSides?.[0]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[0]?.participantId||e.participantIds?.[0]:null)||null,awayParticipantId:e.awayParticipantId||pair?.away.participantId||e.matchupSides?.[1]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[1]?.participantId||e.participantIds?.[1]:null)||null,startTimeUtc:e.startTimeUtc||null,restartTimeUtc:e.restartTimeUtc||null,cricketBalance:label(e.cricketBalance),completedAt:Number.isFinite(completion(e))?new Date(completion(e)).toISOString():null,scoreCheckedAt:e.scoreCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,statusCheckedAt:e.statusCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,checkedAt:observationCheckedAt,stale:stale||e.stale===true||e.sourceStale===true||Boolean(e.fixtureObservationSchema&&hasScore&&!e.scoreCheckedAt),score:value,officialUrl:officialUrl(e),...scorecard(e),statusText:typeof e.statusText==='string'?e.statusText:null,clock:duration(e),incidents:(Array.isArray(e.incidents)?e.incidents:Array.isArray(e.goalScorers)?e.goalScorers:[]).filter(i=>i&&typeof i==='object').slice(0,40).map(i=>({name:i.name||i.playerName||i.scorer?.name||(typeof i.scorer==='string'?i.scorer:null),time:i.minute??i.elapsedMinute??i.time??i.clock??null,type:i.type||(Array.isArray(e.incidents)?null:'Goal'),addedTime:i.addedTime??i.stoppageTime??null,ownGoal:i.ownGoal===true,penalty:i.penalty===true,goalType:i.goalType||null,teamName:i.teamName||i.team?.name||null,disallowed:i.disallowed===true||i.isDisallowed===true||i.cancelled===true})),...(rubbers?{rubbers:(e.rubbers||[]).slice(0,10).map(r=>({id:id(r),name:r.sides?.length?r.sides.map(s=>s.names.join(' / ')).join(' v '):r.name||'',status:r.status,score:score({...r,key:'tennis'})}))}:{})};}
+ function reviewedBathurstClassification(e){
+  const results=e.fixtureResults,columns=results?.columns,rows=results?.rows;
+  const url='https://www.supercars.com/results/2026/2026-bathurst-1000/R17';
+  const stamp=Date.parse(results?.checkedAt||'');
+  if(sport(e)!=='supercars'||id(e)!=='supercars-bathurst-1000-2026'||e.competitionId!=='competition:supercars'||e.date!=='2026-10-11'||!final(e)||e.resultStatus!=='official'||e.sourceType!=='official'||results?.schemaVersion!=='fixture-results.v1'||results.sourceUrl!==url||e.resultSourceUrl!==url||!Number.isFinite(stamp)||stamp>Date.now())return null;
+  const labels=['Finish','No','Drivers','Team','Race time','Laps','Points'];
+  if(!Array.isArray(columns)||columns.length!==labels.length||columns.some((label,i)=>label!==labels[i])||!Array.isArray(rows)||rows.length!==26||rows.some(row=>!Array.isArray(row)||row.length!==labels.length||row.some(value=>typeof value!=='string')))return null;
+  const names=[];let unclassified=false,position=0;
+  for(const row of rows){
+   if(row[0]==='NC')unclassified=true;else if(unclassified||row[0]!==String(++position))return null;
+   const drivers=row[2].split(' / ');names.push(...drivers);
+   if(!/^\d{1,3}$/.test(row[1])||drivers.length!==2||drivers.some(name=>!name.trim())||!row[3].trim()||!/^\d+:\d{2}:\d{2}\.\d{3}$/.test(row[4])||!/^\d+$/.test(row[5])||Number(row[5])>161||!/^\+?\d+$/.test(row[6]))return null;
+  }
+  if(rows[0][0]!=='1'||rows[0][5]!=='161'||new Set(rows.map(row=>Number(row[1]))).size!==26||new Set(names).size!==52)return null;
+  const entries=rows.map(row=>({id:'entry:'+Number(row[1]),number:row[1],drivers:row[2].split(' / '),position:row[0],...Object.fromEntries(row.map((value,i)=>['value'+i,value]))}));
+  return {schema:'racing.v1',kind:'classification',eventId:id(e),sessionId:'R17',sessionName:'2026 Bathurst 1000 · Race 30',provider:'Supercars',officialUrl:url,providerAt:null,checkedAt:results.checkedAt,phase:'official-result',status:'completed',statusText:'Official classification',columns:columns.map((label,i)=>[label,'value'+i]),entries};
+ }
  function racingDetail(e){
+  const reviewed=reviewedBathurstClassification(e);if(reviewed)return reviewed;
   if(e.score?.racing?.schema==='racing.v1')return e.score.racing;
   if(!/^(f1|supercars|motogp|wrc)$/.test(sport(e)))return null;
   const results=e.fixtureResults,columns=results?.columns,rows=results?.rows;

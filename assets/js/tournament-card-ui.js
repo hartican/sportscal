@@ -10,7 +10,7 @@ function actions(parent){
 async function render(container,parent){
  const owner=serverSyncClient?.sessionSubject()||'public',prefs=JSON.stringify(userPreferences);container.textContent='Loading followed appearances…';
  try{
-  await Promise.all([loadDeferredScript('config/tournament-card-details.js?v=486'),loadDeferredScript('config/score-details.js?v=486')]);NOTHINGSPORTS_SCORE_DETAILS.styles();
+  await Promise.all([loadDeferredScript('config/tournament-card-details.js?v=486'),loadDeferredScript('config/score-details.js?v=493')]);NOTHINGSPORTS_SCORE_DETAILS.styles();
   overviewPromise ||= fetchJson('data/event-overviews.v1.json',{cache:'no-cache'}).catch(e=>{overviewPromise=null;throw e;});
   const doc=await overviewPromise,edition=NOTHINGSPORTS_TOURNAMENT_DETAILS.edition(parent,doc.events||[])||parent;
   let fixtures;

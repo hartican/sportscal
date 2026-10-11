@@ -92,6 +92,9 @@ function normalizeCompletedTiming(record, {child=false} = {}){
     if(result) record = {...record,...(!child?{selectedSentence:safe,fullSpiel:safe}:{}),storyline:{...record.storyline,arcStage:"recap",hookSpoilerOff:safe,synopsisSpoilerOff:safe,hookSpoilerOn:result,synopsisSpoilerOn:record.recapText || result}};
   }
   if(record.status !== "completed" || record.endTimeUtc || !record.startTimeUtc) return record;
+  // An explicit unknown finish from reviewed evidence must stay unknown.
+  // A confirmed result and an expected race window do not supply that clock.
+  if(Object.hasOwn(record,'endTimeUtc') && record.endTimeUtc === null) return record;
   const start = Date.parse(record.startTimeUtc);
   if(!Number.isFinite(start)) return record;
   const hours = Math.max(0.5, Number(record.liveWindow) || 3);

@@ -25,7 +25,7 @@ function applyOfficialResults(events, snapshot){
     const next = {
       ...event,
       ...result,
-      resultPublishedAt:event.resultPublishedAt || result.resultPublishedAt || result.sourceCheckedAt || snapshot.checkedAt,
+      resultPublishedAt:event.resultPublishedAt || (Object.hasOwn(result,'resultPublishedAt') ? result.resultPublishedAt : result.sourceCheckedAt || snapshot.checkedAt),
       sourceCheckedAt:result.fixtureObservationSchema ? event.sourceCheckedAt : (!result.sourceUrl || result.sourceUrl === event.sourceUrl) && Date.parse(event.sourceCheckedAt) > Date.parse(result.sourceCheckedAt || snapshot.checkedAt) ? event.sourceCheckedAt : result.sourceCheckedAt || snapshot.checkedAt,
       lastReviewedAt:result.lastReviewedAt || result.resultSourceCheckedAt || result.sourceCheckedAt || snapshot.checkedAt,
       sourceType:"official",
