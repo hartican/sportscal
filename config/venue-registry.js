@@ -279,7 +279,9 @@
     ["beijing", ["atp", "wta"], "china-national-tennis-center", ["Capital Group Diamond", "Brad Drewett", "Lotus"], ["HSBC Moon", "Court 3", "Court 4", "Court 5"]],
     ["tokyo", ["atp"], "ariake-tennis-forest-park", ["Colosseum"], ["Kinoshita Group Show Court", "Court 1", "Court 2"]],
     ["shanghai", ["atp"], "qizhong-tennis-center", ["Stadium Court", "Grandstand 2", "Show Court 3", "Court 4"], ["Court 7"]],
-    ["wuhan", ["wta"], "optics-valley-tennis-center", [], []],
+    // Current publisher labels are retained only for this exact edition. They
+    // do not attest a physical court identity, location or official assignment.
+    ["wuhan", ["wta"], "optics-valley-tennis-center", [], ["Court 1", "Court 2", "Dongfeng Voyah Center Court"]],
   ];
 
   function tennisVenue(normalized, context){
