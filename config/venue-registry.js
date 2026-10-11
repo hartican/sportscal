@@ -6,79 +6,79 @@
   "use strict";
 
   const VERSION = "venue-registry.v3";
+  // Optional official names and aliases expand to the same public record shape.
   const ENTRIES = Object.freeze([
-    // Exact venue identities already published by the canonical race and fixture sources.
-    ["autodromo-hermanos-rodriguez","Autódromo Hermanos Rodríguez","Autódromo Hermanos Rodríguez",["Autódromo Hermanos Rodríguez"]],
-    ["autodromo-jose-carlos-pace","Autódromo José Carlos Pace","Autódromo José Carlos Pace",["Autódromo José Carlos Pace"]],
-    ["autodromo-nazionale-monza","Autodromo Nazionale Monza","Autodromo Nazionale Monza",["Autodromo Nazionale Monza"]],
-    ["baku-city-circuit","Baku City Circuit","Baku City Circuit",["Baku City Circuit"]],
-    ["circuit-de-spa-francorchamps","Circuit de Spa-Francorchamps","Circuit de Spa-Francorchamps",["Circuit de Spa-Francorchamps"]],
-    ["circuit-of-the-americas","Circuit of The Americas","Circuit of The Americas",["Circuit of The Americas"]],
-    ["circuit-zandvoort","Circuit Zandvoort","Circuit Zandvoort",["Circuit Zandvoort"]],
-    ["hungaroring","Hungaroring","Hungaroring",["Hungaroring"]],
-    ["las-vegas-strip-circuit","Las Vegas Strip Circuit","Las Vegas Strip Circuit",["Las Vegas Strip Circuit"]],
-    ["madring","Madring","Madring",["Madring"]],
-    ["marina-bay-street-circuit","Marina Bay Street Circuit","Marina Bay Street Circuit",["Marina Bay Street Circuit"]],
-    ["mount-panorama","Mount Panorama","Mount Panorama",["Mount Panorama"]],
-    ["pat-rafter-arena","Pat Rafter Arena","Pat Rafter Arena",["Pat Rafter Arena"]],
-    ["sepang-international-circuit","Sepang International Circuit","Sepang International Circuit",["Sepang International Circuit"]],
-    ["yas-marina-circuit","Yas Marina Circuit","Yas Marina Circuit",["Yas Marina Circuit"]],
-    ["us-open-louis-armstrong", "Louis Armstrong Stadium", "Louis Armstrong Stadium", ["Louis Armstrong Stadium"]],
-    ["arthur-ashe-stadium", "Arthur Ashe Stadium", "Arthur Ashe Stadium", ["Arthur Ashe Stadium"]],
+    ["autodromo-hermanos-rodriguez", "Autódromo Hermanos Rodríguez"],
+    ["autodromo-jose-carlos-pace", "Autódromo José Carlos Pace"],
+    ["autodromo-nazionale-monza", "Autodromo Nazionale Monza"],
+    ["baku-city-circuit", "Baku City Circuit"],
+    ["circuit-de-spa-francorchamps", "Circuit de Spa-Francorchamps"],
+    ["circuit-of-the-americas", "Circuit of The Americas"],
+    ["circuit-zandvoort", "Circuit Zandvoort"],
+    ["hungaroring", "Hungaroring"],
+    ["las-vegas-strip-circuit", "Las Vegas Strip Circuit"],
+    ["madring", "Madring"],
+    ["marina-bay-street-circuit", "Marina Bay Street Circuit"],
+    ["mount-panorama", "Mount Panorama"],
+    ["pat-rafter-arena", "Pat Rafter Arena"],
+    ["sepang-international-circuit", "Sepang International Circuit"],
+    ["yas-marina-circuit", "Yas Marina Circuit"],
+    ["us-open-louis-armstrong", "Louis Armstrong Stadium"],
+    ["arthur-ashe-stadium", "Arthur Ashe Stadium"],
     ["stadium-australia", "Stadium Australia", "Accor Stadium", ["Accor Stadium", "Accor Stadium, Sydney"]],
     ["sydney-football-stadium", "Sydney Football Stadium", "Allianz Stadium", ["Allianz Stadium", "Allianz Stadium, Sydney"]],
-    ["brookvale-oval", "Brookvale Oval", "4 Pines Park", ["4 Pines Park"]],
-    ["melbourne-rectangular-stadium", "Melbourne Rectangular Stadium", "AAMI Park", ["AAMI Park"]],
+    ["brookvale-oval", "Brookvale Oval", "4 Pines Park"],
+    ["melbourne-rectangular-stadium", "Melbourne Rectangular Stadium", "AAMI Park"],
     ["gabba", "the Gabba", "Brisbane Cricket Ground", ["Brisbane Cricket Ground", "Gabba, Brisbane"]],
-    ["bellerive-oval", "Bellerive Oval", "Bellerive Oval", ["Bellerive Oval", "Bellerive Oval, Hobart"]],
+    ["bellerive-oval", "Bellerive Oval", ["Bellerive Oval", "Bellerive Oval, Hobart"]],
     ["kardinia-park", "Kardinia Park", "GMHBA Stadium", ["GMHBA Stadium, Geelong"]],
     ["docklands-stadium", "Docklands Stadium", "Marvel Stadium", ["Marvel Stadium", "Marvel Stadium, Melbourne"]],
     ["gio-stadium", "Bruce stadium", "GIO Stadium Canberra", ["GIO Stadium", "GIO Stadium Canberra", "Canberra Stadium", "Bruce Stadium", "Bruce stadium"]],
     ["manuka-oval", "Manuka Oval", "Corroboree Group Oval", ["Corroboree Group Oval, Manuka", "Corroboree Group Oval Manuka, Canberra", "Manuka Oval, Canberra"]],
-    ["shark-park", "Shark Park", "Ocean Protect Stadium", ["Ocean Protect Stadium"]],
+    ["shark-park", "Shark Park", "Ocean Protect Stadium"],
     ["perth-stadium", "Perth Stadium", "Optus Stadium", ["Optus Stadium", "Optus Stadium, Perth", "Perth Stadium"]],
     ["lang-park", "Lang Park", "Suncorp Stadium", ["Suncorp Stadium", "Suncorp Stadium, Brisbane"]],
     ["townsville-stadium", "Townsville Stadium", "Queensland Country Bank Stadium", ["Queensland Country Bank Stadium", "Queensland Country Bank Stadium, Townsville"]],
-    ["robina-stadium", "Robina Stadium", "Cbus Super Stadium", ["Cbus Super Stadium"]],
-    ["parramatta-stadium", "Parramatta Stadium", "CommBank Stadium", ["CommBank Stadium"]],
+    ["robina-stadium", "Robina Stadium", "Cbus Super Stadium"],
+    ["parramatta-stadium", "Parramatta Stadium", "CommBank Stadium"],
     ["sydney-showground-stadium", "Sydney Showground", "ENGIE Stadium", ["ENGIE Stadium", "ENGIE Stadium, Sydney", "Sydney Showground Stadium"]],
     ["jubilee-oval", "Kogarah Oval", "Netstrata Jubilee Stadium", ["Netstrata Jubilee Stadium", "Jubilee Oval", "Jubilee Stadium"]],
     ["scg", "the SCG", "Sydney Cricket Ground", ["SCG", "SCG, Sydney", "Sydney Cricket Ground"]],
     ["mcg", "the MCG", "Melbourne Cricket Ground", ["MCG", "MCG, Melbourne", "Melbourne Cricket Ground"]],
-    ["hbf-park", "HBF Park", "HBF Park", ["HBF Park", "HBF Park, Perth"]],
-    ["eden-park", "Eden Park", "Eden Park", ["Eden Park", "Eden Park, Auckland"]],
-    ["ellis-park", "Ellis Park", "Ellis Park", ["Ellis Park, Johannesburg"]],
+    ["hbf-park", "HBF Park", ["HBF Park", "HBF Park, Perth"]],
+    ["eden-park", "Eden Park", ["Eden Park", "Eden Park, Auckland"]],
+    ["ellis-park", "Ellis Park", ["Ellis Park, Johannesburg"]],
     ["twickenham", "Twickenham", "Twickenham Stadium", ["Twickenham Stadium, London"]],
     ["murrayfield", "Murrayfield", "Murrayfield Stadium", ["Murrayfield Stadium, Edinburgh"]],
     ["all-england-club", "Wimbledon", "All England Club", ["All England Club, Wimbledon"]],
-    ["melbourne-park", "Melbourne Park", "Melbourne Park", ["Melbourne Park"]],
-    ["adelaide-oval", "Adelaide Oval", "Adelaide Oval", ["Adelaide Oval", "Adelaide Oval, Adelaide"]],
-    ["alberton-oval", "Alberton Oval", "Alberton Oval", ["Alberton Oval", "Alberton Oval, Adelaide"]],
-    ["arden-street-oval", "Arden Street Oval", "Arden Street Oval", ["Arden Street Oval", "Arden Street Oval, Melbourne"]],
-    ["brighton-homes-arena", "Brighton Homes Arena", "Brighton Homes Arena", ["Brighton Homes Arena", "Brighton Homes Arena, Ipswich"]],
+    ["melbourne-park", "Melbourne Park"],
+    ["adelaide-oval", "Adelaide Oval", ["Adelaide Oval", "Adelaide Oval, Adelaide"]],
+    ["alberton-oval", "Alberton Oval", ["Alberton Oval", "Alberton Oval, Adelaide"]],
+    ["arden-street-oval", "Arden Street Oval", ["Arden Street Oval", "Arden Street Oval, Melbourne"]],
+    ["brighton-homes-arena", "Brighton Homes Arena", ["Brighton Homes Arena", "Brighton Homes Arena, Ipswich"]],
     ["coffs-international-stadium", "Coffs International Stadium", "C.ex Coffs International Stadium", ["C.ex Coffs International Stadium", "C.ex Coffs International Stadium, Coffs Harbour"]],
-    ["casey-fields", "Casey Fields", "Casey Fields", ["Casey Fields", "Casey Fields, Melbourne"]],
-    ["cazalys-stadium", "Cazalys Stadium", "Cazalys Stadium", ["Cazalys Stadium", "Cazalys Stadium, Cairns"]],
+    ["casey-fields", "Casey Fields", ["Casey Fields", "Casey Fields, Melbourne"]],
+    ["cazalys-stadium", "Cazalys Stadium", ["Cazalys Stadium", "Cazalys Stadium, Cairns"]],
     ["cockburn-arc-oval", "Cockburn ARC", "Cockburn ARC Oval", ["Cockburn ARC Oval", "Cockburn ARC Oval, Perth"]],
-    ["henson-park", "Henson Park", "Henson Park", ["Henson Park", "Henson Park, Sydney"]],
+    ["henson-park", "Henson Park", ["Henson Park", "Henson Park, Sydney"]],
     ["ikon-park", "Princes Park", "IKON Park", ["IKON Park", "IKON Park, Melbourne"]],
-    ["kennedy-community-centre", "Kennedy Community Centre", "Kennedy Community Centre", ["Kennedy Community Centre", "Kennedy Community Centre, Dingley Village"]],
+    ["kennedy-community-centre", "Kennedy Community Centre", ["Kennedy Community Centre", "Kennedy Community Centre, Dingley Village"]],
     ["eureka-stadium", "Eureka Stadium", "Mars Stadium", ["Mars Stadium", "Mars Stadium, Ballarat"]],
     ["lathlain-park", "Lathlain Park", "Mineral Resources Park", ["Mineral Resources Park", "Mineral Resources Park, Perth"]],
     ["western-oval", "Western Oval", "Mission Whitten Oval", ["Mission Whitten Oval", "Mission Whitten Oval, Melbourne", "Whitten Oval"]],
-    ["north-hobart-oval", "North Hobart Oval", "North Hobart Oval", ["North Hobart Oval", "North Hobart Oval, Hobart"]],
+    ["north-hobart-oval", "North Hobart Oval", ["North Hobart Oval", "North Hobart Oval, Hobart"]],
     ["moorabbin-oval", "Moorabbin Oval", "RSEA Park", ["RSEA Park", "RSEA Park, Melbourne"]],
     ["leederville-oval", "Leederville Oval", "Sullivan Logistics Stadium", ["Sullivan Logistics Stadium", "Sullivan Logistics Stadium, Perth"]],
-    ["unley-oval", "Unley Oval", "Unley Oval", ["Unley Oval", "Unley Oval, Adelaide"]],
-    ["victoria-park-melbourne", "Victoria Park", "Victoria Park", ["Victoria Park, Melbourne"]],
-    ["windy-hill", "Windy Hill", "Windy Hill", ["Windy Hill", "Windy Hill, Melbourne"]],
+    ["unley-oval", "Unley Oval", ["Unley Oval", "Unley Oval, Adelaide"]],
+    ["victoria-park-melbourne", "Victoria Park", ["Victoria Park, Melbourne"]],
+    ["windy-hill", "Windy Hill", ["Windy Hill", "Windy Hill, Melbourne"]],
     ["albert-park-circuit", "Albert Park", "Albert Park Grand Prix Circuit", ["Albert Park Grand Prix Circuit", "Albert Park Grand Prix Circuit, Melbourne"]],
-    ["mercedes-benz-stadium", "Mercedes-Benz Stadium", "Mercedes-Benz Stadium", ["Atlanta Stadium", "Mercedes-Benz Stadium"]],
-    ["augusta-national", "Augusta National", "Augusta National Golf Club", ["Augusta National Golf Club"]],
-    ["bc-place", "BC Place", "BC Place", ["BC Place", "BC Place Vancouver"]],
-    ["gillette-stadium", "Gillette Stadium", "Gillette Stadium", ["Boston Stadium", "Gillette Stadium"]],
+    ["mercedes-benz-stadium", "Mercedes-Benz Stadium", ["Atlanta Stadium", "Mercedes-Benz Stadium"]],
+    ["augusta-national", "Augusta National", "Augusta National Golf Club"],
+    ["bc-place", "BC Place", ["BC Place", "BC Place Vancouver"]],
+    ["gillette-stadium", "Gillette Stadium", ["Boston Stadium", "Gillette Stadium"]],
     ["circuit-24-heures-du-mans", "Le Mans", "Circuit des 24 Heures du Mans", ["Circuit de la Sarthe, Le Mans", "Circuit des 24 Heures du Mans"]],
-    ["att-stadium", "AT&T Stadium", "AT&T Stadium", ["Dallas Stadium", "AT&T Stadium"]],
+    ["att-stadium", "AT&T Stadium", ["Dallas Stadium", "AT&T Stadium"]],
     ["estadio-23-de-agosto", "23 de Agosto", "Estadio 23 de Agosto", ["Estadio 23 de Agosto", "Estadio 23 de Agosto, San Salvador de Jujuy"]],
     ["estadio-malvinas-argentinas", "Malvinas Argentinas", "Estadio Malvinas Argentinas", ["Estadio Malvinas Argentinas", "Estadio Malvinas Argentinas, Mendoza"]],
     ["glen-willow-stadium", "Glen Willow", "Club Mudgee Stadium", ["Glen Willow Oval", "Glen Willow Regional Sports Stadium", "Club Mudgee Stadium"]],
@@ -86,16 +86,16 @@
     ["goodwood-estate", "Goodwood", "Goodwood Estate", ["Goodwood Estate", "Goodwood Estate, UK"]],
     ["ray-mitchell-oval", "Harrup Park", "Great Barrier Reef Arena", ["Great Barrier Reef Arena", "Great Barrier Reef Arena, Mackay", "Ray Mitchell Oval", "Harrup Park"]],
     ["hanazono-rugby-stadium", "Hanazono", "Higashiosaka Hanazono Rugby Stadium", ["Hanazono Rugby Stadium", "Hanazono Rugby Stadium, Osaka", "Higashiosaka Hanazono Rugby Stadium"]],
-    ["nrg-stadium", "NRG Stadium", "NRG Stadium", ["Houston Stadium", "NRG Stadium"]],
+    ["nrg-stadium", "NRG Stadium", ["Houston Stadium", "NRG Stadium"]],
     ["arrowhead-stadium", "Arrowhead", "Arrowhead Stadium", ["Kansas City Stadium", "Arrowhead Stadium"]],
-    ["levis-stadium", "Levi's Stadium", "Levi's Stadium", ["Levi's Stadium", "Levi's Stadium, Santa Clara", "San Francisco Bay Area Stadium"]],
-    ["sofi-stadium", "SoFi Stadium", "SoFi Stadium", ["Los Angeles Stadium", "SoFi Stadium"]],
+    ["levis-stadium", "Levi's Stadium", ["Levi's Stadium", "Levi's Stadium, Santa Clara", "San Francisco Bay Area Stadium"]],
+    ["sofi-stadium", "SoFi Stadium", ["Los Angeles Stadium", "SoFi Stadium"]],
     ["marrara-cricket-ground", "Marrara", "Marrara Stadium", ["Marrara Cricket Ground", "Marrara Cricket Ground, Darwin", "Marrara Stadium", "TIO Stadium", "TIO Stadium, Darwin"]],
     ["newcastle-stadium", "Newcastle Stadium", "McDonald Jones Stadium", ["McDonald Jones Stadium", "Newcastle International Sports Centre", "Marathon Stadium", "EnergyAustralia Stadium"]],
     ["estadio-azteca", "the Azteca", "Estadio Banorte", ["Mexico City Stadium", "Estadio Azteca", "Estadio Banorte", "Estadio Ciudad de México"]],
-    ["hard-rock-stadium", "Hard Rock Stadium", "Hard Rock Stadium", ["Miami Stadium", "Hard Rock Stadium"]],
-    ["metlife-stadium", "MetLife Stadium", "MetLife Stadium", ["New York New Jersey Stadium", "MetLife Stadium"]],
-    ["north-sydney-oval", "North Sydney Oval", "North Sydney Oval", ["North Sydney Oval", "Bear Park"]],
+    ["hard-rock-stadium", "Hard Rock Stadium", ["Miami Stadium", "Hard Rock Stadium"]],
+    ["metlife-stadium", "MetLife Stadium", ["New York New Jersey Stadium", "MetLife Stadium"]],
+    ["north-sydney-oval", "North Sydney Oval", ["North Sydney Oval", "Bear Park"]],
     ["carrara-stadium", "Carrara", "People First Stadium", ["People First Stadium", "People First Stadium, Gold Coast", "Carrara Stadium", "Metricon Stadium", "Heritage Bank Stadium", "Gold Coast Stadium"]],
     ["kingsmead-cricket-ground", "Kingsmead", "Hollywoodbets Kingsmead Stadium", ["Kingsmead", "Kingsmead, Durban", "Hollywoodbets Kingsmead Stadium"]],
     ["st-georges-park-cricket-ground", "St George's Park", "St George's Park Cricket Ground", ["St George's Park", "St George's Park, Gqeberha", "St George's Park Cricket Ground"]],
@@ -104,61 +104,78 @@
     ["millennium-stadium", "Millennium Stadium", "Principality Stadium", ["Principality Stadium", "Principality Stadium, Cardiff", "Millennium Stadium"]],
     ["sec-armadillo", "the Armadillo", "SEC Armadillo", ["SEC Armadillo", "Clyde Auditorium"]],
     ["scotstoun-stadium", "Scotstoun", "Scotstoun Stadium", ["Scotstoun Stadium", "EDF Scotstoun Stadium"]],
-    ["lumen-field", "Lumen Field", "Lumen Field", ["Seattle Stadium", "Lumen Field"]],
-    ["silverstone-circuit", "Silverstone", "Silverstone Circuit", ["Silverstone Circuit"]],
-    ["sir-chris-hoy-velodrome", "Chris Hoy Velodrome", "Sir Chris Hoy Velodrome", ["Sir Chris Hoy Velodrome"]],
+    ["lumen-field", "Lumen Field", ["Seattle Stadium", "Lumen Field"]],
+    ["silverstone-circuit", "Silverstone", "Silverstone Circuit"],
+    ["sir-chris-hoy-velodrome", "Chris Hoy Velodrome", "Sir Chris Hoy Velodrome"],
     ["the-hydro", "the Hydro", "OVO Hydro", ["The Hydro", "OVO Hydro"]],
-    ["tollcross-swimming-centre", "Tollcross", "Tollcross International Swimming Centre", ["Tollcross International Swimming Centre"]],
+    ["tollcross-swimming-centre", "Tollcross", "Tollcross International Swimming Centre"],
     ["york-park", "York Park", "UTAS Stadium", ["UTAS Stadium", "UTAS Stadium, Launceston", "York Park"]],
-    ["wollongong-showground", "WIN Stadium", "WIN Stadium", ["WIN Stadium", "Wollongong Showground"]],
-    ["lindner-family-tennis-center", "Cincinnati Open", "Lindner Family Tennis Center", ["Lindner Family Tennis Center"]],
+    ["wollongong-showground", "WIN Stadium", ["WIN Stadium", "Wollongong Showground"]],
+    ["lindner-family-tennis-center", "Cincinnati Open", "Lindner Family Tennis Center"],
     ["usta-billie-jean-king-national-tennis-center", "US Open", "USTA Billie Jean King National Tennis Center", ["USTA Billie Jean King National Tennis Center", "Billie Jean King National Tennis Center"]],
     ["nevis-range-downhill", "Fort William", "Nevis Range Mountain Experience", ["Nevis Range Mountain Experience", "Nevis Range downhill track"]],
     ["margaret-river-main-break", "Main Break", "Surfers Point", ["Main Break", "Surfers Point"]],
     ["banzai-pipeline", "Pipeline", "ʻEhukai Beach Park", ["Banzai Pipeline", "Pipeline", "ʻEhukai Beach Park"]],
-    ["praia-do-norte", "Nazaré", "Praia do Norte", ["Praia do Norte"]],
-    ["kvitfjell-olympiabakken", "Kvitfjell", "Olympiabakken", ["Olympiabakken"]],
-    ["shahdag-fis-stadium", "Shahdag", "Shahdag FIS Stadium", ["Shahdag FIS Stadium"]],
-    ["sun-valley-challenger", "Sun Valley", "Challenger course at Sun Valley Resort", ["Challenger course at Sun Valley Resort"]],
-    ["glasgow-international-arena", "Glasgow International Arena", "Glasgow International Arena", ["Glasgow International Arena", "Emirates Arena"]],
-    ["sec-centre", "the SEC", "SEC Centre", ["SEC Centre"]],
-    ["american-express-stadium", "American Express Stadium", "American Express Stadium", ["American Express Stadium", "Amex Stadium"]],
-    ["anfield", "Anfield", "Anfield", ["Anfield"]],
-    ["coventry-building-society-arena", "Coventry Building Society Arena", "Coventry Building Society Arena", ["Coventry Building Society Arena"]],
-    ["craven-cottage", "Craven Cottage", "Craven Cottage", ["Craven Cottage"]],
-    ["elland-road", "Elland Road", "Elland Road", ["Elland Road"]],
-    ["emirates-stadium", "Emirates Stadium", "Emirates Stadium", ["Emirates Stadium"]],
-    ["etihad-stadium-manchester", "Etihad Stadium", "Etihad Stadium", ["Etihad Stadium, Manchester"]],
-    ["gtech-community-stadium", "Gtech Community Stadium", "Gtech Community Stadium", ["Gtech Community Stadium"]],
-    ["hill-dickinson-stadium", "Hill Dickinson Stadium", "Hill Dickinson Stadium", ["Hill Dickinson Stadium"]],
-    ["old-trafford", "Old Trafford", "Old Trafford", ["Old Trafford"]],
-    ["portman-road", "Portman Road", "Portman Road", ["Portman Road"]],
-    ["selhurst-park", "Selhurst Park", "Selhurst Park", ["Selhurst Park"]],
-    ["st-james-park-newcastle", "St James' Park", "St James' Park", ["St. James' Park", "St James' Park"]],
-    ["stadium-of-light", "Stadium of Light", "Stadium of Light", ["Stadium of Light"]],
-    ["stamford-bridge", "Stamford Bridge", "Stamford Bridge", ["Stamford Bridge"]],
-    ["city-ground-nottingham", "The City Ground", "The City Ground", ["The City Ground", "City Ground"]],
+    ["praia-do-norte", "Nazaré", "Praia do Norte"],
+    ["kvitfjell-olympiabakken", "Kvitfjell", "Olympiabakken"],
+    ["shahdag-fis-stadium", "Shahdag", "Shahdag FIS Stadium"],
+    ["sun-valley-challenger", "Sun Valley", "Challenger course at Sun Valley Resort"],
+    ["glasgow-international-arena", "Glasgow International Arena", ["Glasgow International Arena", "Emirates Arena"]],
+    ["sec-centre", "the SEC", "SEC Centre"],
+    ["american-express-stadium", "American Express Stadium", ["American Express Stadium", "Amex Stadium"]],
+    ["anfield", "Anfield"],
+    ["coventry-building-society-arena", "Coventry Building Society Arena"],
+    ["craven-cottage", "Craven Cottage"],
+    ["elland-road", "Elland Road"],
+    ["emirates-stadium", "Emirates Stadium"],
+    ["etihad-stadium-manchester", "Etihad Stadium", ["Etihad Stadium, Manchester"]],
+    ["gtech-community-stadium", "Gtech Community Stadium"],
+    ["hill-dickinson-stadium", "Hill Dickinson Stadium"],
+    ["old-trafford", "Old Trafford"],
+    ["portman-road", "Portman Road"],
+    ["selhurst-park", "Selhurst Park"],
+    ["st-james-park-newcastle", "St James' Park", ["St. James' Park", "St James' Park"]],
+    ["stadium-of-light", "Stadium of Light"],
+    ["stamford-bridge", "Stamford Bridge"],
+    ["city-ground-nottingham", "The City Ground", ["The City Ground", "City Ground"]],
     ["mkm-stadium", "MKM Stadium", "The MKM Stadium", ["The MKM Stadium", "MKM Stadium"]],
-    ["tottenham-hotspur-stadium", "Tottenham Hotspur Stadium", "Tottenham Hotspur Stadium", ["Tottenham Hotspur Stadium"]],
-    ["villa-park", "Villa Park", "Villa Park", ["Villa Park"]],
-    ["vitality-stadium", "Vitality Stadium", "Vitality Stadium", ["Vitality Stadium"]],
-    ["leichhardt-oval", "Leichhardt Oval", "Leichhardt Oval", ["Leichhardt Oval"]],
-    ["totally-workwear-stadium", "Totally Workwear Stadium", "Totally Workwear Stadium", ["Totally Workwear Stadium"]],
-    ["uber-arena-berlin", "Uber Arena", "Uber Arena", ["Uber Arena, Berlin"]],
-    ["algarve-international-circuit", "Algarve International Circuit", "Algarve International Circuit", ["Algarve International Circuit"]],
-    ["circuit-ricardo-tormo", "Circuit Ricardo Tormo", "Circuit Ricardo Tormo", ["Circuit Ricardo Tormo"]],
-    ["lusail-international-circuit", "Lusail International Circuit", "Lusail International Circuit", ["Lusail International Circuit"]],
-    ["misano-world-circuit", "Misano World Circuit", "Misano World Circuit Marco Simoncelli", ["Misano World Circuit Marco Simoncelli"]],
-    ["mobility-resort-motegi", "Motegi", "Mobility Resort Motegi", ["Mobility Resort Motegi"]],
-    ["mandalika-international-circuit", "Mandalika", "Pertamina Mandalika International Circuit", ["Pertamina Mandalika International Circuit"]],
-    ["sepang-international-circuit", "Sepang", "Petronas Sepang International Circuit", ["Petronas Sepang International Circuit"]],
-    ["phillip-island-grand-prix-circuit", "Phillip Island", "Phillip Island Grand Prix Circuit", ["Phillip Island Grand Prix Circuit"]],
-    ["red-bull-ring", "Red Bull Ring", "Red Bull Ring", ["Red Bull Ring"]],
-    ["abu-dhabi-sailgp", "Abu Dhabi", "Abu Dhabi, United Arab Emirates", ["Abu Dhabi, United Arab Emirates"]],
-    ["dubai-sailgp", "Dubai", "Dubai, United Arab Emirates", ["Dubai, United Arab Emirates"]],
-    ["geneva-sailgp", "Geneva", "Geneva, Switzerland", ["Geneva, Switzerland"]],
-    ["valencia-sailgp", "Valencia", "Valencia, Spain", ["Valencia, Spain"]],
-  ].map(([id, displayName, officialName, aliases]) => Object.freeze({ id, displayName, officialName, aliases: Object.freeze(aliases) })));
+    ["tottenham-hotspur-stadium", "Tottenham Hotspur Stadium"],
+    ["villa-park", "Villa Park"],
+    ["vitality-stadium", "Vitality Stadium"],
+    ["leichhardt-oval", "Leichhardt Oval"],
+    ["totally-workwear-stadium", "Totally Workwear Stadium"],
+    ["uber-arena-berlin", "Uber Arena", ["Uber Arena, Berlin"]],
+    ["algarve-international-circuit", "Algarve International Circuit"],
+    ["circuit-ricardo-tormo", "Circuit Ricardo Tormo"],
+    ["lusail-international-circuit", "Lusail International Circuit"],
+    ["misano-world-circuit", "Misano World Circuit", "Misano World Circuit Marco Simoncelli"],
+    ["mobility-resort-motegi", "Motegi", "Mobility Resort Motegi"],
+    ["mandalika-international-circuit", "Mandalika", "Pertamina Mandalika International Circuit"],
+    ["sepang-international-circuit", "Sepang", "Petronas Sepang International Circuit"],
+    ["phillip-island-grand-prix-circuit", "Phillip Island", "Phillip Island Grand Prix Circuit"],
+    ["red-bull-ring", "Red Bull Ring"],
+    ["abu-dhabi-sailgp", "Abu Dhabi", "Abu Dhabi, United Arab Emirates"],
+    ["dubai-sailgp", "Dubai", "Dubai, United Arab Emirates"],
+    ["geneva-sailgp", "Geneva", "Geneva, Switzerland"],
+    ["valencia-sailgp", "Valencia", "Valencia, Spain"],
+    ["american-family-field", "American Family Field"],
+    ["daikin-park", "Daikin Park"],
+    ["petco-park", "Petco Park"],
+    ["progressive-field", "Progressive Field"],
+    ["rate-field", "Rate Field"],
+    ["tropicana-field", "Tropicana Field"],
+    ["truist-park", "Truist Park"],
+    ["dodger-stadium", "Dodger Stadium", "UNIQLO Field at Dodger Stadium", ["UNIQLO Field at Dodger Stadium", "Dodger Stadium"]],
+    ["yankee-stadium", "Yankee Stadium"],
+    ["china-national-tennis-center", "China National Tennis Center"],
+    ["ariake-tennis-forest-park", "Ariake Tennis Forest Park"],
+    ["qizhong-tennis-center", "Qizhong Tennis Centre", "Qizhong Forest Sports City Tennis Center"],
+    ["optics-valley-tennis-center", "Optics Valley International Tennis Centre"]
+  ].map(([id, displayName, third, fourth]) => {
+    const officialName = Array.isArray(third) ? displayName : third || displayName;
+    const aliases = Array.isArray(third) ? third : fourth || [officialName];
+    return Object.freeze({ id, displayName, officialName, aliases: Object.freeze(aliases) });
+  }));
 
   const CONTEXTUAL_ALIASES = Object.freeze({
     "grandstand": Object.freeze({id:"usta-billie-jean-king-national-tennis-center", keys:Object.freeze(["tennis"]), eventSeriesId:"event-series:us-open"}),
@@ -250,11 +267,40 @@
     return `venue:${normalise(value).replace(/\s+/g, "-") || "unknown"}`;
   }
 
+  // Exact reviewed 2026 tournament identities; a city alone cannot select a site.
+  // The second court list retains source labels whose current identity needs review.
+  const TENNIS_SITES = [
+    ["beijing", ["atp", "wta"], "china-national-tennis-center", ["Capital Group Diamond", "Brad Drewett", "Lotus"], ["HSBC Moon", "Court 3", "Court 4", "Court 5"]],
+    ["tokyo", ["atp"], "ariake-tennis-forest-park", ["Colosseum"], ["Kinoshita Group Show Court", "Court 1", "Court 2"]],
+    ["shanghai", ["atp"], "qizhong-tennis-center", ["Stadium Court", "Grandstand 2", "Show Court 3", "Court 4"], ["Court 7"]],
+    ["wuhan", ["wta"], "optics-valley-tennis-center", [], []],
+  ];
+
+  function tennisVenue(normalized, context){
+    if (context.key !== "tennis") return null;
+    if (context.tennisTournamentId && context.tournamentId && context.tennisTournamentId !== context.tournamentId) return null;
+    const tournament = context.tennisTournamentId || context.tournamentId;
+    const site = TENNIS_SITES.find(([city, tours]) => tours.some(tour => tournament === `tournament:tennis:${tour}-${city}-2026`));
+    if (!site) return null;
+    const [city, , facilityId, reviewed, pending] = site;
+    if (normalized === city) return { ...entriesById.get(facilityId), audited: true };
+    const name = [...reviewed, ...pending].find(name => normalise(name) === normalized);
+    if (!name) return null;
+    const audited = reviewed.includes(name);
+    return Object.freeze({
+      id: `${facilityId}/${normalise(name).replace(/\s+/g, "-")}`,
+      displayName: name, officialName: name, aliases: Object.freeze([name]),
+      audited, ...(!audited ? { reviewDisposition: "court_identity_pending_review" } : {}),
+    });
+  }
+
   function resolve(value, context = {}){
     const officialName = String(value || "").trim();
     if (!officialName) return null;
     const normalized = normalise(officialName);
     let entry = aliasIndex.get(normalized);
+    const tennis = !entry && tennisVenue(normalized, context);
+    if (tennis) return tennis;
     const contextual = CONTEXTUAL_ALIASES[normalized];
     if (!entry && contextual && contextual.keys.includes(String(context?.key || "")) && (!contextual.eventSeriesId || context.eventSeriesId === contextual.eventSeriesId || /us-open/.test(context.id || context.parentEventId || ""))) entry = entriesById.get(contextual.id);
     if (!entry && context.venueVerified === true && context.venueOfficialName === officialName) entry = {id:context.venueId || fallbackId(officialName),displayName:officialName,officialName,aliases:[officialName]};
@@ -273,19 +319,28 @@
     const byInput = new Map();
     (events || []).forEach(event => {
       const venue = String(event?.venue || "").trim();
-      if (!venue || byInput.has(venue)) return;
-      byInput.set(venue, resolve(venue, event));
+      if (!venue) return;
+      const record = resolve(venue, event);
+      const contexts = byInput.get(venue) || new Map();
+      const key = [event.key || "", event.tennisTournamentId || event.tournamentId || "", event.eventSeriesId || "", record.id, record.reviewDisposition || ""].join("|");
+      contexts.set(key, record);
+      byInput.set(venue, contexts);
     });
-    const records = [...byInput.entries()].sort(([left], [right]) => left.localeCompare(right)).map(([, record]) => record);
+    const records = [...byInput.entries()].sort(([left], [right]) => left.localeCompare(right)).map(([input, contexts]) => ({
+      input, contexts: [...contexts.entries()].sort(([left], [right]) => left.localeCompare(right)).map(([key, record]) => ({ key, ...record })),
+    }));
+    const pending = records.filter(record => record.contexts.some(context => !context.audited));
     return Object.freeze({
       version: VERSION,
       total: records.length,
-      audited: records.filter(record => record.audited).length,
-      pending: records.filter(record => !record.audited).map(record => record.officialName),
-      dispositions: records.filter(record => !record.audited).map(record => Object.freeze({ input: record.officialName, disposition: record.reviewDisposition })),
-      unclassified: records.filter(record => !record.audited && record.reviewDisposition === "unclassified").map(record => record.officialName),
+      audited: records.length - pending.length,
+      pending: pending.map(record => record.input),
+      dispositions: pending.flatMap(record => record.contexts.filter(context => !context.audited).map(context => Object.freeze({ input: record.input, disposition: context.reviewDisposition, context: context.key }))),
+      unclassified: records.filter(record => record.contexts.some(context => context.reviewDisposition === "unclassified")).map(record => record.input),
+      contexts: records.flatMap(record => record.contexts.map(context => Object.freeze({ input: record.input, ...context }))),
     });
   }
 
-  return Object.freeze({ VERSION, ENTRIES, CONTEXTUAL_ALIASES, REVIEW_DISPOSITIONS, normalise, resolve, audit });
+  // The browser uses the resolver; inventory and audit are Node release checks.
+  return Object.freeze({ VERSION, normalise, resolve, ...(typeof module !== "undefined" && module.exports ? { ENTRIES, CONTEXTUAL_ALIASES, REVIEW_DISPOSITIONS, audit } : {}) });
 });

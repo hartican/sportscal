@@ -5,7 +5,7 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
-const { buildBroadcasterReviewSteps, buildQuickSteps, buildSteps, parseOptions } = require("./update-cards");
+const { buildBroadcasterReviewSteps, buildVenueReviewSteps, buildQuickSteps, buildSteps, parseOptions } = require("./update-cards");
 const { projectionSteps: quickProjectionSteps } = require("./quick-results");
 
 const releaseStep = "scripts/redeploy-and-release.sh";
@@ -16,6 +16,12 @@ for (const step of buildBroadcasterReviewSteps()) {
   assert(localSteps.some(existing => JSON.stringify(existing) === JSON.stringify(step)), 'viewing review must reuse the exact checks in the full canonical owner');
 }
 assert.equal(buildBroadcasterReviewSteps().length, 3, 'viewing review must not request providers or publish fixture facts');
+for (const script of ['scripts/validate-source-and-venues.js', 'scripts/validate-feed-performance.js']) {
+  assert(buildVenueReviewSteps().some(step => step[0] === script) && localSteps.some(step => step[0] === script), 'venue review reuses the full owner checks');
+}
+assert.deepEqual(buildVenueReviewSteps().slice(0, 3), [['scripts/build-app-shell-runtime.js'], ['scripts/version-generated-shell.js'], ['scripts/build-app-shell-runtime.js', '--check']], 'venue review must build and version before validating the cached bundle');
+assert.equal(parseOptions(['--venue-review', '-p'], {}).localOnly, true);
+assert.throws(() => parseOptions(['--venue-review', '--broadcaster-review'], {}), /cannot be combined/);
 assert.equal(parseOptions(['--broadcaster-review', '-p'], {}).localOnly, true);
 assert.equal(parseOptions(['--broadcaster-review'], {}).localOnly, false);
 for (const route of ['--quick', '--f1-results', '--resume-from', '--source=football']) {
@@ -52,6 +58,14 @@ try{
     const trace = result.stdout.match(/OFFLINE_BOUNDARY (\{[^\n]+\})/);
     assert(trace, 'rejected mixed viewing routes must emit the actual entrypoint trace');
     assert.deepEqual(JSON.parse(trace[1]), { mkdir: 0, mkdtemp: 0, write: 0, spawn: 0 }, 'mixed viewing routes reject before diagnostic writes or subprocesses');
+  }
+  for (const route of ['--quick', '--broadcaster-review']) {
+    const result = spawnSync(process.execPath, ['--require', hook, path.join(__dirname, 'update-cards.js'), '--venue-review', route], { cwd: path.resolve(__dirname, '..'), encoding: 'utf8' });
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /review cannot be combined/);
+    const trace = result.stdout.match(/OFFLINE_BOUNDARY (\{[^\n]+\})/);
+    assert(trace);
+    assert.deepEqual(JSON.parse(trace[1]), { mkdir: 0, mkdtemp: 0, write: 0, spawn: 0 }, 'mixed venue routes reject before writes or subprocesses');
   }
   for(const args of [['--quick','--offline'],['--offline','--quick','--rebuild','--local-only'],['-p','--offline','--quick']])assert.doesNotThrow(()=>parseOptions(args,{}),'existing quick offline modes remain supported');
 }finally{fs.rmSync(offlineBoundaryRoot,{recursive:true,force:true});}

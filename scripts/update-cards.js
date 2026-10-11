@@ -68,9 +68,10 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
-  if (argv.includes('--broadcaster-review')) {
-    const allowed = new Set(['--broadcaster-review', '--local-only', '-p']);
-    if (argv.some(arg => !allowed.has(arg))) throw new Error('Broadcaster review cannot be combined with other refresh routes. No source steps ran.');
+  for (const route of ['--broadcaster-review', '--venue-review']) {
+    if (!argv.includes(route)) continue;
+    const allowed = new Set([route, '--local-only', '-p']);
+    if (argv.some(arg => !allowed.has(arg))) throw new Error(`${route === '--broadcaster-review' ? 'Broadcaster' : 'Venue'} review cannot be combined with other refresh routes. No source steps ran.`);
   }
   if (argv.includes('--result-observations') && (!argv.includes('--reviewed-fixtures') || !argv.some(arg=>arg.startsWith('--ids=')) || argv.some(arg=>arg.startsWith('--restore-published=')))) {
     throw new Error('Result observations require --reviewed-fixtures with retained --ids= and no editorial restoration. No source steps ran.');
@@ -97,6 +98,17 @@ function buildBroadcasterReviewSteps() {
     ['scripts/scan-broadcaster-coverage.js', '--enforce-freshness'],
     ['scripts/scan-broadcaster-coverage.js', '--check', '--enforce-freshness'],
     ['scripts/validate-broadcaster-discovery.js'],
+  ];
+}
+
+function buildVenueReviewSteps() {
+  return [
+    ['scripts/build-app-shell-runtime.js'],
+    ['scripts/version-generated-shell.js'],
+    ['scripts/build-app-shell-runtime.js', '--check'],
+    ['scripts/validate-source-and-venues.js'],
+    ['scripts/validate-feed-performance.js'],
+    ['scripts/validate-startup-budget.js'],
   ];
 }
 
@@ -453,6 +465,12 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if (process.argv.includes('--venue-review')) {
+    for (const args of buildVenueReviewSteps()) runStep(args);
+    if (!options.localOnly) runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Venue review completed through the canonical owner; fixture facts and provider requests unchanged.');
+    return;
+  }
   if (process.argv.includes('--broadcaster-review')) {
     for (const args of buildBroadcasterReviewSteps()) runStep(args);
     if (!options.localOnly) runStep(['scripts/redeploy-and-release.sh']);
@@ -980,6 +998,7 @@ module.exports = {
   buildSteps,
   buildQuickSteps,
   buildBroadcasterReviewSteps,
+  buildVenueReviewSteps,
   discoverCanonicalFixtureBundles,
   parseOptions,
 };
