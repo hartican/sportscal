@@ -117,6 +117,11 @@ function observedCompletionBoundary(record){
     && [observed,confirmed,checked].every(Number.isFinite) && observed<=confirmed && confirmed<=checked && checked<=Date.now()
     && (!Number.isFinite(start)||start<=observed);
 }
+function hasCompletionBoundary(record){
+  return Number.isFinite(Date.parse(record.endTimeUtc||''))
+    || (record.dateOnly===true && /^\d{4}-\d{2}-\d{2}$/.test(record.endDate))
+    || observedCompletionBoundary(record);
+}
 function applyEvidence({ check=false, root=ROOT } = {}){
   const read=relative=>JSON.parse(fs.readFileSync(path.join(root,relative),'utf8'));
   const write=(relative,value)=>fs.writeFileSync(path.join(root,relative),`${JSON.stringify(value,null,2)}\n`);
@@ -162,7 +167,7 @@ function applyEvidence({ check=false, root=ROOT } = {}){
         || coverage.events.find(item => matches(item, override));
       assert(record, `${override.id} must exist in Feed or detailed Event fixtures`);
       assert.equal(record.score, override.score, `${override.id} score`);
-      assert(record.endTimeUtc || (record.dateOnly===true && /^\d{4}-\d{2}-\d{2}$/.test(record.endDate)) || observedCompletionBoundary(record), `${override.id} must have a stable completion boundary or explicit date-only window`);
+      assert(hasCompletionBoundary(record), `${override.id} must have a stable completion boundary or explicit date-only window`);
     }
     for(const group of evidence.broadcastOverrides) for(const id of group.ids) assert.equal(coverage.events.find(record => identity(record) === id)?.broadcaster, group.broadcaster, `${id} broadcaster`);
     console.log("Current card evidence is fully applied.");
@@ -260,4 +265,4 @@ if(require.main === module){
   else if(process.argv.includes('--timing-only'))applySelectedTimings();
   else if(scope)applySelectedResults(scope.slice(6).split(','));else applyEvidence({ check:process.argv.includes("--check") });
 }
-module.exports = { restorePublishedEditorial, applySelectedResults, applySelectedTimings, applyEvidence, normalizeCompletedTiming, observedCompletionBoundary, mergeRecord, retainNewerReviewedEditorial };
+module.exports = { restorePublishedEditorial, applySelectedResults, applySelectedTimings, applyEvidence, normalizeCompletedTiming, observedCompletionBoundary, hasCompletionBoundary, mergeRecord, retainNewerReviewedEditorial };

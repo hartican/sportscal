@@ -1,6 +1,8 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
-const {applySelectedResults,applyEvidence,observedCompletionBoundary}=require('./apply-current-card-evidence');
+const {execFileSync}=require('node:child_process');
+const {applySelectedResults,applyEvidence,observedCompletionBoundary,hasCompletionBoundary}=require('./apply-current-card-evidence');
+const {validateCurrentCardCoverage}=require('./validate-current-card-coverage');
 const participant=require('./apply-reviewed-participant-fixtures');
 const {applyOfficialResults}=require('./sync-official-card-results');
 const root=path.resolve(__dirname,'..'),temp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-reviewed-results-'));
@@ -43,11 +45,14 @@ try{
  for(const file of files.slice(0,2)){const kept=JSON.parse(fs.readFileSync(path.join(temp,file))).events.find(e=>e.id===final.id);assert.deepEqual(kept,final,'pending review never regresses a later final or its source clock');}
  const complete=fs.mkdtempSync(path.join(os.tmpdir(),'ns-complete-evidence-'));
  try{
-  for(const file of [...files,'data/follow-sources/coverage.v1.json','data/major-events.v1.json','data/canonical/fiba-women-sailgp-motogp-2026.json']){fs.mkdirSync(path.dirname(path.join(complete,file)),{recursive:true});fs.copyFileSync(path.join(root,file),path.join(complete,file));}
+  for(const file of [...files,'data/follow-sources/coverage.v1.json','data/major-events.v1.json','data/canonical/fiba-women-sailgp-motogp-2026.json','data/follow-schedule/cricket.json','data/follow-schedule/tennis.json','index.html','scripts/quick-results.js']){fs.mkdirSync(path.dirname(path.join(complete,file)),{recursive:true});fs.copyFileSync(path.join(root,file),path.join(complete,file));}
   applyEvidence({root:complete});applyEvidence({root:complete,check:true});
+  execFileSync(process.execPath,[path.join(root,'scripts/publish-feed.js'),path.join(complete,'feeds/incoming/events.json'),path.join(complete,'data/events.json'),path.join(complete,'data/feed-meta.json'),path.join(complete,'events-data.js'),'--preserve-known'],{cwd:root,stdio:'pipe'});
+  validateCurrentCardCoverage({root:complete});
   const final=JSON.parse(fs.readFileSync(path.join(complete,files[0]))).events.find(e=>e.id==='supercars-bathurst-1000-2026');
   assert.equal(final.endTimeUtc,null);assert(observedCompletionBoundary(final),'Complete ordinary writer/check accepts genuine recorded completion without guessing a finish clock');
-  for(const change of [e=>delete e.statusFactObservedAt,e=>delete e.firstConfirmedCompleteAt,e=>e.firstConfirmedCompleteAt='2100-01-01T00:00:00Z',e=>e.statusFactObservedAt='2100-01-01T00:00:00Z',e=>e.resultSourceCheckedAt='2100-01-01T00:00:00Z',e=>e.firstConfirmedCompleteAt=e.startTimeUtc,e=>e.resultSourceCheckedAt=e.startTimeUtc,e=>e.statusFactObservedAt='2026-10-11',e=>e.firstConfirmedCompleteAt='2026-10-11T06:32:05',e=>e.status='scheduled',e=>e.resultStatus='provisional',e=>e.sourceType='unverified']){const bad=structuredClone(final);change(bad);assert.equal(observedCompletionBoundary(bad),false,'Unsupported completion cannot clear the ordinary check');}
+  const baseline=fs.readFileSync(path.join(complete,'data/events.json'));
+  for(const change of [e=>delete e.statusFactObservedAt,e=>delete e.firstConfirmedCompleteAt,e=>e.firstConfirmedCompleteAt='2100-01-01T00:00:00Z',e=>e.statusFactObservedAt='2100-01-01T00:00:00Z',e=>e.resultSourceCheckedAt='2100-01-01T00:00:00Z',e=>e.firstConfirmedCompleteAt=e.startTimeUtc,e=>e.resultSourceCheckedAt=e.startTimeUtc,e=>e.statusFactObservedAt='2026-10-11',e=>e.firstConfirmedCompleteAt='2026-10-11T06:32:05',e=>e.status='scheduled',e=>e.resultStatus='provisional',e=>e.sourceType='unverified']){const bad=structuredClone(final);change(bad);assert.equal(observedCompletionBoundary(bad),false,'Unsupported completion cannot clear the ordinary check');assert.equal(hasCompletionBoundary(bad),false,'Both ordinary checks reject unsupported unknown-finish results');const doc=JSON.parse(baseline);doc.events[doc.events.findIndex(e=>e.id===bad.id)]=bad;fs.writeFileSync(path.join(complete,'data/events.json'),JSON.stringify(doc));assert.throws(()=>validateCurrentCardCoverage({root:complete}),/must be completed|completion boundary is missing/,'Published coverage rejects the same invalid receipts');}
  }finally{fs.rmSync(complete,{recursive:true,force:true});}
 }finally{fs.rmSync(temp,{recursive:true,force:true});}
 console.log('Reviewed results: actual scoped writers, ID/fact retention, pre-write rejection, idempotence, individual clocks, unavailable-result validation and later-final retention passed.');
