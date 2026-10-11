@@ -13,8 +13,9 @@ async function assertCachedFonts(page){
 }
 async function assertCachedParticipantCalendar(page){
   const html=fs.readFileSync(path.join(root,'index.html'),'utf8'),modelPath=html.match(/config\/athletes\.js\?v=\d+/)?.[0],uiPath=html.match(/assets\/js\/athletes-ui\.js\?v=\d+/)?.[0];
-  assert(modelPath&&uiPath,'Current participant cache URLs are explicit');
-  for(const file of [modelPath,uiPath])assert.equal(await page.evaluate(file=>caches.match('/'+file).then(r=>r?.text()),file),fs.readFileSync(path.join(root,file.split('?')[0]),'utf8'),'Updated participant calendar bytes remain cached exactly');
+  const fixtureRoutingPath=html.match(/assets\/js\/fixture-navigation\.js\?v=\d+/)?.[0];
+  assert(modelPath&&uiPath&&fixtureRoutingPath,'Current participant and fixture routing cache URLs are explicit');
+  for(const file of [modelPath,uiPath,fixtureRoutingPath])assert.equal(await page.evaluate(file=>caches.match('/'+file).then(r=>r?.text()),file),fs.readFileSync(path.join(root,file.split('?')[0]),'utf8'),'Updated participant calendar bytes remain cached exactly');
   const parent=require('../lib/calendar-catalogue').catalogue().find(e=>e.tournamentId==='R2026527'&&e.cardType==='golf_tournament');
   const result=await page.evaluate(async({modelPath,parent})=>{await loadDeferredScript(modelPath);return {included:NOTHINGSPORTS_ATHLETES.spansCurrentCalendarDay(parent,'2026-10-09','2027-10-09'),label:NOTHINGSPORTS_ATHLETES.calendarTiming(parent,Date.parse('2026-10-09T08:45:00Z'))};},{modelPath,parent});
   assert(result.included);assert.match(result.label,/Tournament dates: 8–11 Oct 2026/);assert.match(result.label,/Next tee time not verified/);

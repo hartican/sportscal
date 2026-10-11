@@ -4,13 +4,15 @@
 function feed(event,{temporary=false}={}){
   const action=getEventAction(event);
   if(action.archived||action.dismissed){showToast('This fixture has been removed from your Feed.');return;}
-  const id=String(event.eventId||event.id);
   // Seed this verified fixture while its Feed page loads.
   activeEvents=NOTHINGSPORTS_FIXTURE_IDENTITY.mergeOverlays(activeEvents,[event]);
-  if(!matchesFeedViewFilters(event)){
+  const requestedId=String(event.canonicalEventId||event.eventId||event.id);
+  const fixture=activeEvents.find(e=>[e.canonicalEventId,e.eventId,e.id,...(e.sourceEventIds||[])].includes(requestedId))||event;
+  const id=String(fixture.eventId||fixture.id);
+  if(!matchesFeedViewFilters(fixture)){
     feedViewFilters={sport:'all',minimum:0};if(!temporary){localStorage.removeItem('ns-feed-view-filter-v1');showToast('Feed filters cleared to show this fixture.');}
   }
-  activeView='list';calendarChoice.active=false;setCardState(event,'opened');
+  activeView='list';calendarChoice.active=false;setCardState(fixture,'opened');
   pendingNotificationEventId=id;
   activateTopLevelTab('feed',{resetViewport:false,athleteMatch:temporary});
   calendarInitialJumpPending=false;
