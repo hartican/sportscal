@@ -2955,6 +2955,85 @@
       "researchDepth": 5,
       "changeReason": "Replace the missing marquee preview with source-backed participant-specific context through the existing research owner; preserve all sporting facts and source dates.",
       "researchedAt": "2026-10-11T03:06:32.411Z"
+    },
+    {
+      "id": "event:horse-racing:melbourne-cup:2026",
+      "title": "Melbourne Cup — a staying test and the path into the field",
+      "hook": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
+      "synopsis": "The Group 1 Melbourne Cup is scheduled for 3 November at Flemington over 3200 metres. Its history began in 1861. Eleven Golden Ticket winners receive ballot exemption for the 2026 edition, giving the lead-up races a direct connection to Cup day. The VRC announced 101 nominations on 1 September. That was an early entry-stage snapshot, not a prediction of the final runners. Later acceptances and scratchings can change the field; use the latest published entry details on the card.",
+      "closingCopy": "The long-distance race and its qualifying paths give the build-up its shape. Golden Ticket exemption and an early acceptance list do not decide the race. The confirmed race time, final line-up and result remain separate from this background.",
+      "sources": [
+        "https://www.vrc.com.au/race-days-and-events/2026-2027/lexus-melbourne-cup-day/",
+        "https://www.vrc.com.au/racing/2026-lexus-melbourne-cup-golden-ticket-entry/",
+        "https://www.vrc.com.au/latest-news/101-nominations-received-for-the-166th-lexus-melbourne-cup/"
+      ],
+      "sourceObservations": [
+        {
+          "name": "VRC official 2026 Melbourne Cup day and race history",
+          "url": "https://www.vrc.com.au/race-days-and-events/2026-2027/lexus-melbourne-cup-day/",
+          "resolvedUrl": "https://www.vrc.com.au/race-days-and-events/2026-2027/lexus-melbourne-cup-day/",
+          "status": 200,
+          "checkedAt": "2026-10-11T03:44:06.720Z",
+          "bytes": 238712,
+          "sha256": "1b96a8530a891a97d1adf3bc46575d8bbbc53b7324ddf7dc2e9d3f673950ce38"
+        },
+        {
+          "name": "VRC official 2026 Golden Ticket entry programme",
+          "url": "https://www.vrc.com.au/racing/2026-lexus-melbourne-cup-golden-ticket-entry/",
+          "resolvedUrl": "https://www.vrc.com.au/racing/2026-lexus-melbourne-cup-golden-ticket-entry/",
+          "status": 200,
+          "checkedAt": "2026-10-11T03:44:06.856Z",
+          "bytes": 773784,
+          "sha256": "b4d2fc39974d0b127340a448028c135caf1671b1ba6443726c4c230be09b800e"
+        },
+        {
+          "name": "VRC nominations announcement dated 1 September 2026",
+          "url": "https://www.vrc.com.au/latest-news/101-nominations-received-for-the-166th-lexus-melbourne-cup/",
+          "checkedAt": "2026-10-11T03:45:38.502Z",
+          "bytes": 70758,
+          "sha256": "7e0b8a69c08201ac6c6e4face65fa1885d54f90770af0ec51a9119018e65196a"
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "The VRC schedules Melbourne Cup day at Flemington on 3 November 2026.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The feature race is the Group 1 Lexus Melbourne Cup over 3200 metres.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "The first Melbourne Cup was run on 7 November 1861.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Eleven Golden Ticket winners receive ballot exemption for the 2026 Melbourne Cup.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "On 1 September 2026, the VRC reported 101 initial nominations for the Melbourne Cup; that early entry-stage count does not identify the final field.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "researchedAt": "2026-10-11T03:45:38.506Z",
+      "changeReason": "Supply the missing persistent marquee background through the existing research owner; preserve fixture facts, original observation dates, stage uncertainty and spoiler protection."
     }
   ]
 }

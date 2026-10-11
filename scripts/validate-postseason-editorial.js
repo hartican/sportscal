@@ -67,6 +67,18 @@ const review=read('data/editorial-fixture-research.v1.json').entries.find(e=>e.i
 assert(review?.researchDepth===5 && review.facts.length>=4 && review.sources.length>=3,'the final retains its full marquee research requirement');
 const preview={selectedSentence:review.hook,fullSpiel:review.synopsis,sourceName:review.sourceObservations[0].name,sourceUrl:review.sources[0],sourceCheckedAt:review.sourceObservations[0].checkedAt,editorialPreview:{status:'journalistic',angle:review.title,contextSignals:['home-milestone','season-form'],sourceName:review.sourceObservations[0].name,sourceUrl:review.sources[0],sourceCheckedAt:review.sourceObservations[0].checkedAt}};
 const applyResearch=require('./apply-fixture-research').apply;
+const cup=retained.find(e=>e.canonicalEventId==='event:horse-racing:melbourne-cup:2026');
+const cupReview=read('data/editorial-fixture-research.v1.json').entries.find(e=>e.id===cup.canonicalEventId);
+assert(cupReview?.researchDepth===5&&cupReview.sources.length>=3&&cupReview.facts.length>=4,'The Cup retains the full marquee requirement');
+const cupApplied=applyResearch(read('data/editorial-knowledge.v1.json'),{events:[cup]},{events:[]},{entries:[cupReview]});
+const cupProjection=api.projectionForTarget(cupApplied.knowledge,'feed-event',cup);
+assert(cupProjection&&cupProjection.researchDepth===5);
+assert.equal(facts(cupApplied.feed.events[0]),facts(cup),'Background cannot replace the current entry stage, race time, IDs or source clocks');
+assert.match(cupProjection.synopsis,/1 September/);assert.match(cupProjection.synopsis,/not a prediction of the final runners/);
+assert(!cupProjection.hook.includes('101'),'A dated early nomination count cannot look like the current field');
+const currentCup=read('feeds/incoming/events.json').events.find(e=>e.canonicalEventId===cup.canonicalEventId);
+if(currentCup)assert.equal(facts(applyResearch(read('data/editorial-knowledge.v1.json'),{events:[currentCup]},{events:[]},{entries:[cupReview]}).feed.events[0]),facts(currentCup),'The real current Cup retains its complete source field without copying the roster into a test fixture');
+for(const observation of cupReview.sourceObservations)assert.equal(cupApplied.knowledge.sources.find(s=>cupProjection.sourceIds.includes(s.id)&&s.url===observation.url).checkedAt,observation.checkedAt);
 const researched=applyResearch(read('data/editorial-knowledge.v1.json'),{events:[tennis]},{events:[]},{entries:[review]});
 assert.equal(facts(researched.feed.events[0]),facts(tennis));
 const reviewedProjection=api.projectionForTarget(researched.knowledge,'feed-event',tennis);
@@ -86,6 +98,8 @@ try {
   // deliberately reject invented or absent source records.
   write('data/editorial-knowledge.v1.json',read('data/editorial-knowledge.v1.json'));
   write('data/major-events.v1.json',read('data/major-events.v1.json'));
+  for(const file of ['schemas/event-feed.schema.json','schemas/major-events.schema.json'])write(file,read(file));
+  fs.copyFileSync(path.join(ROOT,'index.html'),path.join(temporary,'index.html'));
   const overrides=read('feeds/editorial-preview-overrides.json');overrides.events[tennis.canonicalEventId]=preview;
   write('feeds/editorial-preview-overrides.json',overrides);
   for(const file of ['data/editorial-fixture-research.v1.json','data/follow-sources/coverage.v1.json','data/tennis-feed-parents.v1.json'])write(file,read(file));
@@ -109,6 +123,7 @@ try {
   assertPass(invoke('apply-fixture-research.js'));
   assertPass(invoke('update-sport-editorial-depth.js',['--write']));
   assertPass(invoke('apply-editorial-narratives.js',['--write']));
+  assertPass(invoke('validate-editorial-narratives.js'));
   assertPass(invoke('audit-editorial-previews.js',['data/events.json','preview-audit.json']));
   for (const file of ['feeds/incoming/events.json','data/events.json']){
     const document=JSON.parse(fs.readFileSync(path.join(temporary,file)));

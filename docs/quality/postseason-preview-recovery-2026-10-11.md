@@ -1,6 +1,6 @@
 # Useful baseball and tennis descriptions — 11 October 2026
 
-The repair is prepared and checked locally. It has not yet reached the live cards. The last full sports update stopped because nine baseball games and the Beijing women's tennis final lacked required descriptions. The prepared repair fills those gaps without changing match facts or saved choices. After incorporating the latest racing release, the same check also caught two vague duplicate race descriptions. Those now use the reviewed venue, distance and entry stage, without inventing a final field or start time. A fresh complete update and its exact production release remain required.
+The description repair is published on GitHub as 7343ca7b and checked locally. It has not yet reached the live cards. The last full sports update stopped because nine baseball games and the Beijing women's tennis final lacked required descriptions. The prepared repair fills those gaps without changing match facts or saved choices. After incorporating the latest racing release, the same check also caught two vague duplicate race descriptions. Those now use the reviewed venue, distance and entry stage, without inventing a final field or start time. The next actual full run, 38108833525, ran the description writer (18 baseball projections), then stopped at the earlier persistent-background validator on the Melbourne Cup. It did not reach the later fresh preview audit and published no batch. The Cup repair and a fresh complete update with exact production release remain required.
 
 ## What users should get
 
