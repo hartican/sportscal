@@ -20,3 +20,4 @@ const weekend=overviews.build(f1).filter(e=>e.sportKey==='f1');assert.equal(week
 assert(!/practice|qualifying|sprint|race/i.test(weekend[0].name),'Parent title does not name the first Practice session');
 assert.deepEqual(new Set(weekend[0].fixtureIds),new Set(f1.map(f=>f.id)),'All published Practice, Qualifying, Sprint and Race identities survive');
 console.log('Current score placement: approved cricket scope, Today overview anchor, confirmed Live Now and one full GP weekend passed.');
+require('./validate-paused-match-status');

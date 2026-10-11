@@ -83,6 +83,7 @@ function composeFeedCard(card,ev,{compact,renderCardState}){
   const venue=document.createElement('p');venue.className='fixture-venue';venue.textContent=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.womensT20(ev)?'':NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue(ev,VENUE_REGISTRY);info.append(venue);
   const schedule=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
   if(schedule.status){const date=document.createElement('p');date.className='fixture-scheduled event-date-chip';date.textContent=schedule.fullSchedule;info.prepend(date);}
+  const pause=NOTHINGSPORTS_CARD_TIMING.pausePresentation(ev,nowAEST());if(pause){const restart=document.createElement('p');restart.className='fixture-restart';restart.textContent=pause.label+' · '+pause.restart;info.prepend(restart);}
   const rating=main.querySelector('.nsc-summary');if(rating)rating.after(info);else main.append(info);
   const more=document.createElement('button');more.type='button';more.className='fixture-more';more.textContent=cardStateForEvent(ev)==='opened'?'Less':'More…';more.setAttribute('aria-expanded',String(cardStateForEvent(ev)==='opened'));more.onclick=e=>{e.stopPropagation();renderCardState(cardStateForEvent(ev)==='opened'?'selected':'opened',{restoreFocus:true,focusTarget:'.fixture-more'});};
   if(compact){const hook=buildEventWhyItMatters(ev);if(hook)main.append(hook);}

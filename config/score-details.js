@@ -35,10 +35,10 @@ function incidents(rows){return (Array.isArray(rows)?rows:[]).filter(i=>i&&typeo
 function football(rows){styles();const root=node('div',null,'football-goal-details');const list=incidents(rows);if(list.length)table(root,'Goals',[['Scorer','name'],['Game minute','time'],['Type','type'],['Team','team']],list);return root;}
 function feed(slot,ev,visible){
  if(!slot.isConnected||!visible())return;
- if(/^(f1|supercars|motogp|wrc|horse-racing)$/.test(ev.key)){slot.classList.add('fixture-racing-details');void loadDeferredScript('config/match-centre.js?v=494').then(()=>loadDeferredScript('config/racing-details.js?v=491')).then(()=>NOTHINGSPORTS_RACING_DETAILS.mount(slot,ev,{visible,followed:entry=>cardIdentityParticipants().some(p=>entry.drivers?.includes(p.displayName||p.name)&&cachedParticipantFollow(p.id).followed)})).catch(()=>{if(slot.isConnected&&visible())slot.textContent='Racing detail unavailable.';});return;}
+ if(/^(f1|supercars|motogp|wrc|horse-racing)$/.test(ev.key)){slot.classList.add('fixture-racing-details');void loadDeferredScript('config/match-centre.js?v=509').then(()=>loadDeferredScript('config/racing-details.js?v=491')).then(()=>NOTHINGSPORTS_RACING_DETAILS.mount(slot,ev,{visible,followed:entry=>cardIdentityParticipants().some(p=>entry.drivers?.includes(p.displayName||p.name)&&cachedParticipantFollow(p.id).followed)})).catch(()=>{if(slot.isConnected&&visible())slot.textContent='Racing detail unavailable.';});return;}
  if(ev.key==='cricket'){
   if(ev.cricketBalance)slot.append(node('p',ev.cricketBalance));
-  if(ev.restartTimeUtc)slot.append(node('p','Play resumes '+new Date(ev.restartTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney',hour:'numeric',minute:'2-digit',timeZoneName:'short'})));
+  const pause=NOTHINGSPORTS_CARD_TIMING.pausePresentation(ev);if(pause)slot.append(node('p',pause.restart));
   slot.append(cricket(ev.innings,{fixtureId:String(ev.canonicalEventId||ev.eventId||ev.id),stale:ev.sourceStale===true}));
   const id=[ev.canonicalEventId,ev.eventId,ev.id,...(ev.sourceEventIds||[])].map(v=>String(v||'').match(/(?:^|:)CA:(\d+)$/)?.[1]).find(Boolean);
   if(id){const a=node('a','Official scorecard');a.href='https://www.cricket.com.au/matches/CA%3A'+id;a.target='_blank';a.rel='noopener noreferrer';slot.append(a);}

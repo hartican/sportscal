@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="508">
+<meta name="app-shell-version" content="509">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=508" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=509" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7176,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=508"></script>
+<script src="assets/js/app-shell-runtime.js?v=509"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10976,7 +10976,7 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 }
 
 let feedScoreUiLoading=null;
-function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=495').catch(error=>{feedScoreUiLoading=null;throw error;});}
+function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=509').catch(error=>{feedScoreUiLoading=null;throw error;});}
 function installFeedLiveScore(card,event){
   if(globalThis.NOTHINGSPORTS_FEED_SCORE_UI){globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);return;}
   const owner=serverSyncClient?.sessionSubject()||'public';
@@ -11016,7 +11016,6 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
           const retainedIds = new Set([...previous,...activeEvents].map(event => String(event.id || event.eventId)));
 
           const incoming = document.fixtures.filter(fixture => fixture?.id && identity.retainedInActiveTimeline(fixture) && (automaticEventFollowReason(identity.fromSchedule(fixture,code),context) || code.id === 'sport:golf' && retainedIds.has(String(fixture.id)) && fixture.participantsConfirmed === true)).map(fixture => identity.fromSchedule(fixture,code));
-          // Short responses retain cards; explicit statuses/mutes apply.
           const events = mergeCanonicalEventPages(incoming,previous).filter(event => eventMeetsDerivedRetention(event));
           followedScheduleFixtures.set(code.id,events);
           disposableStore?.set(cacheKey,{events},{ttlMs:14*86400000});
@@ -11234,7 +11233,6 @@ async function fetchMajorEventsData({quiet=false,onReady=()=>{}}={}){
     return MAJOR_EVENTS;
   });
   const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url);
-  // Attach a handler immediately while the runtime module is loading.
   networkRequest.catch(()=>{});
   let loadJointSchedule = false;
   try{
@@ -11472,7 +11470,6 @@ async function loadPublicFeedFirstPage({cacheFirst=false}={}){
   const payload = await fetchJson(`${pagePath}${pagePath.includes("?") ? "&" : "?"}refresh=${encodeURIComponent(manifest.sourceVersion || refreshKey)}`, { cache:"no-store" });
   const events = coerceEventList(payload);
   if (!events.length) throw new Error("Remote feed did not contain usable events");
-  // Same-release revalidation retains read pages.
   const sameRelease=publicFeedManifest?.sourceVersion===manifest.sourceVersion;
   const retainedPageCount=sameRelease?publicFeedNextPageIndex:1;
   const nextEvents=sameRelease&&retainedPageCount>1?mergeCanonicalEventPages(activeEvents,events):events;
@@ -14514,7 +14511,6 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
   for(const record of majorEventsDocument?.events||[]){if(record.kind==='ticket_sale'||COMPETITION_CLASSIFICATION.belongsInEvents(record)===false)continue;const marker={...majorEventActionEvent(record),canonicalEventId:record.id,editionId:record.id,eventFamilyId:MAJOR_EVENTS.eventFamilyId(record),date:record.startDate,endDate:record.endDate,tournamentParent:true,majorEventMarker:true,majorEventId:record.id};if(!editions.has(FOLLOW_FEED_POLICY.editionKey(marker)))list.push(marker);}
   list = list.filter(ev => eventMeetsDerivedRetention(ev, reference));
 
-  // Apply the shared additive Follow policy.
   const followContext=buildFollowEligibilityContext();
   list = list.filter(event=>eventFollowReason(event,followContext));
   if (activeTab === "feed" && activeFilter !== "all") list = list.filter(event => feedFilterMatchesEvent(activeFilter, event));
@@ -14991,8 +14987,10 @@ function buildCompactCardSummary(ev,{minimal=false}={}){
     summary.dataset.cardArea='essentials';
     if(!minimal)summary.appendChild(buildFixtureTimingGroup(ev));
     const badgeTiming=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
+    const pause=NOTHINGSPORTS_CARD_TIMING.pausePresentation(ev,nowAEST());
     time.textContent=minimal?[badgeTiming.ariaLabel,FOLLOW_FIRST.stageLabel(ev)].filter(Boolean).join(' · '):`${badgeTiming.status ? badgeTiming.fullSchedule+' • ' : ''}${sportLabel}${!title.classList.contains('has-compact-matchup')&&format?' · '+format:''}`;
-    summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${badgeTiming.ariaLabel}. ${sportLabel}`);
+    if(pause)time.textContent=(badgeTiming.status.toLowerCase()===pause.label.toLowerCase()?'':pause.label+' · ')+time.textContent+' · '+pause.restart;
+    summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${badgeTiming.ariaLabel}. ${pause?[pause.label,pause.restart].join('. '):''}. ${sportLabel}`);
     summary.title=summary.getAttribute('aria-label');
   }
   summary.append(title,time);
@@ -15004,17 +15002,22 @@ function buildCompactCardSummary(ev,{minimal=false}={}){
 }
 
 function feedClockKey(){
-  return `${NOTHINGSPORTS_CALENDAR.sydneyDay()}|${activeEvents.map(ev=>`${ev.eventId || ev.id}:${getEventStatus(ev)}:${NOTHINGSPORTS_FEED_TIMELINE.confirmedLive(ev,nowAEST())}`).join('|')}`;
+  return `${NOTHINGSPORTS_CALENDAR.sydneyDay()}|${(feedCardSlots.size?[...feedCardSlots.values()].map(({event})=>event):mergeMainFeedSpecialEvents(activeEvents)).map(ev=>`${ev.eventId || ev.id}:${getEventStatus(ev)}:${NOTHINGSPORTS_FEED_TIMELINE.confirmedLive(ev,nowAEST())}:${NOTHINGSPORTS_CARD_TIMING.pausePresentation(ev,nowAEST())?.restart||''}`).join('|')}`;
 }
 let previousFeedClockKey='';
 function refreshFeedClock(){
   if(activeTab!=='feed' || activeView!=='list' || activeInspectorCodeId || startupCoordinator.isHydrating())return;
   const next=feedClockKey();
   if(next!==previousFeedClockKey){previousFeedClockKey=next;queueScrollIdleMutation(()=>renderAll({preserveViewport:true}));}
-  document.getElementById('calendarNowAnchor')?.setAttribute('aria-label',`Live Now ${new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',hour:'numeric',minute:'2-digit'}).format(new Date())}`);
+  const marker=document.getElementById('calendarNowAnchor');if(marker)patchFeedNowMarker(marker,[...feedCardSlots.values()].find(({slot,event})=>slot.isConnected&&String(event.canonicalEventId||event.eventId||event.id)===marker.dataset.nextFixtureId)?.event||activeEvents.find(ev=>String(ev.canonicalEventId||ev.eventId||ev.id)===marker.dataset.nextFixtureId),true);
 }
-function buildFeedNowMarker(){
-  const marker=document.createElement('div');marker.id='calendarNowAnchor';marker.className='events-now-marker is-active feed-now-marker';marker.textContent='● Live Now';marker.setAttribute('role','separator');marker.setAttribute('aria-label','Live Now');return marker;
+function patchFeedNowMarker(marker,event,clock=false){
+  const live=Boolean(event&&NOTHINGSPORTS_FEED_TIMELINE.confirmedLive(event,nowAEST())),label=live?'Live Now':'Time Now';
+  marker.textContent=(live?'● ':'')+label;marker.classList.toggle('is-active',live);
+  marker.setAttribute('aria-label',label+(clock?' '+new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',hour:'numeric',minute:'2-digit'}).format(nowAEST()):''));
+}
+function buildFeedNowMarker(event){
+  const marker=document.createElement('div');marker.id='calendarNowAnchor';marker.className='events-now-marker feed-now-marker';marker.dataset.nextFixtureId=event?String(event.canonicalEventId||event.eventId||event.id):'';marker.setAttribute('role','separator');patchFeedNowMarker(marker,event);return marker;
 }
 function renderFeedViewActions(container){
   syncContextualJumpButton();
@@ -15129,8 +15132,6 @@ function patchElementInPlace(element, replacement){
   if (!element || !replacement || element.tagName !== replacement.tagName) return false;
   preserveStableDescendants(element, replacement);
   syncElementAttributes(element, replacement);
-  // Retained DOM nodes must own the new handlers' mutable card reference.
-  // Otherwise a cached/reconciled card patches the detached replacement.
   if(replacement._retargetCard){replacement._retargetCard(element);element._retargetCard=replacement._retargetCard;}
   if (replacement._activateCard) element._activateCard = replacement._activateCard;
   if (replacement._rebuildCard) element._rebuildCard = replacement._rebuildCard;
@@ -15520,7 +15521,6 @@ function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
     next.swipeCoaching = { dismissedAt: new Date().toISOString() };
   }
   savePreferences(next);
-  // Recommendation feedback is not an NSC contribution or vote.
   recordProductEvent({
     eventName: "swipe",
     surface: "curated_feed",
@@ -16327,8 +16327,6 @@ function buildInlineCrowdRating(ev,snapshot){
   const root=document.createElement('div');root.className='nsc-inline-rating';
   const phase=snapshot?.phase || ({upcoming:'heat',live:'pulse',past:'impact'})[getEventStatus(ev)];
   if(!phase)return root;
-  // Reserve the real control while a signed-in user's sealed state is checked.
-  // Server responses remain authoritative for eligibility and phase.
   const awaitingViewer=Boolean(serverSyncClient?.sessionSubject())&&!snapshot;
   const group=document.createElement('div');group.className='nsc-rating-blocks';group.setAttribute('role','group');group.setAttribute('aria-label','Your stakes rating out of five');
   const exactTiming=Boolean(ev?.startTimeUtc)&&(!ev?.timePrecision||ev.timePrecision==='exact');
@@ -16554,7 +16552,6 @@ async function reconcileNothingscoreSubmission(eventId,phase,{expectedOwner = se
     const receipt = payload.detail.currentUser?.submissions?.[phase];
     if (receipt) nothingscoreSubmissionStore.confirm(key,receipt);
     else if (!nothingscoreSubmissionRequests.has(key)) nothingscoreSubmissionStore.release(key);
-    // During a failed POST reconciliation the request promise still owns the lock.
     else if (nothingscoreSubmissionStore.get(key).status === "uncertain") nothingscoreSubmissionStore.release(key);
     mergeNothingscoreSnapshot(payload.detail);
     nothingscoreQueueRender();
@@ -16723,7 +16720,7 @@ function buildTournamentMarker(event){
  const details=document.createElement('details'),summary=document.createElement('summary');details.className='feed-tournament-details';details.open=tennisFeedOpenParents.has(id);summary.setAttribute('aria-label','Expand '+event.name);
  const title=document.createElement('h3');title.textContent=event.name;const dates=document.createElement('p');dates.textContent=[event.date,event.endDate!==event.date?event.endDate:null].filter(Boolean).map(value=>NOTHINGSPORTS_AUSTRALIAN_DATES.date(value)).join(' – ');summary.append(title,dates);details.append(summary);
  const content=document.createElement('div');content.className='feed-tournament-appearances';details.append(content);let mounted=false;
- const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=494').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
+ const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=509').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
  card.append(details,buildEventCardControls(event,{card}));if(details.open)queueMicrotask(mount);return card;
 }
 function buildEuropeanDetail(ev,kind){
@@ -16840,7 +16837,6 @@ function buildFixtureFallbackCard(event, options = {}){
   return card;
 }
 
-// Artwork is optional presentation; never infer participants from featured subjects.
 function appendFixtureCardArtwork(card, main, ev, {matchupIdentity, soloIdentity, meta}){
   if(matchupIdentity){
     matchupIdentity.dataset.cardArea='artwork';
@@ -16916,7 +16912,7 @@ function buildFixtureCardEssentials(ev, {matchupIdentity, timingState, options, 
 function buildExpandedScoreDetails(ev){
  if(!(isSpoilerVisible(ev)&&(ev.score?.racing||/^(f1|supercars|motogp|wrc|horse-racing)$/.test(ev.key)||ev.key==='cricket'||/football|soccer|fifa|premier-league|uefa-/.test(ev.key))))return null;
  const slot=document.createElement('div');slot.dataset.cardArea='expanded-information';slot.className='fixture-scorecard';
- loadDeferredScript('config/score-details.js?v=494').then(()=>NOTHINGSPORTS_SCORE_DETAILS.feed(slot,ev,()=>isSpoilerVisible(ev))).catch(()=>{if(slot.isConnected&&isSpoilerVisible(ev))slot.textContent='Scorecard unavailable.';});return slot;
+ loadDeferredScript('config/score-details.js?v=509').then(()=>NOTHINGSPORTS_SCORE_DETAILS.feed(slot,ev,()=>isSpoilerVisible(ev))).catch(()=>{if(slot.isConnected&&isSpoilerVisible(ev))slot.textContent='Scorecard unavailable.';});return slot;
 }
 function buildFootballMatchContext(ev){return ev.footballMatchContext||ev.teamMatchContext?buildEuropeanDetail(ev,'context'):null;}
 
@@ -17699,8 +17695,9 @@ function feedCardCardCleanup(slot){feedCardWindowObserver?.unobserve(slot);feedC
 
 function appendFeedPageToCurrentList(incomingEvents){
   if (startupCoordinator.isHydrating() || activeTab !== "feed" || activeView !== "list" || activeSportHubKey()) return false;
+  if(committedFeedPresentationFingerprint&&!committedFeedPresentationFingerprint.endsWith('|'+feedClockKey()))return false;
   if (scrollMomentumActive){
-    queueScrollIdleMutation(() => appendFeedPageToCurrentList(incomingEvents));
+    queueScrollIdleMutation(() => {if(!appendFeedPageToCurrentList(incomingEvents))renderFeedIfPresentationChanged({preserveViewport:true});});
     return true;
   }
   const container = document.getElementById("listView");
@@ -17838,12 +17835,12 @@ function renderListView(){
       const dayEvents=dateStr===todayStr ? NOTHINGSPORTS_FEED_TIMELINE.orderToday(ordered,nowAEST()) : ordered;
       let nowInserted=false;
       dayEvents.forEach(event => {
-        if(dateStr===todayStr && !nowInserted && !anchored(event)&&!before(event)){grid.appendChild(buildFeedNowMarker());nowInserted=true;}
+        if(dateStr===todayStr && !nowInserted && !anchored(event)&&!before(event)){grid.appendChild(buildFeedNowMarker(event));nowInserted=true;}
         const card = buildFeedCardSlot(event);
         card.dataset.feedEventId = String(event?.canonicalEventId || event?.eventId || event?.id || "");
         grid.appendChild(card);
       });
-      if(dateStr===todayStr && !nowInserted)grid.appendChild(buildFeedNowMarker());
+      if(dateStr===todayStr && !nowInserted)grid.appendChild(buildFeedNowMarker(sortedChrono(timeline.future)[0]||(timeline.unknown||[])[0]));
       groupDiv.appendChild(heading);
       if (dateStr === todayStr) appendTodayFallback(groupDiv, baseFiltered, todayStr);
       groupDiv.appendChild(grid);
@@ -17873,7 +17870,7 @@ function renderListView(){
   };
 
   if (todayEvents.length) appendDateGroups(todayEvents,{today:true});
-  else {appendTodayAnchor();container.appendChild(buildFeedNowMarker());}
+  else {appendTodayAnchor();container.appendChild(buildFeedNowMarker(sortedChrono(timeline.future)[0]||(timeline.unknown||[])[0]));}
   appendDateGroups(timeline.future, { future:true });
   appendDateGroups(timeline.unknown || []);
   if (!timeline.today.length && !timeline.future.length && !(timeline.unknown || []).length){const tail=document.createElement("div");tail.style.minHeight="100svh";tail.setAttribute("aria-hidden","true");container.appendChild(tail);}
@@ -17890,7 +17887,6 @@ function renderListView(){
 }
 
 function renderStartupFeedLoading(){
-  // A refresh must never replace a usable snapshot with skeletons.
   if (activeEvents.length && mergeMainFeedSpecialEvents(getFilteredEvents()).length){
     renderListView();
     const notice=document.createElement('p');notice.className='feed-refresh-status';notice.setAttribute('role','status');
@@ -18602,7 +18598,6 @@ function ensureFollowCollectionDirectories(preferences = userPreferences){
   const tennis=collectionIds.filter(id => String(id).startsWith("collection:tennis:"));
   const men=new Set(['collection:tennis:mens-top-10','collection:tennis:atp-mens-watch']);
   const women=new Set(['collection:tennis:womens-top-10','collection:tennis:wta-womens-watch']);
-  // Gender-specific groups load only their directory; shared groups need both.
   if(tennis.some(id=>!women.has(id)))loads.push(loadFollowDirectoryChunk('tennis'));
   if(tennis.some(id=>!men.has(id)))loads.push(loadFollowDirectoryChunk('tennis-women'));
   if (profileHasFootballEntityFollow(preferences)) loads.push(loadFootballFollowIndex());
@@ -18859,7 +18854,7 @@ async function loadMatchCentre(){
   const panel=document.getElementById('listView');
   if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return;}
   panel.className='match-centre';panel.textContent='Loading Match Centre…';
-  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=494'),loadDeferredScript('config/score-details.js?v=494'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=507')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
+  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=509'),loadDeferredScript('config/score-details.js?v=509'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=509')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
 }
 function renderTeamsAndPlayersDirectory(container){
   if(typeof globalThis.renderTeamsAndPlayersDirectoryLoaded==='function')return globalThis.renderTeamsAndPlayersDirectoryLoaded(container);
@@ -19068,7 +19063,6 @@ function archivedEvents(){
   return Array.from(byId.values());
 }
 
-// Calendar import and subscriptions share canonical fixture IDs; reminders use Web Push.
 function formatFeedbackTimestamp(date = new Date()){
   return new Intl.DateTimeFormat("en-AU", {
     timeZone: "Australia/Sydney",
@@ -19454,7 +19448,6 @@ function buildMajorEventCard(record, options = {}){
 function buildDetailedMajorEventCard(record, { interactionCard = null } = {}){
   const meta = sportMetaForEvent(majorEventIdentityEvent(record));
   const actionEvent = majorEventActionEvent(record);
-  // Overview actions use the next published fixture, never a tournament score.
   const eventAction = getEventAction(actionEvent);
   const isMinimised = Boolean(eventAction.isMinimised);
   const state = cardStateForEvent(record);
@@ -19996,7 +19989,7 @@ function currentFeedPresentationFingerprint(){
   return FEED_REFRESH_LIFECYCLE.presentationFingerprint({
     events: feedEventsForPresentationFingerprint(),
     derivedCards: derivedCardCache?.derivedCards || [],
-  });
+  })+'|'+feedClockKey();
 }
 
 function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
@@ -20130,7 +20123,6 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     jumpTodayBtn.hidden = true;
   }
   if (startupFeedRevealPending && !startupCoordinator.isHydrating()){
-    // Animate these initial nodes only. Later refreshes must not replay the reveal.
     listView.querySelectorAll(".date-group, .today-anchor, .premium-surface").forEach(node => {
       if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) node.animate(
         [{opacity:0, transform:"translateY(8px)"}, {opacity:1, transform:"none"}],
@@ -20148,7 +20140,6 @@ function firstNormalFeedCard(){
 }
 
 function scheduleFirstCardViewportFit(){
-  // Header geometry is fixed across card states and scroll positions.
   syncFeedFilterDockOffset();
 }
 
@@ -24510,7 +24501,6 @@ function setUtilityModalOpen(id, open){
   modal.setAttribute("aria-hidden", open ? "false" : "true");
 }
 
-// Calendar import and subscriptions share canonical fixture IDs; reminders use Web Push.
 function updateFeedbackPreview(){
   const category = document.getElementById("feedbackCategory");
   const message = document.getElementById("feedbackMessage");
@@ -24530,21 +24520,19 @@ function submitFeedbackForm(evt){
   window.location.href = buildFeedbackSmsUrl(category, message);
 }
 
-// Calendar import and subscriptions share canonical fixture IDs; reminders use Web Push.
 function startupFeedTaskDescriptors(){
   return [
     { name:"published feed", run:refreshFeedOnFirstLoad, valid:value => Boolean(value && Number(value.eventCount) > 0) },
   ];
 }
 
-// Hydrate followed schedules after the saved Feed becomes usable.
 async function ensureFeedSourceReadiness(preferences=userPreferences){
   await ensureFollowCollectionDirectories(preferences).catch(()=>{});
   await loadFollowedScheduleFixtures(preferences).catch(()=>{});
   rebuildDerivedCardCache(activeEvents);
 }
 function loadDeferredStartupContext(){
-  return loadDeferredScript('config/startup-view-cache.js?v=507').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
+  return loadDeferredScript('config/startup-view-cache.js?v=509').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
 }
 
 let startupPostLoadHandled = false;

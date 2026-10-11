@@ -5,7 +5,8 @@
  const final=e=>/^(completed|finished|final)$/.test(e.status||'');
  const interrupted=e=>/^(stumps|suspended|interrupted|delayed|rain-delay|break)$/.test(e.status||'');
  const halftime=e=>e.status==='break'&&e.statusText==='Half-time';
- const pausedLabel=e=>halftime(e)?'Half-time':e.score?.racing?.statusText||String(e.status||'').replace(/-/g,' ');
+ const pausedLabel=e=>(globalThis.NOTHINGSPORTS_CARD_TIMING||(typeof require==='function'?require('./card-timing'):null))?.pausePresentation(e)?.label||e.score?.racing?.statusText||String(e.status||'').replace(/-/g,' ');
+ function longPause(e,now){if(!interrupted(e)&&e.status!=='ongoing')return false;const fact=e.pauseObservation,at=Date.parse(fact?.status===e.status&&fact.reason===String(e.score?.racing?.statusText||e.statusText||pausedLabel(e)).trim().toLowerCase()?fact.observedAt:'');return e.status==='stumps'||/^(End of day|Session ended)$/i.test(e.statusText||'')||Number.isFinite(at)&&at<=now&&now-at>=1800000;}
  function supported(e,{catalogue=true}={}){
   const policy=globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY||(typeof require==='function'?require('./follow-feed-policy'):null);if(policy&&!policy.activeEligible(e))return false;
   const cricket=globalThis.NOTHINGSPORTS_CRICKET_COVERAGE||(typeof require==='function'?require('./cricket-coverage'):null);if(catalogue&&cricket?.isCricket(e)&&!cricket.allowed(e))return false;
@@ -35,14 +36,14 @@
   // A missing check cannot close an unresolved contest. Keep the source's
   // explicit interruption, otherwise qualify old or failed play observations.
   if(interrupted(e)&&!halftime(e))return 'paused';
-  if((e.score?.racing||e.stale!==true&&e.sourceStale!==true)&&age<=interval(e,now)*2)return paused?'paused':'playing';
+  if(e.stale!==true&&e.sourceStale!==true&&age<=interval(e,now)*2)return paused?'paused':'playing';
   return 'awaiting-update';
  }
  function section(e,now=Date.now()){
   if(!supported(e)||/^(cancelled|canceled|abandoned|past|postponed)$/.test(e.status||''))return null;
   if(final(e)){const end=completion(e);return Number.isFinite(end)&&end<=now&&now<=end+3600000?'recently-finished':null;}
   if(sport(e)==='golf'&&score(e).golf?.phase==='round-completed')return null;
-  if(liveState(e,now))return 'live';
+  const state=liveState(e,now);if(state)return state==='playing'?'live':longPause(e,now)?'ongoing-not-in-play':state==='paused'?'paused':'awaiting-update';
   if(!/^(scheduled|upcoming)$/.test(e.status||''))return null;
   const precision=String(e.timePrecision||'exact').replace('_','-');
   const start=Date.parse(!e.timeTbc&&!e.startTimeTbc&&e.timingVerified!==false&&e.sourceStale!==true&&(['exact','not-before'].includes(precision)||precision==='session-start'&&sport(e)!=='tennis')?e.startTimeUtc||'':'');
@@ -65,7 +66,7 @@
    const winner=official.length===1?official[0]:!official.length&&playing.length===1?playing[0]:null;
    for(const e of group.events)if(e!==winner)suppressed.add(id(e));
   }
-  const priority=e=>({'live':liveState(e,now)==='playing'?0:1,'starting-soon':2,'recently-finished':3})[section(e,now)];
+  const priority=e=>({'live':0,'paused':1,'awaiting-update':2,'starting-soon':3,'recently-finished':4,'ongoing-not-in-play':5})[section(e,now)];
   return members.filter(e=>!suppressed.has(id(e))).sort((a,b)=>priority(a)-priority(b)||(final(a)&&final(b)?completion(b)-completion(a):(Date.parse(a.startTimeUtc||a.estimatedStartTimeUtc)||0)-(Date.parse(b.startTimeUtc||b.estimatedStartTimeUtc)||0))||id(a).localeCompare(id(b)));
  }
  function interval(e,now=Date.now()){if(e.score?.racing)return 240000;const restart=Date.parse(e.restartTimeUtc||'');return interrupted(e)&&!halftime(e)&&!(restart>=now-120000&&restart<=now+1800000)?1800000:120000;}
@@ -133,7 +134,7 @@
  function compact(e,{checkedAt=null,stale=false,rubbers=false,racing=false}={}){
   const value=score(e,{racing}),pair=pairedScore(e),hasScore=value.golf||value.racing||value.home!=null||value.away!=null||value.sets?.length||value.games||value.innings?.length;
   const observationCheckedAt=e.scoreCheckedAt||(!hasScore?e.statusCheckedAt:null)||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt||e.canonicalSourceCheckedAt)||null;
-  return {court:e.court||null,tournamentId:e.tournamentId||e.tennisTournamentId||null,statusSourceType:e.statusSourceType||null,format:e.format||e.matchFormat||null,actualStartTimeUtc:e.actualStartTimeUtc||null,livePlayObservedAt:e.livePlayObservedAt||null,id:id(e),sport:sport(e),status:e.status||'scheduled',homeParticipantId:e.homeParticipantId||pair?.home.participantId||e.matchupSides?.[0]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[0]?.participantId||e.participantIds?.[0]:null)||null,awayParticipantId:e.awayParticipantId||pair?.away.participantId||e.matchupSides?.[1]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[1]?.participantId||e.participantIds?.[1]:null)||null,startTimeUtc:e.startTimeUtc||null,restartTimeUtc:e.restartTimeUtc||null,cricketBalance:label(e.cricketBalance),completedAt:Number.isFinite(completion(e))?new Date(completion(e)).toISOString():null,scoreCheckedAt:e.scoreCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,statusCheckedAt:e.statusCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,checkedAt:observationCheckedAt,stale:stale||e.stale===true||e.sourceStale===true||Boolean(e.fixtureObservationSchema&&hasScore&&!e.scoreCheckedAt),score:value,officialUrl:officialUrl(e),...scorecard(e),statusText:typeof e.statusText==='string'?e.statusText:null,clock:duration(e),incidents:(Array.isArray(e.incidents)?e.incidents:Array.isArray(e.goalScorers)?e.goalScorers:[]).filter(i=>i&&typeof i==='object').slice(0,40).map(i=>({name:i.name||i.playerName||i.scorer?.name||(typeof i.scorer==='string'?i.scorer:null),time:i.minute??i.elapsedMinute??i.time??i.clock??null,type:i.type||(Array.isArray(e.incidents)?null:'Goal'),addedTime:i.addedTime??i.stoppageTime??null,ownGoal:i.ownGoal===true,penalty:i.penalty===true,goalType:i.goalType||null,teamName:i.teamName||i.team?.name||null,disallowed:i.disallowed===true||i.isDisallowed===true||i.cancelled===true})),...(rubbers?{rubbers:(e.rubbers||[]).slice(0,10).map(r=>({id:id(r),name:r.sides?.length?r.sides.map(s=>s.names.join(' / ')).join(' v '):r.name||'',status:r.status,score:score({...r,key:'tennis'})}))}:{})};}
+  return {court:e.court||null,tournamentId:e.tournamentId||e.tennisTournamentId||null,statusSourceType:e.statusSourceType||null,format:e.format||e.matchFormat||null,actualStartTimeUtc:e.actualStartTimeUtc||null,livePlayObservedAt:e.livePlayObservedAt||null,id:id(e),sport:sport(e),status:e.status||'scheduled',homeParticipantId:e.homeParticipantId||pair?.home.participantId||e.matchupSides?.[0]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[0]?.participantId||e.participantIds?.[0]:null)||null,awayParticipantId:e.awayParticipantId||pair?.away.participantId||e.matchupSides?.[1]?.players?.[0]?.id||(e.contestUnit==='tie'?e.participantSlots?.[1]?.participantId||e.participantIds?.[1]:null)||null,startTimeUtc:e.startTimeUtc||null,restartTimeUtc:e.restartTimeUtc||null,restartSourceUrl:e.restartSourceUrl||null,restartSourceCheckedAt:e.restartSourceCheckedAt||null,statusFactObservedAt:e.statusFactObservedAt||null,pauseObservation:e.pauseObservation||null,cricketBalance:label(e.cricketBalance),completedAt:Number.isFinite(completion(e))?new Date(completion(e)).toISOString():null,scoreCheckedAt:e.scoreCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,statusCheckedAt:e.statusCheckedAt||(e.fixtureObservationSchema?null:checkedAt||e.sourceCheckedAt)||null,checkedAt:observationCheckedAt,stale:stale||e.stale===true||e.sourceStale===true||Boolean(e.fixtureObservationSchema&&hasScore&&!e.scoreCheckedAt),score:value,officialUrl:officialUrl(e),...scorecard(e),statusText:typeof e.statusText==='string'?e.statusText:null,clock:duration(e),incidents:(Array.isArray(e.incidents)?e.incidents:Array.isArray(e.goalScorers)?e.goalScorers:[]).filter(i=>i&&typeof i==='object').slice(0,40).map(i=>({name:i.name||i.playerName||i.scorer?.name||(typeof i.scorer==='string'?i.scorer:null),time:i.minute??i.elapsedMinute??i.time??i.clock??null,type:i.type||(Array.isArray(e.incidents)?null:'Goal'),addedTime:i.addedTime??i.stoppageTime??null,ownGoal:i.ownGoal===true,penalty:i.penalty===true,goalType:i.goalType||null,teamName:i.teamName||i.team?.name||null,disallowed:i.disallowed===true||i.isDisallowed===true||i.cancelled===true})),...(rubbers?{rubbers:(e.rubbers||[]).slice(0,10).map(r=>({id:id(r),name:r.sides?.length?r.sides.map(s=>s.names.join(' / ')).join(' v '):r.name||'',status:r.status,score:score({...r,key:'tennis'})}))}:{})};}
  function reviewedBathurstClassification(e){
   const results=e.fixtureResults,columns=results?.columns,rows=results?.rows;
   const url='https://www.supercars.com/results/2026/2026-bathurst-1000/R17';

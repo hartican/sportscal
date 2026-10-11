@@ -26,6 +26,19 @@
     if (!statuses.some(value => ['live','ongoing','in_progress','in-progress'].includes(value))) return null;
     return Object.freeze({key:'in-progress',label:'In progress',ariaLabel:'Tournament in progress. Session times vary.'});
   }
+  function pauseReason(event){
+    if(event.tournamentParent||event.majorEventMarker||['tennis_parent','golf_tournament','tournament_overview'].includes(event.cardType)||!['stumps','rain-delay','break','suspended','interrupted','delayed','ongoing'].includes(event.status))return null;
+    const racingPause=/^(Red flag|Safety car|Virtual safety car|Race suspended|Session suspended|Play suspended)$/i.test(event.score?.racing?.statusText||'')?event.score.racing.statusText:null;
+    return racingPause||(/^(Half-time|Lunch|Tea|Drinks|Innings break|Break|Stumps|Rain delay|Bad light|End of day|Session ended|Suspended|Interrupted|Delayed|Ongoing)$/i.test(event.statusText||'')?event.statusText:({'break':'Break','stumps':'Stumps','rain-delay':'Rain delay','suspended':'Suspended','interrupted':'Interrupted','delayed':'Delayed','ongoing':'Ongoing'})[event.status]);
+  }
+  function pausePresentation(event, reference = new Date()){
+    const label=pauseReason(event);if(!label)return null;
+    const restart=Date.parse(event.restartTimeUtc||''),now=new Date(reference);
+    const clock=Number.isFinite(restart)&&restart>+now?new Date(restart):null;
+    const time=clock?new Intl.DateTimeFormat('en-AU',{timeZone,hour:'numeric',minute:'2-digit',hour12:true}).format(clock):null;
+    const day=clock&&dayKey(clock)!==dayKey(now)?new Intl.DateTimeFormat('en-AU',{timeZone,weekday:'short',day:'numeric',month:'short',...(dayKey(clock).slice(0,4)!==dayKey(now).slice(0,4)?{year:'numeric'}:{})}).format(clock).replace(/,/g,'')+', ':'';
+    return {label,restart:clock?'Live again at '+day+time:Number.isFinite(restart)?'Awaiting resumption update':'Resume time unconfirmed'};
+  }
   function presentation(event, reference = new Date()){
     const now = new Date(reference);
     const precision = event.timePrecision;
@@ -82,5 +95,5 @@
     if(['completed','finished','final'].includes(event.status))return 'Completed';
     return event.eventType==='match'||event.timingProvenance?.precision==='venue-calendar'?'Time TBC':event.displayTime||'Session times vary';
   }
-  return Object.freeze({presentation,tournamentPhase,dateOnlyLabel});
+  return Object.freeze({presentation,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason});
 });

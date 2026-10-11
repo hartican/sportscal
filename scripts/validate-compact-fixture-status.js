@@ -28,6 +28,8 @@ function validate({source=fs.readFileSync(path.join(root,'index.html'),'utf8')}=
   check(event,new Date(Date.parse(capture.checkedAt)+31*60000).toISOString(),'Awaiting match update');
  }
  const capture=require('./fixtures/epl-half-time-20261010.json'),base=adapter.cardForFixture(capture.fixture,capture.checkedAt);
+ const restart='2026-10-12T07:30:00Z',pauseNow='2026-10-12T00:00:00Z';
+ for(const [restartTimeUtc,label] of [[restart,'Live again at 6:30 pm'],[null,'Resume time unconfirmed'],['invalid','Resume time unconfirmed'],['2026-10-11T23:00:00Z','Awaiting resumption update']])check({...base,status:'stumps',scheduleStatus:'stumps',restartTimeUtc},pauseNow,label);
  // These canonical states are controlled safety cases, not provider-code evidence.
  for(const status of ['cancelled','canceled','postponed','suspended','abandoned'])check({...base,status,scheduleStatus:status},capture.checkedAt,status==='canceled'?'CANCELLED':status.toUpperCase());
  for(const key of ['nrl','afl']){

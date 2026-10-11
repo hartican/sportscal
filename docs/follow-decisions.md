@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## Paused fixtures and the Feed current-time bar — 12 October 2026 Sydney
+
+Match Centre separates confirmed play, brief pauses, awaiting updates, starting soon, recently finished and ongoing fixtures not in play, in that order. Stumps and an explicit end-of-day/session report move to the bottom immediately. Other source pause states move after thirty minutes of that state, using the persistent first verified observation of that particular source pause reason rather than the enum-only status clock or latest verification receipt. A different pause reason starts its own clock; an unknown or future fact clock cannot establish thirty minutes. Keep source pause labels, last scores and unresolved fixture retention. No calendar or restart clock establishes live play.
+
+Collapsed Feed and Match Centre cards share the source pause label and restart wording: a published future playing restart says “Live again at X:XX am/pm” in Sydney time, with the date when needed; absent/invalid timing says “Resume time unconfirmed”; an elapsed restart says “Awaiting resumption update”. Broadcast starts do not establish playing restarts. Feed ordering remains unchanged. Its current-time bar says red “Live Now” with a dot only when the immediately following visible fixture is confirmed playing; otherwise it says neutral “Time Now”. Refresh updates the visible and accessible label together. Keep the same anchor and Jump to Now/Today toggle.
+
+Preserve Follow admission, Results OFF, exclusions, saved choices, date-only Today pins and genuine one-hour final retention. Regressions run through the existing score-placement/card-timing gates and actual native Feed/Match Centre views, including compact selected-read transitions, changed pause reasons, cleared restart facts, privacy, expansion/focus continuity and refresh of the marker.
+
 ## Reviewed Nations Championship fixture times — 12 October 2026
 
 The six existing publisher-identified North/South placement fixtures now receive reconciled exact UTC clocks from the full reviewed final-stage payload and RFU timetable. Keep their canonical IDs and original rank labels, with explicit unknown actual participants and empty team IDs. These are six individually published placement matches, distinct from a general undrawn stage calendar. Their timing passes through the existing fixture rules; selecting a sport or event adds no new consent. A rank cannot establish an Australian-team follow or automatic team reminder. All exclusions, dismissal, saved actions, Results and Remind OFF choices remain authoritative.
