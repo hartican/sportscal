@@ -1,0 +1,36 @@
+# Event choice repair and cheaper update diagnosis — 11 October 2026
+
+People should be able to follow an event and then unfollow it. An ongoing individual tournament could show “Unfollow event” after the first click but record Follow again on the second, when no followed player was confirmed. The repair reads the saved event choice before deciding the button state. It keeps the existing rules about which fixtures enter Feed.
+
+## Verified cause and scope
+
+The current shared `eventEditionFollowed` function in [index.html](../../index.html) used marker admission to infer the saved choice. In [config/tennis-feed.js](../../config/tennis-feed.js), an ongoing parent without confirmed participating follows is ineligible before the explicit choice is consulted. The regression executed the two actual button handlers and failed with `followed` instead of `excluded`. The fix uses the existing edition decision first; it changes no Feed eligibility policy, participant facts or notifications. [Approved Follow rules](../follow-decisions.md) retain independently followed-player fixtures when the event is excluded.
+
+The fifth full-owner run [38098773694](https://github.com/hartican/sportscal/actions/runs/38098773694) stopped before publication at a test for an unused Like control that had been removed. Its failed fresh data was not published. The log, terminal run and earlier failures remain saved. The Dismiss regression now executes the actual shared Dismiss control in Feed and Events, including initiating-card targeting, previous-action copy and Undo identity. A negative control proves that choosing the wrong card fails. A separate obsolete chat-viewport assertion for the retired suggestion builder is removed; the remaining chat, media, keyboard and authentication checks stay intact.
+
+The existing canonical owner [scripts/update-cards.js](../../scripts/update-cards.js) checks the inexpensive Dismiss contract before provider work and retains its later check. An actual entrypoint test forces that early check to fail and proves that no provider child runs afterward. The normal production workflow also checks the repaired Dismiss contract and event choice, preventing this drift from reaching the next full refresh.
+
+## Match-list failure diagnosis
+
+[lib/live-fixtures.js](../../lib/live-fixtures.js) now records the failing shared-read phase, bounded HTTP/database code, deadline and elapsed time. Messages, bodies, IDs, account details, credentials and stack traces are excluded. Healthy reads stay quiet; failed logging cannot replace the original error. The same two RPCs, three-second deadline, compatibility fallback and saved-last-good behaviour remain. No retry, database migration or scheduler is added.
+
+This improves the next investigation; it does not establish the cause of the two earlier intermittent production fallbacks. The earlier one-minute Supabase sample and scoped Vercel application search did not reveal that cause. The new diagnostic has no observed production failure yet. Input-budget guards before the shared read remain outside this diagnostic. [Official Supabase API-error log guidance](https://supabase.com/docs/guides/troubleshooting/discovering-and-interpreting-api-errors-in-the-logs-7xREI9) explains the related gateway log fields; a healthy later response cannot diagnose a prior failure.
+
+## Verification and evidence limits
+
+Evidence folder: `/Users/jackhartican/Documents/AI/Codex/nothingsport-first-delivery-2026-09-27/membership-failure-diagnostics-20261011`.
+
+- Sixteen affected checks pass, including original error identity, last-good facts and observation dates, safe log fields, no retries, Follow policies and cache versions.
+- A new complete private batch passes all 92 sampled full-only checks, plus five reviewed preparation commands: 97/97, 81.4 seconds of command time. The private clone denies network, has no credentials and keeps generated fixtures outside the publication checkout. Retained sports inputs and controlled test replies do not prove fresh provider acceptance or actual production persistence.
+- Its first batch passed 91/95 total commands: 88/92 sampled checks. Two failures came from omitted derived viewing/dashboard preparation in the private harness; the other two exposed the retired assertion and actual event-choice bug. Both batches remain saved. Corrected preparation uses the existing canonical viewing-review route and dashboard builder; it changes no production freshness threshold.
+- Local browser checks pass six cases: Chromium and WebKit at 320, 390 and 1280 pixels, using the actual current Shanghai parent and published individual contest. Real clicks change both mounted buttons ON then OFF; independent player follows and their admission remain, source facts stay identical, and Results OFF/Remind OFF remain.
+- Both cached-browser upgrade rehearsals pass 488 to 489, including retained choices, drafts, offline fallback and refusal to replace a valid shell with missing required assets. These are browser rehearsals, not physical iPhone evidence.
+- Eight initial asset requests, 430,902 compressed bytes; the unchanged fixed baseline is 425,600 and the unchanged 1.25% ceiling is 430,920. Eighteen bytes of headroom remain. Later shell work must earn space or undergo a separate performance decision; byte size alone proves no loading speed.
+
+## Delivery status and recommendation
+
+Local repair and browser checks pass; GitHub publication and production deployment remain pending at this report revision. The last independently verified live app is `7a36a50f8fea33f0a09070b60a4c1468f5bf0326`, shell 488. Do not count the failed fifth full-owner run or this private batch as a successful full sports refresh. Publish only the scoped repair through the existing exact-snapshot production workflow, then run the existing full owner once. Verify a later ordinary overnight publication separately.
+
+Business value: a reliable event choice, fewer wasted source passes and cheaper diagnosis of intermittent match-list failures. Effort: one focused repair and its release, followed by one full-owner attempt; whole-programme effort remains unestimated. Dependencies: current source, cache and production gates. Added cash commitment: A$0; existing hosting and assistant usage remain unpriced. Owner-time impact: no new decision, account task or routine. Acceptance: ON/OFF works, independent follows and facts remain, release gates pass, and the published snapshot matches live bytes. Defer extra source fetching and any infrastructure rewrite until the diagnostic supplies evidence.
+
+Football remains the first quality priority. Approval stays at 0/17 carried families and 0/3 Football pilots, with at least 14/17 families targeted. This repair certifies neither a sport nor the monetisable MVP. Current rights/viewing, wider interruption states, later table maintenance, physical-phone use, repeat visits and recovery remain open.

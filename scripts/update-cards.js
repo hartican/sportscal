@@ -117,6 +117,9 @@ function buildSteps({ localOnly = false } = {}) {
   ...((process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY || process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH || process.env.FOLLOW_SNAPSHOT_PRELOADED_PATH)
     ? [["scripts/snapshot-active-follows.js"]]
     : []),
+  // Catch a broken card-action contract before paying for a provider pass;
+  // retain its existing post-projection check against the generated output.
+  ["scripts/validate-card-dismissal-learning.js"],
   ["scripts/refresh-pga-schedule.js"],
   ["scripts/refresh-source-coverage.js"],
   ["scripts/apply-reviewed-fixture-timing.js", "--ids=rugby-australia-new-zealand-2026-10-17"],
@@ -450,6 +453,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-discovery-transport.js"],
   ["scripts/validate-autonomous-discovery.js"],
   ["scripts/validate-live-fixtures.js"],
+  ["scripts/validate-snapshot-read-diagnostics.js"],
   ["scripts/validate-live-afl-adapter.js"],
   ["scripts/validate-live-fixture-api.js"],
   ["scripts/validate-calendar-selection.js"],

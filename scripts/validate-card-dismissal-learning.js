@@ -2,6 +2,7 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const vm = require("node:vm");
 const eventActionIdentity = require("../config/event-action-identity");
 
 const html = fs.readFileSync("index.html", "utf8");
@@ -122,6 +123,40 @@ assert.doesNotMatch(
   "dismissal must animate the exact initiating card instead of the first duplicate event card in the document"
 );
 assert.match(swipeHandler, /\{ card = null \}/, "the dismissal handler must receive the exact initiating card");
-assert.match(html, /applyCuratedEventSwipe\(ev,"positive",\{card:button\.closest\("\.event-card"\)\}\)/, "suggestion Like must target its own card");
+// The retired suggestion builder never admitted a suggestion. Exercise the
+// current shared Dismiss control, rather than requiring its unused Like code.
+const controlsStart = html.indexOf('function buildEventCardControls(');
+const controlsEnd = html.indexOf('\nfunction buildCardDisclosureControl(', controlsStart);
+assert(controlsStart >= 0 && controlsEnd > controlsStart, 'shared card controls must be available');
+const controlsSource = html.slice(controlsStart, controlsEnd);
+function verifyDismissControl(source){
+  for (const eventsOnly of [false, true]) for (const hasInitiatingCard of [false, true]){
+    const event = {id:'fixture:dismiss-control',name:'Current fixture'};
+    const previous = {dismissed:false,lastActionAt:'2026-10-10T00:00:00Z'};
+    const initiatingCard = {id:'initiating-card'}, fallbackCard = {id:'fallback-card'};
+    let sent = null, stopped = 0;
+    const context = {
+      activeTab:'feed',
+      document:{createElement:()=>({children:[],dataset:{},style:{},attributes:{},appendChild(child){this.children.push(child);},setAttribute(key,value){this.attributes[key]=value;}})},
+      storedEventAction:()=>previous,
+      dismissEventCard:(fixture,options)=>{sent={fixture,options};options.previousAction.dismissed=true;},
+    };
+    vm.runInNewContext(source,context);
+    const controls = context.buildEventCardControls(event,{card:fallbackCard,eventsOnly,displayLabel:'Reviewed fixture'});
+    assert.equal(controls.children.length,1,'each card has one shared Dismiss control');
+    const button = controls.children[0];
+    assert.equal(button.dataset.cardControl,'dismiss');
+    assert.equal(button.attributes['aria-label'],'Dismiss Reviewed fixture');
+    button.onclick({stopPropagation:()=>stopped++,currentTarget:{closest:selector=>{assert.equal(selector,'.event-card');return hasInitiatingCard?initiatingCard:null;}}});
+    assert.equal(stopped,1,'Dismiss cannot also expand or navigate the card');
+    assert.equal(sent.fixture,event,'the exact fixture reaches its persistent dismissal owner');
+    assert.equal(sent.options.card,hasInitiatingCard?initiatingCard:fallbackCard,'the initiating card wins over a duplicate or fallback');
+    assert.equal(sent.options.eventsOnly,eventsOnly,'Events and Feed dismissal remain separate');
+    assert.equal(sent.options.displayLabel,'Reviewed fixture');
+    assert.equal(previous.dismissed,false,'the saved action is copied before use');
+  }
+}
+verifyDismissControl(controlsSource);
+assert.throws(()=>verifyDismissControl(controlsSource.replace("event.currentTarget.closest('.event-card') || card",'card')),/initiating card wins/,'the test must reject dismissing a duplicate card');
 
 console.log("Card dismissal valid: exact-card persistence, bounded button learning, Undo and Hidden recovery are wired.");

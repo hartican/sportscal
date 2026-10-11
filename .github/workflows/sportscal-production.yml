@@ -80,6 +80,8 @@ jobs:
           node scripts/validate-nhl-results.js
           node scripts/validate-mlb-postseason.js
           node scripts/validate-follow-decisions.js
+          node scripts/validate-event-now-follow-affinity.js
+          node scripts/validate-card-dismissal-learning.js
           node scripts/validate-follow-with-confidence.js
           node scripts/validate-ratings-recovery.js
           node scripts/validate-automatic-reminders.js
@@ -209,6 +211,7 @@ jobs:
           node scripts/validate-pilot-readout.js
           node scripts/validate-pilot-readout-sql.js
           node scripts/validate-live-fixtures.js
+          node scripts/validate-snapshot-read-diagnostics.js
           node scripts/validate-live-afl-adapter.js
           node scripts/validate-asia-cup-source.js --published
           node scripts/validate-cricket-current-results.js

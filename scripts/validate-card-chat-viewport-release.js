@@ -72,7 +72,8 @@ assert(html.includes('recordEventFeedAction(ev, "open", { surface:"card-content"
 assert.doesNotMatch(html, /Read more/);
 assert.doesNotMatch(html, /Show less/);
 assert.doesNotMatch(html, /Less of this|More of this/);
-assert.match(html, /if \(!eventIsHighStakesSuggestion\(ev\)\) return \[\]/);
+// The disabled suggestion builder was retired. The current shared Dismiss
+// control is executed (including exact-card targeting) by its release check.
 assert.match(html, /interactionName:"card-dismiss-undo"/);
 assert.match(mediaCss, /chat-gif-picker[^\n]*position:\s*fixed/s);
 assert.match(mediaUi, /Preparing…/);

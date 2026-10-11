@@ -12,6 +12,19 @@ const releaseStep = "scripts/redeploy-and-release.sh";
 const defaultSteps = buildSteps(parseOptions([], {}));
 const localSteps = buildSteps(parseOptions(["-p", "--local-only"], {}));
 const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" }));
+const dismissalChecks = localSteps.map((step,index)=>step[0]==='scripts/validate-card-dismissal-learning.js'?index:-1).filter(index=>index>=0);
+assert.equal(dismissalChecks.length,2,'the inexpensive contract precheck must retain the post-refresh dismissal check');
+assert(dismissalChecks[0]<localSteps.findIndex(step=>step[0]==='scripts/refresh-pga-schedule.js'),'broken controls must stop before provider work');
+assert(dismissalChecks[1]>localSteps.findIndex(step=>step[0]==='scripts/refresh-source-coverage.js'),'generated output still receives the existing check');
+const earlyGateRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nothingsport-early-contract-'));
+try{
+  const hook=path.join(earlyGateRoot,'preload.cjs');
+  fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[];cp.spawnSync=(command,args)=>{seen.push(args[0]);if(args[0]==='scripts/validate-card-dismissal-learning.js')return {status:1};throw Error('Provider work after failed contract: '+args[0]);};process.on('exit',()=>process.stdout.write('EARLY_GATE '+JSON.stringify(seen)+'\\n'));\n");
+  const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'-p','--local-only'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,FOOTBALL_DATA_RUN_DIR:path.join(earlyGateRoot,'diagnostics'),GOLF_SOURCE_REPORT:path.join(earlyGateRoot,'golf.json')}});
+  assert.equal(result.status,1,'a failing early contract must stop the real entrypoint');
+  const trace=result.stdout.match(/EARLY_GATE (\[[^\n]+\])/);assert(trace);
+  assert.deepEqual(JSON.parse(trace[1]),['scripts/validate-card-dismissal-learning.js'],'no provider subprocess can run after the contract fails');
+}finally{fs.rmSync(earlyGateRoot,{recursive:true,force:true});}
 for (const step of buildBroadcasterReviewSteps()) {
   assert(localSteps.some(existing => JSON.stringify(existing) === JSON.stringify(step)), 'viewing review must reuse the exact checks in the full canonical owner');
 }

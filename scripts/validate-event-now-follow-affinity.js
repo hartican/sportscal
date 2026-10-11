@@ -172,7 +172,10 @@ const button=ctx.buildEventEditionToggle(edition),same=ctx.buildEventEditionTogg
 assert.equal(button.type,'button');assert.equal(button.textContent,'Follow event');assert.equal(button.getAttribute('aria-pressed'),'false');
 let stopped=0;button.onclick({stopPropagation:()=>stopped++});
 assert.equal(ctx.userPreferences.followFirst.eventEditionDecisions.states['controlled-edition'],'followed');assert.equal(button.textContent,'Unfollow event');assert.equal(same.getAttribute('aria-pressed'),'true');assert.equal(other.getAttribute('aria-pressed'),'false','another edition stays unchanged');
+assert.equal(ctx.eventEditionFollowed(edition),true,'the saved edition choice remains followed even when its marker is ineligible');
+assert.equal(ctx.NOTHINGSPORTS_TENNIS_FEED.reason(edition,ctx.userPreferences,{now:reference}),null,'following an unknown ongoing field must not admit a marker or invent participants');
 button.onclick({stopPropagation:()=>stopped++});assert.equal(stopped,2);assert.equal(ctx.userPreferences.followFirst.eventEditionDecisions.states['controlled-edition'],'excluded');assert.equal(button.textContent,'Follow event');assert.equal(same.getAttribute('aria-pressed'),'false');assert.equal(ctx.userPreferences.showSpoilers,false);assert.equal(ctx.userPreferences.reminderChoice,'off');assert.equal(JSON.stringify(edition),facts,'clicks do not rewrite source fixture facts');
+assert.equal(ctx.eventEditionFollowed(edition),false,'saved OFF remains authoritative regardless of marker eligibility');
 assert(html.includes('buildDirectorySelect("List", filters.collectionId, listOptions, collectionId =>') && html.includes('updateDirectoryFilters(sportKey, { collectionId }); renderStandingsContext();') && html.includes('.filter(record => !filters.collectionId || selectedCollectionMemberIds.has(record.id))'), 'current Tennis lists filter directory records without subscribing to a group');
 assert(html.includes("follow-more-trigger") && html.includes("followBrowse"), "Follow must preserve sport navigation state in the fixed icon directory");
 
