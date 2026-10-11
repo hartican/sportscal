@@ -4,3 +4,14 @@ function fixture(){let renders=0,requests=0;const panel={childNodes:['saved-card
 const fast=fixture();fast.c.activateTopLevelTab('events');fast.c.feedCardSlots.clear();fast.c.activateTopLevelTab('feed');assert.deepEqual(fast.panel.childNodes,['saved-card']);assert.equal(fast.renders(),0);assert(fast.c.feedCardSlots.has('saved-slot'));assert.equal(fast.requests(),0,'Hidden idle warming performs no requests');
 for(const change of [c=>c.account='two',c=>c.userPreferences.showSpoilers=false,c=>c.eventActions={dismissed:true},c=>c.data='changed-score',c=>c.now+=30000,c=>c.feedViewFilters.sport='football',c=>c.calendarChoice.active=true]){const f=fixture();f.c.activateTopLevelTab('events');change(f.c);f.c.activateTopLevelTab('feed');assert.equal(f.renders(),1,'Changed consent/account/data/expiry must invalidate the cached nodes');assert.deepEqual(f.panel.childNodes,['rebuilt']);}
 console.log('Actual cached-view hooks: identity reuse, restored window slots, hidden pause, thirty-second expiry and account/consent/data/filter invalidation passed.');
+const html=fs.readFileSync('index.html','utf8'),worker=fs.readFileSync('service-worker.js','utf8'),idle=fs.readFileSync('config/startup-view-cache.js','utf8');
+for(const module of ['assets/js/match-centre-ui.js','config/event-overviews-ui.js']){
+ const escaped=module.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),url=new RegExp(escaped+'\\?v=\\d+');
+ assert.equal(idle.match(url)?.[0],html.match(url)?.[0],'Idle and interactive callers share one '+module+' instance');
+ assert(worker.includes('/'+html.match(url)?.[0]),'The required cache holds that exact deferred module');
+}
+const cssUrl=/assets\/styles\/match-centre\.css\?v=\d+/;
+const sharedCss=fs.readFileSync('assets/js/match-centre-ui.js','utf8').match(cssUrl)?.[0];
+assert.equal(fs.readFileSync('config/event-overviews-ui.js','utf8').match(cssUrl)?.[0],sharedCss,'Either first style owner installs the same current stylesheet');
+assert(worker.includes('/'+sharedCss),'The shared stylesheet is required under its current cache key');
+console.log('Interactive, idle and overview owners use one module instance and one installed stylesheet.');

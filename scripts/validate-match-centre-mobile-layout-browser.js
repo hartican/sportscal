@@ -9,6 +9,8 @@ const failures=[],results=[];
   const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:'chrome'}:{})});
   try{for(const width of [320,390,800]){
    const page=await browser.newPage({viewport:{width,height:844},serviceWorkers:'block'}),errors=[];
+   let releaseIdle;const idleReady=new Promise(resolve=>{releaseIdle=resolve;});
+   await page.route('**/config/startup-view-cache.js?*',async route=>{await idleReady;await route.continue();});
    page.on('pageerror',e=>errors.push(e.message));
    await page.clock.setFixedTime(new Date(receipt.checkedAt));
    await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:26,onboardingComplete:true,showSpoilers:true,followedSports:[],selectedSelectorEntityIds:[],fantasyDeadlines:{enabled:false}})));
@@ -34,6 +36,12 @@ const failures=[],results=[];
    const cricket=page.locator('[data-match-id="fixture:cricket:CA:39990"]'),nfl=page.locator('[data-match-id="fixture:nfl:401872990"]');
    await cricket.waitFor();await nfl.waitFor();await page.evaluate(()=>document.fonts.ready);
    const check=async(label,fn)=>{try{await fn();}catch(e){failures.push({engine,width,label,error:e.message});}};
+   await check('late idle preparation preserves the selected Match Centre view',async()=>{
+    releaseIdle();await page.waitForFunction(()=>typeof activateTopLevelTab==='function'&&activateTopLevelTab.toString().includes('saved'));
+    const idle=fs.readFileSync('config/startup-view-cache.js','utf8'),assets=[idle.match(/assets\/js\/match-centre-ui\.js\?v=\d+/)[0],idle.match(/config\/event-overviews-ui\.js\?v=\d+/)[0]];
+    await page.evaluate(async assets=>{await Promise.all(assets.map(loadDeferredScript));renderMatchCentre();},assets);
+    assert.equal(await page.getByRole('tab',{name:'Everything',exact:true}).getAttribute('aria-selected'),'true');assert.equal(await cricket.count(),1);
+   });
    await check('cricket identities have readable width',async()=>{
     const boxes=await cricket.locator('.compact-matchup-side button').evaluateAll(nodes=>nodes.map(n=>{const range=document.createRange();range.selectNodeContents(n);return {name:n.textContent,width:n.getBoundingClientRect().width,client:n.clientWidth,scroll:n.scrollWidth,lines:range.getClientRects().length};}));
     assert.equal(boxes.length,2);for(const box of boxes){assert(box.width>=50,box.name+' is squeezed to '+box.width+'px');assert(box.lines<=2,box.name+' wraps into '+box.lines+' lines');assert(box.scroll<=box.client+1,box.name+' is horizontally cropped');}

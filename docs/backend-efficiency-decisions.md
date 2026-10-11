@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Shared Match Centre cache bindings — 12 October 2026 Sydney
+
+Interactive Match Centre and idle preparation must request the exact same versioned UI module. A second URL executes a second owner and can reset the selected view after an ordinary render. Match Centre and tournament overviews must also install the same versioned shared stylesheet, so the first style owner cannot retain an older card layout. Keep both exact assets in the required installed cache and bind the overview and idle modules with the shell release. The existing cached-view regression checks all callers; the native browser replay deliberately delays idle preparation until after Everything is selected. Preserve Results OFF, cached Feed nodes, original observations and the existing source/API/timer/cron budgets. This changes local asset references only and adds no polling or provider request. Browser and offline upgrade checks remain separate from physical-device proof.
+
 ## Six reviewed Nations fixture clocks — 12 October 2026
 
 The existing full/daily canonical owner consumes one frozen, dated six-row final-stage review; its scoped publication remains under `update-cards.js`. Validate complete identities, actual publisher epochs, RFU/Sydney agreement and original receipt dates before writing. No new provider request, scraper, retry, polling, credential, scheduler, migration, customer write or reminder replay. Preserve later primary clocks, unknown starts, participant facts, terminal state and unrelated data; unchanged replays retain bytes and observations. Regression runs through the existing Major Events gate and actual temporary-file writer. Raw source identifiers are provenance only, with no activity merge.
