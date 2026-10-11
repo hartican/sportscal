@@ -71,15 +71,17 @@
     const fullSchedule = [fullDate,time].filter(Boolean).join(" · ") + (venueCalendar ? ' · Sydney start TBC' : " (Sydney time)");
     // Explicit source status only: duration heuristics must not claim completion.
     const statuses = [event.status,event.scheduleStatus].map(value => String(value || "").toLowerCase());
+    const pause = pauseReason(event);
     let status = "";
     if (statuses.some(value => ["cancelled","canceled"].includes(value))) status = "CANCELLED";
     else if (statuses.includes("postponed")) status = "POSTPONED";
     else if (statuses.includes("abandoned")) status = "ABANDONED";
-    else if (statuses.includes("suspended")) status = "SUSPENDED";
+    else if (statuses.includes("suspended")) status = (pause || "SUSPENDED").toUpperCase();
     else if (statuses.some(value => ["completed","finished","final"].includes(value))) status = "FINISHED";
+    else if(pause)status=pause.toUpperCase();
     else if(statuses.includes("stumps"))status="STUMPS";
     else if(statuses.includes("rain-delay"))status="RAIN DELAY";
-    else if(statuses.includes("break"))status=event.statusText||"BREAK";
+    else if(statuses.includes("break"))status="BREAK";
     else if(statuses.includes("ongoing"))status="ONGOING";
     else if (statuses.some(value => ["live","in_progress","in-progress"].includes(value))) status = "LIVE";
     if (tournamentPhase(event)) status = 'IN PROGRESS';
