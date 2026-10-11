@@ -120,6 +120,7 @@ function buildSteps({ localOnly = false } = {}) {
   // Catch a broken card-action contract before paying for a provider pass;
   // retain its existing post-projection check against the generated output.
   ["scripts/validate-card-dismissal-learning.js"],
+  ["scripts/validate-editorial-projection-identity.js"],
   ["scripts/refresh-pga-schedule.js"],
   ["scripts/refresh-source-coverage.js"],
   ["scripts/apply-reviewed-fixture-timing.js", "--ids=rugby-australia-new-zealand-2026-10-17"],

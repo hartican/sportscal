@@ -1,0 +1,23 @@
+# Permanent match IDs and commentary validation — 11 October 2026
+
+A shared update check could mistake an existing match for a missing one. The commentary resolver accepted its permanent fixture ID, but the final integrity check looked only at the other identifiers. The correction recognises the permanent ID too. It changes no match IDs, results, participants, dates, viewing links or saved activity.
+
+## Evidence and limits
+
+The sixth full-owner run [38100855867](https://github.com/hartican/sportscal/actions/runs/38100855867) stopped before publication in `apply-editorial-narratives.js`, reporting ten missing targets across F1, MotoGP, SailGP and NRLW. Each ID exists as `canonicalEventId` in the last verified retained publication. The failed job did not save its entire fresh feeds, so the exact rejected fresh input cannot be reconstructed from that receipt. Do not assume every reported target remained present in the fresh batch.
+
+A controlled actual-command regression reproduces the defect: a valid researched projection addressed to `test:editorial:canonical` fails although that exact permanent ID is on its fixture. The normal resolver already accepts it. The final found-target set in [scripts/apply-editorial-narratives.js](../../scripts/apply-editorial-narratives.js) omitted `canonicalEventId`; adding that field makes this case pass without weakening the absent-target check. This is a verified code defect consistent with the failed run; fresh full-owner recovery remains to be proved.
+
+[scripts/validate-editorial-projection-identity.js](../../scripts/validate-editorial-projection-identity.js) now executes the actual projection command in an owned small file fixture. All four identity forms pass: retained ID, event ID, permanent ID and provider ID. Eight valid command runs include unchanged reruns. Both feeds keep their original identity, participant, time, status, result and source-observation fields; unchanged reruns are byte-stable. A ninth invocation uses a genuinely missing target and must fail before any file write. Existing projection identity, sibling split, provider-alias and Bledisloe checks remain.
+
+The canonical owner runs this inexpensive identity contract before provider work. Its actual entrypoint tests prove that either this contract or the earlier Dismiss contract stops before a provider subprocess. Actual commentary application still validates the generated source batch; the existing normal release workflow also retains the strengthened identity regression. No check is bypassed, and no new scheduler, provider request or paid service is introduced.
+
+## Current status and recommended next action
+
+Two affected commands pass locally: editorial projection identity and canonical owner contracts. Only update scripts and their tests change; the served app, runtime, sports JSON and cache version remain unchanged. The independently verified live app remains `6fc324641cd85aafe8b14083930295081ca1d99b`, shell 489: its event Follow/Unfollow repair and safe match-list failure diagnosis are delivered. This updater-only correction is awaiting source publication and a successful full canonical release. Use the existing full owner to refresh, validate, publish and deploy the exact passing snapshot. A later ordinary overnight run remains separate proof.
+
+The previous private 92-check batch used retained inputs and did not reproduce the new projections produced by the full source pass. It remains useful dated evidence, not fresh full-system acceptance. The sixth terminal failure stays recorded alongside the earlier failures; no rejected sports data was published.
+
+Business value: fewer false update failures and less repeated source work. Effort: a small shared-check correction and one full-owner retry; total programme effort remains unestimated. Dependencies: existing fresh-source and normal production gates. Added cash commitment: A$0; existing hosting and assistant usage remain unpriced. Owner impact: no new decision or routine. Acceptance: permanent IDs resolve, genuine missing fixtures still reject with no partial writes, protected facts and reruns remain stable, and the next full release passes. Do not delete commentary or invent replacement fixtures to make the check pass. Defer any wider identity rewrite until evidence requires it.
+
+Football stays first. Full approval remains 0/17 carried families and 0/3 Football pilots, targeting at least 14/17 families. This correction certifies no sport and completes neither Football MVP readiness nor the overall programme. Physical-phone use, return visits, current viewing/rights, remaining Football states and tables, and recovery remain open.

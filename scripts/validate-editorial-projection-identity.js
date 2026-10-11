@@ -49,4 +49,34 @@ for(const [fixture,projection] of [['rugby-new-zealand-australia-2026-10-10',nul
   for(const key of ['hook','formCopy','closingCopy','synopsis'])assert(event.editorialNarrative[key]?.trim(),fixture+' missing '+key);
   assert.equal(event.editorialNarrative.projectionId,p.id);
 }
+// Run the actual projection command with a small, owned file fixture. The
+// generator accepts canonical IDs; its final integrity check must too.
+const os=require('node:os'),path=require('node:path'),{spawnSync}=require('node:child_process');
+const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ns-editorial-target-'));
+try{
+  fs.mkdirSync(path.join(temporary,'data'));fs.mkdirSync(path.join(temporary,'feeds/incoming'),{recursive:true});
+  const target={...structuredClone(original),id:'test:editorial:retained',eventId:'test:editorial:event',canonicalEventId:'test:editorial:canonical',sourceEventIds:['test:editorial:provider']};
+  const fields=['id','eventId','canonicalEventId','sourceEventIds','date','endDate','time','startTimeUtc','status','participantIds','homeParticipantId','awayParticipantId','sourceCheckedAt','resultSourceCheckedAt','resultStatus','result'];
+  const facts=record=>JSON.stringify(fields.map(key=>[key,record[key]??null]));
+  const paths=['data/editorial-knowledge.v1.json','feeds/incoming/events.json','data/events.json','data/major-events.v1.json'];
+  const write=(name,value)=>fs.writeFileSync(path.join(temporary,name),JSON.stringify(value)+'\n');
+  const invoke=()=>spawnSync(process.execPath,[path.join(__dirname,'apply-editorial-narratives.js'),'--write'],{cwd:temporary,encoding:'utf8',timeout:30000});
+  function prepare(targetId){
+    const k=structuredClone(knowledge),p=structuredClone(published);p.targetIds=[targetId];k.eventProjections=[p];
+    write(paths[0],k);write(paths[1],{events:[target]});write(paths[2],{events:[target]});write(paths[3],{events:[]});
+  }
+  for(const identifier of [target.id,target.eventId,target.canonicalEventId,...target.sourceEventIds]){
+    prepare(identifier);const result=invoke();assert.equal(result.status,0,'actual projection command must accept '+identifier+': '+result.stderr);
+    for(const name of paths.slice(1,3)){
+      const event=JSON.parse(fs.readFileSync(path.join(temporary,name))).events[0];
+      assert.equal(facts(event),facts(target),'applying commentary cannot change source facts or identities');
+      assert.equal(event.editorialNarrative.projectionId,published.id,'the same researched projection reaches either feed');
+    }
+    const before=paths.map(name=>fs.readFileSync(path.join(temporary,name),'utf8'));assert.equal(invoke().status,0,'unchanged rerun stays valid');
+    assert.deepEqual(paths.map(name=>fs.readFileSync(path.join(temporary,name),'utf8')),before,'unchanged projection rerun is byte-stable');
+  }
+  prepare('test:editorial:genuinely-missing');const before=paths.map(name=>fs.readFileSync(path.join(temporary,name),'utf8')),missing=invoke();
+  assert.notEqual(missing.status,0,'genuinely absent targets still stop publication');assert.match(missing.stderr,/Editorial projections reference missing targets: test:editorial:genuinely-missing/);
+  assert.deepEqual(paths.map(name=>fs.readFileSync(path.join(temporary,name),'utf8')),before,'failed validation writes no partial feed or knowledge');
+}finally{fs.rmSync(temporary,{recursive:true,force:true});}
 console.log('Editorial projection identity: stable refresh and aliases, repeat runs, safe shared-target split, new fixtures and both full Bledisloe previews passed.');

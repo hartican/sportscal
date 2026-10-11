@@ -124,7 +124,7 @@ function main(){
     .flatMap(item => item.targetIds)
     .filter(id => competitionClassification.belongsInEvents(id)));
   const catalogueEvents=[...(require('../data/follow-sources/coverage.v1.json').events || []),...require('../data/tennis-feed-parents.v1.json').parents];
-  const foundFeed = new Set([...feed.events,...publishedFeed.events,...catalogueEvents].flatMap(event => [event.id,event.eventId,...(event.sourceEventIds||[])]).filter(id => expectedFeed.has(id)));
+  const foundFeed = new Set([...feed.events,...publishedFeed.events,...catalogueEvents].flatMap(event => [event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])]).filter(id => expectedFeed.has(id)));
   const foundMajor = new Set(majorEvents.events.map(record => record.id).filter(id => expectedMajor.has(id)));
   const missing = [...expectedFeed].filter(id => !foundFeed.has(id)).concat([...expectedMajor].filter(id => !foundMajor.has(id)));
   if (missing.length) throw new Error(`Editorial projections reference missing targets: ${missing.join(", ")}`);
