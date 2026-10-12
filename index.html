@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="518">
+<meta name="app-shell-version" content="519">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=518" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=519" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7176,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=518"></script>
+<script src="assets/js/app-shell-runtime.js?v=519"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -11887,13 +11887,18 @@ function getEventStatus(ev){
   return NOTHINGSPORTS_FEED_TIMELINE.status(ev,nowAEST());
 }
 
-function getActual(id){
-  const key=NOTHINGSPORTS_FIXTURE_IDENTITY.fixtureAliases(id).find(alias=>ratings[alias]!==undefined);
+function localRatingAliases(eventOrId){
+  const event=eventOrId && typeof eventOrId==='object' ? eventOrId : null;
+  return [...new Set([...NOTHINGSPORTS_FIXTURE_IDENTITY.fixtureAliases(event?.id || eventOrId),...(event ? EVENT_ACTION_IDENTITY?.aliasesForEvent?.(event) || fxAliases(event) : [])])];
+}
+
+function getActual(eventOrId){
+  const key=localRatingAliases(eventOrId).find(alias=>ratings[alias]!==undefined);
   return key ? ratings[key] : null;
 }
 
-function actualStarValue(id){
-  return RATING_SYSTEM?.storedScoreToStars?.(getActual(id)) ?? null;
+function actualStarValue(eventOrId){
+  return RATING_SYSTEM?.storedScoreToStars?.(getActual(eventOrId)) ?? null;
 }
 
 function ensureSessionRatingPrompt(events){
@@ -11908,7 +11913,7 @@ function ensureSessionRatingPrompt(events){
   ) return sessionRatingPromptEventId;
   const candidates = (Array.isArray(events) ? events : [])
     .filter(event => !NOTHINGSPORTS_TENNIS_FEED.isParent(event) && getEventStatus(event) === "past")
-    .filter(event => getActual(event.id) === null)
+    .filter(event => getActual(event) === null)
     .filter(event => !getEventAction(event).archived && !eventIsAutoArchived(event))
     .sort((first, second) => eventDateTime(second) - eventDateTime(first));
   const state = userPreferences.ratingPromptState;
@@ -11935,7 +11940,7 @@ function ensureSessionRatingPrompt(events){
 
 function isSessionRatingPromptEvent(ev){
   return !sessionRatingPromptSuppressed
-    && getActual(ev.id) === null
+    && getActual(ev) === null
     && sessionRatingPromptEventId === String(ev.eventId || ev.id);
 }
 
@@ -11958,7 +11963,7 @@ function isPreFlagged(ev){
 }
 
 function isUpgrade(ev){
-  return Number(getActual(ev.id)) > 8;
+  return Number(getActual(ev)) > 8;
 }
 
 function eventActionKey(ev){
@@ -12629,7 +12634,7 @@ function spoilerFactsForEvent(ev){
     outcome: firstEventValue(ev, SPOILER_FIELDS.outcome),
     recap: firstEventValue(ev, SPOILER_FIELDS.recap),
     thumbnail: firstEventValue(ev, SPOILER_FIELDS.thumbnail),
-    rating: getActual(ev.id) ?? firstEventValue(ev, SPOILER_FIELDS.rating),
+    rating: getActual(ev) ?? firstEventValue(ev, SPOILER_FIELDS.rating),
     labels: Array.isArray(labels) ? labels : labels ? [labels] : [],
   };
 }
@@ -12720,7 +12725,7 @@ function dependencySideIsRevealed(participant){
   if (!participant?.sourceEventId) return true;
   const source = activeEvents.find(event => (event.eventId || event.id) === participant.sourceEventId);
   if (!source) return false;
-  return isSpoilerVisible(source) || getEventAction(source).archived || getActual(source.id) !== null;
+  return isSpoilerVisible(source) || getEventAction(source).archived || getActual(source) !== null;
 }
 
 function spoilerSafeDisplayTitle(ev){
@@ -12733,7 +12738,7 @@ function spoilerSafeDisplayTitle(ev){
     sourceEventsById,
     isSourceRevealed(sourceEventId){
       const source = sourceEventsById.get(sourceEventId);
-      return Boolean(source && (isSpoilerVisible(source) || getEventAction(source).archived || getActual(source.id) !== null));
+      return Boolean(source && (isSpoilerVisible(source) || getEventAction(source).archived || getActual(source) !== null));
     },
   });
   return NOTHINGSPORTS_FIXTURE_LABELS.matchupTitle(ev,safeTitle,cardIdentityParticipants());
@@ -12874,8 +12879,8 @@ function eventSpielForDisplay(ev){
 }
 
 function setEventRating(ev, value, { revealSpoilers = true } = {}){
-  const current = getActual(ev.id);
-  NOTHINGSPORTS_FIXTURE_IDENTITY.fixtureAliases(ev.id).forEach(id=>delete ratings[id]);
+  const current = getActual(ev);
+  localRatingAliases(ev).forEach(id=>delete ratings[id]);
   if (current === value){
     delete ratings[ev.id];
   } else {
@@ -12887,7 +12892,7 @@ function setEventRating(ev, value, { revealSpoilers = true } = {}){
 }
 
 function archiveEvent(ev, { preserve = false } = {}){
-  if (preserve && getActual(ev.id) === null) return false;
+  if (preserve && getActual(ev) === null) return false;
   const recommendationContext = productRecommendationContext(ev);
   if (getEventStatus(ev) === "past") markSpoilerRevealed(ev);
   if (CARD_LIFECYCLE){
@@ -14296,7 +14301,7 @@ function hydrateFeedFilter(){
  const key=feedFilterKey(),generation=feedViewGeneration,filter={...feedViewFilters};feedFilterError='';feedFilterHydratedKey=key;
  feedFilterHydration=loadDeferredScript('assets/js/feed-filter-ui.js?v=448').then(()=>globalThis.hydrateFeedViewFilter({key,generation,filter})).catch(()=>{if(key===feedFilterKey())feedFilterError='Some cards or ratings couldn’t load. Showing available matches.';}).finally(()=>{feedFilterHydration=null;if(activeTab==='feed')renderAll({preserveViewport:true});});return feedFilterHydration;
 }
-function matchesFeedViewFilters(ev){return (feedViewFilters.sport==='all'||feedFilterMatchesEvent(feedViewFilters.sport,ev))&&NOTHINGSPORTS_FEED_VIEW_FILTER.matches(nothingscoreSnapshotFor(ev),Number(feedViewFilters.minimum),actualStarValue(ev.id));}
+function matchesFeedViewFilters(ev){return (feedViewFilters.sport==='all'||feedFilterMatchesEvent(feedViewFilters.sport,ev))&&NOTHINGSPORTS_FEED_VIEW_FILTER.matches(nothingscoreSnapshotFor(ev),Number(feedViewFilters.minimum),actualStarValue(ev));}
 function getFilteredEvents(){
   let list = getPreferenceMatchedEvents();
   list = list.filter(ev => !getEventAction(ev).archived && !getEventAction(ev).dismissed && !eventIsAutoArchived(ev));
@@ -14417,8 +14422,8 @@ function observeNewSurfaceItem(element, ev, presentation = surfacePresentationFo
 }
 
 function buildStars(ev, interactive, { prompt = false } = {}){
-  const actual = getActual(ev.id);
-  const actualStars = actualStarValue(ev.id);
+  const actual = getActual(ev);
+  const actualStars = actualStarValue(ev);
   const wrap = document.createElement("span");
   wrap.className = "stars";
   wrap.setAttribute("aria-label", actualStars === null ? "Not rated" : `Rated ${actualStars} out of 5 stars`);

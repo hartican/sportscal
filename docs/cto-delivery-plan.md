@@ -1,12 +1,14 @@
 # CTO delivery programme — authoritative current queue
 
-**Current decision — 13 October 2026:** Direct club schedules now show the club name. The live unfollowed Arsenal link passes in both browsers and keeps all 44 accepted calendar entries, hidden scores and unchanged reminder settings. Five repeated Arsenal match groups still need repair. The Shanghai source update is deployed, but its new appointment has not yet arrived through the normal calendar update. The earlier database connection rejection remains open.
+**Current decision — 13 October 2026:** Club names are fixed on the live site. The next Football fix removes the five repeated Arsenal matches in testing and keeps official times and saved settings. Older ratings and settled predictions are protected in a test copy. The fix is not live yet: final database and app-update checks remain. Shanghai timing still awaits the normal calendar update; the earlier connection rejection remains open.
+
+**Private Football progress:** The 39-entry Arsenal calendar, original source dates, actual publisher/Inspector output and stored-rating controls pass. Twelve database-function checks pass with invented accounts. Guarded application/undo, real trigger effects, complete browser/cache/release proof and naturally persisted aliases remain pending. Production is still `7815cfd4` / shell 518 with 44 Arsenal entries; private shell 519 is unpublished. [Dated preparation receipt](quality/epl-provider-identity-preparation-2026-10-13.md).
 
 **Already live:** Clearer cards, compact Cricket scores, clearer Tennis rounds and viewing controls, expired-copy cleanup, Match Centre repair, smaller team/player schedule reads and recognisable direct club profiles. A failed current-data check explains when saved information is shown. Real-phone performance and whole-sport readiness still need proof.
 
 **Next five actions, in order:**
 
-- Repair the conflicting Football records through one competition/season-bound identity owner. The complete dated season comparison matches all 380 primary/secondary pairs and finds 56 changed starts, including the five demonstrated Arsenal groups. Preserve all saved references, official uncertainty, original dates, results and Remind OFF. No generic team-pair merging or account backfill.
+- Finish the Football duplicate fix, test the safe database change and app update, then release the complete passing result. Keep older saved choices, ratings and points. All 380 current-season provider relationships are checked; this does not certify whole-Football quality.
 - Verify the deployed Shanghai source input arrives through the existing normal canonical update. Keep unknown timings and the existing completed Bergs result intact. Source publication is complete; live calendar propagation remains pending.
 - Use the same quiet observer to verify the next normal publication/deployment and retained expiry cleanup. Keep the intermittent connection rejection visible in existing diagnostics. Physical compaction waits for independent recovery and its own verified maintenance window.
 - Continue carried-sport gaps against the NRL/AFL reference, then complete the prepared real-phone and genuine return-use checks when available. Permissions/playback and owner questions remain pending; Passwords/iCloud stays parked.

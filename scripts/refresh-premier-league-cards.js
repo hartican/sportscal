@@ -2,6 +2,7 @@
 
 const https = require("node:https");
 const { readJson, validateFeed, writeJson } = require("./lib/feed-utils");
+const eplIdentities = require('../lib/epl-provider-identities');
 
 const OFFICIAL_MATCHES_URL = "https://www.premierleague.com/en/matches/premier-league/2026-27";
 const PULSE_FIXTURES_URL = "https://footballapi.pulselive.com/football/fixtures";
@@ -156,7 +157,7 @@ function cardForFixture(fixture, checkedAt){
   if(completed && !result)throw new Error("Premier League completed fixture lacks a confirmed integer score.");
   const gameweek = fixture.gameweek?.gameweek;
   const name = `${home.name} v ${away.name}`;
-  return require('./lib/epl-kickoff-certainty').qualify({
+  return eplIdentities.withAliases(require('./lib/epl-kickoff-certainty').qualify({
     id: `epl-2026-27-${fixture.id}`,
     eventId: `epl-2026-27-${fixture.id}`,
     canonicalEventId: `event:premier-league:${fixture.id}`,
@@ -238,13 +239,14 @@ function cardForFixture(fixture, checkedAt){
       resultSourceUrl:OFFICIAL_MATCHES_URL,resultSourceCheckedAt:checkedAt,scoreCheckedAt:checkedAt,
       resultLabels: [`Premier League Matchweek ${gameweek}`, result.outcomeText],
     } : {}),
-  });
+  }));
 }
 
 async function loadCards(known,{loader=loadFixtures,checkedAt=new Date().toISOString(),backupOptions={}}={}){
   const backup=require('./lib/football-data-backup');
   try{
     const cards=(await loader()).map(f=>cardForFixture(f,checkedAt));
+    eplIdentities.validatePrimaryCollection(cards);
     const next=require('../lib/football-delayed-results').apply(cards,backup.readOverlay(backupOptions.outputPath)),byId=new Map(next.map(e=>[e.id,e]));
     for(const old of known){const card=byId.get(old.id);if(!card||old.homeParticipantId!==card.homeParticipantId||old.awayParticipantId!==card.awayParticipantId||old.status==='completed'&&card.status!=='completed')throw Error('Premier League identity/result continuity failed');}
     const result=backup.primary(cards,backupOptions);
@@ -253,8 +255,9 @@ async function loadCards(known,{loader=loadFixtures,checkedAt=new Date().toISOSt
   }catch(error){
     const recovery=await backup.recover({code:'PL',events:known,primaryError:error,...backupOptions});
     if(!recovery.recovered)throw error;
+    eplIdentities.validatePrimaryCollection(recovery.events);
     console.warn('Premier League primary degraded; validated delayed backup retained existing facts and identities.');
-    return recovery.events;
+    return recovery.events.map(eplIdentities.withAliases);
   }
 }
 

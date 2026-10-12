@@ -26,12 +26,18 @@ for(const {primary:p,secondary:s} of sample){
  assert.equal(actions.resolveAction(event,{[s.canonicalEventId]:old,[p.canonicalEventId]:off}).action,off,'later explicit OFF remains the effective saved choice');
  const fresh={...s,scoreCheckedAt:'2026-10-12T17:00:00Z'};assert.equal(identity.reconcile([fresh,p]).length,2,'a new secondary sporting receipt cannot be discarded by a frozen calendar review');
  const invalid={...s,sourceCheckedAt:'not-a-date'};assert.equal(identity.reconcile([invalid,p]).length,2,'unreadable observations are unresolved, not silently retired');
+ const unknownReceipt={...s};for(const key of ['sourceCheckedAt','canonicalSourceCheckedAt','statusCheckedAt','scoreCheckedAt','statusFactObservedAt','scoreFactObservedAt','resultSourceCheckedAt'])delete unknownReceipt[key];assert.equal(identity.reconcile([unknownReceipt,p]).length,2,'an absent fixture observation cannot be inferred from a frozen calendar review');
  for(const wrong of [{...p,season:'2025/26'},{...p,competitionId:'competition:fa-cup-2026-27'},{...p,participantIds:[...p.participantIds].reverse()},{...p,homeParticipantId:p.awayParticipantId,awayParticipantId:p.homeParticipantId},{...p,key:'american-football',sportDomainId:'sport:american-football'}])assert.equal(identity.binding(wrong),null,'another season/competition/orientation/domain cannot bind');
  const missingClock={...p,startTimeUtc:null,timePrecision:'unknown',timeTbc:true},bound=identity.withAliases(missingClock);assert.equal(bound.startTimeUtc,null);assert.equal(bound.timePrecision,'unknown');assert.equal(bound.timeTbc,true);
  const zero={...p,status:'completed',homeScore:0,awayScore:0,score:'0-0',scoreCheckedAt:'2026-10-01T00:00:00Z'};assert.deepEqual(withoutAliases(identity.reconcile([{...s,status:'completed',homeScore:9,awayScore:7},zero])[0]),withoutAliases(zero),'retained secondary conflict cannot change a validated primary zero final');
  const twice=identity.withAliases(identity.withAliases(p));assert.deepEqual(twice,identity.withAliases(p),'unchanged alias projection is idempotent');
 }
 assert.equal(identity.canonicalEventId('unknown:football:fixture'),'unknown:football:fixture');
+const upcomingCase=sample.find(({primary:p,secondary:s})=>p.status==='upcoming'&&p.startTimeUtc!==s.startTimeUtc);
+assert(upcomingCase);
+const afterCollectionCheck=require('../lib/live-fixtures').overlaySnapshots([upcomingCase.primary],[{source_id:'retained-secondary-calendar',checked_at:'2026-10-12T19:00:00Z',fixtures:[upcomingCase.secondary]}],{now:new Date('2026-10-12T18:00:00Z')});
+assert.equal(afterCollectionCheck.length,1);
+for(const field of ['id','canonicalEventId','startTimeUtc','sourceCheckedAt'])assert.equal(afterCollectionCheck[0][field],upcomingCase.primary[field],'a newer collection check cannot turn an old fixture receipt into a new sporting observation');
 const prefs={version:26,onboardingComplete:true,showSpoilers:false,followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]}};
 const participantId='team:football:epl:1',now=new Date('2026-10-12T18:24:20.229Z');
 const resolved=resolveUserFollowFixtures({events:primary,userState:{preferences:prefs,eventUserState:{}},participantId,includeCompactArtifact:true});

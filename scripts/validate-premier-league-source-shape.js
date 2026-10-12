@@ -6,15 +6,9 @@ const pl=require('./refresh-premier-league-cards');
 const liveReceipt=require('./fixtures/epl-live-20261010.json');
 const firstHalfReceipt=require('./fixtures/epl-first-half-20261010.json');
 const halfTimeReceipt=require('./fixtures/epl-half-time-20261010.json');
-// A controlled 20-club double round robin, never published sporting evidence.
-const fixtures=[],ring=Array.from({length:20},(_,i)=>i+1);
-for(let round=0;round<19;round++){
- for(let i=0;i<10;i++)for(const leg of[0,1]){
-  const pair=leg?[ring[19-i],ring[i]]:[ring[i],ring[19-i]],week=round+1+19*leg;
-  fixtures.push({id:700000+fixtures.length,gameweek:{gameweek:week,compSeason:{id:841,competition:{id:1}}},status:'U',kickoff:{millis:Date.UTC(2026,7,1+7*(week-1),14),completeness:3},teams:pair.map(id=>({team:{id,name:'QA Club '+id,club:{id}}}))});
- }
- ring.splice(1,0,ring.pop());
-}
+// Reviewed identities/pairings with controlled QA names, clocks and states.
+// No synthetic playing observation is published or treated as source evidence.
+const fixtures=require('../data/events.json').events.filter(e=>e.competitionId==='competition:premier-league-2026-27').map(event=>({id:Number(event.canonicalEventId.split(':').pop()),gameweek:{gameweek:event.roundNumber,compSeason:{id:841,competition:{id:1}}},status:'U',kickoff:{millis:Date.UTC(2026,7,1+7*(event.roundNumber-1),14),completeness:3},teams:event.participantIds.map(value=>{const id=Number(value.split(':').pop());return {team:{id,name:'QA Club '+id,club:{id}}};})}));
 fixtures.sort((a,b)=>a.gameweek.gameweek-b.gameweek.gameweek);
 fixtures[0].status='C';fixtures[0].teams.forEach(t=>t.score=0);
 const pages=Array.from({length:4},(_,page)=>({pageInfo:{page,numPages:4,pageSize:100,numEntries:380},content:fixtures.slice(page*100,page*100+100)}));
@@ -107,6 +101,9 @@ async function interruptedResponse(kind){
  await responseSequence(withHalfTime,async calls=>{const loaded=await pl.loadFixtures();assert.equal(loaded.length,380);assert.deepEqual(calls,[0,1,2,3]);assert.equal(pl.cardForFixture(loaded[1],halfTimeReceipt.checkedAt).status,'break');});
 
  await responseSequence(withLive,async calls=>{const source=require('../lib/live-source-adapters').liveSources(async()=>{throw Error('QA must not call another provider');},{environment:{}}).find(s=>s.id==='live-premier-league');const events=await source.fetch({now:new Date(liveReceipt.checkedAt)});assert.equal(events.length,380);assert.equal(events.filter(e=>e.status==='live').length,1);assert.equal(events.find(e=>e.status==='live').scoreDisplay,'2–1');assert.deepEqual(calls,[0,1,2,3],'The real live adapter keeps the same four complete page reads');});
+ // The complete reviewed identity boundary rejects new/incorrect bindings,
+ // even when the generic provider season/page/status contract still passes.
+ for(const change of [p=>p[0].content[2].id=999999,p=>{const id=p[0].content[2].id;p[0].content[2].id=p[0].content[3].id;p[0].content[3].id=id;}])await responseSequence(change,async calls=>{const source=require('../lib/live-source-adapters').liveSources(async()=>{throw Error('QA must not call another provider');},{environment:{}}).find(s=>s.id==='live-premier-league');await assert.rejects(source.fetch({now:new Date(liveReceipt.checkedAt)}),/unknown, ambiguous or repeated fixture binding/);assert.deepEqual(calls,[0,1,2,3],'identity review uses the same bounded complete response');});
  await rejects('unreviewed live period',p=>{withLive(p);p[0].content[1].phase='HT';},1);
  await rejects('incomplete live scores',p=>{withLive(p);delete p[0].content[1].teams[0].score;},1);
  await streamingDeadline();

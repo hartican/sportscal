@@ -22,6 +22,8 @@ const metaOutPath = args[2] || "data/feed-meta.json";
 const bundleOutPath = args[3] || "data/events.js";
 
 const feed = normalizeFeed(readJson(inputPath));
+const eplIdentities=require('../lib/epl-provider-identities');
+feed.events=eplIdentities.reconcile(feed.events);
 const errors = validateFeed(feed);
 
 if (errors.length) {
@@ -35,6 +37,7 @@ let mergeSummary = null;
 if (replaceExisting) {
   try {
     const existing = normalizeFeed(readJson(eventsOutPath));
+    existing.events=eplIdentities.reconcile(existing.events);
     const existingErrors = validateFeed(existing);
     if (existingErrors.length) throw new Error(existingErrors.join("; "));
     publishedFeed = { ...feed, events: protectVerifiedEventFacts(feed.events, existing.events) };
@@ -44,6 +47,7 @@ if (replaceExisting) {
 } else {
   try {
     const existing = normalizeFeed(readJson(eventsOutPath));
+    existing.events=eplIdentities.reconcile(existing.events);
     const existingErrors = validateFeed(existing);
     if (existingErrors.length) {
       throw new Error(existingErrors.join("; "));

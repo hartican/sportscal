@@ -192,6 +192,10 @@ jobs:
           node scripts/validate-nbl-standings.js --published
           node scripts/validate-football-data-trial.js
           node scripts/validate-football-data-backup.js
+          node scripts/validate-epl-provider-identities.js
+          node scripts/validate-epl-provider-persistence.js
+          node scripts/validate-epl-identity-api.js
+          node scripts/validate-epl-local-ratings.js
           node scripts/validate-openligadb-football.js
           node scripts/validate-european-football-continuity.js
           node scripts/validate-european-football-standings.js
