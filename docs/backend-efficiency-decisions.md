@@ -1,5 +1,12 @@
 # Backend efficiency decisions
 
+## Expired fixture history on unchanged checks — 12 October 2026
+
+The same service-owned fixture publisher must apply its existing seven-day disposable-history policy after either accepted changed or accepted unchanged data. Protect the source's returned/current revision and its highest saved revision, including old keepers. Capture one cutoff inside the source-row lock. Delete oldest expired non-keepers only, at most 64 copies and 4 MiB of stored payload per accepted check; a larger first copy is retained for separate assessment. Rejected leases, invalid/empty primary responses and source failures do not prune. Current fixture facts, original fact observations, unchanged hashes/revisions, caller rights and quiet/live intervals remain unchanged.
+
+The guarded migration changes that existing function only and runs no immediate cleanup. Reuse the current owner; add no provider, scheduler, polling, retry, schema signature or subscription. The local regression uses actual schema and guarded migration files, checks real service/denied public callers and rehearses restoring the old function. Full/quick canonical and normal release checks retain it; compact-score integration exercises the replacement too. Function rollback and narrow migration proof are separate from full independent recovery and physical compaction, which remain pending. See [dated delivery evidence](quality/fixture-history-retention-2026-10-12.md).
+
+
 ## Consistent cards reuse retained evidence — 12 October 2026 Sydney
 
 The approved card/Feed follow-up projects opening-day provenance, existing athlete outlook and verified nationality from retained documents in the canonical tennis refresh. Possible participation stays separate from confirmed source participants. Cricket summaries and expanded tables use the existing accepted score payload, with original score/status/detail dates and selected-innings continuity. No provider read, API request, timer, scheduler, database migration or source owner is added.

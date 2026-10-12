@@ -13,6 +13,8 @@ const {createMatchCentreHandler}=require('../lib/match-centre-handler');
   await db.exec(fs.readFileSync('supabase/migrations/20261002171936_preserve_compact_fixture_observations.sql','utf8'));
   await db.exec(fs.readFileSync('supabase/migrations/20261006182007_bound_current_fixture_snapshot.sql','utf8'));
   await db.exec(fs.readFileSync('supabase/migrations/20261010233101_hydrate_cricket_refresh_claim.sql','utf8'));
+  await db.exec(fs.readFileSync('supabase/migrations/20261010140633_align_live_source_refresh_cadence.sql','utf8'));
+  await db.exec(fs.readFileSync('supabase/migrations/20261012091301_expire_unchanged_fixture_history.sql','utf8'));
   await db.exec('set role service_role');
   const token='11111111-1111-4111-8111-111111111111';
   const request=async(path,{body}={})=>{

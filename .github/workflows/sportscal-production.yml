@@ -230,6 +230,7 @@ jobs:
           node scripts/validate-live-coverage-publication.js
           node scripts/validate-match-observations.js
           node scripts/validate-compact-scores-database.js
+          node scripts/validate-fixture-history-retention.js
           node scripts/validate-live-fixture-api.js
           node scripts/validate-laver-cup.js
       - name: Verify shared fixture publication input

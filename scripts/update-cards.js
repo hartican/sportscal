@@ -91,7 +91,7 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
 }
 
 function buildQuickSteps(argv = process.argv.slice(2)) {
-  return [["scripts/quick-results.js", ...argv.filter(arg => ["--offline", "--rebuild"].includes(arg))]];
+  return [["scripts/validate-fixture-history-retention.js"], ["scripts/quick-results.js", ...argv.filter(arg => ["--offline", "--rebuild"].includes(arg))]];
 }
 
 function buildBroadcasterReviewSteps() {
@@ -457,6 +457,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-discovery-transport.js"],
   ["scripts/validate-autonomous-discovery.js"],
   ["scripts/validate-live-fixtures.js"],
+  ["scripts/validate-fixture-history-retention.js"],
   ["scripts/validate-snapshot-read-diagnostics.js"],
   ["scripts/validate-live-afl-adapter.js"],
   ["scripts/validate-live-fixture-api.js"],
