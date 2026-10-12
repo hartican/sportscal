@@ -26,8 +26,8 @@ async function run(db) {
     startTimeUtc: at(-30),
     statusCheckedAt: at(0),
     scoreCheckedAt: at(0),
-    homeParticipantId: "team:nrl:storm",
-    awayParticipantId: "team:nrl:panthers",
+    homeParticipantId: "team:nrl:home:" + id,
+    awayParticipantId: "team:nrl:away:" + id,
     homeScore: 0,
     awayScore: 0,
     ...patch
@@ -320,7 +320,7 @@ async function run(db) {
   });
   await test("source-only scores retain declared identity context and transitive alias details", async () => {
     await seed([]);
-    const details=fixture("context-name",{status:"unreviewed",startTimeUtc:null,name:"Storm v Panthers",venue:"Reviewed Ground",broadcaster:"Reviewed Channel"});
+    const details=fixture("context-name",{status:"unreviewed",startTimeUtc:null,name:"Storm v Panthers",venue:"Reviewed Ground",broadcaster:"Reviewed Channel",homeParticipantId:"team:nrl:storm",awayParticipantId:"team:nrl:panthers"});
     const bridge={id:"context-bridge",key:"nrl",date:day,status:"unreviewed",sourceEventIds:["context-name"]};
     const live={id:"context-score",key:"nrl",date:day,status:"live",sourceEventIds:["context-bridge"],homeScore:0,awayScore:0,statusCheckedAt:at(0),scoreCheckedAt:at(0)};
     for(const [source,event,keys] of [["a-details",details,[details.id]],["b-bridge",bridge,[bridge.id,details.id]],["z-score",live,[live.id,bridge.id]]]){
@@ -343,8 +343,8 @@ async function run(db) {
   });
   await test("same-start context with different IDs preserves the actual semantic merge", async () => {
     await seed([]);
-    const details=fixture("semantic-details",{status:"unreviewed",name:"Storm v Panthers",venue:"Semantic Ground",broadcaster:"Reviewed Channel"});
-    const live=fixture("semantic-score",{startTimeUtc:details.startTimeUtc.replace("Z","+00:00")});
+    const details=fixture("semantic-details",{status:"unreviewed",startTimeUtc:at(-30).replace(/[.]\d{3}Z$/,".000Z"),name:"Storm v Panthers",venue:"Semantic Ground",broadcaster:"Reviewed Channel",homeParticipantId:"team:nrl:storm",awayParticipantId:"team:nrl:panthers"});
+    const live=fixture("semantic-score",{startTimeUtc:details.startTimeUtc.replace("Z","+00:00"),homeParticipantId:details.homeParticipantId,awayParticipantId:details.awayParticipantId});
     delete live.name;delete live.venue;
     for(const [source,event] of [["a-details",details],["z-score",live]]){
       await db.query("insert into public.nothingsports_fixture_sources(source_id,checked_at,discovery_report) values($1,$2::timestamptz,$3::jsonb)",[source,at(0),JSON.stringify({_fixtureObservations:{[event.id]:{s:event.scoreCheckedAt,t:event.statusCheckedAt}}})]);
@@ -358,6 +358,10 @@ async function run(db) {
     const before=await merged("qa_reference_match_centre_bundle"),after=await merged("nothingsports_read_match_centre_fixture_bundle");
     assert.equal(before.length,1);assert.deepEqual(after,before);assert.equal(after[0].venue,"Semantic Ground");assert.equal(after[0].name,"Storm v Panthers");
     assert.equal((await read()).rows.length,2,"Both records survive despite different IDs and equivalent offset clocks");
+    live.startTimeUtc=new Date(details.startTimeUtc).toUTCString();
+    await db.query("update public.nothingsports_fixture_current set fixture=$1::jsonb where source_id='z-score'",[JSON.stringify(live)]);
+    const alternateBefore=await merged("qa_reference_match_centre_bundle"),alternateAfter=await merged("nothingsports_read_match_centre_fixture_bundle");
+    assert.equal(alternateBefore.length,1);assert.deepEqual(alternateAfter,alternateBefore,"A supported alternate source clock retains same-match details");
   });
   await test("cancelled known correction removes an old published starting-soon member", async () => {
     const old = fixture("cancelled-known", {

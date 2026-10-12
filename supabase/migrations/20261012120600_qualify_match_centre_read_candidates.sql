@@ -52,25 +52,27 @@ returns jsonb language sql stable security invoker set search_path = '' as $$
   order by c.source_id,c.fixture_id limit 5001
  ), lookup as materialized (
   -- Keep this lookup small: no source receipt or fixture payload is decoded.
-  -- Same-start records may carry metadata joined by the shared JS model.
-  -- A matching clock only preserves context; it cannot admit a match.
+  -- Same-sided timed records may carry metadata joined by the JS model.
+  -- Preserve possible context without duplicating its date/identity rules.
   select c.source_id,c.fixture_id,c.identity_keys,
-   case when f.starts_at ~ '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(:[0-9]{2}([.][0-9]+)?)?(Z|[+-][0-9]{2}:[0-9]{2})$' and pg_catalog.pg_input_is_valid(f.starts_at,'timestamptz')
-    then f.starts_at::timestamptz else null end as instant,
+   case when nullif(f.starts_at,'') is not null and nullif(f.home_id,'') is not null and nullif(f.away_id,'') is not null and f.home_id<>f.away_id
+    then array[least(f.home_id,f.away_id),greatest(f.home_id,f.away_id)] else null end as sides,
    nullif(f.starts_at,'') is not null and not coalesce(f.starts_at ~ '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(:[0-9]{2}([.][0-9]+)?)?(Z|[+-][0-9]{2}:[0-9]{2})$' and pg_catalog.pg_input_is_valid(f.starts_at,'timestamptz'),false) as uncertain_clock
   from public.nothingsports_fixture_current c
   left join public.nothingsports_live_scores s using(source_id,fixture_id)
-  cross join lateral (select case when s.score ? 'startTimeUtc' then s.score->>'startTimeUtc' else c.fixture->>'startTimeUtc' end as starts_at) f
- ), related_rows(source_id,fixture_id,identity_keys,instant) as (
-  select l.source_id,l.fixture_id,l.identity_keys,l.instant from lookup l
+  cross join lateral (select case when s.score ? 'startTimeUtc' then s.score->>'startTimeUtc' else c.fixture->>'startTimeUtc' end as starts_at,
+   case when s.score ? 'homeParticipantId' then s.score->>'homeParticipantId' else c.fixture->>'homeParticipantId' end as home_id,
+   case when s.score ? 'awayParticipantId' then s.score->>'awayParticipantId' else c.fixture->>'awayParticipantId' end as away_id) f
+ ), related_rows(source_id,fixture_id,identity_keys,sides) as (
+  select l.source_id,l.fixture_id,l.identity_keys,l.sides from lookup l
   where exists(select 1 from seeds seed where seed.source_id=l.source_id and seed.fixture_id=l.fixture_id)
    or (l.uncertain_clock and cardinality(coalesce(p_membership_ids,'{}'::text[]))<=5000)
   union
-  select l.source_id,l.fixture_id,l.identity_keys,l.instant from lookup l
-  join related_rows r on l.identity_keys && r.identity_keys or l.instant=r.instant
+  select l.source_id,l.fixture_id,l.identity_keys,l.sides from lookup l
+  join related_rows r on l.identity_keys && r.identity_keys or l.sides=r.sides
  ), candidates as materialized (
   -- A score-only source can need another source's names, sides or venue.
-  -- Traverse declared aliases and conservative same-start context. The JS
+  -- Traverse declared aliases and conservative same-sided context. The JS
   -- merger still owns whether records describe the same fixture.
   select c.source_id,c.fixture_id,c.fixture,c.identity_keys,s.score,s.first_completed_at
   from related_rows r
