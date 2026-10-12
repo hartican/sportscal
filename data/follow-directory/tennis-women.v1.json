@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "tennis-women",
   "label": "Tennis Women",
-  "generatedAt": "2026-10-07T23:14:37.555Z",
+  "generatedAt": "2026-10-11T13:40:40.662Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -4439,6 +4439,42 @@
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "competitor:tennis:wta:zheng-qinwen",
+      "displayName": "Zheng Qinwen",
+      "shortName": "Zheng",
+      "aliases": [
+        "Qinwen Zheng"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "CN",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "competitor:tennis:wta:zheng-qinwen",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.itftennis.com/en/players/qinwen-zheng/800436017/chn/wt/S/overview/"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ],
   "collections": [
@@ -4622,6 +4658,7 @@
         "competitor:tennis:wta:larisa-arnautovic",
         "competitor:tennis:wta:petra-hule",
         "competitor:tennis:wta:ashlyn-krueger",
+        "competitor:tennis:wta:zheng-qinwen",
         "athlete:tennis:serena-williams",
         "athlete:tennis:venus-williams",
         "athlete:tennis:ash-barty",

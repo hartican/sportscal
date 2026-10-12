@@ -8,6 +8,21 @@ const { spawnSync } = require("node:child_process");
 const { buildBroadcasterReviewSteps, buildVenueReviewSteps, buildQuickSteps, buildSteps, parseOptions } = require("./update-cards");
 const { projectionSteps: quickProjectionSteps } = require("./quick-results");
 
+// The actual retained-tennis projection must refresh both gender directories.
+const tennisProjectionRoot=fs.mkdtempSync(path.join(os.tmpdir(),'ns-tennis-projection-route-'));
+try{
+ const hook=path.join(tennisProjectionRoot,'preload.cjs');
+ fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[];cp.spawnSync=(command,args)=>{seen.push(args);return {status:0,stdout:'',stderr:''};};process.on('exit',()=>process.stdout.write('TENNIS_PROJECTION '+JSON.stringify(seen)+'\\n'));\n");
+ const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'--tennis-feed','--local-only','-p'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,FOOTBALL_DATA_RUN_DIR:path.join(tennisProjectionRoot,'diagnostics')}});
+ assert.equal(result.status,0,result.stderr);
+ const trace=result.stdout.match(/TENNIS_PROJECTION (\[[^\n]+\])/);assert(trace);
+ const steps=JSON.parse(trace[1]),directories=steps.filter(a=>a[0]==='scripts/build-follow-directories.js');
+ assert.deepEqual(directories,[['scripts/build-follow-directories.js','--codes=tennis,tennis-women'],['scripts/build-follow-directories.js','--codes=tennis,tennis-women','--check']],'both genders and their exact generated outputs must be checked');
+ assert(steps.findIndex(a=>a[0]==='scripts/build-code-inspector.js')<steps.findIndex(a=>a[0]==='scripts/build-follow-directories.js'));
+ assert(steps.findIndex(a=>a[0]==='scripts/build-follow-directories.js')<steps.findIndex(a=>a[0]==='scripts/build-tennis-feed-parents.js'));
+ assert(!steps.some(a=>/refresh-|redeploy/.test(a[0])),'retained projection cannot add source reads or a release');
+}finally{fs.rmSync(tennisProjectionRoot,{recursive:true,force:true});}
+
 const releaseStep = "scripts/redeploy-and-release.sh";
 const defaultSteps = buildSteps(parseOptions([], {}));
 const localSteps = buildSteps(parseOptions(["-p", "--local-only"], {}));

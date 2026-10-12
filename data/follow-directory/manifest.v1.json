@@ -222,7 +222,7 @@
       "key": "tennis-women",
       "label": "Tennis Women",
       "status": "available",
-      "recordCount": 118,
+      "recordCount": 119,
       "jsonUrl": "data/follow-directory/tennis-women.v1.json",
       "scriptUrl": "data/follow-directory/tennis-women.v1.js"
     },

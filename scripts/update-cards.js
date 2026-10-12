@@ -857,7 +857,8 @@ async function runMain() {
   if(process.argv.includes("--tennis-feed")){
     runStep(['scripts/build-tennis-context.js']);
     runStep(['scripts/build-code-inspector.js','--codes=tennis']);
-    runStep(['scripts/build-follow-directories.js','--codes=tennis']);
+    runStep(['scripts/build-follow-directories.js','--codes=tennis,tennis-women']);
+    runStep(['scripts/build-follow-directories.js','--codes=tennis,tennis-women','--check']);
     for(const script of ['build-tennis-feed-parents','build-tournament-horizon','build-tennis-journeys','validate-tennis-journeys','build-app-shell-runtime','validate-tennis-feed-normalisation'])runStep([`scripts/${script}.js`]);
     return;
   }
