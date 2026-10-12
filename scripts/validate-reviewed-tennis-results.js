@@ -3,7 +3,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
 const {validate,apply}=require('./apply-reviewed-participant-fixtures'),doc={...validate(),pairingCorrections:[]},policy=require('../config/fixture-reminder-policy'),model=require('../config/athletes');
 const clone=()=>structuredClone(doc),finals=doc.events.filter(e=>e.status==='completed');
-assert.equal(finals.length,7);
+assert.equal(finals.length,8);
 assert.deepEqual(finals.find(e=>e.id.includes('sabalenka-bartunkova')).sets,[{home:4,away:6},{home:3,away:6}],'winner-first draw scores must orient to Sabalenka home');
 for(const mutate of [e=>{e.resultEvidence.fixtureId='wrong';},e=>{e.resultEvidence.sourceSha256='missing';},e=>{e.resultSourceCheckedAt=new Date(Date.now()+86400000).toISOString();},e=>{e.resultEvidence.participantIds.reverse();},e=>{e.winnerParticipantId='competitor:tennis:atp:someone-else';},e=>{e.sets[0].home=99;},e=>{e.scoreCheckedAt=e.sourceCheckedAt;},e=>{delete e.resultEvidence;},e=>{e.resultStatus='pending';}]){
  const bad=clone();mutate(bad.events[0]);assert.throws(()=>validate(bad),'unverified or misassociated completion must fail');
@@ -48,15 +48,39 @@ const fixtureIdentity=require('../config/fixture-identity');
 const alcarazShanghai=doc.events.find(e=>e.id==='fixture:tennis:espn:atp:184941'),alcarazCheckpoint=Date.parse(alcarazShanghai.sourceCheckedAt)+1000;
 assert.equal(alcarazShanghai.scheduleEvidence.playOrder,4,'the empty third Stadium Court slot is not the fourth match');
 assert.equal(alcarazShanghai.startTimeUtc,'2026-10-12T10:00:00.000Z');assert.equal(alcarazShanghai.time,'21:00');assert.equal(alcarazShanghai.timePrecision,'not-before');
-assert.equal(policy.timing(alcarazShanghai,alcarazCheckpoint).remindAt,'2026-10-12T09:45:00.000Z','the named fourth match owns its not-before reminder, not the noon court session');
+assert.equal(alcarazShanghai.status,'completed');assert.equal(alcarazShanghai.resultStatus,'official');
+assert.equal(alcarazShanghai.statusSourceUrl,alcarazShanghai.resultSourceUrl,'the new reviewed completion is attributed to its actual official draw');assert.equal(alcarazShanghai.statusSourceName,'ATP official draw');
+assert.deepEqual(alcarazShanghai.sets,[{home:7,away:5},{home:7,away:6,homeTiebreak:7,awayTiebreak:4}]);
+assert.equal(alcarazShanghai.winnerParticipantId,alcarazShanghai.homeParticipantId);assert.equal(alcarazShanghai.score,'7–5, 7–6(4)');
+assert.equal(alcarazShanghai.sourceCheckedAt,'2026-10-11T13:22:43.864228+00:00','a result review retains the original independent schedule receipt');
+assert.equal(alcarazShanghai.resultSourceCheckedAt,'2026-10-12T13:26:58.435307+00:00');assert(!alcarazShanghai.completedAt&&!alcarazShanghai.actualEndTimeUtc,'a published draw does not establish a finish instant');
+assert.equal(policy.timing(alcarazShanghai,alcarazCheckpoint),null,'a verified final cannot requeue its former start reminder');
+// Exercise the originally reviewed clock before completion, separately from its retained final.
+const alcarazPublishedClock={...alcarazShanghai,status:'scheduled'};
+for(const key of ['resultStatus','winnerParticipantId','result','score','scoreDisplay','sets','resultEvidence','resultSourceCheckedAt','scoreCheckedAt','statusCheckedAt'])delete alcarazPublishedClock[key];
+assert.equal(policy.timing(alcarazPublishedClock,alcarazCheckpoint).remindAt,'2026-10-12T09:45:00.000Z','the named fourth match owns its not-before reminder, not the noon court session');
 const followedAlcaraz={version:24,preferenceGraph:{entityFollows:[{participantId:'athlete:tennis:carlos-alcaraz',followLevel:'follow'}]},followFirst:{notifications:{}}};
-assert.equal(policy.automatic(alcarazShanghai,followedAlcaraz,{},alcarazCheckpoint),true,'the existing Alcaraz follow resolves the canonical provider participant alias');
-assert.equal(policy.intent(alcarazShanghai,followedAlcaraz,{[alcarazShanghai.id]:{reminderChoice:'off'}},{},alcarazCheckpoint).enabled,false,'the new organiser clock cannot restore fixture OFF');
-assert.equal(policy.automatic(alcarazShanghai,{...followedAlcaraz,followFirst:{notifications:{autoRemindersEnabled:false}}},{},alcarazCheckpoint),false);
+assert.equal(policy.automatic(alcarazPublishedClock,followedAlcaraz,{},alcarazCheckpoint),true,'the existing Alcaraz follow resolves the canonical provider participant alias');
+assert.equal(policy.intent(alcarazPublishedClock,followedAlcaraz,{[alcarazShanghai.id]:{reminderChoice:'off'}},{},alcarazCheckpoint).enabled,false,'the new organiser clock cannot restore fixture OFF');
+assert.equal(policy.automatic(alcarazPublishedClock,{...followedAlcaraz,followFirst:{notifications:{autoRemindersEnabled:false}}},{},alcarazCheckpoint),false);
 const alcarazPlanning={id:alcarazShanghai.id,fixtureObservationSchema:'fixture-observations.v1',status:'scheduled',statusCheckedAt:new Date(alcarazCheckpoint).toISOString(),sourceUrl:alcarazShanghai.statusSourceUrl,sourceCheckedAt:new Date(alcarazCheckpoint).toISOString(),startTimeUtc:null,time:null,timePrecision:'unresolved',scheduleStatus:'unresolved',timeTbc:true};
-const alcarazRetained=fixtureIdentity.mergeOverlays([alcarazShanghai],[alcarazPlanning])[0];assert.deepEqual(policy.timing(alcarazRetained,alcarazCheckpoint),policy.timing(alcarazShanghai,alcarazCheckpoint),'clockless provider refresh retains the independently reviewed fourth-match clock');assert.equal(alcarazRetained.sourceCheckedAt,alcarazShanghai.sourceCheckedAt);
+const alcarazRetained=fixtureIdentity.mergeOverlays([alcarazPublishedClock],[alcarazPlanning])[0];assert.deepEqual(policy.timing(alcarazRetained,alcarazCheckpoint),policy.timing(alcarazPublishedClock,alcarazCheckpoint),'clockless provider refresh retains the independently reviewed fourth-match clock');assert.equal(alcarazRetained.sourceCheckedAt,alcarazShanghai.sourceCheckedAt);
 assert.equal(require('../config/feed-controls').isLiveNow(alcarazRetained,alcarazCheckpoint),false,'a verified future clock cannot establish live play');
 for(const mutate of [e=>{e.scheduleEvidence.participantIds.reverse();},e=>{e.startTimeUtc=e.scheduleEvidence.startsAt='2026-10-12T04:00:00.000Z';},e=>{e.court='Grandstand 2';},e=>{e.scheduleEvidence.sourcePublishedAtLocal='2100-01-01T00:00:00Z';}]){const bad=clone();mutate(bad.events.find(e=>e.id===alcarazShanghai.id));assert.throws(()=>validate(bad),'another participant, court, session or future receipt cannot time Alcaraz');}
+const deMinaurShanghai=doc.events.find(e=>e.id==='fixture:tennis:espn:atp:184950'),deMinaurCheckpoint=Date.parse(deMinaurShanghai.sourceCheckedAt)+1000;
+assert.equal(deMinaurShanghai.status,'scheduled');assert.equal(deMinaurShanghai.roundLabel,'Round of 16');assert.equal(deMinaurShanghai.court,'Stadium Court');assert.equal(deMinaurShanghai.scheduleEvidence.playOrder,1);
+assert.equal(deMinaurShanghai.scheduleEvidence.localTime,'12:00');assert.equal(deMinaurShanghai.scheduleEvidence.timeZone,'Asia/Shanghai');assert.equal(deMinaurShanghai.startTimeUtc,'2026-10-13T04:00:00.000Z');assert.equal(deMinaurShanghai.time,'15:00');assert.equal(deMinaurShanghai.date,'2026-10-13');
+assert.equal(deMinaurShanghai.timePrecision,'exact');assert.equal(deMinaurShanghai.estimatedStartTimeUtc,null);assert.equal(deMinaurShanghai.schedulePrecision,'exact');assert.equal(deMinaurShanghai.sourceType,'official');assert(!deMinaurShanghai.scheduleNote.includes('unconfirmed'));
+assert.equal(deMinaurShanghai.statusCheckedAt,'2026-10-11T12:36:55.000Z','a schedule review never renews old play observations');
+assert.equal(policy.timing(deMinaurShanghai,deMinaurCheckpoint).remindAt,'2026-10-13T03:45:00.000Z','the first named match owns its published noon China clock and Sydney T-15');
+const followedDeMinaur={version:24,preferenceGraph:{entityFollows:[{participantId:'athlete:tennis:alex-de-minaur',followLevel:'follow'}]},followFirst:{notifications:{}}};
+assert.equal(policy.automatic(deMinaurShanghai,followedDeMinaur,{},deMinaurCheckpoint),true);
+assert.equal(policy.intent(deMinaurShanghai,followedDeMinaur,{[deMinaurShanghai.id]:{reminderChoice:'off'}},{},deMinaurCheckpoint).enabled,false,'reviewing the new clock preserves fixture OFF');
+assert.equal(policy.automatic(deMinaurShanghai,{...followedDeMinaur,followFirst:{notifications:{autoRemindersEnabled:false}}},{},deMinaurCheckpoint),false);
+assert.equal(require('../config/feed-controls').isLiveNow(deMinaurShanghai,deMinaurCheckpoint),false,'a confirmed playing clock alone cannot establish Live');
+assert.equal(policy.timing({...deMinaurShanghai,status:'live'},deMinaurCheckpoint),null,'a genuine live state stops forthcoming start reminders');
+assert.equal(require('../lib/reminder-fixtures').index([deMinaurShanghai,{...deMinaurShanghai,id:'fixture-tennis-espn-atp-184950'}]).fixtures.length,1,'retained action and provider aliases share one reminder');
+for(const mutate of [e=>{e.scheduleEvidence.participantIds.reverse();},e=>{e.startTimeUtc=e.scheduleEvidence.startsAt='2026-10-13T05:00:00.000Z';},e=>{e.timePrecision='not-before';},e=>{e.scheduleEvidence.sourceSha256='';},e=>{e.scheduleEvidence.playOrder=0;},e=>{e.status='live';}]){const bad=clone();mutate(bad.events.find(e=>e.id===deMinaurShanghai.id));assert.throws(()=>validate(bad),'a different match, invented clock, unbound receipt or schedule-derived Live must fail');}
 const beijingFinal=doc.events.find(e=>e.id==='fixture:tennis:espn:wta:184356'),beijingCheckpoint=Date.parse(beijingFinal.sourceCheckedAt)+1000;
 assert.equal(beijingFinal.timePrecision,'not-before');assert.equal(beijingFinal.startTimeUtc,'2026-10-11T11:30:00.000Z');assert.equal(beijingFinal.time,'22:30','Beijing 19:30 converts to Sydney daylight-saving 22:30');
 assert.equal(beijingFinal.scheduleEvidence.playOrder,2,'the singles final has its own not-before clock after the doubles final');
@@ -91,6 +115,11 @@ try{
  const latest={...finals[0],statusCheckedAt:'2026-10-06T15:35:03.000Z',scoreCheckedAt:'2026-10-06T15:35:03.000Z',resultSourceCheckedAt:'2026-10-06T15:35:03.000Z',sets:[{home:6,away:3},{home:6,away:4}],score:'6–3, 6–4',scoreDisplay:'6–3, 6–4',result:'6–3, 6–4',outcomeText:'Retained publisher outcome',sourceEventIds:['retained-provider-alias']};
  for(const file of files)fs.writeFileSync(path.join(root,file),JSON.stringify({events:[latest]})+'\n');
  apply({root,doc});for(const file of files){const retained=JSON.parse(fs.readFileSync(path.join(root,file))).events.find(e=>e.canonicalEventId===latest.canonicalEventId);for(const key of ['id','canonicalEventId','score','statusCheckedAt','scoreCheckedAt','resultSourceCheckedAt','outcomeText'])assert.deepEqual(retained[key],latest[key],'an old reviewed final cannot rewind later score/status clocks or copy');assert(retained.sourceEventIds.includes('retained-provider-alias'),'later provider aliases survive retained review');}
+ // The live owner already observed this same final before the draw review: keep its genuine fact clocks and first confirmed finish.
+ const existingAlcarazFinal={...alcarazShanghai,id:'fixture-tennis-espn-atp-184941',statusSourceUrl:'https://www.espn.com/tennis/matchstats?gameId=184941',statusSourceName:'ESPN',statusCheckedAt:'2026-10-12T12:14:01.000Z',scoreCheckedAt:'2026-10-12T12:14:01.000Z',resultSourceCheckedAt:'2026-10-12T12:14:01.000Z',completedAt:'2026-10-12T12:14:01.000Z'};
+ for(const file of files)fs.writeFileSync(path.join(root,file),JSON.stringify({events:[existingAlcarazFinal]})+'\n');
+ apply({root,doc});const retainedFinalBytes=files.map(f=>fs.readFileSync(path.join(root,f),'utf8'));apply({root,doc});assert.deepEqual(files.map(f=>fs.readFileSync(path.join(root,f),'utf8')),retainedFinalBytes);
+ for(const text of retainedFinalBytes){const retained=JSON.parse(text).events.find(e=>e.canonicalEventId===alcarazShanghai.id);for(const key of ['id','sets','winnerParticipantId','startTimeUtc','sourceCheckedAt','statusSourceUrl','statusSourceName','statusCheckedAt','scoreCheckedAt','resultSourceCheckedAt','completedAt'])assert.deepEqual(retained[key],existingAlcarazFinal[key],'a same final cannot replace original primary provenance, clocks, finish, tiebreaks or identity');}
  for(let i=0;i<files.length;i++)fs.writeFileSync(path.join(root,files[i]),first[i]);
  const bad=clone();bad.events[0].resultEvidence.sourceSha256='';assert.throws(()=>apply({root,doc:bad}));assert.deepEqual(files.map(f=>fs.readFileSync(path.join(root,f),'utf8')),first,'validation fails before any publication writes');
  fs.writeFileSync(path.join(root,files[1]),'invalid json');assert.throws(()=>apply({root,doc}));assert.equal(fs.readFileSync(path.join(root,files[0]),'utf8'),first[0],'both publication surfaces preflight before writing');
