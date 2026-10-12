@@ -5,7 +5,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),http=require('n
 const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(__dirname,'..');
 const sample=require('./fixtures/epl-provider-identity-20261013.json').fixtures.find(x=>x.primary.id==='epl-2026-27-129031');
 const filename=path.join(root,'api/feed.js'),unit=new Module(filename,module);unit.filename=filename;unit.paths=Module._nodeModulePaths(path.dirname(filename));unit._compile(fs.readFileSync(filename,'utf8')+'\nmodule.exports.auditDependencies=feedDependencies;',filename);
-const base=unit.exports.auditDependencies(),at='2026-10-12T18:24:20.229Z';
+const base=unit.exports.auditDependencies(),at=process.env.QA_SOURCE_AT||new Date().toISOString();
 const handler=unit.exports.createFeedHandler({clock:()=>new Date(at),load:()=>({...base,readLiveSnapshots:async()=>({sources:[{source_id:'controlled-retained-calendar',fixtures:require('../data/football/fixtures/premier-league.json').events}],revision:'epl-browser-rehearsal',readAt:Date.parse(at),stale:false})})});
 const preferences={version:26,onboardingComplete:true,showSpoilers:false,followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]},fantasyDeadlines:{enabled:false},followFirst:{notifications:{userChoice:false,enabled:false,sportingRemindersEnabled:false,autoRemindersEnabled:false}}};
 (async()=>{
