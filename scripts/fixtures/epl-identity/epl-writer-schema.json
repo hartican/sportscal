@@ -1728,6 +1728,90 @@
       "table_name": "nothingsports_score_votes",
       "column_name": "recorded_at",
       "default_value": "clock_timestamp()"
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "integer",
+      "not_null": true,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "revision",
+      "default_value": "0"
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "held",
+      "default_value": "false"
+    },
+    {
+      "type": "boolean",
+      "not_null": true,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "requested",
+      "default_value": "false"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "last_checked_at",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": false,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "pending_copy",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": false,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "staged_copy",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": false,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "published_copy",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": false,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "published_git_sha",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": false,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "last_error",
+      "default_value": null
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "history",
+      "default_value": "'[]'::jsonb"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_editorial_maintenance",
+      "column_name": "updated_at",
+      "default_value": "now()"
     }
   ],
   "checkedAt": "2026-10-12T19:52:39Z",
@@ -2409,6 +2493,21 @@
       "conname": "nothingsports_score_votes_user_id_fkey",
       "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
       "table_name": "nothingsports_score_votes"
+    },
+    {
+      "conname": "nothingsports_editorial_maintenance_history_check",
+      "definition": "CHECK ((jsonb_typeof(history) = 'array'::text))",
+      "table_name": "nothingsports_editorial_maintenance"
+    },
+    {
+      "conname": "nothingsports_editorial_maintenance_pkey",
+      "definition": "PRIMARY KEY (event_id)",
+      "table_name": "nothingsports_editorial_maintenance"
+    },
+    {
+      "conname": "nothingsports_editorial_maintenance_published_git_sha_check",
+      "definition": "CHECK (((published_git_sha IS NULL) OR (published_git_sha ~ '^[a-f0-9]{40}$'::text)))",
+      "table_name": "nothingsports_editorial_maintenance"
     }
   ],
   "indexes": [
@@ -2479,7 +2578,12 @@
     {
       "definition": "CREATE UNIQUE INDEX nothingsports_score_votes_pkey ON public.nothingsports_score_votes USING btree (user_id, event_id, phase, rating)",
       "table_name": "nothingsports_score_votes"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX nothingsports_editorial_maintenance_pkey ON public.nothingsports_editorial_maintenance USING btree (event_id)",
+      "table_name": "nothingsports_editorial_maintenance"
     }
   ],
+  "additionalDdlCapturedAt": "2026-10-12 21:23:02 UTC",
   "limits": "Actual eight relation definitions and seven writer/alias/settlement definitions; unrelated earlier schema retained only for the disposable bootstrap. No customer data."
 }
