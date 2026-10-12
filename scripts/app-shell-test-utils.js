@@ -28,4 +28,10 @@ function readCardApplicationSource({includeHtml=true}={}){
   assertShellModule(html,'config/venue-panel-ui.js');
   return (includeHtml?html+'\n':'')+fs.readFileSync(path.join(root,'config/venue-panel-ui.js'),'utf8');
 }
-module.exports = {assertShellModule,readFollowApplicationSource,readCardApplicationSource};
+function readCardFunction(name){
+  const source=readCardApplicationSource({includeHtml:false});
+  const node=require('acorn').parse(source,{ecmaVersion:'latest'}).body.find(node=>node.type==='FunctionDeclaration'&&node.id.name===name);
+  assert(node,`${name} must exist in the actual ordered card runtime owner`);
+  return source.slice(node.start,node.end);
+}
+module.exports = {assertShellModule,readFollowApplicationSource,readCardApplicationSource,readCardFunction};

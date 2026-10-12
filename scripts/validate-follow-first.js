@@ -170,7 +170,7 @@ assert(
 const actionNode = tag => ({tag,children:[],attributes:{},append(...nodes){this.children.push(...nodes);},appendChild(node){this.children.push(node);return node;},setAttribute(name,value){this.attributes[name]=String(value);},addEventListener(){}});
 let controlledViewing;
 const actionContext={document:{createElement:actionNode},userPreferences:{followFirst:{subscriptions:[]}},FOLLOW_FIRST:{viewingOptions:()=>controlledViewing},buildViewingProviderMark:()=>actionNode('provider-mark')};
-require('node:vm').runInNewContext(html.slice(html.indexOf('function configureProviderLaunch('),html.indexOf('function restoreEventCardControlFocus(')),actionContext);
+require('node:vm').runInNewContext(['configureProviderLaunch','viewingAccessLabel','appendEventQuickActions'].map(require('./app-shell-test-utils').readCardFunction).join('\n'),actionContext);
 for(const [accessType,cost] of [['free','Free'],['subscription','Subscription'],['ppv','Pay-per-view'],['included','Included in plan'],['unknown','Check cost'],['__proto__','Check cost']]){
  for(const [liveOrReplay,replayVerified,verb] of [['live',false,'Watch'],['replay',false,'Check replay availability'],['replay',true,'Replay']]){
   const provider={...followFirst.VIEWING_PROVIDERS.stan,accessType,liveOrReplay,replayVerified};controlledViewing=[provider];const saved=JSON.stringify(provider),host=actionNode('host');

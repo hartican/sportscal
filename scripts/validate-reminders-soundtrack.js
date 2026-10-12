@@ -33,7 +33,7 @@ const cancelled = reminders.buildSchedule(events, {
 });
 assert.equal(cancelled.reminders.length, 0, "the retired deterministic scheduler must still model cancellation correctly");
 
-const html = fs.readFileSync("index.html", "utf8")+fs.readFileSync("config/fantasy-deadline-ui.js","utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource()+fs.readFileSync("config/fantasy-deadline-ui.js","utf8");
 assert(/async function ensurePushInstallation[\s\S]{0,1800}Notification\.permission === "default"[\s\S]{0,500}Notification\.requestPermission/.test(html), "system notification permission must remain inside the explicit Web Push enablement path");
 assert(/async function toggleQuickReminder[\s\S]{0,1600}return ensureWebPushReminder\(ev, timing\)[\s\S]{0,500}return removeWebPushReminder\(ev\)/.test(html), "reminder creation and cancellation must wait for the server");
 assert(/function renderQuickReminderButton[\s\S]{0,900}"Reminder ON"[\s\S]{0,500}"Remind"/.test(html), "the shared reminder renderer must expose distinct on and off labels");

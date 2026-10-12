@@ -694,3 +694,460 @@ function buildViewingProviderMark(viewing){
   mark.appendChild(image);
   return mark;
 }
+
+function nothingscorePhaseCopy(phase){
+  if (phase === "pulse") return { name:"Pulse", detail:"Live feeling", labels:NOTHINGSCORE.PULSE_LABELS };
+  if (phase === "impact") return { name:"Impact", detail:"How it landed", labels:NOTHINGSCORE.IMPACT_LABELS };
+  return { name:"How do you think it'll go?", detail:"Before it starts", submissionLabel:"Pre-fixture", labels:NOTHINGSCORE.HEAT_LABELS };
+}
+
+function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=true}={}){
+  const root=document.createElement('section');root.className='nsc-peer-results';
+  root.dataset.cardArea='ratings';
+  const watch=document.createElement('div');watch.className='fixture-watch-rating';watch.dataset.cardArea='rating-interaction';
+  if(inDrawer)appendEventQuickActions(watch,ev,{reminder:false,chat:false});watch.appendChild(buildInlineCrowdRating(ev,snapshot));root.appendChild(watch);
+  if(showAggregate){
+    const peers=snapshot?.peerResults, summary=document.createElement('p');summary.className='nsc-peer-summary';summary.dataset.cardArea='rating-statistics';
+    const phase=snapshot?.phase||({upcoming:'heat',live:'pulse',past:'impact'})[getEventStatus(ev)];
+    const singular=peers?.count===1;
+    const verb=phase==='heat'?(singular?'expects':'expect'):phase==='pulse'?(singular?'is rating this':'are rating this'):(singular?'has rated this':'have rated this');
+    summary.textContent=!peers?(nothingscoreLoadErrors.has(nothingscoreEventId(ev))?'Community ratings unavailable':snapshot?.ratingRequired?'Rate to reveal community ratings':snapshot||nothingscoreLoadErrors.has(nothingscoreEventId(ev))?'Ratings unavailable':'Ratings loading…'):!peers.count?'Be the first to rate':`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${fixtureStakesLabel(peers.rawAverage??peers.average)} · ${Number(peers.average).toFixed(1)}/5`;
+    root.appendChild(summary);
+    if(nothingscoreLoadErrors.has(nothingscoreEventId(ev))&&(snapshot||!serverSyncClient?.sessionSubject())){
+      const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry ratings';
+      retry.onclick=event=>{event.stopPropagation();nothingscoreLoadErrors.delete(nothingscoreEventId(ev));registerNothingscoreEvent(ev,{force:true});nothingscoreQueueRender();};root.append(retry);
+    }
+    const tags=document.createElement('div');tags.className='fixture-tags';
+    const labels=[];const homeTag=followedHomeTag(ev);if(homeTag)labels.push(homeTag);if(NOTHINGSPORTS_PROMOTED_REPLAY.recommendation(ev,snapshot,phase))labels.push('Promoted replay');
+    for(const tag of ev.consensusTags||[])if(['Rivalry','Derby','Round-Robin','Knockout','Final','Record Chase'].includes(tag.label)&&tag.sourceUrls?.some(url=>/^https:\/\//.test(url))&&Number(tag.confidence)>=.6)labels.push(tag.label);
+    for(const label of new Set(labels)){const tag=document.createElement('span');tag.className='fixture-tag';tag.textContent=label.toUpperCase();tags.appendChild(tag);}if(tags.childElementCount)root.appendChild(tags);
+  }
+  return root;
+}
+
+function buildInlineCrowdRating(ev,snapshot){
+  const root=document.createElement('div');root.className='nsc-inline-rating';
+  const phase=snapshot?.phase || ({upcoming:'heat',live:'pulse',past:'impact'})[getEventStatus(ev)];
+  if(!phase)return root;
+  const awaitingViewer=Boolean(serverSyncClient?.sessionSubject())&&!snapshot;
+  const group=document.createElement('div');group.className='nsc-rating-blocks';group.setAttribute('role','group');group.setAttribute('aria-label','Your stakes rating out of five');
+  const exactTiming=Boolean(ev?.startTimeUtc)&&(!ev?.timePrecision||ev.timePrecision==='exact');
+  const tip=phase==='pulse'?"How’s it going? Rate stakes":"Tap to rate stakes";
+  const prompt=document.createElement('span');prompt.className='nsc-rating-prompt';
+  const status=document.createElement('span');status.className='nsc-rating-status';status.setAttribute('role','status');
+  const id=nothingscoreEventId(ev),owner=serverPersistence.user?.id;
+  let chosen=Number(snapshot?.currentUser?.contribution?.rating || snapshot?.currentUser?.submissions?.[phase]?.rating)||0;
+  const sealed=false;
+  const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?fixtureStakesLabel(value):tip;prompt.dataset.rating=String(value||0);};
+  for(let value=1;value<=5;value++){
+    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${fixtureStakesLabel(value)}`);b.disabled=sealed||awaitingViewer;
+    b.innerHTML=glyphMarkup('ui:steak');
+    b.onclick=async()=>{
+      if(!serverSyncClient?.sessionSubject()){status.textContent='Sign in to rate this fixture.';openSettings({section:'account'});return;}
+      if(inlineRatingRequests.has(id))return;
+      const previous=chosen;paint(value);status.textContent='Saving…';group.querySelectorAll('button').forEach(x=>x.disabled=true);
+      const task=serverSyncClient.nothingscoreRequest({}, {action:phase==='pulse'?'pulse':'submit',eventId:id,phase,rating:value,tags:[]});inlineRatingRequests.set(id,task);
+      try{
+        const receipt=await task;if(owner!==(serverPersistence.user?.id))return;chosen=value;
+        window.NOTHINGSPORTS_CROWD_RANKINGS?.clear?.();
+        status.textContent=receipt.pointsAwarded?`+${receipt.pointsAwarded} points`:'Rating saved';
+        if(receipt.pointsAwarded&&!matchMedia('(prefers-reduced-motion: reduce)').matches)status.animate([{opacity:0,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:300});
+        if(value===5){root.classList.add('is-epic-burst');setTimeout(()=>root.classList.remove('is-epic-burst'),700);}
+        const prior=nothingscoreSnapshots.get(id)||snapshot;mergeNothingscoreSnapshot({...prior,currentUser:{...prior.currentUser,contribution:{rating:value},submissions:{...prior.currentUser?.submissions,[phase]:receipt}}});
+        try{
+          const fresh=await serverSyncClient.nothingscoreRequest({eventId:id});
+          if(owner===(serverPersistence.user?.id)){
+            if(!fresh.detail)throw Error('Community summary unavailable');
+            nothingscoreLoadErrors.delete(id);mergeNothingscoreSnapshot(fresh.detail);
+          }
+        }catch(error){if(owner===(serverPersistence.user?.id)){nothingscoreLoadErrors.set(id,Date.now());status.textContent='Rating saved. Community ratings could not refresh.';}}
+      }catch(error){chosen=previous;status.textContent=`${error.message || 'Could not save.'} Tap to retry.`;paint(chosen);}
+      finally{inlineRatingRequests.delete(id);group.querySelectorAll('button').forEach(x=>x.disabled=false);if(owner===(serverPersistence.user?.id))nothingscoreQueueRender();}
+    };group.appendChild(b);
+  }
+  if(awaitingViewer){
+    const failed=nothingscoreLoadErrors.has(id);
+    status.textContent=failed?'Ratings are temporarily unavailable. Retry to check your saved rating.':'Checking your rating…';
+    if(failed){
+      const retry=document.createElement('button');retry.type='button';retry.className='nsc-rating-retry';retry.textContent='Retry ratings';
+      retry.onclick=event=>{event.stopPropagation();nothingscoreLoadErrors.delete(id);registerNothingscoreEvent(ev,{force:true});nothingscoreQueueRender();};
+      status.append(' ',retry);
+    }
+  }
+  paint(chosen);root.append(group,prompt);
+  if(phase==='heat'&&!exactTiming&&!ev.dateOnly&&ev.timePrecision!=='date-only'){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent=ev.startTimeUtc&&['not-before','not_before'].includes(ev.timePrecision)?'Not-before start; exact start may be later':'Start time unconfirmed';root.appendChild(timing);}
+  root.appendChild(status);return root;
+}
+
+function buildNothingscoreReceipt(receipt, phaseName){
+  const row = document.createElement("div");
+  row.className = "nsc-receipt nsc-submission-receipt";
+  row.setAttribute("role", "status");
+  const cheer = document.createElement("strong"); cheer.textContent = "Submitted ✓";
+  const copy = document.createElement("span");
+  copy.textContent = `${phaseName} ${Number(receipt?.rating || 0)}/5${receipt?.tags?.length ? ` · ${receipt.tags.join(" · ")}` : ""}`;
+  const results = document.createElement("button"); results.type = "button"; results.textContent = "View results";
+  results.addEventListener("click", event => {
+    event.stopPropagation();
+    const details = row.closest(".nsc-panel")?.querySelector(".nsc-peer-results details");
+    if (details){ details.open = true; details.scrollIntoView({block:"nearest"}); }
+  });
+  row.append(cheer,copy,results);
+  return row;
+}
+
+function buildNothingscorePending(ev,phase){
+  const row = document.createElement("div"); row.className = "nsc-submission-receipt is-confirming";
+  row.setAttribute("role","status"); row.textContent = "Confirming your rating…";
+  const retry = document.createElement("button"); retry.type = "button"; retry.className = "btn ghost"; retry.textContent = "Check confirmation";
+  retry.addEventListener("click", async () => {
+    retry.disabled = true;
+    await reconcileNothingscoreSubmission(nothingscoreEventId(ev),phase);
+    retry.disabled = false;
+    if (activeNothingscoreContributionEvent === ev) renderNothingscoreDrawer();
+  });
+  row.appendChild(retry); return row;
+}
+
+function buildNothingscorePanel(ev,snapshot){
+ const panel=document.createElement('section');panel.className='nsc-panel';panel.dataset.nscPanel=nothingscoreEventId(ev);
+ const back=document.createElement('button');back.type='button';back.className='btn ghost';back.textContent='Back to rankings';back.onclick=()=>{activeNothingscoreContributionEvent=null;renderCrowdRankings();};
+ const timing=document.createElement('p');timing.textContent=ev.startTimeUtc?new Date(ev.startTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney'}):'Time TBC';
+ panel.append(back,timing,buildNothingscorePeerResults(ev,snapshot,{inDrawer:true}));
+ const incentive=document.createElement('p');incentive.className='nsc-note';incentive.textContent='Earn 1 point for Heat, plus 19 when another Nothinger matches it live or afterwards.';panel.appendChild(incentive);
+ return panel;
+}
+
+function buildSpoilerOverrideControl(ev){
+  const state = getEventSpoilerState(ev);
+  const visible = isSpoilerVisible(ev);
+  const status = getEventStatus(ev);
+  const control = document.createElement("div");
+  control.className = "spoiler-control";
+
+  const copy = document.createElement("span");
+  copy.className = "spoiler-control-copy";
+  copy.textContent = `${status === "past" ? "Past" : status === "live" ? "Live" : "Upcoming"} event · Global results ${userPreferences.showSpoilers ? "shown" : "hidden"} · ${state.override === "inherit" ? "Uses global setting" : state.override === "show" ? "Results shown" : "Results hidden"}`;
+  control.appendChild(copy);
+
+  if (userPreferences.feedControls?.spoilers === "strict"){
+    copy.textContent = `${status === "past" ? "Past" : status === "live" ? "Live" : "Upcoming"} event · Strict spoiler protection is active`;
+    return control;
+  }
+
+  const toggle = document.createElement("button");
+  toggle.className = "spoiler-reveal-btn";
+  toggle.textContent = visible ? "Hide results" : "Show results";
+  toggle.addEventListener("click", evt => {
+    evt.stopPropagation();
+    if (visible){
+      hideSpoilersForEvent(ev);
+      renderCurrentSection();
+      showToast("Results hidden for this event.");
+      return;
+    }
+    if (window.confirm("Show results for this event?")){
+      revealSpoilerDetails(ev);
+      renderCurrentSection();
+      showToast("Results shown for this event.");
+    }
+  });
+  control.appendChild(toggle);
+
+  if (state.override !== "inherit"){
+    const reset = document.createElement("button");
+    reset.className = "spoiler-reveal-btn";
+    reset.textContent = "Use global setting";
+    reset.addEventListener("click", evt => {
+      evt.stopPropagation();
+      resetSpoilerOverride(ev);
+      renderCurrentSection();
+      showToast("This event now follows the global spoiler setting.");
+    });
+    control.appendChild(reset);
+  }
+
+  return control;
+}
+
+function buildSpoilerOverrideButton(ev, refreshCard){
+  const visible = isSpoilerVisible(ev);
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "event-footer-button";
+  button.textContent = userPreferences.feedControls?.spoilers === "strict"
+    ? "Results hidden"
+    : visible ? "Hide results" : "Show results";
+  button.disabled = userPreferences.feedControls?.spoilers === "strict";
+  button.addEventListener("click", event => {
+    event.stopPropagation();
+    if (visible){
+      hideSpoilersForEvent(ev);
+      refreshCard?.();
+      showToast("Results hidden for this event.");
+      return;
+    }
+    if (window.confirm("Show results for this event?")){
+      revealSpoilerDetails(ev);
+      refreshCard?.();
+      showToast("Results shown for this event.");
+    }
+  });
+  return button;
+}
+
+function buildCricketInnings(ev,{localReveal=false}={}){
+  if(ev.key!=='cricket'||!ev.innings?.length||!['completed','finished','past','live','ongoing','in_progress','in-progress','stumps','rain-delay','interrupted','suspended','break'].includes(ev.status)||globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev))return null;
+  if(globalThis.NOTHINGSPORTS_CRICKET_INNINGS)return NOTHINGSPORTS_CRICKET_INNINGS.build(ev);
+  const slot=document.createElement('div');
+  loadDeferredScript('config/cricket-innings.js?v=486').then(()=>{if(slot.isConnected&&(localReveal||isSpoilerVisible(ev)))slot.replaceChildren(NOTHINGSPORTS_CRICKET_INNINGS.build(ev)||'');}).catch(()=>{if(slot.isConnected&&(localReveal||isSpoilerVisible(ev)))slot.textContent='Innings details are unavailable.';});
+  return slot;
+}
+
+function buildCompactResult(ev, displayTitle = ""){
+  const result = compactResultForEvent(ev);
+  if (!result) return null;
+
+  const wrap = document.createElement("div");
+  wrap.className = "card-result-line";
+  wrap.setAttribute("aria-label", "Final result");
+
+  const tennis=CARD_RESULTS.tennisSets(ev,displayTitle,result);
+  if(tennis){
+    const table=document.createElement('table');table.className='tennis-set-table';table.setAttribute('aria-label','Tennis result by set');
+    const header=document.createElement('tr');for(const label of ['Player',...tennis.sets.map(s=>s.label)]){const th=document.createElement('th');th.scope='col';th.textContent=label;header.append(th);}const thead=document.createElement('thead');thead.append(header);table.append(thead);
+    const tbody=document.createElement('tbody');tennis.names.forEach((name,i)=>{const row=document.createElement('tr'),player=document.createElement('th');player.scope='row';player.textContent=name;row.append(player);for(const set of tennis.sets){const cell=document.createElement('td'),score=set.scores[i];cell.textContent=String(score.games);if(score.tieBreak!==null){const sup=document.createElement('sup');sup.textContent=String(score.tieBreak);sup.setAttribute('aria-label',`${score.tieBreak} tie-break points`);cell.append(sup);}row.append(cell);}tbody.append(row);});table.append(tbody);wrap.append(table);if(tennis.status){const label=document.createElement('span');label.textContent=tennis.status;wrap.append(label);}return wrap;
+  }
+  const score = document.createElement("span");
+  score.className = "card-result-score";
+  score.textContent = scoreLineForDisplay(ev, displayTitle, result);
+  wrap.appendChild(score);
+  const innings=buildCricketInnings(ev);if(innings)wrap.append(innings);
+  return wrap;
+}
+
+function scheduleScopeForEvent(ev){
+  const codeId=codeIdForEvent(ev);
+  const tournamentId=ev.tennisTournamentId || ev.tournamentId || '';
+  const competitionId=ev.competitionId || '';
+  const tournamentMark=['tennis','wimbledon'].includes(ev.key)?CARD_IDENTITIES?.markForCompetitionId(ev.competitionId):null;
+  const label=ev.tournamentName || ev.competitionName || (tournamentMark?.id?.startsWith('brand:')?tournamentMark.label:'') || ev.majorEventName || (ev.stage==='Major'?ev.name:ev.key==='masters'?'Masters':codeId==='sport:f1'?'F1':'') || codeInspectorManifest?.codes?.find(c=>c.id===codeId)?.label || sportMetaForEvent(ev).label || ev.key || 'Sport';
+  return {codeId,tournamentId,competitionId,label};
+}
+
+function buildFeedScheduleLink(ev){
+  const scope=scheduleScopeForEvent(ev),link=document.createElement('a');
+  link.className='feed-schedule-link';link.textContent=NOTHINGSPORTS_FIXTURE_LABELS.displayName(scope.label,ev);link.href=codeInspectorHash(scope.codeId);
+  link.title=`See full ${scope.label} schedule`;link.setAttribute('aria-label',link.title);link.onfocus=()=>showToast(link.title);
+  let timer=null,longPress=false;
+  link.onpointerdown=()=>{longPress=false;timer=setTimeout(()=>{longPress=true;showToast(link.title);},550);};
+  for(const type of ['pointerup','pointercancel','pointerleave'])link.addEventListener(type,()=>clearTimeout(timer));
+  link.oncontextmenu=e=>{e.preventDefault();};
+  link.onclick=async e=>{e.preventDefault();e.stopPropagation();if(longPress)return;
+    saveFollowBrowse({scheduleScope:scope,sportId:'sport:'+NOTHINGSPORTS_SURFACE_CATEGORY.category(ev),categoryId:''});
+    if(scope.tournamentId&&['tennis','wimbledon'].includes(ev.key)){await loadTennisScheduleUi();tennisSelectedEdition=scope.tournamentId;}
+    await openCodeInspector(scope.codeId);
+  };
+  return link;
+}
+
+function configureProviderLaunch(link, viewing){
+  const target = viewing.webUrl || viewing.universalUrl || viewing.url;
+  link.href = /^https:\/\//i.test(String(target || "")) ? target : "#";
+  link.target = "_blank";
+  link.rel = "noopener noreferrer external";
+}
+
+function viewingAccessLabel(viewing){
+  switch(viewing.accessType){
+    case 'free': return 'Free';
+    case 'subscription': return 'Subscription';
+    case 'ppv': return 'Pay-per-view';
+    case 'included': return 'Included in plan';
+    default: return 'Check cost';
+  }
+}
+
+function appendEventQuickActions(container, ev, { reminder = true, chat = true, viewing = true } = {}){
+  if(globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev))viewing=false;
+  const actions = document.createElement("div");
+  actions.className = "event-quick-actions";
+  const viewingLinks = viewing ? FOLLOW_FIRST.viewingOptions(ev,userPreferences.followFirst?.subscriptions||[]).filter(p=>!p.territory||['AU','GLOBAL'].includes(p.territory)) : [];
+  if(viewing){
+    const row=document.createElement('div');row.className='fixture-providers';row.setAttribute('aria-label','Viewing providers');
+    for(const viewingLink of viewingLinks){
+      const link=document.createElement('a');link.className='event-quick-action provider-link';
+      configureProviderLaunch(link,viewingLink);
+      const verb=viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';
+      const access=viewingAccessLabel(viewingLink);
+      link.title=`${verb} on ${viewingLink.label} · ${access}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
+      const cost=document.createElement('span');cost.className='provider-access';cost.textContent=access;link.appendChild(cost);
+      link.addEventListener('click',event=>{event.stopPropagation();recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
+    }
+    const viewingNote=!viewingLinks.length?'Australian viewing unconfirmed':null;
+    if(viewingNote){const text=document.createElement('span');text.className='viewing-tbc';text.textContent=viewingNote;row.append(text);}
+    actions.append(row);
+  }
+  if (reminder && getEventStatus(ev) === "upcoming"){
+    const timing = eventReminderTiming(ev);
+    const reminderButton = document.createElement("button");
+    reminderButton.type = "button";
+    reminderButton.className = "event-quick-action primary";
+    const reminderRequested = Boolean(getEventAction(ev).reminderRequested);
+    reminderButton.dataset.reminderActionKey = eventActionKey(ev);
+    reminderButton.dataset.reminderAliases = EVENT_ACTION_IDENTITY.aliasesForEvent(ev).join("|");
+    reminderButton.disabled = !reminderRequested && !reminderCanBeScheduled(timing);
+    reminderButton.setAttribute("aria-pressed", String(reminderRequested));
+    reminderButton.title = timing?.fallback
+      ? "Background notification 15 minutes before the published broadcast time because a kickoff or race start is not available."
+      : "Background notification 15 minutes before kickoff or race start.";
+    renderQuickReminderButton(reminderButton, reminderRequested);
+    reminderButton.addEventListener("click", event => {
+      event.stopPropagation();
+      void toggleQuickReminder(ev, reminderButton);
+    });
+    actions.appendChild(reminderButton);
+  }
+  if (chat){
+    actions.dataset.fixtureChatId = nothingscoreEventId(ev);
+    nothingscoreEventRefs.set(nothingscoreEventId(ev),ev);
+    appendFixtureChatActions(actions, ev);
+  }
+  container.appendChild(actions);
+  return actions;
+}
+
+function renderEventIdentityMark(container, ev, meta){
+  const mark = CARD_IDENTITIES?.markForEvent(ev);
+  if (mark?.id) container.dataset.cardIdentity = mark.id;
+  else delete container.dataset.cardIdentity;
+  const renderFallback = () => {
+    container.classList.remove("has-brand-logo", "has-sport-logo");
+    container.replaceChildren();
+    if(container.classList.contains('follow-sport-mark') && meta.glyph){container.innerHTML=glyphMarkup(meta.glyph,{className:'vector-glyph',label:meta.label});return;}
+    const label=document.createElement('span');label.className='event-sport-wordmark';label.textContent=mark?.wordmark||mark?.label||meta.label;container.append(label);
+  };
+  if (mark?.kind === "wordmark" && mark.wordmark){
+    container.classList.remove("has-brand-logo", "has-sport-logo");
+    container.dataset.identityWordmarkLight = mark.themeColor?.light || "#ff1e00";
+    container.dataset.identityWordmarkDark = mark.themeColor?.dark || "#ffffff";
+    const wordmark = document.createElement("span");
+    wordmark.className = "event-identity-wordmark";
+    wordmark.textContent = mark.wordmark;
+    wordmark.style.color = themeUsesDarkAssets() ? container.dataset.identityWordmarkDark : container.dataset.identityWordmarkLight;
+    container.replaceChildren(wordmark);
+    return;
+  }
+  if (mark?.kind === "vector" && mark.glyph){
+    const vectorEntry = VECTOR_ASSETS?.openUse?.[mark.glyph] || VECTOR_ASSETS?.custom?.[mark.glyph];
+    if (vectorEntry){
+      container.classList.remove("has-brand-logo");
+      container.classList.add("has-sport-logo");
+      const vector = document.createElement("span");
+      vector.className = "event-sport-mark nrl-finals-trophy-mark";
+      vector.innerHTML = glyphMarkup(mark.glyph, { className:"event-sport-logo", label:mark.label });
+      container.replaceChildren(vector);
+      return;
+    }
+    if (mark.fallback?.url){
+      ev = { ...ev, key:"nrl", brandId:null };
+      return renderEventIdentityMark(container, ev, meta);
+    }
+  }
+  if (mark?.kind === "sport" && mark.glyph){
+    renderFallback();return;
+  }
+  if (!mark?.url){
+    renderFallback();
+    return;
+  }
+  const image = document.createElement("img");
+  image.className = "event-brand-logo";
+  installIdentityImageRecovery(image);
+  const logoContext = container.matches(".event-hero-mark,.major-event-logo") ? "primary" : "icon";
+  const lightSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context:logoContext, useDark: false }) || mark.url;
+  const darkSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context:logoContext, useDark: true }) || lightSource;
+  image.dataset.eventLogoLight = lightSource;
+  image.dataset.eventLogoDark = darkSource;
+  assignCardImageSource(image, themeUsesDarkAssets() ? darkSource : lightSource);
+  image.alt = mark.label;
+  image.loading = "lazy";
+  image.decoding = "async";
+  image.referrerPolicy = "no-referrer";
+  image.addEventListener("error", renderFallback, { once: true });
+  container.classList.remove("has-sport-logo");
+  container.classList.add("has-brand-logo");
+  const placeholder = document.createElement("span");
+  placeholder.className = "event-sport-mark identity-image-placeholder";
+  placeholder.innerHTML = glyphMarkup(meta.glyph, { label:meta.label, preferImage:true });
+  if(container.classList.contains('compact-card-icon')) container.replaceChildren(image);
+  else container.replaceChildren(placeholder, image);
+}
+
+function appendTeamIdentityFallback(container, mark, label, className = "team-logo-fallback"){
+  if (mark?.isNationalTeam || mark?.teamKind === "national"){
+    const unavailable = document.createElement("span");
+    unavailable.className = `${className} national-team-logo-unavailable`;
+    unavailable.setAttribute("role", "img");
+    unavailable.setAttribute("aria-label", `${label || mark?.label || "National team"} official identity unavailable`);
+    container.appendChild(unavailable);
+    return;
+  }
+  const flagMarkup = COUNTRY_FLAGS?.flagMarkup?.(mark?.fallbackCountryCode || mark?.countryCode, { className, label });
+  if (flagMarkup){
+    container.insertAdjacentHTML("beforeend", flagMarkup);
+    return;
+  }
+  const monogram = document.createElement("span");
+  monogram.className = `${className} team-logo-monogram`;
+  monogram.setAttribute("aria-label", label);
+  monogram.textContent = String(label || mark?.label || "TBC").split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase() || "TBC";
+  container.appendChild(monogram);
+}
+
+function renderEventTitleIdentity(nameElement, ev, displayTitle, options){
+  displayTitle=NOTHINGSPORTS_FIXTURE_LABELS.matchupTitle(ev,displayTitle,cardIdentityParticipants());
+  const compact=Boolean(options?.compact);
+  if((ev.key==='tennis'||ev.key==='wimbledon')&&!/hidden|winner of|loser of|TBC/i.test(displayTitle)){
+    const lineup=majorEventMatchupLineup(ev,{compact});
+    if(lineup){nameElement.appendChild(lineup);return;}
+  }
+  const identities = CARD_IDENTITIES?.participantMarksForEvent(ev, cardIdentityParticipants(), displayTitle) || [];
+  const matches = identities
+    .map(identity => ({ ...identity, range: CARD_IDENTITIES.aliasRange(displayTitle, identity.participant) }))
+    .filter(identity => identity.range)
+    .sort((left, right) => left.range.start - right.range.start)
+    .filter((identity, index, all) => index === 0 || identity.range.start >= all[index - 1].range.end);
+  if (!matches.length){
+    nameElement.textContent = displayTitle;
+    if(!compact)appendFollowedFixtureParticipants(nameElement,ev);
+    return;
+  }
+  nameElement.setAttribute("aria-label", displayTitle);
+  let cursor = 0;
+  matches.forEach(({ mark, range, participant }) => {
+    if (range.start > cursor) nameElement.append(document.createTextNode(displayTitle.slice(cursor, range.start)));
+    const teamName = document.createElement("span");
+    teamName.className = "team-name-with-logo";
+    const appendFlagFallback = () => appendTeamIdentityFallback(teamName, mark, mark.label, "team-logo-fallback team-name-logo-fallback");
+    if (mark.url || mark?.logo?.primary){
+      appendFlagFallback();
+      const logo = document.createElement("img");
+      logo.className = "team-logo";
+      logo.alt = "";
+      logo.loading = "lazy";
+      logo.decoding = "async";
+      logo.referrerPolicy = "no-referrer";
+      applyTeamLogoAsset(logo, mark, "icon");
+      logo.addEventListener("error", () => logo.remove(), { once: true });
+      teamName.appendChild(logo);
+    } else {
+      appendFlagFallback();
+    }
+    const label = participantProfileLink(participant?.id || mark?.id,range.text,ev.key);
+    teamName.appendChild(label);
+    nameElement.appendChild(teamName);
+    cursor = range.end;
+  });
+  if (cursor < displayTitle.length) nameElement.append(document.createTextNode(displayTitle.slice(cursor)));
+}

@@ -70,9 +70,9 @@ const ticketAlerts = (majorEvents.events || []).filter(record => record.kind ===
 assert(ticketAlerts.length > 0);
 ticketAlerts.forEach(record => assert.equal(server.eventFor(record.id), null, `${record.id} must remain outside Nothingscore`));
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 assert.match(html, /mainDiv\.appendChild\(buildNothingscoreSummary\(ev,\{showAggregate:true\}\)\)/, "Feed cards expose real peer summaries beside the one-tap rating");
-const peerUi = html.slice(html.indexOf("function buildNothingscorePeerResults"),html.indexOf("function openNothingscoreLeaderboard"));
+const peerUi = require("./app-shell-test-utils").readCardFunction("buildNothingscorePeerResults");
 assert.match(peerUi,/snapshot\?\.peerResults/);
 assert.doesNotMatch(peerUi,/snapshot\?\.(aggregate|crowdEditorial|earlyPanel)/,"peer UI must never use blended/modelled aggregates");
 assert(html.includes("buildInlineCrowdRating(ev,snapshot)"), "Feed cards expose the one-tap rating input");

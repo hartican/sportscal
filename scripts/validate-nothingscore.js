@@ -11,7 +11,7 @@ const nothingscoreApi = require("../lib/nothingscore-handler");
 const nothingscoreServer = require("../lib/nothingscore-server");
 
 const read = file => fs.readFileSync(file, "utf8");
-const html = read("index.html");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const sql = read("supabase/nothingscore.sql");
 const api = read("lib/nothingscore-handler.js");
 assert.match(api, /function accountUser\(user\)\{return user&&user\.is_anonymous!==true\?user:null\}/, "anonymous chat identities must not be treated as NSC account users");

@@ -7,7 +7,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const preferences = fs.readFileSync(path.join(ROOT, "config/follow-first.js"), "utf8");
 const enrichment = fs.readFileSync(path.join(ROOT, "config/enrichment-engine.js"), "utf8");
 const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
@@ -31,7 +31,7 @@ function assertOrder(source, markers, message){
 }
 
 // Standard cards submit a one-tap rating; all Events feed surfaces omit inputs.
-const cardSummary=section(html,"function buildNothingscorePeerResults", "function openNothingscoreLeaderboard");
+const cardSummary=["buildNothingscorePeerResults","buildInlineCrowdRating"].map(require("./app-shell-test-utils").readCardFunction).join("\n");
 for(const marker of ["buildInlineCrowdRating", "inlineRatingRequests.has(id)", "pointsAwarded", "paint(chosen)", "Ratings unavailable", "Be the first to rate"]){assert(cardSummary.includes(marker), marker);}
 for(const tip of ["Your stakes rating out of five", "fixtureStakesLabel(value)"]){assert(cardSummary.includes(tip),tip);}
 for(const label of ["Low stakes","Mid stakes","High stakes","Huge stakes","Epic stakes"]){assert(html.includes(label),label);}
