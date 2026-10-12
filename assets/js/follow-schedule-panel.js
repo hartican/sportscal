@@ -6,6 +6,17 @@ function footballRoundPlan(fixtures,today){
  const eligible=fixtures.filter(f=>!['completed','finished','cancelled','canceled','abandoned'].includes(f.status)&&String(f.endDate||f.date||'')>=today).sort((a,b)=>String(a.startTimeUtc||a.date||'9999').localeCompare(String(b.startTimeUtc||b.date||'9999')));
  const current=eligible[0];return {groups:ordered,key,currentKey:current?key(current):null,currentIndex:Math.max(0,current?ordered.findIndex(g=>g.key===key(current)):ordered.length-1)};
 }
+// A published League stage is not one round. Rugby calendar groups keep their
+// actual competition/edition, source round and day without inventing a season.
+function rugbyCalendarGroup(f){
+ const competition=f.competitionId||f.competitionName||null;
+ const family=/^competition:([a-z][a-z0-9-]*):\d{4}$/.exec(f.competitionId||'')?.[1];
+ const name=f.competitionName||CANONICAL_TAXONOMY.competitions.find(c=>c.id===f.competitionId)?.name||FOLLOW_FIRST.MAJOR_EVENT_FAMILIES.find(c=>c.id===family)?.label||'Competition TBC';
+ const edition=f.season||f.seasonLabel||null;
+ const round=codeInspectorGroupLabel(f,'round');
+ const day=f.date||f.schedulingWindow?.startsOn||null;
+ return {key:JSON.stringify([competition||f.id,edition,f.stageType||f.stage||null,round,day]),label:[NOTHINGSPORTS_AUSTRALIAN_DATES.date(day,{year:true}),name,edition,round==='Other fixtures'?null:round].filter(Boolean).join(' · ')};
+}
 function appendFootballCalendarFilters(panel,code,available){
  if(!/football|champions-league/.test(code.slug||''))return;
  const host=document.createElement('div');host.className='football-calendar-filters';
@@ -67,15 +78,17 @@ globalThis.renderFollowSchedulePanel=function(container){
   }
   if(code.id.startsWith('sport:tennis')){renderTennisTournamentSchedule(panel,fixtures);return;}
   const football=/football|champions-league/.test(code.slug||'');
+  const rugby=code.id==='sport:rugby-union';
   const today=formatDateKey(nowAEST());
   const footballPlan=football?footballRoundPlan(fixtures,today):null;
+  const rugbyGroups=new Map();
   const grouped = new Map();
   // Programme dates order the calendar; they never become match kickoffs.
   const sortDate=f=>f.date||f.schedulingWindow?.startsOn||'9999-12-31';
   const eventGroup=f=>f.tournamentId||((f.dakarCalendar||f.lemansCalendar)?f.weekendId:null)||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
   const tournamentDates=new Map();for(const f of fixtures){const key=eventGroup(f);if(key&&f.date&&(!tournamentDates.has(key)||f.date<tournamentDates.get(key)))tournamentDates.set(key,f.date);}
   const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1','sport:cricket','sport:cricket-women','sport:skiing','competition:dakar','competition:le-mans'].includes(code.id);
-  const groupLabel=f=>{if(football)return footballPlan.key(f);const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(tournamentDates.get(eventGroup(f))||f.date)} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
+  const groupLabel=f=>{if(football)return footballPlan.key(f);if(rugby){const group=rugbyCalendarGroup(f);rugbyGroups.set(group.key,group);return group.key;}const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(tournamentDates.get(eventGroup(f))||f.date)} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
   fixtures.forEach(fixture => {
     const label = groupLabel(fixture);
     const group = grouped.get(label) || [];
@@ -88,9 +101,9 @@ globalThis.renderFollowSchedulePanel=function(container){
     || String(first.time || "99:99").localeCompare(String(second.time || "99:99"))
     || String(first.id || "").localeCompare(String(second.id || ""))
   )));
-  const groupLabels = [...grouped.keys()].sort((first, second) => (football||!useRounds ? String(sortDate(grouped.get(first)[0])).localeCompare(String(sortDate(grouped.get(second)[0]))) : FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second))
+  const groupLabels = [...grouped.keys()].sort((first, second) => (football||rugby||!useRounds ? String(sortDate(grouped.get(first)[0])).localeCompare(String(sortDate(grouped.get(second)[0])))||String(first).localeCompare(String(second)) : FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second))
     ?? String(first).localeCompare(String(second), "en-AU", { numeric:true, sensitivity:"base" }));
-  const current=fixtures.filter(f=>(f.endDate||f.date||f.schedulingWindow?.endsOn)>=today).sort((a,b)=>String(sortDate(a)).localeCompare(String(sortDate(b))))[0]||fixtures.at(-1);
+  const current=fixtures.filter(f=>(!rugby||!['completed','finished','final','cancelled','canceled','abandoned'].includes(String(f.status||'').toLowerCase()))&&(f.endDate||f.date||f.schedulingWindow?.endsOn)>=today).sort((a,b)=>String(sortDate(a)).localeCompare(String(sortDate(b))))[0]||(rugby?fixtures.filter(f=>sortDate(f)!=='9999-12-31').sort((a,b)=>String(sortDate(a)).localeCompare(String(sortDate(b)))).at(-1):null)||fixtures.at(-1);
   const currentIndex=football?Math.max(0,footballPlan.currentKey?groupLabels.indexOf(footballPlan.currentKey):groupLabels.length-1):Math.max(0,groupLabels.indexOf(current?groupLabel(current):groupLabels[0]));
   const windows=NOTHINGSPORTS_FOLLOW_NAV.windows;
   const fingerprint=JSON.stringify([codeInspectorTab,followBrowseState().scheduleScope,NOTHINGSPORTS_FOLLOW_NAV.selected(code.id)]);
@@ -101,7 +114,7 @@ globalThis.renderFollowSchedulePanel=function(container){
   if(window.start>0)action('Earlier rounds / events',()=>{window.start=Math.max(0,window.start-(football?1:3));renderCodeInspector();});
   groupLabels.slice(window.start,window.end).forEach(label=>{
     const section=document.createElement('section');section.className='code-inspector-group';
-    const title=document.createElement('h3');title.textContent=football?(label===footballPlan.currentKey?'Current ':'')+footballPlan.groups.find(g=>g.key===label).context:label;if(football)title.title=footballPlan.groups.find(g=>g.key===label).context;
+    const title=document.createElement('h3');title.textContent=football?(label===footballPlan.currentKey?'Current ':'')+footballPlan.groups.find(g=>g.key===label).context:rugby?rugbyGroups.get(label).label:label;if(football)title.title=footballPlan.groups.find(g=>g.key===label).context;
     if(football&&label===footballPlan.currentKey){section.dataset.currentRound='true';title.setAttribute('aria-current','date');const note=document.createElement('span');note.className='football-current-round';note.textContent='' ;title.append(document.createTextNode(' '),note);}
     const list=document.createElement('div');list.className='code-inspector-fixtures';list.dataset.scrollList=`inspector-group:${label}`;
     const rows=[...grouped.get(label)];

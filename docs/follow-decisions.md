@@ -873,3 +873,12 @@ Regression gates: validate-golf-live.js, validate-live-score-continuity.js, vali
 ## Visible Football round context — 12 October 2026 Sydney
 
 Implementation repair under the approved exact competition/season/stage/round calendar contract: use the existing published group context in the native round picker and visible heading. EPL, UCL and Europa round one must be distinguishable without opening a choice or relying on hover. Keep the original grouping keys, chronology, current-round selection and deliberately chosen window. No follow, fixture, clock, result, reminder, permission, source or scheduling change. The existing `validate-football-round-repair.js` now exercises the actual Schedule renderer with separate competitions, seasons and stages; required cache and release proof remains part of the combined incoming shell update.
+
+
+## Rugby Schedule calendar grouping — 12 October 2026 Sydney
+
+Implementation repair under the existing current-event, Earlier/Later and independent browsing-filter contract. Rugby Union Schedule must separate published competition/edition, source stage/round and source calendar day. Generic League cannot combine hundreds of matches from different competitions and dates. Dates sort by their source values; visible headings retain the actual year because a named 2027 competition can have 2026 appointments. Missing competition/date stays TBC; a season or round is never inferred from a date. Unknown competition records keep their own fixture identity.
+
+Open the existing three-group window at an ongoing/next non-terminal dated fixture; a completed same-day fixture cannot choose the opening group. Keep every published fixture reachable through Earlier/Later and restore that window with Jump to current. Reuse existing competition filters, view-state owner and deferred Schedule module. Fixture IDs, participant uncertainty, original facts/check dates, source ownership, Feed admission, Results privacy, reminder OFF and saved actions are unchanged. Other sports retain their own grouping rules.
+
+Regression: validate-rugby-schedule.js exercises the actual renderer and all retained 780 Rugby records through the existing Code gate. It covers generic/shared labels, editions, chronological dates, unknown facts, terminal-current exclusion, all six reviewed placement slots and unchanged records. Genuine browser, installed-update and exact release evidence remain separate from whole-sport and physical-phone proof.
