@@ -4,6 +4,7 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+require('./validate-event-calendar-labels');
 const majorEvents = require("../config/major-events.js");
 const competitionClassification = require("../config/competition-classification.js");
 const countryFlags = require("../config/country-flags.js");

@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const html=fs.readFileSync('index.html','utf8'),source=html.match(/function majorEventDateLabel\(record\)\{[\s\S]*?\n\}/)?.[0];assert(source);
+const c={NOTHINGSPORTS_AUSTRALIAN_DATES:require('../config/australian-dates')};vm.createContext(c);vm.runInContext(source,c);
+const parent=require('../data/major-events.v1.json').events.find(e=>e.id==='major-event:nations-championship-finals-2026');
+const before=JSON.stringify(parent),label=c.majorEventDateLabel(parent);
+assert(label.includes('London'),'published London calendar dates are visibly qualified');
+assert(label.includes('27')&&label.includes('29')&&label.includes('Nov')&&label.includes('2026'),'keep the original programme days/year');
+assert.equal(JSON.stringify(parent),before,'a date label cannot alter programme facts or fixture clocks');
+assert.equal(c.majorEventDateLabel({}), 'Dates TBC');
+assert.equal(c.majorEventDateLabel({...parent,dateStatus:'tbc'}), 'Dates TBC');
+for(const dates of [{startDate:'2026-02-30',endDate:'2026-03-02'},{startDate:'2026-11-29',endDate:'2026-11-27'},{startDate:'bad',endDate:'2026-11-29'}])assert.equal(c.majorEventDateLabel({...parent,...dates}),'Dates TBC','invalid/impossible/reversed days cannot become dates');
+assert(c.majorEventDateLabel({...parent,timezone:'unconfirmed'}).includes('Time zone unconfirmed'));
+assert(c.majorEventDateLabel({...parent,startDate:'2027-01-01',endDate:'2027-01-01',timezone:'Australia/Sydney'}).includes('Sydney dates'));
+const crossing=c.majorEventDateLabel({...parent,startDate:'2026-12-31',endDate:'2027-01-02',timezone:'America/New_York'});assert(crossing.includes('2026')&&crossing.includes('2027')&&crossing.includes('New York dates'));
+console.log('Event calendar labels preserve sourced days and visibly identify their timezone.');

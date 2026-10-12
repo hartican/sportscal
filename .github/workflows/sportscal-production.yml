@@ -90,6 +90,7 @@ jobs:
           node scripts/validate-card-dismissal-learning.js
           node scripts/validate-follow-with-confidence.js
           node scripts/validate-ratings-recovery.js
+          node scripts/validate-ratings-empty-batch.js
           node scripts/validate-automatic-reminders.js
           node scripts/validate-manual-estimated-reminders.js
           node scripts/validate-experience-reliability.js

@@ -9,6 +9,7 @@ for(const module of ['assets/js/match-centre-ui.js','config/event-overviews-ui.j
  const escaped=module.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),url=new RegExp(escaped+'\\?v=\\d+');
  assert.equal(idle.match(url)?.[0],html.match(url)?.[0],'Idle and interactive callers share one '+module+' instance');
  assert(worker.includes('/'+html.match(url)?.[0]),'The required cache holds that exact deferred module');
+ if(module==='config/event-overviews-ui.js')assert.equal(fs.readFileSync('assets/js/follow-presentation-ui.js','utf8').match(url)?.[0],html.match(url)?.[0],'Follow Major Events reuses the same cached overview owner');
 }
 const cssUrl=/assets\/styles\/match-centre\.css\?v=\d+/;
 const sharedCss=fs.readFileSync('assets/js/match-centre-ui.js','utf8').match(cssUrl)?.[0];

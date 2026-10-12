@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v514";
-const SHELL_VERSION = "514";
+const CACHE_NAME = "nothingsport-shell-v515";
+const SHELL_VERSION = "515";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -11,7 +11,7 @@ const APP_SHELL = [
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
-  "/assets/js/follow-presentation-ui.js?v=512",
+  "/assets/js/follow-presentation-ui.js?v=515",
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
@@ -61,7 +61,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=514",
+  "/assets/js/app-shell-runtime.js?v=515",
   "/assets/js/follow-schedule-panel.js?v=514",
   "/assets/js/fixture-navigation.js?v=487",
   "/config/cricket-innings.js?v=486",
@@ -95,7 +95,7 @@ const APP_SHELL = [
   "/config/marquee-campaigns.js",
   "/config/server-sync.js",
   "/config/major-events.js?v=467",
-  "/config/event-overviews-ui.js?v=513",
+  "/config/event-overviews-ui.js?v=515",
   "/config/surface-category-ui.js?v=403",
   "/assets/styles/match-centre.css?v=507",
   "/config/match-centre.js?v=509",

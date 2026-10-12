@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="514">
+<meta name="app-shell-version" content="515">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=514" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=515" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7176,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=514"></script>
+<script src="assets/js/app-shell-runtime.js?v=515"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -15198,9 +15198,7 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
   restoreAnchor();
   scheduleRestore();
   window.requestAnimationFrame(() => {
-    // Replacing a focused disclosure control can trigger the browser's own
-    // post-layout anchoring after the first frame. Measure once more so the
-    // tapped card, rather than the removed child control, remains stationary.
+    // Recheck after browser anchoring to keep the tapped card steady.
     scheduleRestore();
     if (restoreFocus){
       const requestedFocus = typeof focusTarget === "string"
@@ -16096,7 +16094,7 @@ function mergeNothingscoreSnapshot(snapshot){
     ...snapshot,
     // A slower batch summary must not erase the breakdown just opened. If its
     // totals changed, discard the old histogram and refresh the visible detail.
-    peerResults:snapshot.peerResults && !snapshot.peerResults.distribution
+    peerResults:snapshot.ratingRequired ? undefined : snapshot.peerResults && !snapshot.peerResults.distribution
       && previous?.peerResults?.distribution
       && ["phase","count","average"].every(key => previous.peerResults[key] === snapshot.peerResults[key])
       ? {...previous.peerResults,...snapshot.peerResults} : snapshot.peerResults || previous?.peerResults,
@@ -16105,6 +16103,7 @@ function mergeNothingscoreSnapshot(snapshot){
   };
   const fingerprint = value => JSON.stringify({
     phase:value?.phase,
+    ratingRequired:value?.ratingRequired,
     aggregate:value?.aggregate,
     aggregates:value?.aggregates,
     watchingCount:value?.watchingCount,
@@ -16125,18 +16124,18 @@ async function loadNothingscoreBatch(ids, { rerender = true } = {}){
   const requested = [...new Set((ids || []).map(String).filter(Boolean))].slice(0, 50);
   if (!requested.length) return null;
   const owner = serverPersistence.user?.id || "";
-  const before=new Map(requested.map(id=>[id,nothingscoreSnapshots.get(id)]));
+  const before=new Map(nothingscoreSnapshots);
   const payload = await serverSyncClient.nothingscoreRequest({ ids:requested });
   if (owner !== (serverPersistence.user?.id || "")) return null;
   let changed = false;
   const returnedIds=new Set((payload.snapshots || []).map(snapshot=>String(snapshot.eventId)));
-  Object.entries(payload.eventAliases||{}).forEach(([alias,id])=>{if(returnedIds.has(id)){returnedIds.add(alias);nothingscoreLoadErrors.delete(alias);const snapshot=payload.snapshots.find(s=>s.eventId===id);if(snapshot)mergeNothingscoreSnapshot({...snapshot,eventId:alias});}});
-  requested.filter(id=>!returnedIds.has(id)).forEach(id=>{if(!nothingscoreLoadErrors.has(id))changed=true;nothingscoreLoadErrors.set(id,Date.now());});
   (payload.snapshots || []).forEach(snapshot => {
     if(before.get(String(snapshot.eventId))!==nothingscoreSnapshots.get(String(snapshot.eventId)))return;
-    nothingscoreLoadErrors.delete(String(snapshot.eventId));
+    changed = nothingscoreLoadErrors.delete(String(snapshot.eventId)) || changed;
     changed = mergeNothingscoreSnapshot(snapshot) || changed;
   });
+  Object.entries(payload.eventAliases||{}).forEach(([alias,id])=>{if(returnedIds.has(id)){returnedIds.add(alias);if(alias===id||before.get(alias)!==nothingscoreSnapshots.get(alias))return;const snapshot=nothingscoreSnapshots.get(id);if(snapshot){changed=nothingscoreLoadErrors.delete(alias)||changed;changed=mergeNothingscoreSnapshot({...snapshot,eventId:alias})||changed;}}});
+  requested.filter(id=>!returnedIds.has(id)).forEach(id=>{if(!nothingscoreLoadErrors.has(id))changed=true;nothingscoreLoadErrors.set(id,Date.now());});
   if (payload.viewer) nothingscoreViewer = payload.viewer;
   if (changed && rerender) nothingscoreQueueRender();
   return payload;
@@ -18727,7 +18726,7 @@ function followHasStandings(code){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=512';
+  const url='assets/js/follow-presentation-ui.js?v=515';
   return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -19046,11 +19045,7 @@ window.addEventListener("pointerup", noteInputPaint, {capture:true,passive:true}
 window.addEventListener("keydown", noteInputPaint, {capture:true,passive:true});
 
 function majorEventDateLabel(record){
-  if (!record?.startDate || record.dateStatus === "tbc") return "Dates TBC";
-  const formatter = new Intl.DateTimeFormat("en-AU", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
-  const start = formatter.format(new Date(`${record.startDate}T00:00:00Z`));
-  if (!record.endDate || record.endDate === record.startDate) return start;
-  return `${start} - ${formatter.format(new Date(`${record.endDate}T00:00:00Z`))}`;
+  return NOTHINGSPORTS_AUSTRALIAN_DATES.programme(record);
 }
 
 function majorEventIdentityEvent(record){
@@ -19411,7 +19406,7 @@ function buildDetailedMajorEventCard(record, { interactionCard = null } = {}){
   if(isMinimised || state==='compact'){
     card.classList.add('is-compact-row');
     const summary=buildCompactCardSummary({...record,key:record.sportKey,date:record.startDate,time:null});
-    summary.querySelector('.compact-card-time').textContent=record.startDate?compactFallbackTiming(record):'Dates TBC';
+    summary.querySelector('.compact-card-time').textContent=majorEventDateLabel(record);
     card.appendChild(summary);return card;
   }
   const ticketRow = document.createElement("div");
@@ -19645,7 +19640,7 @@ function buildDismissedEventStub(record){
 
 async function renderEventOverviews(container){
  const host=document.createElement('div');host.className='event-overviews-host';container.append(host);
- try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=513');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=515');
  if(!host.isConnected)return;
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(host);
  }catch{if(!host.isConnected)return;const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';host.append(notice);}
@@ -24449,7 +24444,7 @@ async function ensureFeedSourceReadiness(preferences=userPreferences){
   rebuildDerivedCardCache(activeEvents);
 }
 function loadDeferredStartupContext(){
-  return loadDeferredScript('config/startup-view-cache.js?v=513').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
+  return loadDeferredScript('config/startup-view-cache.js?v=515').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
 }
 
 let startupPostLoadHandled = false;
