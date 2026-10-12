@@ -54,10 +54,11 @@ async function render(container){
 }
 async function followRows(container,sportKey){
  if(!eventOverviewsDocument){eventOverviewsPending ||= fetch('data/event-overviews.v1.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Events unavailable');return r.json();}).finally(()=>eventOverviewsPending=null);eventOverviewsDocument=await eventOverviewsPending;}
- if(!container.isConnected)return;container.replaceChildren();const today=formatDateKey(nowAEST());
+ if(!container.isConnected)return;container.replaceChildren();const reference=nowAEST(),today=formatDateKey(reference);
+ const calendarDay=e=>{if(e.legacyMajor&&e.timezone){try{return MAJOR_EVENTS.dateKey(reference,e.timezone);}catch{}}return today;};
  await loadMajorEventsData();if(!container.isConnected)return;
  const majors=(majorEventsDocument?.events||[]).filter(e=>e.kind!=='ticket_sale'&&COMPETITION_CLASSIFICATION.belongsInEvents(e)!==false).map(e=>({...e,...majorEventActionEvent(e),editionId:e.id,eventFamilyId:MAJOR_EVENTS.eventFamilyId(e),sportKey:e.sportKey,date:e.startDate,endDate:e.endDate,participantsConfirmed:true,legacyMajor:true}));
- const events=[...eventOverviewsDocument.events,...majors].filter(e=>e.sportKey===sportKey&&(e.endDate||e.date)>=today&&FOLLOW_FEED_POLICY.activeEligible({...e,key:e.sportKey}));
+ const events=[...eventOverviewsDocument.events,...majors].filter(e=>e.sportKey===sportKey&&(e.endDate||e.date)>=calendarDay(e)&&FOLLOW_FEED_POLICY.activeEligible({...e,key:e.sportKey}));
  for(const event of events){const card=document.createElement('div');card.className='follow-event-family';card.dataset.edition=FOLLOW_FEED_POLICY.editionKey(event);card.dataset.eventFamilyId=event.eventFamilyId||card.dataset.edition;const copy=text('div','');copy.append(text('strong',event.name),text('small',event.legacyMajor?majorEventDateLabel(event):event.date+' – '+event.endDate));const open=text('button','Open in Events','btn ghost');open.type='button';open.onclick=()=>openMajorEventInEvents(event.id,{tournament:!event.legacyMajor});card.append(copy,buildEventEditionToggle({...event,tournamentParent:true}),open);container.append(card);}
  if(!events.length)container.append(text('p','No current editions are published for this sport.'));
  const legacy=userPreferences.followFirst?.followedMajorEventIds||[];if(legacy.length){const note=text('p','Existing recurring selections are retained. These buttons change this edition only.');container.append(note);}installFollowEventBulk(container);
