@@ -4,7 +4,7 @@ const assert = require("node:assert/strict"), fs = require("node:fs");
 
 const model = require("../../config/match-centre");
 
-const {createSnapshotStore: createSnapshotStore} = require("../../lib/live-fixtures");
+const {createSnapshotStore: createSnapshotStore, overlaySnapshots} = require("../../lib/live-fixtures");
 
 const {createMatchCentreHandler: createMatchCentreHandler} = require("../../lib/match-centre-handler");
 
@@ -179,8 +179,9 @@ async function run(db) {
       statusCheckedAt: at(-30)
     }) ]);
     const result = await read();
-    assert.deepEqual(result.rows.map(r => r.fixture.id), [ "recent-final" ]);
-    assert.equal(result.rows[0].fixture.homeScore, 0);
+    assert(result.rows.some(r=>r.fixture.id==="recent-final"));
+    assert.deepEqual(model.select(result.rows.map(r=>r.fixture),now).map(model.id),["recent-final"],"Same-start context cannot admit an expired final");
+    assert.equal(result.rows.find(r=>r.fixture.id==="recent-final").fixture.homeScore, 0);
   });
   await test("all independent completion evidence is retained conservatively", async () => {
     const fields = [ "actualEndTimeUtc", "completedAt", "firstConfirmedCompleteAt", "resultPublishedAt", "statusCheckedAt" ];
@@ -234,7 +235,7 @@ async function run(db) {
       startTimeUtc: null
     } ] ];
     for (const [id, score] of values) await db.query("insert into public.nothingsports_live_scores(source_id,fixture_id,score,content_hash) values('efficiency-test',$1,$2::jsonb,'score')", [ id, JSON.stringify(score) ]);
-    assert.deepEqual((await read()).rows.map(r => r.fixture.id), [ "became-live" ]);
+    assert.deepEqual(model.select((await read()).rows.map(r=>r.fixture),now).map(model.id),["became-live"],"Same-start context cannot admit a distant upcoming match");
     const preserved = await read([ "became-upcoming", "withdrawn-clock" ]);
     assert.equal(preserved.rows.length, 3);
     assert.equal(preserved.rows.find(r => r.fixture.id === "withdrawn-clock").fixture.startTimeUtc, null);
@@ -316,6 +317,47 @@ async function run(db) {
     assert.equal(calls.length, 1);
     assert.deepEqual(selected.body.fixtures, listing.body.fixtures);
     await db.exec("reset role");
+  });
+  await test("source-only scores retain declared identity context and transitive alias details", async () => {
+    await seed([]);
+    const details=fixture("context-name",{status:"unreviewed",startTimeUtc:null,name:"Storm v Panthers",venue:"Reviewed Ground",broadcaster:"Reviewed Channel"});
+    const bridge={id:"context-bridge",key:"nrl",date:day,status:"unreviewed",sourceEventIds:["context-name"]};
+    const live={id:"context-score",key:"nrl",date:day,status:"live",sourceEventIds:["context-bridge"],homeScore:0,awayScore:0,statusCheckedAt:at(0),scoreCheckedAt:at(0)};
+    for(const [source,event,keys] of [["a-details",details,[details.id]],["b-bridge",bridge,[bridge.id,details.id]],["z-score",live,[live.id,bridge.id]]]){
+      await db.query("insert into public.nothingsports_fixture_sources(source_id,checked_at,discovery_report) values($1,$2::timestamptz,$3::jsonb)",[source,at(0),JSON.stringify({_fixtureObservations:{[event.id]:{s:event.scoreCheckedAt,t:event.statusCheckedAt}}})]);
+      await db.query("insert into public.nothingsports_fixture_current(source_id,fixture_id,identity_keys,fixture,content_hash) values($1,$2,$3,$4::jsonb,'context')",[source,event.id,keys,JSON.stringify(event)]);
+    }
+    const merged=async name=>{
+      const bundle=await read([],name),groups=new Map();
+      for(const row of bundle.rows){const source=groups.get(row.source_id)||{source_id:row.source_id,checked_at:at(0),fixtures:[]};source.fixtures.push(row.fixture);groups.set(row.source_id,source);}
+      return model.select(overlaySnapshots([],[...groups.values()],{now:new Date(now)}),now);
+    };
+    const before=await merged("qa_reference_match_centre_bundle"),after=await merged("nothingsports_read_match_centre_fixture_bundle");
+    assert.equal(before.length,1);assert.deepEqual(after,before);
+    assert.equal(after[0].name,"Storm v Panthers");assert.equal(after[0].venue,"Reviewed Ground");assert.equal(after[0].homeParticipantId,"team:nrl:storm");assert.equal(after[0].homeScore,0);
+    const request=requestFor(),store=createSnapshotStore({request});
+    const handler=createMatchCentreHandler({enabled:()=>true,clock:()=>now,published:()=>[],request,snapshotRead:async options=>({sources:await store.read(options),readAt:now,stale:false})});
+    const response={setHeader(){},status(){return this;},json(body){this.body=body;return this;}};
+    await handler({url:"/api/match-centre?membership=everything"},response);
+    assert.equal(response.body.membershipStale,false);assert.equal(response.body.fixtures.length,1);assert.equal(response.body.fixtures[0].homeParticipantId,"team:nrl:storm");
+  });
+  await test("same-start context with different IDs preserves the actual semantic merge", async () => {
+    await seed([]);
+    const details=fixture("semantic-details",{status:"unreviewed",name:"Storm v Panthers",venue:"Semantic Ground",broadcaster:"Reviewed Channel"});
+    const live=fixture("semantic-score",{startTimeUtc:details.startTimeUtc.replace("Z","+00:00")});
+    delete live.name;delete live.venue;
+    for(const [source,event] of [["a-details",details],["z-score",live]]){
+      await db.query("insert into public.nothingsports_fixture_sources(source_id,checked_at,discovery_report) values($1,$2::timestamptz,$3::jsonb)",[source,at(0),JSON.stringify({_fixtureObservations:{[event.id]:{s:event.scoreCheckedAt,t:event.statusCheckedAt}}})]);
+      await db.query("insert into public.nothingsports_fixture_current(source_id,fixture_id,identity_keys,fixture,content_hash) values($1,$2,array[$2],$3::jsonb,'semantic')",[source,event.id,JSON.stringify(event)]);
+    }
+    const merged=async name=>{
+      const bundle=await read([],name),groups=new Map();
+      for(const row of bundle.rows){const source=groups.get(row.source_id)||{source_id:row.source_id,checked_at:at(0),fixtures:[]};source.fixtures.push(row.fixture);groups.set(row.source_id,source);}
+      return model.select(overlaySnapshots([],[...groups.values()],{now:new Date(now)}),now);
+    };
+    const before=await merged("qa_reference_match_centre_bundle"),after=await merged("nothingsports_read_match_centre_fixture_bundle");
+    assert.equal(before.length,1);assert.deepEqual(after,before);assert.equal(after[0].venue,"Semantic Ground");assert.equal(after[0].name,"Storm v Panthers");
+    assert.equal((await read()).rows.length,2,"Both records survive despite different IDs and equivalent offset clocks");
   });
   await test("cancelled known correction removes an old published starting-soon member", async () => {
     const old = fixture("cancelled-known", {
