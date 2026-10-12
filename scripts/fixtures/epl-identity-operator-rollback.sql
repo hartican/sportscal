@@ -29,6 +29,7 @@ begin
  select jsonb_agg(jsonb_build_object('table',c.relname,'name',g.tgname,'state',g.tgenabled,'definition',pg_get_triggerdef(g.oid)) order by c.relname,g.tgname) from pg_trigger g join pg_class c on c.oid=g.tgrelid join pg_namespace ns on ns.oid=c.relnamespace where ns.nspname='public' and c.relname=any(event_tables) and not g.tgisinternal into trigger_state;
  if trigger_state is distinct from inv->'triggerState' then raise exception 'EPL undo requires newer trigger review';end if;
  if (select count(*) from nothingsports_recovery.coverage_repair_rows where version=version_id and table_name='@function')<>7 then raise exception 'EPL original function preimages are incomplete';end if;
+ drop trigger epl_prediction_settlement_v1 on public.nothingsports_predictions;
  for item in select payload from nothingsports_recovery.coverage_repair_rows where version=version_id and table_name='@function' order by row_key loop execute item.payload->>'definition';end loop;
  -- Only new, unused, noncustomer catalog records can be removed.
  delete from public.nothingsports_prediction_rules where event_id in(select jsonb_array_elements_text(inv->'addedRules'));
@@ -37,5 +38,8 @@ begin
  drop function nothingsports_recovery.epl_identity_ready_v1();
  drop function nothingsports_recovery.epl_operating_ids_v1(text);
  drop function nothingsports_recovery.epl_reward_clock_v1(text,text,timestamp with time zone);
+ drop function nothingsports_recovery.epl_prediction_settlement_guard_v1();
+ select jsonb_agg(jsonb_build_object('table',c.relname,'name',g.tgname,'state',g.tgenabled,'definition',pg_get_triggerdef(g.oid)) order by c.relname,g.tgname) from pg_trigger g join pg_class c on c.oid=g.tgrelid join pg_namespace ns on ns.oid=c.relnamespace where ns.nspname='public' and c.relname=any(event_tables) and not g.tgisinternal into trigger_state;
+ if trigger_state is distinct from inv->'triggerBefore' then raise exception 'EPL original triggers were not restored';end if;
  update nothingsports_recovery.coverage_repair_versions set completed_at=null,inventory=inventory||jsonb_build_object('operatorReversedAt',clock_timestamp()) where version=version_id;
 end $epl_undo$;

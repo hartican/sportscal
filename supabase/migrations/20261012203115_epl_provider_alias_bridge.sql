@@ -17,7 +17,7 @@ declare
  expected_functions constant jsonb:='{"nothingsports_recovery.fixture_alias_v1(text)":"a75cba265ff5f09f51a967d6a97e7fb0","nothingsports_recovery.alias_guard_v1()":"74bd214300fa55b327a96073c1f804b2","public.nothingsports_nsc_award_points(uuid,text,text,integer,timestamp with time zone)":"da51784b2689f1ca1cb8d35d8ee7330d","public.nothingsports_nsc_submit_rating(uuid,text,text,integer,text[],timestamp with time zone)":"9c518be85c035116402b132d175dbace","public.nothingsports_rate_v2(uuid,text,text,integer,timestamp with time zone,timestamp with time zone,text,text,text)":"417b81e1921abec2ff809314865dbd9f","public.nothingsports_resolve_predictions(text,timestamp with time zone,text)":"078b9a1a40c5ad78f99e9f5245a64854","public.nothingsports_resolve_predictions_legacy(text,timestamp with time zone,text)":"93cfa3d90a028607a0653e5ef4b8a82a"}'::jsonb;
  t text;sig text;expected text;state_hash text;identity_hash text;n bigint;
  before_state jsonb:='{}';post_state jsonb:='{}';security_before jsonb;security_after jsonb;
- trigger_state jsonb;function_post jsonb;security_post jsonb;aux_before jsonb;aux_after jsonb;added_parents jsonb:='[]';added_rules jsonb:='[]';
+ trigger_state jsonb;trigger_post jsonb;function_post jsonb;security_post jsonb;aux_before jsonb;aux_after jsonb;added_parents jsonb:='[]';added_rules jsonb:='[]';
  world jsonb;source_key text;canonical text;confirmed_finish timestamptz;legacy_rule public.nothingsports_prediction_rules;inv jsonb;
 begin
  perform pg_advisory_xact_lock(hashtext('sportscal:coverage-repair:v1'));
@@ -29,7 +29,7 @@ begin
   end loop;
   return;
  end if;
- if to_regprocedure('nothingsports_recovery.epl_reward_clock_v1(text,text,timestamp with time zone)') is not null or to_regprocedure('nothingsports_recovery.epl_operating_ids_v1(text)') is not null or to_regprocedure('nothingsports_recovery.epl_identity_ready_v1()') is not null or to_regprocedure('public.nothingsports_epl_identity_ready()') is not null then raise exception 'EPL helper names already exist without a completed reviewed bridge';end if;
+ if to_regprocedure('nothingsports_recovery.epl_prediction_settlement_guard_v1()') is not null or exists(select 1 from pg_trigger where tgrelid='public.nothingsports_predictions'::regclass and tgname='epl_prediction_settlement_v1') or to_regprocedure('nothingsports_recovery.epl_reward_clock_v1(text,text,timestamp with time zone)') is not null or to_regprocedure('nothingsports_recovery.epl_operating_ids_v1(text)') is not null or to_regprocedure('nothingsports_recovery.epl_identity_ready_v1()') is not null or to_regprocedure('public.nothingsports_epl_identity_ready()') is not null then raise exception 'EPL helper names already exist without a completed reviewed bridge';end if;
  for sig,expected in select * from jsonb_each_text(expected_functions) loop
   if to_regprocedure(sig) is null or md5(pg_get_functiondef(sig::regprocedure)) is distinct from expected then raise exception 'EPL baseline function drift: %',sig;end if;
   if has_function_privilege('anon',sig,'execute') or has_function_privilege('authenticated',sig,'execute') then raise exception 'EPL writer/helper client grant requires review: %',sig;end if;
@@ -351,7 +351,7 @@ end $function$;$ddl_nothingsports_rate_v2$;
  LANGUAGE plpgsql
  SET search_path TO ''
 AS $function$
-declare r public.nothingsports_prediction_rules;p record;n integer;avg_rating numeric;answer integer;outcome text;total integer:=0;begin
+declare epl_previous_scope text;r public.nothingsports_prediction_rules;p record;n integer;avg_rating numeric;answer integer;outcome text;total integer:=0;begin
  -- reviewed-fixture-rpc-identity-v1
  target_event_id:=nothingsports_recovery.fixture_alias_v1(target_event_id);
 
@@ -365,6 +365,8 @@ declare r public.nothingsports_prediction_rules;p record;n integer;avg_rating nu
  end if;
  if r.settled_at is not null then return 0;end if;
  if r.cutoff is null or clock_timestamp()<r.cutoff then return 0;end if;
+ epl_previous_scope:=current_setting('nothingsports.epl_resolver_scope',true);
+ perform set_config('nothingsports.epl_resolver_scope',target_event_id,true);
  for p in select distinct on(x.user_id) x.*,f.starts_at,f.status from public.nothingsports_predictions x join public.nothingsports_score_fixtures f on f.event_id=target_event_id where x.event_id=any(nothingsports_recovery.epl_operating_ids_v1(target_event_id)) and x.result='pending'
  and not exists(select 1 from public.nothingsports_predictions done where done.user_id=x.user_id and done.event_id=any(nothingsports_recovery.epl_operating_ids_v1(target_event_id)) and (done.resolved_at is not null or done.matched_user_id is not null or done.result not in('pending','unscored')))
  order by x.user_id,x.updated_at desc,(x.event_id=target_event_id) desc,x.created_at desc loop
@@ -379,6 +381,7 @@ declare r public.nothingsports_prediction_rules;p record;n integer;avg_rating nu
    values(p.user_id,'system','consensus:'||target_event_id,target_event_id,'Anticipation rating settled','Open your rewards for the outcome. Participation points are retained.') on conflict(recipient_user_id,source_key) do nothing;
   end if;
  end loop;
+ perform set_config('nothingsports.epl_resolver_scope',coalesce(epl_previous_scope,''),true);
  update public.nothingsports_prediction_rules set settled_at=clock_timestamp() where event_id=r.event_id;
  return total;
 end $function$;$ddl_nothingsports_resolve_predictions$;
@@ -387,7 +390,7 @@ end $function$;$ddl_nothingsports_resolve_predictions$;
  LANGUAGE plpgsql
  SET search_path TO ''
 AS $function$
-declare p record;peer uuid;has_peer boolean;total integer:=0;deadline timestamptz;begin
+declare epl_previous_scope text;p record;peer uuid;has_peer boolean;total integer:=0;deadline timestamptz;begin
  -- reviewed-fixture-rpc-identity-v1
  target_event_id:=nothingsports_recovery.fixture_alias_v1(target_event_id);
 
@@ -397,6 +400,8 @@ declare p record;peer uuid;has_peer boolean;total integer:=0;deadline timestampt
  update public.nothingsports_score_fixtures set ends_at=confirmed_end,status=final_status where event_id=target_event_id;
  end if;
  select ends_at+interval '48 hours' into deadline from public.nothingsports_score_fixtures where event_id=target_event_id and status in('completed','finished','final','cancelled','canceled','abandoned');
+ epl_previous_scope:=current_setting('nothingsports.epl_resolver_scope',true);
+ perform set_config('nothingsports.epl_resolver_scope',target_event_id,true);
  for p in select distinct on(x.user_id) x.*,f.starts_at,f.status from public.nothingsports_predictions x join public.nothingsports_score_fixtures f on f.event_id=target_event_id where x.event_id=any(nothingsports_recovery.epl_operating_ids_v1(target_event_id)) and x.result='pending'
  and not exists(select 1 from public.nothingsports_predictions done where done.user_id=x.user_id and done.event_id=any(nothingsports_recovery.epl_operating_ids_v1(target_event_id)) and (done.resolved_at is not null or done.matched_user_id is not null or done.result not in('pending','unscored')))
  order by x.user_id,x.updated_at desc,(x.event_id=target_event_id) desc,x.created_at desc loop
@@ -412,8 +417,27 @@ declare p record;peer uuid;has_peer boolean;total integer:=0;deadline timestampt
  select exists(select 1 from (select distinct on(raw.user_id,raw.phase) raw.* from public.nothingsports_score_votes raw where raw.event_id=any(nothingsports_recovery.epl_operating_ids_v1(target_event_id)) and raw.phase in('pulse','impact') order by raw.user_id,raw.phase,raw.recorded_at desc,(raw.event_id=target_event_id) desc) v where v.event_id=any(nothingsports_recovery.epl_operating_ids_v1(target_event_id)) and v.user_id<>p.user_id and v.phase in('pulse','impact') and v.recorded_at between p.starts_at and deadline and not exists(select 1 from public.nothingsports_nsc_personas m where m.user_id=v.user_id and m.moderation_flag)) into has_peer;
  update public.nothingsports_predictions set result=case when has_peer then 'miss' else 'unscored' end,resolved_at=clock_timestamp() where user_id=p.user_id and event_id=p.event_id and result='pending';
  end if;
- end loop;return total;
+ end loop;
+ perform set_config('nothingsports.epl_resolver_scope',coalesce(epl_previous_scope,''),true);return total;
 end $function$;$ddl_nothingsports_resolve_predictions_legacy$;
+ execute $ddl_settlement_guard$create or replace function nothingsports_recovery.epl_prediction_settlement_guard_v1()
+returns trigger language plpgsql security definer set search_path='' as $body$
+declare operating_ids text[];canonical text;
+begin
+ operating_ids:=nothingsports_recovery.epl_operating_ids_v1(old.event_id);
+ if cardinality(operating_ids)=1 then return new;end if;
+ if new.result is not distinct from old.result and new.resolved_at is not distinct from old.resolved_at and new.matched_user_id is not distinct from old.matched_user_id then return new;end if;
+ -- Auth deletion may detach an erased peer. It cannot rewrite any sporting
+ -- result, identity, timestamp, rating or other field in the retained row.
+ if old.matched_user_id is not null and new.matched_user_id is null and (to_jsonb(new)-'matched_user_id') is not distinct from (to_jsonb(old)-'matched_user_id') then return new;end if;
+ canonical:=nothingsports_recovery.fixture_alias_v1(old.event_id);
+ if current_setting('nothingsports.epl_resolver_scope',true) is distinct from canonical then raise exception 'epl_prediction_settlement_requires_current_owner';end if;
+ if old.resolved_at is not null or old.matched_user_id is not null or old.result not in('pending','unscored') then raise exception 'epl_prediction_already_settled';end if;
+ if exists(select 1 from public.nothingsports_predictions x where x.user_id=old.user_id and x.event_id=any(operating_ids) and x.event_id<>old.event_id and (x.resolved_at is not null or x.matched_user_id is not null or x.result not in('pending','unscored'))) then raise exception 'epl_prediction_alias_already_settled';end if;
+ return new;
+end $body$;
+revoke all on function nothingsports_recovery.epl_prediction_settlement_guard_v1() from public,anon,authenticated,service_role;
+create trigger epl_prediction_settlement_v1 before update of result,resolved_at,matched_user_id on public.nothingsports_predictions for each row execute function nothingsports_recovery.epl_prediction_settlement_guard_v1();;$ddl_settlement_guard$;
  execute $ddl_private_ready$create or replace function nothingsports_recovery.epl_identity_ready_v1()
 returns boolean language sql stable security definer set search_path='' as $body$
  select exists(select 1 from nothingsports_recovery.coverage_repair_versions where version='epl-provider-identity.20261013' and completed_at is not null);
@@ -432,12 +456,13 @@ grant execute on function public.nothingsports_epl_identity_ready() to service_r
  end loop;
  select jsonb_object_agg(p.oid::regprocedure::text,jsonb_build_object('acl',p.proacl::text,'owner',p.proowner,'definer',p.prosecdef,'config',p.proconfig)) from pg_proc p where p.oid in(select key::regprocedure::oid from jsonb_each(expected_functions)) into security_after;
  if security_before is distinct from security_after then raise exception 'EPL existing function ownership/grants/security changed';end if;
- select jsonb_object_agg(p.oid::regprocedure::text,md5(pg_get_functiondef(p.oid))) into function_post from pg_proc p join pg_namespace ns on ns.oid=p.pronamespace where p.oid in(select key::regprocedure::oid from jsonb_each(expected_functions)) or ns.nspname='nothingsports_recovery' and p.proname in('epl_operating_ids_v1','epl_identity_ready_v1','epl_reward_clock_v1') or ns.nspname='public' and p.proname='nothingsports_epl_identity_ready';
+ select jsonb_object_agg(p.oid::regprocedure::text,md5(pg_get_functiondef(p.oid))) into function_post from pg_proc p join pg_namespace ns on ns.oid=p.pronamespace where p.oid in(select key::regprocedure::oid from jsonb_each(expected_functions)) or ns.nspname='nothingsports_recovery' and p.proname in('epl_operating_ids_v1','epl_identity_ready_v1','epl_reward_clock_v1','epl_prediction_settlement_guard_v1') or ns.nspname='public' and p.proname='nothingsports_epl_identity_ready';
  select jsonb_build_object(
  'reminderIntents',(select md5(coalesce(string_agg(to_jsonb(r)::text,'' order by to_jsonb(r)::text),'')) from public.nothingsports_reminder_intents r where r.fixture_id=any(ids) or r.aliases ?| ids),
  'privateRooms',(select md5(coalesce(string_agg(to_jsonb(r)::text,'' order by to_jsonb(r)::text),'')) from public.nothingsports_chat_rooms r where r.canonical_fixture_id=any(ids)),
  'savedState',(select md5(coalesce(string_agg(to_jsonb(r)::text,'' order by to_jsonb(r)::text),'')) from public.nothingsports_user_state r)) into aux_after;
  if aux_after is distinct from aux_before then raise exception 'EPL saved choices/private references changed during preparation';end if;
  select jsonb_object_agg(p.oid::regprocedure::text,jsonb_build_object('acl',p.proacl::text,'owner',p.proowner,'definer',p.prosecdef,'config',p.proconfig)) from pg_proc p where p.oid in(select key::regprocedure::oid from jsonb_each(function_post)) into security_post;
- update nothingsports_recovery.coverage_repair_versions set inventory=jsonb_build_object('mode','forward-only/no-customer-preimages','beforeState',before_state,'postState',post_state,'securityBefore',security_before,'functionPostState',function_post,'functionSecurityPost',security_post,'auxPostState',aux_after,'triggerState',trigger_state,'addedParents',added_parents,'addedRules',added_rules,'scope',to_jsonb(ids)),completed_at=clock_timestamp() where version=version_id;
+ select jsonb_agg(jsonb_build_object('table',c.relname,'name',g.tgname,'state',g.tgenabled,'definition',pg_get_triggerdef(g.oid)) order by c.relname,g.tgname) from pg_trigger g join pg_class c on c.oid=g.tgrelid join pg_namespace ns on ns.oid=c.relnamespace where ns.nspname='public' and c.relname=any(event_tables) and not g.tgisinternal into trigger_post;
+ update nothingsports_recovery.coverage_repair_versions set inventory=jsonb_build_object('mode','forward-only/no-customer-preimages','beforeState',before_state,'postState',post_state,'securityBefore',security_before,'functionPostState',function_post,'functionSecurityPost',security_post,'auxPostState',aux_after,'triggerBefore',trigger_state,'triggerState',trigger_post,'addedParents',added_parents,'addedRules',added_rules,'scope',to_jsonb(ids)),completed_at=clock_timestamp() where version=version_id;
 end $epl_apply$;
