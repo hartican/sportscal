@@ -149,7 +149,7 @@ declare reviewed_event jsonb;reviewed_pair jsonb;fixture_start timestamptz;fixtu
   -- Stable terminal/non-playing facts override stale host arguments. Caller
   -- qualification of nonterminal play/staleness keeps its existing owner.
   if reviewed_event->>'status' in('completed','finished','final','cancelled','canceled','abandoned','postponed') then fixture_status:=reviewed_event->>'status';end if;
- 
+
  end if;
 
  return jsonb_build_object('starts_at',fixture_start,'ends_at',fixture_end,'status',fixture_status);
