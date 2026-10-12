@@ -1,16 +1,16 @@
 # CTO delivery programme — authoritative current queue
 
-**Current decision — 12 October 2026:** Rugby Schedule now opens with nine matches instead of 468, groups competitions and source dates clearly, and keeps all reviewed finals accessible. Clearer tennis, tournament and Test cards, distinct Football choices and earlier discovery/loading/status repairs remain live. Next, check remaining Rugby ratings/date wording and finish Football and cross-sport launch proof. Actual-phone use, permissions, return visits and the next normal overnight update remain separate. Passwords/iCloud stays parked.
+**Current decision — 12 October 2026:** Rugby Schedule opens with nine matches instead of 468; ratings now settle, overseas event dates say whose local dates they show, and Follow keeps an event visible through its final local day. Clearer cards, distinct Football choices and earlier discovery/loading/status repairs remain live. Next, deliver the already approved card-layout pass after its reviewed handoff, then finish Football and cross-sport launch proof. Keep the existing app-loading limit. Actual-phone use, permissions, return visits and the next normal overnight update remain separate. Passwords/iCloud stays parked.
 
-**What users get:** Real teams first, shorter and clearer schedules, recognisable competition/round labels, honest tournament/Test progress, visible completion, balanced logos and more trustworthy scores and dates. Hidden scores stay hidden; saved reminder OFF stays off. The improvements are live, but real-phone use and the full launch checklist still need proof.
+**What users get:** Shorter schedules, clearer dates and rounds, ratings that stop looking stuck, real teams first and more trustworthy scores. Follow and Events use the same saved interface when the app updates. Hidden scores stay hidden and reminder OFF stays off. These improvements are live; full launch readiness and real-phone use still need proof.
 
 **Full approval:** 0/18 carried families and 0/3 Football pilots, targeting at least 15/18 families. This counts complete launch checks, not whether any useful work has shipped. Limited Horse Racing covers nine retained cards, not all racing. Earlier audit chapters keep their dated counts.
 
 **Next five actions, in order:**
 
-- Check remaining Rugby ratings and parent-date wording with settled native evidence before changing them. The grouping repair is now live; preserve its bounded opening view and all published matches.
+- Deliver the already approved consistent-card pass after its stable, independently reviewed handoff. Preserve the current ratings/date fixes, source facts, chosen privacy and reminder settings. Keep the same loading-size limit; assess shared optional code only where it saves bytes and work.
+- Finish Football pilot launch proof and other carried-sport gaps. Reuse dated source/viewing and current screen checks; add no leagues and keep unsupported facts unknown.
 - Let the same quiet read-only follow-up check the next normal overnight update; keep one update owner and no manual rescue.
-- Finish Football pilot launch proof and other carried-sport gaps. Reuse current source/viewing and screen checks; add no leagues and keep unsupported times, teams and outcomes unknown.
 - Complete the prepared brief phone check when available, then measure genuine return visits among authorised invitees. Existing owner questions remain pending; Passwords/iCloud stays parked.
 - Keep the small sponsor experiment ready. Launch waits for quality, permission and audience evidence. No outreach or purchase now.
 
@@ -21,3 +21,5 @@ The comprehensive audit retains 51 chapters and three architecture diagrams. Thi
 Latest evidence: [clearer cards and exact release](https://github.com/hartican/sportscal/blob/main/docs/quality/clearer-card-context-2026-10-12.md), [distinct Football choices](https://github.com/hartican/sportscal/blob/main/docs/quality/football-round-labels-2026-10-12.md), [confirmed Rugby Schedule gap](https://github.com/hartican/sportscal/blob/main/docs/quality/rugby-schedule-discovery-2026-10-12.md).
 
 Latest delivery: [Rugby Schedule repair and exact live proof](https://github.com/hartican/sportscal/blob/main/docs/quality/rugby-schedule-repair-2026-10-12.md). Its meaningful calendar regression now runs before every normal app deployment.
+
+Latest delivery: [Settled ratings and qualified event calendars](https://github.com/hartican/sportscal/blob/main/docs/quality/rugby-context-repair-2026-10-12.md). Accepted rating responses, hidden community results, final calendar-day visibility and shared cached interface ownership have meaningful regressions in the normal release checks.
