@@ -565,3 +565,48 @@ function majorEventMatchupLineup(subEvent,{compact=false}={}){
   });
   return matchup;
 }
+function eventParticipantFollowLevels(ev){
+  const participantIds = new Set([
+    ...FOLLOW_FEED_POLICY.participantIds(ev),
+    ...(TEAM_FOLLOW_CATALOGUE?.participantIdsForEvent?.(ev) || []),
+    ev.homeParticipantId,
+    ev.awayParticipantId,
+  ].filter(id=>id&&!(ev.excludedParticipantIds || []).includes(id)));
+  const direct = (userPreferences.preferenceGraph?.entityFollows || [])
+    .filter(preference => participantIds.has(preference.participantId)&&NOTHINGSPORTS_CRICKET_COVERAGE.matchesFollow(ev,preference))
+    .filter(preference => !FOLLOW_FEED_POLICY.sportKey(ev).startsWith("tennis") || !["follow","priority"].includes(preference.followLevel) || cachedParticipantFollow(preference.participantId).followed)
+    .map(preference => preference.followLevel);
+  const expanded = footballDirectoryApi?.expandedFollowLevels?.(
+    { ...ev, participantIds: Array.from(participantIds) },
+    userPreferences.preferenceGraph,
+    directoryFollowIndex()
+  ) || [];
+  return Array.from(new Set([...direct, ...expanded]));
+}
+
+
+function buildEventWhyItMatters(ev){
+  const locked=NOTHINGSPORTS_EDITORIAL_LOCKS.activeFor(ev);
+  if(locked)return buildEditorialL0Hook(locked.hook,'',{labelText:'Why it matters',supplementalCopy:cardStateForEvent(ev)==='opened'?locked.synopsis:''});
+  const opened = cardStateForEvent(ev) === "opened";
+  const originalHook = editorialNarrativeHookForDisplay(ev);
+  const precedingCopy = [spoilerSafeDisplayTitle(ev)];
+  if(isSpoilerVisible(ev) && getEventStatus(ev)==='past')precedingCopy.push(scoreLineForDisplay(ev,precedingCopy[0],compactResultForEvent(ev)) || '');
+  const helper=globalThis.NOTHINGSPORTS_EDITORIAL_LIFECYCLE;
+  const hook = helper.distinct(originalHook,precedingCopy) || (helper.distinct(editorialNarrativeSynopsisForDisplay(ev),precedingCopy).match(/[^.!?]+[.!?]*/)?.[0] || '').trim();
+  if (!isValidatedEditorialCopy(hook)) return null;
+  const seen = [...precedingCopy];
+  const uniqueCopy = copy => {
+    const value=globalThis.NOTHINGSPORTS_EDITORIAL_LIFECYCLE.distinct(copy,seen);
+    if(value)seen.push(value);return value;
+  };
+  uniqueCopy(hook);
+  const consequence = opened ? uniqueCopy(editorialConsequenceForDisplay(ev)) : "";
+  const supplemental = opened ? uniqueCopy(editorialNarrativeSynopsisForDisplay(ev)) : "";
+  return buildEditorialL0Hook(hook, isValidatedEditorialCopy(consequence) ? consequence : "", {
+    labelText:"Why it matters",
+    formCopy:opened && !helper.completed(ev) && ev.editorialNarrative?.dimensions?.includes('form') ? uniqueCopy(ev.editorialNarrative.formCopy) : '',
+    closingCopy:opened && !helper.completed(ev) ? uniqueCopy(ev.editorialNarrative?.closingCopy) : '',
+    supplementalCopy:isValidatedEditorialCopy(supplemental) ? supplemental : "",
+  });
+}

@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict');
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const timing=require('../config/card-timing'),tennis=require('../config/tennis-feed'),life=require('../config/card-lifecycle');
 const {buildServerFeed}=require('../lib/server-feed-pipeline');
 const now=new Date('2026-10-12T01:00:00Z');
@@ -11,8 +11,16 @@ const ao=parents.parents.find(p=>p.id==='tennis-parent:australian-open:2027:main
 assert(tennis.reason(ao,prefs,{now,participantTours:parents.participantTours}));
 assert.equal(tennis.reason(ao,{followFirst:{followedMajorEventIds:['australian-open']}},{now}),null,'Edition follow alone cannot fill future Feed');
 assert.equal(tennis.reason({...ao,date:'2027-10-13'},prefs,{now,participantTours:parents.participantTours}),null);
+assert.equal(tennis.reason({...ao,date:'2029-03-01'},prefs,{now:new Date('2028-02-29T01:00Z'),participantTours:parents.participantTours}),null,'Twelve months from leap day ends on February 28');
+assert(tennis.reason({...ao,date:'2029-02-28'},prefs,{now:new Date('2028-02-29T01:00Z'),participantTours:parents.participantTours}));
 assert.equal(tennis.reason({...ao,outlookParticipation:[{participantId:player,status:'withdrawn'}]},prefs,{now,participantTours:parents.participantTours}),null);
 assert.equal(tennis.reason({...ao,date:null},prefs,{now}),null,'Unknown dates cannot establish twelve months');
+// A newly reviewed withdrawal must be used even while the generated journey
+// document still contains its older possible-entry projection. No source write.
+const reviewed=structuredClone(require('../feeds/provider-exports/tennis/journeys-reviewed.v1.json'));reviewed.reviewedAt='2026-10-12';reviewed.sources.push({id:'controlled-withdrawal',url:'https://www.atptour.com/controlled-withdrawal',scope:'withdrawal',verifiedAt:'2026-10-12'});
+const changed=reviewed.editions.find(e=>e.id==='tennis-edition:australian-open:2027').participation.find(p=>p.playerId===player);Object.assign(changed,{status:'withdrawn',evidenceKind:'official_withdrawal',sourceIds:['controlled-withdrawal'],verifiedAt:'2026-10-12'});
+const projected={module:{exports:{}},require:name=>name==='../feeds/provider-exports/tennis/journeys-reviewed.v1.json'?reviewed:require(path.resolve(__dirname,'../lib',name))};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../lib/tennis-card-evidence.js'),'utf8'),projected);
+assert.equal(tennis.reason(projected.module.exports.parent(ao),prefs,{now,participantTours:parents.participantTours}),null,'Same-run reviewed withdrawal wins over the stale generated outlook');
 const smaller={...ao,tournamentLevel:'500',outlookTours:[],participantIds:[],sourceParticipation:[]};
 assert.equal(tennis.reason(smaller,prefs,{now,participantTours:parents.participantTours}),null);
 assert(tennis.reason({...smaller,outlookParticipation:[{participantId:player,status:'confirmed',evidenceKind:'official_entry'}]},prefs,{now}));
@@ -20,11 +28,18 @@ const fixture={id:'fixture:tennis:card-contract',key:'tennis',name:'Alcaraz v Op
 const admitted=(event,preferences=prefs,action={})=>buildServerFeed({events:[event],userId:'controlled',userState:{preferences,eventUserState:{[event.id]:action}},now,limit:1000}).events.some(e=>e.id===event.id);
 assert(!tennis.playStarted(fixture,{now}));assert(!admitted(fixture));
 assert(admitted(fixture,prefs,{addedToFixtures:true}),'An explicit Feed pin may appear before opening');
+for(const action of [{saved:true},{watchLater:true},{archived:true}])assert(!admitted(fixture,prefs,action),'History/save actions cannot become early Feed pins');
 assert(admitted({...fixture,tournamentOpeningDate:'2026-10-12'}));
+const qualifying={...fixture,tournamentId:'tournament:tennis:grand-slam-us-open-2026',date:'2026-08-25',tournamentOpeningDate:'2026-08-24',tournamentOpeningSourceUrl:'https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule2.json',eventCode:'MQ',roundLabel:'Round 1'};const projectedQualifying=require('../lib/tennis-card-evidence').fixture(qualifying);assert.equal(projectedQualifying.tournamentOpeningDate,'2026-08-24','An explicit official qualifying opening must not be overwritten by the main-draw calendar');assert(tennis.playStarted(projectedQualifying,{now:new Date('2026-08-24T01:00:00Z')}));
 assert(!admitted({...fixture,tournamentOpeningDate:'2026-10-12'},{}));
 assert(!tennis.playStarted({...fixture,tournamentOpeningDate:null},{now}),'No opening evidence stays withheld');
-assert(tennis.playStarted({...fixture,tournamentOpeningDate:null,status:'live',date:'2026-10-12'},{now}));
+assert(tennis.playStarted({...fixture,tournamentOpeningDate:null,status:'live',date:'2026-10-12',sourceUrl:'https://www.atptour.com/',statusCheckedAt:now.toISOString()},{now}));
 assert(tennis.playStarted({...fixture,tournamentOpeningDate:'2026-10-12'}, {now:new Date('2026-10-11T13:00:00Z')}),'Opening uses Sydney calendar midnight');
+for(const statusCheckedAt of [null,'2026-10-13T01:00:00Z','2026-10-01T01:00:00Z'])assert(!tennis.playStarted({...fixture,date:'2026-10-12',status:'live',sourceUrl:'https://www.atptour.com/',statusCheckedAt},{now}),'Missing/future/unbound source status cannot establish edition play');
+assert(!tennis.playStarted({...fixture,date:'2026-10-12',status:'live',sourceStale:true,sourceUrl:'https://www.atptour.com/',statusCheckedAt:now.toISOString()},{now}));
+assert(life.withinFeedWindow({date:'2026-09-24',status:'live',sourceUrl:'https://www.cricket.com.au/',statusCheckedAt:now.toISOString()},now),'Fresh source play retains a long ongoing contest');
+assert(life.withinFeedWindow({date:'2026-09-24',status:'stumps',sourceUrl:'https://www.cricket.com.au/',statusCheckedAt:now.toISOString()},now),'Fresh source pauses retain ongoing contests');
+assert(!life.withinFeedWindow({date:'2026-09-24',status:'upcoming',startTimeUtc:now.toISOString(),sourceUrl:'https://www.cricket.com.au/'},now),'Scheduled clocks cannot preserve an expired card');
 const rinky=schedule.find(f=>f.id==='fixture:tennis:espn:atp:184888');assert(!admitted(rinky,{}),'Actual unfollowed R128 cannot enter');
 assert(admitted(rinky,{preferenceGraph:{entityFollows:[{participantId:rinky.participantIds[1],followLevel:'follow'}]}}),'One followed opponent remains sufficient');
 const bjk=schedule.find(f=>f.id==='fixture:tennis:bjk-cup:2026:finals:qf4');assert(!life.withinFeedWindow(bjk,now));assert(!admitted(bjk,{}, {addedToFixtures:true,saved:true}),'Saved actions do not extend Feed expiry');
@@ -42,6 +57,7 @@ assert.match(timing.presentation(nb,now).ariaLabel,/MON 12 OCT/);
 assert.match(require('../config/country-flags').flagMarkup('RU',{nationality:true}),/ru.svg/);
 const final=schedule.find(f=>f.id==='fixture:tennis:espn:wta:184356');
 assert.deepEqual(final.participants.map(p=>p.countryCode),['CN','RU'],'Both actual final participants carry source countries');
-const score=require('../config/feed-live-scores'),cricket=require('./fixtures/match-centre-mobile-layout-20261012.json').events[0];
-const summary=score.presentation(cricket,{resultsOn:true,now:+now});assert(summary.summary);assert(summary.text.length>summary.summary.length);assert.equal(score.presentation(cricket,{resultsOn:false}),null);
+const score=require('../config/feed-live-scores'),cricket=require('../data/follow-schedule/cricket.json').fixtures.find(f=>f.sourceEventIds?.includes('fixture:cricket:CA:39990'));
+const summary=score.presentation(cricket,{resultsOn:true,now:+now});assert(summary.summary.includes('33/0'));assert(!summary.summary.includes('390/10'));assert(summary.text.length>summary.summary.length);
+const reverse={...cricket,innings:[...cricket.innings].reverse()};assert.equal(score.presentation(reverse,{resultsOn:true,now:+now}).summary,summary.summary,'Published innings numbers, not provider array order, select the current summary');assert.equal(score.presentation(cricket,{resultsOn:false}),null);
 console.log('Consistent cards: actual tennis flags/R128/BJK, opening/pin/opponent boundaries, source outlook/withdrawal, Sydney seven-day expiry, early completion and concise score privacy passed.');

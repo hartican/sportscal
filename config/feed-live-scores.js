@@ -14,7 +14,7 @@
   if(!text)return null;
   const stamp=Date.parse(snapshot.scoreCheckedAt||(event.fixtureObservationSchema?null:snapshot.checkedAt)||''),observed=Number.isFinite(stamp)&&stamp<=now,settled=model.final(event),fresh=observed&&now-stamp<=model.interval(event,now)*2&&(score.racing||!event.stale&&!event.sourceStale);
   const status=score.racing?.kind==='horse'?score.racing.statusText:settled?(score.racing?.phase==='provisional-result'?'Provisional classification':'Finished'):fresh&&/^(live|in-progress)$/.test(event.status)?score.racing?.statusText||'Live':model.interrupted(event)&&(!model.halftime(event)||fresh)?model.pausedLabel(event):score.racing?'Awaiting update':'Last available score';
-  if(score.innings?.length){const i=score.innings.at(-1);summary=`${i.team||name(i.participantId)||'Innings'} ${i.runs??'—'}/${i.wickets??'—'} (${i.overs??'—'} overs)`;}
+  if(score.innings?.length){const i=score.innings.reduce((a,b)=>Number.isInteger(b.inningNumber)&&b.inningNumber>(a.inningNumber||0)?b:a,score.innings.at(-1));summary=`${i.team||name(i.participantId)||'Innings'} ${i.runs??'—'}/${i.wickets??'—'} (${i.overs??'—'} overs)`;}
   if(snapshot.cricketBalance){text+=' · '+snapshot.cricketBalance;if(summary)summary+=' · '+snapshot.cricketBalance;}
   const start=Date.parse(event.startTimeUtc||''),advanceField=score.racing?.kind==='horse'&&['nominations','acceptances','final-declarations'].includes(score.racing.phase)&&(!Number.isFinite(start)||now<start-3600000);
   return {text,summary,status,stale:Boolean(event.stale)||(!settled&&!fresh&&!advanceField),checkedAt:observed?new Date(stamp).toISOString():null};

@@ -73,8 +73,9 @@
     const terminal = /^(completed|finished|final|cancelled|canceled|abandoned)$/.test(event.status || '');
     const first = event.date || event.startDate, end = event.endDate || first;
     if(!terminal && validDay(end) && end >= today)return true;
-    const controls = typeof module === 'object' && module.exports ? require('./feed-controls') : globalThis.NOTHINGSPORTS_FEED_CONTROLS;
-    if(!terminal && controls?.timingState(event,now)?.key === 'live')return true;
+    const observed=Date.parse(event.statusCheckedAt||event.statusSource?.checkedAt||'');
+    const sourced=/^https:\/\//.test(event.statusSourceUrl||event.statusSource?.sourceUrl||event.sourceUrl||'');
+    if(!terminal&&/^(live|in-progress|in_progress|ongoing|stumps|rain-delay|break|suspended|interrupted)$/.test(event.status||'')&&sourced&&Number.isFinite(observed)&&observed<=+now&&+now-observed<=1800000&&event.stale!==true&&event.sourceStale!==true)return true;
     const actual = event.actualEndTimeUtc || event.endTimeUtc;
     const instant = new Date(actual || '');
     const day = terminal && Number.isFinite(+instant) && +instant <= +now && (!validDay(first)||calendar.sydneyDay(instant)>=first) ? calendar.sydneyDay(instant) : end;

@@ -12,7 +12,7 @@ assert(fixtures.every(Boolean));
   await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:33962');
   await page.waitForFunction(()=>typeof buildEventCard==='function'&&startupFunnelFinished&&!startupCoordinator.isHydrating());
   await page.addStyleTag({content:'*{transition:none!important;animation:none!important}header.top,#timelineTools{visibility:hidden!important}'});
-  for(const width of [390,1280])for(const theme of ['day','night'])for(const fixture of fixtures)for(const tab of ['events','feed']){
+  for(const width of [320,390,1280])for(const theme of ['day','night'])for(const fixture of fixtures)for(const tab of ['events','feed']){
    await page.setViewportSize({width,height:1000});
    await page.evaluate(({fixture,tab,theme})=>{
     document.querySelectorAll('[role=dialog]').forEach(n=>n.parentElement.style.display='none');document.querySelectorAll('dialog[open]').forEach(n=>n.close());document.getElementById('startupLaunch')?.remove();document.body.classList.remove('modal-open','settings-open');
@@ -28,7 +28,7 @@ assert(fixtures.every(Boolean));
    for(const s of pending){assert(Math.abs(s.image.y+s.image.height/2-(s.frame.y+s.frame.height/2))<1,'pending logo shares the frame centre rather than a second grid row');assert(s.image.height>=s.frame.height*.85,'pending logo retains its full size');}
    await page.evaluate(async()=>{const card=document.querySelector('#listView .event-card');card.remove();HTMLImageElement.prototype.decode=originalLogoDecode;logoDecodes.forEach(resolve=>resolve());await Promise.resolve();document.getElementById('listView').append(card);});
    await page.waitForFunction(()=>[...document.querySelectorAll('#listView .matchup-team-logo-slot')].every(s=>!s.querySelector('.team-logo-fallback,.team-logo-monogram')));
-   const loaded=await geometry();
+   const loaded=await geometry();for(const s of loaded){assert.equal(Math.round(s.frame.height),width<360?80:96,'Full participant frame matches the shared phone/desktop rule');assert.equal(Math.round(s.frame.width),width<360?80:96);}
    for(let tap=0;tap<4;tap++){
     await page.locator('#listView .event-card-disclosure').click();
     await page.waitForFunction(()=>[...document.querySelectorAll('#listView .matchup-team-logo,#listView .compact-participant-mark')].length===2&&[...document.querySelectorAll('#listView .matchup-team-logo,#listView .compact-participant-mark')].every(i=>i.complete&&i.naturalWidth>0));const current=await geometry();assert.equal(current.length,2);for(let i=0;i<2;i++){assert.equal(current[i].fallbacks,0,'cached tap never reintroduces a fallback beside a logo');const compact=await card.evaluate(c=>c.classList.contains('is-compact-row'));assert(compact?current[i].image.height>=47.9:Math.abs(current[i].image.height-loaded[i].image.height)<1,'tap preserves the appropriate full or compact logo frame');}

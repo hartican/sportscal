@@ -85,7 +85,9 @@
     const today=policy.dateKey(now),parent=parents.find(p=>matches(p,event));
     const opening=event.tournamentOpeningDate||parent?.date,source=event.tournamentOpeningSourceUrl||parent?.sourceUrl;
     if(/^https:\/\//.test(source||'')&&/^\d{4}-\d{2}-\d{2}$/.test(opening||'')&&opening<=today)return true;
-    return /^(live|in-progress|ongoing|stumps|suspended|break|completed|finished|final)$/.test(event.status||'')&&Boolean(event.date&&event.date<=today);
+    const observed=Date.parse(event.livePlayObservedAt||event.statusFactObservedAt||event.statusCheckedAt||event.resultSourceCheckedAt||event.resultPublishedAt||'');
+    const sourced=/^https:\/\//.test(event.statusSourceUrl||event.resultSourceUrl||event.sourceUrl||'');
+    return /^(live|in-progress|ongoing|stumps|suspended|break|completed|finished|final)$/.test(event.status||'')&&sourced&&Number.isFinite(observed)&&observed<=+now&&event.stale!==true&&event.sourceStale!==true&&Boolean(event.date&&event.date<=today&&policy.dateKey(observed)>=event.date);
   }
   function reason(parent,preferences,{collectionsById={},preparedPreferences=null,expandedParticipantIds=null,participantTours={},now=new Date()}={}){
     const policy=api('NOTHINGSPORTS_FOLLOW_FEED_POLICY'),follow=api('NOTHINGSPORTS_FOLLOW_FIRST');
@@ -96,7 +98,7 @@
     const verifiedIds=[...new Set([...(parent.participantIds||[]),...(parent.sourceParticipation||[]).filter(e=>!e.excluded&&!['withdrawn','excluded'].includes(e.participationStatus)).map(e=>e.participantId)])].filter(id=>!(parent.excludedParticipantIds||[]).includes(id));
     if(ongoing&&(parent.participantsConfirmed!==true||!verifiedIds.some(id=>follow.effectiveParticipantFollow(id,prefs,collectionsById).followed||expandedParticipantIds?.has(id))))return null;
     if(policy.sportKey(parent).startsWith('tennis')&&parent.date>today){
-      const horizon=new Date(today+'T12:00:00Z');horizon.setUTCFullYear(horizon.getUTCFullYear()+1);
+      const horizon=new Date(today+'T12:00:00Z');horizon.setUTCFullYear(horizon.getUTCFullYear()+1);if(horizon.getUTCDate()!==Number(today.slice(-2)))horizon.setUTCDate(0);
       if(parent.date>horizon.toISOString().slice(0,10)||!/^https:\/\//.test(parent.sourceUrl||''))return null;
       const identity=follow.participantFollowIdentityKey;
       const removed=new Set([...(parent.excludedParticipantIds||[]),...(parent.participationEvidence||[]).filter(e=>['withdrawn','excluded'].includes(e.participationStatus)).map(e=>e.participantId),...(parent.outlookParticipation||[]).filter(e=>e.status==='withdrawn').map(e=>e.participantId)].map(identity));
