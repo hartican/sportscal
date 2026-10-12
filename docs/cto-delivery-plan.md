@@ -1,6 +1,6 @@
 # CTO delivery programme — authoritative current queue
 
-**Current decision — 12 October 2026:** Rugby Schedule opens with nine matches instead of 468; ratings now settle, overseas event dates say whose local dates they show, and Follow keeps an event visible through its final local day. Clearer cards, distinct Football choices and earlier discovery/loading/status repairs remain live. Next, deliver the already approved card-layout pass after its reviewed handoff, then finish Football and cross-sport launch proof. Keep the existing app-loading limit. Actual-phone use, permissions, return visits and the next normal overnight update remain separate. Passwords/iCloud stays parked.
+**Current decision — 12 October 2026:** The Rugby ratings/date fixes are live. The approved card-layout update is in review. A new read-only check found that old match-data copies escape the existing seven-day cleanup when records stop changing. A local repair draft passes its checks; it has not changed production. Finish the reserved card release, then close this storage gap without adding a subscription, and continue Football and wider launch proof. Actual-phone use, permissions, return visits and the next normal overnight update remain separate. Passwords/iCloud stays parked.
 
 **What users get:** Shorter schedules, clearer dates and rounds, ratings that stop looking stuck, real teams first and more trustworthy scores. Follow and Events use the same saved interface when the app updates. Hidden scores stay hidden and reminder OFF stays off. These improvements are live; full launch readiness and real-phone use still need proof.
 
@@ -8,10 +8,10 @@
 
 **Next five actions, in order:**
 
-- Deliver the already approved consistent-card pass after its stable, independently reviewed handoff. Preserve the current ratings/date fixes, source facts, chosen privacy and reminder settings. Keep the same loading-size limit; assess shared optional code only where it saves bytes and work.
+- Deliver the approved consistent-card pass after its stable, independently reviewed handoff. Preserve the current ratings/date fixes, source facts and saved choices; keep the existing download-size limit.
+- Close the confirmed storage cleanup gap through the existing publisher. The local draft preserves current records and latest saved copies. Complete production-version, recovery and runtime checks before applying it; reclaim physical allocation only through a verified maintenance window. Keep the free plan and the same owner.
 - Finish Football pilot launch proof and other carried-sport gaps. Reuse dated source/viewing and current screen checks; add no leagues and keep unsupported facts unknown.
-- Let the same quiet read-only follow-up check the next normal overnight update; keep one update owner and no manual rescue.
-- Complete the prepared brief phone check when available, then measure genuine return visits among authorised invitees. Existing owner questions remain pending; Passwords/iCloud stays parked.
+- Let the same quiet follow-up check the next normal overnight update. Complete the brief real-phone check and genuine return-use proof when available; existing owner questions remain pending.
 - Keep the small sponsor experiment ready. Launch waits for quality, permission and audience evidence. No outreach or purchase now.
 
 **Operating default:** One ordered queue; small changes; checks suited to the risk; proof that the exact change is live. Updates use short, everyday English: what improves, what remains and what happens next. Technical detail stays in the evidence unless requested. Reuse unchanged evidence, limit investigations and replace brittle checks with meaningful ones. Ask Jack only about material product trade-offs, spending or irreversible choices. No new subscription or recurring owner task; existing assistant, runner and hosting costs remain unpriced. A reliable whole-programme finish date is still unsupported.
@@ -23,3 +23,5 @@ Latest evidence: [clearer cards and exact release](https://github.com/hartican/s
 Latest delivery: [Rugby Schedule repair and exact live proof](https://github.com/hartican/sportscal/blob/main/docs/quality/rugby-schedule-repair-2026-10-12.md). Its meaningful calendar regression now runs before every normal app deployment.
 
 Latest delivery: [Settled ratings and qualified event calendars](https://github.com/hartican/sportscal/blob/main/docs/quality/rugby-context-repair-2026-10-12.md). Accepted rating responses, hidden community results, final calendar-day visibility and shared cached interface ownership have meaningful regressions in the normal release checks.
+
+Latest assessment: [Storage efficiency and free-tier room](https://github.com/hartican/sportscal/blob/main/docs/quality/storage-efficiency-review-2026-10-12.md). The database is working on the free plan, but allocated space is above the published allowance. About 79 MB of expired historical payload is identified; no cleanup or physical saving is claimed. A source-bound draft passes 13 local cases and needs production safeguards before application.
