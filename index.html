@@ -14236,7 +14236,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=511').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=513').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
