@@ -12,7 +12,7 @@ assert.deepEqual(await page.locator('.tabs .tab-label').allTextContents(),['Feed
 const fixture=await page.evaluate(async()=>{
  userPreferences=clonePreferences(userPreferences);const ids=['competitor:tennis:atp:carlos-alcaraz','athlete:tennis:novak-djokovic'];
  for(const id of ids)userPreferences.preferenceGraph=PREFERENCE_SYSTEM.setEntityFollow(userPreferences.preferenceGraph,id,'follow');
- const date=formatDateKey(nowAEST());const event={id:'qa:athletes:match',eventId:'qa:athletes:match',canonicalEventId:'qa:athletes:match',key:'tennis',sportDomainId:'sport:tennis',name:'Carlos Alcaraz v Novak Djokovic',date,time:'23:00',startTimeUtc:new Date(Date.now()+86400000).toISOString(),timePrecision:'not-before',status:'scheduled',contestUnit:'match',tournamentLevel:'1000',participants:[{id:ids[0],name:'Carlos Alcaraz'},{id:ids[1],name:'Novak Djokovic'}],participantIds:ids,round:'quarterfinal',sourceUrl:'https://example.org/official',sourceCheckedAt:new Date().toISOString()};
+ const date=formatDateKey(nowAEST());const event={id:'qa:athletes:match',eventId:'qa:athletes:match',canonicalEventId:'qa:athletes:match',key:'tennis',sportDomainId:'sport:tennis',name:'Carlos Alcaraz v Novak Djokovic',date,time:'23:00',startTimeUtc:new Date(Date.now()+86400000).toISOString(),timePrecision:'not-before',status:'scheduled',contestUnit:'match',tournamentLevel:'1000',tournamentOpeningDate:date,tournamentOpeningSourceUrl:'https://example.org/official-opening',participants:[{id:ids[0],name:'Carlos Alcaraz'},{id:ids[1],name:'Novak Djokovic'}],participantIds:ids,round:'quarterfinal',sourceUrl:'https://example.org/official',sourceCheckedAt:new Date().toISOString()};
  userPreferences.fantasyDeadlines.enabled=false;userPreferences.feedCompact=true;activeTab='feed';activeFilter='all';feedViewFilters={sport:'sport:tennis',minimum:0};await hydrateFeedFilter();setCardState(event,'compact');applyFeedEvents([event],null,{append:true});rebuildDerivedCardCache();renderAll();return event;
 });
 payload={events:[fixture],athletes:fixture.participants.map(p=>({...p,displayName:p.name,sportKey:'tennis'})),pagination:{nextCursor:null}};
@@ -75,6 +75,15 @@ const withdrawnPerson=page.locator('.athletes-person[data-athlete-id="competitor
 // The earlier calendar hydration uses the existing ten-second manual guard.
 await page.waitForTimeout(Math.max(0,10050-((await page.evaluate(()=>Date.now()))-calendarRefreshAt)));
 failFeed=true;await page.getByRole('button',{name:'Refresh',exact:true}).click();await page.getByText('Showing available information. Refresh to check for updates.',{exact:true}).waitFor();assert(await page.locator('.athletes-person').count()>=1,'failure retains followed identities');
-assert.deepEqual(errors,[]);assert(!requests.some(u=>u.includes('fantasy=1')));console.log(JSON.stringify({engine,links:2,roundTrips:true,filterAndFocus:true,canonicalCalendarFocus:true,multipleFixtureRows:true,calendarConsentUnchanged:true,spoilersHidden:true,widths:[320,390,768,1280],legacyRedirect:true,nestedEventRoundTrip:true,unfollowAndDismissal:true,sourceFailure:true,errors}));
+// A successful HTTP response can still be a saved-schedule fallback.
+failFeed=false;payload.fixtureSnapshotStale=true;
+await page.getByRole('button',{name:'Open Carlos Alcaraz profile in Follow',exact:true}).click();
+const savedNotice=page.getByRole('status').filter({hasText:'Latest updates could not be checked. Showing the saved schedule.'});
+await savedNotice.waitFor();assert.equal(await savedNotice.count(),1,'Successful degraded responses stay understandable');
+assert(await page.locator('.athletes-profile-fixtures').count(),'Saved schedule remains available');
+payload.fixtureSnapshotStale=false;
+await page.waitForTimeout(10050);await page.getByRole('button',{name:'Refresh',exact:true}).click();
+await savedNotice.waitFor({state:'detached'});assert(await page.locator('.athletes-profile-fixtures').count(),'Healthy recovery retains the same profile');
+assert.deepEqual(errors,[]);assert(!requests.some(u=>u.includes('fantasy=1')));console.log(JSON.stringify({engine,links:2,roundTrips:true,filterAndFocus:true,canonicalCalendarFocus:true,multipleFixtureRows:true,calendarConsentUnchanged:true,spoilersHidden:true,widths:[320,390,768,1280],legacyRedirect:true,nestedEventRoundTrip:true,unfollowAndDismissal:true,sourceFailure:true,successfulDegradedNotice:true,healthyRecovery:true,errors}));
 }finally{await browser.close();}}}finally{await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1;});

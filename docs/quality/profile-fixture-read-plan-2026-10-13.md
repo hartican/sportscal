@@ -1,6 +1,6 @@
 # Football schedule loading: verified gap and next repair — 13 October 2026
 
-**Status: diagnosis and read-only experiment; implementation and live release remain pending.** This is the next engineering item in the single CTO delivery queue. It does not add competitions or certify Football.
+**Status: implemented locally; 37 checks and five paged actual-data comparisons pass. Guarded database application, exact app release and live browser proof remain pending.** This is the next engineering item in the single CTO delivery queue. It does not add competitions or certify Football.
 
 ## What users experience
 
@@ -29,6 +29,8 @@ Expose an explicit fixture-snapshot freshness state in the API. The profile shou
 Ordinary personalised Feed optimisation remains part of the programme, but is not to be silently folded into a participant-only proof. Its wider response requirements must be derived and checked separately before adopting the same transport seam.
 
 ## Acceptance and release
+
+Implementation adds a service-only participant bundle, complete source-group/alias/semantic context selection, exact request binding and bounded retained scope caches. Arsenal, Aston Villa, a current-team player, club Favourites and a profile with mixed favourites return identical complete paged bodies against the captured old-full reader. The capture retains all 769 raw rows of the three source groups selected by the current Football diagnostic and all 44 health records; other raw source data was not captured. The whole-world export failed its 2.5-second administrative statement gate, then its larger eight-second export failed transport. Those observations are retained; no production deadline was increased. The smaller complete Football capture succeeded. Existing global/Match Centre, server Feed, live-store and shell-cache checks also pass. Browser/update checks and independent reviews follow before application. This records passing local proof, not a release or broad certification.
 
 - Compare the actual old-full and new-scoped handler results at a fixed clock across Football and representative other profiles, including mixed favourites, player/current-team inheritance, aliases, unannounced source-only fixtures and complete pagination.
 - Exercise score-only/metadata overlays, alternate supported timestamps, missing/raw legacy sport keys, unknown requirements, reschedules beyond the old horizon, cancellations and explicit null withdrawals. Do not create dates or participants to make a test pass.

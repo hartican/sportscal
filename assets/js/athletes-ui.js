@@ -42,13 +42,13 @@
    const identityKeys=new Set((userPreferences.preferenceGraph?.entityFollows||[]).filter(p=>['follow','priority'].includes(p.followLevel)).map(p=>{const key=model.sport({id:p.participantId});return key==='tennis'&&/:wta:/.test(p.participantId)?'tennis-women':key;}));
    const identityLoads=[ensureFollowCollectionDirectories(),...[...identityKeys].filter(key=>!['football','nrl','afl','aflw'].includes(key)).map(key=>loadFollowDirectoryChunk(({nfl:'american-football',nhl:'ice-hockey','rugby-union':'rugby',nba:'basketball'})[key]||key))];
    void deadline(Promise.allSettled(identityLoads)).then(()=>{const current=[footballFollowIndex,canonicalPreferenceParticipants,...followDirectoryChunks.values()];if(valid(t)&&(current.length!==sources.length||current.some((source,i)=>source!==sources[i])))render();}).catch(()=>{});
-   let cursor=append?(nextCursor||0):0,next=append?[...events]:[],people=append?[...records]:[],pages=0;
+   let cursor=append?(nextCursor||0):0,next=append?[...events]:[],people=append?[...records]:[],pages=0,retainedStale=append&&Boolean(notice);
    do{
     const data=serverPersistence.user?await deadline(serverSyncClient.loadFeed({cursor,limit:50,scope:'athletes',participantId:profileId||null})):await fetch(`/api/feed?scope=athletes&limit=50&cursor=${cursor}${profileId?"&participantId="+encodeURIComponent(profileId):""}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({preferences:userPreferences,eventUserState:eventActions}),signal:AbortSignal.timeout(10000)}).then(r=>{if(!r.ok)throw Error('Athletes feed unavailable');return r.json();});
-    if(!valid(t))return false;next.push(...(data.events||[]));people.push(...(data.athletes||[]));const prior=cursor;cursor=data.pagination?.nextCursor??null;pages++;if(cursor!==null&&(cursor<=prior||pages>=40))throw Error('Athletes pagination is incomplete');
+    if(!valid(t))return false;retainedStale ||= data.fixtureSnapshotStale===true;next.push(...(data.events||[]));people.push(...(data.athletes||[]));const prior=cursor;cursor=data.pagination?.nextCursor??null;pages++;if(cursor!==null&&(cursor<=prior||pages>=40))throw Error('Athletes pagination is incomplete');
    }while(false);
    nextCursor=cursor;
-   if(!valid(t))return false;events=[...new Map(next.map(e=>[e.canonicalEventId||e.eventId||e.id,e])).values()];records=people.length?people:records;key=queryKey;checked=Date.now();notice='';return true;
+   if(!valid(t))return false;events=[...new Map(next.map(e=>[e.canonicalEventId||e.eventId||e.id,e])).values()];records=people.length?people:records;key=queryKey;checked=Date.now();notice=retainedStale?'Latest updates could not be checked. Showing the saved schedule.':'';return true;
   })().catch(()=>{if(valid(t))notice='Showing available information. Refresh to check for updates.';return false;}).finally(()=>{loading=null;if(activeTab==='follow'&&followHomeView==='favourites')render();});
   return loading;
  }
@@ -167,7 +167,7 @@
   if(account!==owner()){generation++;records=[];events=[];key='';checked=0;profileId='';origin=null;account=owner();}
   const panel=document.getElementById('listView'),focus=panel.contains(document.activeElement)?focusContext(document.activeElement):document.activeElement===document.body&&pendingFocus&&valid(pendingFocus.ticket)?pendingFocus.context:null;pendingFocus=null;panel.className='athletes-hub';panel.replaceChildren();restoreFocus(panel,focus,ticket());
   const heading=node('div',null,'athletes-heading');const refresh=node('button','Refresh','btn ghost');refresh.type='button';refresh.dataset.athletesFocusKey='refresh';refresh.setAttribute('aria-busy',String(Boolean(loading)));refresh.onclick=async()=>{if(Date.now()-lastManual<10000)return;lastManual=Date.now();rememberFocus(refresh);refresh.disabled=true;await hydrate(true);};heading.append(refresh);panel.append(heading);buildFollowHomeTabs(panel);
-  if(notice)panel.append(node('p',notice));else if(loading){const status=node('small','Updating…');status.setAttribute('role','status');heading.prepend(status);}
+  if(notice){const status=node('p',notice);status.setAttribute('role','status');panel.append(status);}else if(loading){const status=node('small','Updating…');status.setAttribute('role','status');heading.prepend(status);}
   selection=selectFixtures();
   const route=location.hash.match(/^#(?:follow\/profile|athletes)\/(.+)$/);if(route){try{profileId=decodeURIComponent(route[1]);}catch{profileId='';}}
   if(profileId){profile(panel,resolve(profileId),ticket());return;}
