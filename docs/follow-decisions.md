@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Reviewed EPL source identities and existing history — 13 October 2026 Sydney
+
+The authorised Football accuracy repair binds the complete 2026/27 EPL primary and retained secondary calendars by their reviewed exact provider IDs, competition/season and ordered clubs. Retire the proven older calendar only when its primary is available; keep original primary facts, dates and uncertainty, all source/action aliases, saved choices and OFF. New or unreadable secondary sporting evidence requires its own source reconciliation, rather than being silently retired. No team-pair matching across another competition, season or orientation; no inferred clock, Live, consent or new Follow. The prototype removes five repeated Arsenal rows in the actual calendar.
+
+Two older provider identities also have real ratings/predictions/credits, one collision and one settled prediction. This requires history protection before publication. Keep customer rows, original rewards, saved state and private boundaries. The complete acceptance path is [the dated EPL identity plan](quality/epl-provider-identity-plan-2026-10-13.md); prototypes are not production approval. Ordinary refresh, release, physical-phone and whole-sport gates remain separate.
+
 ## Name a direct participant profile from its accepted schedule — 13 October 2026 Sydney
 
 An unfollowed cold team profile must reuse the named participant returned in its accepted calendar when no existing search, canonical, card or directory record supplies the identity. Existing richer records keep their precedence in both profiles and Favourites; schedule records are fallback identities only. Accept a nonblank display, canonical or source name and the existing participant ID. A missing team name says “Team”; a missing individual name still says “Athlete”. Never derive a club name from an ID. Use the existing text-only rendering and sport classification. This changes no Follow admission, opt-in, action identity, result visibility, source clock, reminder choice, profile return behaviour or request. No extra directory download or owner decision. The actual browser regression covers cold direct opening, blank optional display name, missing identity and richer Favourites identity. Exact publication and hosted proof are recorded separately in the dated quality note.
