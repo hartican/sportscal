@@ -17014,8 +17014,7 @@ function jointTournamentIsActive(document = jointTournamentData, reference = now
   if (localDay > tournament.endDate) return false;
   if (localDay >= tournament.startDate) return true;
 
-  // The first OOP can be published on Cincinnati's prior evening. Let that
-  // real document pin the card early, but do not pin the empty overview early.
+  // An early official OOP may pin this card; an empty overview cannot.
   const scheduleDate = document?.schedule?.date;
   const retrievedAt = Date.parse(document?.retrievedAt || "");
   return Boolean(document?.schedule?.matches?.length
@@ -19406,7 +19405,9 @@ function buildDetailedMajorEventCard(record, { interactionCard = null } = {}){
   if(isMinimised || state==='compact'){
     card.classList.add('is-compact-row');
     const summary=buildCompactCardSummary({...record,key:record.sportKey,date:record.startDate,time:null});
-    summary.querySelector('.compact-card-time').textContent=majorEventDateLabel(record);
+    const label=majorEventDateLabel(record);
+    summary.querySelector('.compact-card-time').textContent=label;
+    summary.setAttribute('aria-label',record.name+'. '+label);summary.title=summary.getAttribute('aria-label');
     card.appendChild(summary);return card;
   }
   const ticketRow = document.createElement("div");
