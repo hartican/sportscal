@@ -8,13 +8,17 @@ const { buildReadinessReport, completedResultIsPresent, isUnresolvedOfficialPlac
 const { inputFromReadout } = require("./evaluate-pilot-readout");
 const { reportFromReadout, parseOptions } = require("./evaluate-pilot-readout");
 
-const canonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
-const feedMeta = JSON.parse(fs.readFileSync("data/feed-meta.json", "utf8"));
-// A source/table-only check can legitimately be newer than an unchanged Feed.
-// Exercise this stored-input contract at its latest observation; the real
-// operator verifier still uses its actual clock and the unchanged 15h limit.
-const observationNow = new Date(Math.max(Date.parse(canonical.generatedAt), Date.parse(feedMeta.publishedAt)));
+const retainedCanonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
+const retainedFeedMeta = JSON.parse(fs.readFileSync("data/feed-meta.json", "utf8"));
+// This source-content/readout contract uses synchronized receipt clocks in
+// memory only. Another sport's publication cannot make the real AFL/NRL
+// observation newer. Verify that separately with the unchanged 15h policy.
+const observationNow = new Date(Math.max(Date.parse(retainedCanonical.generatedAt), Date.parse(retainedFeedMeta.publishedAt)));
 assert(Number.isFinite(+observationNow), 'both stored observation dates must be valid');
+const retainedReadiness = buildReadinessReport({canonical:retainedCanonical,feedMeta:retainedFeedMeta,finals:readFinalsEvidence(),now:observationNow});
+if((+observationNow-Date.parse(retainedCanonical.generatedAt))/3600000>15){assert.equal(retainedReadiness.ready,false);assert(retainedReadiness.issues.includes('Canonical snapshot must be no more than 15 hours old.'),'a newer unrelated Feed publication must not refresh retained source facts');}
+if((+observationNow-Date.parse(retainedFeedMeta.publishedAt))/3600000>15){assert.equal(retainedReadiness.ready,false);assert(retainedReadiness.issues.includes('Published feed must be no more than 15 hours old.'));}
+const canonical={...retainedCanonical,generatedAt:observationNow.toISOString()},feedMeta={...retainedFeedMeta,publishedAt:observationNow.toISOString()};
 const readiness = buildReadinessReport({ canonical, feedMeta, finals: readFinalsEvidence(), now: observationNow });
 const reviewedAflwSource = canonical.events.find(event => event.competitionId === 'competition:aflw-2026' && event.resultStatus === 'official');
 assert(reviewedAflwSource, 'use an actual reviewed flat AFLW result');
