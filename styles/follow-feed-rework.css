@@ -313,7 +313,6 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .feed-fixture .compact-card-time{white-space:normal;overflow:visible;text-align:center;font-size:.7rem;margin-bottom:6px;}
 #listView .feed-fixture.is-compact-row{--fixture-logo-size:48px;padding:48px 12px 8px;}
 #listView .feed-fixture.is-compact-row .compact-card-name{width:100%;font-size:.9rem;white-space:normal;overflow:visible;}
-#listView .feed-fixture.is-compact-row :is(.compact-participant-mark,.compact-participant-fallback){width:48px;height:48px;flex:0 0 48px;object-fit:contain;}
 #listView .feed-fixture.is-compact-row .compact-participant-fallback{font-size:1rem;}
 
 .mode-schedule .matchup-identity-row{grid-template-columns:minmax(0,1fr) minmax(54px,.85fr) minmax(0,1fr);gap:6px;}
@@ -430,7 +429,6 @@ header.top .vector-glyph{width:20px;height:20px;}
 .athletes-person{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg-card)}
 .athletes-name{display:block;min-height:44px;border:0;background:none;color:var(--text);font-size:1rem;font-weight:800;padding:4px 0;text-align:left;cursor:pointer}
 
-/* Minimal Feed rows keep essentials legible independently of full card composition. */
 #listView .event-card.is-minimal-fixture{display:block;padding:8px 44px;background:var(--bg-card);}
 #listView .is-minimal-fixture .compact-card-summary{width:100%;min-height:0;gap:5px;}
 #listView .is-minimal-fixture .compact-card-name{width:100%;font-size:.8rem;overflow:visible;white-space:normal;}
@@ -442,8 +440,6 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .is-minimal-fixture .fixture-competition-link{display:inline-flex;font-size:.65rem;margin-top:4px;}
 #listView .is-minimal-fixture .event-quick-action{min-height:32px;padding:4px 8px;}
 #listView .is-minimal-fixture .provider-link{min-height:44px;}
-#listView .is-minimal-fixture :is(.compact-participant-mark,.compact-participant-fallback){width:48px;height:48px;flex-basis:48px;}
-#listView .is-minimal-fixture .compact-matchup-side{flex-wrap:wrap;justify-content:center;overflow:visible;}
 #listView .is-minimal-fixture .fixture-providers{max-width:100px;}
 #listView .is-minimal-fixture .viewing-tbc{font-size:.6rem;line-height:1.15;}
 #listView .is-minimal-fixture .event-quick-action{font-size:.65rem;}

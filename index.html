@@ -14927,37 +14927,6 @@ function buildCompactMatchupMiddle(ev){
   if(stage && activeTab!=='feed'){const detail=document.createElement('small');detail.className='compact-stage-label';detail.textContent=stage;middle.appendChild(detail);}
   return middle;
 }
-function buildFixtureTimingGroup(ev){
-  const group=document.createElement('div');group.className='fixture-timing-group';
-  group.appendChild(buildFixtureTimingBadge(ev));
-  const context=buildTennisFixtureContext(ev);if(context)group.append(context);
-  const stage=context?'':FOLLOW_FIRST.stageLabel(ev);
-  if(stage){const label=document.createElement('span');label.className='fixture-stage-label';label.textContent=stage.toUpperCase();group.appendChild(label);}
-  return group;
-}
-function buildTennisFixtureContext(ev){
-  const value=NOTHINGSPORTS_FIXTURE_LABELS.tennisContext(ev);if(!value)return null;
-  const row=document.createElement('span');row.className='tennis-fixture-context';
-  const competition=document.createElement('span');competition.textContent=value.competition;
-  const round=document.createElement('span');round.className=value.finals?'matchup-stage-badge':'tennis-fixture-round';round.textContent=value.round;round.title=ev.roundLabel||ev.round||ev.stage||value.round;
-  row.append(competition,round);return row;
-}
-function buildFixtureTimingBadge(ev){
-  const timing = NOTHINGSPORTS_CARD_TIMING.presentation(ev, nowAEST());
-  const badge = document.createElement('button');badge.type='button';
-  badge.className = 'fixture-timing-badge btn ghost';
-  const day=document.createElement('span');day.className='fixture-timing-day';day.textContent=timing.day;
-  const clock=document.createElement('span');clock.className='fixture-timing-clock';clock.textContent=timing.time;
-  badge.append(day);if(timing.time)badge.append(clock);
-  if(['RALLY DATES','TOURNAMENT DATES'].includes(timing.time)){const note=document.createElement('small');note.textContent=ev.key==='wrc'?'Stage timetable not verified':ev.appearances?.length?'See player tee times':'Tee times not verified';badge.append(note);}
-  if(timing.status){const status=document.createElement('small');status.textContent=timing.status;badge.append(status);}
-  badge.dataset.timingStatus = timing.status;
-  badge.title = timing.fullSchedule;
-  badge.setAttribute('aria-label',`${timing.ariaLabel}. Open fixture`);
-  badge.onclick=event=>{event.stopPropagation();void openFixtureFromTimingCapsule(ev);};
-  return badge;
-}
-
 function buildCompactCardSummary(ev,{minimal=false}={}){
   const summary=document.createElement('div');summary.className='compact-card-summary';
   if(ev.timePrecision==='not-before')summary.dataset.timePrecision='not-before';
@@ -16706,14 +16675,6 @@ function buildEventEditionToggle(event){
     document.querySelectorAll('.event-edition-toggle').forEach(b=>{if(b.dataset.edition===key){b.textContent=followed?'Follow event':'Unfollow event';b.setAttribute('aria-pressed',String(!followed));}});
     if(activeTab==='feed')requestAnimationFrame(()=>requestAnimationFrame(()=>renderAll({preserveViewport:true})));
   };return button;
-}
-function buildTournamentMarker(event){
- const id=String(event.eventId||event.id),card=document.createElement('article');card.className='event-card tournament-start-marker';card.dataset.eventId=id;card.dataset.scrollKey=`event:calendar:${id}`;
- const details=document.createElement('details'),summary=document.createElement('summary');details.className='feed-tournament-details';details.open=tennisFeedOpenParents.has(id);summary.setAttribute('aria-label','Expand '+event.name);
- const title=document.createElement('h3');title.textContent=event.name;const dates=document.createElement('p');dates.textContent=[event.date,event.endDate!==event.date?event.endDate:null].filter(Boolean).map(value=>NOTHINGSPORTS_AUSTRALIAN_DATES.date(value)).join(' – ');summary.append(title,dates);details.append(summary);
- const content=document.createElement('div');content.className='feed-tournament-appearances';details.append(content);let mounted=false;
- const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=509').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
- card.append(details,buildEventCardControls(event,{card}));if(details.open)queueMicrotask(mount);return card;
 }
 function buildEuropeanDetail(ev,kind){
   const node=document.createElement('div');
@@ -24514,7 +24475,7 @@ async function ensureFeedSourceReadiness(preferences=userPreferences){
   rebuildDerivedCardCache(activeEvents);
 }
 function loadDeferredStartupContext(){
-  return loadDeferredScript('config/startup-view-cache.js?v=509').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
+  return loadDeferredScript('config/startup-view-cache.js?v=513').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
 }
 
 let startupPostLoadHandled = false;

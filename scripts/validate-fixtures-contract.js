@@ -27,7 +27,8 @@ const html = fs.readFileSync("index.html", "utf8");
 assert.match(html, /function compareSurfacedEvents\(first, second\)\{[\s\S]{0,220}compareChronological/, "all Fixtures views must delegate to the canonical comparator");
 assert.doesNotMatch(html, /appendManualMustWatchQueue|setMustWatch\(|Add to Must Watch|Remove from Must Watch/, "the Must Watch queue and controls must not remain active");
 assert(!html.includes('label.className = "new-tag"') && html.includes("seenThreshold: 0.6") && html.includes("seenDelayMs: 800"), "seen-state learning must retain the durable 60%-for-800ms lifecycle without exposing a New label");
-const markerSource = html.slice(html.indexOf("function buildTournamentMarker(event){"), html.indexOf("function buildEuropeanDetail("));
+const cardUi=fs.readFileSync("config/venue-panel-ui.js","utf8");
+const markerSource = cardUi.slice(cardUi.indexOf("function buildTournamentMarker(event){"));
 const majorMarkerSource = html.slice(html.indexOf("function buildMajorEventMarker(event){"), html.indexOf("function compareDismissedEventRecords("));
 const element = tag => ({tagName:tag.toUpperCase(),dataset:{},children:[],listeners:{},classList:{add(){}},setAttribute(k,v){this[k]=v;},addEventListener(k,f){this.listeners[k]=f;},append(...children){this.children.push(...children);}});
 const descendants=n=>[n,...n.children.flatMap(descendants)];
@@ -35,6 +36,8 @@ const routes = [];
 const markerContext = {
   document:{createElement:element},
   tennisFeedOpenParents:new Set(),
+  NOTHINGSPORTS_CARD_TIMING:require("../config/card-timing"),
+  nowAEST:()=>new Date("2026-10-12T01:00:00Z"),
   loadDeferredScript:()=>Promise.resolve(),
   NOTHINGSPORTS_TOURNAMENT_CARD_UI:{render(){}},
   queueMicrotask,

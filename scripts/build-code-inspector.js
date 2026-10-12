@@ -263,7 +263,7 @@ function normalizeFixture(event, codeId, extra = {}){
   return {
     id: stableId(event),
     sourceEventIds:[...new Set([event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].filter(Boolean))],
-    ...Object.fromEntries(['tournamentProgress','matchDay','matchDaySourceUrl','numberOfDays','drawId','drawType','sourceLocalDate'].filter(k=>event[k]!=null).map(k=>[k,event[k]])),
+    ...Object.fromEntries(['tournamentProgress','matchDay','matchDaySourceUrl','numberOfDays','drawId','drawType','sourceLocalDate','mainDraw','eventCode','matchType','drawName','isQualifying','isExhibition','isWarmup','sourceStale','stale','matchupSides'].filter(k=>event[k]!=null).map(k=>[k,event[k]])),
     codeId,
     key,
     ...(Array.isArray(event.innings)&&event.innings.length?{innings:event.innings}:{}),

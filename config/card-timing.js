@@ -49,8 +49,8 @@
     }
     if(statuses.some(value=>/^(completed|finished|final)$/.test(value))||!(event.tournamentParent||event.isEditionOverview||['tennis_parent','golf_tournament','tournament_overview'].includes(event.cardType)))return null;
     const tennis=/tennis|wimbledon/.test(event.key||event.sportKey||'');
-    const records=(Array.isArray(event.tournamentProgress)?event.tournamentProgress:[]).filter(p=>p&&/^https:\/\//.test(p.sourceUrl||'')&&Number.isFinite(Date.parse(p.sourceCheckedAt))&&Date.parse(p.sourceCheckedAt)<=+new Date(reference)&&(!tennis||p.drawType==='singles'&&p.mainDraw===true));
-    const tours=new Set(records.map(p=>p.tour).filter(Boolean));
+    const records=(Array.isArray(event.tournamentProgress)?event.tournamentProgress:[]).filter(p=>p&&/^https:\/\//.test(p.sourceUrl||'')&&Number.isFinite(Date.parse(p.sourceCheckedAt))&&Date.parse(p.sourceCheckedAt)<=+new Date(reference)&&(!tennis||['ATP','WTA'].includes(p.tour)&&p.drawType==='singles'&&p.mainDraw===true));
+    const tours=new Set([...(tennis?(event.representedTours|| (event.tour==='BOTH'?['ATP','WTA']:[])):[]),...records.map(p=>p.tour)].filter(t=>['ATP','WTA'].includes(t)));
     const labels=records.map(p=>{
       const raw=Array.isArray(p.roundNumbers)?p.roundNumbers:[],rounds=[...new Set(raw.filter(n=>Number.isSafeInteger(n)&&n>0))].sort((a,b)=>a-b);
       const count=p.totalRounds,numbered=rounds.length&&rounds.length===new Set(raw).size&&Number.isSafeInteger(count)&&count>=rounds.at(-1)&&(rounds.length===1||/^\d{4}-\d{2}-\d{2}$/.test(p.playDate||''));
@@ -58,6 +58,7 @@
       const label=numbered?'ROUND '+rounds[0]+(rounds.length>1?'-'+rounds.at(-1):'')+' OF '+count:names.join(' / ')||'ROUND UNCONFIRMED';
       return (tours.size>1?p.tour+' · ':'')+label;
     });
+    if(tours.size>1)for(const tour of tours)if(!records.some(p=>p.tour===tour))labels.push(tour+' · ROUND UNCONFIRMED');
     return [...new Set(labels)].join(' · ')||'ROUND UNCONFIRMED';
   }
   function presentation(event, reference = new Date()){
