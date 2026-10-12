@@ -20,3 +20,7 @@ Ship with the next passing presentation update. Users can choose the intended le
 ## Investigation limits
 
 The first two attempts at the new small DOM fixture missed test dependencies (`dataset`, then preferences); these are observer setup errors, not product defects. Only the subsequent visible-label assertion establishes the regression. Direct observation and a minimal repeatable renderer failure identify the omission, so further speculative source or identity investigations were unnecessary. Fixture availability and sporting accuracy are not newly certified by this check.
+
+## Published and live acceptance
+
+Delivered in exact snapshot 754565819affe25965bd6dd12660817d58f10bc1, shell 513. Normal release and full installed-update checks pass. Four genuine production journeys across Chromium/WebKit at 320/390 pixels confirm all 62 choices are distinct, visible headings match selections, and EPL/UCL/UEL round-one groups retain 10/18/18 cards. No overflow, page error or attempted account write. The existing plan for all 690 retained Football records and its 62 groups is unchanged; only the visible context is exposed. Evidence: round-picker-513.json/.cjs/.log and the exact production proof in the card-context-release folder. Physical-phone and full Football approval remain separate.
