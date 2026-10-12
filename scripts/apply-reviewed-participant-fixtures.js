@@ -104,7 +104,17 @@ function apply({root='.',doc=document}={}){validate(doc);const plans=[];for(cons
   // back a newer fixture check or masquerade as a fresh scheduling observation.
   return settled(e)&&base?{...e,...Object.fromEntries(scheduleFields.filter(k=>base[k]!==undefined).map(k=>[k,base[k]]))}:e;
  });const reviewed=require('../config/fixture-identity').mergeOverlays(prior,updates).map(e=>{
-  if(!settled(e)||!e.resultEvidence||!e.storyline||e.storyline.arcStage==='recap')return e;
+  if(!settled(e)||!e.resultEvidence)return e;
+  // A reviewed final needs factual result copy as well as its score. Fill
+  // missing copy only; do not invent analysis or replace retained final copy.
+  if(!e.outcomeText||!e.recapText){
+   const names=e.participantIds.map(id=>e.participants.find(p=>p.id===id)?.name),winner=e.participants.find(p=>p.id===e.winnerParticipantId)?.name;
+   assert(winner&&names.every(Boolean),'reviewed final copy requires the bound participant names');
+   const loser=names[e.participantIds.indexOf(e.retiredParticipantId)],outcome=e.resultCode==='RET'?`${winner} advanced after ${loser} retired.`:`${winner} won.`;
+   const copy=`${outcome} ${names[0]} v ${names[1]}: ${e.score}.`;
+   e={...e,outcomeText:e.outcomeText||copy,recapText:e.recapText||copy};
+  }
+  if(!e.storyline||e.storyline.arcStage==='recap')return e;
   const rules=require('./lib/storyline-card-rules'),storyline=rules.storylineFor(e),safe=rules.spoilerSafeRootCopy(e,storyline);
   const {editorialPreview,...retained}=e;
   return {...retained,storyline,selectedSentence:safe.hook,fullSpiel:safe.synopsis};

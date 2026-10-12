@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "weekend-editorial-20261011220835076-20261012211355563",
-  "publishedAt": "2026-10-12T21:13:55.563Z",
+  "version": "weekend-editorial-20261011220835076-20261012222732495-20261012223422755-20261012224714983",
+  "publishedAt": "2026-10-12T22:47:14.983Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -145136,132 +145136,6 @@
       "consensusTags": []
     },
     {
-      "id": "fixture-tennis-espn-atp-184950",
-      "eventId": "fixture-tennis-espn-atp-184950",
-      "canonicalEventId": "fixture:tennis:espn:atp:184950",
-      "sourceEventIds": [
-        "fixture:tennis:espn:atp:184950",
-        "fixture-tennis-espn-atp-184950"
-      ],
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:atp-tour",
-      "competitionName": "Rolex Shanghai Masters",
-      "tournamentId": "tournament:tennis:atp-shanghai-2026",
-      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
-      "tournamentName": "Rolex Shanghai Masters",
-      "eventFamilyId": "shanghai-masters",
-      "tour": "ATP",
-      "gender": "men",
-      "discipline": "singles",
-      "eventType": "mens-singles",
-      "season": 2026,
-      "tennisProviderMatchId": "184950",
-      "tennisProviderEventId": "315-2026",
-      "tennisProviderTour": "atp",
-      "tournamentLevel": "1000",
-      "round": "knockout",
-      "roundLabel": "Round of 16",
-      "stage": "Round of 16",
-      "name": "Alex De Minaur v Karen Khachanov",
-      "date": "2026-10-13",
-      "time": null,
-      "startTimeUtc": null,
-      "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
-      "timePrecision": "unresolved",
-      "scheduleStatus": "unresolved",
-      "timeTbc": true,
-      "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-      "status": "scheduled",
-      "cardKind": "fixture",
-      "kind": "fixture",
-      "contestUnit": "match",
-      "participantsConfirmed": true,
-      "participantIds": [
-        "competitor:tennis:atp:alex-de-minaur",
-        "competitor:tennis:atp:karen-khachanov"
-      ],
-      "participants": [
-        {
-          "id": "competitor:tennis:atp:alex-de-minaur",
-          "name": "Alex De Minaur",
-          "displayName": "Alex De Minaur",
-          "type": "athlete",
-          "entityType": "athlete",
-          "sportDomainId": "sport:tennis",
-          "countryCode": "AU"
-        },
-        {
-          "id": "competitor:tennis:atp:karen-khachanov",
-          "name": "Karen Khachanov",
-          "displayName": "Karen Khachanov",
-          "type": "athlete",
-          "entityType": "athlete",
-          "sportDomainId": "sport:tennis",
-          "countryCode": "RU"
-        }
-      ],
-      "homeParticipantId": "competitor:tennis:atp:alex-de-minaur",
-      "awayParticipantId": "competitor:tennis:atp:karen-khachanov",
-      "venue": "Shanghai",
-      "venueCity": "Shanghai",
-      "sourceName": "ESPN",
-      "sourceType": "reputable",
-      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184950",
-      "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-      "statusCheckedAt": "2026-10-11T12:36:55.000Z",
-      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184950",
-      "statusSourceName": "ESPN",
-      "sourceRefs": [
-        "https://www.espn.com/tennis/matchstats?gameId=184950",
-        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
-      ],
-      "broadcaster": "beIN SPORTS",
-      "viewingOptions": [
-        {
-          "providerId": "bein",
-          "rightsScope": "competition",
-          "linkScope": "sport",
-          "webUrl": "https://connect-au.beinsports.com/en",
-          "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
-          "verifiedAt": "2026-10-11T05:19:19.930Z",
-          "territory": "AU",
-          "liveOrReplay": "live",
-          "reviewId": "au-viewing-20261002"
-        }
-      ],
-      "expected": null,
-      "liveWindow": 5,
-      "court": "",
-      "statusSourceType": "reputable",
-      "sourceTrust": "unverified",
-      "displayTitleCompact": "Alex De Minaur v Karen Khachanov",
-      "broadcastOptions": [],
-      "narrativeType": "knockout",
-      "replayEligible": false,
-      "highlightEligible": false,
-      "briefingEligible": false,
-      "catchupEligible": false,
-      "participantSlots": [],
-      "participantCountryCodes": [],
-      "representativeCountryCodes": [],
-      "broadcasterIds": [],
-      "broadcasts": [],
-      "consensusTags": [
-        {
-          "label": "Knockout",
-          "confidence": 0.9,
-          "sourceUrls": [
-            "https://www.espn.com/tennis/matchstats?gameId=184950"
-          ],
-          "method": "published-schedule.v1"
-        }
-      ],
-      "selectedSentence": "",
-      "fullSpiel": ""
-    },
-    {
       "id": "fixture-tennis-espn-atp-184951",
       "eventId": "fixture-tennis-espn-atp-184951",
       "canonicalEventId": "fixture:tennis:espn:atp:184951",
@@ -264060,6 +263934,416 @@
       "consensusTags": []
     },
     {
+      "id": "fixture-tennis-espn-atp-184952",
+      "eventId": "fixture-tennis-espn-atp-184952",
+      "canonicalEventId": "fixture:tennis:espn:atp:184952",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184952",
+        "fixture-tennis-espn-atp-184952"
+      ],
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:atp-tour",
+      "competitionName": "Rolex Shanghai Masters",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tournamentName": "Rolex Shanghai Masters",
+      "eventFamilyId": "shanghai-masters",
+      "tour": "ATP",
+      "gender": "men",
+      "discipline": "singles",
+      "eventType": "mens-singles",
+      "season": 2026,
+      "tennisProviderMatchId": "184952",
+      "tennisProviderEventId": "315-2026",
+      "tennisProviderTour": "atp",
+      "tournamentLevel": "1000",
+      "round": "knockout",
+      "roundLabel": "Round of 16",
+      "stage": "Round of 16",
+      "name": "Hubert Hurkacz v Alejandro Davidovich Fokina",
+      "date": "2026-10-13",
+      "time": null,
+      "startTimeUtc": null,
+      "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+      "timePrecision": "unresolved",
+      "scheduleStatus": "unresolved",
+      "timeTbc": true,
+      "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "contestUnit": "match",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:atp:hubert-hurkacz",
+        "competitor:tennis:atp:alejandro-davidovich-fokina"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:hubert-hurkacz",
+          "name": "Hubert Hurkacz",
+          "displayName": "Hubert Hurkacz",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "PL"
+        },
+        {
+          "id": "competitor:tennis:atp:alejandro-davidovich-fokina",
+          "name": "Alejandro Davidovich Fokina",
+          "displayName": "Alejandro Davidovich Fokina",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "ES"
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:hubert-hurkacz",
+      "awayParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
+      "venue": "Shanghai",
+      "venueCity": "Shanghai",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
+      "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
+      "statusSourceName": "ESPN",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184952",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      ],
+      "broadcaster": "beIN SPORTS",
+      "viewingOptions": [
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en",
+          "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+          "verifiedAt": "2026-10-11T05:19:19.930Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "expected": null,
+      "liveWindow": 5,
+      "court": "",
+      "statusSourceType": "reputable",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "sourceTrust": "unverified",
+      "displayTitleCompact": "Hubert Hurkacz v Alejandro Davidovich Fokina",
+      "broadcastOptions": [],
+      "narrativeType": "knockout",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "participantSlots": [],
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "consensusTags": [
+        {
+          "label": "Knockout",
+          "confidence": 0.9,
+          "sourceUrls": [
+            "https://www.espn.com/tennis/matchstats?gameId=184952"
+          ],
+          "method": "published-schedule.v1"
+        }
+      ]
+    },
+    {
+      "id": "fixture-tennis-espn-atp-184959",
+      "eventId": "fixture-tennis-espn-atp-184959",
+      "canonicalEventId": "fixture:tennis:espn:atp:184959",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184959",
+        "fixture-tennis-espn-atp-184959"
+      ],
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:atp-tour",
+      "competitionName": "Rolex Shanghai Masters",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tournamentName": "Rolex Shanghai Masters",
+      "eventFamilyId": "shanghai-masters",
+      "tour": "ATP",
+      "gender": "men",
+      "discipline": "singles",
+      "eventType": "mens-singles",
+      "season": 2026,
+      "tennisProviderMatchId": "184959",
+      "tennisProviderEventId": "315-2026",
+      "tennisProviderTour": "atp",
+      "tournamentLevel": "1000",
+      "round": "knockout",
+      "roundLabel": "Round of 16",
+      "stage": "Round of 16",
+      "name": "Alexander Zverev v Alexander Bublik",
+      "date": "2026-10-13",
+      "time": null,
+      "startTimeUtc": null,
+      "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+      "timePrecision": "unresolved",
+      "scheduleStatus": "unresolved",
+      "timeTbc": true,
+      "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "contestUnit": "match",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:atp:alexander-zverev",
+        "competitor:tennis:atp:alexander-bublik"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:alexander-zverev",
+          "name": "Alexander Zverev",
+          "displayName": "Alexander Zverev",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "DE"
+        },
+        {
+          "id": "competitor:tennis:atp:alexander-bublik",
+          "name": "Alexander Bublik",
+          "displayName": "Alexander Bublik",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "KZ"
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:alexander-zverev",
+      "awayParticipantId": "competitor:tennis:atp:alexander-bublik",
+      "venue": "Shanghai",
+      "venueCity": "Shanghai",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
+      "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusCheckedAt": "2026-10-11T19:55:36.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
+      "statusSourceName": "ESPN",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184959",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      ],
+      "broadcaster": "beIN SPORTS",
+      "viewingOptions": [
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en",
+          "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+          "verifiedAt": "2026-10-11T05:19:19.930Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "expected": null,
+      "liveWindow": 5,
+      "court": "",
+      "statusSourceType": "reputable",
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "sourceTrust": "unverified",
+      "displayTitleCompact": "Alexander Zverev v Alexander Bublik",
+      "broadcastOptions": [],
+      "narrativeType": "knockout",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "participantSlots": [],
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "consensusTags": [
+        {
+          "label": "Knockout",
+          "confidence": 0.9,
+          "sourceUrls": [
+            "https://www.espn.com/tennis/matchstats?gameId=184959"
+          ],
+          "method": "published-schedule.v1"
+        }
+      ]
+    },
+    {
+      "id": "fixture-tennis-espn-atp-184950",
+      "eventId": "fixture-tennis-espn-atp-184950",
+      "canonicalEventId": "fixture:tennis:espn:atp:184950",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184950",
+        "fixture-tennis-espn-atp-184950"
+      ],
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:atp-tour",
+      "competitionName": "Rolex Shanghai Masters",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tournamentName": "Rolex Shanghai Masters",
+      "eventFamilyId": "shanghai-masters",
+      "tour": "ATP",
+      "gender": "men",
+      "discipline": "singles",
+      "eventType": "mens-singles",
+      "season": 2026,
+      "tennisProviderMatchId": "184950",
+      "tennisProviderEventId": "315-2026",
+      "tennisProviderTour": "atp",
+      "tournamentLevel": "1000",
+      "round": "knockout",
+      "roundLabel": "Round of 16",
+      "stage": "Round of 16",
+      "name": "Alex De Minaur v Karen Khachanov",
+      "date": "2026-10-13",
+      "time": "15:00",
+      "startTimeUtc": "2026-10-13T04:00:00.000Z",
+      "estimatedStartTimeUtc": null,
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "timeTbc": false,
+      "scheduleNote": "Starts at 12:00 Shanghai (15:00 Sydney), 13 October; directly attached to de Minaur–Khachanov, the first Stadium Court match in the official order of play.",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "contestUnit": "match",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:atp:alex-de-minaur",
+        "competitor:tennis:atp:karen-khachanov"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:alex-de-minaur",
+          "name": "Alex De Minaur",
+          "displayName": "Alex De Minaur",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "AU"
+        },
+        {
+          "id": "competitor:tennis:atp:karen-khachanov",
+          "name": "Karen Khachanov",
+          "displayName": "Karen Khachanov",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "RU"
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:alex-de-minaur",
+      "awayParticipantId": "competitor:tennis:atp:karen-khachanov",
+      "venue": "Shanghai",
+      "venueCity": "Shanghai",
+      "sourceName": "ATP Shanghai official order of play",
+      "sourceType": "official",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "sourceCheckedAt": "2026-10-12T13:26:58.180994+00:00",
+      "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184950",
+      "statusSourceName": "ESPN",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184950",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      ],
+      "broadcaster": "beIN SPORTS",
+      "viewingOptions": [
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en",
+          "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+          "verifiedAt": "2026-10-11T05:19:19.930Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "expected": null,
+      "liveWindow": 5,
+      "court": "Stadium Court",
+      "statusSourceType": "reputable",
+      "sourceTrust": "unverified",
+      "displayTitleCompact": "Alex De Minaur v Karen Khachanov",
+      "broadcastOptions": [],
+      "narrativeType": "knockout",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "participantSlots": [],
+      "participantCountryCodes": [],
+      "representativeCountryCodes": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "consensusTags": [
+        {
+          "label": "Knockout",
+          "confidence": 0.9,
+          "sourceUrls": [
+            "https://www.protennislive.com/posting/2026/5014/op.pdf"
+          ],
+          "method": "published-schedule.v1"
+        }
+      ],
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "schedulePrecision": "exact",
+      "dateOnly": false,
+      "startTimeTbc": false,
+      "timingVerified": true,
+      "timingEvidence": {
+        "matchRow": "13 October, Stadium Court, first named match: Alex DE MINAUR v Karen KHACHANOV; Starts At 12:00",
+        "clockAssociation": "The Starts At12:00 band is immediately attached to this first named Stadium Court row. It is not copied to any Followed By row.",
+        "sourceSha256": "6f2c3f25cfdedcdaf42ba7a90952aefde3e7f6f5082b9878f982ee46ebc083d9"
+      },
+      "scheduleEvidence": {
+        "kind": "official-order-of-play",
+        "fixtureId": "fixture:tennis:espn:atp:184950",
+        "participantIds": [
+          "competitor:tennis:atp:alex-de-minaur",
+          "competitor:tennis:atp:karen-khachanov"
+        ],
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+        "checkedAt": "2026-10-12T13:26:58.180994+00:00",
+        "sourceSha256": "6f2c3f25cfdedcdaf42ba7a90952aefde3e7f6f5082b9878f982ee46ebc083d9",
+        "sourcePublishedAtLocal": "2026-10-12T17:28:31+08:00",
+        "tournamentId": "tournament:tennis:atp-shanghai-2026",
+        "roundLabel": "Round of 16",
+        "matchDateLocal": "2026-10-13",
+        "timeZone": "Asia/Shanghai",
+        "court": "Stadium Court",
+        "playOrder": 1,
+        "timePrecision": "exact",
+        "localTime": "12:00",
+        "startsAt": "2026-10-13T04:00:00.000Z",
+        "matchRow": "13 October, Stadium Court, first named match: Alex DE MINAUR v Karen KHACHANOV; Starts At 12:00",
+        "clockAssociation": "The Starts At12:00 band is immediately attached to this first named Stadium Court row. It is not copied to any Followed By row."
+      }
+    },
+    {
       "id": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
       "eventId": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
       "canonicalEventId": "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
@@ -267072,7 +267356,7 @@
       "scheduleStatus": "confirmed",
       "timeTbc": false,
       "scheduleNote": "Not before 18:00 Shanghai (21:00 Sydney), 12 October; directly attached to Bergs–Alcaraz in the official order of play.",
-      "status": "scheduled",
+      "status": "completed",
       "cardKind": "fixture",
       "kind": "fixture",
       "contestUnit": "match",
@@ -267109,9 +267393,9 @@
       "sourceType": "official",
       "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
       "sourceCheckedAt": "2026-10-11T13:22:43.864228+00:00",
-      "statusCheckedAt": "2026-10-11T12:36:55.000Z",
-      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184941",
-      "statusSourceName": "ESPN",
+      "statusCheckedAt": "2026-10-12T13:26:58.435307+00:00",
+      "statusSourceUrl": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
+      "statusSourceName": "ATP official draw",
       "sourceRefs": [
         "https://www.espn.com/tennis/matchstats?gameId=184941",
         "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
@@ -267210,7 +267494,61 @@
         "roundLabel": "Round of 32",
         "matchRow": "Bottom-half draw rows 121–128: Z. Bergs and C. Alcaraz named in Round of 32; subsequent winner cell empty.",
         "winnerCell": "unpublished"
-      }
+      },
+      "resultStatus": "official",
+      "winnerParticipantId": "competitor:tennis:atp:zizou-bergs",
+      "sets": [
+        {
+          "home": 7,
+          "away": 5
+        },
+        {
+          "home": 7,
+          "away": 6,
+          "homeTiebreak": 7,
+          "awayTiebreak": 4
+        }
+      ],
+      "score": "7–5, 7–6(4)",
+      "scoreDisplay": "7–5, 7–6(4)",
+      "result": "7–5, 7–6(4)",
+      "resultSourceUrl": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
+      "resultSourceCheckedAt": "2026-10-12T13:26:58.435307+00:00",
+      "scoreCheckedAt": "2026-10-12T13:26:58.435307+00:00",
+      "resultEvidence": {
+        "kind": "official-draw-result",
+        "fixtureId": "fixture:tennis:espn:atp:184941",
+        "participantIds": [
+          "competitor:tennis:atp:zizou-bergs",
+          "competitor:tennis:atp:carlos-alcaraz"
+        ],
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
+        "checkedAt": "2026-10-12T13:26:58.435307+00:00",
+        "sourceSha256": "1524471eefafa62d42a1126fbea7dfdab0dbca0e7ac1fc56cf7b1d327927b85e",
+        "sourcePublishedAtLocal": "2026-10-12T20:39:13+08:00",
+        "matchRow": "Reviewed Shanghai singles draw, Round of 32: Zizou BERGS advances over Carlos ALCARAZ, 7–5, 7–6(4).",
+        "winnerParticipantId": "competitor:tennis:atp:zizou-bergs",
+        "sets": [
+          {
+            "home": 7,
+            "away": 5
+          },
+          {
+            "home": 7,
+            "away": 6,
+            "homeTiebreak": 7,
+            "awayTiebreak": 4
+          }
+        ],
+        "currentObservation": {
+          "sourceUrl": "https://nothingsport.vercel.app/api/match-centre?ids=fixture%3Atennis%3Aespn%3Aatp%3A184941%2Cfixture%3Atennis%3Aespn%3Aatp%3A184950",
+          "checkedAt": "2026-10-12T14:33:29.949Z",
+          "sourceSha256": "f635d61ff0d5db02990d36a3407ccdc549b62a0116d32f55b94ad3bd21ab105c",
+          "preservedTiebreaks": true
+        }
+      },
+      "outcomeText": "Zizou Bergs won. Zizou Bergs v Carlos Alcaraz: 7–5, 7–6(4).",
+      "recapText": "Zizou Bergs won. Zizou Bergs v Carlos Alcaraz: 7–5, 7–6(4)."
     },
     {
       "id": "fixture-tennis-atp-beijing-2026-qf-djokovic-zverev",
@@ -267538,258 +267876,6 @@
         "hookSpoilerOn": "Nikola Bartunkova won. 6–4, 6–3",
         "synopsisSpoilerOn": "ESPN reports Nikola Bartunkova as the winner of this round of 32 match. 6–4, 6–3"
       }
-    },
-    {
-      "id": "fixture-tennis-espn-atp-184952",
-      "eventId": "fixture-tennis-espn-atp-184952",
-      "canonicalEventId": "fixture:tennis:espn:atp:184952",
-      "sourceEventIds": [
-        "fixture:tennis:espn:atp:184952",
-        "fixture-tennis-espn-atp-184952"
-      ],
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:atp-tour",
-      "competitionName": "Rolex Shanghai Masters",
-      "tournamentId": "tournament:tennis:atp-shanghai-2026",
-      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
-      "tournamentName": "Rolex Shanghai Masters",
-      "eventFamilyId": "shanghai-masters",
-      "tour": "ATP",
-      "gender": "men",
-      "discipline": "singles",
-      "eventType": "mens-singles",
-      "season": 2026,
-      "tennisProviderMatchId": "184952",
-      "tennisProviderEventId": "315-2026",
-      "tennisProviderTour": "atp",
-      "tournamentLevel": "1000",
-      "round": "knockout",
-      "roundLabel": "Round of 16",
-      "stage": "Round of 16",
-      "name": "Hubert Hurkacz v Alejandro Davidovich Fokina",
-      "date": "2026-10-13",
-      "time": null,
-      "startTimeUtc": null,
-      "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
-      "timePrecision": "unresolved",
-      "scheduleStatus": "unresolved",
-      "timeTbc": true,
-      "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-      "status": "scheduled",
-      "cardKind": "fixture",
-      "kind": "fixture",
-      "contestUnit": "match",
-      "participantsConfirmed": true,
-      "participantIds": [
-        "competitor:tennis:atp:hubert-hurkacz",
-        "competitor:tennis:atp:alejandro-davidovich-fokina"
-      ],
-      "participants": [
-        {
-          "id": "competitor:tennis:atp:hubert-hurkacz",
-          "name": "Hubert Hurkacz",
-          "displayName": "Hubert Hurkacz",
-          "type": "athlete",
-          "entityType": "athlete",
-          "sportDomainId": "sport:tennis",
-          "countryCode": "PL"
-        },
-        {
-          "id": "competitor:tennis:atp:alejandro-davidovich-fokina",
-          "name": "Alejandro Davidovich Fokina",
-          "displayName": "Alejandro Davidovich Fokina",
-          "type": "athlete",
-          "entityType": "athlete",
-          "sportDomainId": "sport:tennis",
-          "countryCode": "ES"
-        }
-      ],
-      "homeParticipantId": "competitor:tennis:atp:hubert-hurkacz",
-      "awayParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
-      "venue": "Shanghai",
-      "venueCity": "Shanghai",
-      "sourceName": "ESPN",
-      "sourceType": "reputable",
-      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
-      "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
-      "statusCheckedAt": "2026-10-11T19:55:36.000Z",
-      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
-      "statusSourceName": "ESPN",
-      "sourceRefs": [
-        "https://www.espn.com/tennis/matchstats?gameId=184952",
-        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
-      ],
-      "broadcaster": "beIN SPORTS",
-      "viewingOptions": [
-        {
-          "providerId": "bein",
-          "rightsScope": "competition",
-          "linkScope": "sport",
-          "webUrl": "https://connect-au.beinsports.com/en",
-          "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
-          "verifiedAt": "2026-10-11T05:19:19.930Z",
-          "territory": "AU",
-          "liveOrReplay": "live",
-          "reviewId": "au-viewing-20261002"
-        }
-      ],
-      "expected": null,
-      "liveWindow": 5,
-      "court": "",
-      "statusSourceType": "reputable",
-      "selectedSentence": "",
-      "fullSpiel": "",
-      "sourceTrust": "unverified",
-      "displayTitleCompact": "Hubert Hurkacz v Alejandro Davidovich Fokina",
-      "broadcastOptions": [],
-      "narrativeType": "knockout",
-      "replayEligible": false,
-      "highlightEligible": false,
-      "briefingEligible": false,
-      "catchupEligible": false,
-      "participantSlots": [],
-      "participantCountryCodes": [],
-      "representativeCountryCodes": [],
-      "broadcasterIds": [],
-      "broadcasts": [],
-      "consensusTags": [
-        {
-          "label": "Knockout",
-          "confidence": 0.9,
-          "sourceUrls": [
-            "https://www.espn.com/tennis/matchstats?gameId=184952"
-          ],
-          "method": "published-schedule.v1"
-        }
-      ]
-    },
-    {
-      "id": "fixture-tennis-espn-atp-184959",
-      "eventId": "fixture-tennis-espn-atp-184959",
-      "canonicalEventId": "fixture:tennis:espn:atp:184959",
-      "sourceEventIds": [
-        "fixture:tennis:espn:atp:184959",
-        "fixture-tennis-espn-atp-184959"
-      ],
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:atp-tour",
-      "competitionName": "Rolex Shanghai Masters",
-      "tournamentId": "tournament:tennis:atp-shanghai-2026",
-      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
-      "tournamentName": "Rolex Shanghai Masters",
-      "eventFamilyId": "shanghai-masters",
-      "tour": "ATP",
-      "gender": "men",
-      "discipline": "singles",
-      "eventType": "mens-singles",
-      "season": 2026,
-      "tennisProviderMatchId": "184959",
-      "tennisProviderEventId": "315-2026",
-      "tennisProviderTour": "atp",
-      "tournamentLevel": "1000",
-      "round": "knockout",
-      "roundLabel": "Round of 16",
-      "stage": "Round of 16",
-      "name": "Alexander Zverev v Alexander Bublik",
-      "date": "2026-10-13",
-      "time": null,
-      "startTimeUtc": null,
-      "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
-      "timePrecision": "unresolved",
-      "scheduleStatus": "unresolved",
-      "timeTbc": true,
-      "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-      "status": "scheduled",
-      "cardKind": "fixture",
-      "kind": "fixture",
-      "contestUnit": "match",
-      "participantsConfirmed": true,
-      "participantIds": [
-        "competitor:tennis:atp:alexander-zverev",
-        "competitor:tennis:atp:alexander-bublik"
-      ],
-      "participants": [
-        {
-          "id": "competitor:tennis:atp:alexander-zverev",
-          "name": "Alexander Zverev",
-          "displayName": "Alexander Zverev",
-          "type": "athlete",
-          "entityType": "athlete",
-          "sportDomainId": "sport:tennis",
-          "countryCode": "DE"
-        },
-        {
-          "id": "competitor:tennis:atp:alexander-bublik",
-          "name": "Alexander Bublik",
-          "displayName": "Alexander Bublik",
-          "type": "athlete",
-          "entityType": "athlete",
-          "sportDomainId": "sport:tennis",
-          "countryCode": "KZ"
-        }
-      ],
-      "homeParticipantId": "competitor:tennis:atp:alexander-zverev",
-      "awayParticipantId": "competitor:tennis:atp:alexander-bublik",
-      "venue": "Shanghai",
-      "venueCity": "Shanghai",
-      "sourceName": "ESPN",
-      "sourceType": "reputable",
-      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
-      "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
-      "statusCheckedAt": "2026-10-11T19:55:36.000Z",
-      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
-      "statusSourceName": "ESPN",
-      "sourceRefs": [
-        "https://www.espn.com/tennis/matchstats?gameId=184959",
-        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
-      ],
-      "broadcaster": "beIN SPORTS",
-      "viewingOptions": [
-        {
-          "providerId": "bein",
-          "rightsScope": "competition",
-          "linkScope": "sport",
-          "webUrl": "https://connect-au.beinsports.com/en",
-          "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
-          "verifiedAt": "2026-10-11T05:19:19.930Z",
-          "territory": "AU",
-          "liveOrReplay": "live",
-          "reviewId": "au-viewing-20261002"
-        }
-      ],
-      "expected": null,
-      "liveWindow": 5,
-      "court": "",
-      "statusSourceType": "reputable",
-      "selectedSentence": "",
-      "fullSpiel": "",
-      "sourceTrust": "unverified",
-      "displayTitleCompact": "Alexander Zverev v Alexander Bublik",
-      "broadcastOptions": [],
-      "narrativeType": "knockout",
-      "replayEligible": false,
-      "highlightEligible": false,
-      "briefingEligible": false,
-      "catchupEligible": false,
-      "participantSlots": [],
-      "participantCountryCodes": [],
-      "representativeCountryCodes": [],
-      "broadcasterIds": [],
-      "broadcasts": [],
-      "consensusTags": [
-        {
-          "label": "Knockout",
-          "confidence": 0.9,
-          "sourceUrls": [
-            "https://www.espn.com/tennis/matchstats?gameId=184959"
-          ],
-          "method": "published-schedule.v1"
-        }
-      ]
     }
   ]
 }
