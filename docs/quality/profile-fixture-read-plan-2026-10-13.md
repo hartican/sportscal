@@ -1,6 +1,6 @@
 # Football schedule loading: verified gap and next repair — 13 October 2026
 
-**Status: implemented locally; 37 checks and five paged actual-data comparisons pass. Guarded database application, exact app release and live browser proof remain pending.** This is the next engineering item in the single CTO delivery queue. It does not add competitions or certify Football.
+**Status: implemented locally; 37 checks and five paged actual-data comparisons pass. The reviewed database change is applied and service-only access verified. Exact app release and live browser proof remain pending.** This is the next engineering item in the single CTO delivery queue. It does not add competitions or certify Football.
 
 ## What users experience
 
@@ -44,3 +44,9 @@ Implementation adds a service-only participant bundle, complete source-group/ali
 Value: current team schedules should arrive with less unnecessary work, and a failed update becomes understandable. Evidence supports a scoped read seam rather than a rewrite or a longer timeout. Estimate: 1–2 focused engineering days, with uncertainty around complete mixed-response/context selection; this is not a promised calendar finish. Dependencies: existing Follow rules, current source/identity contracts and exact release controls. Added cash commitment: A$0; model/runner costs and savings remain unpriced. Recurring owner time: none added. Act now because the failure is verified; defer extra competitions, artwork collection and commercial launch until their existing evidence gates pass.
 
 Evidence folder: `/Users/jackhartican/Documents/AI/Codex/football-profile-read-reliability-2026-10-13`. Full programme approvals remain 0/18 families and 0/3 Football pilots, targeting at least 15/18 families.
+
+## Applied database and release binding
+
+Actual server version `20261012162919`, statement MD5 `3c2affbd512c1d72fdde1a176c435fab`, function MD5 `9c2dd2ae71123da686bb55340d7505c6`. The repository filename was reconciled to the real migration-history version with identical SQL bytes; no history row was edited. Invoker, empty search path, postgres owner and service-only ACL verified; anon/authenticated execution denied. The actual applied function under service_role returns 724 complete rows / 1,617,968 bytes in 812.757 ms within the 2.5-second read-only statement diagnostic. This is a warm database sample, not causal or cold phone proof. Both independent static reviews find zero hard/actionable issues, with one optional shared-helper suggestion deferred. Local Chromium/WebKit profile failure/recovery and installed-browser shell 516→517 rehearsals pass. Production app is still fbd5d32/shell516 until the exact release completes.
+
+The security advisor identifies no new-function finding. It retains 66 RLS-without-policy informational notices on existing service/private tables, three anonymous-policy warnings on existing cron/chat-invitation tables, and disabled leaked-password protection. None of those tables/settings was changed here; no clean-project security claim is made. Existing notices remain in the audit evidence; see the official [RLS adviser](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy), [anonymous-policy adviser](https://supabase.com/docs/guides/database/database-advisors?queryGroups=lint&lint=0012_auth_allow_anonymous_sign_ins) and [password protection guidance](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection).
