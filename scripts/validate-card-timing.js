@@ -46,3 +46,4 @@ assert.notEqual(p(notBefore,'2026-10-01T00:00:00Z').label,'FINISHED','not-before
 assert.equal(p({...fixture,featuredSubjects:[{id:'driver:one'},{id:'driver:two'}]},now).label,p(fixture,now).label);
 console.log('Card timing: calendar boundaries, DST, source status, uncertainty and sporting-start semantics passed.');
 require('./validate-compact-fixture-status')();
+require('./validate-card-context')();

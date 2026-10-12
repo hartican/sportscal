@@ -1,4 +1,27 @@
 (function(){
+function matchingEvents(){
+  if(activeInspectorCodeId){
+    const code=codeInspectorChunk?.code;
+    const fixtures=(codeInspectorChunk?.fixtures || []).filter(inspectorFixtureMatchesTab);
+    const labels=[...new Set(fixtures.map(fixture=>codeInspectorGroupLabel(fixture,code?.groupingMode)))].sort((a,b)=>FOLLOW_FIRST.compareFixtureGroupLabels(a,b));
+    const matching=new Set(labels.slice(Math.max(0,labels.indexOf(codeInspectorGroup))));
+    return fixtures.filter(fixture=>matching.has(codeInspectorGroupLabel(fixture,code?.groupingMode))).map(fixture=>canonicalFeedFixtureForInspector(fixture) || {...fixture,eventId:fixture.id,key:codeInspectorFixtureSportKey(fixture)});
+  }
+  if(activeTab==='events'){
+    const visible=MAJOR_EVENTS?.visibleRecords(majorEventsDocument,majorEventVisibilityPreferences(),nowAEST());
+    return visible?.[eventsViewTab==='ticket-alerts'?'alerts':'events'] || [];
+  }
+  return mergeMainFeedSpecialEvents(getFilteredEvents()).map(calendarEvent);
+}
+
+function refreshCounts(){
+  const context=buildFollowEligibilityContext();
+  const events=NOTHINGSPORTS_CALENDAR.uniqueEvents([...calendarChoice.refs.values()]);
+  const count=events.filter(event=>NOTHINGSPORTS_CALENDAR.knownDate(event)&&calendarIsSelected(event,context)).length;
+  document.querySelectorAll('[data-calendar-count]').forEach(node=>node.textContent=`${count} selected${calendarChoice.mode==='subscription'?' · followed fixtures included automatically':''}`);
+  document.querySelectorAll('[data-calendar-id]').forEach(node=>{const event=calendarChoice.refs.get(node.dataset.calendarId);if(event)node.checked=calendarIsSelected(event,context);});
+}
+
 function renderToolbar(container){
   if(!calendarChoice.active || activeTab!=='feed' || activeInspectorCodeId)return;
   const bar=document.createElement('div');bar.className='calendar-selection-toolbar';bar.setAttribute('aria-label','Calendar selection');
@@ -79,5 +102,5 @@ async function showDialog(){
   document.body.appendChild(dialog);renderOptions();dialog.showModal();dialog.addEventListener('close',()=>dialog.remove(),{once:true});
 }
 
-globalThis.NOTHINGSPORTS_CALENDAR_UI={renderToolbar,showDialog};
+globalThis.NOTHINGSPORTS_CALENDAR_UI={renderToolbar,showDialog,refreshCounts,matchingEvents};
 })();

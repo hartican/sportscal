@@ -23,7 +23,7 @@ assert(fixtures.every(Boolean));
    },{fixture,tab,theme});
    const card=page.locator('#listView .event-card');await card.scrollIntoViewIfNeeded();
    await page.waitForFunction(()=>[...document.querySelectorAll('#listView .matchup-team-logo')].length===2&&[...document.querySelectorAll('#listView .matchup-team-logo')].every(i=>i.complete&&i.naturalWidth>0));
-   const geometry=()=>card.evaluate(c=>[...c.querySelectorAll('.matchup-team-logo-slot')].map(s=>{const r=s.getBoundingClientRect(),i=s.querySelector('img').getBoundingClientRect();return {frame:{x:r.x,y:r.y,width:r.width,height:r.height},image:{x:i.x,y:i.y,width:i.width,height:i.height},fallbacks:s.querySelectorAll('.team-logo-fallback,.team-logo-monogram').length,opacity:getComputedStyle(s.querySelector('img')).opacity};}));
+   const geometry=()=>card.evaluate(c=>[...c.querySelectorAll('.matchup-team-logo-slot,.compact-matchup-side:has(img)')].map(s=>{const r=s.getBoundingClientRect(),i=s.querySelector('img').getBoundingClientRect();return {frame:{x:r.x,y:r.y,width:r.width,height:r.height},image:{x:i.x,y:i.y,width:i.width,height:i.height},fallbacks:s.querySelectorAll('.team-logo-fallback,.team-logo-monogram,.compact-participant-fallback').length,opacity:getComputedStyle(s.querySelector('img')).opacity};}));
    const pending=await geometry();
    for(const s of pending){assert(Math.abs(s.image.y+s.image.height/2-(s.frame.y+s.frame.height/2))<1,'pending logo shares the frame centre rather than a second grid row');assert(s.image.height>=s.frame.height*.85,'pending logo retains its full size');}
    await page.evaluate(async()=>{const card=document.querySelector('#listView .event-card');card.remove();HTMLImageElement.prototype.decode=originalLogoDecode;logoDecodes.forEach(resolve=>resolve());await Promise.resolve();document.getElementById('listView').append(card);});
@@ -31,7 +31,7 @@ assert(fixtures.every(Boolean));
    const loaded=await geometry();
    for(let tap=0;tap<4;tap++){
     await page.locator('#listView .event-card-disclosure').click();
-    const current=await geometry();assert.equal(current.length,2);for(let i=0;i<2;i++){assert.equal(current[i].fallbacks,0,'cached tap never reintroduces a fallback beside a logo');assert(Math.abs(current[i].image.height-loaded[i].image.height)<1,'tap preserves the logo dimensions');}
+    await page.waitForFunction(()=>[...document.querySelectorAll('#listView .matchup-team-logo,#listView .compact-participant-mark')].length===2&&[...document.querySelectorAll('#listView .matchup-team-logo,#listView .compact-participant-mark')].every(i=>i.complete&&i.naturalWidth>0));const current=await geometry();assert.equal(current.length,2);for(let i=0;i<2;i++){assert.equal(current[i].fallbacks,0,'cached tap never reintroduces a fallback beside a logo');const compact=await card.evaluate(c=>c.classList.contains('is-compact-row'));assert(compact?current[i].image.height>=47.9:Math.abs(current[i].image.height-loaded[i].image.height)<1,'tap preserves the appropriate full or compact logo frame');}
    }
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'no horizontal overflow');
    if(process.env.QA_SCREENSHOT_DIR&&width===390&&tab==='feed'){require('node:fs').mkdirSync(process.env.QA_SCREENSHOT_DIR,{recursive:true});await card.screenshot({path:`${process.env.QA_SCREENSHOT_DIR}/logos-${process.env.QA_BROWSER||'chromium'}-${fixture.key}-${theme}.png`});}

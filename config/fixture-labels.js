@@ -33,6 +33,17 @@ function badge(event){
  const league=event.competitionName||event.leagueName||event.competition?.displayName||'';
  return league?String(league).replace(/\s+(Men|Women|Mixed)$/i,'')+suffix:'';
 }
+function tennisContext(event){
+ if(!['tennis','wimbledon'].includes(event.key))return null;
+ const level=String(event.tournamentLevel||event.tourLevel||event.category||'').toLowerCase();
+ const tour=/^(ATP|WTA)$/i.test(event.tour||'')?event.tour.toUpperCase():/\batp\b|^atp_/.test(level+' '+event.competitionId)?'ATP':/\bwta\b|^wta_/.test(level+' '+event.competitionId)?'WTA':null;
+ const tier=level.match(/(?:^|\D)(1000|500|250)(?:\D|$)/)?.[1];
+ const competition=/grand.?slam|major/.test(level)?'Grand Slam':tour&&tier?tour+tier:tour||'Competition unconfirmed';
+ const round=String(event.roundLabel||event.round||event.stage||'').trim();
+ const final=round.match(/^(?:(?:men.s|women.s|singles|championship|grand)\s+)*(quarter[ -]?finals?|semi[ -]?finals?|final|qf|sf)$/i);
+ const label=final?(/quarter|qf/i.test(final[1])?'QF':/semi|sf/i.test(final[1])?'SF':'Final'):/^(?:all|major|singles|doubles)$/i.test(round)?'Round unconfirmed':round||'Round unconfirmed';
+ return {competition,round:label,finals:Boolean(final)};
+}
 
 // Display order only. Never reorder source IDs, roles, scores or classifications.
 function participantRecord(value,event={},records=[]){
@@ -62,5 +73,5 @@ function matchupTitle(event,title,records=[]){
  const ordered=australianFirst(sides,event,records);
  return ordered[0]===sides[0]?source:`${split[2]} v ${split[1]}${split[3]||''}`;
 }
-return {displayName,gender,sport,badge,participantRecord,isAustralian,australianFirst,matchupTitle};
+return {displayName,gender,sport,badge,tennisContext,participantRecord,isAustralian,australianFirst,matchupTitle};
 });

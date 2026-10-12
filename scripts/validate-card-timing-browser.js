@@ -9,6 +9,7 @@ const base=process.env.REPAIR_QA_URL||'http://127.0.0.1:33972';
  try{for(const width of [320,390,768,1280]){
   const page=await browser.newPage({viewport:{width,height:1000},serviceWorkers:'block'});
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
+  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:27,onboardingComplete:true,showSpoilers:false,followFirst:{notifications:{enabled:false,sportingRemindersEnabled:false,autoRemindersEnabled:false}}})));
   // Deterministic published-data fallback; never send synthetic fixture actions to production.
   await page.route('**/api/**',route=>route.fulfill({status:503,json:{}}));
   await page.goto(base);await page.waitForFunction(()=>typeof buildEventCard==='function'&&!startupCoordinator.isHydrating());
@@ -39,7 +40,7 @@ const base=process.env.REPAIR_QA_URL||'http://127.0.0.1:33972';
   });
   await page.waitForTimeout(200);
   const geometry=await page.locator('[data-timing-qa]').evaluateAll(cards=>cards.map(card=>{
-   const badge=card.querySelector('.fixture-timing-badge'),header=card.querySelector('.fixture-timing-header');
+   const badge=card.querySelector('.fixture-timing-badge,.compact-card-time'),header=card.querySelector('.fixture-timing-header');
    const rect=node=>node?.getBoundingClientRect().toJSON();
    return {text:badge?.textContent,card:rect(card),badge:rect(badge),header:rect(header),controls:[...card.querySelectorAll('.event-card-controls,.event-card-disclosure')].map(rect),fallback:card.classList.contains('is-fixture-fallback'),compact:card.classList.contains('is-compact-row'),status:badge?.dataset.timingStatus,support:card.querySelector('.event-date-chip')?.textContent,colour:badge&&getComputedStyle(badge).color,background:badge&&getComputedStyle(badge).backgroundColor,areas:[...card.querySelectorAll('[data-card-area]')].map(n=>n.dataset.cardArea)};
   }));
@@ -57,7 +58,7 @@ const base=process.env.REPAIR_QA_URL||'http://127.0.0.1:33972';
   await first.locator('.event-card-disclosure').click();
   const replacement=page.locator('[data-event-id="timing-qa-0"]');
   assert.notEqual(await replacement.getAttribute('data-card-state'),before,'disclosure changes actual card state');
-  assert.equal(await replacement.locator('.fixture-timing-badge').count(),1);
+  assert.equal(await replacement.locator('.fixture-timing-badge,.compact-card-time').filter({visible:true}).count(),1);
   await page.waitForFunction(()=>document.activeElement?.matches('[data-event-id="timing-qa-0"] .event-card-disclosure'));
   assert(await replacement.locator('.event-card-disclosure').evaluate(node=>node===document.activeElement),'disclosure restores focus');
   assert.deepEqual(errors,[]);

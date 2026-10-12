@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## Clear tennis context and sourced tournament progress — 12 October 2026 Sydney
+
+Jack approved competition and published round labels in every collapsed/expanded tennis Feed state, with distinct QF, SF and Final badges. Tournament names containing Finals never determine a match round. Shared Feed, Events and Schedule progress capsules replace ongoing date ranges: source-reported Test DAY X without a total; tournament ROUND X OF X or ROUND X-Y OF X for multiple rounds on one official play day. Main singles draw progress is separate for ATP and WTA. Unknown numeric ordinals/totals use verified named rounds; unknown round/day facts remain explicitly unconfirmed. Dates remain in expanded details and accessible descriptions. Upcoming events keep dates; completed tournament overviews return to dates. Test completion freezes the last source day; overnight dates never advance it.
+
+Optional tournamentProgress records carry draw identity/type, mainDraw, tour, roundNumbers, totalRounds, roundLabels, official playDate and source URL/check time. Numeric totals must come from a complete organiser format, never the maximum round in a partial fixture list or draw-size arithmetic. Existing accepted observations can establish a named current round without establishing a total. Different official play days never become one numerical range. This presentation adds no source request, timer, reminder clock or admission.
+
+Provider artwork is contained within 54×24px, with 44px provider targets, centred fallbacks and the existing contextual team frames. Keep source pause labels, original sporting dates, Results/Remind OFF and saved actions. Regression: validate-card-timing invokes validate-card-context; validate-card-context-browser covers actual shared renderers, both browser engines, themes, failure/decode and refresh continuity.
+
 ## Recognised teams and Teams-first discovery — 12 October 2026 Sydney
 
 Owner-approved change: every sport's combined discovery section is labelled Teams & Players. Teams is first and selected on explicit section entry, top-level Follow/Sports entry and sport/gender selection. Where the complete published sport/gender directory has no recognised teams, select the individual view and leave Teams visible, greyed out and disabled. Cricket remains team-only; individual labels remain Players, Drivers, Riders, Golfers or Athletes as appropriate. Search/List filters cannot establish absence of teams. Player List choices apply only in the individual view and remain remembered when returning there.

@@ -1,0 +1,48 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const tennis=require('../data/follow-schedule/tennis.json').fixtures.find(f=>f.id==='fixture:tennis:espn:wta:184356');
+const cricket=require('../data/follow-schedule/cricket.json').fixtures.find(f=>f.sourceEventIds?.includes('fixture:cricket:CA:39990'));
+const parent=require('../data/tennis-feed-parents.v1.json').parents.find(f=>f.id==='tennis-parent:china-open:2026:main');
+const source={drawId:'main-singles',drawType:'singles',mainDraw:true,tour:'WTA',playDate:'2026-10-11',roundNumbers:[3,4],totalRounds:7,sourceUrl:'https://www.wtatennis.com/',sourceCheckedAt:'2026-10-11T08:00:00Z'};
+const base=process.env.REPAIR_QA_URL||'http://127.0.0.1:34220',out=process.env.CARD_CONTEXT_OUTPUT||'/Users/jackhartican/Documents/AI/Codex/clearer-fixture-cards-2026-10-12';
+(async()=>{fs.mkdirSync(out,{recursive:true});const receipts=[];
+for(const engine of ['chromium','webkit']){
+ const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:'chrome'}:{})});
+ try{for(const width of [320,390,1280])for(const theme of ['day','night']){
+  const page=await browser.newPage({viewport:{width,height:1000},serviceWorkers:'block',timezoneId:'Australia/Sydney'}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.clock.setFixedTime(new Date('2026-10-12T01:00:00Z'));
+  await page.addInitScript(theme=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:27,onboardingComplete:true,theme,showSpoilers:false,followedSports:[],selectedSelectorEntityIds:[],fantasyDeadlines:{enabled:false},followFirst:{notifications:{enabled:false,sportingRemindersEnabled:false,autoRemindersEnabled:false}}})),theme);
+  await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
+  await page.goto(base,{waitUntil:'domcontentloaded'});await page.locator('#startupLaunch').waitFor({state:'hidden'});
+  await page.evaluate(theme=>{setTunePromptOpen(false);suppressSessionRatingPrompt();closeSelectorOptInPrompt({restoreViewport:false});applyThemePreference(theme);activeView='list';activeInspectorCodeId=null;document.querySelectorAll('main>section').forEach(n=>n.hidden=n.id!=='listView');document.getElementById('listView').style.display='';},theme);
+  const saved=await page.evaluate(()=>JSON.stringify([userPreferences,eventActions]));
+  async function show(ev,state,tab='feed'){
+   await page.evaluate(({ev,state,tab})=>{activeTab=tab;if(state!=='compact')multiDayCricketExpanded.add(ev.id);else multiDayCricketExpanded.delete(ev.id);setCardState(ev,state);document.getElementById('listView').replaceChildren(buildEventCard(ev,{mode:tab==='feed'?'feed':'schedule'}));observeDeferredCardImages();},{ev,state,tab});
+   return page.locator('#listView .event-card').first();
+  }
+  for(const [round,expected]of [['Round of 32','Round of 32'],['Quarterfinal','QF'],['Semifinal','SF'],['Final','Final']])for(const state of ['compact','selected','opened']){
+   const card=await show({...tennis,roundLabel:round},state);const context=card.locator('.tennis-fixture-context');await context.waitFor();assert.match(await context.innerText(),/WTA1000/);assert((await context.innerText()).toUpperCase().includes(expected.toUpperCase()),JSON.stringify({round,state,actual:await context.innerText()}));assert.equal(await context.locator('.matchup-stage-badge').count(),expected==='Round of 32'?0:1);
+   assert.equal(await card.locator('.feed-live-score,.card-result-line').count(),0,'Results OFF');
+  }
+  const atp=await show({...tennis,tour:'ATP',tournamentLevel:'500',competitionId:'competition:atp-tour',roundLabel:'Round of 16',tournamentName:'ATP Finals'},'compact');assert.match(await atp.locator('.tennis-fixture-context').innerText(),/ATP500/);assert.equal(await atp.locator('.tennis-fixture-context .matchup-stage-badge').count(),0);
+  for(const tab of ['feed','events'])for(const state of ['compact','opened']){
+   const card=await show(cricket,state,tab);const text=await card.innerText();assert(text.includes('DAY '+cricket.matchDay),JSON.stringify({tab,state,matchDay:cricket.matchDay,text,classes:await card.getAttribute('class'),html:await card.innerHTML()}));assert(!/DAY \d+ OF|TEST · DAY/.test(text));assert.equal(await card.locator('.cricket-test-day').count(),0);
+   const providers=await card.locator('.provider-action-logo').evaluateAll(nodes=>nodes.map(n=>({w:n.getBoundingClientRect().width,h:n.getBoundingClientRect().height})));for(const r of providers)assert(r.w<=54.1&&r.h<=24.1,'Provider artwork bounded');
+   for(const r of await card.locator('.provider-link').evaluateAll(ns=>ns.map(n=>n.getBoundingClientRect().height)))assert(r>=43.9,'Provider target stays usable');
+  }
+  const test=await show(cricket,'opened');await page.evaluate(cricket=>{const e={...cricket,matchDay:cricket.matchDay+1};NOTHINGSPORTS_FEED_LIVE_SCORES.install(document.querySelector('#listView .event-card'),e,{resultsOn:false});},cricket);assert.equal(await test.locator('.fixture-timing-day').innerText(),'DAY '+(cricket.matchDay+1));assert.equal(await test.locator('.cricket-test-day').count(),0);assert.equal(await test.locator('.fixture-more').getAttribute('aria-expanded'),'true');
+  await page.evaluate(async({parent,source})=>{await loadDeferredScript('assets/js/tennis-parent-ui.js?v=513');activeTab='feed';const e={...parent,status:'ongoing',tournamentProgress:[source]};document.getElementById('listView').replaceChildren(NOTHINGSPORTS_TENNIS_PARENT_UI.build(e));},{parent,source});
+  const parentCard=page.locator('#listView .tennis-feed-parent');assert.equal(await parentCard.locator('.tennis-parent-dates').innerText(),'ROUND 3-4 OF 7');await parentCard.getByRole('button',{name:/Show.*matches/i}).click();assert.match(await parentCard.locator('.fixture-source-dates').innerText(),/28 SEP/);await parentCard.getByRole('button',{name:/Hide.*matches/i}).click();
+  await page.evaluate(async()=>{await loadDeferredScript('assets/js/calendar-sync-ui.js?v=513');});
+  const calendar=await page.evaluate(ev=>({bytes:NOTHINGSPORTS_CALENDAR.buildIcs([ev],{now:new Date('2026-10-12T01:00:00Z')}),matching:typeof NOTHINGSPORTS_CALENDAR_UI.matchingEvents,counts:typeof NOTHINGSPORTS_CALENDAR_UI.refreshCounts}),tennis);assert(calendar.bytes.includes('BEGIN:VCALENDAR'));assert.equal(calendar.matching,'function');assert.equal(calendar.counts,'function');
+  await page.evaluate(()=>showCalendarDialog());const dialog=page.getByRole('dialog',{name:'Calendar sync'});await dialog.waitFor();await dialog.getByRole('button',{name:'One-off import',exact:true}).click();await dialog.getByRole('button',{name:'Select fixtures',exact:true}).click();assert.equal(await page.evaluate(()=>calendarChoice.active),true);await page.evaluate(()=>{calendarChoice.active=false;activeTab='feed';});
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'No page overflow');assert.deepEqual(errors,[]);
+  // Card expansion state is local UI state; none of these disclosures changes saved consent.
+  assert.equal(await page.evaluate(()=>JSON.stringify(userPreferences)),JSON.parse(saved)[0]&&JSON.stringify(JSON.parse(saved)[0]));
+  if(width===390)await page.screenshot({path:path.join(out,`cards-${engine}-${theme}.png`)});
+  receipts.push({engine,width,theme,tennisStates:12,verifiedRange:true,sourceTestDay:true,providerBounds:true,refreshKeepsExpansion:true,resultsOff:true,calendarDeferred:true,overflow:false,errors});await page.close();
+ }}finally{await browser.close();}
+}
+fs.writeFileSync(path.join(out,'card-context-browser.json'),JSON.stringify({source:'Real shared renderers; retained fixtures and controlled round cases; no customer writes',receipts},null,2)+'\n');console.log(JSON.stringify({passed:true,cases:receipts.length}));
+})().catch(e=>{console.error(e.stack||e);process.exitCode=1;});

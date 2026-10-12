@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Card progress reuses published facts — 12 October 2026 Sydney
+
+The approved card repair carries optional sourced tournament round metadata and the existing Test day through retained Feed, Events and Schedule projections. Existing golf collectors retain their explicit current-round fact and only use a total when the organiser payload supplies it. Tennis main-singles playing observations provide named-round fallback; no partial fixture collection establishes a numerical total. No provider read, cadence, scheduler, schema or migration is added. Source clocks remain original and later checks alone do not change content hashes.
+
+To fit the unchanged eight-request startup/gzip budget, calendar ICS encoding and calendar selection matching/count rendering move into the existing deferred calendar UI bundle. Node calendar APIs and exported ICS bytes remain identical; calendar opens and selections use the same owner and cached bundle. No additional request or unrelated calendar behavior is introduced. Native calendar, deterministic encoder, cache and installed-update checks remain required.
+
 ## Shared response deadline covers body consumption — 12 October 2026 Sydney
 
 Keep the existing Supabase request timer and caller-abort listener active through response body consumption and payload decoding. Race both headers and body against that same cancellation; a stalled body does not receive another budget or leave the caller waiting after cancellation. Retain the three-second fixture/read budgets, unchanged eight-second default and 250ms minimum, HTTP status/error payload mapping, original non-abort body errors and existing caller-cancellation classification. Clear the one timer and caller listener on every exit. An already-cancelled caller starts no request.

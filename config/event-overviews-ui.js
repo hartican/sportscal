@@ -27,7 +27,8 @@ async function render(container){
  const visible=available.filter(e=>isTarget(e)||choice.selected==='all'||NOTHINGSPORTS_SURFACE_CATEGORY.category(e)===choice.selected).sort((a,b)=>Math.max((a.date||'9999').localeCompare(today),0)-Math.max((b.date||'9999').localeCompare(today),0)||(a.date||'9999').localeCompare(b.date||'9999')||a.id.localeCompare(b.id));
  for(const event of visible){
   const card=document.createElement('article');card.className='match-centre-card events-overview-card';card.dataset.eventOverviewId=event.id;card.dataset.eventId=event.id;card.tabIndex=-1;
-  const title=text('h3',event.name),dates=text('p',event.calendarPending?'Edition date pending':NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.date)+(event.endDate!==event.date?' – '+NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.endDate):''));card.append(title,dates);
+  const timing=NOTHINGSPORTS_CARD_TIMING.presentation(event,nowAEST());
+  const title=text('h3',event.name),dates=text('p',event.calendarPending?'Edition date pending':timing.progress||NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.date)+(event.endDate!==event.date?' – '+NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.endDate):''));dates.title=timing.fullSchedule;dates.setAttribute('aria-label',timing.ariaLabel);card.append(title,dates);
   const upcoming=(event.upcomingFixtures||[]).filter(f=>(f.date||'')>=today),next=upcoming.filter(f=>(f.participantIds||[]).some(follows));
   const stage=upcoming[0]?.roundLabel||upcoming[0]?.round;
   const context=[event.venueCity,event.tour,event.tournamentLevel,stage].filter(Boolean);if(context.length)card.append(text('p',[...new Set(context)].join(' · ')));
@@ -35,6 +36,7 @@ async function render(container){
   if(!next.length&&(event.participantIds||[]).some(follows))card.append(text('p','Next followed appearance has not been verified.','athletes-coverage-gap'));
   card.append(buildEventEditionToggle({...event,tournamentParent:true}));
   const details=document.createElement('details'),summary=text('summary','Fixtures');details.append(summary);details.open=Boolean(isTarget(event));card.append(details);let loaded=false;
+  if(timing.progress)details.append(text('p',timing.fullSchedule,'fixture-source-dates'));
   const mount=async()=>{if(!details.open||loaded)return;loaded=true;const list=document.createElement('div');list.textContent='Loading published fixtures…';details.append(list);try{
     let fixtures;if(event.sportKey.startsWith('tennis'))fixtures=(await loadTennisFeedContests()).fixtures.filter(f=>(f.tournamentId||f.tennisTournamentId)===event.tournamentId);
     else if(['f1','horse-racing'].includes(event.sportKey)){

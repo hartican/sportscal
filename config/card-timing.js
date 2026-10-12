@@ -39,6 +39,27 @@
     const day=clock&&dayKey(clock)!==dayKey(now)?new Intl.DateTimeFormat('en-AU',{timeZone,weekday:'short',day:'numeric',month:'short',...(dayKey(clock).slice(0,4)!==dayKey(now).slice(0,4)?{year:'numeric'}:{})}).format(clock).replace(/,/g,'')+', ':'';
     return {label,restart:clock?'Live again at '+day+time:Number.isFinite(restart)?'Awaiting resumption update':'Resume time unconfirmed'};
   }
+  function progress(event, reference = new Date()){
+    const statuses=[event.status,event.scheduleStatus].map(value=>String(value||'').toLowerCase());
+    const started=statuses.some(value=>/^(live|ongoing|in_progress|in-progress|stumps|rain-delay|break|suspended|interrupted|completed|finished|final)$/.test(value));
+    if(!started||statuses.some(value=>/^(cancelled|canceled|abandoned|postponed)$/.test(value)))return null;
+    if(/^cricket/.test(event.key||event.sportKey||'')&&/\btest\b/i.test([event.format,event.matchFormat].join(' '))){
+      const valid=Number.isSafeInteger(event.matchDay)&&event.matchDay>0&&(!event.numberOfDays||event.matchDay<=event.numberOfDays)&&/^https:\/\//.test(event.matchDaySourceUrl||'');
+      return valid?'DAY '+event.matchDay:'DAY UNCONFIRMED';
+    }
+    if(statuses.some(value=>/^(completed|finished|final)$/.test(value))||!(event.tournamentParent||event.isEditionOverview||['tennis_parent','golf_tournament','tournament_overview'].includes(event.cardType)))return null;
+    const tennis=/tennis|wimbledon/.test(event.key||event.sportKey||'');
+    const records=(Array.isArray(event.tournamentProgress)?event.tournamentProgress:[]).filter(p=>p&&/^https:\/\//.test(p.sourceUrl||'')&&Number.isFinite(Date.parse(p.sourceCheckedAt))&&Date.parse(p.sourceCheckedAt)<=+new Date(reference)&&(!tennis||p.drawType==='singles'&&p.mainDraw===true));
+    const tours=new Set(records.map(p=>p.tour).filter(Boolean));
+    const labels=records.map(p=>{
+      const raw=Array.isArray(p.roundNumbers)?p.roundNumbers:[],rounds=[...new Set(raw.filter(n=>Number.isSafeInteger(n)&&n>0))].sort((a,b)=>a-b);
+      const count=p.totalRounds,numbered=rounds.length&&rounds.length===new Set(raw).size&&Number.isSafeInteger(count)&&count>=rounds.at(-1)&&(rounds.length===1||/^\d{4}-\d{2}-\d{2}$/.test(p.playDate||''));
+      const names=[...new Set((Array.isArray(p.roundLabels)?p.roundLabels:[]).filter(n=>typeof n==='string'&&n.trim()).map(n=>n.trim().toUpperCase()))];
+      const label=numbered?'ROUND '+rounds[0]+(rounds.length>1?'-'+rounds.at(-1):'')+' OF '+count:names.join(' / ')||'ROUND UNCONFIRMED';
+      return (tours.size>1?p.tour+' · ':'')+label;
+    });
+    return [...new Set(labels)].join(' · ')||'ROUND UNCONFIRMED';
+  }
   function presentation(event, reference = new Date()){
     const now = new Date(reference);
     const precision = event.timePrecision;
@@ -62,7 +83,9 @@
     const settled=/^(completed|finished|final|cancelled|canceled|abandoned)$/.test(event.status||'');
     const windowStart=new Date(event.estimatedEarliestStartTimeUtc||''),windowEnd=new Date(event.estimatedLatestStartTimeUtc||'');
     const windowLabel=precision==='estimated'&&Number.isFinite(+windowStart)&&Number.isFinite(+windowEnd)?'APPROX. '+format(windowStart,{hour:'numeric',minute:'2-digit',hour12:true})+' – '+format(windowEnd,{hour:'numeric',minute:'2-digit',hour12:true}):null;
-    const time = windowLabel || (overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`);
+    const progressLabel=progress(event,reference);
+    const originalDate=progressLabel&&calendarDate(event.date||event.startDate);if(originalDate)fullDate=dated(originalDate)+(end&&dayKey(end)!==dayKey(originalDate)?' – '+dated(end):'');
+    const time = progressLabel&&event.dateOnly?'':windowLabel || (overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`);
     const schedule = [day,time].filter(Boolean).join(delta !== null && delta >= 0 && delta < 7 && !range ? " " : " · ");
     // Venue calendar dates cannot establish Sydney dates without a race start.
     const venueCalendar = !hasTime && event.timingProvenance?.precision === 'venue-calendar' && event.displayDateLabel;
@@ -91,11 +114,11 @@
     const observed=controls?.timingState(event,reference);
     if(observed?.key==='half-time')status='HALF-TIME';
     if(observed?.key==='awaiting-update')status=observed.label;
-    return Object.freeze({day:venueCalendar?day:date?(range?day:dated(date)):'DATE TBC',time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:scheduleLabel, fullSchedule, ariaLabel:status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule});
+    return Object.freeze({day:progressLabel|| (venueCalendar?day:date?(range?day:dated(date)):'DATE TBC'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
   }
   function dateOnlyLabel(event){
     if(['completed','finished','final'].includes(event.status))return 'Completed';
     return event.eventType==='match'||event.timingProvenance?.precision==='venue-calendar'?'Time TBC':event.displayTime||'Session times vary';
   }
-  return Object.freeze({presentation,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason});
+  return Object.freeze({presentation,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason,progress});
 });

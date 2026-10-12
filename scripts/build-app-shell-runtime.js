@@ -67,7 +67,7 @@ function build(){
 const target = path.join(root,"assets/js/app-shell-runtime.js");
 if (require.main === module){
   const optionalTarget=path.join(root,'assets/js/calendar-sync-ui.js');
-  const optionalOutput=require('terser').minify_sync(fs.readFileSync(path.join(root,'assets/js/calendar-sync-ui.source.js'),'utf8'),{compress:{passes:4},mangle:true}).code+'\n';
+  const optionalOutput=require('terser').minify_sync(['config/calendar-ics.js','assets/js/calendar-sync-ui.source.js'].map(file=>fs.readFileSync(path.join(root,file),'utf8')).join('\n;'),{compress:{passes:4},mangle:true}).code+'\n';
   if(process.argv.includes('--check')){if(!fs.existsSync(optionalTarget)||fs.readFileSync(optionalTarget,'utf8')!==optionalOutput)throw Error('Calendar UI bundle is stale');}
   else fs.writeFileSync(optionalTarget,optionalOutput);
   const output = build();

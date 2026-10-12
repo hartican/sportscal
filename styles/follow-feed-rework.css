@@ -286,7 +286,17 @@ header.top .vector-glyph{width:20px;height:20px;}
 .mc-tennis-brand{font-size:.75rem;color:var(--text-dim);margin:4px 0 8px;}
 .fixture-providers{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 6px;width:100%;}
 .fixture-providers .provider-link{display:flex;justify-content:center;min-width:60px;min-height:44px;padding:7px 9px;border-radius:6px;border:1px solid transparent;background:transparent;}
-.fixture-providers .provider-action-mark{width:54px;height:28px;min-width:0;padding:0;border-radius:0;background:transparent;overflow:visible;}
+.fixture-providers .provider-action-mark{flex:0 0 auto;width:54px;height:24px;max-width:54px;max-height:24px;min-width:0;padding:0;border-radius:0;background:transparent;overflow:hidden;}
+.fixture-providers .provider-action-logo{width:100%;height:100%;max-width:54px;max-height:24px;object-fit:contain;}
+.tennis-fixture-context{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px 8px;font-size:.7rem;line-height:1.4;font-weight:750;}
+.tennis-fixture-round{overflow-wrap:anywhere;}
+.compact-participant-frame{display:grid;place-items:center;width:48px;height:48px;flex:0 0 48px;}
+.compact-participant-frame>*{grid-area:1/1;}
+.event-card .compact-card-summary[data-progress]>.compact-card-time{display:block;visibility:visible;white-space:normal;overflow:visible;}
+.event-card:not(.is-compact-row) .matchup-team-logo-slot{width:96px;height:96px;}
+.event-card.is-compact-row :is(.compact-participant-mark,.compact-participant-fallback){width:48px;height:48px;flex-basis:48px;}
+.event-card.is-compact-row .compact-matchup-side{flex-wrap:wrap;justify-content:center;overflow:visible;}
+@media(max-width:359px){.event-card:not(.is-compact-row) .matchup-team-logo-slot{width:80px;height:80px;}}
 
 .fixture-providers .viewing-tbc{font-size:.73rem;color:var(--text-dim);}
 #listView .feed-fixture .fixture-access .event-quick-actions{margin:0;justify-content:center;}
@@ -431,6 +441,9 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .is-minimal-fixture .event-quick-actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:6px;}
 #listView .is-minimal-fixture .fixture-competition-link{display:inline-flex;font-size:.65rem;margin-top:4px;}
 #listView .is-minimal-fixture .event-quick-action{min-height:32px;padding:4px 8px;}
+#listView .is-minimal-fixture .provider-link{min-height:44px;}
+#listView .is-minimal-fixture :is(.compact-participant-mark,.compact-participant-fallback){width:48px;height:48px;flex-basis:48px;}
+#listView .is-minimal-fixture .compact-matchup-side{flex-wrap:wrap;justify-content:center;overflow:visible;}
 #listView .is-minimal-fixture .fixture-providers{max-width:100px;}
 #listView .is-minimal-fixture .viewing-tbc{font-size:.6rem;line-height:1.15;}
 #listView .is-minimal-fixture .event-quick-action{font-size:.65rem;}

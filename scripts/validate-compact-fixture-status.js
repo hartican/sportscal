@@ -12,11 +12,13 @@ function validate({source=fs.readFileSync(path.join(root,'index.html'),'utf8')}=
  const start=source.indexOf('function buildCompactCardSummary('),end=source.indexOf('function feedClockKey(',start);assert(start>=0&&end>start,'Actual compact card boundary exists');
  const context=vm.createContext({document:{createElement:()=>new Element()},activeTab:'feed',compactFixtureName:e=>e.name,matchupIdentityMatches:()=>[],renderEventTitleIdentity:(node,e)=>{node.textContent=e.name;},compactFixtureFormat:()=>null,compactFallbackTiming:()=>'',sportMetaForEvent:()=>({label:'Football'}),spoilerSafeDisplayTitle:e=>e.name,FOLLOW_FIRST:{stageLabel:()=>null},FEED_CONTROLS:require('../config/feed-controls'),NOTHINGSPORTS_CARD_TIMING:require('../config/card-timing'),Intl,Date});
  vm.runInContext(source.slice(start,end),context);
+ context.NOTHINGSPORTS_FIXTURE_LABELS=require('../config/fixture-labels');
+ const helper=source.indexOf('function buildTennisFixtureContext(');vm.runInContext(source.slice(helper,source.indexOf('function buildFixtureTimingBadge(',helper)),context);
  let cases=0;
  function check(event,now,expected){
   context.nowAEST=()=>new Date(now);const before=JSON.stringify(event),summary=context.buildCompactCardSummary(event,{minimal:true}),time=summary.children.at(-1).textContent;
   assert(time.includes(expected),event.name+': compact card must visibly show '+expected+'; received '+time);
-  assert(time.includes('Sydney time'),'Original scheduled time keeps its zone');
+  assert((context.NOTHINGSPORTS_CARD_TIMING.progress(event,now)?summary.getAttribute('aria-label'):time).includes('Sydney time'),'Original scheduled time keeps its zone in the capsule or its accessible full dates');
   assert(summary.getAttribute('aria-label').includes(expected),'Accessible status remains available');
   if(event.scoreDisplay)assert(!time.includes(event.scoreDisplay),'A status label does not expose scores');
   assert.equal(JSON.stringify(event),before,'Display preserves source facts and clocks');cases++;return {time,aria:summary.getAttribute('aria-label')};
