@@ -2697,74 +2697,6 @@
       "researchDepth": 5
     },
     {
-      "id": "rlwc-australia-new-zealand-2026",
-      "title": "Australia v New Zealand - Rugby League World Cup",
-      "hook": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-      "formCopy": "Australia have named their 23-player squad with Yeo as captain, removing the earlier uncertainty about his inclusion. Lindsay Smith replaces injured Lindsay Collins. Walker is selected in the squad but competes with Munster, Dearden and Moses for a halves berth. New Zealand retain the core of their 2025 Pacific Championships winners, add Ponga and Gagai, and welcome Hughes back.",
-      "closingCopy": "Cleary's absence makes Australia's attacking succession a live contest rather than a speculative squad list. Walker's recovery from ankle surgery gives his chance a personal edge, but it does not guarantee selection. Across the divide, Ponga's allegiance and Hughes' return strengthen the Kiwis' own story of belonging and ambition. Australian supporters expect a title defence; New Zealand supporters can see experienced winners and new talent challenging that expectation.",
-      "synopsis": "The men's World Cup opens at Allianz Stadium on Thursday 15 October, with Australia and New Zealand sharing Pool A with Fiji and Cook Islands. Opening points shape the route through the pool without deciding the trophy. The national squads are announced; the match-day teams and starting halves are not assumed. Australian coverage is confirmed on Seven and 7plus. Neither a predicted lineup nor a result has been presented as fact.",
-      "sources": [
-        "https://www.nrl.com/news/2026/10/05/kangaroos-squad-for-2026-rugby-league-world-cup/",
-        "https://www.nrl.com/news/2026/10/06/ponga-gagai-among-new-faces-in-kiwis-squad/",
-        "https://www.nrl.com/news/2026/10/10/job-to-do-walker-just-getting-started-on-path-to-greatness/",
-        "https://www.rlwc2026.com/draws-and-pools",
-        "https://www.nrl.com/news/2026/09/27/cleary-out-of-world-cup-edwards-yeo-in-doubt-as-crossland-awaits-fate/"
-      ],
-      "facts": [
-        {
-          "dimension": "form",
-          "statement": "Yeo captains the announced Kangaroos squad; Lindsay Smith replaces injured Lindsay Collins.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "matchup",
-          "statement": "Walker competes with Munster, Dearden and Moses for a halves place; inclusion in the squad does not confirm the match team.",
-          "sourceIndexes": [
-            2
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "The Kiwis squad includes Ponga and Gagai and returning Hughes alongside its 2025 Pacific Championships-winning core.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "history",
-          "statement": "Walker recovered from August ankle surgery before the finals and his World Cup selection.",
-          "sourceIndexes": [
-            2
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "Australia and New Zealand open the World Cup at Allianz Stadium on 15 October in Pool A.",
-          "sourceIndexes": [
-            3
-          ]
-        },
-        {
-          "dimension": "consequence",
-          "statement": "Cleary is ruled out of Australia's World Cup campaign.",
-          "sourceIndexes": [
-            4
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "Seven and 7plus hold confirmed Australian World Cup coverage.",
-          "sourceIndexes": [
-            0
-          ]
-        }
-      ],
-      "researchedAt": "2026-10-10T09:56:08Z",
-      "researchDepth": 5
-    },
-    {
       "id": "rugby-australia-new-zealand-2026-10-17",
       "title": "Australia v New Zealand - Sydney Bledisloe Test",
       "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
@@ -3045,6 +2977,183 @@
       ],
       "researchedAt": "2026-10-11T22:08:34.441Z",
       "researchDepth": 5
+    },
+    {
+      "id": "fixture-tennis-espn-atp-184950",
+      "title": "Alex de Minaur v Karen Khachanov - Shanghai round of 16",
+      "hook": "De Minaur's Turin chase meets Khachanov's big-stage pedigree, with recovery and rally depth both under examination.",
+      "formCopy": "De Minaur says the extra recovery time in Shanghai has helped and that his body is improving. His recent emphasis has been on serving accurately and keeping the ball deep rather than being pushed around the baseline. Khachanov brings the experience of a Paris Masters title and Olympic singles silver. Their meeting asks whether the Australian can sustain his movement and depth against an opponent with proven credentials at this level.",
+      "closingCopy": "For De Minaur, this is more than another stop on the Asian swing: the ATP Finals remain within reach, and each round carries weight in that chase. Australian supporters have travelled with him through Shanghai, adding a familiar voice far from home. Khachanov has his own claim to the big stage; a former Masters champion is not merely an obstacle in someone else's qualification story. The tension is between opportunity and the physical demands of taking it.",
+      "synopsis": "A Shanghai quarterfinal place is at stake on the hard courts. Tennis Australia's current preview says a De Minaur victory would move him to ninth in the race to Turin; that is a route towards qualification, not a guaranteed Finals berth. Keeping Khachanov from dictating the rally will matter as much as retrieving another ball. Recovery progress is the player's account, not a medical declaration of full fitness. Neither this match's outcome nor scores from earlier rounds are revealed.",
+      "sources": [
+        "https://www.tennis.com.au/fan-zone/news/2026/10/11/de-minaur-wins-again-to-reach-shanghai-masters-fourth-round",
+        "https://www.atptour.com/en/tournaments/shanghai/5014/overview",
+        "https://bnpparibasopen.com/players/detail/karen-khachanov"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "De Minaur reported improved recovery and described depth and neutralising the opponent's serve as recent priorities.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Tennis Australia identifies Khachanov as De Minaur's fourth-round opponent and says victory would move De Minaur to ninth in the ATP Finals race.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Khachanov won the 2018 Paris Masters and Olympic singles silver in Tokyo.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Shanghai is a hard-court Masters 1000 tournament; the round-of-16 winner progresses to the quarterfinals.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "researchedAt": "2026-10-12T22:50:31.088Z"
+    },
+    {
+      "id": "rlwc-australia-new-zealand-2026",
+      "title": "Australia v New Zealand - World Cup opener",
+      "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+      "formCopy": "Australia's preparation now points towards Munster at five-eighth, with Moses reported as the leading halfback contender; those reports are not a final team sheet. Yeo has confirmed he is deferring pectoral surgery to captain the squad. New Zealand bring Hughes back after an injury-enforced international absence, with Fisher-Harris leading a squad that adds Ponga and Gagai. The opening contest must turn those assembled strengths into a working spine and forward platform.",
+      "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
+      "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
+      "sources": [
+        "https://www.nrl.com/news/2026/10/13/unpredictability-key-as-munster-prepares-for-new-halves-pairing/",
+        "https://www.nrl.com/news/2026/10/12/green-light-the-bus-ride-that-set-yeo-on-world-cup-path/",
+        "https://www.nrl.com/news/2026/10/12/take-a-lot-of-blame-the-defeat-driving-hughes-world-cup-bid/",
+        "https://www.nrl.com/news/2026/10/05/kangaroos-squad-for-2026-rugby-league-world-cup/",
+        "https://www.nrl.com/news/2026/10/06/ponga-gagai-among-new-faces-in-kiwis-squad/",
+        "https://nzrl.co.nz/news/kiwis-kiwi-ferns-2026-rugby-league-world-cup-draws-announced"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "NRL's 13 October report has Munster set for five-eighth and Moses the leading halfback contender; predictions are not final match-day selection.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Munster and Hughes play together at Melbourne and discuss the unusual challenge of facing one another internationally.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Yeo reports playing with a ruptured pectoral, deferring surgery until his 2026 playing commitments finish with Penrith's support.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Hughes recalls the influence of New Zealand's 2008 title on him and wants a World Cup success to connect with children and supporters.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Yeo captains Australia's announced squad; New Zealand's announced squad includes returning Hughes and potential debutants Ponga and Gagai.",
+          "sourceIndexes": [
+            3,
+            4
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Australia and New Zealand open Pool A at Allianz on 15 October; Fiji and Cook Islands are the other pool teams.",
+          "sourceIndexes": [
+            5
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "NRL confirms Australian World Cup broadcasts on Seven and 7plus.",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "researchedAt": "2026-10-12T22:50:31.092Z"
+    },
+    {
+      "id": "epl-2026-27-128984",
+      "title": "Brentford v Liverpool - selection pressure at the Gtech",
+      "hook": "Gravenberch's ban opens a hole in Liverpool's midfield just as Brentford test how far their own adaptability can take them.",
+      "formCopy": "Brentford's latest analysis highlights Diouf's forward running, Yarmoliuk's midfield work and Hickey's adaptability at centre-back. Andrews is assessing Schade's shoulder and Schuster's ankle. Liverpool must replace suspended Gravenberch, while their latest pre-match report described Isak and Gakpo as day-to-day injury cases and Chiesa back in training. Those fitness reports do not confirm availability at the Gtech, and neither starting XI is assumed.",
+      "closingCopy": "Andrews has a week on the training pitch to turn resourcefulness into a repeatable plan. For Brentford supporters, competing with Liverpool is about seeing their own side's ideas hold up, not simply welcoming a famous visitor. Iraola must find balance without Gravenberch: whoever fills the space has to connect defence and attack rather than just occupy a shirt. A selection problem becomes a test of trust for the manager, opportunity for a replacement and a demand for cohesion from the stands.",
+      "synopsis": "Liverpool travel to the Gtech for a league meeting in which points matter to both clubs, without a title verdict hanging on one October afternoon. Brentford's changing defensive options and Liverpool's attack raise a practical question: can pressure be organised without leaving space behind it? The confirmed match is on Saturday in London and early Sunday in Sydney. Recent fitness assessments remain dated evidence, not a prediction of this week's team sheet; earlier results are kept out of the preview.",
+      "sources": [
+        "https://www.brentfordfc.com/en/news/analysis-aston-villa-2-brentford-2-el-hadji-malick-diouf-aaron-hickey-yehor-yarmoliuk",
+        "https://www.brentfordfc.com/en/news/first-team-keith-andrews-kevin-schade-jannik-schuster-injury-update-brentford",
+        "https://www.liverpoolfc.com/news/lfc-fitness-update-alexander-isak-cody-gakpo-federico-chiesa-and-jeremy-jacquet",
+        "https://www.liverpoolfc.com/tickets/match/brentford-v-liverpool-english-premier-league-20261017",
+        "https://www.liverpoolfc.com/news/ryan-gravenberch-suspended-for-brentford-v-liverpool-premier-league"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Brentford's 12 October analysis highlights Diouf at left-back, Yarmoliuk in midfield and Hickey in an unfamiliar centre-back role, with a training week before Liverpool.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Andrews' 10 October update reports a Schade shoulder injury and Schuster ankle issue, with no declared Liverpool-match availability.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Liverpool's latest available pre-match club report described Isak's thigh and Gakpo's ankle injuries as assessed day to day, and Chiesa back in training; it did not settle the Brentford team.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Liverpool's official ticket page identifies the away league fixture at Gtech Community Stadium on Saturday 17 October, 15:00 British time.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "This is a Premier League match, not a knockout decider.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Liverpool confirms Ryan Gravenberch is suspended for the Brentford away match.",
+          "sourceIndexes": [
+            4
+          ]
+        }
+      ],
+      "researchDepth": 5,
+      "researchedAt": "2026-10-12T22:50:31.092Z"
     }
   ]
 }
