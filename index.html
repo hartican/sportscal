@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="510">
+<meta name="app-shell-version" content="511">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=510" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=511" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7176,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=510"></script>
+<script src="assets/js/app-shell-runtime.js?v=511"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -14237,7 +14237,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=502').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=511').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -16730,7 +16730,7 @@ function buildEuropeanDetail(ev,kind){
     if(ev.sourceAttribution?.provider==='OpenLigaDB'){const link=document.createElement('a');link.href='/data/providers/openligadb/football-2026-27.json';link.textContent='OpenLigaDB data · ODbL';node.append(link);}
     if(ev.delayedResultSource){const note=document.createElement('p'),link=document.createElement('a');link.href='https://www.football-data.org/';link.textContent='Football data provided by the Football-Data.org API';note.append(link,document.createTextNode('. Delayed final result; primary source unavailable at recovery.'));node.append(note);}
   }
-  loadDeferredScript('assets/js/football-card-context.js?v=502').then(async()=>{const detail=await NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,()=>isSpoilerVisible(ev));if(!node.isConnected)return;if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();if(kind==='standings'&&node.isConnected){node.textContent='Standings unavailable. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry standings';retry.onclick=()=>node.replaceWith(buildEuropeanDetail(ev,kind));node.append(retry);}});
+  loadDeferredScript('assets/js/football-card-context.js?v=511').then(async()=>{const detail=await NOTHINGSPORTS_FOOTBALL_CONTEXT[kind](ev,()=>isSpoilerVisible(ev));if(!node.isConnected)return;if(detail)node.replaceWith(detail);else node.remove();}).catch(()=>{if(kind==='context')node.remove();if(kind==='standings'&&node.isConnected){node.textContent='Standings unavailable. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry standings';retry.onclick=()=>node.replaceWith(buildEuropeanDetail(ev,kind));node.append(retry);}});
   return node;
 }
 function buildFixtureDataAttribution(ev){return ev.sourceAttribution||ev.delayedResultSource?buildEuropeanDetail(ev,'attribution'):null;}
@@ -18808,7 +18808,7 @@ async function openFollowScreen(section){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=467';
+  const url='assets/js/follow-presentation-ui.js?v=511';
   return Promise.all([loadDeferredScript('config/participant-directory.js?v=463'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -19994,6 +19994,7 @@ function currentFeedPresentationFingerprint(){
 
 function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
   if (startupCoordinator.isHydrating()){renderAll({preserveViewport});return true;}
+  if(activeTab==='follow')return false;
   if (scrollMomentumActive){
     queueScrollIdleMutation(() => renderFeedIfPresentationChanged({ preserveViewport }));
     return true;
@@ -20001,10 +20002,7 @@ function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
   const nextFingerprint = currentFeedPresentationFingerprint();
   const shouldRender = !FEED_REFRESH_LIFECYCLE
     || FEED_REFRESH_LIFECYCLE.shouldRenderUpdate(committedFeedPresentationFingerprint, nextFingerprint);
-  if (
-    FEED_REFRESH_LIFECYCLE
-    && !shouldRender
-  ) return false;
+  if (!shouldRender) return false;
   renderAll({ preserveViewport });
   return true;
 }

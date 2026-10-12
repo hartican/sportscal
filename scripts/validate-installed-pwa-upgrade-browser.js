@@ -4,9 +4,37 @@ const fs = require('node:fs');
 const path = require('node:path');
 const http = require('node:http');
 const crypto = require('node:crypto');
+const vm = require('node:vm');
 const {execFileSync} = require('node:child_process');
 const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const {assertFollowPickerJourney}=require('./validate-follow-presentation-browser');
 const root = path.resolve(__dirname,'..');
+function requiredShellScriptUrl(file){
+  const worker=fs.readFileSync(path.join(root,'service-worker.js'),'utf8');
+  const urls=[...worker.matchAll(/"\/([^"?]+\.js\?v=\d+)"/g)].map(match=>match[1]).filter(url=>url.split('?')[0]===file);
+  assert.equal(urls.length,1,'The required shell has one explicit version for '+file);
+  return urls[0];
+}
+async function assertCachedFollowNavigation(page){
+  const url=requiredShellScriptUrl('assets/js/follow-navigation.js');
+  const cached=await page.evaluate(async({url,version})=>{const cache=await caches.open('nothingsport-shell-v'+version);return (await cache.match('/'+url))?.text();},{url,version:candidateVersion});
+  assert.equal(cached,fs.readFileSync(path.join(root,'assets/js/follow-navigation.js'),'utf8'),'The exact candidate shell cache must own the repaired Follow navigation');
+  const loaded=await page.evaluate(async()=>Promise.all([...loadDeferredScript.requests].filter(([url])=>new URL(url,location.href).pathname==='/assets/js/follow-navigation.js').map(async([url,promise])=>{await promise;return url;})));
+  assert(loaded.length,'The native Follow journey must actually execute the navigation module');
+  for(const script of loaded)assert.equal(new URL(script).pathname+new URL(script).search,'/'+url,'Every executed Follow navigation URL must match the exact candidate precache binding');
+  const expected={scrollY:0,localStorage:{getItem:()=>null},addEventListener:()=>{}};
+  vm.runInNewContext(fs.readFileSync(path.join(root,'assets/js/follow-navigation.js'),'utf8'),expected);
+  const mounted=await page.evaluate(()=>NOTHINGSPORTS_FOLLOW_NAV.mount.toString());
+  const digest=value=>crypto.createHash('sha256').update(value).digest('hex');
+  assert.equal(digest(mounted),digest(expected.NOTHINGSPORTS_FOLLOW_NAV.mount.toString()),'The actually executed navigation mount must match the pinned repaired source');
+}
+async function workerUpgradeDiagnostic(page){
+  return page.evaluate(async()=>{
+    const registration=await navigator.serviceWorker.getRegistration();
+    const read=worker=>worker?new Promise(resolve=>{const channel=new MessageChannel(),timer=setTimeout(()=>{channel.port1.close();resolve({url:worker.scriptURL,state:worker.state,version:null});},1000);channel.port1.onmessage=event=>{clearTimeout(timer);channel.port1.close();resolve({url:worker.scriptURL,state:worker.state,version:event.data?.version||null});};worker.postMessage({type:'nothingsport-worker-version'},[channel.port2]);}):null;
+    return {documentVersion:document.querySelector('meta[name="app-shell-version"]')?.content,controller:navigator.serviceWorker.controller?.scriptURL,update:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:await Promise.all([read(registration?.active),read(registration?.waiting),read(registration?.installing)]),messages:globalThis.qaUpgradeMessages||[],caches:await caches.keys()};
+  });
+}
 const footballStatusFixture=require('../data/code-inspector/football.json').fixtures.find(event=>event.competitionId==='competition:premier-league-2026-27');
 async function assertCachedFonts(page){
   for(const file of ['assets/fonts/dm-sans-latin.woff2','assets/fonts/dm-sans-latin-ext.woff2']){const digest=await page.evaluate(async file=>{const response=await caches.match('/'+file);if(!response)throw Error('Missing cached font: '+file);const bytes=await response.arrayBuffer();return [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(b=>b.toString(16).padStart(2,'0')).join('');},file);assert.equal(digest,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),'Bundled font survives upgrade/offline exactly');}
@@ -136,8 +164,8 @@ async function assertCachedFootballStatus(page){
   assert.equal(preview.hiddenWarnings,0);assert.equal(preview.shownWarning,'Table awaits primary-source confirmation of delayed backup results.','Cached backup-result tables retain their warning without leaking it through Results OFF');
   assert.equal(await page.evaluate(modulePath=>caches.match('/'+modulePath).then(r=>r?.text()),footballContextPath),fs.readFileSync(path.join(root,'assets/js/football-card-context.js'),'utf8'),'Cached UEFA preview executes the exact current source module');
   const priorLive=JSON.parse(baselineFile('data/code-inspector/american-football.json')).fixtures.find(f=>f.status==='live')||require('./fixtures/nfl-retained-live-observation.json').fixture;
-  const nfl=await page.evaluate(async priorLive=>{
-    await loadDeferredScript('assets/js/follow-navigation.js?v=463');await loadDeferredScript('assets/js/follow-schedule-panel.js?v=453');
+  const nfl=await page.evaluate(async ({priorLive,navigationPath,panelPath})=>{
+    await loadDeferredScript(navigationPath);await loadDeferredScript(panelPath);
     const document=await(await fetch('/data/code-inspector/american-football.json')).json();
     const previous=codeInspectorChunk,saved=JSON.stringify(userPreferences),reveal=standingsRevealApproved;
     try{
@@ -156,7 +184,7 @@ async function assertCachedFootballStatus(page){
       if(!live?.statusCheckedAt)throw Error('Cached NFL freshness check requires an actual current or baseline live observation');
       return {visible,hiddenTables:panel.querySelectorAll('table').length,hidden:panel.textContent,coverage:document.coverageStatus,asOf:[...new Set(document.standings.map(r=>r.asOf))],unchanged:JSON.stringify(document)===JSON.stringify(codeInspectorChunk),fixtureProof:{fixtures:fixtures.length,regular:fixtures.filter(f=>/^Week /.test(f.roundLabel)).length,tbc:fixtures.filter(f=>f.timeTbc).length,noExactTbc:fixtures.filter(f=>f.timeTbc).every(f=>f.startTimeUtc===null&&f.time===null),finalVisible:finalVisible.includes(score),finalHidden:!finalHidden.includes(score),staleStatus:FEED_CONTROLS.timingState(live,new Date(Date.parse(live.statusCheckedAt)+31*60000)).key}};
     }finally{codeInspectorChunk=previous;userPreferences=JSON.parse(saved);standingsRevealApproved=reveal;}
-  },priorLive);
+  },{priorLive,navigationPath:requiredShellScriptUrl('assets/js/follow-navigation.js'),panelPath:requiredShellScriptUrl('assets/js/follow-schedule-panel.js')});
   assert.equal(nfl.visible.tables,2);assert.equal(nfl.visible.rows,32);
   assert(nfl.visible.text.includes('NFL AFC standings')&&nfl.visible.text.includes('NFL NFC standings'));
   assert(nfl.visible.text.includes('not final playoff qualifications'));
@@ -442,7 +470,8 @@ const server=http.createServer((req,res)=>{
     await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
     const origin='http://127.0.0.1:'+server.address().port;
     browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions});
-    const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'allow'});
+    const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,serviceWorkers:'allow'});
+    await context.addInitScript(()=>{globalThis.qaUpgradeMessages=[];navigator.serviceWorker?.addEventListener('message',event=>{if(event.data?.type?.startsWith('nothingsport-'))qaUpgradeMessages.push({type:event.data.type,version:event.data.version||null,at:performance.now()});});});
     const page=await context.newPage();
     const pending=new Set(); context.on('request',r=>pending.add(r.url()));context.on('requestfinished',r=>pending.delete(r.url()));context.on('requestfailed',r=>pending.delete(r.url()));
     const navigations=[];page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations.push(frame.url());});
@@ -480,7 +509,7 @@ const server=http.createServer((req,res)=>{
     if(!keepOpen && +baselineVersion>=238)assert.equal(firstVersion,candidateVersion,'network-first baselines must receive the current first document');
     // Legacy cache-first workers cannot be retroactively changed: require an
     // automatic migration to the real candidate without a second user launch.
-    try { await upgraded.waitForFunction(v=>document.querySelector('meta[name="app-shell-version"]')?.content===v,candidateVersion,{timeout:60000}); } catch(error) { console.error('Pending requests', [...pending]); console.error('Legacy catch-up diagnostic', await upgraded.evaluate(async()=>({version:document.querySelector('meta[name="app-shell-version"]')?.content,update:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:(await navigator.serviceWorker.getRegistrations()).map(r=>({active:r.active?.scriptURL,waiting:r.waiting?.state,installing:r.installing?.state})),caches:await caches.keys()}))); throw error; }
+    try { await upgraded.waitForFunction(v=>document.querySelector('meta[name="app-shell-version"]')?.content===v,candidateVersion,{timeout:60000}); } catch(error) { console.error('Pending requests', [...pending]); console.error('Legacy catch-up diagnostic',await workerUpgradeDiagnostic(upgraded));console.error('Version reads',versionRequests);throw error; }
     try { await upgraded.waitForFunction(()=>globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot().workerVersion===document.querySelector('meta[name="app-shell-version"]').content,null,{timeout:45000}); }
     catch(error){console.error('Pending requests', [...pending]);console.error('Worker upgrade diagnostics',await upgraded.evaluate(async()=>({version:document.querySelector('meta[name="app-shell-version"]')?.content,state:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:(await navigator.serviceWorker.getRegistrations()).map(r=>({active:r.active?.state,waiting:r.waiting?.state,installing:r.installing?.state})),caches:await caches.keys()})));throw error;}
 
@@ -539,6 +568,12 @@ const server=http.createServer((req,res)=>{
     await upgraded.waitForFunction(async()=>Boolean(await caches.match('/participate.html')));
     const participationCache=await upgraded.evaluate(async()=>await(await caches.match('/participate.html')).text());
     assert(!participationCache.includes('/data/marquee-candidates.v1.json')&&participationCache.includes('/api/participation'),'cached fixture page must use the public projection');
+    // Use the actual directory before disconnecting so offline acceptance reaches
+    // the same real scroll boundary, rather than an empty short page.
+    await assertFollowPickerJourney(upgraded);await assertCachedFollowNavigation(upgraded);await assertSavedNativeChoices(upgraded);
+    // The later original NFL/table probes intentionally exercise men's fixtures.
+    await upgraded.getByRole('tab',{name:'Men',exact:true}).tap();
+    await upgraded.locator('.tabs [data-tab=feed]').tap();
     await context.setOffline(true);
     await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.check({force:true}));
     assert.equal(await upgraded.evaluate(()=>NOTHINGSPORTS_APP_UPDATE.snapshot().phase),'offline');
@@ -567,6 +602,8 @@ const server=http.createServer((req,res)=>{
       const url=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/const url='(assets\/js\/follow-presentation-ui\.js\?v=\d+)'/)[1];
       const cached=await upgraded.evaluate(async url=>{const r=await caches.match('/'+url);return r?await r.text():null;},url);
       assert.equal(cached,fs.readFileSync(path.join(root,'assets/js/follow-presentation-ui.js'),'utf8'),'offline first open executes the exact precached Follow interface');
+      await assertFollowPickerJourney(upgraded);await assertCachedFollowNavigation(upgraded);await assertSavedNativeChoices(upgraded);
+      await upgraded.getByRole('tab',{name:'Men',exact:true}).tap();
       await upgraded.evaluate(()=>{activeTab='feed';renderAll();});
     }
     networkFailure=false;await context.setOffline(false);

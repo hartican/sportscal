@@ -15,3 +15,21 @@ const sharedCss=fs.readFileSync('assets/js/match-centre-ui.js','utf8').match(css
 assert.equal(fs.readFileSync('config/event-overviews-ui.js','utf8').match(cssUrl)?.[0],sharedCss,'Either first style owner installs the same current stylesheet');
 assert(worker.includes('/'+sharedCss),'The shared stylesheet is required under its current cache key');
 console.log('Interactive, idle and overview owners use one module instance and one installed stylesheet.');
+
+// The actual Feed caller must not replace a cold Follow directory's queued
+// redraw. The browser regression supplies the genuine response/scroll race.
+const feedRenderStart=html.indexOf('function renderFeedIfPresentationChanged('),feedRenderEnd=html.indexOf('\nfunction renderCurrentSection(',feedRenderStart);
+assert(feedRenderStart>=0&&feedRenderEnd>feedRenderStart);
+const feedRenderSource=html.slice(feedRenderStart,feedRenderEnd),feedLifecycle=require('../config/feed-refresh-lifecycle');
+function foregroundFixture(tab,{hydrating=false,scrolling=true,changed=false,lifecycle=feedLifecycle}={}){
+ const followRedraw=()=>{c.followRows++;},c={activeTab:tab,scrollMomentumActive:scrolling,startupCoordinator:{isHydrating:()=>hydrating},FEED_REFRESH_LIFECYCLE:lifecycle,committedFeedPresentationFingerprint:'shown',currentFeedPresentationFingerprint:()=>changed?'updated':'shown',followRows:0,renders:0,pending:followRedraw,queueScrollIdleMutation(fn){c.pending=fn;},renderAll(){c.renders++;}};
+ vm.runInNewContext(feedRenderSource,c);return {c,followRedraw};
+}
+for(const changed of [false,true]){
+ const {c,followRedraw}=foregroundFixture('follow',{changed}),rendered=c.renderFeedIfPresentationChanged();assert.equal(c.pending,followRedraw,'Inactive Feed work cannot replace the actual foreground Follow intent');assert.equal(rendered,false);c.pending();assert.equal(c.followRows,1);assert.equal(c.renders,0);
+ c.activeTab='feed';c.scrollMomentumActive=false;assert.equal(c.renderFeedIfPresentationChanged(),changed,'Returning to Feed still observes the current data fingerprint');assert.equal(c.renders,changed?1:0);
+}
+for(const changed of [false,true]){const {c,followRedraw}=foregroundFixture('feed',{changed});assert(c.renderFeedIfPresentationChanged());assert.notEqual(c.pending,followRedraw);c.scrollMomentumActive=false;c.pending();assert.equal(c.renders,changed?1:0,'Visible Feed processing retains its normal idle behaviour');}
+const startup=foregroundFixture('follow',{hydrating:true});assert(startup.c.renderFeedIfPresentationChanged());assert.equal(startup.c.renders,1,'Existing startup hydration still renders its current section');
+const noLifecycle=foregroundFixture('feed',{scrolling:false,lifecycle:null});assert(noLifecycle.c.renderFeedIfPresentationChanged());assert.equal(noLifecycle.c.renders,1,'An unavailable fingerprint helper retains the original render fallback');
+console.log('Foreground Follow keeps its queued redraw; returning/active Feed, startup hydration and missing-lifecycle fallback passed.');
