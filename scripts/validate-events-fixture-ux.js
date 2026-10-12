@@ -5,7 +5,7 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const cardCss=fs.readFileSync("styles/follow-feed-rework.css","utf8");
 const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/)?.[1] || "";
 assert.doesNotThrow(() => new Function(inlineScript), "the Events and Fixtures browser script must parse");
@@ -35,7 +35,8 @@ assert(html.includes('navigationRow.className = "major-event-navigation-row"') &
 
 assert(cardCss.includes("width:120px") && cardCss.includes("width:100px"), "Feed and Events share restored responsive identity frames");
 assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");
-const eventCardSource = html.slice(html.indexOf("function buildEventCard(ev"), html.indexOf("function jointTournamentIsActive"));
+const renderer=fs.readFileSync("config/venue-panel-ui.js","utf8");
+const eventCardSource = renderer.slice(renderer.indexOf("function buildDetailedEventCard("), renderer.indexOf("function appendFixtureCardArtwork("));
 assert(eventCardSource.includes('displayLabel:displayTitle'), "regular fixture traffic controls must receive the renderer's spoiler-safe display title");
 assert(eventCardSource.includes("buildNothingscoreSummary") && !eventCardSource.includes("buildNothingscorePanel"), "Feed cards show peer summaries; detailed results belong in the drawer");
 assert(!eventCardSource.includes("follow-reason-tag") && !eventCardSource.includes("new-tag") && !eventCardSource.includes("event-meta-row") && !eventCardSource.includes("Independent context"), "Feed cards must omit meta labels and duplicate metadata rails");
