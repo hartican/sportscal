@@ -36,5 +36,6 @@ begin
  drop function public.nothingsports_epl_identity_ready();
  drop function nothingsports_recovery.epl_identity_ready_v1();
  drop function nothingsports_recovery.epl_operating_ids_v1(text);
+ drop function nothingsports_recovery.epl_reward_clock_v1(text,text,timestamp with time zone);
  update nothingsports_recovery.coverage_repair_versions set completed_at=null,inventory=inventory||jsonb_build_object('operatorReversedAt',clock_timestamp()) where version=version_id;
 end $epl_undo$;

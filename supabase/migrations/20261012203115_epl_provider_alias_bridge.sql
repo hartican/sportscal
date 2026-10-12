@@ -18,7 +18,7 @@ declare
  t text;sig text;expected text;state_hash text;identity_hash text;n bigint;
  before_state jsonb:='{}';post_state jsonb:='{}';security_before jsonb;security_after jsonb;
  trigger_state jsonb;function_post jsonb;security_post jsonb;aux_before jsonb;aux_after jsonb;added_parents jsonb:='[]';added_rules jsonb:='[]';
- world jsonb;source_key text;canonical text;legacy_rule public.nothingsports_prediction_rules;inv jsonb;
+ world jsonb;source_key text;canonical text;confirmed_finish timestamptz;legacy_rule public.nothingsports_prediction_rules;inv jsonb;
 begin
  perform pg_advisory_xact_lock(hashtext('sportscal:coverage-repair:v1'));
  perform pg_advisory_xact_lock(hashtextextended('nsc-awards-v2',0));
@@ -29,7 +29,7 @@ begin
   end loop;
   return;
  end if;
- if to_regprocedure('nothingsports_recovery.epl_operating_ids_v1(text)') is not null or to_regprocedure('nothingsports_recovery.epl_identity_ready_v1()') is not null or to_regprocedure('public.nothingsports_epl_identity_ready()') is not null then raise exception 'EPL helper names already exist without a completed reviewed bridge';end if;
+ if to_regprocedure('nothingsports_recovery.epl_reward_clock_v1(text,text,timestamp with time zone)') is not null or to_regprocedure('nothingsports_recovery.epl_operating_ids_v1(text)') is not null or to_regprocedure('nothingsports_recovery.epl_identity_ready_v1()') is not null or to_regprocedure('public.nothingsports_epl_identity_ready()') is not null then raise exception 'EPL helper names already exist without a completed reviewed bridge';end if;
  for sig,expected in select * from jsonb_each_text(expected_functions) loop
   if to_regprocedure(sig) is null or md5(pg_get_functiondef(sig::regprocedure)) is distinct from expected then raise exception 'EPL baseline function drift: %',sig;end if;
   if has_function_privilege('anon',sig,'execute') or has_function_privilege('authenticated',sig,'execute') then raise exception 'EPL writer/helper client grant requires review: %',sig;end if;
@@ -81,12 +81,14 @@ begin
  foreach canonical in array canonical_hist loop
   source_key:='epl-2026-27-'||split_part(canonical,':',3);
   select fixture into world from public.nothingsports_fixture_current where source_id='live-premier-league' and fixture_id=source_key;
-  if world->>'canonicalEventId' is distinct from canonical or world->>'competitionId' is distinct from 'competition:premier-league-2026-27' or world->>'season' is distinct from '2026/27' or world->>'status' is distinct from 'completed' or world->>'timePrecision' is distinct from 'exact' or world->>'startTimeUtc' is null then raise exception 'EPL historical primary world facts require review: %',canonical;end if;
-  if exists(select 1 from public.nothingsports_score_fixtures r where r.event_id=canonical and (r.starts_at is distinct from (world->>'startTimeUtc')::timestamptz or r.ends_at is distinct from (world->>'endTimeUtc')::timestamptz or r.status is distinct from (world->>'status'))) then raise exception 'EPL canonical world parent differs from accepted primary: %',canonical;end if;
+  if world->>'canonicalEventId' is distinct from canonical or world->>'competitionId' is distinct from 'competition:premier-league-2026-27' or world->>'season' is distinct from '2026/27' or world->>'status' is distinct from 'completed' or world->>'timePrecision' is distinct from 'exact' or world->>'startTimeUtc' is null or coalesce(world->>'timeTbc','false')='true' or coalesce(world->>'startTimeTbc','false')='true' or coalesce(world->>'dateOnly','false')='true' then raise exception 'EPL historical primary world facts require review: %',canonical;end if;
+  if exists(select 1 from public.nothingsports_score_fixtures r where r.event_id=canonical and (r.starts_at is distinct from (world->>'startTimeUtc')::timestamptz or r.status is distinct from (world->>'status'))) then raise exception 'EPL canonical world parent differs from accepted primary: %',canonical;end if;
+  confirmed_finish:=(coalesce(world->>'actualEndTimeUtc',world->>'completedAt',world->>'resultPublishedAt'))::timestamptz;
+  if confirmed_finish is not null and (confirmed_finish>clock_timestamp() or confirmed_finish<(world->>'startTimeUtc')::timestamptz) then raise exception 'EPL historical completion fact requires review: %',canonical;end if;
   if not exists(select 1 from public.nothingsports_score_fixtures where event_id=canonical) then
    alter table public.nothingsports_score_fixtures disable trigger prediction_rule;
    insert into public.nothingsports_score_fixtures(event_id,sport,gender,starts_at,ends_at,status)
-   select canonical,'football',r.gender,(world->>'startTimeUtc')::timestamptz,(world->>'endTimeUtc')::timestamptz,world->>'status' from public.nothingsports_score_fixtures r where r.event_id=case canonical when 'event:premier-league:128968' then 'event:football:premier-league:401879273' else 'event:football:premier-league:401879272' end;
+   select canonical,'football',r.gender,(world->>'startTimeUtc')::timestamptz,confirmed_finish,world->>'status' from public.nothingsports_score_fixtures r where r.event_id=case canonical when 'event:premier-league:128968' then 'event:football:premier-league:401879273' else 'event:football:premier-league:401879272' end;
    if not found then raise exception 'EPL required original world parent is missing: %',canonical;end if;
    alter table public.nothingsports_score_fixtures enable trigger prediction_rule;
    added_parents:=added_parents||jsonb_build_array(canonical);
@@ -110,7 +112,50 @@ as $body$
  else array[nothingsports_recovery.fixture_alias_v1(value)] end;
 $body$;
 revoke all on function nothingsports_recovery.epl_operating_ids_v1(text) from public,anon,authenticated;
-grant execute on function nothingsports_recovery.epl_operating_ids_v1(text) to service_role;;$ddl_operating$;
+grant execute on function nothingsports_recovery.epl_operating_ids_v1(text) to service_role;
+create or replace function nothingsports_recovery.epl_reward_clock_v1(target_event_id text,caller_fixture_status text,caller_fixture_end timestamptz)
+returns jsonb language plpgsql set search_path='' as $body$
+declare reviewed_event jsonb;reviewed_pair jsonb;fixture_start timestamptz;fixture_end timestamptz;fixture_status text:=caller_fixture_status;ts timestamptz:=clock_timestamp();begin
+ target_event_id:=nothingsports_recovery.fixture_alias_v1(target_event_id);
+ -- Existing historic namespaces must not accept sporting arguments from an
+ -- older app host. Reviewed season clocks share the same accepted source owner.
+ reviewed_pair:=case when target_event_id like 'event:premier-league:%' then $worldpairs${"128923":[1,5],"128924":[130,21],"128925":[7,6],"128926":[41,12],"128927":[8,29],"128928":[15,9],"128929":[131,2],"128930":[11,127],"128931":[23,10],"128932":[34,4],"128933":[2,1],"128934":[127,7],"128935":[4,131],"128936":[5,41],"128937":[6,11],"128938":[9,130],"128939":[10,15],"128940":[12,8],"128941":[29,34],"128942":[21,23],"128943":[1,4],"128944":[130,29],"128945":[131,9],"128946":[7,12],"128947":[34,6],"128948":[41,2],"128949":[8,10],"128950":[11,5],"128951":[23,127],"128952":[15,21],"128953":[2,15],"128954":[127,130],"128955":[4,41],"128956":[5,131],"128957":[6,8],"128958":[9,23],"128959":[10,34],"128960":[12,11],"128961":[29,1],"128962":[21,7],"128963":[127,10],"128964":[130,4],"128965":[131,1],"128966":[7,8],"128967":[34,12],"128968":[9,6],"128969":[11,29],"128970":[23,41],"128971":[15,5],"128972":[21,2],"128973":[1,9],"128974":[2,130],"128975":[4,127],"128976":[5,23],"128977":[6,15],"128978":[41,7],"128979":[8,34],"128980":[10,11],"128981":[12,21],"128982":[29,131],"128983":[127,29],"128984":[130,10],"128985":[131,6],"128986":[7,4],"128987":[34,41],"128988":[9,12],"128989":[11,8],"128990":[23,2],"128991":[15,1],"128992":[21,5],"128993":[1,7],"128994":[2,11],"128995":[4,21],"128996":[5,34],"128997":[6,23],"128998":[41,130],"128999":[8,15],"129000":[10,131],"129001":[12,127],"129002":[29,9],"129003":[2,34],"129004":[127,9],"129005":[130,15],"129006":[4,12],"129007":[5,29],"129008":[41,8],"129009":[10,1],"129010":[11,131],"129011":[23,7],"129012":[21,6],"129013":[1,41],"129014":[131,130],"129015":[6,10],"129016":[7,5],"129017":[34,23],"129018":[8,127],"129019":[9,21],"129020":[12,2],"129021":[15,11],"129022":[29,4],"129023":[2,29],"129024":[127,15],"129025":[130,7],"129026":[4,9],"129027":[5,6],"129028":[41,131],"129029":[10,12],"129030":[11,34],"129031":[23,1],"129032":[21,8],"129033":[1,11],"129034":[131,23],"129035":[6,41],"129036":[7,10],"129037":[34,127],"129038":[8,2],"129039":[9,5],"129040":[12,130],"129041":[15,4],"129042":[29,21],"129043":[2,7],"129044":[127,131],"129045":[130,1],"129046":[4,6],"129047":[5,8],"129048":[41,15],"129049":[10,29],"129050":[11,9],"129051":[23,12],"129052":[21,34],"129053":[2,6],"129054":[127,41],"129055":[130,11],"129056":[4,10],"129057":[7,34],"129058":[9,8],"129059":[12,5],"129060":[23,29],"129061":[15,131],"129062":[21,1],"129063":[1,127],"129064":[131,7],"129065":[5,2],"129066":[6,12],"129067":[34,130],"129068":[41,21],"129069":[8,23],"129070":[10,9],"129071":[11,4],"129072":[29,15],"129073":[1,12],"129074":[127,5],"129075":[130,23],"129076":[131,8],"129077":[4,2],"129078":[9,34],"129079":[10,21],"129080":[11,41],"129081":[15,7],"129082":[29,6],"129083":[2,9],"129084":[5,4],"129085":[6,1],"129086":[7,29],"129087":[34,131],"129088":[41,10],"129089":[8,130],"129090":[12,15],"129091":[23,11],"129092":[21,127],"129093":[2,10],"129094":[5,130],"129095":[6,127],"129096":[7,11],"129097":[34,1],"129098":[41,9],"129099":[8,4],"129100":[12,29],"129101":[23,15],"129102":[21,131],"129103":[1,8],"129104":[127,2],"129105":[130,6],"129106":[131,12],"129107":[4,23],"129108":[9,7],"129109":[10,5],"129110":[11,21],"129111":[15,34],"129112":[29,41],"129113":[1,130],"129114":[131,127],"129115":[6,4],"129116":[7,2],"129117":[34,21],"129118":[8,5],"129119":[9,11],"129120":[12,23],"129121":[15,41],"129122":[29,10],"129123":[2,12],"129124":[127,8],"129125":[130,131],"129126":[4,29],"129127":[5,7],"129128":[41,1],"129129":[10,6],"129130":[11,15],"129131":[23,34],"129132":[21,9],"129133":[1,23],"129134":[131,11],"129135":[6,21],"129136":[7,130],"129137":[34,2],"129138":[8,41],"129139":[9,4],"129140":[12,10],"129141":[15,127],"129142":[29,5],"129143":[2,8],"129144":[127,34],"129145":[130,12],"129146":[4,15],"129147":[5,9],"129148":[41,6],"129149":[10,7],"129150":[11,1],"129151":[23,131],"129152":[21,29],"129153":[1,10],"129154":[131,41],"129155":[6,5],"129156":[7,23],"129157":[34,11],"129158":[8,21],"129159":[9,127],"129160":[12,4],"129161":[15,130],"129162":[29,2],"129163":[2,127],"129164":[5,10],"129165":[6,130],"129166":[7,9],"129167":[34,15],"129168":[41,29],"129169":[8,1],"129170":[12,131],"129171":[23,4],"129172":[21,11],"129173":[1,34],"129174":[127,6],"129175":[130,5],"129176":[131,21],"129177":[4,8],"129178":[9,2],"129179":[10,41],"129180":[11,23],"129181":[15,12],"129182":[29,7],"129183":[2,4],"129184":[5,127],"129185":[6,29],"129186":[7,15],"129187":[34,9],"129188":[41,11],"129189":[8,131],"129190":[12,1],"129191":[23,130],"129192":[21,10],"129193":[1,6],"129194":[127,21],"129195":[130,8],"129196":[131,34],"129197":[4,5],"129198":[9,41],"129199":[10,2],"129200":[11,7],"129201":[15,23],"129202":[29,12],"129203":[2,41],"129204":[127,23],"129205":[4,1],"129206":[5,11],"129207":[6,34],"129208":[9,131],"129209":[10,8],"129210":[12,7],"129211":[29,130],"129212":[21,15],"129213":[1,29],"129214":[130,127],"129215":[131,5],"129216":[7,21],"129217":[34,10],"129218":[41,4],"129219":[8,6],"129220":[11,12],"129221":[23,9],"129222":[15,2],"129223":[2,131],"129224":[127,11],"129225":[4,34],"129226":[5,1],"129227":[6,7],"129228":[9,15],"129229":[10,23],"129230":[12,41],"129231":[29,8],"129232":[21,130],"129233":[1,2],"129234":[130,9],"129235":[131,4],"129236":[7,127],"129237":[34,29],"129238":[41,5],"129239":[8,12],"129240":[11,6],"129241":[23,21],"129242":[15,10],"129243":[2,5],"129244":[127,1],"129245":[130,34],"129246":[4,11],"129247":[7,131],"129248":[9,10],"129249":[12,6],"129250":[23,8],"129251":[15,29],"129252":[21,41],"129253":[1,21],"129254":[131,15],"129255":[5,12],"129256":[6,2],"129257":[34,7],"129258":[41,127],"129259":[8,9],"129260":[10,4],"129261":[11,130],"129262":[29,23],"129263":[127,12],"129264":[130,2],"129265":[131,29],"129266":[7,41],"129267":[34,8],"129268":[9,1],"129269":[11,10],"129270":[23,5],"129271":[15,6],"129272":[21,4],"129273":[1,15],"129274":[2,23],"129275":[4,7],"129276":[5,21],"129277":[6,131],"129278":[41,34],"129279":[8,11],"129280":[10,130],"129281":[12,9],"129282":[29,127],"129283":[127,4],"129284":[130,41],"129285":[131,10],"129286":[7,1],"129287":[34,5],"129288":[9,29],"129289":[11,2],"129290":[23,6],"129291":[15,8],"129292":[21,12],"129293":[1,131],"129294":[2,21],"129295":[4,130],"129296":[5,15],"129297":[6,9],"129298":[41,23],"129299":[8,7],"129300":[10,127],"129301":[12,34],"129302":[29,11]}$worldpairs$::jsonb->split_part(target_event_id,':',3) end;
+ if reviewed_pair is null then return null;end if;
+ if reviewed_pair is not null then
+  select f.fixture into reviewed_event from public.nothingsports_fixture_current f
+  where f.source_id='live-premier-league' and f.fixture_id='epl-2026-27-'||split_part(target_event_id,':',3) for share;
+  if reviewed_event is null or reviewed_event->>'canonicalEventId' is distinct from target_event_id
+   or reviewed_event->>'competitionId' is distinct from 'competition:premier-league-2026-27'
+   or reviewed_event->>'season' is distinct from '2026/27'
+   or reviewed_event->'participantIds' is distinct from jsonb_build_array('team:football:epl:'||(reviewed_pair->>0),'team:football:epl:'||(reviewed_pair->>1))
+   or reviewed_event->>'status' is null or reviewed_event->>'status' not in('completed','finished','final','cancelled','canceled','abandoned','scheduled','upcoming','live','break','postponed')
+   or target_event_id in('event:premier-league:128968','event:premier-league:128969') and reviewed_event->>'startTimeUtc' is null
+  then raise exception 'epl_fixture_evidence_unavailable';end if;
+  -- Match the existing rewards owner's exact-start qualification. A stored
+  -- estimated appointment, date or not-before bound cannot enable foresight.
+  fixture_start:=case when coalesce(reviewed_event->>'timePrecision','exact')='exact'
+    and coalesce(reviewed_event->>'timeTbc','false')<>'true'
+    and coalesce(reviewed_event->>'startTimeTbc','false')<>'true'
+    and coalesce(reviewed_event->>'dateOnly','false')<>'true'
+   then (reviewed_event->>'startTimeUtc')::timestamptz end;
+  if target_event_id in('event:premier-league:128968','event:premier-league:128969') and fixture_start is null then raise exception 'epl_fixture_evidence_unavailable';end if;
+  if reviewed_event->>'status' in('completed','finished','final','cancelled','canceled','abandoned') or caller_fixture_status in('completed','finished','final','cancelled','canceled','abandoned') then
+   -- The existing qualified caller owns completion. A source's scheduled
+   -- endTimeUtc is only a calendar window, never a confirmed finish/cutoff.
+   fixture_end:=coalesce((coalesce(reviewed_event->>'actualEndTimeUtc',reviewed_event->>'completedAt',reviewed_event->>'resultPublishedAt'))::timestamptz,
+    case when caller_fixture_status in('completed','finished','final','cancelled','canceled','abandoned') then caller_fixture_end end);
+   if fixture_end is not null and (fixture_end>ts or fixture_start is not null and fixture_end<fixture_start) then raise exception 'epl_fixture_evidence_unavailable';end if;
+  else fixture_end:=(reviewed_event->>'endTimeUtc')::timestamptz;end if;
+  -- Stable terminal/non-playing facts override stale host arguments. Caller
+  -- qualification of nonterminal play/staleness keeps its existing owner.
+  if reviewed_event->>'status' in('completed','finished','final','cancelled','canceled','abandoned','postponed') then fixture_status:=reviewed_event->>'status';end if;
+ 
+ end if;
+
+ return jsonb_build_object('starts_at',fixture_start,'ends_at',fixture_end,'status',fixture_status);
+end $body$;
+revoke all on function nothingsports_recovery.epl_reward_clock_v1(text,text,timestamptz) from public,anon,authenticated;
+grant execute on function nothingsports_recovery.epl_reward_clock_v1(text,text,timestamptz) to service_role;;$ddl_operating$;
  execute $ddl_fixture_alias_v1$CREATE OR REPLACE FUNCTION nothingsports_recovery.fixture_alias_v1(value text)
  RETURNS text
  LANGUAGE sql
@@ -124,7 +169,7 @@ $function$;$ddl_fixture_alias_v1$;
  LANGUAGE plpgsql
  SECURITY DEFINER
  SET search_path TO ''
-AS $function$ begin
+AS $function$ declare reviewed_clock jsonb;world_row public.nothingsports_score_fixtures;expected_phase text;incoming_phase text;begin
  -- A newly settled historic forecast retains its original FK and identity.
  -- All other tables and sporting namespaces keep the existing alias guard.
  if tg_table_name='nothingsports_consensus_receipts' then
@@ -133,7 +178,22 @@ AS $function$ begin
    and exists(select 1 from public.nothingsports_predictions x where x.event_id=new.event_id and x.user_id=new.user_id)
   then return new;end if;
  end if;
- new.event_id := nothingsports_recovery.fixture_alias_v1(new.event_id); if tg_table_name='nothingsports_nsc_points' and tg_op='INSERT' then if exists(select 1 from public.nothingsports_nsc_points p where p.user_id=new.user_id and nothingsports_recovery.fixture_alias_v1(p.event_id)=new.event_id and p.action_key=new.action_key) then return null; end if; end if; -- bledisloe-pending-timing-v1
+ new.event_id := nothingsports_recovery.fixture_alias_v1(new.event_id);
+ if new.event_id like 'event:premier-league:%' then
+  if tg_table_name='nothingsports_score_fixtures' then
+   reviewed_clock:=nothingsports_recovery.epl_reward_clock_v1(new.event_id,new.status,new.ends_at);
+   if reviewed_clock is not null then new.starts_at:=(reviewed_clock->>'starts_at')::timestamptz;new.ends_at:=(reviewed_clock->>'ends_at')::timestamptz;new.status:=reviewed_clock->>'status';end if;
+  elsif tg_op='INSERT' and tg_table_name in('nothingsports_predictions','nothingsports_nsc_contributions') then
+   select * into world_row from public.nothingsports_score_fixtures where event_id=new.event_id;
+   reviewed_clock:=nothingsports_recovery.epl_reward_clock_v1(new.event_id,world_row.status,world_row.ends_at);
+   if reviewed_clock is not null then
+    expected_phase:=case when reviewed_clock->>'status' in('cancelled','canceled','abandoned','postponed') then null when reviewed_clock->>'status' in('completed','finished','final') then 'impact' when reviewed_clock->>'status' in('live','inprogress','in_progress','in-progress') then 'pulse' when reviewed_clock->>'starts_at' is null or clock_timestamp()<(reviewed_clock->>'starts_at')::timestamptz then 'heat' when clock_timestamp()<(reviewed_clock->>'ends_at')::timestamptz then 'pulse' else 'impact' end;
+    if tg_table_name='nothingsports_predictions' then incoming_phase:='heat';if reviewed_clock->>'starts_at' is null and new.result='pending' then raise exception 'phase_action_mismatch';end if;else incoming_phase:=new.phase;end if;
+    if incoming_phase is distinct from expected_phase then raise exception 'phase_action_mismatch';end if;
+   end if;
+  end if;
+ end if;
+ if tg_table_name='nothingsports_nsc_points' and tg_op='INSERT' then if exists(select 1 from public.nothingsports_nsc_points p where p.user_id=new.user_id and nothingsports_recovery.fixture_alias_v1(p.event_id)=new.event_id and p.action_key=new.action_key) then return null; end if; end if; -- bledisloe-pending-timing-v1
  if tg_table_name='nothingsports_reminders' and new.event_id='rugby-australia-new-zealand-2026-10-17' then
  if new.dispatched_at is null and new.delivery_started_at is null and new.delivery_mode='match-15' then
  new.starts_at:='2026-10-17T05:00:00Z'::timestamptz;new.remind_at:='2026-10-17T04:45:00Z'::timestamptz;new.schedule_starts_at:=new.starts_at;
@@ -247,7 +307,7 @@ $function$;$ddl_nothingsports_nsc_submit_rating$;
  LANGUAGE plpgsql
  SET search_path TO ''
 AS $function$
-declare ts timestamptz:=clock_timestamp();expected text;award integer:=0;prior integer;reviewed_event jsonb;reviewed_pair jsonb;begin
+declare ts timestamptz:=clock_timestamp();expected text;award integer:=0;prior integer;reviewed_clock jsonb;begin
  -- bledisloe-host-timing-v1
  if nothingsports_recovery.fixture_alias_v1(target_event_id)='rugby-australia-new-zealand-2026-10-17' then
  fixture_start:='2026-10-17T05:00:00Z'::timestamptz;
@@ -261,25 +321,11 @@ declare ts timestamptz:=clock_timestamp();expected text;award integer:=0;prior i
  if exists(select 1 from public.nothingsports_nsc_personas where user_id=target_user_id and moderation_flag) then raise exception 'profile_moderated';end if;
  perform pg_advisory_xact_lock(hashtextextended('nsc-awards-v2',0));
  perform pg_advisory_xact_lock(hashtextextended('fixture:'||target_event_id,0));
- -- Existing historic namespaces must not accept sporting arguments from an
- -- older app host. Reviewed season clocks share the same accepted source owner.
- reviewed_pair:=case when target_event_id like 'event:premier-league:%' then $worldpairs${"128923":[1,5],"128924":[130,21],"128925":[7,6],"128926":[41,12],"128927":[8,29],"128928":[15,9],"128929":[131,2],"128930":[11,127],"128931":[23,10],"128932":[34,4],"128933":[2,1],"128934":[127,7],"128935":[4,131],"128936":[5,41],"128937":[6,11],"128938":[9,130],"128939":[10,15],"128940":[12,8],"128941":[29,34],"128942":[21,23],"128943":[1,4],"128944":[130,29],"128945":[131,9],"128946":[7,12],"128947":[34,6],"128948":[41,2],"128949":[8,10],"128950":[11,5],"128951":[23,127],"128952":[15,21],"128953":[2,15],"128954":[127,130],"128955":[4,41],"128956":[5,131],"128957":[6,8],"128958":[9,23],"128959":[10,34],"128960":[12,11],"128961":[29,1],"128962":[21,7],"128963":[127,10],"128964":[130,4],"128965":[131,1],"128966":[7,8],"128967":[34,12],"128968":[9,6],"128969":[11,29],"128970":[23,41],"128971":[15,5],"128972":[21,2],"128973":[1,9],"128974":[2,130],"128975":[4,127],"128976":[5,23],"128977":[6,15],"128978":[41,7],"128979":[8,34],"128980":[10,11],"128981":[12,21],"128982":[29,131],"128983":[127,29],"128984":[130,10],"128985":[131,6],"128986":[7,4],"128987":[34,41],"128988":[9,12],"128989":[11,8],"128990":[23,2],"128991":[15,1],"128992":[21,5],"128993":[1,7],"128994":[2,11],"128995":[4,21],"128996":[5,34],"128997":[6,23],"128998":[41,130],"128999":[8,15],"129000":[10,131],"129001":[12,127],"129002":[29,9],"129003":[2,34],"129004":[127,9],"129005":[130,15],"129006":[4,12],"129007":[5,29],"129008":[41,8],"129009":[10,1],"129010":[11,131],"129011":[23,7],"129012":[21,6],"129013":[1,41],"129014":[131,130],"129015":[6,10],"129016":[7,5],"129017":[34,23],"129018":[8,127],"129019":[9,21],"129020":[12,2],"129021":[15,11],"129022":[29,4],"129023":[2,29],"129024":[127,15],"129025":[130,7],"129026":[4,9],"129027":[5,6],"129028":[41,131],"129029":[10,12],"129030":[11,34],"129031":[23,1],"129032":[21,8],"129033":[1,11],"129034":[131,23],"129035":[6,41],"129036":[7,10],"129037":[34,127],"129038":[8,2],"129039":[9,5],"129040":[12,130],"129041":[15,4],"129042":[29,21],"129043":[2,7],"129044":[127,131],"129045":[130,1],"129046":[4,6],"129047":[5,8],"129048":[41,15],"129049":[10,29],"129050":[11,9],"129051":[23,12],"129052":[21,34],"129053":[2,6],"129054":[127,41],"129055":[130,11],"129056":[4,10],"129057":[7,34],"129058":[9,8],"129059":[12,5],"129060":[23,29],"129061":[15,131],"129062":[21,1],"129063":[1,127],"129064":[131,7],"129065":[5,2],"129066":[6,12],"129067":[34,130],"129068":[41,21],"129069":[8,23],"129070":[10,9],"129071":[11,4],"129072":[29,15],"129073":[1,12],"129074":[127,5],"129075":[130,23],"129076":[131,8],"129077":[4,2],"129078":[9,34],"129079":[10,21],"129080":[11,41],"129081":[15,7],"129082":[29,6],"129083":[2,9],"129084":[5,4],"129085":[6,1],"129086":[7,29],"129087":[34,131],"129088":[41,10],"129089":[8,130],"129090":[12,15],"129091":[23,11],"129092":[21,127],"129093":[2,10],"129094":[5,130],"129095":[6,127],"129096":[7,11],"129097":[34,1],"129098":[41,9],"129099":[8,4],"129100":[12,29],"129101":[23,15],"129102":[21,131],"129103":[1,8],"129104":[127,2],"129105":[130,6],"129106":[131,12],"129107":[4,23],"129108":[9,7],"129109":[10,5],"129110":[11,21],"129111":[15,34],"129112":[29,41],"129113":[1,130],"129114":[131,127],"129115":[6,4],"129116":[7,2],"129117":[34,21],"129118":[8,5],"129119":[9,11],"129120":[12,23],"129121":[15,41],"129122":[29,10],"129123":[2,12],"129124":[127,8],"129125":[130,131],"129126":[4,29],"129127":[5,7],"129128":[41,1],"129129":[10,6],"129130":[11,15],"129131":[23,34],"129132":[21,9],"129133":[1,23],"129134":[131,11],"129135":[6,21],"129136":[7,130],"129137":[34,2],"129138":[8,41],"129139":[9,4],"129140":[12,10],"129141":[15,127],"129142":[29,5],"129143":[2,8],"129144":[127,34],"129145":[130,12],"129146":[4,15],"129147":[5,9],"129148":[41,6],"129149":[10,7],"129150":[11,1],"129151":[23,131],"129152":[21,29],"129153":[1,10],"129154":[131,41],"129155":[6,5],"129156":[7,23],"129157":[34,11],"129158":[8,21],"129159":[9,127],"129160":[12,4],"129161":[15,130],"129162":[29,2],"129163":[2,127],"129164":[5,10],"129165":[6,130],"129166":[7,9],"129167":[34,15],"129168":[41,29],"129169":[8,1],"129170":[12,131],"129171":[23,4],"129172":[21,11],"129173":[1,34],"129174":[127,6],"129175":[130,5],"129176":[131,21],"129177":[4,8],"129178":[9,2],"129179":[10,41],"129180":[11,23],"129181":[15,12],"129182":[29,7],"129183":[2,4],"129184":[5,127],"129185":[6,29],"129186":[7,15],"129187":[34,9],"129188":[41,11],"129189":[8,131],"129190":[12,1],"129191":[23,130],"129192":[21,10],"129193":[1,6],"129194":[127,21],"129195":[130,8],"129196":[131,34],"129197":[4,5],"129198":[9,41],"129199":[10,2],"129200":[11,7],"129201":[15,23],"129202":[29,12],"129203":[2,41],"129204":[127,23],"129205":[4,1],"129206":[5,11],"129207":[6,34],"129208":[9,131],"129209":[10,8],"129210":[12,7],"129211":[29,130],"129212":[21,15],"129213":[1,29],"129214":[130,127],"129215":[131,5],"129216":[7,21],"129217":[34,10],"129218":[41,4],"129219":[8,6],"129220":[11,12],"129221":[23,9],"129222":[15,2],"129223":[2,131],"129224":[127,11],"129225":[4,34],"129226":[5,1],"129227":[6,7],"129228":[9,15],"129229":[10,23],"129230":[12,41],"129231":[29,8],"129232":[21,130],"129233":[1,2],"129234":[130,9],"129235":[131,4],"129236":[7,127],"129237":[34,29],"129238":[41,5],"129239":[8,12],"129240":[11,6],"129241":[23,21],"129242":[15,10],"129243":[2,5],"129244":[127,1],"129245":[130,34],"129246":[4,11],"129247":[7,131],"129248":[9,10],"129249":[12,6],"129250":[23,8],"129251":[15,29],"129252":[21,41],"129253":[1,21],"129254":[131,15],"129255":[5,12],"129256":[6,2],"129257":[34,7],"129258":[41,127],"129259":[8,9],"129260":[10,4],"129261":[11,130],"129262":[29,23],"129263":[127,12],"129264":[130,2],"129265":[131,29],"129266":[7,41],"129267":[34,8],"129268":[9,1],"129269":[11,10],"129270":[23,5],"129271":[15,6],"129272":[21,4],"129273":[1,15],"129274":[2,23],"129275":[4,7],"129276":[5,21],"129277":[6,131],"129278":[41,34],"129279":[8,11],"129280":[10,130],"129281":[12,9],"129282":[29,127],"129283":[127,4],"129284":[130,41],"129285":[131,10],"129286":[7,1],"129287":[34,5],"129288":[9,29],"129289":[11,2],"129290":[23,6],"129291":[15,8],"129292":[21,12],"129293":[1,131],"129294":[2,21],"129295":[4,130],"129296":[5,15],"129297":[6,9],"129298":[41,23],"129299":[8,7],"129300":[10,127],"129301":[12,34],"129302":[29,11]}$worldpairs$::jsonb->split_part(target_event_id,':',3) end;
- if reviewed_pair is not null then
-  select f.fixture into reviewed_event from public.nothingsports_fixture_current f
-  where f.source_id='live-premier-league' and f.fixture_id='epl-2026-27-'||split_part(target_event_id,':',3) for share;
-  if reviewed_event is null or reviewed_event->>'canonicalEventId' is distinct from target_event_id
-   or reviewed_event->>'competitionId' is distinct from 'competition:premier-league-2026-27'
-   or reviewed_event->>'season' is distinct from '2026/27'
-   or reviewed_event->'participantIds' is distinct from jsonb_build_array('team:football:epl:'||(reviewed_pair->>0),'team:football:epl:'||(reviewed_pair->>1))
-   or reviewed_event->>'status' is null or reviewed_event->>'status' not in('completed','finished','final','cancelled','canceled','abandoned','scheduled','upcoming','live','break','postponed')
-   or target_event_id in('event:premier-league:128968','event:premier-league:128969') and reviewed_event->>'startTimeUtc' is null
-  then raise exception 'epl_fixture_evidence_unavailable';end if;
-  fixture_start:=(reviewed_event->>'startTimeUtc')::timestamptz;
-  fixture_end:=(reviewed_event->>'endTimeUtc')::timestamptz;
-  -- Stable terminal/non-playing facts override stale host arguments. Caller
-  -- qualification of nonterminal play/staleness keeps its existing owner.
-  if reviewed_event->>'status' in('completed','finished','final','cancelled','canceled','abandoned','postponed') then fixture_status:=reviewed_event->>'status';end if;
-  fixture_sport:='football';
+ reviewed_clock:=nothingsports_recovery.epl_reward_clock_v1(target_event_id,fixture_status,fixture_end);
+ if reviewed_clock is not null then
+  fixture_start:=(reviewed_clock->>'starts_at')::timestamptz;
+  fixture_end:=(reviewed_clock->>'ends_at')::timestamptz;
+  fixture_status:=reviewed_clock->>'status';fixture_sport:='football';
  end if;
  expected:=case when fixture_status in('cancelled','canceled','abandoned','postponed') then null when fixture_status in('completed','finished','final') then 'impact' when fixture_status in('live','inprogress','in_progress','in-progress') then 'pulse' when fixture_start is null or ts<fixture_start then 'heat' when ts<fixture_end then 'pulse' else 'impact' end;
  if expected is null or expected<>target_phase then raise exception 'phase_action_mismatch';end if;
@@ -386,7 +432,7 @@ grant execute on function public.nothingsports_epl_identity_ready() to service_r
  end loop;
  select jsonb_object_agg(p.oid::regprocedure::text,jsonb_build_object('acl',p.proacl::text,'owner',p.proowner,'definer',p.prosecdef,'config',p.proconfig)) from pg_proc p where p.oid in(select key::regprocedure::oid from jsonb_each(expected_functions)) into security_after;
  if security_before is distinct from security_after then raise exception 'EPL existing function ownership/grants/security changed';end if;
- select jsonb_object_agg(p.oid::regprocedure::text,md5(pg_get_functiondef(p.oid))) into function_post from pg_proc p join pg_namespace ns on ns.oid=p.pronamespace where p.oid in(select key::regprocedure::oid from jsonb_each(expected_functions)) or ns.nspname='nothingsports_recovery' and p.proname in('epl_operating_ids_v1','epl_identity_ready_v1') or ns.nspname='public' and p.proname='nothingsports_epl_identity_ready';
+ select jsonb_object_agg(p.oid::regprocedure::text,md5(pg_get_functiondef(p.oid))) into function_post from pg_proc p join pg_namespace ns on ns.oid=p.pronamespace where p.oid in(select key::regprocedure::oid from jsonb_each(expected_functions)) or ns.nspname='nothingsports_recovery' and p.proname in('epl_operating_ids_v1','epl_identity_ready_v1','epl_reward_clock_v1') or ns.nspname='public' and p.proname='nothingsports_epl_identity_ready';
  select jsonb_build_object(
  'reminderIntents',(select md5(coalesce(string_agg(to_jsonb(r)::text,'' order by to_jsonb(r)::text),'')) from public.nothingsports_reminder_intents r where r.fixture_id=any(ids) or r.aliases ?| ids),
  'privateRooms',(select md5(coalesce(string_agg(to_jsonb(r)::text,'' order by to_jsonb(r)::text),'')) from public.nothingsports_chat_rooms r where r.canonical_fixture_id=any(ids)),
