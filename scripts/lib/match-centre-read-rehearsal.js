@@ -33,7 +33,7 @@ async function run(db) {
     ...patch
   });
   const digest = async () => (await db.query("select md5(pg_get_functiondef('public.nothingsports_read_match_centre_fixture_bundle(text[])'::regprocedure)) as digest")).rows[0].digest;
-  const migration = fs.readFileSync("supabase/migrations/20261012120600_qualify_match_centre_read_candidates.sql", "utf8");
+  const migration = fs.readFileSync("supabase/migrations/20261012133505_qualify_match_centre_read_candidates.sql", "utf8");
   await db.exec("reset role");
   assert.equal(await digest(), "00ee9b223e92df9c7b34df1924a02697", "Real migration binds to the deployed reader");
   const seed = async events => {
