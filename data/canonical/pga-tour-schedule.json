@@ -5150,7 +5150,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
+          "sourceCheckedAt": "2026-10-12T22:43:26.243Z"
         },
         {
           "id": "competitor:golf:min-woo-lee",
@@ -5160,7 +5160,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
+          "sourceCheckedAt": "2026-10-12T22:43:26.243Z"
         },
         {
           "id": "competitor:golf:xander-schauffele",
@@ -5170,7 +5170,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
+          "sourceCheckedAt": "2026-10-12T22:43:26.243Z"
         },
         {
           "id": "competitor:golf:adam-scott",
@@ -5180,7 +5180,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
+          "sourceCheckedAt": "2026-10-12T22:43:26.243Z"
         }
       ],
       "participantIds": [
@@ -5197,7 +5197,7 @@
       "sourceName": "PGA TOUR official schedule",
       "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-10-11T19:54:47.053Z",
+      "sourceCheckedAt": "2026-10-12T22:43:26.243Z",
       "sourceTrust": "verified",
       "outcomeText": "Michael Brennan won Baycurrent Classic.",
       "scoreDisplay": "Winner: Michael Brennan",
@@ -5214,7 +5214,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
+          "sourceCheckedAt": "2026-10-12T22:43:26.243Z"
         },
         {
           "id": "competitor:golf:min-woo-lee",
@@ -5224,7 +5224,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
+          "sourceCheckedAt": "2026-10-12T22:43:26.243Z"
         },
         {
           "id": "competitor:golf:xander-schauffele",
@@ -5234,7 +5234,7 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
+          "sourceCheckedAt": "2026-10-12T22:43:26.243Z"
         },
         {
           "id": "competitor:golf:adam-scott",
@@ -5244,14 +5244,28 @@
           "genderCategory": "male",
           "entryStatus": "confirmed",
           "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
-          "sourceCheckedAt": "2026-10-11T19:54:47.053Z"
+          "sourceCheckedAt": "2026-10-12T22:43:26.243Z"
         }
       ],
       "participantsConfirmed": true,
       "entryListPublished": true,
       "excludedParticipantIds": [],
       "appearances": [],
-      "participationCheckedAt": "2026-10-11T19:54:47.053Z",
+      "tournamentProgress": [
+        {
+          "drawId": "stroke-play",
+          "roundNumbers": [
+            4
+          ],
+          "roundLabels": [
+            "Round 4"
+          ],
+          "playDate": null,
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+          "sourceCheckedAt": "2026-10-12T22:43:26.243Z"
+        }
+      ],
+      "participationCheckedAt": "2026-10-12T22:43:26.243Z",
       "participationScope": "ranked-and-explicit-follows",
       "participationScopeCheckedOn": "2026-10-06"
     },

@@ -2989,7 +2989,7 @@
       "startTimeUtc": "2026-10-12T00:00:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "venue": "American Family Field",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -3029,13 +3029,15 @@
           "participantId": "team:mlb:158",
           "label": "Milwaukee Brewers",
           "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 2
         },
         {
           "participantId": "team:mlb:119",
           "label": "Los Angeles Dodgers",
           "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 1
         }
       ],
       "sourceName": "MLB",
@@ -3043,22 +3045,32 @@
       "sourceUrl": "https://www.mlb.com/gameday/849809",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849809",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-05&endDate=2026-10-26&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
-      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-      "selectedSentence": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
-      "fullSpiel": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
+      "sourceCheckedAt": "2026-10-12T22:43:24.652Z",
+      "statusCheckedAt": "2026-10-12T22:43:24.652Z",
+      "score": "Milwaukee Brewers 2–1 Los Angeles Dodgers",
+      "resultStatus": "official",
+      "outcomeText": "Milwaukee Brewers 2–1 Los Angeles Dodgers",
+      "recapText": "NLCS Game 1: Milwaukee Brewers 2–1 Los Angeles Dodgers. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:158",
+      "homeScore": 2,
+      "awayScore": 1,
+      "scoreCheckedAt": "2026-10-12T22:43:24.652Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849809",
+      "resultSourceCheckedAt": "2026-10-12T22:43:24.652Z",
+      "selectedSentence": "NLCS Game 1 is complete. Reveal results for the outcome.",
+      "fullSpiel": "NLCS Game 1 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-12T22:43:24.652Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
-        "hookSpoilerOn": "NLCS Game 1 at American Family Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "NLCS Game 1 at American Family Field. Check the official game page for updates."
+        "arcStage": "recap",
+        "hookSpoilerOff": "NLCS Game 1 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "NLCS Game 1 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Milwaukee Brewers 2–1 Los Angeles Dodgers",
+        "synopsisSpoilerOn": "Milwaukee Brewers 2–1 Los Angeles Dodgers"
       }
     },
     {
@@ -3081,7 +3093,7 @@
       "startTimeUtc": "2026-10-12T21:00:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "live",
       "venue": "American Family Field",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -3121,13 +3133,15 @@
           "participantId": "team:mlb:158",
           "label": "Milwaukee Brewers",
           "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 3
         },
         {
           "participantId": "team:mlb:119",
           "label": "Los Angeles Dodgers",
           "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 2
         }
       ],
       "sourceName": "MLB",
@@ -3135,13 +3149,19 @@
       "sourceUrl": "https://www.mlb.com/gameday/849812",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849812",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-05&endDate=2026-10-26&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
-      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+      "sourceCheckedAt": "2026-10-12T22:43:24.652Z",
+      "statusCheckedAt": "2026-10-12T22:43:24.652Z",
+      "score": "Milwaukee Brewers 3–2 Los Angeles Dodgers",
+      "homeScore": 3,
+      "awayScore": 2,
+      "scoreCheckedAt": "2026-10-12T22:43:24.652Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849812",
+      "resultSourceCheckedAt": "2026-10-12T22:43:24.652Z",
       "selectedSentence": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
       "fullSpiel": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-09T06:52:22.809Z",
+      "lastReviewedAt": "2026-10-12T22:43:24.652Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
@@ -4258,6 +4278,6 @@
       }
     }
   ],
-  "checkedAt": "2026-10-11T12:38:02.024Z",
-  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+  "checkedAt": "2026-10-12T22:43:24.652Z",
+  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-05&endDate=2026-10-26&hydrate=team"
 }
