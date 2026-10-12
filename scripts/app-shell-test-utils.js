@@ -23,9 +23,9 @@ function readFollowApplicationSource(){
   assert.doesNotThrow(()=>new Function(source),"the deferred interface must parse");
   return html+"\n"+source;
 }
-function readCardApplicationSource(){
+function readCardApplicationSource({includeHtml=true}={}){
   const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
   assertShellModule(html,'config/venue-panel-ui.js');
-  return html+'\n'+fs.readFileSync(path.join(root,'config/venue-panel-ui.js'),'utf8');
+  return (includeHtml?html+'\n':'')+fs.readFileSync(path.join(root,'config/venue-panel-ui.js'),'utf8');
 }
 module.exports = {assertShellModule,readFollowApplicationSource,readCardApplicationSource};

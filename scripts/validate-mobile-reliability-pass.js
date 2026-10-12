@@ -8,7 +8,7 @@ const identities = require("../config/card-identities.js");
 const vectors = require("../config/vector-assets.js");
 const sportDomains = require("../config/sport-domain-registry.js");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const incoming = JSON.parse(fs.readFileSync("feeds/incoming/events.json", "utf8"));
 const published = JSON.parse(fs.readFileSync("data/events.json", "utf8"));

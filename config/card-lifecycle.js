@@ -67,15 +67,21 @@
     return end;
   }
 
+  // This independent source receipt is a bounded ongoing-play exception for
+  // Feed only. It never changes the saved/history lifecycle or sporting dates.
+  function currentPlayUntil(event,reference=new Date()){
+    const now=+reference,observed=Date.parse(event.statusCheckedAt||event.statusSource?.checkedAt||'');
+    const sourced=/^https:\/\//.test(event.statusSourceUrl||event.statusSource?.sourceUrl||event.sourceUrl||'');
+    return /^(live|in-progress|in_progress|ongoing|stumps|rain-delay|break|suspended|interrupted)$/.test(event.status||'')&&sourced&&Number.isFinite(observed)&&observed<=now&&now-observed<1800000&&event.stale!==true&&event.sourceStale!==true?observed+1800000:null;
+  }
+
   // Feed visibility is independent of saved/history retention.
   function withinFeedWindow(event, reference = new Date()){
     const now = new Date(reference), today = calendar.sydneyDay(now);
     const terminal = /^(completed|finished|final|cancelled|canceled|abandoned)$/.test(event.status || '');
     const first = event.date || event.startDate, end = event.endDate || first;
     if(!terminal && validDay(end) && end >= today)return true;
-    const observed=Date.parse(event.statusCheckedAt||event.statusSource?.checkedAt||'');
-    const sourced=/^https:\/\//.test(event.statusSourceUrl||event.statusSource?.sourceUrl||event.sourceUrl||'');
-    if(!terminal&&/^(live|in-progress|in_progress|ongoing|stumps|rain-delay|break|suspended|interrupted)$/.test(event.status||'')&&sourced&&Number.isFinite(observed)&&observed<=+now&&+now-observed<=1800000&&event.stale!==true&&event.sourceStale!==true)return true;
+    if(currentPlayUntil(event,now))return true;
     const actual = event.actualEndTimeUtc || event.endTimeUtc;
     const instant = new Date(actual || '');
     const day = terminal && Number.isFinite(+instant) && +instant <= +now && (!validDay(first)||calendar.sydneyDay(instant)>=first) ? calendar.sydneyDay(instant) : end;
@@ -105,11 +111,13 @@
   function lifecycleState(event, {
     action = {},
     saved = isRetentionExemptAction(action),
+    feed = false,
     now = new Date(),
   } = {}){
     const end = retentionEnd(event);
     const reference = now instanceof Date ? now : new Date(now);
-    const ageMs = reference - (end || NaN);
+    const ongoingUntil=feed?currentPlayUntil(event,reference):null;
+    const ageMs = ongoingUntil?0:reference - (end || NaN);
     const state = !Number.isFinite(ageMs) ? "active"
       : saved ? "saved"
       : ageMs > RETENTION_MS ? "expired"
@@ -118,7 +126,7 @@
       state,
       saved: Boolean(saved),
       archivesAt: end ? new Date(+end + ARCHIVE_MS).toISOString() : null,
-      expiresAt: end ? new Date(+end + RETENTION_MS).toISOString() : null,
+      expiresAt: ongoingUntil?new Date(Math.max(ongoingUntil,end?+end+RETENTION_MS:0)).toISOString():end ? new Date(+end + RETENTION_MS).toISOString() : null,
     };
   }
 
@@ -190,13 +198,14 @@
     rank = 0,
     generatedAt = new Date(),
     retentionExempt = false,
+    expiresAt = null,
   } = {}){
     const canonicalEventId = eventId(event);
     if (!canonicalEventId) throw new Error("Derived cards require a canonical event id");
     if (!profileId) throw new Error("Derived cards require a stable profile id");
     if (!SURFACES.has(surface)) throw new Error(`Unknown derived-card surface: ${surface}`);
     const generated = generatedAt instanceof Date ? generatedAt : new Date(generatedAt);
-    const expiry = expiresAtForEvent(event) || new Date(generated.getTime() + RETENTION_MS);
+    const expiry = expiresAt?new Date(expiresAt):expiresAtForEvent(event) || new Date(generated.getTime() + RETENTION_MS);
     return {
       id: `card:${profileId}:${surface}:${canonicalEventId}`,
       canonicalEventId,
@@ -245,6 +254,7 @@
     actionFor = () => ({}),
     now = new Date(),
     buildOrigin = "local",
+    feed = false,
     sourceVersion,
   } = {}){
     if (typeof enrich !== "function") throw new Error("materialize requires an enrichment function");
@@ -255,7 +265,7 @@
         return {
           event,
           action,
-          retention: lifecycleState(event, { action, now: reference }),
+          retention: lifecycleState(event, { action, now: reference, feed }),
         };
       })
       .filter(item => item.retention.state === "active" || item.retention.state === "saved")
@@ -269,12 +279,13 @@
       generatedAt: reference.toISOString(),
       buildOrigin: buildOrigin === "server" ? "server" : "local",
       ...(typeof sourceVersion === "string" && sourceVersion ? { sourceVersion } : {}),
-      derivedCards: ranked.map(({ event, enrichment, action }, index) => createDerivedCard(event, enrichment, {
+      derivedCards: ranked.map(({ event, enrichment, action, retention }, index) => createDerivedCard(event, enrichment, {
         profileId,
         surface: surfaceFor(event, enrichment, action),
         rank: index + 1,
         generatedAt: reference,
         retentionExempt: isRetentionExemptAction(action),
+        expiresAt:retention.expiresAt,
       })),
     };
   }
@@ -344,6 +355,7 @@
     lifecycleState,
     isWithinRetention,
     withinFeedWindow,
+    currentPlayUntil,
     shouldAutoArchive,
     sydneyEndOfDay,
     createDerivedCard,

@@ -9,7 +9,7 @@ const followFirst = require("../config/follow-first.js");
 const identities = require("../config/card-identities.js");
 const majorEvents = require("../config/major-events.js");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const updateSource = fs.readFileSync("scripts/refresh-f1-editorial.js", "utf8");
 const majorEventDocument = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));

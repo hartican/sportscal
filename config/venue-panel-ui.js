@@ -610,3 +610,87 @@ function buildEventWhyItMatters(ev){
     supplementalCopy:isValidatedEditorialCopy(supplemental) ? supplemental : "",
   });
 }
+
+function eventMeetsDerivedRetention(ev, reference = nowAEST()){
+  if(!reference||typeof reference.getTime!=='function'||!Number.isFinite(+reference))reference=nowAEST();
+  if(CARD_LIFECYCLE.currentPlayUntil(ev,reference))return true;
+  if(!NOTHINGSPORTS_FIXTURE_IDENTITY.retainedInActiveTimeline(ev,reference)||!CARD_LIFECYCLE.withinFeedWindow(ev,reference))return false;
+  if((ev.date || ev.startDate)===NOTHINGSPORTS_CALENDAR.sydneyDay(reference))return true;
+  const effectiveReference = reference && typeof reference.getTime === "function" && Number.isFinite(reference.getTime())
+    ? new Date(reference.getTime())
+    : nowAEST();
+  return CARD_LIFECYCLE
+    ? CARD_LIFECYCLE.isWithinRetention(ev, effectiveReference, { action: getEventAction(ev) })
+    : true;
+}
+
+function eventIsAutoArchived(ev, reference = nowAEST()){
+  if(CARD_LIFECYCLE.currentPlayUntil(ev,reference))return false;
+  if((ev.date || ev.startDate)===NOTHINGSPORTS_CALENDAR.sydneyDay(reference))return false;
+  const effectiveReference = reference && typeof reference.getTime === "function" && Number.isFinite(reference.getTime())
+    ? new Date(reference.getTime())
+    : nowAEST();
+  return CARD_LIFECYCLE
+    ? CARD_LIFECYCLE.shouldAutoArchive(ev, effectiveReference, getEventAction(ev))
+    : false;
+}
+
+
+function followedHomeTag(event){
+  const ids=FOLLOW_FEED_POLICY.participantIds(event), key=FOLLOW_FEED_POLICY.sportKey(event);
+  const followed=ids.filter(id=>cachedParticipantFollow(id).followed);
+  const homeId=event.homeParticipantId || event.homeTeamId;
+  if(followed.some(id=>id.startsWith('team:') && id===homeId))return 'Home game';
+  const country=COUNTRY_FLAGS?.alpha2(event.venueCountryCode || event.countryCode || event.location?.countryCode);
+  if(!country)return '';
+  const records=[...cardIdentityParticipants(),...Array.from(followDirectoryChunks.values()).flatMap(chunk=>chunk.records||[]),...(event.participants||[])];
+  for(const id of followed){
+    if(id.startsWith('team:'))continue;
+    const record=records.find(p=>FOLLOW_FIRST.participantFollowIdentityKey(p.id||p.participantId)===FOLLOW_FIRST.participantFollowIdentityKey(id));
+    if(country!==COUNTRY_FLAGS?.alpha2(record?.homeCountryCode||record?.nationalityCode||record?.countryCode||record?.metadata?.countryCode))continue;
+    return key==='tennis'?'Home tournament':['f1','motogp','wrc','motorsport','cycling'].includes(key)?'Home race':'Home game';
+  }
+  return '';
+}
+
+
+function buildNothingscoreSummary(ev,{showAggregate=true}={}){
+  const eventId = nothingscoreEventId(ev);
+  nothingscoreEventRefs.set(eventId, ev);
+  registerNothingscoreEvent(ev);
+  const summary = buildNothingscorePeerResults(ev, nothingscoreSnapshots.get(eventId),{showAggregate});
+  summary.classList.add("nsc-summary");
+  summary.dataset.nscEventId = eventId;
+  summary.dataset.nscShowAggregate=String(showAggregate);
+  return summary;
+}
+
+
+
+function buildViewingProviderMark(viewing){
+  const mark = document.createElement("span");
+  mark.className = "provider-action-mark";
+  mark.dataset.providerId = viewing.providerId;
+  if (viewing.logoBackground) mark.style.setProperty("--provider-mark-bg", viewing.logoBackground);
+  const showFallback = () => {
+    const fallback = document.createElement("span");
+    fallback.className = "provider-action-text-fallback";
+    fallback.textContent = viewing.actionLabel || viewing.label;
+    mark.classList.add("provider-action-mark-fallback");
+    mark.replaceChildren(fallback);
+  };
+  if (!viewing.logoPath){
+    showFallback();
+    return mark;
+  }
+  const image = document.createElement("img");
+  image.className = "provider-action-logo";
+  image.alt = `${viewing.label} logo`;
+  image.decoding = "async";
+  image.loading = "lazy";
+  image.width = 64; image.height = 32;
+  image.addEventListener("error", showFallback, { once:true });
+  image.src = viewing.logoPath;
+  mark.appendChild(image);
+  return mark;
+}
