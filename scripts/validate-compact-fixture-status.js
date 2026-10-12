@@ -1,6 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const root=path.join(__dirname,'..');
+const assert=require('node:assert/strict'),vm=require('node:vm');
 class Element{
  constructor(){this.children=[];this.attributes={};this.dataset={};this.textContent='';const names=new Set();this.classList={add:(...values)=>values.forEach(value=>names.add(value)),contains:value=>names.has(value)};}
  append(...children){this.children.push(...children);}
@@ -8,12 +7,12 @@ class Element{
  setAttribute(key,value){this.attributes[key]=value;}
  getAttribute(key){return this.attributes[key];}
 }
-function validate({source=fs.readFileSync(path.join(root,'index.html'),'utf8')}={}){
- source=fs.readFileSync(path.join(root,'config/venue-panel-ui.js'),'utf8');const start=source.indexOf('function buildCompactCardSummary('),end=source.length;assert(start>=0&&end>start,'Actual compact card boundary exists');
+function validate({source=require('./app-shell-test-utils').readCardFunction('buildCompactCardSummary')}={}){
+ assert(source.startsWith('function buildCompactCardSummary('),'Actual compact card boundary exists');
  const context=vm.createContext({document:{createElement:()=>new Element()},activeTab:'feed',compactFixtureName:e=>e.name,matchupIdentityMatches:()=>[],renderEventTitleIdentity:(node,e)=>{node.textContent=e.name;},compactFixtureFormat:()=>null,compactFallbackTiming:()=>'',sportMetaForEvent:()=>({label:'Football'}),spoilerSafeDisplayTitle:e=>e.name,FOLLOW_FIRST:{stageLabel:()=>null},FEED_CONTROLS:require('../config/feed-controls'),NOTHINGSPORTS_CARD_TIMING:require('../config/card-timing'),buildFixtureTimingGroup:()=>new Element(),Intl,Date});
- vm.runInContext(source.slice(start,end),context);
+ vm.runInContext(source,context);
  context.NOTHINGSPORTS_FIXTURE_LABELS=require('../config/fixture-labels');
- const ui=fs.readFileSync(path.join(root,'config/venue-panel-ui.js'),'utf8'),helper=ui.indexOf('function buildTennisFixtureContext(');vm.runInContext(ui.slice(helper,ui.indexOf('function buildTournamentMarker(',helper)),context);
+ vm.runInContext(require('./app-shell-test-utils').readCardFunction('buildTennisFixtureContext'),context);
  let cases=0;
  function check(event,now,expected){
   context.nowAEST=()=>new Date(now);const before=JSON.stringify(event),summary=context.buildCompactCardSummary(event,{minimal:true}),time=summary.children.at(-1).textContent;
