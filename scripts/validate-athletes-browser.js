@@ -84,6 +84,27 @@ assert(await page.locator('.athletes-profile-fixtures').count(),'Saved schedule 
 payload.fixtureSnapshotStale=false;
 await page.waitForTimeout(10050);await page.getByRole('button',{name:'Refresh',exact:true}).click();
 await savedNotice.waitFor({state:'detached'});assert(await page.locator('.athletes-profile-fixtures').count(),'Healthy recovery retains the same profile');
-assert.deepEqual(errors,[]);assert(!requests.some(u=>u.includes('fantasy=1')));console.log(JSON.stringify({engine,links:2,roundTrips:true,filterAndFocus:true,canonicalCalendarFocus:true,multipleFixtureRows:true,calendarConsentUnchanged:true,spoilersHidden:true,widths:[320,390,768,1280],legacyRedirect:true,nestedEventRoundTrip:true,unfollowAndDismissal:true,sourceFailure:true,successfulDegradedNotice:true,healthyRecovery:true,errors}));
+// An unfollowed direct profile has no favourite projection or preloaded directory.
+// Its accepted schedule still supplies the participant's real identity.
+const directTeam='team:football:club:qa-cold-team',directAway='team:football:club:qa-cold-away';
+payload={events:[{id:'qa:direct:football',canonicalEventId:'qa:direct:football',key:'football',sportDomainId:'sport:football',name:'Schedule Club v Away Club',date:new Date(fixture.startTimeUtc).toLocaleDateString('en-CA',{timeZone:'Australia/Sydney'}),startTimeUtc:fixture.startTimeUtc,status:'scheduled',participants:[{id:directTeam,name:'Schedule Club',type:'team'},{id:directAway,name:'Away Club',type:'team'}],participantIds:[directTeam,directAway]}],athletes:[],fixtureSnapshotStale:false,pagination:{nextCursor:null}};
+await page.evaluate(id=>{userPreferences=clonePreferences(userPreferences);userPreferences.preferenceGraph.entityFollows=[];history.replaceState(null,'','#follow/profile/'+encodeURIComponent(id));NOTHINGSPORTS_ATHLETES_UI.route();},directTeam);
+await page.waitForFunction(()=>!document.querySelector('.athletes-heading [aria-busy="true"]'));
+assert.equal(await page.locator('.participant-profile-header h2').innerText(),'Schedule Club','a direct team profile must reuse its accepted schedule identity');
+assert.equal(await page.evaluate(()=>userPreferences.preferenceGraph.entityFollows.length),0,'resolving a name cannot follow the team');
+await page.evaluate(id=>{canonicalPreferenceParticipants=[...canonicalPreferenceParticipants,{id,displayName:'Directory Club',sportKey:'football',type:'team'}];userPreferences.preferenceGraph=PREFERENCE_SYSTEM.setEntityFollow(userPreferences.preferenceGraph,id,'follow');history.replaceState(null,'','#follow/favourites');NOTHINGSPORTS_ATHLETES_UI.route();},directTeam);
+await page.waitForFunction(()=>!document.querySelector('.athletes-heading [aria-busy="true"]'));
+await page.locator(`.athletes-person[data-athlete-id="${directTeam}"]`).waitFor();
+assert.equal(await page.locator(`.athletes-person[data-athlete-id="${directTeam}"] .athletes-name`).getAttribute('aria-label'),'Open Directory Club profile in Follow','schedule fallback must not replace an existing directory identity in Favourites');
+await page.evaluate(()=>{userPreferences.preferenceGraph.entityFollows=[];});
+const canonicalTeam='team:football:club:qa-canonical-team';payload.events[0]={...payload.events[0],id:'qa:direct:canonical',canonicalEventId:'qa:direct:canonical',name:'Canonical Club v Away Club',participants:[{id:canonicalTeam,displayName:' ',canonicalName:'Canonical Club',type:'team'},{id:directAway,name:'Away Club',type:'team'}],participantIds:[canonicalTeam,directAway]};
+await page.evaluate(id=>{history.replaceState(null,'','#follow/profile/'+encodeURIComponent(id));NOTHINGSPORTS_ATHLETES_UI.route();},canonicalTeam);
+await page.waitForFunction(()=>!document.querySelector('.athletes-heading [aria-busy="true"]'));
+assert.equal(await page.locator('.participant-profile-header h2').innerText(),'Canonical Club','canonical source names remain usable when an optional display name is blank');
+payload={events:[],athletes:[],fixtureSnapshotStale:false,pagination:{nextCursor:null}};
+await page.evaluate(()=>{history.replaceState(null,'','#follow/profile/team%3Afootball%3Aclub%3Aqa-unknown-team');NOTHINGSPORTS_ATHLETES_UI.route();});
+await page.waitForFunction(()=>!document.querySelector('.athletes-heading [aria-busy="true"]'));
+assert.equal(await page.locator('.participant-profile-header h2').innerText(),'Team','a missing team name remains a team, without inventing its identity');
+assert.deepEqual(errors,[]);assert(!requests.some(u=>u.includes('fantasy=1')));console.log(JSON.stringify({engine,links:2,roundTrips:true,filterAndFocus:true,canonicalCalendarFocus:true,multipleFixtureRows:true,calendarConsentUnchanged:true,unfollowAndDismissal:true,spoilersHidden:true,widths:[320,390,768,1280],legacyRedirect:true,nestedEventRoundTrip:true,sourceFailure:true,successfulDegradedNotice:true,healthyRecovery:true,directTeamIdentity:true,richerIdentityPreserved:true,canonicalNameVariant:true,unknownTeamHonest:true,identityDoesNotFollow:true,errors}));
 }finally{await browser.close();}}}finally{await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1;});
