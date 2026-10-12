@@ -1,312 +1,17 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085",
-  "generatedAt": "2026-10-11T22:08:39.024Z",
+  "sourceRevision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc",
+  "generatedAt": "2026-10-12T23:00:39.651Z",
   "shadowMode": true,
   "summary": {
     "stakesFiveFuture": 56,
-    "shown": 108,
-    "eligible": 108,
+    "shown": 107,
+    "eligible": 107,
     "watching": 0,
-    "actionable": 108,
+    "actionable": 107,
     "late": 0
   },
   "candidates": [
-    {
-      "campaignId": "marquee_cd90a197f744002d",
-      "campaignRevision": 1,
-      "eventId": "rlwc-australia-new-zealand-2026",
-      "contentHash": "774f0b6d8be56830bb48ac6e66a3a449f810b3cf157da26afabb12cf1a2c98a3",
-      "state": "draft",
-      "actionable": true,
-      "late": false,
-      "proposedSendAt": "2026-10-12T09:05:00.000Z",
-      "posting": {
-        "kind": "preview",
-        "at": "2026-10-12T09:05:00.000Z",
-        "estimated": false
-      },
-      "readyForExport": true,
-      "readinessIssues": [],
-      "machineSort": {
-        "proposedSendAt": "2026-10-12T09:05:00.000Z",
-        "fixtureStartAt": "2026-10-15T09:05:00.000Z",
-        "fixtureDate": "2026-10-15"
-      },
-      "eligibilityEvidence": {
-        "stakesExactlyFive": true,
-        "communityEligible": false,
-        "majorEvent": false,
-        "confirmedUtcStart": true
-      },
-      "timing": {
-        "startTimeUtc": "2026-10-15T09:05:00.000Z",
-        "endTimeUtc": "2026-10-15T12:05:00.000Z",
-        "estimatedStartAt": null,
-        "fixtureDate": "2026-10-15",
-        "estimateBasis": "confirmed",
-        "sydneyStart": {
-          "day": "Thu",
-          "weekday": "Thursday",
-          "date": "Thu 15 Oct 2026",
-          "time": "8:05 pm",
-          "timezone": "AEDT"
-        },
-        "sydneyFinish": {
-          "day": "Thu",
-          "weekday": "Thursday",
-          "date": "Thu 15 Oct 2026",
-          "time": "11:05 pm",
-          "timezone": "AEDT"
-        }
-      },
-      "source": {
-        "name": "RLWC 2026 — competition rules",
-        "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
-        "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
-      },
-      "material": {
-        "title": "Rugby League World Cup opener",
-        "recognisableTitle": "Rugby League World Cup opener",
-        "matchupLabel": "Kangaroos v Kiwis",
-        "participants": [
-          "Australia",
-          "New Zealand"
-        ],
-        "sport": "Rugby League",
-        "competition": "competition:rugby-league-world-cup:2026",
-        "venue": "Allianz Stadium, Sydney",
-        "broadcaster": "Seven / 7plus Sport",
-        "displayDate": "2026-10-15",
-        "stakes": 5,
-        "rating": {
-          "value": 5,
-          "editorialValue": 5,
-          "rawMean": null,
-          "count": 0,
-          "source": "editorial",
-          "label": "5.0/5 editorial stakes",
-          "animationPreset": "subtle"
-        },
-        "kind": "fixture"
-      },
-      "identities": {
-        "teams": [
-          {
-            "label": "Australian Kangaroos",
-            "path": "/assets/identities/national/rugby-league/kangaroos.svg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/identities/national/rugby-league/kangaroos.svg",
-            "provenance": {
-              "registry": "card-identities.v4",
-              "sourceUrl": "https://www.nrl.com/players/?competition=195",
-              "rightsStatus": "official-reference"
-            }
-          },
-          {
-            "label": "New Zealand Kiwis",
-            "path": "/assets/identities/national/rugby-league/kiwis.svg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/identities/national/rugby-league/kiwis.svg",
-            "provenance": {
-              "registry": "card-identities.v4",
-              "sourceUrl": "https://nzrl.co.nz/national-teams/kiwis",
-              "rightsStatus": "official-reference"
-            }
-          }
-        ],
-        "code": {
-          "label": "Rugby",
-          "path": "/assets/icons/sporticon/rugby.svg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/icons/sporticon/rugby.svg",
-          "provenance": {
-            "registry": "card-identities.v4",
-            "sourceUrl": "https://github.com/ookamiinc/sporticon",
-            "rightsStatus": "open-use"
-          }
-        }
-      },
-      "live": {
-        "headline": "Rugby League World Cup opener",
-        "hook": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-        "kicker": "5.0/5 editorial stakes · Rugby League",
-        "hero": {
-          "path": "/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: Rugby League World Cup opener. Thu 15 Oct 2026 at 8:05 pm AEDT."
-        },
-        "heroAssetId": "",
-        "logos": {
-          "showCode": true,
-          "showTeams": true,
-          "order": "teams-first"
-        },
-        "focalPosition": {
-          "x": 50,
-          "y": 50
-        },
-        "animationPreset": "subtle"
-      },
-      "drafts": {
-        "hook": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-        "email": {
-          "subject": "Coming up: Rugby League World Cup opener",
-          "preheader": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-          "headline": "Rugby League World Cup opener",
-          "bodyParagraphs": [
-            "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-            "Australia have named their 23-player squad with Yeo as captain, removing the earlier uncertainty about his inclusion. Lindsay Smith replaces injured Lindsay Collins. Walker is selected in the squad but competes with Munster, Dearden and Moses for a halves berth. New Zealand retain the core of their 2025 Pacific Championships winners, add Ponga and Gagai, and welcome Hughes back.",
-            "The men's World Cup opens at Allianz Stadium on Thursday 15 October, with Australia and New Zealand sharing Pool A with Fiji and Cook Islands. Opening points shape the route through the pool without deciding the trophy. The national squads are announced; the match-day teams and starting halves are not assumed. Australian coverage is confirmed on Seven and 7plus. Neither a predicted lineup nor a result has been presented as fact.",
-            "Cleary's absence makes Australia's attacking succession a live contest rather than a speculative squad list. Walker's recovery from ankle surgery gives his chance a personal edge, but it does not guarantee selection. Across the divide, Ponga's allegiance and Hughes' return strengthen the Kiwis' own story of belonging and ambition. Australian supporters expect a title defence; New Zealand supporters can see experienced winners and new talent challenging that expectation.",
-            "World Cup opener is Thu 15 Oct 2026 at 8:05 pm AEDT at Allianz Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
-          ],
-          "timingLine": "Rugby League World Cup opener: Thu 15 Oct 2026 at 8:05 pm AEDT.",
-          "broadcastLine": "Watch in Australia on Seven / 7plus Sport.",
-          "primaryCta": {
-            "label": "Set a reminder / rate / watch party",
-            "url": "https://nothingsport.vercel.app/?event=rlwc-australia-new-zealand-2026"
-          },
-          "secondaryCta": {
-            "label": "Open live countdown",
-            "url": "https://nothingsport.vercel.app/live?campaign=marquee_cd90a197f744002d"
-          },
-          "image": {
-            "path": "/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Rugby League World Cup opener. Thu 15 Oct 2026 at 8:05 pm AEDT."
-          },
-          "suggestedSendAt": {
-            "utc": "2026-10-12T09:05:00.000Z",
-            "sydney": {
-              "day": "Mon",
-              "weekday": "Monday",
-              "date": "Mon 12 Oct 2026",
-              "time": "8:05 pm",
-              "timezone": "AEDT"
-            }
-          },
-          "joinUrl": "https://nothingsport.vercel.app/?event=rlwc-australia-new-zealand-2026",
-          "ratingUrl": "https://nothingsport.vercel.app/?event=rlwc-australia-new-zealand-2026"
-        },
-        "instagram": {
-          "caption": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.\n\nWorld Cup opener is Thu 15 Oct 2026 at 8:05 pm AEDT at Allianz Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
-          "image": {
-            "path": "/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Rugby League World Cup opener. Thu 15 Oct 2026 at 8:05 pm AEDT."
-          },
-          "altText": "Nothing Sport: Rugby League World Cup opener. Thu 15 Oct 2026 at 8:05 pm AEDT."
-        },
-        "when": {
-          "day": "Thu",
-          "weekday": "Thursday",
-          "date": "Thu 15 Oct 2026",
-          "time": "8:05 pm",
-          "timezone": "AEDT"
-        },
-        "finish": {
-          "day": "Thu",
-          "weekday": "Thursday",
-          "date": "Thu 15 Oct 2026",
-          "time": "11:05 pm",
-          "timezone": "AEDT"
-        },
-        "live": {
-          "headline": "Rugby League World Cup opener",
-          "hook": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-          "kicker": "5.0/5 editorial stakes · Rugby League",
-          "hero": {
-            "path": "/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Rugby League World Cup opener. Thu 15 Oct 2026 at 8:05 pm AEDT."
-          },
-          "heroAssetId": "",
-          "logos": {
-            "showCode": true,
-            "showTeams": true,
-            "order": "teams-first"
-          },
-          "focalPosition": {
-            "x": 50,
-            "y": 50
-          },
-          "animationPreset": "subtle"
-        }
-      },
-      "editorial": {
-        "hook": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-        "body": [
-          "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-          "Australia have named their 23-player squad with Yeo as captain, removing the earlier uncertainty about his inclusion. Lindsay Smith replaces injured Lindsay Collins. Walker is selected in the squad but competes with Munster, Dearden and Moses for a halves berth. New Zealand retain the core of their 2025 Pacific Championships winners, add Ponga and Gagai, and welcome Hughes back.",
-          "The men's World Cup opens at Allianz Stadium on Thursday 15 October, with Australia and New Zealand sharing Pool A with Fiji and Cook Islands. Opening points shape the route through the pool without deciding the trophy. The national squads are announced; the match-day teams and starting halves are not assumed. Australian coverage is confirmed on Seven and 7plus. Neither a predicted lineup nor a result has been presented as fact.",
-          "Cleary's absence makes Australia's attacking succession a live contest rather than a speculative squad list. Walker's recovery from ankle surgery gives his chance a personal edge, but it does not guarantee selection. Across the divide, Ponga's allegiance and Hughes' return strengthen the Kiwis' own story of belonging and ambition. Australian supporters expect a title defence; New Zealand supporters can see experienced winners and new talent challenging that expectation."
-        ],
-        "sourceIds": [
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:0",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:1",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:2",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:3",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:4"
-        ],
-        "researchedAt": "2026-10-10T09:56:08Z"
-      },
-      "assets": {
-        "fallbackHero": {
-          "path": "/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport: Rugby League World Cup opener. Thu 15 Oct 2026 at 8:05 pm AEDT."
-        },
-        "suggestedHeroes": [
-          {
-            "path": "/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd90a197f744002d-774f0b6d8be5.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport: Rugby League World Cup opener. Thu 15 Oct 2026 at 8:05 pm AEDT."
-          }
-        ],
-        "uploadPolicy": "approved-media-only"
-      },
-      "channels": {
-        "email": {
-          "enabled": false
-        },
-        "social": {
-          "enabled": false
-        }
-      },
-      "participation": {
-        "enabled": true,
-        "liveUrl": "https://nothingsport.vercel.app/live?campaign=marquee_cd90a197f744002d",
-        "fixtureUrl": "https://nothingsport.vercel.app/fixture/rlwc-australia-new-zealand-2026?campaign=marquee_cd90a197f744002d",
-        "eventUrl": "https://nothingsport.vercel.app/?event=rlwc-australia-new-zealand-2026",
-        "ratingWindow": {
-          "opensAt": "2026-10-15T12:05:00.000Z",
-          "closesAt": "2026-10-22T12:05:00.000Z"
-        }
-      }
-    },
     {
       "campaignId": "marquee_4b6a6fbfdd6ce674",
       "campaignRevision": 1,
@@ -359,7 +64,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -657,7 +362,7 @@
         "name": "Rugby League World Cup 2026",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Rugby League World Cup 2026",
@@ -875,7 +580,7 @@
       "campaignId": "marquee_9c129ce400d1fda4",
       "campaignRevision": 1,
       "eventId": "rlwc-australia-new-zealand-2026",
-      "contentHash": "ea0dd089f536e3907aa4606e3b2a55e6d49d29776e668f975a39dce1bcb52f66",
+      "contentHash": "318e7ebcd1d0569d6ed29e6e12c4645d811c6c71358873655619cd4884cf2da2",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -884,7 +589,7 @@
         "kind": "day-of",
         "at": "2026-10-14T22:00:00.000Z",
         "estimated": false,
-        "mergedPreview": false
+        "mergedPreview": true
       },
       "readyForExport": true,
       "readinessIssues": [],
@@ -924,7 +629,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Rugby League World Cup opener",
@@ -987,11 +692,11 @@
       },
       "live": {
         "headline": "Rugby League World Cup opener",
-        "hook": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
+        "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
         "kicker": "5.0/5 editorial stakes · Rugby League",
         "hero": {
-          "path": "/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
+          "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1011,16 +716,16 @@
         "animationPreset": "subtle"
       },
       "drafts": {
-        "hook": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
+        "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
         "email": {
           "subject": "Today: Rugby League World Cup opener",
-          "preheader": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
+          "preheader": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
           "headline": "Rugby League World Cup opener",
           "bodyParagraphs": [
-            "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-            "Australia have named their 23-player squad with Yeo as captain, removing the earlier uncertainty about his inclusion. Lindsay Smith replaces injured Lindsay Collins. Walker is selected in the squad but competes with Munster, Dearden and Moses for a halves berth. New Zealand retain the core of their 2025 Pacific Championships winners, add Ponga and Gagai, and welcome Hughes back.",
-            "The men's World Cup opens at Allianz Stadium on Thursday 15 October, with Australia and New Zealand sharing Pool A with Fiji and Cook Islands. Opening points shape the route through the pool without deciding the trophy. The national squads are announced; the match-day teams and starting halves are not assumed. Australian coverage is confirmed on Seven and 7plus. Neither a predicted lineup nor a result has been presented as fact.",
-            "Cleary's absence makes Australia's attacking succession a live contest rather than a speculative squad list. Walker's recovery from ankle surgery gives his chance a personal edge, but it does not guarantee selection. Across the divide, Ponga's allegiance and Hughes' return strengthen the Kiwis' own story of belonging and ambition. Australian supporters expect a title defence; New Zealand supporters can see experienced winners and new talent challenging that expectation.",
+            "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+            "Australia's preparation now points towards Munster at five-eighth, with Moses reported as the leading halfback contender; those reports are not a final team sheet. Yeo has confirmed he is deferring pectoral surgery to captain the squad. New Zealand bring Hughes back after an injury-enforced international absence, with Fisher-Harris leading a squad that adds Ponga and Gagai. The opening contest must turn those assembled strengths into a working spine and forward platform.",
+            "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
+            "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
             "World Cup opener is Thu 15 Oct 2026 at 8:05 pm AEDT at Allianz Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Rugby League World Cup opener: Thu 15 Oct 2026 at 8:05 pm AEDT.",
@@ -1034,8 +739,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_9c129ce400d1fda4"
           },
           "image": {
-            "path": "/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
+            "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1056,10 +761,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=rlwc-australia-new-zealand-2026"
         },
         "instagram": {
-          "caption": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.\n\nWorld Cup opener is Thu 15 Oct 2026 at 8:05 pm AEDT at Allianz Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.\n\nWorld Cup opener is Thu 15 Oct 2026 at 8:05 pm AEDT at Allianz Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
+            "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1084,11 +789,11 @@
         },
         "live": {
           "headline": "Rugby League World Cup opener",
-          "hook": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
+          "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
           "kicker": "5.0/5 editorial stakes · Rugby League",
           "hero": {
-            "path": "/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
+            "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1109,26 +814,27 @@
         }
       },
       "editorial": {
-        "hook": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
+        "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
         "body": [
-          "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-          "Australia have named their 23-player squad with Yeo as captain, removing the earlier uncertainty about his inclusion. Lindsay Smith replaces injured Lindsay Collins. Walker is selected in the squad but competes with Munster, Dearden and Moses for a halves berth. New Zealand retain the core of their 2025 Pacific Championships winners, add Ponga and Gagai, and welcome Hughes back.",
-          "The men's World Cup opens at Allianz Stadium on Thursday 15 October, with Australia and New Zealand sharing Pool A with Fiji and Cook Islands. Opening points shape the route through the pool without deciding the trophy. The national squads are announced; the match-day teams and starting halves are not assumed. Australian coverage is confirmed on Seven and 7plus. Neither a predicted lineup nor a result has been presented as fact.",
-          "Cleary's absence makes Australia's attacking succession a live contest rather than a speculative squad list. Walker's recovery from ankle surgery gives his chance a personal edge, but it does not guarantee selection. Across the divide, Ponga's allegiance and Hughes' return strengthen the Kiwis' own story of belonging and ambition. Australian supporters expect a title defence; New Zealand supporters can see experienced winners and new talent challenging that expectation."
+          "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+          "Australia's preparation now points towards Munster at five-eighth, with Moses reported as the leading halfback contender; those reports are not a final team sheet. Yeo has confirmed he is deferring pectoral surgery to captain the squad. New Zealand bring Hughes back after an injury-enforced international absence, with Fisher-Harris leading a squad that adds Ponga and Gagai. The opening contest must turn those assembled strengths into a working spine and forward platform.",
+          "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
+          "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear."
         ],
         "sourceIds": [
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:0",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:1",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:2",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:3",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:4"
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:0",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:1",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:2",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:3",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:4",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:5"
         ],
-        "researchedAt": "2026-10-10T09:56:08Z"
+        "researchedAt": "2026-10-12T22:50:31.092Z"
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
+          "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1137,8 +843,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-ea0dd089f536.jpg",
+            "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1220,7 +926,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -1515,7 +1221,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Australia Grand Prix",
@@ -1780,7 +1486,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Australia Grand Prix",
@@ -2044,7 +1750,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Malaysia Grand Prix",
@@ -2310,7 +2016,7 @@
         "name": "Official race organiser calendar",
         "url": "https://www.vrc.com.au/racing/race-programs-and-conditions/",
         "checkedAt": "2026-10-11T12:37:29.370Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Melbourne Cup",
@@ -2577,7 +2283,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Malaysia Grand Prix",
@@ -2844,7 +2550,7 @@
         "name": "Official race organiser calendar",
         "url": "https://www.vrc.com.au/racing/race-programs-and-conditions/",
         "checkedAt": "2026-10-11T12:37:29.370Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Melbourne Cup",
@@ -3110,7 +2816,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -3375,7 +3081,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -3641,7 +3347,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -3907,7 +3613,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -4171,7 +3877,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -4438,7 +4144,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -4705,7 +4411,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -4970,7 +4676,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -5236,7 +4942,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -5504,7 +5210,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -5770,7 +5476,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -6034,7 +5740,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -6298,7 +6004,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-11T12:37:25.437Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -6562,7 +6268,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -6831,7 +6537,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -7098,7 +6804,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -7363,7 +7069,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -7628,7 +7334,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-11T12:37:25.437Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -7891,7 +7597,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -8160,7 +7866,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -8428,7 +8134,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/thailand/8ab8c4e8-5069-499c-a330-42176595b117",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Thailand Grand Prix",
@@ -8690,7 +8396,7 @@
         "name": "FIS official 2026/27 competition calendar",
         "url": "https://www.fis-ski.com/DB/general/event-details.html?sectorcode=FS&eventid=62878&seasoncode=2027",
         "checkedAt": "2026-10-03T21:36:12.000Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Shahdag — Freestyle World Cup Finals",
@@ -8958,7 +8664,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/thailand/8ab8c4e8-5069-499c-a330-42176595b117",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Thailand Grand Prix",
@@ -9221,7 +8927,7 @@
         "name": "FIS official 2026/27 competition calendar",
         "url": "https://www.fis-ski.com/DB/general/event-details.html?sectorcode=FS&eventid=62878&seasoncode=2027",
         "checkedAt": "2026-10-03T21:36:12.000Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Shahdag — Freestyle World Cup Finals",
@@ -9488,7 +9194,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/qatar/e1d60873-b02b-4f4b-bb8c-a7a6c5636d46",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -9751,7 +9457,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/qatar/e1d60873-b02b-4f4b-bb8c-a7a6c5636d46",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -10013,7 +9719,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/brasil/bf5f3555-1a6a-4f3c-9855-eaaeaae5dec0",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Brazil Grand Prix",
@@ -10276,7 +9982,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/brasil/bf5f3555-1a6a-4f3c-9855-eaaeaae5dec0",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Brazil Grand Prix",
@@ -10538,7 +10244,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -10801,7 +10507,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 1",
@@ -11064,7 +10770,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 2",
@@ -11327,7 +11033,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/argentina/c10a7ebf-311d-4ad4-9e70-5cdedb820d0e",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Argentina Grand Prix",
@@ -11589,7 +11295,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 3",
@@ -11853,7 +11559,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -12117,7 +11823,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 1",
@@ -12380,7 +12086,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 4",
@@ -12644,7 +12350,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 2",
@@ -12908,7 +12614,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/argentina/c10a7ebf-311d-4ad4-9e70-5cdedb820d0e",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Argentina Grand Prix",
@@ -13171,7 +12877,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 3",
@@ -13435,7 +13141,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 4",
@@ -13698,7 +13404,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/americas/40e6cf1f-72ea-4d93-8e47-3bfbdbcb7482",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Americas Grand Prix",
@@ -13961,7 +13667,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/americas/40e6cf1f-72ea-4d93-8e47-3bfbdbcb7482",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Americas Grand Prix",
@@ -14223,7 +13929,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/espa-a/a86a970e-bcb1-4f61-a401-6a1d440537a3",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Spain Grand Prix",
@@ -14486,7 +14192,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/espa-a/a86a970e-bcb1-4f61-a401-6a1d440537a3",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Spain Grand Prix",
@@ -14748,7 +14454,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/france/4a935298-8a46-4435-9bdb-2a6e0dfac50b",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP France Grand Prix",
@@ -15011,7 +14717,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/france/4a935298-8a46-4435-9bdb-2a6e0dfac50b",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP France Grand Prix",
@@ -15273,7 +14979,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -15536,7 +15242,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 PGA Championship — Round 1",
@@ -15799,7 +15505,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 PGA Championship — Round 2",
@@ -16062,7 +15768,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 PGA Championship — Round 3",
@@ -16326,7 +16032,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -16590,7 +16296,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 PGA Championship — Round 1",
@@ -16853,7 +16559,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 PGA Championship — Round 4",
@@ -17117,7 +16823,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 PGA Championship — Round 2",
@@ -17381,7 +17087,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 PGA Championship — Round 3",
@@ -17645,7 +17351,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 PGA Championship — Round 4",
@@ -17908,7 +17614,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/italy/2dc1370c-ddde-46ad-aae0-556f6660b015",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Italy Grand Prix",
@@ -18171,7 +17877,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/italy/2dc1370c-ddde-46ad-aae0-556f6660b015",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Italy Grand Prix",
@@ -18433,7 +18139,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/catalonia/87010858-4f81-4546-9cfb-2bc0684cc849",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Catalunya Grand Prix",
@@ -18696,7 +18402,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/catalonia/87010858-4f81-4546-9cfb-2bc0684cc849",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Catalunya Grand Prix",
@@ -18958,7 +18664,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -19221,7 +18927,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 U.S. Open — Round 1",
@@ -19484,7 +19190,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 U.S. Open — Round 2",
@@ -19747,7 +19453,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 U.S. Open — Round 3",
@@ -20011,7 +19717,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -20275,7 +19981,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 U.S. Open — Round 1",
@@ -20538,7 +20244,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 U.S. Open — Round 4",
@@ -20802,7 +20508,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 U.S. Open — Round 2",
@@ -21066,7 +20772,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 U.S. Open — Round 3",
@@ -21330,7 +21036,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 U.S. Open — Round 4",
@@ -21593,7 +21299,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/netherlands/42712efa-4a99-4af3-8869-66197fc5248c",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Netherlands Grand Prix",
@@ -21856,7 +21562,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/netherlands/42712efa-4a99-4af3-8869-66197fc5248c",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Netherlands Grand Prix",
@@ -22118,7 +21824,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/germany/5c4fc7f1-eeca-4f47-b6ef-9187d17da865",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Germany Grand Prix",
@@ -22381,7 +22087,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/germany/5c4fc7f1-eeca-4f47-b6ef-9187d17da865",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Germany Grand Prix",
@@ -22643,7 +22349,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "The 155th Open",
@@ -22906,7 +22612,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 The Open Championship — Round 1",
@@ -23169,7 +22875,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 The Open Championship — Round 2",
@@ -23432,7 +23138,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/czeck-republiky/519574ff-f733-4630-bbc8-5c8ae7040d16",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Czechia Grand Prix",
@@ -23694,7 +23400,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 The Open Championship — Round 3",
@@ -23958,7 +23664,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "The 155th Open",
@@ -24222,7 +23928,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 The Open Championship — Round 1",
@@ -24485,7 +24191,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 The Open Championship — Round 4",
@@ -24749,7 +24455,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 The Open Championship — Round 2",
@@ -25013,7 +24719,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/czeck-republiky/519574ff-f733-4630-bbc8-5c8ae7040d16",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Czechia Grand Prix",
@@ -25276,7 +24982,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 The Open Championship — Round 3",
@@ -25540,7 +25246,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "2027 The Open Championship — Round 4",
@@ -25803,7 +25509,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/great-britain/adb67418-cf62-4369-b074-e998c2e0d951",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Great Britain Grand Prix",
@@ -26066,7 +25772,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/great-britain/adb67418-cf62-4369-b074-e998c2e0d951",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Great Britain Grand Prix",
@@ -26328,7 +26034,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/austria/4cbd9219-9732-4f03-9a45-e3dac1d669f4",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Austria Grand Prix",
@@ -26591,7 +26297,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/austria/4cbd9219-9732-4f03-9a45-e3dac1d669f4",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Austria Grand Prix",
@@ -26853,7 +26559,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/san-marino/4e69f9e9-fb52-4549-ac1e-1177500d33f8",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP San Marino Grand Prix",
@@ -27116,7 +26822,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/san-marino/4e69f9e9-fb52-4549-ac1e-1177500d33f8",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP San Marino Grand Prix",
@@ -27378,7 +27084,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/spain/f119aae5-3e39-4cf3-9801-9fdec5b5c651",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Aragon Grand Prix",
@@ -27641,7 +27347,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/spain/f119aae5-3e39-4cf3-9801-9fdec5b5c651",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Aragon Grand Prix",
@@ -27903,7 +27609,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/portugal/211e69f0-b521-4df4-95c8-7f890b878a2b",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -28166,7 +27872,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/portugal/211e69f0-b521-4df4-95c8-7f890b878a2b",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -28426,7 +28132,7 @@
         "name": "Formula 1 Australian Grand Prix 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261011220835076@2026-10-11T22:08:35.076Z:365005892085"
+        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
       },
       "material": {
         "title": "Formula 1 Australian Grand Prix 2027",

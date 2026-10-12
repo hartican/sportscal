@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-official-results-2026-09-15-v1",
-  "publishedAt": "2026-10-12T22:44:12.430Z",
+  "version": "weekend-editorial-20261012225957817",
+  "publishedAt": "2026-10-12T22:59:57.817Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -148408,8 +148408,8 @@
       "highlightEligible": false,
       "briefingEligible": false,
       "catchupEligible": false,
-      "selectedSentence": "",
-      "fullSpiel": "",
+      "selectedSentence": "De Minaur's Turin chase meets Khachanov's big-stage pedigree, with recovery and rally depth both under examination.",
+      "fullSpiel": "A Shanghai quarterfinal place is at stake on the hard courts. Tennis Australia's current preview says a De Minaur victory would move him to ninth in the race to Turin; that is a route towards qualification, not a guaranteed Finals berth. Keeping Khachanov from dictating the rally will matter as much as retrieving another ball. Recovery progress is the player's account, not a medical declaration of full fitness. Neither this match's outcome nor scores from earlier rounds are revealed.",
       "participantSlots": [],
       "participantCountryCodes": [],
       "representativeCountryCodes": [],
@@ -148456,6 +148456,64 @@
         "startsAt": "2026-10-13T04:00:00.000Z",
         "matchRow": "13 October, Stadium Court, first named match: Alex DE MINAUR v Karen KHACHANOV; Starts At 12:00",
         "clockAssociation": "The Starts At12:00 band is immediately attached to this first named Stadium Court row. It is not copied to any Followed By row."
+      },
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:fixture-research:fixture-tennis-espn-atp-184950",
+        "researchTier": "marquee",
+        "hook": "De Minaur's Turin chase meets Khachanov's big-stage pedigree, with recovery and rally depth both under examination.",
+        "synopsis": "A Shanghai quarterfinal place is at stake on the hard courts. Tennis Australia's current preview says a De Minaur victory would move him to ninth in the race to Turin; that is a route towards qualification, not a guaranteed Finals berth. Keeping Khachanov from dictating the rally will matter as much as retrieving another ball. Recovery progress is the player's account, not a medical declaration of full fitness. Neither this match's outcome nor scores from earlier rounds are revealed.",
+        "formCopy": "De Minaur says the extra recovery time in Shanghai has helped and that his body is improving. His recent emphasis has been on serving accurately and keeping the ball deep rather than being pushed around the baseline. Khachanov brings the experience of a Paris Masters title and Olympic singles silver. Their meeting asks whether the Australian can sustain his movement and depth against an opponent with proven credentials at this level.",
+        "closingCopy": "For De Minaur, this is more than another stop on the Asian swing: the ATP Finals remain within reach, and each round carries weight in that chase. Australian supporters have travelled with him through Shanghai, adding a familiar voice far from home. Khachanov has his own claim to the big stage; a former Masters champion is not merely an obstacle in someone else's qualification story. The tension is between opportunity and the physical demands of taking it.",
+        "threadIds": [
+          "thread:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380"
+        ],
+        "factIds": [
+          "fact:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:0",
+          "fact:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:1",
+          "fact:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:2",
+          "fact:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:3"
+        ],
+        "sourceIds": [
+          "source:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:0",
+          "source:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:1",
+          "source:fixture-research:fixture-tennis-espn-atp-184950:revision-447d347b0f7c96edc231c12dcca8a869610a1219f585fd297f64ea6dca85f380:2"
+        ],
+        "dimensions": [
+          "form",
+          "path",
+          "history",
+          "consequence"
+        ],
+        "researchedAt": "2026-10-12T22:50:31.088Z",
+        "refreshAfter": null,
+        "generationMode": "researched",
+        "phase": "preview"
+      },
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "Alex de Minaur v Karen Khachanov - Shanghai round of 16",
+        "contextSignals": [
+          "event-specific",
+          "narrative:form",
+          "narrative:path",
+          "narrative:history",
+          "narrative:consequence"
+        ],
+        "sourceName": "Alex de Minaur v Karen Khachanov - Shanghai round of 16 — official research 1",
+        "sourceUrl": "https://www.tennis.com.au/fan-zone/news/2026/10/11/de-minaur-wins-again-to-reach-shanghai-masters-fourth-round",
+        "sourceCheckedAt": "2026-10-12T22:50:31.088Z",
+        "needsPreviewRefresh": false
+      },
+      "lastReviewedAt": "2026-10-12T22:50:31.088Z",
+      "storyline": {
+        "researchDepth": 5,
+        "arcStage": "preview",
+        "hookSpoilerOff": "De Minaur's Turin chase meets Khachanov's big-stage pedigree, with recovery and rally depth both under examination.",
+        "hookSpoilerOn": "De Minaur's Turin chase meets Khachanov's big-stage pedigree, with recovery and rally depth both under examination.",
+        "synopsisSpoilerOff": "A Shanghai quarterfinal place is at stake on the hard courts. Tennis Australia's current preview says a De Minaur victory would move him to ninth in the race to Turin; that is a route towards qualification, not a guaranteed Finals berth. Keeping Khachanov from dictating the rally will matter as much as retrieving another ball. Recovery progress is the player's account, not a medical declaration of full fitness. Neither this match's outcome nor scores from earlier rounds are revealed.",
+        "synopsisSpoilerOn": "A Shanghai quarterfinal place is at stake on the hard courts. Tennis Australia's current preview says a De Minaur victory would move him to ninth in the race to Turin; that is a route towards qualification, not a guaranteed Finals berth. Keeping Khachanov from dictating the rally will matter as much as retrieving another ball. Recovery progress is the player's account, not a medical declaration of full fitness. Neither this match's outcome nor scores from earlier rounds are revealed.",
+        "lastReviewedAt": "2026-10-12T22:50:31.088Z"
       }
     },
     {
@@ -150864,8 +150922,8 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "match",
-      "selectedSentence": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-      "fullSpiel": "The men's World Cup opens at Allianz Stadium on Thursday 15 October, with Australia and New Zealand sharing Pool A with Fiji and Cook Islands. Opening points shape the route through the pool without deciding the trophy. The national squads are announced; the match-day teams and starting halves are not assumed. Australian coverage is confirmed on Seven and 7plus. Neither a predicted lineup nor a result has been presented as fact.",
+      "selectedSentence": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+      "fullSpiel": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
       "sourceName": "RLWC 2026 — competition rules",
       "sourceUrl": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
       "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
@@ -150889,29 +150947,28 @@
         "intensity": 5,
         "arcStage": "preview",
         "expectedSpectacle": 10,
-        "hookSpoilerOff": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-        "hookSpoilerOn": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-        "synopsisSpoilerOff": "The men's World Cup opens at Allianz Stadium on Thursday 15 October, with Australia and New Zealand sharing Pool A with Fiji and Cook Islands. Opening points shape the route through the pool without deciding the trophy. The national squads are announced; the match-day teams and starting halves are not assumed. Australian coverage is confirmed on Seven and 7plus. Neither a predicted lineup nor a result has been presented as fact.",
-        "synopsisSpoilerOn": "The men's World Cup opens at Allianz Stadium on Thursday 15 October, with Australia and New Zealand sharing Pool A with Fiji and Cook Islands. Opening points shape the route through the pool without deciding the trophy. The national squads are announced; the match-day teams and starting halves are not assumed. Australian coverage is confirmed on Seven and 7plus. Neither a predicted lineup nor a result has been presented as fact.",
+        "hookSpoilerOff": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+        "hookSpoilerOn": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+        "synopsisSpoilerOff": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
+        "synopsisSpoilerOn": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
         "intensitySource": "computed",
-        "lastReviewedAt": "2026-10-10T09:56:08Z",
+        "lastReviewedAt": "2026-10-12T22:50:31.092Z",
         "researchDepth": 5
       },
-      "lastReviewedAt": "2026-10-10T09:56:08Z",
+      "lastReviewedAt": "2026-10-12T22:50:31.092Z",
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Australia v New Zealand - Rugby League World Cup",
+        "angle": "Australia v New Zealand - World Cup opener",
         "contextSignals": [
           "event-specific",
           "narrative:form",
-          "narrative:matchup",
           "narrative:history",
-          "narrative:path",
-          "narrative:consequence"
+          "narrative:consequence",
+          "narrative:path"
         ],
-        "sourceName": "Australia v New Zealand - Rugby League World Cup — official research 1",
-        "sourceUrl": "https://www.nrl.com/news/2026/10/05/kangaroos-squad-for-2026-rugby-league-world-cup/",
-        "sourceCheckedAt": "2026-10-10T09:56:08Z",
+        "sourceName": "Australia v New Zealand - World Cup opener — official research 1",
+        "sourceUrl": "https://www.nrl.com/news/2026/10/13/unpredictability-key-as-munster-prepares-for-new-halves-pairing/",
+        "sourceCheckedAt": "2026-10-12T22:50:31.092Z",
         "needsPreviewRefresh": false
       },
       "sourceTrust": "unverified",
@@ -150930,38 +150987,38 @@
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:feed:rlwc-australia-new-zealand-2026",
         "researchTier": "marquee",
-        "hook": "Yeo leads Australia's announced squad against a reinforced Kiwis side; the opening-night question is now who earns the playmaking roles.",
-        "synopsis": "The men's World Cup opens at Allianz Stadium on Thursday 15 October, with Australia and New Zealand sharing Pool A with Fiji and Cook Islands. Opening points shape the route through the pool without deciding the trophy. The national squads are announced; the match-day teams and starting halves are not assumed. Australian coverage is confirmed on Seven and 7plus. Neither a predicted lineup nor a result has been presented as fact.",
-        "formCopy": "Australia have named their 23-player squad with Yeo as captain, removing the earlier uncertainty about his inclusion. Lindsay Smith replaces injured Lindsay Collins. Walker is selected in the squad but competes with Munster, Dearden and Moses for a halves berth. New Zealand retain the core of their 2025 Pacific Championships winners, add Ponga and Gagai, and welcome Hughes back.",
-        "closingCopy": "Cleary's absence makes Australia's attacking succession a live contest rather than a speculative squad list. Walker's recovery from ankle surgery gives his chance a personal edge, but it does not guarantee selection. Across the divide, Ponga's allegiance and Hughes' return strengthen the Kiwis' own story of belonging and ambition. Australian supporters expect a title defence; New Zealand supporters can see experienced winners and new talent challenging that expectation.",
+        "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+        "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
+        "formCopy": "Australia's preparation now points towards Munster at five-eighth, with Moses reported as the leading halfback contender; those reports are not a final team sheet. Yeo has confirmed he is deferring pectoral surgery to captain the squad. New Zealand bring Hughes back after an injury-enforced international absence, with Fisher-Harris leading a squad that adds Ponga and Gagai. The opening contest must turn those assembled strengths into a working spine and forward platform.",
+        "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
         "threadIds": [
-          "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846"
+          "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1"
         ],
         "factIds": [
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:0",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:1",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:2",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:3",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:4",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:5",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:6"
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:0",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:1",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:2",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:3",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:4",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:5",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:6"
         ],
         "sourceIds": [
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:0",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:1",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:2",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:3",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-6c8aeddde7f2421b16f4c86503a7c01cf9b9d07199a79bb1a5273139b39e7846:4"
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:0",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:1",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:2",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:3",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:4",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:5"
         ],
         "dimensions": [
           "form",
-          "matchup",
           "history",
-          "path",
-          "consequence"
+          "consequence",
+          "path"
         ],
-        "researchedAt": "2026-10-10T09:56:08Z",
-        "refreshAfter": "2026-10-15T09:05:00Z",
+        "researchedAt": "2026-10-12T22:50:31.092Z",
+        "refreshAfter": "2026-10-15T09:05:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
       },
@@ -153998,14 +154055,14 @@
       "competitionName": "Premier League",
       "season": "2026/27",
       "narrativeType": "regular-season-fixture",
-      "selectedSentence": "Liverpool's high-press rebuild comes to Brentford, directly testing Brentford's fast-break identity.",
-      "fullSpiel": "Brentford arrives with 2W-4D-0L, while Liverpool brings 2W-3D-0L. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
+      "selectedSentence": "Gravenberch's ban opens a hole in Liverpool's midfield just as Brentford test how far their own adaptability can take them.",
+      "fullSpiel": "Liverpool travel to the Gtech for a league meeting in which points matter to both clubs, without a title verdict hanging on one October afternoon. Brentford's changing defensive options and Liverpool's attack raise a practical question: can pressure be organised without leaving space behind it? The confirmed match is on Saturday in London and early Sunday in Sydney. Recent fitness assessments remain dated evidence, not a prediction of this week's team sheet; earlier results are kept out of the preview.",
       "sourceName": "Premier League official fixture schedule",
       "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-11T12:38:51.272Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-10-11T12:38:51.272Z",
+      "lastReviewedAt": "2026-10-12T22:50:31.092Z",
       "replayEligible": false,
       "highlightEligible": false,
       "briefingEligible": false,
@@ -154024,58 +154081,63 @@
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:epl-2026-27-128984",
-        "researchTier": "standard",
-        "hook": "Liverpool's high-press rebuild comes to Brentford, directly testing Brentford's fast-break identity.",
-        "synopsis": "Brentford arrives with 2W-4D-0L, while Liverpool brings 2W-3D-0L. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
+        "researchTier": "marquee",
+        "hook": "Gravenberch's ban opens a hole in Liverpool's midfield just as Brentford test how far their own adaptability can take them.",
+        "synopsis": "Liverpool travel to the Gtech for a league meeting in which points matter to both clubs, without a title verdict hanging on one October afternoon. Brentford's changing defensive options and Liverpool's attack raise a practical question: can pressure be organised without leaving space behind it? The confirmed match is on Saturday in London and early Sunday in Sydney. Recent fitness assessments remain dated evidence, not a prediction of this week's team sheet; earlier results are kept out of the preview.",
+        "formCopy": "Brentford's latest analysis highlights Diouf's forward running, Yarmoliuk's midfield work and Hickey's adaptability at centre-back. Andrews is assessing Schade's shoulder and Schuster's ankle. Liverpool must replace suspended Gravenberch, while their latest pre-match report described Isak and Gakpo as day-to-day injury cases and Chiesa back in training. Those fitness reports do not confirm availability at the Gtech, and neither starting XI is assumed.",
+        "closingCopy": "Andrews has a week on the training pitch to turn resourcefulness into a repeatable plan. For Brentford supporters, competing with Liverpool is about seeing their own side's ideas hold up, not simply welcoming a famous visitor. Iraola must find balance without Gravenberch: whoever fills the space has to connect defence and attack rather than just occupy a shirt. A selection problem becomes a test of trust for the manager, opportunity for a replacement and a demand for cohesion from the stands.",
         "threadIds": [
-          "thread:depth:epl:team-football-epl-130:2026-27",
-          "thread:depth:epl:team-football-epl-10:2026-27"
+          "thread:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51"
         ],
         "factIds": [
-          "fact:depth:epl:team-football-epl-130:season-arc",
-          "fact:depth:epl:team-football-epl-10:season-arc",
-          "fact:depth:epl:epl-2026-27-128984:team-football-epl-130:entry-form",
-          "fact:depth:epl:epl-2026-27-128984:team-football-epl-10:entry-form",
-          "fact:depth:epl:epl-2026-27-128984:matchup"
+          "fact:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51:0",
+          "fact:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51:1",
+          "fact:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51:2",
+          "fact:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51:3",
+          "fact:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51:4",
+          "fact:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51:5"
         ],
         "sourceIds": [
-          "source:depth:epl:table",
-          "source:depth:epl:season-guide",
-          "source:depth:epl:fixtures",
-          "source:depth:epl:match:epl-2026-27-128984"
+          "source:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51:0",
+          "source:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51:1",
+          "source:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51:2",
+          "source:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51:3",
+          "source:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51:4"
         ],
         "dimensions": [
           "form",
-          "history",
-          "matchup"
+          "matchup",
+          "path",
+          "consequence"
         ],
-        "researchedAt": "2026-10-11T12:38:51.272Z",
+        "researchedAt": "2026-10-12T22:50:31.092Z",
         "refreshAfter": "2026-10-17T14:00:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
       },
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Brentford — 2026/27 identity under pressure",
+        "angle": "Brentford v Liverpool - selection pressure at the Gtech",
         "contextSignals": [
           "event-specific",
           "narrative:form",
-          "narrative:history",
-          "narrative:matchup"
+          "narrative:matchup",
+          "narrative:path",
+          "narrative:consequence"
         ],
-        "sourceName": "Premier League current 2026/27 table",
-        "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-        "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
+        "sourceName": "Brentford v Liverpool - selection pressure at the Gtech — official research 1",
+        "sourceUrl": "https://www.brentfordfc.com/en/news/analysis-aston-villa-2-brentford-2-el-hadji-malick-diouf-aaron-hickey-yehor-yarmoliuk",
+        "sourceCheckedAt": "2026-10-12T22:50:31.092Z",
         "needsPreviewRefresh": false
       },
       "storyline": {
-        "researchDepth": 2,
+        "researchDepth": 5,
         "arcStage": "preview",
-        "hookSpoilerOff": "Liverpool's high-press rebuild comes to Brentford, directly testing Brentford's fast-break identity.",
-        "hookSpoilerOn": "Liverpool's high-press rebuild comes to Brentford, directly testing Brentford's fast-break identity.",
-        "synopsisSpoilerOff": "Brentford arrives with 2W-4D-0L, while Liverpool brings 2W-3D-0L. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
-        "synopsisSpoilerOn": "Brentford arrives with 2W-4D-0L, while Liverpool brings 2W-3D-0L. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
-        "lastReviewedAt": "2026-10-11T12:38:51.272Z"
+        "hookSpoilerOff": "Gravenberch's ban opens a hole in Liverpool's midfield just as Brentford test how far their own adaptability can take them.",
+        "hookSpoilerOn": "Gravenberch's ban opens a hole in Liverpool's midfield just as Brentford test how far their own adaptability can take them.",
+        "synopsisSpoilerOff": "Liverpool travel to the Gtech for a league meeting in which points matter to both clubs, without a title verdict hanging on one October afternoon. Brentford's changing defensive options and Liverpool's attack raise a practical question: can pressure be organised without leaving space behind it? The confirmed match is on Saturday in London and early Sunday in Sydney. Recent fitness assessments remain dated evidence, not a prediction of this week's team sheet; earlier results are kept out of the preview.",
+        "synopsisSpoilerOn": "Liverpool travel to the Gtech for a league meeting in which points matter to both clubs, without a title verdict hanging on one October afternoon. Brentford's changing defensive options and Liverpool's attack raise a practical question: can pressure be organised without leaving space behind it? The confirmed match is on Saturday in London and early Sunday in Sydney. Recent fitness assessments remain dated evidence, not a prediction of this week's team sheet; earlier results are kept out of the preview.",
+        "lastReviewedAt": "2026-10-12T22:50:31.092Z"
       }
     },
     {

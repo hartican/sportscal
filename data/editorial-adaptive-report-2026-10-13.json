@@ -1,0 +1,22 @@
+{
+  "weekend": {
+    "from": "2026-10-13",
+    "to": "2026-10-27"
+  },
+  "acceptedIds": [
+    "fixture-tennis-espn-atp-184950",
+    "rlwc-australia-new-zealand-2026",
+    "epl-2026-27-128984"
+  ],
+  "deferred": [
+    {
+      "id": "rugby-australia-new-zealand-2026-10-17",
+      "reason": "The bounded official Sydney selection/storyline research did not return a completed evidence note after the interrupted run and its resumed attempt. Retain the existing four-section preview; no new lineup or fitness claim is verified.",
+      "sources": [
+        "https://www.allblacks.com/team/all-blacks/bledisloe-cup",
+        "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125"
+      ],
+      "nextAction": "On the next canonical adaptive wake, complete the official Wallabies/All Blacks Sydney selection and injury check before kickoff, then independently publish any verified material change."
+    }
+  ]
+}
