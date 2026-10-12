@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="511">
+<meta name="app-shell-version" content="512">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=511" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=512" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7176,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=511"></script>
+<script src="assets/js/app-shell-runtime.js?v=512"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8746,14 +8746,14 @@ async function loadAthletes(){
   if((activeTab!=='follow'||followHomeView!=='favourites'))return;
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
   const panel=document.getElementById('listView');renderFollowHomeLoading(panel);
-  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/athletes.js?v=471'),loadDeferredScript('config/participant-directory.js?v=463')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=499')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
+  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/athletes.js?v=471'),loadDeferredScript('config/participant-directory.js?v=512')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=499')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
   return loadAthletes.pending;
 }
 async function openAthleteProfile(id,label,sportKey,trigger){
   const owner=serverSyncClient?.sessionSubject()||'public';
   const route=location.href,tab=activeTab,view=followHomeView;
   const request=openAthleteProfile.request=(openAthleteProfile.request||0)+1;
-  await Promise.all([loadDeferredScript('config/athletes.js?v=471'),loadDeferredScript('config/participant-directory.js?v=463')]);
+  await Promise.all([loadDeferredScript('config/athletes.js?v=471'),loadDeferredScript('config/participant-directory.js?v=512')]);
   await loadDeferredScript('assets/js/athletes-ui.js?v=499');
   if(request===openAthleteProfile.request&&location.href===route&&activeTab===tab&&followHomeView===view&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
@@ -10767,7 +10767,7 @@ async function loadFollowDirectoryManifest(){
 function parseFollowDirectoryText(text){
   if(typeof Worker!=="function" || globalThis.location?.protocol==="file:" || text.length<250000)return Promise.resolve(JSON.parse(text));
   if(!followDirectoryParserWorker){
-    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=463");
+    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=512");
     followDirectoryParserWorker.addEventListener("message",event=>{
       const job=followDirectoryParserJobs.get(event.data?.id);if(!job)return;
       followDirectoryParserJobs.delete(event.data.id);window.clearTimeout(job.timer);
@@ -13915,9 +13915,8 @@ async function syncAppRouteFromLocation(){
   if(location.hash.startsWith('#athletes')||location.hash.startsWith('#follow/profile/')){activeTab='follow';followHomeView='favourites';await loadAthletes();globalThis.NOTHINGSPORTS_ATHLETES_UI?.route();return;}
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI?.route())return;
   if(location.hash==='#match-centre'){activeTab='match-centre';renderAll();return;}
-  if(location.hash==='#follow/browse'){activeTab='follow';followHomeView='browse';renderAll();return;}
+  if(location.hash==='#follow/browse'||location.hash==='#follow'){activeTab='follow';followHomeView='browse';saveFollowBrowse({section:'teams-players'});renderAll();return;}
   if(location.hash==='#follow/favourites'){activeTab='follow';followHomeView='favourites';renderAll();return;}
-  if(location.hash==='#follow'){activeTab='follow';followHomeView='browse';saveFollowBrowse({section:'teams-players'});renderAll();return;}
   if(syncNscPageFromHistory())return;
   const inspectorRoute = Boolean(codeInspectorCodeFromLocation() || [inspectorPickerHash(), "#inspector"].includes(window.location.hash));
   if (inspectorRoute){
@@ -18235,7 +18234,7 @@ function directoryFilters(sportKey = readStandingsDirectorySession().directorySp
     genderCategory: NOTHINGSPORTS_SURFACE_CATEGORY.genderMatches({gender:'women'},sportKey)?'female':'male',
     cricketFormat: ['Tests','ODIs','T20Is','BBL'].includes(raw.cricketFormat)?raw.cricketFormat:'Tests',
     collectionId: typeof raw.collectionId === "string" ? raw.collectionId.slice(0, 120) : "",
-    entityType: raw.entityType === "team" ? "team" : raw.entityType === "athlete" ? "athlete" : "athlete",
+    entityType: raw.entityType === "athlete" ? "athlete" : "team",
     query: typeof raw.query === "string" ? raw.query.slice(0, 80) : "",
     expandedTeamIds,
     expandedTeamId: legacyExpandedTeamId,
@@ -18633,7 +18632,6 @@ function buildDirectoryFollowButton(participantId, { sportKey = "football", leag
   if(sportKey.startsWith("cricket"))button.dataset.cricketFormat=directoryFilters(sportKey).cricketFormat;
   syncDirectoryFollowButton(button, participantId);
   button.addEventListener("click", () => {
-    const explicitLevel = directoryFollowLevel(participantId);
     const nextLevel = button.dataset.followLevel === "follow" ? "unfollow" : "follow";
     setDirectoryEntityFollow(participantId, nextLevel, { sportKey, leagueId, label });
     syncDirectoryFollowButton(button, participantId);
@@ -18740,9 +18738,8 @@ function followBrowseState(){
   return {sportId:sport?.id||'sport:tennis',categoryId,section:'teams-players',page:0};
 }
 function saveFollowBrowse(patch){
-  const next=clonePreferences(userPreferences);
-  next.followBrowse={...followBrowseState(),...patch};
-  savePreferences(next,{viewOnly:true});
+  savePreferences({...userPreferences,followBrowse:{...followBrowseState(),...patch}},{viewOnly:true});
+  if(patch.section==='teams-players'||patch.sportId)updateDirectoryFilters(followDirectoryKey(),{entityType:'team'});
 }
 function followSelectedEntity(){
   const state=followBrowseState();
@@ -18797,19 +18794,11 @@ function followHasStandings(code){
   return code.hasStandings===true || followStandingsAvailability.get(code.id)===true || Boolean(codeInspectorChunk?.code?.id===code.id && codeInspectorChunk.standings?.length)
     || (CANONICAL_TAXONOMY.competitions || []).some(competition=>competition.supportsLadder && standingsSportKey(competition)===codeInspectorStandingsSportKey(code));
 }
-async function openFollowScreen(section){
-  const entity=followSelectedEntity();
-  await loadCodeInspectorManifest();
-  const code=followInspectorCode(entity);
-  if (!code) {showToast('No published schedule for this category yet.');return;}
-  const open=()=>openCodeInspector(code.id,{startingTab:section==='standings'?'standings':'all-fixtures'});
-  if (section==='standings') confirmStandingsReveal(open); else void open();
-}
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=511';
-  return Promise.all([loadDeferredScript('config/participant-directory.js?v=463'),loadDeferredScript(url)]).then(()=>{
+  const url='assets/js/follow-presentation-ui.js?v=512';
+  return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
       throw new Error('Follow presentation was unavailable');
@@ -18837,7 +18826,7 @@ function buildFollowHomeTabs(container){
   const tabs=document.createElement('nav');tabs.className='follow-home-tabs';tabs.setAttribute('aria-label','Follow views');
   for(const [view,label] of [['browse','Sports'],['favourites','My athletes & teams']]){
     const button=document.createElement('button');button.type='button';button.className='btn ghost';button.textContent=label;button.setAttribute('aria-pressed',String(followHomeView===view));
-    button.onclick=()=>{globalThis.NOTHINGSPORTS_ATHLETES_UI?.navigate('follow');followHomeView=view;activeInspectorCodeId=null;history.pushState({followView:view},'',view==='favourites'?'#follow/favourites':'#follow');renderAll();};tabs.append(button);
+    button.onclick=()=>{globalThis.NOTHINGSPORTS_ATHLETES_UI?.navigate('follow');followHomeView=view;if(view==='browse')saveFollowBrowse({section:'teams-players'});activeInspectorCodeId=null;history.pushState({followView:view},'',view==='favourites'?'#follow/favourites':'#follow');renderAll();};tabs.append(button);
   }container.prepend(tabs);
 }
 function renderFollowView(){

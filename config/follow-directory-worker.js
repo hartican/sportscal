@@ -4,7 +4,7 @@ self.addEventListener("message",event=>{
   const id=event.data?.id;
   try{
     if(event.data.kind==='search-init'){
-      importScripts('football-directory.js?v=463','participant-directory.js?v=463');
+      importScripts('football-directory.js?v=463','participant-directory.js?v=512');
       searchRecords=NOTHINGSPORTS_PARTICIPANT_DIRECTORY.unpack(JSON.parse(event.data.text));
       self.postMessage({id,ready:true,count:searchRecords.length});return;
     }

@@ -4,6 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
+const {isUnresolvedTeam} = require('../config/participant-directory');
 const OUTPUT_DIR = path.join(ROOT, "data/follow-directory");
 const MANIFEST_PATH = path.join(OUTPUT_DIR, "manifest.v1.json");
 const SUPPLEMENT_PATH = "data/canonical/follow-directory-supplement.v1.json";
@@ -11,6 +12,13 @@ const TENNIS_WATCH_POOL_PATH = "data/canonical/tennis-watch-pool-2026.json";
 const CHAMPIONS_LEAGUE_PATH = "data/canonical/uefa-champions-league-2026-27.json";
 const REQUESTED_SPORTS_PATH = "data/canonical/fiba-women-sailgp-motogp-2026.json";
 const discoveredCompetitions=new Map((require('../data/follow-sources/coverage.v1.json').competitions||[]).map(item=>[item.id,item.name]));
+class DirectoryRecords extends Map {
+  set(id,record){
+    if(record===null)this.delete(id);
+    else super.set(id,record);
+    return this;
+  }
+}
 
 function readJson(relativePath){
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -83,12 +91,15 @@ function tennisGenderForParticipant(participant){
 
 function normalizeRecord(record, additions = {}){
   const metadata = record?.metadata || {};
+  const entityType=["competitor","athlete","player"].includes(record.type) || /^(competitor|athlete|player):/.test(String(record.id)) ? "athlete" : "team";
+  // Check source-only evidence before the public projection drops it.
+  if(entityType==='team'&&isUnresolvedTeam({...record,entityType}))return null;
   const normalized = {
     id:String(record.id),
     displayName:String(record.displayName || record.canonicalName || record.shortName || record.id),
     shortName:record.shortName || null,
     aliases:Array.from(new Set([...(record.aliases || []), ...(metadata.titleAliases || [])].filter(Boolean))),
-    entityType:["competitor","athlete","player"].includes(record.type) || /^(competitor|athlete|player):/.test(String(record.id)) ? "athlete" : "team",
+    entityType,
     current:additions.current ?? (record.active !== false && metadata.active !== false),
     countryCode:String(record.countryCode || record.birthCountryCode || additions.countryCode || "").toUpperCase() || null,
     countryBasis:record.birthCountryBasis || additions.countryBasis || (record.countryCode ? "official-record" : null),
@@ -153,7 +164,7 @@ function main(){
     });
   });
   const directorySports = [...sportsByKey.values()];
-  const chunks = new Map(directorySports.map(sport => [sport.key, new Map()]));
+  const chunks = new Map(directorySports.map(sport => [sport.key, new DirectoryRecords()]));
   const contexts = [
     "data/canonical/afl-nrl-2026.json", "data/canonical/f1-context-2026.json",
     "data/canonical/wrc-context-2026.json",
@@ -347,7 +358,7 @@ function main(){
   const cricketCoverage=require('../config/cricket-coverage');
   const cricketRecords=cricketCoverage.directory([...chunks.get('cricket').values()]);
   for(const country of cricketCoverage.policy.nationalTeams)if(!cricketRecords.some(r=>r.id==='team:cricket:'+country))cricketRecords.push(normalizeRecord({id:'team:cricket:'+country,displayName:country.split('-').map(x=>x[0].toUpperCase()+x.slice(1)).join(' '),type:'team',teamKind:'national',genderCategory:'male',sourceRefs:['https://www.icc-cricket.com/about/members']}));
-  chunks.get('cricket').clear();for(const record of cricketRecords)chunks.get('cricket').set(record.id,record);
+  chunks.get('cricket').clear();for(const record of cricketRecords)if(record)chunks.get('cricket').set(record.id,record);
   // Separate browsable coverage; opponent records remain in source data for scores.
   for(const [base,target] of [['nrl','nrlw'],['afl','aflw']])for(const [id,record] of [...chunks.get(base)])if(record.genderCategory==='female'){chunks.get(target).set(id,record);chunks.get(base).delete(id);}
   for(const sport of exposedSports.filter(s=>s.key.endsWith('-women'))){
@@ -383,6 +394,7 @@ function main(){
     chunk.set(id,{...record,...(rank?{ranking:record.entityType==='athlete'?rank.rank:record.ranking,ladderPosition:record.entityType==='team'?rank.rank:record.ladderPosition,rankingBasis:rank.roundLabel||record.rankingBasis,rankingCheckedOn:rank.asOf?.slice(0,10),rankingSourceUrl:rank.sourceUrl,competitionId:rank.competitionId,...(rank.conferenceId?{standingGroup:(record.leagueName||'NFL')+' · '+rank.conferenceId}:{})}:{}),...(teamRank?{currentTeamRank:teamRank.rank}: {})});
   }
   const generatedAt = sourceGeneratedAt.slice().sort().at(-1) || "2026-08-25T00:00:00.000Z";
+  for(const chunk of chunks.values())for(const [id,record] of chunk)if(isUnresolvedTeam(record))chunk.delete(id);
   const manifestGeneratedAt = [generatedAt, wrcContext?.generatedAt].filter(Boolean).sort().at(-1) || generatedAt;
   let manifest = {
     schemaVersion:"follow-directory-manifest.v1",
@@ -452,6 +464,7 @@ function buildParticipantSearchIndex(manifest,checkOnly){
   for(const sport of manifest.sports){
     const chunk=readJson(sport.jsonUrl);
     for(const record of chunk.records||[]){
+      if(isUnresolvedTeam(record))continue;
       const key=identity(record.id),prior=records.get(key);
       if(prior){prior.aliases=[...new Set([...(prior.aliases||[]),...(record.aliases||[]),record.displayName])];continue;}
       records.set(key,{...record,sportKey:sport.key});
@@ -460,6 +473,7 @@ function buildParticipantSearchIndex(manifest,checkOnly){
   for(const filename of fs.readdirSync(path.join(ROOT,'data/code-inspector')).filter(name=>name.endsWith('.json'))){
     const projection=readJson('data/code-inspector/'+filename);
     for(const fixture of projection.fixtures||[])for(const record of fixture.participants||[]){
+      if(isUnresolvedTeam(record))continue;
       if(!record.id||!/^(team|athlete|competitor|player):/.test(record.id)||records.has(identity(record.id)))continue;
       records.set(identity(record.id),{...record,displayName:record.displayName||record.name,sportKey:filename.replace('.json',''),entityType:record.id.startsWith('team:')?'team':'athlete',leagueId:record.competitionId||fixture.competitionId,leagueName:fixture.competitionName});
     }
@@ -467,4 +481,5 @@ function buildParticipantSearchIndex(manifest,checkOnly){
   const payload={schemaVersion:'participant-search.v1',generatedAt:manifest.generatedAt,fields,records:[...records.values()].sort((a,b)=>a.id.localeCompare(b.id)).map(record=>fields.map(field=>record[field]??null))};
   writeIfChanged(path.join(OUTPUT_DIR,'search.v1.json'),JSON.stringify(payload)+'\n',checkOnly);
 }
-main();
+if(require.main===module)main();
+module.exports={normalizeRecord,DirectoryRecords};

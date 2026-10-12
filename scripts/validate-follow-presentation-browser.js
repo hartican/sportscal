@@ -76,7 +76,7 @@ async function assertFollowPickerJourney(page){
   await page.setViewportSize(originalViewport);
   return {phoneHeight:originalViewport.width<=320?568:664,scrollWhileModalOpen:true,movement,redrawPreservedDialog:true,nativeCloseAndCancel:true,ordinaryCollapse:true,repeatedFootballSelection:2,feedRoundtrip:true,choicesPreserved:true};
 }
-module.exports={assertFollowPickerJourney};
+module.exports={assertFollowPickerJourney,ready};
 async function directory(page,sport){
   await page.evaluate(sport=>{saveFollowBrowse({sportId:'sport:'+sport,categoryId:'sport:'+sport,section:'teams-players'});renderFollowView();},sport);
   if(sport==='football')await page.locator('.follow-directory-tabs').getByRole('button',{name:'Teams',exact:true}).click();

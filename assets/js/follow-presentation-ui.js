@@ -1,6 +1,11 @@
-function directoryIndividualLabel(key){return /^(f1|wrc|motorsport|supercars)$/.test(key)?'Drivers':key==='motogp'?'Riders':key==='golf'?'Golfers':/^(tennis|football|afl|nrl|rugby|nbl|nba)/.test(key)?'Players':'Athletes';}
-function directorySectionLabel(key){return key.startsWith('cricket')?'Teams':directoryIndividualLabel(key)+' & Teams';}
-function appendDirectoryEntityTabs(host,key,filters){const tabs=document.createElement('nav');tabs.className='follow-directory-tabs';tabs.setAttribute('aria-label',directorySectionLabel(key));for(const [type,label]of [['athlete',directoryIndividualLabel(key)],['team','Teams']]){const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent=label;b.setAttribute('aria-pressed',String(filters.entityType===type));b.onclick=()=>{updateDirectoryFilters(key,{entityType:type});renderStandingsContext();};tabs.append(b);}host.append(tabs);}
+function directoryIndividualLabel(key){return /^(f1|wrc|motorsport|supercars)$/.test(key)?'Drivers':key==='motogp'?'Riders':key.startsWith('golf')?'Golfers':/^(tennis|football|afl|nrl|rugby|nbl|nba)/.test(key)?'Players':'Athletes';}
+function directorySectionLabel(){return 'Teams & Players';}
+function directoryViewFilters(key,records){
+  const filters=directoryFilters(key),teamsAvailable=records.some(record=>(record.entityType==='team'||record.type==='team'||String(record.id).startsWith('team:'))&&!NOTHINGSPORTS_PARTICIPANT_DIRECTORY.isUnresolvedTeam(record)&&[filters.genderCategory,'unknown','mixed'].includes(record.genderCategory||'unknown'));
+  const entityType=key.startsWith('cricket')?'team':teamsAvailable?filters.entityType:'athlete';
+  return {...filters,teamsAvailable,entityType,collectionId:entityType==='athlete'?filters.collectionId:''};
+}
+function appendDirectoryEntityTabs(host,key,filters){const tabs=document.createElement('nav');tabs.className='follow-directory-tabs';tabs.setAttribute('aria-label',directorySectionLabel(key));for(const [type,label]of [['team','Teams'],['athlete',directoryIndividualLabel(key)]]){const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent=label;b.disabled=type==='team'&&!filters.teamsAvailable;if(b.disabled){b.style.opacity='.45';b.title='No teams are available for this sport.';}b.setAttribute('aria-pressed',String(filters.entityType===type));b.onclick=()=>{updateDirectoryFilters(key,{entityType:type});renderStandingsContext();};tabs.append(b);}host.append(tabs);}
 "use strict";
 // Optional Follow presentation. Admission, preferences and mutations stay in the shell.
 function buildDirectorySelect(label, value, options, onChange){
@@ -198,7 +203,8 @@ function renderFootballDirectory(container, {
     if (!loading && !error) void loadDirectory();
     return;
   }
-  const filters = directoryFilters(sportKey);
+  directoryData={...directoryData,teams:directoryData.teams.filter(record=>!NOTHINGSPORTS_PARTICIPANT_DIRECTORY.isUnresolvedTeam(record))};
+  const filters = directoryViewFilters(sportKey,[...directoryData.teams,...directoryData.players]);
   const filtered = footballDirectoryApi.filteredDirectory(directoryData, filters);
   const collections=followCollectionsById();
   filtered.teams=footballDirectoryApi.followOrder(filtered.teams,userPreferences,collections);
@@ -287,10 +293,10 @@ function renderLegacyParticipantDirectory(container, sportKey){
     return;
   }
   // Profiles load only when a participant is opened.
-  const filters = directoryFilters(sportKey);
+  const filters = directoryViewFilters(sportKey,chunk.records);
   const curatedIds = (chunk.browseGroups || []).flatMap(group=>group.memberIds);
   const curatedOrder = new Map(curatedIds.map((id,index)=>[id,index]));
-  const allRecords = chunk.records.map(record => ({
+  const allRecords = chunk.records.filter(record=>!NOTHINGSPORTS_PARTICIPANT_DIRECTORY.isUnresolvedTeam(record)).map(record => ({
     ...record,
     rank: FOLLOW_FIRST?.normalizeDirectoryRank?.(record.ranking ?? record.ladderPosition) ?? null,
   }));
@@ -333,21 +339,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
   const directory = document.createElement("section");
   directory.className = "football-directory";
   if (separatedEntityDirectory){
-    const tabs = document.createElement("div");
-    tabs.className = "follow-directory-tabs";
-    tabs.setAttribute("role", "group");
-    tabs.setAttribute("aria-label", `${SPORT_META[sportKey]?.label || "Motorsport"} directory`);
-    const entityTabs = [["athlete", directoryIndividualLabel(sportKey)], ["team", "Teams"]];
-    entityTabs.forEach(([entityType, label]) => {
-      const tab = document.createElement("button");
-      tab.type = "button";
-      tab.className = "btn ghost";
-      tab.textContent = label;
-      tab.setAttribute("aria-pressed", String(filters.entityType === entityType));
-      tab.addEventListener("click", () => { updateDirectoryFilters(sportKey, { entityType }); renderStandingsContext(); });
-      tabs.appendChild(tab);
-    });
-    directory.appendChild(tabs);
+    appendDirectoryEntityTabs(directory,sportKey,filters);
   }
   const toolbar = document.createElement("div");
   toolbar.className = "football-directory-toolbar";
@@ -370,7 +362,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
   });
   field.appendChild(search);
   toolbar.appendChild(field);
-  if (sportKey.startsWith("tennis") && collectionsById.size){
+  if (sportKey.startsWith("tennis") && filters.entityType==='athlete' && collectionsById.size){
     const listOptions = [["", "All players"], ...Array.from(collectionsById.values())
       .sort((first, second) => Number(first.sortOrder || 0) - Number(second.sortOrder || 0))
       .map(collection => [collection.id, collection.label])];
@@ -632,8 +624,8 @@ function renderFollowViewLoaded(){
   const panel=document.createElement('section');panel.className='follow-section-panel';panel.dataset.scrollKey=`follow-directory:${entity.id}`;
   const key=followDirectoryKey(entity);updateStandingsDirectorySession({directorySportKey:key});
   const content=document.createElement('div');content.className='follow-directory-content';
-  renderTeamsAndPlayersDirectory(content);const guide=document.createElement('p');guide.className='chat-empty';guide.textContent='Your individual follows choose the matches in Feed. Lists only filter this page; follow the players you want to see.';content.prepend(guide);content.querySelector('.football-directory-sport-choice')?.remove();
+  renderTeamsAndPlayersDirectory(content);const guide=document.createElement('p');guide.className='chat-empty';guide.textContent=content.querySelector('.follow-directory-tabs [aria-pressed="true"]')?.textContent==='Teams'||key.startsWith('cricket')?'Follow teams to see their fixtures in Feed.':'Your individual follows choose the matches in Feed. Lists only filter this page; follow the players you want to see.';content.prepend(guide);content.querySelector('.football-directory-sport-choice')?.remove();
   content.querySelectorAll('.football-directory-field').forEach(field=>{if(field.querySelector('input[type=search]'))field.remove();});
   const search=document.createElement('div');search.className='follow-global-search';panel.append(search,content);container.appendChild(panel);
-  void loadDeferredScript('assets/js/participant-search-ui.js?v=463').then(()=>{if(search.isConnected)NOTHINGSPORTS_PARTICIPANT_SEARCH.mount(search,content);}).catch(()=>{search.textContent='Search could not load. Select a participant below.';});
+  void loadDeferredScript('assets/js/participant-search-ui.js?v=512').then(()=>{if(search.isConnected)NOTHINGSPORTS_PARTICIPANT_SEARCH.mount(search,content);}).catch(()=>{search.textContent='Search could not load. Select a participant below.';});
 }

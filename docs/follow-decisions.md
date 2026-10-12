@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## Recognised teams and Teams-first discovery — 12 October 2026 Sydney
+
+Owner-approved change: every sport's combined discovery section is labelled Teams & Players. Teams is first and selected on explicit section entry, top-level Follow/Sports entry and sport/gender selection. Where the complete published sport/gender directory has no recognised teams, select the individual view and leave Teams visible, greyed out and disabled. Cricket remains team-only; individual labels remain Players, Drivers, Riders, Golfers or Athletes as appropriate. Search/List filters cannot establish absence of teams. Player List choices apply only in the individual view and remain remembered when returning there.
+
+Unresolved ordinal positions, Winner/Loser bracket slots and explicit TBD identities are not selectable teams. One shared check filters generated directories, fixture-derived global search additions, old search decoding and retained/offline directory rendering. Generation checks the resolved team type and raw canonical-name/placeholder metadata before normalization drops source-only evidence; rejected records cannot enter the builder collections. Real numbered clubs, national identities and teams without published players remain. Source fixture bracket labels, IDs and sporting choices remain intact; no saved follow is reassigned to a future opponent. Background redraw/follow actions keep the chosen view; profile Back restores the existing originating tab, filters, scroll and focus. This supersedes earlier individuals-first directory defaults without changing Feed admission or notifications.
+
+Regression: validate-follow-directories.js and validate-recognised-follow-teams-browser.js, plus existing Follow presentation, policy, startup/cache and installed-update gates. No API/schema, source adapter, scheduler or backend change.
+
 ## Keep an open native sport picker visible — 12 October 2026 Sydney
 
 The Follow toolbar must not collapse its own controls while they contain an open native dialog. The existing central collapse function owns this guard; ordinary background-scroll tracking and the existing 150ms layout lock remain. Without an open dialog, the toolbar still collapses normally. Native Close/cancel restores usable focus, and choosing a sport closes the popup before updating the existing gender/browse state. A late or unavailable directory cannot prevent using the picker. Preserve redraw ownership, follows, exclusions, filters, Results and Remind OFF; no new timer, source request or product admission rule.

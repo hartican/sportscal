@@ -1,12 +1,12 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-10-11T12:38:08.39871Z",
+  "generatedAt": "2026-10-11T19:54:46.043Z",
   "sports": [
     {
       "key": "afl",
       "label": "Aussie Rules Football",
       "status": "available",
-      "recordCount": 833,
+      "recordCount": 829,
       "jsonUrl": "data/follow-directory/afl.v1.json",
       "scriptUrl": "data/follow-directory/afl.v1.js"
     },
@@ -14,7 +14,7 @@
       "key": "aflw",
       "label": "AFLW",
       "status": "available",
-      "recordCount": 625,
+      "recordCount": 607,
       "jsonUrl": "data/follow-directory/aflw.v1.json",
       "scriptUrl": "data/follow-directory/aflw.v1.js"
     },

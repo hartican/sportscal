@@ -5,6 +5,29 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
+const participants = require('../config/participant-directory');
+const {normalizeRecord,DirectoryRecords}=require('./build-follow-directories');
+const builtRecords=new DirectoryRecords();
+for(const [id,flags] of [['canonical',{canonicalName:'TBD'}],['placeholder',{placeholder:true}],['metadata',{metadata:{isPlaceholder:true}}]]){
+  const raw={id:'provider:'+id,type:'team',displayName:'Unknown opponent',...flags};
+  assert.equal(normalizeRecord(raw),null,'The real normalizer must reject raw '+id+' before its evidence is discarded');
+  builtRecords.set(raw.id,normalizeRecord(raw));
+}
+for(const [id,displayName] of [['named','Carlton'],['numbered','1. FC Köln'],['empty-roster','A real team with no current players']]){
+  const raw={id:'team:example:'+id,type:'team',displayName,currentPlayerCount:0};
+  builtRecords.set(raw.id,normalizeRecord(raw));
+}
+assert.equal(builtRecords.size,3,'The actual builder collection keeps genuine teams and omits raw placeholders');
+assert.deepEqual([...builtRecords.values()].map(r=>r.displayName),['Carlton','1. FC Köln','A real team with no current players']);
+assert.equal(normalizeRecord({id:'competitor:example:person',type:'competitor',displayName:'1st',metadata:{isPlaceholder:true}}).entityType,'athlete','Only the resolved team type receives the team-placeholder rule');
+for (const displayName of ['1st','8th','16th place','Loser of QF1','Winner of EF2','Winner of Semi Final 1','TBD','TBA','To be confirmed']) {
+  assert.equal(participants.isUnresolvedTeam({id:'team:example:slot',entityType:'team',displayName}),true,displayName+' is a bracket slot, not a team');
+}
+for (const displayName of ['1. FC Köln','1860 Munich','76ers','Australia','Ireland AFLW representative','Winner United']) {
+  assert.equal(participants.isUnresolvedTeam({id:'team:example:real',entityType:'team',displayName,shortName:'TBD'}),false,displayName+' is not an unresolved bracket identity');
+}
+assert.equal(participants.isUnresolvedTeam({id:'athlete:example:1st',entityType:'athlete',displayName:'1st'}),false,'Team filtering cannot remove individual competitors');
+assert.equal(participants.isUnresolvedTeam({id:'slot:example:qf1',displayName:'Unknown'}),true);
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/manifest.v1.json"), "utf8"));
 assert.equal(manifest.schemaVersion, "follow-directory-manifest.v1");
 const identityIndex=require('./lib/follow-identity-index').footballIdentityIndex;
@@ -42,6 +65,7 @@ manifest.sports.forEach(sport => {
   assert.equal(chunk.sportKey, sport.key);
   assert.equal(chunk.records.length, sport.recordCount);
   chunk.records.forEach(record => {
+    assert.equal(participants.isUnresolvedTeam(record),false,`${record.id}: unresolved team must not be selectable`);
     assert.ok(record.id && record.displayName, `${sport.key}: identity fields required`);
     assert.ok(["male", "female", "mixed", "unknown"].includes(record.genderCategory));
     if (!sport.key.startsWith("tennis") || !record.watchPoolMember){
@@ -67,6 +91,10 @@ for (const sportKey of ["american-football", "ice-hockey"]){
   assert.ok(teams.every(record => record.sourceRefs.some(ref => /^https:\/\//.test(ref))), `${sportKey}: teams require a current source URL`);
 }
 const runtime = require(path.join(ROOT, "config/football-directory.js"));
+const rawSearch = JSON.parse(fs.readFileSync(path.join(ROOT,'data/follow-directory/search.v1.json'),'utf8'));
+const search = rawSearch.records.map(row=>Object.fromEntries(rawSearch.fields.map((field,i)=>[field,row[i]])));
+assert(search.every(record=>!participants.isUnresolvedTeam(record)),'Global search cannot reintroduce fixture bracket slots');
+assert.equal(participants.unpack({schemaVersion:'participant-search.v1',fields:['id','displayName','entityType'],records:[['team:aflw:cd_t3000','1st','team'],['team:afl:real','Carlton','team']]}).length,1,'Retained old search indexes must be filtered at decode');
 const football = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/football.v1.json"), "utf8"));
 const lucas = football.records.find(record => record.displayName === "Lucas Herrington");
 assert.ok(lucas, "Lucas Herrington must remain in the current Football directory");

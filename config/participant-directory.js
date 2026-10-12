@@ -2,6 +2,13 @@
  'use strict';
  const nameCompare=new Intl.Collator('en-AU',{sensitivity:'base'}).compare;
  const positive=value=>value!==null&&value!==''&&Number.isFinite(Number(value))&&Number(value)>0?Number(value):null;
+ // Provider bracket slots retain their fixture meaning but cannot be followed as teams.
+ function isUnresolvedTeam(record){
+  if(String(record?.id||'').startsWith('slot:'))return true;
+  if(record?.entityType!=='team'&&record?.type!=='team'&&!String(record?.id||'').startsWith('team:'))return false;
+  if(record.placeholder===true||record.metadata?.placeholder===true||record.metadata?.isPlaceholder===true)return true;
+  return [record.displayName,record.canonicalName,record.name].some(value=>/^(?:\d+(?:st|nd|rd|th)(?:\s+(?:place|seed))?|(?:winner|loser)\s+of\s+.+|tbd|tba|tbc|to be (?:confirmed|advised|announced|determined)|qualifier(?:\s+\d+)?)$/i.test(String(value||'').trim()));
+ }
  const sport=p=>p.sportKey||String(p.sportDomainId||p.id||'').split(':')[1]||'';
  const labels={tennis:'Tennis','tennis-women':'Tennis',football:'Football',afl:'AFL',aflw:'AFLW',nrl:'NRL',nrlw:'NRLW',rugby:'Rugby Union','rugby-union':'Rugby Union',nba:'Basketball',nbl:'NBL','american-football':'NFL','ice-hockey':'Ice Hockey',golf:'Golf',f1:'Formula 1',wrc:'WRC',motogp:'MotoGP',motorsport:'Motorsport'};
  const sportLabel=p=>labels[sport(p)]||sport(p).replaceAll('-',' ').replace(/^./,c=>c.toUpperCase());
@@ -10,6 +17,6 @@
  const standing=p=>positive(p.ranking??p.rank??p.ladderPosition);
  function rank(p,records=[]){return standing(p)??positive(p.currentTeamRank)??positive(records.find(r=>r.id===p.currentTeamId)?.ladderPosition);}
  function compare(a,b,records=[]){return nameCompare(group(a),group(b))||(a.currentTeamId&&b.currentTeamId&&!positive(a.ranking??a.rank)&&!positive(b.ranking??b.rank)?(rank(a,records)??Infinity)-(rank(b,records)??Infinity)||String(a.currentTeamId).localeCompare(String(b.currentTeamId)):0)||(rank(a,records)??Infinity)-(rank(b,records)??Infinity)||nameCompare(String(a.displayName||a.name||''),String(b.displayName||b.name||''))||String(a.id).localeCompare(String(b.id));}
- function unpack(document){if(document?.schemaVersion!=='participant-search.v1'||!Array.isArray(document.records)||!Array.isArray(document.fields))throw Error('Invalid participant search index');return document.records.map(row=>Object.fromEntries(document.fields.map((key,i)=>[key,row[i]])));}
- return {positive,sport,sportLabel,competition,group,standing,rank,compare,unpack};
+ function unpack(document){if(document?.schemaVersion!=='participant-search.v1'||!Array.isArray(document.records)||!Array.isArray(document.fields))throw Error('Invalid participant search index');return document.records.map(row=>Object.fromEntries(document.fields.map((key,i)=>[key,row[i]]))).filter(record=>!isUnresolvedTeam(record));}
+ return {positive,sport,sportLabel,competition,group,standing,rank,compare,unpack,isUnresolvedTeam};
 });

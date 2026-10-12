@@ -8,6 +8,7 @@ const vm = require('node:vm');
 const {execFileSync} = require('node:child_process');
 const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const {assertFollowPickerJourney}=require('./validate-follow-presentation-browser');
+const {assertDirectoryDefaults}=require('./validate-recognised-follow-teams-browser');
 const root = path.resolve(__dirname,'..');
 function requiredShellScriptUrl(file){
   const worker=fs.readFileSync(path.join(root,'service-worker.js'),'utf8');
@@ -570,7 +571,7 @@ const server=http.createServer((req,res)=>{
     assert(!participationCache.includes('/data/marquee-candidates.v1.json')&&participationCache.includes('/api/participation'),'cached fixture page must use the public projection');
     // Use the actual directory before disconnecting so offline acceptance reaches
     // the same real scroll boundary, rather than an empty short page.
-    await assertFollowPickerJourney(upgraded);await assertCachedFollowNavigation(upgraded);await assertSavedNativeChoices(upgraded);
+    await assertFollowPickerJourney(upgraded);await assertDirectoryDefaults(upgraded);await assertCachedFollowNavigation(upgraded);await assertSavedNativeChoices(upgraded);
     // The later original NFL/table probes intentionally exercise men's fixtures.
     await upgraded.getByRole('tab',{name:'Men',exact:true}).tap();
     await upgraded.locator('.tabs [data-tab=feed]').tap();
@@ -602,7 +603,7 @@ const server=http.createServer((req,res)=>{
       const url=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/const url='(assets\/js\/follow-presentation-ui\.js\?v=\d+)'/)[1];
       const cached=await upgraded.evaluate(async url=>{const r=await caches.match('/'+url);return r?await r.text():null;},url);
       assert.equal(cached,fs.readFileSync(path.join(root,'assets/js/follow-presentation-ui.js'),'utf8'),'offline first open executes the exact precached Follow interface');
-      await assertFollowPickerJourney(upgraded);await assertCachedFollowNavigation(upgraded);await assertSavedNativeChoices(upgraded);
+      await assertFollowPickerJourney(upgraded);await assertDirectoryDefaults(upgraded);await assertCachedFollowNavigation(upgraded);await assertSavedNativeChoices(upgraded);
       await upgraded.getByRole('tab',{name:'Men',exact:true}).tap();
       await upgraded.evaluate(()=>{activeTab='feed';renderAll();});
     }
