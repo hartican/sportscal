@@ -1,5 +1,12 @@
 # Backend efficiency decisions
 
+## Match Centre transfers qualified current candidates — 12 October 2026
+
+Qualify the existing current-window reader before decoding source receipts. Keep every caller-preserved fixture identity/alias for corrections, every explicit play/pause state, possible recent completion evidence and timed near starts. The shared Match Centre model still owns actual admission: thirty-minute starting soon, one-hour recently finished, source freshness, supported sports/stages and court conflicts. Database windows use conservative 31/65-minute margins. Nonempty uncertain timestamp values remain for model qualification; missing-clock calendars and unknown-state new records cannot independently qualify. They remain in unchanged global/selected Schedule, profile and fixture readers.
+
+Use effective compact-score fields when present, including explicit null clock withdrawal. Parse guarded ISO values before casting; retain other timestamp formats conservatively. Decode each needed source's observation map once after candidate selection. Preserve the exact projected fields, original fact/verification/completion dates, source-only arrivals, selected score path, both three-second membership reads, 60-ID score batches, 5000/5001 incomplete sentinel, scoped 30-second cache and last-good/degraded behaviour. Same service-only invoker function and empty search path; no source/user writes, provider call, scheduler, polling, retry, subscription or new schema object. Local rollback is separate from independent disaster recovery. [Dated checks and limits](quality/match-centre-read-efficiency-2026-10-12.md).
+
+
 ## Expired fixture history on unchanged checks — 12 October 2026
 
 The same service-owned fixture publisher must apply its existing seven-day disposable-history policy after either accepted changed or accepted unchanged data. Protect the source's returned/current revision and its highest saved revision, including old keepers. Capture one cutoff inside the source-row lock. Delete oldest expired non-keepers only, at most 64 copies and 4 MiB of stored payload per accepted check; a larger first copy is retained for separate assessment. Rejected leases, invalid/empty primary responses and source failures do not prune. Current fixture facts, original fact observations, unchanged hashes/revisions, caller rights and quiet/live intervals remain unchanged.

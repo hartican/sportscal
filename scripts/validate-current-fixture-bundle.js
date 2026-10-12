@@ -94,6 +94,7 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   const nearOverflow=(await db.query('select public.nothingsports_read_match_centre_fixture_bundle(null) as value')).rows[0].value;assert.equal(nearOverflow.complete,false);assert.equal(nearOverflow.rows.length,5001,'Uncertain near rows retain the explicit incomplete sentinel');
   await nearEquivalent(null);
   await equivalent(null);
+  await require('./lib/match-centre-read-rehearsal').run(db);
   console.log('Global/near transfer beyond 1000 rows, preserved current membership and reschedules, uncertain clocks, parent/detail isolation, observations/aliases/rubbers, score-overlay retention, two-read budget, degraded fallback, service-only access and complete SQL equivalence passed.');
  }finally{await db.close();}
  require('node:child_process').execFileSync(process.execPath,['scripts/validate-match-centre-snapshot-scope.js'],{stdio:'inherit'});
