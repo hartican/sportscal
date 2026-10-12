@@ -1,6 +1,6 @@
 # CTO delivery programme — authoritative current queue
 
-**Current decision — 12 October 2026:** The clearer card layout is live. Cricket is easier to read, Tennis shows better match context, and old completed cards no longer crowd Feed. Saved choices survive the update. Next, close the confirmed history-cleanup gap without a subscription, then continue Football and wider launch checks. Real-phone use, permissions, return visits and the next normal overnight update still need separate proof. Passwords/iCloud stays parked.
+**Current decision — 12 October 2026:** The clearer cards and storage repair are live. Ordinary updates have started removing expired copies while keeping current results and saved activity intact. Verification also caught an existing unreliable Match Centre load. Fix that first, then continue Football and wider launch checks. Real-phone use, permissions, return visits and the next normal overnight update still need separate proof. Passwords/iCloud stays parked.
 
 **What users get:** Consistent cards, compact Cricket scores, clearer Tennis rounds and viewing buttons, shorter schedules and ratings that stop looking stuck. Hidden scores stay hidden and reminders stay off when chosen. These improvements are live; full launch readiness and real-phone use still need proof.
 
@@ -8,9 +8,9 @@
 
 **Next five actions, in order:**
 
-- Close the confirmed storage cleanup gap through the existing publisher. The bounded draft passes local and temporary-database checks, preserves current facts and the latest saved copies, and is not applied. Complete recovery, permissions and runtime checks before applying it. Keep the free plan and the same update owner; physical compaction needs its own verified maintenance window.
-- Finish Football pilot launch proof and other carried-sport gaps. Reuse dated source/viewing and current screen checks; add no leagues and keep unsupported facts unknown.
-- Let the same quiet follow-up check the next normal overnight update. Keep one update owner and no manual rescue.
+- Make Match Centre load the complete current match list reliably. Keep the existing time limit and reduce unnecessary read work; a quick partial list does not pass. Then finish Football pilot quality and carried-sport gaps, without adding leagues or unsupported facts.
+- Let existing updates gradually clear expired copies. Current results and latest copies stay protected. Measure remaining space; physical compaction waits for independent recovery and its own verified maintenance window. Keep the free plan.
+- Let the same quiet follow-up verify the next normal overnight publication and deployment. Keep one update owner and no manual rescue.
 - Complete the prepared brief real-phone check and genuine return-use proof when available. Existing owner questions remain pending; Passwords/iCloud stays parked.
 - Keep the small sponsor experiment ready. Launch waits for quality, permission and audience evidence. No outreach or purchase now.
 
@@ -24,6 +24,6 @@ Latest delivery: [Rugby Schedule repair and exact live proof](https://github.com
 
 Latest delivery: [Settled ratings and qualified event calendars](https://github.com/hartican/sportscal/blob/main/docs/quality/rugby-context-repair-2026-10-12.md). Accepted rating responses, hidden community results, final calendar-day visibility and shared cached interface ownership have meaningful regressions in the normal release checks.
 
-Latest assessment: [Storage efficiency and free-tier room](https://github.com/hartican/sportscal/blob/main/docs/quality/storage-efficiency-review-2026-10-12.md). The database is working on the free plan, but allocated space is above the published allowance. About 79 MB of expired historical payload is identified; no cleanup or physical saving is claimed. A bounded source-bound draft passes 15 local cases and a temporary PostgreSQL 17 rollback rehearsal; production application and physical savings remain pending.
+Latest delivery: [Storage cleanup and the next reliability gap](https://github.com/hartican/sportscal/blob/main/docs/quality/fixture-history-retention-2026-10-12.md). The checked repair is live and normal updates have cleared two expired copies without changing current facts. Twenty checks and independent reviews pass. Physical space savings remain unverified. Match Centre failed its public health check twice; logs show the same timeout before this repair. Fix its excessive read work before continuing Football polish.
 
 Latest delivery: [Clearer cards and a focused Tennis Feed](https://github.com/hartican/sportscal/blob/main/docs/quality/consistent-cards-and-tennis-feed-2026-10-12.md). The exact passing snapshot is live; both Tennis directory projections and their existing checks now stay together.

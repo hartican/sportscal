@@ -10,7 +10,7 @@ const migrations = path.join(root, "supabase/migrations");
 
 const baselineFile = path.join(migrations, "20261010140633_align_live_source_refresh_cadence.sql");
 
-const migrationFile = path.join(migrations, "20261012091301_expire_unchanged_fixture_history.sql");
+const migrationFile = path.join(migrations, "20261012113815_expire_unchanged_fixture_history.sql");
 
 const {PGlite: PGlite} = require(process.env.PGLITE_MODULE || "@electric-sql/pglite");
 
