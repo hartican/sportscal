@@ -1,5 +1,232 @@
 {
   "schemaVersion": "tennis-feed-parents.v1",
+  "participantTours": {
+    "tennis:jannik-sinner": "ATP",
+    "tennis:alexander-zverev": "ATP",
+    "tennis:carlos-alcaraz": "ATP",
+    "tennis:ben-shelton": "ATP",
+    "tennis:felix-auger-aliassime": "ATP",
+    "tennis:daniil-medvedev": "ATP",
+    "tennis:flavio-cobolli": "ATP",
+    "tennis:novak-djokovic": "ATP",
+    "tennis:alex-de-minaur": "ATP",
+    "tennis:frances-tiafoe": "ATP",
+    "tennis:arthur-fils": "ATP",
+    "tennis:taylor-fritz": "ATP",
+    "tennis:rafael-jodar": "ATP",
+    "tennis:valentin-vacherot": "ATP",
+    "tennis:jakub-mensik": "ATP",
+    "tennis:jiri-lehecka": "ATP",
+    "tennis:learner-tien": "ATP",
+    "tennis:tommy-paul": "ATP",
+    "tennis:brandon-nakashima": "ATP",
+    "tennis:francisco-cerundolo": "ATP",
+    "tennis:luciano-darderi": "ATP",
+    "tennis:alexander-bublik": "ATP",
+    "tennis:andrey-rublev": "ATP",
+    "tennis:casper-ruud": "ATP",
+    "tennis:lorenzo-musetti": "ATP",
+    "tennis:alejandro-davidovich-fokina": "ATP",
+    "tennis:karen-khachanov": "ATP",
+    "tennis:alexander-blockx": "ATP",
+    "tennis:joao-fonseca": "ATP",
+    "tennis:alejandro-tabilo": "ATP",
+    "tennis:tomas-martin-etcheverry": "ATP",
+    "tennis:ugo-humbert": "ATP",
+    "tennis:arthur-rinderknech": "ATP",
+    "tennis:hubert-hurkacz": "ATP",
+    "tennis:alex-michelsen": "ATP",
+    "tennis:ignacio-buse": "ATP",
+    "tennis:arthur-fery": "ATP",
+    "tennis:matteo-arnaldi": "ATP",
+    "tennis:zizou-bergs": "ATP",
+    "tennis:cameron-norrie": "ATP",
+    "tennis:botic-van-de-zandschulp": "ATP",
+    "tennis:denis-shapovalov": "ATP",
+    "tennis:stefanos-tsitsipas": "ATP",
+    "tennis:daniel-merida": "ATP",
+    "tennis:luca-van-assche": "ATP",
+    "tennis:matteo-berrettini": "ATP",
+    "tennis:mariano-navone": "ATP",
+    "tennis:quentin-halys": "ATP",
+    "tennis:jaume-munar": "ATP",
+    "tennis:raphael-collignon": "ATP",
+    "tennis:james-duckworth": "ATP",
+    "tennis:rinky-hijikata": "ATP",
+    "tennis:adam-walton": "ATP",
+    "tennis:dane-sweeny": "ATP",
+    "tennis:aleksandar-vukic": "ATP",
+    "tennis:christopher-o-connell": "ATP",
+    "tennis:alexei-popyrin": "ATP",
+    "tennis:tristan-schoolkate": "ATP",
+    "tennis:alex-bolt": "ATP",
+    "tennis:bernard-tomic": "ATP",
+    "tennis:james-mccabe": "ATP",
+    "tennis:matthew-dellavedova": "ATP",
+    "tennis:cruz-hewitt": "ATP",
+    "tennis:edward-winter": "ATP",
+    "tennis:jake-delaney": "ATP",
+    "tennis:philip-sekulic": "ATP",
+    "tennis:thanasi-kokkinakis": "ATP",
+    "tennis:omar-jasika": "ATP",
+    "tennis:marc-polmans": "ATP",
+    "tennis:jordan-thompson": "ATP",
+    "tennis:enzo-aguiard": "ATP",
+    "tennis:blake-ellis": "ATP",
+    "tennis:moerani-bouzige": "ATP",
+    "tennis:tai-sach": "ATP",
+    "tennis:li-tu": "ATP",
+    "tennis:jason-kubler": "ATP",
+    "tennis:pavle-marinkov": "ATP",
+    "tennis:chase-ferguson": "ATP",
+    "tennis:max-purcell": "ATP",
+    "tennis:jacob-bradshaw": "ATP",
+    "tennis:thomas-fancutt": "ATP",
+    "tennis:matt-hulme": "ATP",
+    "tennis:scott-jones": "ATP",
+    "tennis:joshua-charlton": "ATP",
+    "tennis:sam-ryan-ziegann": "ATP",
+    "tennis:nick-kyrgios": "ATP",
+    "tennis:benjamin-o-connell": "ATP",
+    "tennis:duje-markovina": "ATP",
+    "tennis:stefan-vujic": "ATP",
+    "tennis:lachlan-james-mcfadzean": "ATP",
+    "tennis:kody-pearson": "ATP",
+    "tennis:chen-dong": "ATP",
+    "tennis:jesse-delaney": "ATP",
+    "tennis:zack-viiala": "ATP",
+    "tennis:hayden-jones": "ATP",
+    "tennis:ethan-cook": "ATP",
+    "tennis:ashton-mcleod": "ATP",
+    "tennis:jeremy-zhang": "ATP",
+    "tennis:oliver-anderson": "ATP",
+    "tennis:ymerali-ibraimi": "ATP",
+    "tennis:ty-host": "ATP",
+    "tennis:stefan-storch": "ATP",
+    "tennis:daniel-jovanovski": "ATP",
+    "tennis:arjun-mehrotra": "ATP",
+    "tennis:harrison-satara": "ATP",
+    "tennis:jake-dembo": "ATP",
+    "tennis:adrian-arcon": "ATP",
+    "tennis:jeremy-beale": "ATP",
+    "tennis:mustafa-ege-sik": "ATP",
+    "tennis:jack-bruce-smith": "ATP",
+    "tennis:charlie-pade": "ATP",
+    "tennis:derek-pham": "ATP",
+    "tennis:noah-brownrigg": "ATP",
+    "tennis:zane-stevens": "ATP",
+    "tennis:taiki-takizawa": "ATP",
+    "tennis:zaharije-zak-talic": "ATP",
+    "tennis:lawrence-bataljin": "ATP",
+    "tennis:nikita-volonski": "ATP",
+    "tennis:thomas-patton": "ATP",
+    "tennis:zac-hamill": "ATP",
+    "tennis:thomas-nicholas-gadecki": "ATP",
+    "tennis:zachary-adam-gedge": "ATP",
+    "tennis:lachlan-vickery": "ATP",
+    "tennis:elena-rybakina": "WTA",
+    "tennis:aryna-sabalenka": "WTA",
+    "tennis:jessica-pegula": "WTA",
+    "tennis:coco-gauff": "WTA",
+    "tennis:mirra-andreeva": "WTA",
+    "tennis:linda-noskova": "WTA",
+    "tennis:elina-svitolina": "WTA",
+    "tennis:karolina-muchova": "WTA",
+    "tennis:iga-swiatek": "WTA",
+    "tennis:marta-kostyuk": "WTA",
+    "tennis:amanda-anisimova": "WTA",
+    "tennis:belinda-bencic": "WTA",
+    "tennis:iva-jovic": "WTA",
+    "tennis:diana-shnaider": "WTA",
+    "tennis:victoria-mboko": "WTA",
+    "tennis:sorana-cirstea": "WTA",
+    "tennis:naomi-osaka": "WTA",
+    "tennis:alexandra-eala": "WTA",
+    "tennis:elise-mertens": "WTA",
+    "tennis:jasmine-paolini": "WTA",
+    "tennis:maja-chwalinska": "WTA",
+    "tennis:anna-kalinskaya": "WTA",
+    "tennis:madison-keys": "WTA",
+    "tennis:emma-navarro": "WTA",
+    "tennis:anastasia-potapova": "WTA",
+    "tennis:leylah-fernandez": "WTA",
+    "tennis:marie-bouzkova": "WTA",
+    "tennis:ekaterina-alexandrova": "WTA",
+    "tennis:sara-bejlek": "WTA",
+    "tennis:ann-li": "WTA",
+    "tennis:diane-parry": "WTA",
+    "tennis:jelena-ostapenko": "WTA",
+    "tennis:maria-sakkari": "WTA",
+    "tennis:nikola-bartunkova": "WTA",
+    "tennis:cristina-bucsa": "WTA",
+    "tennis:peyton-stearns": "WTA",
+    "tennis:talia-gibson": "WTA",
+    "tennis:xinyu-wang": "WTA",
+    "tennis:liudmila-samsonova": "WTA",
+    "tennis:donna-vekic": "WTA",
+    "tennis:kimberly-birrell": "WTA",
+    "tennis:hailey-baptiste": "WTA",
+    "tennis:barbora-krejcikova": "WTA",
+    "tennis:clara-tauson": "WTA",
+    "tennis:yuliia-starodubtseva": "WTA",
+    "tennis:daria-snigur": "WTA",
+    "tennis:oleksandra-oliynykova": "WTA",
+    "tennis:magdalena-frech": "WTA",
+    "tennis:janice-tjen": "WTA",
+    "tennis:anhelina-kalinina": "WTA",
+    "tennis:maya-joint": "WTA",
+    "tennis:daria-kasatkina": "WTA",
+    "tennis:taylah-preston": "WTA",
+    "tennis:ajla-tomljanovic": "WTA",
+    "tennis:emerson-jones": "WTA",
+    "tennis:maddison-inglis": "WTA",
+    "tennis:storm-hunter": "WTA",
+    "tennis:priscilla-hon": "WTA",
+    "tennis:olivia-gadecki": "WTA",
+    "tennis:elena-micic": "WTA",
+    "tennis:lizette-cabrera": "WTA",
+    "tennis:tahlia-kokkinis": "WTA",
+    "tennis:arina-rodionova": "WTA",
+    "tennis:alana-subasic": "WTA",
+    "tennis:sarah-rokusek": "WTA",
+    "tennis:tina-smith": "WTA",
+    "tennis:gabriella-da-silva-fick": "WTA",
+    "tennis:melisa-ercan": "WTA",
+    "tennis:belle-thompson": "WTA",
+    "tennis:stefani-webb": "WTA",
+    "tennis:laquisa-khan": "WTA",
+    "tennis:amy-stevens": "WTA",
+    "tennis:jizelle-sibai": "WTA",
+    "tennis:ashleigh-simes": "WTA",
+    "tennis:cara-korhonen": "WTA",
+    "tennis:alexandra-osborne": "WTA",
+    "tennis:eva-lopez": "WTA",
+    "tennis:ava-beck": "WTA",
+    "tennis:ava-monet-sycamore": "WTA",
+    "tennis:alicia-smith": "WTA",
+    "tennis:tori-russell": "WTA",
+    "tennis:astra-sharma": "WTA",
+    "tennis:renee-alame": "WTA",
+    "tennis:sarah-mildren": "WTA",
+    "tennis:rianna-alame": "WTA",
+    "tennis:naomi-mckenzie": "WTA",
+    "tennis:lily-taylor": "WTA",
+    "tennis:audrey-aulia": "WTA",
+    "tennis:elizabeth-ivanov": "WTA",
+    "tennis:angela-cui": "WTA",
+    "tennis:tenika-mcgiffin": "WTA",
+    "tennis:gurmanat-kaur-sandhu": "WTA",
+    "tennis:caitlin-baker": "WTA",
+    "tennis:larisa-arnautovic": "WTA",
+    "tennis:petra-hule": "WTA",
+    "tennis:jan-lennard-struff": "ATP",
+    "tennis:zachary-svajda": "ATP",
+    "tennis:roman-safiullin": "ATP",
+    "tennis:shintaro-mochizuki": "ATP",
+    "tennis:grigor-dimitrov": "ATP",
+    "tennis:ashlyn-krueger": "WTA",
+    "tennis:zheng-qinwen": "WTA"
+  },
   "contests": [
     {
       "id": "fixture:tennis:davis-cup:2026:final-eight:italy-korea",
@@ -16973,6 +17200,47 @@
         "competitor:tennis:atp:alex-de-minaur"
       ],
       "contestCount": 84,
+      "outlookTours": [
+        "ATP"
+      ],
+      "outlookParticipation": [
+        {
+          "participantId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "sourceUrls": [
+            "https://www.protennislive.com/posting/2026/5014/mds.pdf"
+          ],
+          "verifiedAt": "2026-10-06"
+        },
+        {
+          "participantId": "competitor:tennis:atp:jannik-sinner",
+          "status": "withdrawn",
+          "evidenceKind": "official_withdrawal",
+          "sourceUrls": [
+            "https://en.rolexshanghaimasters.com/en/media/news/sinner-shanghai-2026-withdrawal"
+          ],
+          "verifiedAt": "2026-10-04"
+        },
+        {
+          "participantId": "athlete:tennis:novak-djokovic",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "sourceUrls": [
+            "https://www.protennislive.com/posting/2026/5014/mds.pdf"
+          ],
+          "verifiedAt": "2026-10-06"
+        },
+        {
+          "participantId": "athlete:tennis:alex-de-minaur",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "sourceUrls": [
+            "https://www.protennislive.com/posting/2026/5014/mds.pdf"
+          ],
+          "verifiedAt": "2026-10-06"
+        }
+      ],
       "viewingOptions": [
         {
           "providerId": "bein",
@@ -17043,7 +17311,11 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "outlookTours": [
+        "ATP"
+      ],
+      "outlookParticipation": []
     },
     {
       "id": "tennis-parent:qatar-totalenergies-open:2026:main",
@@ -18136,6 +18408,20 @@
         "competitor:tennis:wta:zheng-qinwen"
       ],
       "contestCount": 95,
+      "outlookTours": [
+        "WTA"
+      ],
+      "outlookParticipation": [
+        {
+          "participantId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "sourceUrls": [
+            "https://www.wtatennis.com/news/4571768/china-open-and-singapore-entry-lists-sabalenka-headlines-beijing-eala-chwalinska-set-for-singapore"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ],
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:fixture-research:tennis-tournament-wta-beijing-2026-2026-10-02",
@@ -18624,7 +18910,21 @@
         "competitor:tennis:wta:ann-li",
         "competitor:tennis:wta:zheng-qinwen"
       ],
-      "contestCount": 24
+      "contestCount": 24,
+      "outlookTours": [
+        "WTA"
+      ],
+      "outlookParticipation": [
+        {
+          "participantId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "sourceUrls": [
+            "https://www.wtatennis.com/news/4577819/elena-rybakina-aryna-sabalenka-jessica-pegula-coco-gauff-headline-wuhan-field"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
     },
     {
       "id": "tennis-parent:mubadala-citi-dc-open:2026:main",
@@ -18962,6 +19262,19 @@
         "competitor:tennis:atp:carlos-alcaraz"
       ],
       "contestCount": 31,
+      "outlookTours": [],
+      "outlookParticipation": [
+        {
+          "participantId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "confirmed",
+          "evidenceKind": "official_participation",
+          "sourceUrls": [
+            "https://www.japanopentennis.com/atp/en/news-and-media/news/2026-tournament-carlos-alcaraz-compete-second-consecutive-year/",
+            "https://www.japanopentennis.com/atp/en/news-and-media/news/2026101-alcaraz-defeats-michelsen-three-sets/"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ],
       "viewingOptions": [
         {
           "providerId": "bein",
@@ -19263,7 +19576,28 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "outlookTours": [],
+      "outlookParticipation": [
+        {
+          "participantId": "competitor:tennis:atp:carlos-alcaraz",
+          "status": "confirmed",
+          "evidenceKind": "official_qualification",
+          "sourceUrls": [
+            "https://www.nittoatpfinals.com/en/news/alcaraz-nitto-atp-finals-2026-qualification"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "participantId": "competitor:tennis:atp:jannik-sinner",
+          "status": "confirmed",
+          "evidenceKind": "official_qualification",
+          "sourceUrls": [
+            "https://www.nittoatpfinals.com/en/news/alcaraz-nitto-atp-finals-2026-qualification"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
     },
     {
       "id": "tennis-parent:wta-finals:2026:main",
@@ -19318,7 +19652,19 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "outlookTours": [],
+      "outlookParticipation": [
+        {
+          "participantId": "competitor:tennis:wta:aryna-sabalenka",
+          "status": "confirmed",
+          "evidenceKind": "official_qualification",
+          "sourceUrls": [
+            "https://www.wtatennis.com/news/4583238/aryna-sabalenka-qualifies-for-wta-finals-indian-wells-for-sixth-consecutive-season"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
     },
     {
       "id": "tennis-parent:davis-cup:2026:tournament:tennis:davis-cup-finals-2026",
@@ -19440,7 +19786,9 @@
         "team:tennis:davis-cup:italy",
         "team:tennis:davis-cup:korea"
       ],
-      "contestCount": 7
+      "contestCount": 7,
+      "outlookTours": [],
+      "outlookParticipation": []
     },
     {
       "id": "tennis-parent:billie-jean-king-cup:2026:tournament:tennis:bjk-cup-finals-2026",
@@ -19946,7 +20294,12 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "outlookTours": [
+        "ATP",
+        "WTA"
+      ],
+      "outlookParticipation": []
     },
     {
       "id": "tennis-parent:wimbledon:2027:main",
@@ -20002,7 +20355,12 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "outlookTours": [
+        "ATP",
+        "WTA"
+      ],
+      "outlookParticipation": []
     },
     {
       "id": "tennis-parent:china-open:2026:tournament:tennis:atp-beijing-2026",
@@ -20308,7 +20666,28 @@
         "competitor:tennis:atp:alex-de-minaur",
         "athlete:tennis:alex-de-minaur"
       ],
-      "contestCount": 31
+      "contestCount": 31,
+      "outlookTours": [],
+      "outlookParticipation": [
+        {
+          "participantId": "athlete:tennis:novak-djokovic",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "sourceUrls": [
+            "https://www.atptour.com/en/news/beijing-2026-entry-list"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "participantId": "athlete:tennis:alex-de-minaur",
+          "status": "confirmed",
+          "evidenceKind": "official_entry",
+          "sourceUrls": [
+            "https://www.atptour.com/en/news/beijing-2026-entry-list"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ]
     }
   ]
 }

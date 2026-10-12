@@ -191,7 +191,7 @@ assert(eventSchema.$defs.editorialNarrative.properties.consequence, "the feed sc
 assert(eventSchema.$defs.editorialNarrative.properties.schemaVersion.enum.includes("editorial-narrative.v3"), "the feed schema must accept v3 while retaining v1/v2 readers");
 assert(majorSchema.$defs.event.properties.editorialNarrative, "the major-event schema must publish the event editorial projection contract");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 assert(html.includes("appendFixtureCardInformation(mainDiv,ev,") && html.includes("parent.appendChild(whyItMatters)") && html.includes("buildInlineCrowdRating(ev,snapshot)"), "Feed retains editorial alongside the standard one-tap rating input");
 assert.doesNotMatch(html, /labelText:"Independent context"/, "expanded cards must not repeat editorial in a second metadata box");
 assert.doesNotMatch(html, /editorialNarrativeCopyForDisplay\(/, "selected and opened cards must not repeat a second synopsis block beneath Why it matters");

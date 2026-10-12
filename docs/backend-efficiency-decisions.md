@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Consistent cards reuse retained evidence — 12 October 2026 Sydney
+
+The approved card/Feed follow-up projects opening-day provenance, existing athlete outlook and verified nationality from retained documents in the canonical tennis refresh. Possible participation stays separate from confirmed source participants. Cricket summaries and expanded tables use the existing accepted score payload, with original score/status/detail dates and selected-innings continuity. No provider read, API request, timer, scheduler, database migration or source owner is added.
+
+Existing card globals move from inline HTML into the ordered venue-panel runtime source; the deterministic runtime and browser test owner validate the same implementations before app state initializes. This keeps eight critical requests and the unchanged 430920-byte gzip limit. Filter automatic future tennis fixtures and expired Feed cards before enrichment/rendering; keep complete Schedule/history facts and saved actions. Card-count/payload measurements do not establish physical-phone latency or notification delivery. Preserve the 515 ratings, date, cache and response-deadline repairs.
+
 ## Card progress reuses published facts — 12 October 2026 Sydney
 
 The approved card repair carries optional sourced tournament round metadata and the existing Test day through retained Feed, Events and Schedule projections. Existing golf collectors retain their explicit current-round fact and only use a total when the organiser payload supplies it. Tennis main-singles playing observations provide named-round fallback; no partial fixture collection establishes a numerical total. No provider read, cadence, scheduler, schema or migration is added. Source clocks remain original and later checks alone do not change content hashes.

@@ -37,6 +37,7 @@ const markerContext = {
   document:{createElement:element},
   tennisFeedOpenParents:new Set(),
   NOTHINGSPORTS_CARD_TIMING:require("../config/card-timing"),
+  NOTHINGSPORTS_FIXTURE_LABELS:require("../config/fixture-labels"),
   nowAEST:()=>new Date("2026-10-12T01:00:00Z"),
   loadDeferredScript:()=>Promise.resolve(),
   NOTHINGSPORTS_TOURNAMENT_CARD_UI:{render(){}},
@@ -50,6 +51,7 @@ vm.createContext(markerContext);
 const detailSource=fs.readFileSync("assets/js/tournament-card-ui.js","utf8");
 const actionSource=detailSource.slice(detailSource.indexOf("function actions(parent){"),detailSource.indexOf("async function render("));
 markerContext.node=(tag,value,cls)=>Object.assign(element(tag),{textContent:value,className:cls});
+const helper=fs.readFileSync("config/venue-panel-ui.js","utf8");vm.runInContext(helper.slice(helper.indexOf("function fixtureCompetitionLabel("),helper.indexOf("function buildTennisFixtureContext(")),markerContext);
 vm.runInContext(markerSource + "\n" + majorMarkerSource+"\n"+actionSource, markerContext);
 for (const major of [true, false]){
   const event = {id:major ? "major-event:reviewed" : "tournament:reviewed",name:"Reviewed event",date:"2026-10-01",endDate:"2026-10-03",majorEventMarker:major};

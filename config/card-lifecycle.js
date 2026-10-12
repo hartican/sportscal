@@ -67,6 +67,22 @@
     return end;
   }
 
+  // Feed visibility is independent of saved/history retention.
+  function withinFeedWindow(event, reference = new Date()){
+    const now = new Date(reference), today = calendar.sydneyDay(now);
+    const terminal = /^(completed|finished|final|cancelled|canceled|abandoned)$/.test(event.status || '');
+    const first = event.date || event.startDate, end = event.endDate || first;
+    if(!terminal && validDay(end) && end >= today)return true;
+    const controls = typeof module === 'object' && module.exports ? require('./feed-controls') : globalThis.NOTHINGSPORTS_FEED_CONTROLS;
+    if(!terminal && controls?.timingState(event,now)?.key === 'live')return true;
+    const actual = event.actualEndTimeUtc || event.endTimeUtc;
+    const instant = new Date(actual || '');
+    const day = terminal && Number.isFinite(+instant) && +instant <= +now && (!validDay(first)||calendar.sydneyDay(instant)>=first) ? calendar.sydneyDay(instant) : end;
+    if(!validDay(day))return true;
+    const cutoff = new Date(today+'T12:00:00Z');cutoff.setUTCDate(cutoff.getUTCDate()-7);
+    return day >= cutoff.toISOString().slice(0,10);
+  }
+
   function expiresAtForEvent(event){
     const end = retentionEnd(event);
     return end ? new Date(+end + RETENTION_MS) : null;
@@ -326,6 +342,7 @@
     isRetentionExemptAction,
     lifecycleState,
     isWithinRetention,
+    withinFeedWindow,
     shouldAutoArchive,
     sydneyEndOfDay,
     createDerivedCard,

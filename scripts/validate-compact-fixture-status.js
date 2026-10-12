@@ -9,8 +9,8 @@ class Element{
  getAttribute(key){return this.attributes[key];}
 }
 function validate({source=fs.readFileSync(path.join(root,'index.html'),'utf8')}={}){
- const start=source.indexOf('function buildCompactCardSummary('),end=source.indexOf('function feedClockKey(',start);assert(start>=0&&end>start,'Actual compact card boundary exists');
- const context=vm.createContext({document:{createElement:()=>new Element()},activeTab:'feed',compactFixtureName:e=>e.name,matchupIdentityMatches:()=>[],renderEventTitleIdentity:(node,e)=>{node.textContent=e.name;},compactFixtureFormat:()=>null,compactFallbackTiming:()=>'',sportMetaForEvent:()=>({label:'Football'}),spoilerSafeDisplayTitle:e=>e.name,FOLLOW_FIRST:{stageLabel:()=>null},FEED_CONTROLS:require('../config/feed-controls'),NOTHINGSPORTS_CARD_TIMING:require('../config/card-timing'),Intl,Date});
+ source=fs.readFileSync(path.join(root,'config/venue-panel-ui.js'),'utf8');const start=source.indexOf('function buildCompactCardSummary('),end=source.length;assert(start>=0&&end>start,'Actual compact card boundary exists');
+ const context=vm.createContext({document:{createElement:()=>new Element()},activeTab:'feed',compactFixtureName:e=>e.name,matchupIdentityMatches:()=>[],renderEventTitleIdentity:(node,e)=>{node.textContent=e.name;},compactFixtureFormat:()=>null,compactFallbackTiming:()=>'',sportMetaForEvent:()=>({label:'Football'}),spoilerSafeDisplayTitle:e=>e.name,FOLLOW_FIRST:{stageLabel:()=>null},FEED_CONTROLS:require('../config/feed-controls'),NOTHINGSPORTS_CARD_TIMING:require('../config/card-timing'),buildFixtureTimingGroup:()=>new Element(),Intl,Date});
  vm.runInContext(source.slice(start,end),context);
  context.NOTHINGSPORTS_FIXTURE_LABELS=require('../config/fixture-labels');
  const ui=fs.readFileSync(path.join(root,'config/venue-panel-ui.js'),'utf8'),helper=ui.indexOf('function buildTennisFixtureContext(');vm.runInContext(ui.slice(helper,ui.indexOf('function buildTournamentMarker(',helper)),context);

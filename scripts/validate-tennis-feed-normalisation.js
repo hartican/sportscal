@@ -6,13 +6,13 @@ const {buildServerFeed}=require('../lib/server-feed-pipeline');
 const now=new Date('2026-09-24T02:00:00Z');
 const player='athlete:tennis:one',other='athlete:tennis:two';
 const tournament={tournamentId:'tournament:tennis:test-2026',name:'Test Open',season:2026,tour:'ATP',representedTours:['ATP'],startDate:'2026-09-20',endDate:'2026-09-30',competitionId:'competition:test-open',eventSeriesId:'event-series:test-open',sourceUrl:'https://sports.example/test'};
-const fixture={id:'test-match',eventId:'test-match',key:'tennis',name:'One v Two',tournamentId:tournament.tournamentId,eventFamilyId:'test-open',competitionId:tournament.competitionId,date:'2026-09-25',time:'18:00',tournamentLevel:'1000',round:'Quarterfinal',status:'upcoming',participantIds:[player,other],sourceUrl:tournament.sourceUrl};
+const fixture={id:'test-match',eventId:'test-match',key:'tennis',name:'One v Two',tournamentId:tournament.tournamentId,eventFamilyId:'test-open',competitionId:tournament.competitionId,date:'2026-09-25',time:'18:00',tournamentLevel:'1000',round:'Quarterfinal',status:'upcoming',tournamentOpeningDate:tournament.startDate,tournamentOpeningSourceUrl:tournament.sourceUrl,participantIds:[player,other],sourceUrl:tournament.sourceUrl};
 const direct={preferenceGraph:{entityFollows:[{participantId:player,followLevel:'follow'}]}};
 const broad={selectedSelectorEntityIds:['sport:tennis'],followedSports:['tennis']};
 const explicit={followFirst:{followedMajorEventIds:['test-open']}};
 const parent=model.buildParents({tournaments:[tournament]},[fixture])[0];
 function admitted(e,prefs){return buildServerFeed({events:[e],userId:'test',userState:{preferences:prefs},now,limit:1000}).events.some(row=>row.id===e.id);}
-assert(model.reason(parent,direct,{now}));assert.equal(model.reason(parent,explicit,{now}),null,"An ongoing parent needs a verified followed appearance even when its edition is followed");assert(model.reason(parent,explicit,{now:new Date("2026-09-19T02:00:00Z")}),"A future edition retains its explicit follow");assert.equal(model.reason(parent,broad,{now}),null);
+assert(model.reason(parent,direct,{now}));assert.equal(model.reason(parent,explicit,{now}),null,"An ongoing parent needs a verified followed appearance even when its edition is followed");assert.equal(model.reason(parent,explicit,{now:new Date("2026-09-19T02:00:00Z")}),null,"A future edition follow alone has no athlete outlook");assert.equal(model.reason(parent,broad,{now}),null);
 assert(admitted(parent,direct));assert(!admitted(parent,explicit));assert(!admitted(parent,broad));assert(admitted(fixture,direct));
 assert(!admitted(fixture,broad));assert(!admitted({...fixture,round:'Final'},broad));
 for(const round of ['Semifinal','Quarterfinal'])assert(!admitted({...fixture,round},broad));

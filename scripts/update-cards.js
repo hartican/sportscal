@@ -855,6 +855,7 @@ async function runMain() {
     console.log("Reviewed participant schedules published through canonical owner; observation clocks retained.");return;
   }
   if(process.argv.includes("--tennis-feed")){
+    runStep(['scripts/build-tennis-context.js']);
     runStep(['scripts/build-code-inspector.js','--codes=tennis']);
     runStep(['scripts/build-follow-directories.js','--codes=tennis']);
     for(const script of ['build-tennis-feed-parents','build-tournament-horizon','build-tennis-journeys','validate-tennis-journeys','build-app-shell-runtime','validate-tennis-feed-normalisation'])runStep([`scripts/${script}.js`]);

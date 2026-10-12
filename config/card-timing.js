@@ -74,7 +74,8 @@
     const key = date ? dayKey(date) : null;
     const delta = key ? (Date.parse(key) - Date.parse(currentDay)) / 86400000 : null;
     const dated = value => format(value, {weekday:"short", day:"numeric", month:"short", ...(dayKey(value).slice(0,4) !== currentDay.slice(0,4) ? {year:"numeric"} : {})});
-    let day = date ? delta === 0 ? "TODAY" : delta > 0 && delta < 7 ? format(date,{weekday:"short"}) : dated(date) : "DATE TBC";
+    let day = date ? delta === 0 ? "TODAY" : delta > 0 && (delta < 7 || precision==='not-before' && delta===7) ? format(date,{weekday:"short"}) : dated(date) : "DATE TBC";
+    if(precision==='not-before'&&hasTime&&delta===0)day='';
     let fullDate = date ? dated(date) : "DATE TBC";
     const end = calendarDate(event.endDate);
     const range = end && key && dayKey(end) !== key;
@@ -87,7 +88,7 @@
     const progressLabel=progress(event,reference);
     const originalDate=progressLabel&&calendarDate(event.date||event.startDate);if(originalDate)fullDate=dated(originalDate)+(end&&dayKey(end)!==dayKey(originalDate)?' – '+dated(end):'');
     const time = progressLabel&&event.dateOnly?'':windowLabel || (overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`);
-    const schedule = [day,time].filter(Boolean).join(delta !== null && delta >= 0 && delta < 7 && !range ? " " : " · ");
+    const schedule = [day,time].filter(Boolean).join(delta !== null && delta >= 0 && (delta < 7 || precision==='not-before' && delta===7) && !range ? " " : " · ");
     // Venue calendar dates cannot establish Sydney dates without a race start.
     const venueCalendar = !hasTime && event.timingProvenance?.precision === 'venue-calendar' && event.displayDateLabel;
     if(venueCalendar){day=fullDate=event.displayDateLabel;}
@@ -115,7 +116,7 @@
     const observed=controls?.timingState(event,reference);
     if(observed?.key==='half-time')status='HALF-TIME';
     if(observed?.key==='awaiting-update')status=observed.label;
-    return Object.freeze({day:progressLabel|| (venueCalendar?day:date?(range?day:dated(date)):'DATE TBC'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
+    return Object.freeze({day:progressLabel|| (precision==='not-before'?day:venueCalendar?day:date?(range?day:dated(date)):'DATE TBC'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
   }
   function dateOnlyLabel(event){
     if(['completed','finished','final'].includes(event.status))return 'Completed';

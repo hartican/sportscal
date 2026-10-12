@@ -56,8 +56,8 @@
     return normalized ? `assets/flags/4x3/${normalized.toLowerCase()}.svg` : null;
   }
 
-  function flagMarkup(countryCode, { className = "", label = "" } = {}){
-    if(alpha2(countryCode)==='RU')return '';
+  function flagMarkup(countryCode, { className = "", label = "", nationality = false } = {}){
+    if(alpha2(countryCode)==='RU'&&!nationality)return '';
     const path = assetPath(countryCode);
     if (!path) return "";
     const name = label || countryName(countryCode);

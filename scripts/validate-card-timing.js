@@ -36,7 +36,7 @@ assert.equal(p({...fixture,timePrecision:'unconfirmed'},now).label,'FRI TIME TBC
 const notBefore={...fixture,timePrecision:'not-before'};
 assert.equal(p(notBefore,now).label,'FRI NOT BEFORE 2:30 AM');
 assert.match(p(notBefore,now).ariaLabel,/NOT BEFORE 2:30 AM.*Sydney time/);
-assert.equal(p({...notBefore,date:'2026-10-04',startTimeUtc:'2026-10-03T16:30:00Z'},'2026-10-03T14:30:00Z').label,'TODAY NOT BEFORE 3:30 AM','not-before uses the real Sydney DST offset');
+assert.equal(p({...notBefore,date:'2026-10-04',startTimeUtc:'2026-10-03T16:30:00Z'},'2026-10-03T14:30:00Z').label,'NOT BEFORE 3:30 AM','not-before uses the real Sydney DST offset');
 for(const uncertain of [{timeTbc:true},{startTimeTbc:true},{dateOnly:true},{startTimeUtc:'invalid'},{startTimeUtc:null}]){
   const value=p({...notBefore,...uncertain},now);assert(!value.time.includes('NOT BEFORE'),'uncertain instant cannot manufacture a qualified clock');assert.equal(value.time,'TIME TBC');
 }

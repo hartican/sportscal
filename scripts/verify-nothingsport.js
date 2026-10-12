@@ -12,7 +12,7 @@ const sportContext = require("../config/sport-context.js");
 const sportHubs = require("../config/sport-hubs.js");
 const { createCanonicalSportsIndex } = require("./lib/canonical-sports");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const notFoundHtml = fs.readFileSync("404.html", "utf8");
 const privacyHtml = fs.readFileSync("privacy.html", "utf8");
 const termsHtml = fs.readFileSync("terms.html", "utf8");
@@ -522,7 +522,7 @@ assert(html.includes('function syncThemeTeamAssets(useDark)') && html.includes('
 assert(cardIdentitiesSource.includes('primary,') && cardIdentitiesSource.includes('iconLight') && cardIdentitiesSource.includes('logoForTheme'), "every team identity must expose primary, theme, and compact-logo asset slots");
 assert(!html.includes('localGame.textContent = "LOCAL GAME"'), "cards must keep local-game classification behind the scenes");
 assert(html.includes('glyphMarkup("ui:ticket", { preferImage: true })'), "local games must expose a stable vector-labelled Tickets link");
-const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
+const eventCardSource = html.match(/function buildDetailedEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
 assert(eventCardSource.includes('const matchupIdentity = isTeamMatchup && mode !== "premium-rail" ? buildMatchupIdentity(ev, displayTitle) : null;') && eventCardSource.includes('matchupIdentity ? "is-logo-led-matchup" : ""'), "full match cards must promote two large team identities while compact rails retain icon-specific treatment");
 assert(!eventCardSource.includes('competitionTag.replaceChildren(competitionIcon, competitionLabel);'), "logo-led matchup cards must not repeat a competition metadata label");
 assert(html.includes('.matchup-competition-icon.has-brand-logo{') && html.includes('background:#f8fafc;'), "dark official organisation marks must receive a contrast-safe supporting surface instead of a CSS colour filter");

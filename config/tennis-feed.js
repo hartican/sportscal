@@ -79,7 +79,15 @@
     }
     return [...groups.values()].map(parent=>reconcile(parent,fixtures));
   }
-  function reason(parent,preferences,{collectionsById={},preparedPreferences=null,expandedParticipantIds=null,now=new Date()}={}){
+  function playStarted(event,{parents=[],now=new Date()}={}){
+    const policy=api('NOTHINGSPORTS_FOLLOW_FEED_POLICY');
+    if(!policy.sportKey(event).startsWith('tennis')||isParent(event)||event.contestUnit==='tie')return true;
+    const today=policy.dateKey(now),parent=parents.find(p=>matches(p,event));
+    const opening=event.tournamentOpeningDate||parent?.date,source=event.tournamentOpeningSourceUrl||parent?.sourceUrl;
+    if(/^https:\/\//.test(source||'')&&/^\d{4}-\d{2}-\d{2}$/.test(opening||'')&&opening<=today)return true;
+    return /^(live|in-progress|ongoing|stumps|suspended|break|completed|finished|final)$/.test(event.status||'')&&Boolean(event.date&&event.date<=today);
+  }
+  function reason(parent,preferences,{collectionsById={},preparedPreferences=null,expandedParticipantIds=null,participantTours={},now=new Date()}={}){
     const policy=api('NOTHINGSPORTS_FOLLOW_FEED_POLICY'),follow=api('NOTHINGSPORTS_FOLLOW_FIRST');
     const prefs=preparedPreferences||follow.migratePreferences(preferences);
     if(!policy.activeEligible(parent)||policy.explicitlyExcluded(parent,prefs)||policy.eventExcluded(parent,prefs))return null;
@@ -87,6 +95,16 @@
     const ongoing=parent.date<=today&&parent.endDate>=today&&!parent.majorEventMarker&&!policy.presidentsCup(parent);
     const verifiedIds=[...new Set([...(parent.participantIds||[]),...(parent.sourceParticipation||[]).filter(e=>!e.excluded&&!['withdrawn','excluded'].includes(e.participationStatus)).map(e=>e.participantId)])].filter(id=>!(parent.excludedParticipantIds||[]).includes(id));
     if(ongoing&&(parent.participantsConfirmed!==true||!verifiedIds.some(id=>follow.effectiveParticipantFollow(id,prefs,collectionsById).followed||expandedParticipantIds?.has(id))))return null;
+    if(policy.sportKey(parent).startsWith('tennis')&&parent.date>today){
+      const horizon=new Date(today+'T12:00:00Z');horizon.setUTCFullYear(horizon.getUTCFullYear()+1);
+      if(parent.date>horizon.toISOString().slice(0,10)||!/^https:\/\//.test(parent.sourceUrl||''))return null;
+      const identity=follow.participantFollowIdentityKey;
+      const removed=new Set([...(parent.excludedParticipantIds||[]),...(parent.participationEvidence||[]).filter(e=>['withdrawn','excluded'].includes(e.participationStatus)).map(e=>e.participantId),...(parent.outlookParticipation||[]).filter(e=>e.status==='withdrawn').map(e=>e.participantId)].map(identity));
+      const ids=[...new Set([...(prefs.preferenceGraph?.entityFollows||[]).map(f=>f.participantId),...(expandedParticipantIds||[])])];
+      const athlete=ids.find(id=>!id.startsWith('team:')&&!removed.has(identity(id))&&follow.effectiveParticipantFollow(id,prefs,collectionsById).followed&&(verifiedIds.some(p=>identity(p)===identity(id))||(parent.outlookParticipation||[]).some(p=>identity(p.participantId)===identity(id)&&p.status!=='withdrawn')||(parent.outlookTours||[]).includes(participantTours[identity(id)]||id.match(/:tennis:(atp|wta):/i)?.[1].toUpperCase())));
+      return athlete?{type:'athlete',id:athlete,displayTag:false}:null;
+    }
+    if(policy.sportKey(parent).startsWith('tennis')&&!parent.date)return null;
     if(policy.editionDecision(parent,prefs)==='followed')return {type:'event',id:policy.editionKey(parent),displayTag:false};
     if(policy.eventFamilyIds(parent).some(id=>(prefs.followFirst?.followedMajorEventIds||[]).includes(id))||(prefs.preferenceGraph?.competitionPreferences||[]).some(p=>p.competitionId===parent.competitionId&&p.enabled===true))return {type:'event',id:parent.eventFamilyId,displayTag:false};
     const excluded=new Set(parent.excludedParticipantIds||[]),golf=['golf','golf-women','masters'].includes(policy.sportKey(parent));
@@ -99,5 +117,5 @@
     const label=parent.dateLabel || (parent.date?[parent.date,parent.endDate!==parent.date?parent.endDate:null].filter(Boolean).join(' – '):'Dates to be confirmed');
     return `${label}${parent.timingProvisional&&parent.date?' · Provisional':''}`;
   }
-  return {isParent,isRubber,isFinal,parentKey,matches,activeParticipants,reconcile,buildParents,reason,timingLabel};
+  return {isParent,isRubber,isFinal,parentKey,matches,activeParticipants,reconcile,buildParents,reason,playStarted,timingLabel};
 });

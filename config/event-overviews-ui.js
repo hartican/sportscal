@@ -28,7 +28,7 @@ async function render(container){
  for(const event of visible){
   const card=document.createElement('article');card.className='match-centre-card events-overview-card';card.dataset.eventOverviewId=event.id;card.dataset.eventId=event.id;card.tabIndex=-1;
   const timing=NOTHINGSPORTS_CARD_TIMING.presentation(event,nowAEST());
-  const title=text('h3',event.name),dates=text('p',(event.calendarPending?'Edition date pending':timing.progress||NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.date)+(event.endDate!==event.date?' – '+NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.endDate):''))+(timing.status==='FINISHED'?' · FINISHED':''));dates.title=timing.fullSchedule;dates.setAttribute('aria-label',timing.ariaLabel);card.append(title,dates);
+  const title=text('h3',[fixtureCompetitionLabel(event),event.name].filter((v,i,a)=>v&&a.indexOf(v)===i).join(' · ')),dates=text('p',(event.calendarPending?'Edition date pending':timing.progress||NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.date)+(event.endDate!==event.date?' – '+NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.endDate):''))+(timing.status==='FINISHED'?' · FINISHED':''));dates.title=timing.fullSchedule;dates.setAttribute('aria-label',timing.ariaLabel);card.append(title,dates);
   const upcoming=(event.upcomingFixtures||[]).filter(f=>(f.date||'')>=today),next=upcoming.filter(f=>(f.participantIds||[]).some(follows));
   const stage=upcoming[0]?.roundLabel||upcoming[0]?.round;
   const context=[event.venueCity,event.tour,event.tournamentLevel,stage].filter(Boolean);if(context.length)card.append(text('p',[...new Set(context)].join(' · ')));

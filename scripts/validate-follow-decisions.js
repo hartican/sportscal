@@ -6,7 +6,7 @@ const follow=require('../config/follow-first');
 const policy=require('../config/follow-feed-policy');
 const {buildServerFeed}=require('../lib/server-feed-pipeline');
 const now=new Date('2026-09-08T00:00:00Z');
-const fixture=(extra={})=>({id:'decision-fixture',eventId:'decision-fixture',key:'tennis',tournamentLevel:'Grand Slam',date:'2026-09-09',time:'19:00',name:'One v Two',participantIds:['athlete:one','athlete:two'],...extra});
+const fixture=(extra={})=>({id:'decision-fixture',eventId:'decision-fixture',key:'tennis',tournamentOpeningDate:'2026-09-08',tournamentOpeningSourceUrl:'https://example.org/opening',tournamentLevel:'Grand Slam',date:'2026-09-09',time:'19:00',name:'One v Two',participantIds:['athlete:one','athlete:two'],...extra});
 function check(event,prefs,expected,label){
  assert.equal(Boolean(follow.reasonForEvent(event,prefs)),expected,'client: '+label);
  assert.equal(buildServerFeed({events:[event],userId:'decisions',userState:{preferences:prefs},now}).events.some(e=>e.id===event.id),expected,'server: '+label);
