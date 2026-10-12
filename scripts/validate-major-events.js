@@ -23,7 +23,7 @@ const FUTURE_REFERENCE = new Date(REFERENCE.getTime() + 24 * 60 * 60 * 1000).toI
 const catalogue = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
 const feed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const schema = JSON.parse(fs.readFileSync("schemas/major-events.schema.json", "utf8"));
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const worker = fs.readFileSync("service-worker.js", "utf8");
 
 assert.equal(schema.properties.schemaVersion.const, majorEvents.SCHEMA_VERSION);
