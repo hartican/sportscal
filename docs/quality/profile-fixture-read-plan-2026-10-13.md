@@ -45,6 +45,10 @@ Value: current team schedules should arrive with less unnecessary work, and a fa
 
 Evidence folder: `/Users/jackhartican/Documents/AI/Codex/football-profile-read-reliability-2026-10-13`. Full programme approvals remain 0/18 families and 0/3 Football pilots, targeting at least 15/18 families.
 
+## Release precheck correction
+
+The first normal release, run `38278285839` for `8a444dea`, stopped before deployment. The unchanged quick-route test expected only the results step, although the earlier reviewed retention module correctly added its isolated history guard. Updating that expectation exposed a second fixture omission: the disposable repository had not copied the actual SQL migrations needed by that guard. Both failures were reproduced locally; the test now retains the guard and copies only the migrations subdirectory, without credentials or Supabase runtime files. A real-entrypoint subprocess trace proves a failing guard stops before results and a passing guard continues once. The actual isolated offline projection and post-generation rollback regression pass again. No production gate, refresh route, deadline or sporting data was changed by this correction. Original failure logs remain in the evidence folder.
+
 ## Applied database and release binding
 
 Actual server version `20261012162919`, statement MD5 `3c2affbd512c1d72fdde1a176c435fab`, function MD5 `9c2dd2ae71123da686bb55340d7505c6`. The repository filename was reconciled to the real migration-history version with identical SQL bytes; no history row was edited. Invoker, empty search path, postgres owner and service-only ACL verified; anon/authenticated execution denied. The actual applied function under service_role returns 724 complete rows / 1,617,968 bytes in 812.757 ms within the 2.5-second read-only statement diagnostic. This is a warm database sample, not causal or cold phone proof. Both independent static reviews find zero hard/actionable issues, with one optional shared-helper suggestion deferred. Local Chromium/WebKit profile failure/recovery and installed-browser shell 516→517 rehearsals pass. Production app is still fbd5d32/shell516 until the exact release completes.

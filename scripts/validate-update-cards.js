@@ -65,7 +65,19 @@ for (const route of ['--quick', '--f1-results', '--resume-from', '--source=footb
 assert(localSteps.findIndex(step=>step[0]==="scripts/refresh-source-coverage.js") < localSteps.findIndex(step=>step[0]==="scripts/apply-reviewed-fixture-timing.js"), "reviewed host clocks must follow the canonical source observation");
 assert(localSteps.findIndex(step=>step[0]==="scripts/apply-reviewed-fixture-timing.js") < localSteps.findIndex(step=>step[0]==="scripts/build-code-inspector.js"), "reviewed timing must persist before shared projections");
 const quickSteps = buildQuickSteps(["--quick", "--offline"]);
-assert.deepEqual(quickSteps, [["scripts/quick-results.js", "--offline"]], "quick score updates must run without active-follow snapshot access");
+assert.deepEqual(quickSteps, [["scripts/validate-fixture-history-retention.js"], ["scripts/quick-results.js", "--offline"]], "quick score updates must retain the isolated history guard without active-follow snapshot access");
+const quickGateRoot = fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-quick-history-guard-"));
+try {
+  const hook = path.join(quickGateRoot, "preload.cjs");
+  for (const guardFails of [true, false]) {
+    fs.writeFileSync(hook, "const cp=require('node:child_process'),seen=[],guardFails=" + JSON.stringify(guardFails) + ";cp.spawnSync=(command,args)=>{seen.push(args);if(args[0]==='scripts/validate-fixture-history-retention.js')return {status:guardFails?1:0};if(args[0]==='scripts/quick-results.js'&&!guardFails)return {status:0};throw Error('Unexpected quick subprocess: '+args[0]);};process.on('exit',()=>process.stdout.write('QUICK_HISTORY_GUARD '+JSON.stringify(seen)+'\\n'));\n");
+    const result = spawnSync(process.execPath, ['--require', hook, path.join(__dirname, 'update-cards.js'), '--quick', '--offline', '--local-only', '-p'], {cwd: path.resolve(__dirname, '..'), encoding: 'utf8', env: {PATH: process.env.PATH, LANG: process.env.LANG, FOOTBALL_DATA_RUN_DIR: path.join(quickGateRoot, 'diagnostics'), GOLF_SOURCE_REPORT: path.join(quickGateRoot, 'golf.json')}});
+    assert.equal(result.status, guardFails ? 1 : 0, result.stderr);
+    const trace = result.stdout.match(/QUICK_HISTORY_GUARD (\[[^\n]+\])/);
+    assert(trace, 'the real quick entrypoint must emit its subprocess trace');
+    assert.deepEqual(JSON.parse(trace[1]), guardFails ? [quickSteps[0]] : quickSteps, 'a failed history guard stops before quick results; a passing guard continues exactly once');
+  }
+} finally {fs.rmSync(quickGateRoot, {recursive: true, force: true});}
 // Exercise the real entrypoint. Unsupported offline routes must reject before
 // diagnostics, temporary files or subprocess dispatch can perform any work.
 const offlineBoundaryRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nothingsport-offline-boundary-'));
@@ -384,7 +396,7 @@ for (const name of [
 const quickFixtureRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nothingsport-quick-qa-'));
 let quickResult;
 try{
-  for(const directory of ['scripts','config','lib','api','data','feeds','schemas','assets'])fs.cpSync(path.join(projectRoot,directory),path.join(quickFixtureRoot,directory),{recursive:true});
+  for(const directory of ['scripts','config','lib','api','data','feeds','schemas','assets','supabase/migrations'])fs.cpSync(path.join(projectRoot,directory),path.join(quickFixtureRoot,directory),{recursive:true});
   for(const file of ['package.json','index.html','service-worker.js','app-version.json','vercel.json'])fs.copyFileSync(path.join(projectRoot,file),path.join(quickFixtureRoot,file));
   fs.symlinkSync(path.join(projectRoot,'node_modules'),path.join(quickFixtureRoot,'node_modules'),'dir');
   quickResult = spawnSync(process.execPath, ["scripts/update-cards.js", "--quick", "--offline", "--local-only"], {
@@ -392,6 +404,7 @@ try{
     env:quickEnvironment,
     encoding:"utf8",
   });
+  assert.equal(quickResult.status, 0, `isolated quick pipeline must retain the real history guard and its schema dependencies:\n${quickResult.stderr}`);
   // Keep the actual verifier intact: a fixture without a result passes before
   // its deadline, fails at the deadline, and fails as confirmed completed even
   // with the isolated clock. Only this disposable fixture is synthetic.
