@@ -14901,32 +14901,6 @@ function buildCompactParticipant(identity,ev){
   if(mark.url||mark.logo?.primary){const image=document.createElement('img');image.className='compact-participant-mark';image.alt='';image.loading='lazy';image.decoding='async';image.addEventListener('load',()=>fallback.remove(),{once:true});image.addEventListener('error',()=>image.remove(),{once:true});applyTeamLogoAsset(image,mark,'icon',themeUsesDarkAssets());frame.appendChild(image);if(image.complete&&image.naturalWidth>0)fallback.remove();}
   side.appendChild(participantProfileLink(identity.participant?.id||mark.id,identity.label,ev.key));return side;
 }
-function compactFixtureFormat(ev){
-  const values=[ev.format,ev.matchFormat,ev.playingFormat,ev.discipline,ev.drawName,ev.competitionFormat].filter(Boolean).join(' ');
-  const context=[values,ev.roundLabel,ev.round,ev.stage,ev.name,ev.displayTitleCompact].filter(Boolean).join(' ');
-  if(['tennis','wimbledon'].includes(ev.key)){
-    const gender=NOTHINGSPORTS_FIXTURE_LABELS.gender(ev);
-    const sides=Array.isArray(ev.matchupSides)?ev.matchupSides:[];
-    const doubles=/doubles/i.test(context)||sides.some(side=>(side.players||[]).length>1);
-    const eventType=doubles?'Doubles':'Singles';
-    return `${gender==='women'?"Women’s":gender==='mixed'?'Mixed':"Men’s"} ${eventType}`;
-  }
-  if(ev.key==='cricket')return cricketPlayingFormatForEvent(ev)||String(ev.format||ev.matchFormat||'').trim();
-  if(/\b(?:grand )?final\b/i.test(context))return activeTab==='feed' ? NOTHINGSPORTS_FIXTURE_LABELS.badge(ev) : 'Final';
-  return String(ev.format||ev.matchFormat||ev.playingFormat||ev.discipline||'').trim();
-}
-function compactFixtureStage(ev,format){
-  const stage=String(FOLLOW_FIRST?.stageLabel?.(ev)||ev.roundLabel||ev.round||ev.stage||'').trim();
-  return stage&&stage.toLowerCase()!==String(format||'').toLowerCase()?stage:'';
-}
-function buildCompactMatchupMiddle(ev){
-  const middle=document.createElement('span');middle.className='compact-matchup-middle';
-  const format=compactFixtureFormat(ev),stage=compactFixtureStage(ev,format);
-  if(format){const badge=document.createElement('span');badge.className='matchup-format-badge compact-format-badge';badge.textContent=format;middle.appendChild(badge);}
-  else{const versus=document.createElement('span');versus.className='compact-matchup-v';versus.textContent='v';middle.appendChild(versus);}
-  if(stage && activeTab!=='feed'){const detail=document.createElement('small');detail.className='compact-stage-label';detail.textContent=stage;middle.appendChild(detail);}
-  return middle;
-}
 function buildCompactCardSummary(ev,{minimal=false}={}){
   const summary=document.createElement('div');summary.className='compact-card-summary';
   if(ev.timePrecision==='not-before')summary.dataset.timePrecision='not-before';

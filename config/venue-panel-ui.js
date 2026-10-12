@@ -102,8 +102,9 @@ function buildTennisFixtureContext(ev){
 }
 function buildTournamentMarker(event){
  const id=String(event.eventId||event.id),card=document.createElement('article');card.className='event-card tournament-start-marker';card.dataset.eventId=id;card.dataset.scrollKey=`event:calendar:${id}`;
- const details=document.createElement('details'),summary=document.createElement('summary');details.className='feed-tournament-details';details.open=tennisFeedOpenParents.has(id);summary.setAttribute('aria-label','Expand '+event.name);
- const title=document.createElement('h3');title.textContent=event.name;const dates=document.createElement('p'),timing=NOTHINGSPORTS_CARD_TIMING.presentation(event,nowAEST());dates.textContent=timing.progress||[event.date,event.endDate!==event.date?event.endDate:null].filter(Boolean).map(value=>NOTHINGSPORTS_AUSTRALIAN_DATES.date(value)).join(' – ');dates.title=timing.ariaLabel;summary.append(title,dates);details.append(summary);if(timing.progress){const full=document.createElement('p');full.className='fixture-source-dates';full.textContent=timing.fullSchedule;details.append(full);}
+ const details=document.createElement('details'),summary=document.createElement('summary');details.className='feed-tournament-details';details.open=tennisFeedOpenParents.has(id);
+ const title=document.createElement('h3');title.textContent=event.name;const dates=document.createElement('p'),timing=NOTHINGSPORTS_CARD_TIMING.presentation(event,nowAEST());dates.textContent=(timing.progress||[event.date,event.endDate!==event.date?event.endDate:null].filter(Boolean).map(value=>NOTHINGSPORTS_AUSTRALIAN_DATES.date(value)).join(' – '))+(timing.status==='FINISHED'?' · FINISHED':'');dates.title=timing.ariaLabel;summary.append(title,dates);details.append(summary);if(timing.progress){const full=document.createElement('p');full.className='fixture-source-dates';full.textContent=timing.fullSchedule;details.append(full);}
+ summary.setAttribute('aria-label','Expand '+event.name+'. '+timing.ariaLabel);
  const content=document.createElement('div');content.className='feed-tournament-appearances';details.append(content);let mounted=false;
  const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=509').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
  card.append(details,buildEventCardControls(event,{card}));if(details.open)queueMicrotask(mount);return card;
@@ -133,4 +134,31 @@ function buildFixtureTimingGroup(ev){
   const stage=context?'':FOLLOW_FIRST.stageLabel(ev);
   if(stage){const label=document.createElement('span');label.className='fixture-stage-label';label.textContent=stage.toUpperCase();group.appendChild(label);}
   return group;
+}
+
+function compactFixtureFormat(ev){
+  const values=[ev.format,ev.matchFormat,ev.playingFormat,ev.discipline,ev.drawName,ev.competitionFormat].filter(Boolean).join(' ');
+  const context=[values,ev.roundLabel,ev.round,ev.stage,ev.name,ev.displayTitleCompact].filter(Boolean).join(' ');
+  if(['tennis','wimbledon'].includes(ev.key)){
+    const gender=NOTHINGSPORTS_FIXTURE_LABELS.gender(ev);
+    const sides=Array.isArray(ev.matchupSides)?ev.matchupSides:[];
+    const doubles=/doubles/i.test(context)||sides.some(side=>(side.players||[]).length>1);
+    const eventType=doubles?'Doubles':'Singles';
+    return `${gender==='women'?"Women’s":gender==='mixed'?'Mixed':"Men’s"} ${eventType}`;
+  }
+  if(ev.key==='cricket')return cricketPlayingFormatForEvent(ev)||String(ev.format||ev.matchFormat||'').trim();
+  if(/\b(?:grand )?final\b/i.test(context))return activeTab==='feed' ? NOTHINGSPORTS_FIXTURE_LABELS.badge(ev) : 'Final';
+  return String(ev.format||ev.matchFormat||ev.playingFormat||ev.discipline||'').trim();
+}
+function compactFixtureStage(ev,format){
+  const stage=String(FOLLOW_FIRST?.stageLabel?.(ev)||ev.roundLabel||ev.round||ev.stage||'').trim();
+  return stage&&stage.toLowerCase()!==String(format||'').toLowerCase()?stage:'';
+}
+function buildCompactMatchupMiddle(ev){
+  const middle=document.createElement('span');middle.className='compact-matchup-middle';
+  const format=compactFixtureFormat(ev),stage=compactFixtureStage(ev,format);
+  if(format){const badge=document.createElement('span');badge.className='matchup-format-badge compact-format-badge';badge.textContent=format;middle.appendChild(badge);}
+  else{const versus=document.createElement('span');versus.className='compact-matchup-v';versus.textContent='v';middle.appendChild(versus);}
+  if(stage && activeTab!=='feed'){const detail=document.createElement('small');detail.className='compact-stage-label';detail.textContent=stage;middle.appendChild(detail);}
+  return middle;
 }
