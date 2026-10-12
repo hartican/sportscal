@@ -25,9 +25,10 @@ console.log('Reported coverage, identity aliases, sourced dates, imagery and pro
 
 // Execute the browser's actual rating getter/setter against legacy saved aliases.
 const fs=require('node:fs'),vm=require('node:vm'),html=fs.readFileSync('index.html','utf8');
-const getter=html.slice(html.indexOf('function getActual('),html.indexOf('function actualStarValue('));
+const getter=html.slice(html.indexOf('function localRatingAliases('),html.indexOf('function actualStarValue('));
+assert(getter.includes('function localRatingAliases(')&&getter.includes('function getActual('),'Load the real rating reader and its alias dependency');
 const setter=html.slice(html.indexOf('function setEventRating('),html.indexOf('function archiveEvent('));
 for(const [legacy,canonical] of [['evt_87','fixture:cricket:espn:1525659'],['evt_88','fixture:cricket:espn:1525660'],['evt_89','fixture:cricket:espn:1525661'],['fixture:cricket:CA:40593','fixture:cricket:espn:1525658']]){
- const context={ratings:{[legacy]:5},NOTHINGSPORTS_FIXTURE_IDENTITY:identity,saveRatings(){},markSpoilerRevealed(){}};vm.createContext(context);vm.runInContext(getter+setter,context);assert.equal(context.getActual(canonical),5);assert.equal(context.setEventRating({id:canonical},5,{revealSpoilers:false}),true);assert.equal(context.getActual(canonical),null);assert.equal(Object.keys(context.ratings).length,0);context.ratings[legacy]=5;context.setEventRating({id:canonical},4,{revealSpoilers:false});assert.equal(context.getActual(canonical),4);assert.equal(context.ratings[legacy],undefined);
+ const context={ratings:{[legacy]:5},NOTHINGSPORTS_FIXTURE_IDENTITY:identity,EVENT_ACTION_IDENTITY:actions,saveRatings(){},markSpoilerRevealed(){}};vm.createContext(context);vm.runInContext(getter+setter,context);assert.equal(context.getActual(canonical),5);assert.equal(context.setEventRating({id:canonical},5,{revealSpoilers:false}),true);assert.equal(context.getActual(canonical),null);assert.equal(Object.keys(context.ratings).length,0);context.ratings[legacy]=5;context.setEventRating({id:canonical},4,{revealSpoilers:false});assert.equal(context.getActual(canonical),4);assert.equal(context.ratings[legacy],undefined);
 }
 console.log('Legacy saved ratings remain readable, editable and removable through reviewed aliases.');

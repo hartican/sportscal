@@ -31,9 +31,10 @@ for(const collection of [[curated,worldRugby],[worldRugby,curated]]){
  const newEnd=identity.normalizeCore({...worldRugby,endTimeUtc:'2026-09-27T11:46:00.000Z',endTimeBasis:'confirmed',actualEndTimeUtc:'2026-09-27T11:46:00.000Z'});
  assert.equal(newEnd.endTimeUtc,'2026-09-27T11:46:00.000Z','confirmed end is never shifted');
 }
-const html=fs.readFileSync('index.html','utf8'),getter=html.slice(html.indexOf('function getActual('),html.indexOf('function actualStarValue(')),setter=html.slice(html.indexOf('function setEventRating('),html.indexOf('function archiveEvent('));
+const html=fs.readFileSync('index.html','utf8'),getter=html.slice(html.indexOf('function localRatingAliases('),html.indexOf('function actualStarValue(')),setter=html.slice(html.indexOf('function setEventRating('),html.indexOf('function archiveEvent('));
+assert(getter.includes('function localRatingAliases(')&&getter.includes('function getActual('),'Load the real rating reader and its alias dependency');
 for(const legacy of aliases){
- const ctx={ratings:{[legacy]:5},NOTHINGSPORTS_FIXTURE_IDENTITY:identity,saveRatings(){},markSpoilerRevealed(){}};vm.createContext(ctx);vm.runInContext(getter+setter,ctx);
+ const ctx={ratings:{[legacy]:5},NOTHINGSPORTS_FIXTURE_IDENTITY:identity,EVENT_ACTION_IDENTITY:actions,saveRatings(){},markSpoilerRevealed(){}};vm.createContext(ctx);vm.runInContext(getter+setter,ctx);
  assert.equal(ctx.getActual(canonical),5);ctx.setEventRating({id:canonical},4,{revealSpoilers:false});assert.equal(ctx.getActual(canonical),4);assert.equal(ctx.ratings[legacy],undefined);
 }
 if(process.argv.includes('--published')){
