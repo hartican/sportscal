@@ -1,0 +1,156 @@
+{
+  "recordedAt": "2026-10-12 20:31:14 UTC",
+  "kind": "Read-only actual alert dependencies; no customer data",
+  "columns": [
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "id",
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "recipient_user_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "rater_user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "phase",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "created_at",
+      "default_value": "clock_timestamp()"
+    },
+    {
+      "type": "uuid",
+      "not_null": false,
+      "table_name": "nothingsports_friend_activity",
+      "column_name": "alert_id",
+      "default_value": null
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "id",
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "type": "uuid",
+      "not_null": true,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "recipient_user_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "event_id",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "created_at",
+      "default_value": "now()"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "ready_at",
+      "default_value": "(now() + '00:05:00'::interval)"
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "table_name": "nothingsports_live_rating_alerts",
+      "column_name": "completed_at",
+      "default_value": null
+    }
+  ],
+  "indexes": [
+    {
+      "definition": "CREATE UNIQUE INDEX nothingsports_friend_activity_pkey ON public.nothingsports_friend_activity USING btree (id)",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "definition": "CREATE INDEX nothingsports_friend_activity_recipient_user_id_created_at_idx ON public.nothingsports_friend_activity USING btree (recipient_user_id, created_at DESC)",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX nothingsports_friend_activity_recipient_user_id_rater_user__key ON public.nothingsports_friend_activity USING btree (recipient_user_id, rater_user_id, event_id, phase)",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "definition": "CREATE INDEX nothingsports_live_rating_alerts_pending ON public.nothingsports_live_rating_alerts USING btree (ready_at) WHERE (completed_at IS NULL)",
+      "table_name": "nothingsports_live_rating_alerts"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX nothingsports_live_rating_alerts_pkey ON public.nothingsports_live_rating_alerts USING btree (id)",
+      "table_name": "nothingsports_live_rating_alerts"
+    }
+  ],
+  "constraints": [
+    {
+      "conname": "nothingsports_friend_activity_alert_id_fkey",
+      "definition": "FOREIGN KEY (alert_id) REFERENCES nothingsports_live_rating_alerts(id)",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "conname": "nothingsports_friend_activity_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "conname": "nothingsports_friend_activity_rater_user_id_fkey",
+      "definition": "FOREIGN KEY (rater_user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "conname": "nothingsports_friend_activity_recipient_user_id_fkey",
+      "definition": "FOREIGN KEY (recipient_user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "conname": "nothingsports_friend_activity_recipient_user_id_rater_user__key",
+      "definition": "UNIQUE (recipient_user_id, rater_user_id, event_id, phase)",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "conname": "nothingsports_live_rating_alerts_pkey",
+      "definition": "PRIMARY KEY (id)",
+      "table_name": "nothingsports_live_rating_alerts"
+    },
+    {
+      "conname": "nothingsports_live_rating_alerts_recipient_user_id_fkey",
+      "definition": "FOREIGN KEY (recipient_user_id) REFERENCES auth.users(id) ON DELETE CASCADE",
+      "table_name": "nothingsports_live_rating_alerts"
+    }
+  ]
+}

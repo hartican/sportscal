@@ -39689,7 +39689,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128923"
+      "epl-2026-27-128923",
+      "event:premier-league:128923",
+      "football-premier-league-2026-27-401879301",
+      "event:football:premier-league:401879301"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -41142,7 +41145,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128926"
+      "epl-2026-27-128926",
+      "event:premier-league:128926",
+      "football-premier-league-2026-27-401879322",
+      "event:football:premier-league:401879322"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -41537,7 +41543,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128925"
+      "epl-2026-27-128925",
+      "event:premier-league:128925",
+      "football-premier-league-2026-27-401879300",
+      "event:football:premier-league:401879300"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -41658,7 +41667,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128927"
+      "epl-2026-27-128927",
+      "event:premier-league:128927",
+      "football-premier-league-2026-27-401879299",
+      "event:football:premier-league:401879299"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -41779,7 +41791,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128928"
+      "epl-2026-27-128928",
+      "event:premier-league:128928",
+      "football-premier-league-2026-27-401879298",
+      "event:football:premier-league:401879298"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -41964,7 +41979,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128924"
+      "epl-2026-27-128924",
+      "event:premier-league:128924",
+      "football-premier-league-2026-27-401879321",
+      "event:football:premier-league:401879321"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -43403,7 +43421,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128929"
+      "epl-2026-27-128929",
+      "event:premier-league:128929",
+      "football-premier-league-2026-27-401879297",
+      "event:football:premier-league:401879297"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -43577,7 +43598,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128930"
+      "epl-2026-27-128930",
+      "event:premier-league:128930",
+      "football-premier-league-2026-27-401879320",
+      "event:football:premier-league:401879320"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -43973,7 +43997,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128931"
+      "epl-2026-27-128931",
+      "event:premier-league:128931",
+      "football-premier-league-2026-27-401879319",
+      "event:football:premier-league:401879319"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -44242,7 +44269,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128932"
+      "epl-2026-27-128932",
+      "event:premier-league:128932",
+      "football-premier-league-2026-27-401879318",
+      "event:football:premier-league:401879318"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -46283,7 +46313,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128937"
+      "epl-2026-27-128937",
+      "event:premier-league:128937",
+      "football-premier-league-2026-27-401879294",
+      "event:football:premier-league:401879294"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -47941,7 +47974,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128939"
+      "epl-2026-27-128939",
+      "event:premier-league:128939",
+      "football-premier-league-2026-27-401879314",
+      "event:football:premier-league:401879314"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -48212,7 +48248,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128934"
+      "epl-2026-27-128934",
+      "event:premier-league:128934",
+      "football-premier-league-2026-27-401879296",
+      "event:football:premier-league:401879296"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -48386,7 +48425,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128936"
+      "epl-2026-27-128936",
+      "event:premier-league:128936",
+      "football-premier-league-2026-27-401879316",
+      "event:football:premier-league:401879316"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -48560,7 +48602,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128942"
+      "epl-2026-27-128942",
+      "event:premier-league:128942",
+      "football-premier-league-2026-27-401879312",
+      "event:football:premier-league:401879312"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -50433,7 +50478,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128935"
+      "epl-2026-27-128935",
+      "event:premier-league:128935",
+      "football-premier-league-2026-27-401879317",
+      "event:football:premier-league:401879317"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -50605,7 +50653,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128938"
+      "epl-2026-27-128938",
+      "event:premier-league:128938",
+      "football-premier-league-2026-27-401879315",
+      "event:football:premier-league:401879315"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -50778,7 +50829,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128941"
+      "epl-2026-27-128941",
+      "event:premier-league:128941",
+      "football-premier-league-2026-27-401879313",
+      "event:football:premier-league:401879313"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -51049,7 +51103,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128940"
+      "epl-2026-27-128940",
+      "event:premier-league:128940",
+      "football-premier-league-2026-27-401879293",
+      "event:football:premier-league:401879293"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -51223,7 +51280,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128933"
+      "epl-2026-27-128933",
+      "event:premier-league:128933",
+      "football-premier-league-2026-27-401879295",
+      "event:football:premier-league:401879295"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -54604,7 +54664,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128949"
+      "epl-2026-27-128949",
+      "event:premier-league:128949",
+      "football-premier-league-2026-27-401879288",
+      "event:football:premier-league:401879288"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -56848,7 +56911,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128951"
+      "epl-2026-27-128951",
+      "event:premier-league:128951",
+      "football-premier-league-2026-27-401879286",
+      "event:football:premier-league:401879286"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -57217,7 +57283,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128944"
+      "epl-2026-27-128944",
+      "event:premier-league:128944",
+      "football-premier-league-2026-27-401879311",
+      "event:football:premier-league:401879311"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -57390,7 +57459,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128945"
+      "epl-2026-27-128945",
+      "event:premier-league:128945",
+      "football-premier-league-2026-27-401879290",
+      "event:football:premier-league:401879290"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -57563,7 +57635,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128947"
+      "epl-2026-27-128947",
+      "event:premier-league:128947",
+      "football-premier-league-2026-27-401879289",
+      "event:football:premier-league:401879289"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -57737,7 +57812,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128950"
+      "epl-2026-27-128950",
+      "event:premier-league:128950",
+      "football-premier-league-2026-27-401879287",
+      "event:football:premier-league:401879287"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -57911,7 +57989,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128952"
+      "epl-2026-27-128952",
+      "event:premier-league:128952",
+      "football-premier-league-2026-27-401878780",
+      "event:football:premier-league:401878780"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -58915,7 +58996,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128948"
+      "epl-2026-27-128948",
+      "event:premier-league:128948",
+      "football-premier-league-2026-27-401878781",
+      "event:football:premier-league:401878781"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -61381,7 +61465,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128946"
+      "epl-2026-27-128946",
+      "event:premier-league:128946",
+      "football-premier-league-2026-27-401879291",
+      "event:football:premier-league:401879291"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -62233,7 +62320,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128943"
+      "epl-2026-27-128943",
+      "event:premier-league:128943",
+      "football-premier-league-2026-27-401879292",
+      "event:football:premier-league:401879292"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -70172,7 +70262,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128953"
+      "epl-2026-27-128953",
+      "event:premier-league:128953",
+      "football-premier-league-2026-27-401879284",
+      "event:football:premier-league:401879284"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -70346,7 +70439,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128954"
+      "epl-2026-27-128954",
+      "event:premier-league:128954",
+      "football-premier-league-2026-27-401879285",
+      "event:football:premier-league:401879285"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -70520,7 +70616,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128955"
+      "epl-2026-27-128955",
+      "event:premier-league:128955",
+      "football-premier-league-2026-27-401879283",
+      "event:football:premier-league:401879283"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -70694,7 +70793,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128957"
+      "epl-2026-27-128957",
+      "event:premier-league:128957",
+      "football-premier-league-2026-27-401879281",
+      "event:football:premier-league:401879281"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -70868,7 +70970,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128959"
+      "epl-2026-27-128959",
+      "event:premier-league:128959",
+      "football-premier-league-2026-27-401879279",
+      "event:football:premier-league:401879279"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -71339,7 +71444,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128962"
+      "epl-2026-27-128962",
+      "event:premier-league:128962",
+      "football-premier-league-2026-27-401879277",
+      "event:football:premier-league:401879277"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -71513,7 +71621,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128961"
+      "epl-2026-27-128961",
+      "event:premier-league:128961",
+      "football-premier-league-2026-27-401878779",
+      "event:football:premier-league:401878779"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -73044,7 +73155,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128956"
+      "epl-2026-27-128956",
+      "event:premier-league:128956",
+      "football-premier-league-2026-27-401879282",
+      "event:football:premier-league:401879282"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -73612,7 +73726,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128960"
+      "epl-2026-27-128960",
+      "event:premier-league:128960",
+      "football-premier-league-2026-27-401879278",
+      "event:football:premier-league:401879278"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -73937,7 +74054,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128958"
+      "epl-2026-27-128958",
+      "event:premier-league:128958",
+      "football-premier-league-2026-27-401879280",
+      "event:football:premier-league:401879280"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -74682,7 +74802,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128964"
+      "epl-2026-27-128964",
+      "event:premier-league:128964",
+      "football-premier-league-2026-27-401879275",
+      "event:football:premier-league:401879275"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -76462,7 +76585,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128972"
+      "epl-2026-27-128972",
+      "event:premier-league:128972",
+      "football-premier-league-2026-27-401879269",
+      "event:football:premier-league:401879269"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -77074,7 +77200,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128965"
+      "epl-2026-27-128965",
+      "event:premier-league:128965",
+      "football-premier-league-2026-27-401879274",
+      "event:football:premier-league:401879274"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -77248,7 +77377,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128966"
+      "epl-2026-27-128966",
+      "event:premier-league:128966",
+      "football-premier-league-2026-27-401878778",
+      "event:football:premier-league:401878778"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -77422,7 +77554,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128970"
+      "epl-2026-27-128970",
+      "event:premier-league:128970",
+      "football-premier-league-2026-27-401879271",
+      "event:football:premier-league:401879271"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -77596,7 +77731,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128971"
+      "epl-2026-27-128971",
+      "event:premier-league:128971",
+      "football-premier-league-2026-27-401879270",
+      "event:football:premier-league:401879270"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -79104,7 +79242,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128963"
+      "epl-2026-27-128963",
+      "event:premier-league:128963",
+      "football-premier-league-2026-27-401879276",
+      "event:football:premier-league:401879276"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -79277,7 +79418,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128968"
+      "epl-2026-27-128968",
+      "event:premier-league:128968",
+      "football-premier-league-2026-27-401879273",
+      "event:football:premier-league:401879273"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -79450,7 +79594,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128969"
+      "epl-2026-27-128969",
+      "event:premier-league:128969",
+      "football-premier-league-2026-27-401879272",
+      "event:football:premier-league:401879272"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -79821,7 +79968,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128967"
+      "epl-2026-27-128967",
+      "event:premier-league:128967",
+      "football-premier-league-2026-27-401878777",
+      "event:football:premier-league:401878777"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -133649,7 +133799,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128973"
+      "epl-2026-27-128973",
+      "event:premier-league:128973",
+      "football-premier-league-2026-27-401879268",
+      "event:football:premier-league:401879268"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -137758,7 +137911,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128974"
+      "epl-2026-27-128974",
+      "event:premier-league:128974",
+      "football-premier-league-2026-27-401878776",
+      "event:football:premier-league:401878776"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -137939,7 +138095,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128975"
+      "epl-2026-27-128975",
+      "event:premier-league:128975",
+      "football-premier-league-2026-27-401878775",
+      "event:football:premier-league:401878775"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -138120,7 +138279,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128979"
+      "epl-2026-27-128979",
+      "event:premier-league:128979",
+      "football-premier-league-2026-27-401879265",
+      "event:football:premier-league:401879265"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -138301,7 +138463,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128982"
+      "epl-2026-27-128982",
+      "event:premier-league:128982",
+      "football-premier-league-2026-27-401878772",
+      "event:football:premier-league:401878772"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -138482,7 +138647,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128981"
+      "epl-2026-27-128981",
+      "event:premier-league:128981",
+      "football-premier-league-2026-27-401878773",
+      "event:football:premier-league:401878773"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -141649,7 +141817,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128977"
+      "epl-2026-27-128977",
+      "event:premier-league:128977",
+      "football-premier-league-2026-27-401879266",
+      "event:football:premier-league:401879266"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -141824,7 +141995,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128978"
+      "epl-2026-27-128978",
+      "event:premier-league:128978",
+      "football-premier-league-2026-27-401878774",
+      "event:football:premier-league:401878774"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -141999,7 +142173,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128980"
+      "epl-2026-27-128980",
+      "event:premier-league:128980",
+      "football-premier-league-2026-27-401879264",
+      "event:football:premier-league:401879264"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -144575,7 +144752,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128976"
+      "epl-2026-27-128976",
+      "event:premier-league:128976",
+      "football-premier-league-2026-27-401879267",
+      "event:football:premier-league:401879267"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -149980,7 +150160,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128986"
+      "epl-2026-27-128986",
+      "event:premier-league:128986",
+      "football-premier-league-2026-27-401878771",
+      "event:football:premier-league:401878771"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -150997,7 +151180,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128984"
+      "epl-2026-27-128984",
+      "event:premier-league:128984",
+      "football-premier-league-2026-27-401879262",
+      "event:football:premier-league:401879262"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -151160,7 +151346,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128987"
+      "epl-2026-27-128987",
+      "event:premier-league:128987",
+      "football-premier-league-2026-27-401878770",
+      "event:football:premier-league:401878770"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -151323,7 +151512,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128989"
+      "epl-2026-27-128989",
+      "event:premier-league:128989",
+      "football-premier-league-2026-27-401879259",
+      "event:football:premier-league:401879259"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -151486,7 +151678,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128990"
+      "epl-2026-27-128990",
+      "event:premier-league:128990",
+      "football-premier-league-2026-27-401879258",
+      "event:football:premier-league:401879258"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -152964,7 +153159,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128983"
+      "epl-2026-27-128983",
+      "event:premier-league:128983",
+      "football-premier-league-2026-27-401879263",
+      "event:football:premier-league:401879263"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -153125,7 +153323,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128985"
+      "epl-2026-27-128985",
+      "event:premier-league:128985",
+      "football-premier-league-2026-27-401879261",
+      "event:football:premier-league:401879261"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -153288,7 +153489,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128988"
+      "epl-2026-27-128988",
+      "event:premier-league:128988",
+      "football-premier-league-2026-27-401879260",
+      "event:football:premier-league:401879260"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -153451,7 +153655,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128991"
+      "epl-2026-27-128991",
+      "event:premier-league:128991",
+      "football-premier-league-2026-27-401878769",
+      "event:football:premier-league:401878769"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -153795,7 +154002,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128992"
+      "epl-2026-27-128992",
+      "event:premier-league:128992",
+      "football-premier-league-2026-27-401879257",
+      "event:football:premier-league:401879257"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -155387,7 +155597,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128999"
+      "epl-2026-27-128999",
+      "event:premier-league:128999",
+      "football-premier-league-2026-27-401879253",
+      "event:football:premier-league:401879253"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -156660,7 +156873,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128994"
+      "epl-2026-27-128994",
+      "event:premier-league:128994",
+      "football-premier-league-2026-27-401879256",
+      "event:football:premier-league:401879256"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -157248,7 +157464,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128993"
+      "epl-2026-27-128993",
+      "event:premier-league:128993",
+      "football-premier-league-2026-27-401878768",
+      "event:football:premier-league:401878768"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -157411,7 +157630,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128996"
+      "epl-2026-27-128996",
+      "event:premier-league:128996",
+      "football-premier-league-2026-27-401879255",
+      "event:football:premier-league:401879255"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -157574,7 +157796,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128995"
+      "epl-2026-27-128995",
+      "event:premier-league:128995",
+      "football-premier-league-2026-27-401878767",
+      "event:football:premier-league:401878767"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -159050,7 +159275,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128997"
+      "epl-2026-27-128997",
+      "event:premier-league:128997",
+      "football-premier-league-2026-27-401879254",
+      "event:football:premier-league:401879254"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -159213,7 +159441,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-128998"
+      "epl-2026-27-128998",
+      "event:premier-league:128998",
+      "football-premier-league-2026-27-401878766",
+      "event:football:premier-league:401878766"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -159376,7 +159607,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129000"
+      "epl-2026-27-129000",
+      "event:premier-league:129000",
+      "football-premier-league-2026-27-401878765",
+      "event:football:premier-league:401878765"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -159539,7 +159773,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129001"
+      "epl-2026-27-129001",
+      "event:premier-league:129001",
+      "football-premier-league-2026-27-401879252",
+      "event:football:premier-league:401879252"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -159702,7 +159939,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129002"
+      "epl-2026-27-129002",
+      "event:premier-league:129002",
+      "football-premier-league-2026-27-401878764",
+      "event:football:premier-league:401878764"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -162389,7 +162629,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129006"
+      "epl-2026-27-129006",
+      "event:premier-league:129006",
+      "football-premier-league-2026-27-401879248",
+      "event:football:premier-league:401879248"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -162759,7 +163002,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129004"
+      "epl-2026-27-129004",
+      "event:premier-league:129004",
+      "football-premier-league-2026-27-401879251",
+      "event:football:premier-league:401879251"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -162922,7 +163168,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129005"
+      "epl-2026-27-129005",
+      "event:premier-league:129005",
+      "football-premier-league-2026-27-401879249",
+      "event:football:premier-league:401879249"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -163083,7 +163332,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129007"
+      "epl-2026-27-129007",
+      "event:premier-league:129007",
+      "football-premier-league-2026-27-401879247",
+      "event:football:premier-league:401879247"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -163246,7 +163498,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129008"
+      "epl-2026-27-129008",
+      "event:premier-league:129008",
+      "football-premier-league-2026-27-401878763",
+      "event:football:premier-league:401878763"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -163409,7 +163664,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129010"
+      "epl-2026-27-129010",
+      "event:premier-league:129010",
+      "football-premier-league-2026-27-401879245",
+      "event:football:premier-league:401879245"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -163572,7 +163830,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129012"
+      "epl-2026-27-129012",
+      "event:premier-league:129012",
+      "football-premier-league-2026-27-401878761",
+      "event:football:premier-league:401878761"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -163865,7 +164126,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129003"
+      "epl-2026-27-129003",
+      "event:premier-league:129003",
+      "football-premier-league-2026-27-401879250",
+      "event:football:premier-league:401879250"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -165122,7 +165386,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129009"
+      "epl-2026-27-129009",
+      "event:premier-league:129009",
+      "football-premier-league-2026-27-401879246",
+      "event:football:premier-league:401879246"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -165622,7 +165889,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129011"
+      "epl-2026-27-129011",
+      "event:premier-league:129011",
+      "football-premier-league-2026-27-401878762",
+      "event:football:premier-league:401878762"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -167860,7 +168130,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129016"
+      "epl-2026-27-129016",
+      "event:premier-league:129016",
+      "football-premier-league-2026-27-401879242",
+      "event:football:premier-league:401879242"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -168451,7 +168724,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129019"
+      "epl-2026-27-129019",
+      "event:premier-league:129019",
+      "football-premier-league-2026-27-401878758",
+      "event:football:premier-league:401878758"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -168848,7 +169124,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129013"
+      "epl-2026-27-129013",
+      "event:premier-league:129013",
+      "football-premier-league-2026-27-401878760",
+      "event:football:premier-league:401878760"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -169011,7 +169290,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129017"
+      "epl-2026-27-129017",
+      "event:premier-league:129017",
+      "football-premier-league-2026-27-401879241",
+      "event:football:premier-league:401879241"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -169174,7 +169456,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129021"
+      "epl-2026-27-129021",
+      "event:premier-league:129021",
+      "football-premier-league-2026-27-401878757",
+      "event:football:premier-league:401878757"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -169879,7 +170164,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129014"
+      "epl-2026-27-129014",
+      "event:premier-league:129014",
+      "football-premier-league-2026-27-401879244",
+      "event:football:premier-league:401879244"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -170040,7 +170328,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129015"
+      "epl-2026-27-129015",
+      "event:premier-league:129015",
+      "football-premier-league-2026-27-401879243",
+      "event:football:premier-league:401879243"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -170203,7 +170494,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129018"
+      "epl-2026-27-129018",
+      "event:premier-league:129018",
+      "football-premier-league-2026-27-401878759",
+      "event:football:premier-league:401878759"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -170366,7 +170660,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129022"
+      "epl-2026-27-129022",
+      "event:premier-league:129022",
+      "football-premier-league-2026-27-401879239",
+      "event:football:premier-league:401879239"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -170610,7 +170907,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129020"
+      "epl-2026-27-129020",
+      "event:premier-league:129020",
+      "football-premier-league-2026-27-401879240",
+      "event:football:premier-league:401879240"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -175567,7 +175867,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129030"
+      "epl-2026-27-129030",
+      "event:premier-league:129030",
+      "football-premier-league-2026-27-401879233",
+      "event:football:premier-league:401879233"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -175839,7 +176142,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129023"
+      "epl-2026-27-129023",
+      "event:premier-league:129023",
+      "football-premier-league-2026-27-401878756",
+      "event:football:premier-league:401878756"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -175946,7 +176252,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129024"
+      "epl-2026-27-129024",
+      "event:premier-league:129024",
+      "football-premier-league-2026-27-401879238",
+      "event:football:premier-league:401879238"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -176053,7 +176362,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129026"
+      "epl-2026-27-129026",
+      "event:premier-league:129026",
+      "football-premier-league-2026-27-401879236",
+      "event:football:premier-league:401879236"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -176160,7 +176472,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129027"
+      "epl-2026-27-129027",
+      "event:premier-league:129027",
+      "football-premier-league-2026-27-401879235",
+      "event:football:premier-league:401879235"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -176267,7 +176582,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129032"
+      "epl-2026-27-129032",
+      "event:premier-league:129032",
+      "football-premier-league-2026-27-401878754",
+      "event:football:premier-league:401878754"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -176374,7 +176692,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129031"
+      "epl-2026-27-129031",
+      "event:premier-league:129031",
+      "football-premier-league-2026-27-401879232",
+      "event:football:premier-league:401879232"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -177069,7 +177390,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129028"
+      "epl-2026-27-129028",
+      "event:premier-league:129028",
+      "football-premier-league-2026-27-401879234",
+      "event:football:premier-league:401879234"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -177176,7 +177500,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129029"
+      "epl-2026-27-129029",
+      "event:premier-league:129029",
+      "football-premier-league-2026-27-401878755",
+      "event:football:premier-league:401878755"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -177283,7 +177610,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129025"
+      "epl-2026-27-129025",
+      "event:premier-league:129025",
+      "football-premier-league-2026-27-401879237",
+      "event:football:premier-league:401879237"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -178126,7 +178456,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129041"
+      "epl-2026-27-129041",
+      "event:premier-league:129041",
+      "football-premier-league-2026-27-401879225",
+      "event:football:premier-league:401879225"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -178504,7 +178837,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129039"
+      "epl-2026-27-129039",
+      "event:premier-league:129039",
+      "football-premier-league-2026-27-401879227",
+      "event:football:premier-league:401879227"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -178611,7 +178947,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129040"
+      "epl-2026-27-129040",
+      "event:premier-league:129040",
+      "football-premier-league-2026-27-401879226",
+      "event:football:premier-league:401879226"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -178718,7 +179057,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129038"
+      "epl-2026-27-129038",
+      "event:premier-league:129038",
+      "football-premier-league-2026-27-401878752",
+      "event:football:premier-league:401878752"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -179056,7 +179398,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129036"
+      "epl-2026-27-129036",
+      "event:premier-league:129036",
+      "football-premier-league-2026-27-401879229",
+      "event:football:premier-league:401879229"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -179163,7 +179508,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129034"
+      "epl-2026-27-129034",
+      "event:premier-league:129034",
+      "football-premier-league-2026-27-401879231",
+      "event:football:premier-league:401879231"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -179270,7 +179618,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129035"
+      "epl-2026-27-129035",
+      "event:premier-league:129035",
+      "football-premier-league-2026-27-401879230",
+      "event:football:premier-league:401879230"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -179377,7 +179728,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129037"
+      "epl-2026-27-129037",
+      "event:premier-league:129037",
+      "football-premier-league-2026-27-401879228",
+      "event:football:premier-league:401879228"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -179484,7 +179838,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129042"
+      "epl-2026-27-129042",
+      "event:premier-league:129042",
+      "football-premier-league-2026-27-401879224",
+      "event:football:premier-league:401879224"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -179688,7 +180045,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129033"
+      "epl-2026-27-129033",
+      "event:premier-league:129033",
+      "football-premier-league-2026-27-401878753",
+      "event:football:premier-league:401878753"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -180135,7 +180495,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129043"
+      "epl-2026-27-129043",
+      "event:premier-league:129043",
+      "football-premier-league-2026-27-401878751",
+      "event:football:premier-league:401878751"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -180236,7 +180599,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129044"
+      "epl-2026-27-129044",
+      "event:premier-league:129044",
+      "football-premier-league-2026-27-401879223",
+      "event:football:premier-league:401879223"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -180337,7 +180703,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129045"
+      "epl-2026-27-129045",
+      "event:premier-league:129045",
+      "football-premier-league-2026-27-401878750",
+      "event:football:premier-league:401878750"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -180438,7 +180807,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129046"
+      "epl-2026-27-129046",
+      "event:premier-league:129046",
+      "football-premier-league-2026-27-401879222",
+      "event:football:premier-league:401879222"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -180539,7 +180911,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129047"
+      "epl-2026-27-129047",
+      "event:premier-league:129047",
+      "football-premier-league-2026-27-401879221",
+      "event:football:premier-league:401879221"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -180640,7 +181015,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129048"
+      "epl-2026-27-129048",
+      "event:premier-league:129048",
+      "football-premier-league-2026-27-401879220",
+      "event:football:premier-league:401879220"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -180741,7 +181119,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129049"
+      "epl-2026-27-129049",
+      "event:premier-league:129049",
+      "football-premier-league-2026-27-401879219",
+      "event:football:premier-league:401879219"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -180842,7 +181223,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129050"
+      "epl-2026-27-129050",
+      "event:premier-league:129050",
+      "football-premier-league-2026-27-401879218",
+      "event:football:premier-league:401879218"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -180943,7 +181327,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129051"
+      "epl-2026-27-129051",
+      "event:premier-league:129051",
+      "football-premier-league-2026-27-401879217",
+      "event:football:premier-league:401879217"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -181044,7 +181431,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129052"
+      "epl-2026-27-129052",
+      "event:premier-league:129052",
+      "football-premier-league-2026-27-401878749",
+      "event:football:premier-league:401878749"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -182580,7 +182970,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129053"
+      "epl-2026-27-129053",
+      "event:premier-league:129053",
+      "football-premier-league-2026-27-401879215",
+      "event:football:premier-league:401879215"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -182681,7 +183074,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129054"
+      "epl-2026-27-129054",
+      "event:premier-league:129054",
+      "football-premier-league-2026-27-401879216",
+      "event:football:premier-league:401879216"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -182782,7 +183178,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129055"
+      "epl-2026-27-129055",
+      "event:premier-league:129055",
+      "football-premier-league-2026-27-401879214",
+      "event:football:premier-league:401879214"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -182883,7 +183282,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129056"
+      "epl-2026-27-129056",
+      "event:premier-league:129056",
+      "football-premier-league-2026-27-401879213",
+      "event:football:premier-league:401879213"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -182984,7 +183386,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129057"
+      "epl-2026-27-129057",
+      "event:premier-league:129057",
+      "football-premier-league-2026-27-401879212",
+      "event:football:premier-league:401879212"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -183085,7 +183490,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129058"
+      "epl-2026-27-129058",
+      "event:premier-league:129058",
+      "football-premier-league-2026-27-401879211",
+      "event:football:premier-league:401879211"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -183186,7 +183594,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129059"
+      "epl-2026-27-129059",
+      "event:premier-league:129059",
+      "football-premier-league-2026-27-401879210",
+      "event:football:premier-league:401879210"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -183287,7 +183698,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129060"
+      "epl-2026-27-129060",
+      "event:premier-league:129060",
+      "football-premier-league-2026-27-401878748",
+      "event:football:premier-league:401878748"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -183388,7 +183802,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129061"
+      "epl-2026-27-129061",
+      "event:premier-league:129061",
+      "football-premier-league-2026-27-401878747",
+      "event:football:premier-league:401878747"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -183489,7 +183906,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129062"
+      "epl-2026-27-129062",
+      "event:premier-league:129062",
+      "football-premier-league-2026-27-401879209",
+      "event:football:premier-league:401879209"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -185378,7 +185798,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129063"
+      "epl-2026-27-129063",
+      "event:premier-league:129063",
+      "football-premier-league-2026-27-401878746",
+      "event:football:premier-league:401878746"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -185479,7 +185902,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129064"
+      "epl-2026-27-129064",
+      "event:premier-league:129064",
+      "football-premier-league-2026-27-401878745",
+      "event:football:premier-league:401878745"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -185580,7 +186006,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129065"
+      "epl-2026-27-129065",
+      "event:premier-league:129065",
+      "football-premier-league-2026-27-401879208",
+      "event:football:premier-league:401879208"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -185681,7 +186110,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129066"
+      "epl-2026-27-129066",
+      "event:premier-league:129066",
+      "football-premier-league-2026-27-401879207",
+      "event:football:premier-league:401879207"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -185782,7 +186214,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129067"
+      "epl-2026-27-129067",
+      "event:premier-league:129067",
+      "football-premier-league-2026-27-401879206",
+      "event:football:premier-league:401879206"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -185883,7 +186318,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129068"
+      "epl-2026-27-129068",
+      "event:premier-league:129068",
+      "football-premier-league-2026-27-401879205",
+      "event:football:premier-league:401879205"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -185984,7 +186422,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129069"
+      "epl-2026-27-129069",
+      "event:premier-league:129069",
+      "football-premier-league-2026-27-401878744",
+      "event:football:premier-league:401878744"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -186085,7 +186526,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129070"
+      "epl-2026-27-129070",
+      "event:premier-league:129070",
+      "football-premier-league-2026-27-401878743",
+      "event:football:premier-league:401878743"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -186186,7 +186630,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129071"
+      "epl-2026-27-129071",
+      "event:premier-league:129071",
+      "football-premier-league-2026-27-401878742",
+      "event:football:premier-league:401878742"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -186287,7 +186734,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129072"
+      "epl-2026-27-129072",
+      "event:premier-league:129072",
+      "football-premier-league-2026-27-401878741",
+      "event:football:premier-league:401878741"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -187847,7 +188297,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129073"
+      "epl-2026-27-129073",
+      "event:premier-league:129073",
+      "football-premier-league-2026-27-401879204",
+      "event:football:premier-league:401879204"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -187948,7 +188401,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129074"
+      "epl-2026-27-129074",
+      "event:premier-league:129074",
+      "football-premier-league-2026-27-401878740",
+      "event:football:premier-league:401878740"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -188049,7 +188505,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129075"
+      "epl-2026-27-129075",
+      "event:premier-league:129075",
+      "football-premier-league-2026-27-401879203",
+      "event:football:premier-league:401879203"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -188150,7 +188609,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129076"
+      "epl-2026-27-129076",
+      "event:premier-league:129076",
+      "football-premier-league-2026-27-401878739",
+      "event:football:premier-league:401878739"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -188251,7 +188713,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129077"
+      "epl-2026-27-129077",
+      "event:premier-league:129077",
+      "football-premier-league-2026-27-401879202",
+      "event:football:premier-league:401879202"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -188352,7 +188817,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129078"
+      "epl-2026-27-129078",
+      "event:premier-league:129078",
+      "football-premier-league-2026-27-401879201",
+      "event:football:premier-league:401879201"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -188453,7 +188921,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129079"
+      "epl-2026-27-129079",
+      "event:premier-league:129079",
+      "football-premier-league-2026-27-401879200",
+      "event:football:premier-league:401879200"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -188554,7 +189025,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129080"
+      "epl-2026-27-129080",
+      "event:premier-league:129080",
+      "football-premier-league-2026-27-401879199",
+      "event:football:premier-league:401879199"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -188655,7 +189129,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129081"
+      "epl-2026-27-129081",
+      "event:premier-league:129081",
+      "football-premier-league-2026-27-401879198",
+      "event:football:premier-league:401879198"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -188756,7 +189233,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129082"
+      "epl-2026-27-129082",
+      "event:premier-league:129082",
+      "football-premier-league-2026-27-401878738",
+      "event:football:premier-league:401878738"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -190656,7 +191136,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129083"
+      "epl-2026-27-129083",
+      "event:premier-league:129083",
+      "football-premier-league-2026-27-401878737",
+      "event:football:premier-league:401878737"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -190757,7 +191240,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129086"
+      "epl-2026-27-129086",
+      "event:premier-league:129086",
+      "football-premier-league-2026-27-401879197",
+      "event:football:premier-league:401879197"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -190858,7 +191344,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129087"
+      "epl-2026-27-129087",
+      "event:premier-league:129087",
+      "football-premier-league-2026-27-401878734",
+      "event:football:premier-league:401878734"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -190959,7 +191448,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129089"
+      "epl-2026-27-129089",
+      "event:premier-league:129089",
+      "football-premier-league-2026-27-401879196",
+      "event:football:premier-league:401879196"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -191060,7 +191552,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129092"
+      "epl-2026-27-129092",
+      "event:premier-league:129092",
+      "football-premier-league-2026-27-401878731",
+      "event:football:premier-league:401878731"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -191161,7 +191656,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129088"
+      "epl-2026-27-129088",
+      "event:premier-league:129088",
+      "football-premier-league-2026-27-401878733",
+      "event:football:premier-league:401878733"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -191262,7 +191760,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129091"
+      "epl-2026-27-129091",
+      "event:premier-league:129091",
+      "football-premier-league-2026-27-401878732",
+      "event:football:premier-league:401878732"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -191776,7 +192277,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129084"
+      "epl-2026-27-129084",
+      "event:premier-league:129084",
+      "football-premier-league-2026-27-401878736",
+      "event:football:premier-league:401878736"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -191877,7 +192381,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129090"
+      "epl-2026-27-129090",
+      "event:premier-league:129090",
+      "football-premier-league-2026-27-401879195",
+      "event:football:premier-league:401879195"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -191978,7 +192485,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129085"
+      "epl-2026-27-129085",
+      "event:premier-league:129085",
+      "football-premier-league-2026-27-401878735",
+      "event:football:premier-league:401878735"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -192285,7 +192795,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129098"
+      "epl-2026-27-129098",
+      "event:premier-league:129098",
+      "football-premier-league-2026-27-401879190",
+      "event:football:premier-league:401879190"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -192386,7 +192899,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129102"
+      "epl-2026-27-129102",
+      "event:premier-league:129102",
+      "football-premier-league-2026-27-401879186",
+      "event:football:premier-league:401879186"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -192487,7 +193003,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129096"
+      "epl-2026-27-129096",
+      "event:premier-league:129096",
+      "football-premier-league-2026-27-401879192",
+      "event:football:premier-league:401879192"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -192794,7 +193313,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129094"
+      "epl-2026-27-129094",
+      "event:premier-league:129094",
+      "football-premier-league-2026-27-401878730",
+      "event:football:premier-league:401878730"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -192895,7 +193417,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129095"
+      "epl-2026-27-129095",
+      "event:premier-league:129095",
+      "football-premier-league-2026-27-401879193",
+      "event:football:premier-league:401879193"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -192996,7 +193521,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129097"
+      "epl-2026-27-129097",
+      "event:premier-league:129097",
+      "football-premier-league-2026-27-401879191",
+      "event:football:premier-league:401879191"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -193097,7 +193625,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129100"
+      "epl-2026-27-129100",
+      "event:premier-league:129100",
+      "football-premier-league-2026-27-401879188",
+      "event:football:premier-league:401879188"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -193198,7 +193729,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129101"
+      "epl-2026-27-129101",
+      "event:premier-league:129101",
+      "football-premier-league-2026-27-401879187",
+      "event:football:premier-league:401879187"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -193299,7 +193833,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129093"
+      "epl-2026-27-129093",
+      "event:premier-league:129093",
+      "football-premier-league-2026-27-401879194",
+      "event:football:premier-league:401879194"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -193400,7 +193937,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129099"
+      "epl-2026-27-129099",
+      "event:premier-league:129099",
+      "football-premier-league-2026-27-401879189",
+      "event:football:premier-league:401879189"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -194227,7 +194767,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129108"
+      "epl-2026-27-129108",
+      "event:premier-league:129108",
+      "football-premier-league-2026-27-401879182",
+      "event:football:premier-league:401879182"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -194756,7 +195299,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129106"
+      "epl-2026-27-129106",
+      "event:premier-league:129106",
+      "football-premier-league-2026-27-401878728",
+      "event:football:premier-league:401878728"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -194964,7 +195510,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129103"
+      "epl-2026-27-129103",
+      "event:premier-league:129103",
+      "football-premier-league-2026-27-401879185",
+      "event:football:premier-league:401879185"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -195065,7 +195614,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129105"
+      "epl-2026-27-129105",
+      "event:premier-league:129105",
+      "football-premier-league-2026-27-401879184",
+      "event:football:premier-league:401879184"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -195166,7 +195718,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129109"
+      "epl-2026-27-129109",
+      "event:premier-league:129109",
+      "football-premier-league-2026-27-401879181",
+      "event:football:premier-league:401879181"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -195267,7 +195822,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129111"
+      "epl-2026-27-129111",
+      "event:premier-league:129111",
+      "football-premier-league-2026-27-401879179",
+      "event:football:premier-league:401879179"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -195368,7 +195926,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129112"
+      "epl-2026-27-129112",
+      "event:premier-league:129112",
+      "football-premier-league-2026-27-401879178",
+      "event:football:premier-league:401879178"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -195469,7 +196030,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129104"
+      "epl-2026-27-129104",
+      "event:premier-league:129104",
+      "football-premier-league-2026-27-401878729",
+      "event:football:premier-league:401878729"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -196090,7 +196654,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129107"
+      "epl-2026-27-129107",
+      "event:premier-league:129107",
+      "football-premier-league-2026-27-401879183",
+      "event:football:premier-league:401879183"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -196191,7 +196758,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129110"
+      "epl-2026-27-129110",
+      "event:premier-league:129110",
+      "football-premier-league-2026-27-401879180",
+      "event:football:premier-league:401879180"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -196868,7 +197438,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129113"
+      "epl-2026-27-129113",
+      "event:premier-league:129113",
+      "football-premier-league-2026-27-401879177",
+      "event:football:premier-league:401879177"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -196969,7 +197542,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129114"
+      "epl-2026-27-129114",
+      "event:premier-league:129114",
+      "football-premier-league-2026-27-401879176",
+      "event:football:premier-league:401879176"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -197070,7 +197646,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129116"
+      "epl-2026-27-129116",
+      "event:premier-league:129116",
+      "football-premier-league-2026-27-401879174",
+      "event:football:premier-league:401879174"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -197171,7 +197750,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129121"
+      "epl-2026-27-129121",
+      "event:premier-league:129121",
+      "football-premier-league-2026-27-401879169",
+      "event:football:premier-league:401879169"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -197272,7 +197854,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129122"
+      "epl-2026-27-129122",
+      "event:premier-league:129122",
+      "football-premier-league-2026-27-401878727",
+      "event:football:premier-league:401878727"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -197892,7 +198477,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129115"
+      "epl-2026-27-129115",
+      "event:premier-league:129115",
+      "football-premier-league-2026-27-401879175",
+      "event:football:premier-league:401879175"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -197993,7 +198581,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129117"
+      "epl-2026-27-129117",
+      "event:premier-league:129117",
+      "football-premier-league-2026-27-401879173",
+      "event:football:premier-league:401879173"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -198094,7 +198685,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129118"
+      "epl-2026-27-129118",
+      "event:premier-league:129118",
+      "football-premier-league-2026-27-401879172",
+      "event:football:premier-league:401879172"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -198195,7 +198789,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129119"
+      "epl-2026-27-129119",
+      "event:premier-league:129119",
+      "football-premier-league-2026-27-401879171",
+      "event:football:premier-league:401879171"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -198617,7 +199214,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129120"
+      "epl-2026-27-129120",
+      "event:premier-league:129120",
+      "football-premier-league-2026-27-401879170",
+      "event:football:premier-league:401879170"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -201562,7 +202162,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129123"
+      "epl-2026-27-129123",
+      "event:premier-league:129123",
+      "football-premier-league-2026-27-401878725",
+      "event:football:premier-league:401878725"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -201663,7 +202266,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129124"
+      "epl-2026-27-129124",
+      "event:premier-league:129124",
+      "football-premier-league-2026-27-401878726",
+      "event:football:premier-league:401878726"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -201764,7 +202370,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129125"
+      "epl-2026-27-129125",
+      "event:premier-league:129125",
+      "football-premier-league-2026-27-401879168",
+      "event:football:premier-league:401879168"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -201865,7 +202474,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129126"
+      "epl-2026-27-129126",
+      "event:premier-league:129126",
+      "football-premier-league-2026-27-401879167",
+      "event:football:premier-league:401879167"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -201966,7 +202578,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129127"
+      "epl-2026-27-129127",
+      "event:premier-league:129127",
+      "football-premier-league-2026-27-401878724",
+      "event:football:premier-league:401878724"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -202067,7 +202682,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129128"
+      "epl-2026-27-129128",
+      "event:premier-league:129128",
+      "football-premier-league-2026-27-401878723",
+      "event:football:premier-league:401878723"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -202168,7 +202786,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129129"
+      "epl-2026-27-129129",
+      "event:premier-league:129129",
+      "football-premier-league-2026-27-401879166",
+      "event:football:premier-league:401879166"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -202269,7 +202890,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129130"
+      "epl-2026-27-129130",
+      "event:premier-league:129130",
+      "football-premier-league-2026-27-401878722",
+      "event:football:premier-league:401878722"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -202370,7 +202994,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129131"
+      "epl-2026-27-129131",
+      "event:premier-league:129131",
+      "football-premier-league-2026-27-401878721",
+      "event:football:premier-league:401878721"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -202471,7 +203098,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129132"
+      "epl-2026-27-129132",
+      "event:premier-league:129132",
+      "football-premier-league-2026-27-401879165",
+      "event:football:premier-league:401879165"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -204517,7 +205147,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129133"
+      "epl-2026-27-129133",
+      "event:premier-league:129133",
+      "football-premier-league-2026-27-401878720",
+      "event:football:premier-league:401878720"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -204618,7 +205251,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129134"
+      "epl-2026-27-129134",
+      "event:premier-league:129134",
+      "football-premier-league-2026-27-401879164",
+      "event:football:premier-league:401879164"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -204719,7 +205355,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129135"
+      "epl-2026-27-129135",
+      "event:premier-league:129135",
+      "football-premier-league-2026-27-401879163",
+      "event:football:premier-league:401879163"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -204820,7 +205459,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129136"
+      "epl-2026-27-129136",
+      "event:premier-league:129136",
+      "football-premier-league-2026-27-401879162",
+      "event:football:premier-league:401879162"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -204921,7 +205563,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129137"
+      "epl-2026-27-129137",
+      "event:premier-league:129137",
+      "football-premier-league-2026-27-401878719",
+      "event:football:premier-league:401878719"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -205022,7 +205667,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129138"
+      "epl-2026-27-129138",
+      "event:premier-league:129138",
+      "football-premier-league-2026-27-401879161",
+      "event:football:premier-league:401879161"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -205123,7 +205771,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129139"
+      "epl-2026-27-129139",
+      "event:premier-league:129139",
+      "football-premier-league-2026-27-401879160",
+      "event:football:premier-league:401879160"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -205224,7 +205875,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129140"
+      "epl-2026-27-129140",
+      "event:premier-league:129140",
+      "football-premier-league-2026-27-401878718",
+      "event:football:premier-league:401878718"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -205325,7 +205979,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129141"
+      "epl-2026-27-129141",
+      "event:premier-league:129141",
+      "football-premier-league-2026-27-401878717",
+      "event:football:premier-league:401878717"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -205426,7 +206083,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129142"
+      "epl-2026-27-129142",
+      "event:premier-league:129142",
+      "football-premier-league-2026-27-401879159",
+      "event:football:premier-league:401879159"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -207605,7 +208265,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129143"
+      "epl-2026-27-129143",
+      "event:premier-league:129143",
+      "football-premier-league-2026-27-401878716",
+      "event:football:premier-league:401878716"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -207706,7 +208369,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129144"
+      "epl-2026-27-129144",
+      "event:premier-league:129144",
+      "football-premier-league-2026-27-401879158",
+      "event:football:premier-league:401879158"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -207807,7 +208473,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129145"
+      "epl-2026-27-129145",
+      "event:premier-league:129145",
+      "football-premier-league-2026-27-401878715",
+      "event:football:premier-league:401878715"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -207908,7 +208577,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129146"
+      "epl-2026-27-129146",
+      "event:premier-league:129146",
+      "football-premier-league-2026-27-401878714",
+      "event:football:premier-league:401878714"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -208009,7 +208681,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129147"
+      "epl-2026-27-129147",
+      "event:premier-league:129147",
+      "football-premier-league-2026-27-401879157",
+      "event:football:premier-league:401879157"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -208110,7 +208785,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129148"
+      "epl-2026-27-129148",
+      "event:premier-league:129148",
+      "football-premier-league-2026-27-401879156",
+      "event:football:premier-league:401879156"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -208211,7 +208889,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129149"
+      "epl-2026-27-129149",
+      "event:premier-league:129149",
+      "football-premier-league-2026-27-401879155",
+      "event:football:premier-league:401879155"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -208312,7 +208993,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129150"
+      "epl-2026-27-129150",
+      "event:premier-league:129150",
+      "football-premier-league-2026-27-401879154",
+      "event:football:premier-league:401879154"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -208413,7 +209097,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129151"
+      "epl-2026-27-129151",
+      "event:premier-league:129151",
+      "football-premier-league-2026-27-401878713",
+      "event:football:premier-league:401878713"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -208514,7 +209201,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129152"
+      "epl-2026-27-129152",
+      "event:premier-league:129152",
+      "football-premier-league-2026-27-401879153",
+      "event:football:premier-league:401879153"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -210280,7 +210970,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129153"
+      "epl-2026-27-129153",
+      "event:premier-league:129153",
+      "football-premier-league-2026-27-401878712",
+      "event:football:premier-league:401878712"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -210381,7 +211074,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129154"
+      "epl-2026-27-129154",
+      "event:premier-league:129154",
+      "football-premier-league-2026-27-401878711",
+      "event:football:premier-league:401878711"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -210482,7 +211178,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129155"
+      "epl-2026-27-129155",
+      "event:premier-league:129155",
+      "football-premier-league-2026-27-401879152",
+      "event:football:premier-league:401879152"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -210583,7 +211282,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129156"
+      "epl-2026-27-129156",
+      "event:premier-league:129156",
+      "football-premier-league-2026-27-401879151",
+      "event:football:premier-league:401879151"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -210684,7 +211386,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129157"
+      "epl-2026-27-129157",
+      "event:premier-league:129157",
+      "football-premier-league-2026-27-401879150",
+      "event:football:premier-league:401879150"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -210785,7 +211490,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129158"
+      "epl-2026-27-129158",
+      "event:premier-league:129158",
+      "football-premier-league-2026-27-401879149",
+      "event:football:premier-league:401879149"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -210886,7 +211594,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129159"
+      "epl-2026-27-129159",
+      "event:premier-league:129159",
+      "football-premier-league-2026-27-401878710",
+      "event:football:premier-league:401878710"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -210987,7 +211698,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129160"
+      "epl-2026-27-129160",
+      "event:premier-league:129160",
+      "football-premier-league-2026-27-401879148",
+      "event:football:premier-league:401879148"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -211088,7 +211802,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129161"
+      "epl-2026-27-129161",
+      "event:premier-league:129161",
+      "football-premier-league-2026-27-401879147",
+      "event:football:premier-league:401879147"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -211189,7 +211906,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129162"
+      "epl-2026-27-129162",
+      "event:premier-league:129162",
+      "football-premier-league-2026-27-401878709",
+      "event:football:premier-league:401878709"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -211878,7 +212598,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129163"
+      "epl-2026-27-129163",
+      "event:premier-league:129163",
+      "football-premier-league-2026-27-401879146",
+      "event:football:premier-league:401879146"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -211979,7 +212702,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129164"
+      "epl-2026-27-129164",
+      "event:premier-league:129164",
+      "football-premier-league-2026-27-401879145",
+      "event:football:premier-league:401879145"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -212080,7 +212806,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129165"
+      "epl-2026-27-129165",
+      "event:premier-league:129165",
+      "football-premier-league-2026-27-401878708",
+      "event:football:premier-league:401878708"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -212181,7 +212910,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129166"
+      "epl-2026-27-129166",
+      "event:premier-league:129166",
+      "football-premier-league-2026-27-401878707",
+      "event:football:premier-league:401878707"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -212282,7 +213014,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129167"
+      "epl-2026-27-129167",
+      "event:premier-league:129167",
+      "football-premier-league-2026-27-401879144",
+      "event:football:premier-league:401879144"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -212383,7 +213118,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129168"
+      "epl-2026-27-129168",
+      "event:premier-league:129168",
+      "football-premier-league-2026-27-401879143",
+      "event:football:premier-league:401879143"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -212484,7 +213222,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129169"
+      "epl-2026-27-129169",
+      "event:premier-league:129169",
+      "football-premier-league-2026-27-401878706",
+      "event:football:premier-league:401878706"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -212585,7 +213326,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129170"
+      "epl-2026-27-129170",
+      "event:premier-league:129170",
+      "football-premier-league-2026-27-401879142",
+      "event:football:premier-league:401879142"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -212686,7 +213430,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129171"
+      "epl-2026-27-129171",
+      "event:premier-league:129171",
+      "football-premier-league-2026-27-401879141",
+      "event:football:premier-league:401879141"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -212787,7 +213534,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129172"
+      "epl-2026-27-129172",
+      "event:premier-league:129172",
+      "football-premier-league-2026-27-401879140",
+      "event:football:premier-league:401879140"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -214506,7 +215256,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129173"
+      "epl-2026-27-129173",
+      "event:premier-league:129173",
+      "football-premier-league-2026-27-401878705",
+      "event:football:premier-league:401878705"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -214607,7 +215360,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129174"
+      "epl-2026-27-129174",
+      "event:premier-league:129174",
+      "football-premier-league-2026-27-401879139",
+      "event:football:premier-league:401879139"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -214708,7 +215464,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129175"
+      "epl-2026-27-129175",
+      "event:premier-league:129175",
+      "football-premier-league-2026-27-401879138",
+      "event:football:premier-league:401879138"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -214809,7 +215568,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129176"
+      "epl-2026-27-129176",
+      "event:premier-league:129176",
+      "football-premier-league-2026-27-401879137",
+      "event:football:premier-league:401879137"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -214910,7 +215672,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129177"
+      "epl-2026-27-129177",
+      "event:premier-league:129177",
+      "football-premier-league-2026-27-401878704",
+      "event:football:premier-league:401878704"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -215011,7 +215776,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129178"
+      "epl-2026-27-129178",
+      "event:premier-league:129178",
+      "football-premier-league-2026-27-401879136",
+      "event:football:premier-league:401879136"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -215112,7 +215880,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129179"
+      "epl-2026-27-129179",
+      "event:premier-league:129179",
+      "football-premier-league-2026-27-401878703",
+      "event:football:premier-league:401878703"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -215213,7 +215984,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129180"
+      "epl-2026-27-129180",
+      "event:premier-league:129180",
+      "football-premier-league-2026-27-401879135",
+      "event:football:premier-league:401879135"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -215314,7 +216088,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129181"
+      "epl-2026-27-129181",
+      "event:premier-league:129181",
+      "football-premier-league-2026-27-401879134",
+      "event:football:premier-league:401879134"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -215415,7 +216192,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129182"
+      "epl-2026-27-129182",
+      "event:premier-league:129182",
+      "football-premier-league-2026-27-401878702",
+      "event:football:premier-league:401878702"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -215516,7 +216296,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129183"
+      "epl-2026-27-129183",
+      "event:premier-league:129183",
+      "football-premier-league-2026-27-401879133",
+      "event:football:premier-league:401879133"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -215617,7 +216400,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129184"
+      "epl-2026-27-129184",
+      "event:premier-league:129184",
+      "football-premier-league-2026-27-401879132",
+      "event:football:premier-league:401879132"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -215718,7 +216504,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129185"
+      "epl-2026-27-129185",
+      "event:premier-league:129185",
+      "football-premier-league-2026-27-401878701",
+      "event:football:premier-league:401878701"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -215819,7 +216608,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129186"
+      "epl-2026-27-129186",
+      "event:premier-league:129186",
+      "football-premier-league-2026-27-401878700",
+      "event:football:premier-league:401878700"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -215920,7 +216712,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129187"
+      "epl-2026-27-129187",
+      "event:premier-league:129187",
+      "football-premier-league-2026-27-401878699",
+      "event:football:premier-league:401878699"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -216021,7 +216816,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129188"
+      "epl-2026-27-129188",
+      "event:premier-league:129188",
+      "football-premier-league-2026-27-401878698",
+      "event:football:premier-league:401878698"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -216122,7 +216920,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129189"
+      "epl-2026-27-129189",
+      "event:premier-league:129189",
+      "football-premier-league-2026-27-401879131",
+      "event:football:premier-league:401879131"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -216223,7 +217024,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129190"
+      "epl-2026-27-129190",
+      "event:premier-league:129190",
+      "football-premier-league-2026-27-401878697",
+      "event:football:premier-league:401878697"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -216324,7 +217128,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129191"
+      "epl-2026-27-129191",
+      "event:premier-league:129191",
+      "football-premier-league-2026-27-401879130",
+      "event:football:premier-league:401879130"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -216425,7 +217232,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129192"
+      "epl-2026-27-129192",
+      "event:premier-league:129192",
+      "football-premier-league-2026-27-401879129",
+      "event:football:premier-league:401879129"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -216526,7 +217336,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129193"
+      "epl-2026-27-129193",
+      "event:premier-league:129193",
+      "football-premier-league-2026-27-401878696",
+      "event:football:premier-league:401878696"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -216627,7 +217440,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129194"
+      "epl-2026-27-129194",
+      "event:premier-league:129194",
+      "football-premier-league-2026-27-401879128",
+      "event:football:premier-league:401879128"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -216728,7 +217544,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129195"
+      "epl-2026-27-129195",
+      "event:premier-league:129195",
+      "football-premier-league-2026-27-401879127",
+      "event:football:premier-league:401879127"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -216829,7 +217648,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129196"
+      "epl-2026-27-129196",
+      "event:premier-league:129196",
+      "football-premier-league-2026-27-401878695",
+      "event:football:premier-league:401878695"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -216930,7 +217752,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129197"
+      "epl-2026-27-129197",
+      "event:premier-league:129197",
+      "football-premier-league-2026-27-401879126",
+      "event:football:premier-league:401879126"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -217031,7 +217856,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129198"
+      "epl-2026-27-129198",
+      "event:premier-league:129198",
+      "football-premier-league-2026-27-401878694",
+      "event:football:premier-league:401878694"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -217132,7 +217960,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129199"
+      "epl-2026-27-129199",
+      "event:premier-league:129199",
+      "football-premier-league-2026-27-401879125",
+      "event:football:premier-league:401879125"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -217233,7 +218064,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129200"
+      "epl-2026-27-129200",
+      "event:premier-league:129200",
+      "football-premier-league-2026-27-401879124",
+      "event:football:premier-league:401879124"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -217334,7 +218168,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129201"
+      "epl-2026-27-129201",
+      "event:premier-league:129201",
+      "football-premier-league-2026-27-401879123",
+      "event:football:premier-league:401879123"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -217435,7 +218272,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129202"
+      "epl-2026-27-129202",
+      "event:premier-league:129202",
+      "football-premier-league-2026-27-401879122",
+      "event:football:premier-league:401879122"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -217928,7 +218768,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129203"
+      "epl-2026-27-129203",
+      "event:premier-league:129203",
+      "football-premier-league-2026-27-401879120",
+      "event:football:premier-league:401879120"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -218029,7 +218872,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129204"
+      "epl-2026-27-129204",
+      "event:premier-league:129204",
+      "football-premier-league-2026-27-401879121",
+      "event:football:premier-league:401879121"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -218130,7 +218976,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129205"
+      "epl-2026-27-129205",
+      "event:premier-league:129205",
+      "football-premier-league-2026-27-401878693",
+      "event:football:premier-league:401878693"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -218231,7 +219080,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129206"
+      "epl-2026-27-129206",
+      "event:premier-league:129206",
+      "football-premier-league-2026-27-401878692",
+      "event:football:premier-league:401878692"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -218332,7 +219184,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129207"
+      "epl-2026-27-129207",
+      "event:premier-league:129207",
+      "football-premier-league-2026-27-401878691",
+      "event:football:premier-league:401878691"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -218433,7 +219288,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129208"
+      "epl-2026-27-129208",
+      "event:premier-league:129208",
+      "football-premier-league-2026-27-401879119",
+      "event:football:premier-league:401879119"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -218534,7 +219392,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129209"
+      "epl-2026-27-129209",
+      "event:premier-league:129209",
+      "football-premier-league-2026-27-401878690",
+      "event:football:premier-league:401878690"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -218635,7 +219496,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129210"
+      "epl-2026-27-129210",
+      "event:premier-league:129210",
+      "football-premier-league-2026-27-401879118",
+      "event:football:premier-league:401879118"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -218736,7 +219600,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129211"
+      "epl-2026-27-129211",
+      "event:premier-league:129211",
+      "football-premier-league-2026-27-401879117",
+      "event:football:premier-league:401879117"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -218837,7 +219704,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129212"
+      "epl-2026-27-129212",
+      "event:premier-league:129212",
+      "football-premier-league-2026-27-401879116",
+      "event:football:premier-league:401879116"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -219138,7 +220008,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129213"
+      "epl-2026-27-129213",
+      "event:premier-league:129213",
+      "football-premier-league-2026-27-401879115",
+      "event:football:premier-league:401879115"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -219239,7 +220112,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129214"
+      "epl-2026-27-129214",
+      "event:premier-league:129214",
+      "football-premier-league-2026-27-401879114",
+      "event:football:premier-league:401879114"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -219340,7 +220216,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129215"
+      "epl-2026-27-129215",
+      "event:premier-league:129215",
+      "football-premier-league-2026-27-401879113",
+      "event:football:premier-league:401879113"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -219441,7 +220320,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129216"
+      "epl-2026-27-129216",
+      "event:premier-league:129216",
+      "football-premier-league-2026-27-401879112",
+      "event:football:premier-league:401879112"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -219542,7 +220424,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129217"
+      "epl-2026-27-129217",
+      "event:premier-league:129217",
+      "football-premier-league-2026-27-401879111",
+      "event:football:premier-league:401879111"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -219643,7 +220528,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129218"
+      "epl-2026-27-129218",
+      "event:premier-league:129218",
+      "football-premier-league-2026-27-401879110",
+      "event:football:premier-league:401879110"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -219744,7 +220632,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129219"
+      "epl-2026-27-129219",
+      "event:premier-league:129219",
+      "football-premier-league-2026-27-401879109",
+      "event:football:premier-league:401879109"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -219845,7 +220736,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129220"
+      "epl-2026-27-129220",
+      "event:premier-league:129220",
+      "football-premier-league-2026-27-401879108",
+      "event:football:premier-league:401879108"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -219946,7 +220840,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129221"
+      "epl-2026-27-129221",
+      "event:premier-league:129221",
+      "football-premier-league-2026-27-401879107",
+      "event:football:premier-league:401879107"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -220047,7 +220944,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129222"
+      "epl-2026-27-129222",
+      "event:premier-league:129222",
+      "football-premier-league-2026-27-401878689",
+      "event:football:premier-league:401878689"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -220882,7 +221782,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129223"
+      "epl-2026-27-129223",
+      "event:premier-league:129223",
+      "football-premier-league-2026-27-401879105",
+      "event:football:premier-league:401879105"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -220983,7 +221886,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129224"
+      "epl-2026-27-129224",
+      "event:premier-league:129224",
+      "football-premier-league-2026-27-401879106",
+      "event:football:premier-league:401879106"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -221084,7 +221990,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129225"
+      "epl-2026-27-129225",
+      "event:premier-league:129225",
+      "football-premier-league-2026-27-401879104",
+      "event:football:premier-league:401879104"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -221185,7 +222094,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129226"
+      "epl-2026-27-129226",
+      "event:premier-league:129226",
+      "football-premier-league-2026-27-401879103",
+      "event:football:premier-league:401879103"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -221286,7 +222198,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129227"
+      "epl-2026-27-129227",
+      "event:premier-league:129227",
+      "football-premier-league-2026-27-401879102",
+      "event:football:premier-league:401879102"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -221387,7 +222302,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129228"
+      "epl-2026-27-129228",
+      "event:premier-league:129228",
+      "football-premier-league-2026-27-401878688",
+      "event:football:premier-league:401878688"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -221488,7 +222406,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129229"
+      "epl-2026-27-129229",
+      "event:premier-league:129229",
+      "football-premier-league-2026-27-401879101",
+      "event:football:premier-league:401879101"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -221589,7 +222510,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129230"
+      "epl-2026-27-129230",
+      "event:premier-league:129230",
+      "football-premier-league-2026-27-401879100",
+      "event:football:premier-league:401879100"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -221690,7 +222614,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129231"
+      "epl-2026-27-129231",
+      "event:premier-league:129231",
+      "football-premier-league-2026-27-401878687",
+      "event:football:premier-league:401878687"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -221791,7 +222718,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129232"
+      "epl-2026-27-129232",
+      "event:premier-league:129232",
+      "football-premier-league-2026-27-401879099",
+      "event:football:premier-league:401879099"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -222001,7 +222931,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129233"
+      "epl-2026-27-129233",
+      "event:premier-league:129233",
+      "football-premier-league-2026-27-401878686",
+      "event:football:premier-league:401878686"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -222102,7 +223035,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129234"
+      "epl-2026-27-129234",
+      "event:premier-league:129234",
+      "football-premier-league-2026-27-401879098",
+      "event:football:premier-league:401879098"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -222203,7 +223139,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129235"
+      "epl-2026-27-129235",
+      "event:premier-league:129235",
+      "football-premier-league-2026-27-401878685",
+      "event:football:premier-league:401878685"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -222304,7 +223243,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129236"
+      "epl-2026-27-129236",
+      "event:premier-league:129236",
+      "football-premier-league-2026-27-401878684",
+      "event:football:premier-league:401878684"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -222405,7 +223347,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129237"
+      "epl-2026-27-129237",
+      "event:premier-league:129237",
+      "football-premier-league-2026-27-401879097",
+      "event:football:premier-league:401879097"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -222506,7 +223451,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129238"
+      "epl-2026-27-129238",
+      "event:premier-league:129238",
+      "football-premier-league-2026-27-401878683",
+      "event:football:premier-league:401878683"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -222607,7 +223555,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129239"
+      "epl-2026-27-129239",
+      "event:premier-league:129239",
+      "football-premier-league-2026-27-401879096",
+      "event:football:premier-league:401879096"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -222708,7 +223659,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129240"
+      "epl-2026-27-129240",
+      "event:premier-league:129240",
+      "football-premier-league-2026-27-401879095",
+      "event:football:premier-league:401879095"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -222809,7 +223763,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129241"
+      "epl-2026-27-129241",
+      "event:premier-league:129241",
+      "football-premier-league-2026-27-401878682",
+      "event:football:premier-league:401878682"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -222910,7 +223867,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129242"
+      "epl-2026-27-129242",
+      "event:premier-league:129242",
+      "football-premier-league-2026-27-401878681",
+      "event:football:premier-league:401878681"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -223011,7 +223971,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129243"
+      "epl-2026-27-129243",
+      "event:premier-league:129243",
+      "football-premier-league-2026-27-401878679",
+      "event:football:premier-league:401878679"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -223112,7 +224075,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129244"
+      "epl-2026-27-129244",
+      "event:premier-league:129244",
+      "football-premier-league-2026-27-401878680",
+      "event:football:premier-league:401878680"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -223213,7 +224179,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129245"
+      "epl-2026-27-129245",
+      "event:premier-league:129245",
+      "football-premier-league-2026-27-401878678",
+      "event:football:premier-league:401878678"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -223314,7 +224283,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129246"
+      "epl-2026-27-129246",
+      "event:premier-league:129246",
+      "football-premier-league-2026-27-401879094",
+      "event:football:premier-league:401879094"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -223415,7 +224387,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129247"
+      "epl-2026-27-129247",
+      "event:premier-league:129247",
+      "football-premier-league-2026-27-401879093",
+      "event:football:premier-league:401879093"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -223516,7 +224491,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129248"
+      "epl-2026-27-129248",
+      "event:premier-league:129248",
+      "football-premier-league-2026-27-401879092",
+      "event:football:premier-league:401879092"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -223617,7 +224595,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129249"
+      "epl-2026-27-129249",
+      "event:premier-league:129249",
+      "football-premier-league-2026-27-401879091",
+      "event:football:premier-league:401879091"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -223718,7 +224699,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129250"
+      "epl-2026-27-129250",
+      "event:premier-league:129250",
+      "football-premier-league-2026-27-401879090",
+      "event:football:premier-league:401879090"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -223819,7 +224803,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129251"
+      "epl-2026-27-129251",
+      "event:premier-league:129251",
+      "football-premier-league-2026-27-401879089",
+      "event:football:premier-league:401879089"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -223920,7 +224907,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129252"
+      "epl-2026-27-129252",
+      "event:premier-league:129252",
+      "football-premier-league-2026-27-401878677",
+      "event:football:premier-league:401878677"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -224120,7 +225110,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129253"
+      "epl-2026-27-129253",
+      "event:premier-league:129253",
+      "football-premier-league-2026-27-401878676",
+      "event:football:premier-league:401878676"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -224221,7 +225214,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129254"
+      "epl-2026-27-129254",
+      "event:premier-league:129254",
+      "football-premier-league-2026-27-401879088",
+      "event:football:premier-league:401879088"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -224322,7 +225318,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129255"
+      "epl-2026-27-129255",
+      "event:premier-league:129255",
+      "football-premier-league-2026-27-401878675",
+      "event:football:premier-league:401878675"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -224423,7 +225422,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129256"
+      "epl-2026-27-129256",
+      "event:premier-league:129256",
+      "football-premier-league-2026-27-401879087",
+      "event:football:premier-league:401879087"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -224524,7 +225526,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129257"
+      "epl-2026-27-129257",
+      "event:premier-league:129257",
+      "football-premier-league-2026-27-401879086",
+      "event:football:premier-league:401879086"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -224625,7 +225630,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129258"
+      "epl-2026-27-129258",
+      "event:premier-league:129258",
+      "football-premier-league-2026-27-401879085",
+      "event:football:premier-league:401879085"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -224726,7 +225734,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129259"
+      "epl-2026-27-129259",
+      "event:premier-league:129259",
+      "football-premier-league-2026-27-401879084",
+      "event:football:premier-league:401879084"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -224827,7 +225838,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129260"
+      "epl-2026-27-129260",
+      "event:premier-league:129260",
+      "football-premier-league-2026-27-401878674",
+      "event:football:premier-league:401878674"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -224928,7 +225942,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129261"
+      "epl-2026-27-129261",
+      "event:premier-league:129261",
+      "football-premier-league-2026-27-401879083",
+      "event:football:premier-league:401879083"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -225029,7 +226046,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129262"
+      "epl-2026-27-129262",
+      "event:premier-league:129262",
+      "football-premier-league-2026-27-401878673",
+      "event:football:premier-league:401878673"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -225229,7 +226249,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129263"
+      "epl-2026-27-129263",
+      "event:premier-league:129263",
+      "football-premier-league-2026-27-401878672",
+      "event:football:premier-league:401878672"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -225330,7 +226353,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129264"
+      "epl-2026-27-129264",
+      "event:premier-league:129264",
+      "football-premier-league-2026-27-401879082",
+      "event:football:premier-league:401879082"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -225431,7 +226457,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129265"
+      "epl-2026-27-129265",
+      "event:premier-league:129265",
+      "football-premier-league-2026-27-401878671",
+      "event:football:premier-league:401878671"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -225532,7 +226561,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129266"
+      "epl-2026-27-129266",
+      "event:premier-league:129266",
+      "football-premier-league-2026-27-401878670",
+      "event:football:premier-league:401878670"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -225633,7 +226665,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129267"
+      "epl-2026-27-129267",
+      "event:premier-league:129267",
+      "football-premier-league-2026-27-401878669",
+      "event:football:premier-league:401878669"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -225734,7 +226769,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129268"
+      "epl-2026-27-129268",
+      "event:premier-league:129268",
+      "football-premier-league-2026-27-401879081",
+      "event:football:premier-league:401879081"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -225835,7 +226873,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129269"
+      "epl-2026-27-129269",
+      "event:premier-league:129269",
+      "football-premier-league-2026-27-401878668",
+      "event:football:premier-league:401878668"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -225936,7 +226977,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129270"
+      "epl-2026-27-129270",
+      "event:premier-league:129270",
+      "football-premier-league-2026-27-401879080",
+      "event:football:premier-league:401879080"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -226037,7 +227081,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129271"
+      "epl-2026-27-129271",
+      "event:premier-league:129271",
+      "football-premier-league-2026-27-401878667",
+      "event:football:premier-league:401878667"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -226138,7 +227185,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129272"
+      "epl-2026-27-129272",
+      "event:premier-league:129272",
+      "football-premier-league-2026-27-401878666",
+      "event:football:premier-league:401878666"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -226338,7 +227388,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129273"
+      "epl-2026-27-129273",
+      "event:premier-league:129273",
+      "football-premier-league-2026-27-401879079",
+      "event:football:premier-league:401879079"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -226439,7 +227492,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129274"
+      "epl-2026-27-129274",
+      "event:premier-league:129274",
+      "football-premier-league-2026-27-401878665",
+      "event:football:premier-league:401878665"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -226540,7 +227596,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129275"
+      "epl-2026-27-129275",
+      "event:premier-league:129275",
+      "football-premier-league-2026-27-401879078",
+      "event:football:premier-league:401879078"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -226641,7 +227700,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129276"
+      "epl-2026-27-129276",
+      "event:premier-league:129276",
+      "football-premier-league-2026-27-401879077",
+      "event:football:premier-league:401879077"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -226742,7 +227804,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129277"
+      "epl-2026-27-129277",
+      "event:premier-league:129277",
+      "football-premier-league-2026-27-401878664",
+      "event:football:premier-league:401878664"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -226843,7 +227908,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129278"
+      "epl-2026-27-129278",
+      "event:premier-league:129278",
+      "football-premier-league-2026-27-401879076",
+      "event:football:premier-league:401879076"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -226944,7 +228012,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129279"
+      "epl-2026-27-129279",
+      "event:premier-league:129279",
+      "football-premier-league-2026-27-401879075",
+      "event:football:premier-league:401879075"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -227045,7 +228116,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129280"
+      "epl-2026-27-129280",
+      "event:premier-league:129280",
+      "football-premier-league-2026-27-401878663",
+      "event:football:premier-league:401878663"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -227146,7 +228220,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129281"
+      "epl-2026-27-129281",
+      "event:premier-league:129281",
+      "football-premier-league-2026-27-401879074",
+      "event:football:premier-league:401879074"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -227247,7 +228324,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129282"
+      "epl-2026-27-129282",
+      "event:premier-league:129282",
+      "football-premier-league-2026-27-401879073",
+      "event:football:premier-league:401879073"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -227983,7 +229063,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129283"
+      "epl-2026-27-129283",
+      "event:premier-league:129283",
+      "football-premier-league-2026-27-401879072",
+      "event:football:premier-league:401879072"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -228084,7 +229167,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129284"
+      "epl-2026-27-129284",
+      "event:premier-league:129284",
+      "football-premier-league-2026-27-401879071",
+      "event:football:premier-league:401879071"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -228185,7 +229271,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129285"
+      "epl-2026-27-129285",
+      "event:premier-league:129285",
+      "football-premier-league-2026-27-401878662",
+      "event:football:premier-league:401878662"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -228286,7 +229375,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129286"
+      "epl-2026-27-129286",
+      "event:premier-league:129286",
+      "football-premier-league-2026-27-401879070",
+      "event:football:premier-league:401879070"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -228387,7 +229479,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129287"
+      "epl-2026-27-129287",
+      "event:premier-league:129287",
+      "football-premier-league-2026-27-401879069",
+      "event:football:premier-league:401879069"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -228488,7 +229583,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129288"
+      "epl-2026-27-129288",
+      "event:premier-league:129288",
+      "football-premier-league-2026-27-401879068",
+      "event:football:premier-league:401879068"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -228589,7 +229687,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129289"
+      "epl-2026-27-129289",
+      "event:premier-league:129289",
+      "football-premier-league-2026-27-401879067",
+      "event:football:premier-league:401879067"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -228690,7 +229791,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129290"
+      "epl-2026-27-129290",
+      "event:premier-league:129290",
+      "football-premier-league-2026-27-401879066",
+      "event:football:premier-league:401879066"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -228791,7 +229895,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129291"
+      "epl-2026-27-129291",
+      "event:premier-league:129291",
+      "football-premier-league-2026-27-401878661",
+      "event:football:premier-league:401878661"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -228892,7 +229999,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129292"
+      "epl-2026-27-129292",
+      "event:premier-league:129292",
+      "football-premier-league-2026-27-401879065",
+      "event:football:premier-league:401879065"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -228993,7 +230103,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129293"
+      "epl-2026-27-129293",
+      "event:premier-league:129293",
+      "football-premier-league-2026-27-401878660",
+      "event:football:premier-league:401878660"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -229094,7 +230207,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129294"
+      "epl-2026-27-129294",
+      "event:premier-league:129294",
+      "football-premier-league-2026-27-401879064",
+      "event:football:premier-league:401879064"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -229195,7 +230311,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129295"
+      "epl-2026-27-129295",
+      "event:premier-league:129295",
+      "football-premier-league-2026-27-401879063",
+      "event:football:premier-league:401879063"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -229296,7 +230415,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129296"
+      "epl-2026-27-129296",
+      "event:premier-league:129296",
+      "football-premier-league-2026-27-401878659",
+      "event:football:premier-league:401878659"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -229397,7 +230519,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129297"
+      "epl-2026-27-129297",
+      "event:premier-league:129297",
+      "football-premier-league-2026-27-401879062",
+      "event:football:premier-league:401879062"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -229498,7 +230623,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129298"
+      "epl-2026-27-129298",
+      "event:premier-league:129298",
+      "football-premier-league-2026-27-401879061",
+      "event:football:premier-league:401879061"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -229599,7 +230727,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129299"
+      "epl-2026-27-129299",
+      "event:premier-league:129299",
+      "football-premier-league-2026-27-401879060",
+      "event:football:premier-league:401879060"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -229700,7 +230831,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129300"
+      "epl-2026-27-129300",
+      "event:premier-league:129300",
+      "football-premier-league-2026-27-401879059",
+      "event:football:premier-league:401879059"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -229801,7 +230935,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129301"
+      "epl-2026-27-129301",
+      "event:premier-league:129301",
+      "football-premier-league-2026-27-401879058",
+      "event:football:premier-league:401879058"
     ],
     "consensusTags": [],
     "timeTbc": false,
@@ -229902,7 +231039,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
-      "epl-2026-27-129302"
+      "epl-2026-27-129302",
+      "event:premier-league:129302",
+      "football-premier-league-2026-27-401878658",
+      "event:football:premier-league:401878658"
     ],
     "consensusTags": [],
     "timeTbc": false,

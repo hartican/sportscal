@@ -196,6 +196,7 @@ jobs:
           node scripts/validate-epl-provider-persistence.js
           node scripts/validate-epl-identity-api.js
           node scripts/validate-epl-local-ratings.js
+          node scripts/validate-epl-identity-database.js
           node scripts/validate-openligadb-football.js
           node scripts/validate-european-football-continuity.js
           node scripts/validate-european-football-standings.js

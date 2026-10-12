@@ -1,0 +1,61 @@
+// Disposable PGlite only: invented accounts, captured DDL and frozen source facts.
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const helpers=require('./lib/epl-identity-database-rehearsal'),{root,canonicalA,canonicalB,legacyA,legacyB,user,second,peer}=helpers;
+const {PGlite}=require('@electric-sql/pglite');
+const migration=fs.readFileSync(path.join(root,'supabase/migrations/20261012203115_epl_provider_alias_bridge.sql'),'utf8'),undo=fs.readFileSync(path.join(root,'scripts/fixtures/epl-identity-operator-rollback.sql'),'utf8');
+const version='epl-provider-identity.20261013';
+const allTables=[...new Set(helpers.schema.columns.map(x=>x.table_name))];
+const checks=[];
+async function allRows(db){const data={};for(const table of allTables)data[table]=(await db.query('select to_jsonb(t) row from '+table+' t order by to_jsonb(t)::text')).rows.map(x=>x.row);return data;}
+async function setup(db){
+ await helpers.setup(db);await helpers.installRealTriggers(db);
+ await db.exec("create function auth.uid() returns uuid language sql as $$select null::uuid$$;alter table nothingsports_chat_rooms add column canonical_fixture_id text;create table nothingsports_fixture_devices(device_hash text primary key);create table nothingsports_push_installations(installation_id uuid primary key);create table nothingsports_chat_attachments(attachment_id uuid primary key);");
+ const present=new Set((await db.query("select tablename from pg_tables where schemaname='public'")).rows.map(x=>x.tablename)),created=[];
+ for(const table of allTables.filter(t=>!present.has(t))){
+  const columns=helpers.schema.columns.filter(x=>x.table_name===table).map(x=>'"'+x.column_name+'" '+x.type+(x.column_name==='id'&&table==='nothingsports_nsc_prediction_revisions'?' generated always as identity':'')+(x.not_null?' not null':'')+(x.default_value&&!x.default_value.includes('nextval(')?' default '+x.default_value:''));
+  await db.exec('create table '+table+'('+columns.join(',')+')');created.push(table);
+ }
+ for(const constraint of helpers.schema.constraints.filter(x=>created.includes(x.table_name)).sort((a,b)=>Number(a.definition.startsWith('FOREIGN KEY'))-Number(b.definition.startsWith('FOREIGN KEY'))))await db.exec('alter table '+constraint.table_name+' add constraint "'+constraint.conname+'" '+constraint.definition);
+ // Every installed old alias trigger is real. Empty unrelated sender surfaces
+ // need no sender/code invocation to prove this preparation leaves them alone.
+ for(const table of created.filter(t=>helpers.schema.columns.some(x=>x.table_name===t&&x.column_name==='event_id')))await db.exec('create trigger fixture_alias_v1 before insert or update of event_id on '+table+' for each row execute function nothingsports_recovery.alias_guard_v1();');
+ await db.exec("create table nothingsports_recovery.coverage_repair_versions(version text primary key,completed_at timestamptz,inventory jsonb not null default '{}');create table nothingsports_recovery.coverage_repair_rows(version text not null,table_name text not null,row_key text not null,payload jsonb not null,primary key(version,table_name,row_key));alter table nothingsports_recovery.coverage_repair_versions enable row level security;alter table nothingsports_recovery.coverage_repair_versions force row level security;alter table nothingsports_recovery.coverage_repair_rows enable row level security;alter table nothingsports_recovery.coverage_repair_rows force row level security;revoke all on all tables in schema nothingsports_recovery from public,anon,authenticated,service_role;");
+ await db.exec('grant all on all tables in schema public to service_role;');
+ // Match the current production noncustomer preflight: A is absent, B exists.
+ await db.query('delete from nothingsports_prediction_rules where event_id=$1',[canonicalA]);await db.query('delete from nothingsports_score_fixtures where event_id=$1',[canonicalA]);
+ for(const [id,who,rating,stamp] of [[legacyA,user,3,'2026-09-16T05:17:34Z'],[legacyB,second,3,'2026-09-16T05:16:49Z'],[canonicalB,second,4,'2026-09-20T07:30:11Z']])await db.query("insert into nothingsports_score_votes values($1,$2,'heat',$3,$4)",[who,id,rating,stamp]);
+ await db.query('insert into nothingsports_user_state(user_id,event_user_state,ratings,event_spoiler_state,archived_events) values($1,$2,$3,$4,$5)',[user,JSON.stringify({[legacyA]:{saved:true,reminderChoice:'off',lastActionAt:'2026-10-12T18:00Z'}}),JSON.stringify({[legacyA]:6}),JSON.stringify({[legacyA]:{hidden:true}}),JSON.stringify([{id:legacyA}])]);
+ await db.exec('delete from rehearsal_effects');
+}
+async function reject(db,change,pattern,before){await db.exec('begin');try{await change();await assert.rejects(db.exec(migration),pattern);}finally{await db.exec('rollback');}assert.deepEqual(await allRows(db),before,'rejected preparation leaves every original row untouched');}
+async function rejectUndo(db,change,pattern){await db.exec('begin');try{await change();await assert.rejects(db.exec(undo),pattern);}finally{await db.exec('rollback');}}
+(async()=>{const db=new PGlite();try{
+ await setup(db);const before=await allRows(db);
+ await reject(db,()=>db.exec("create or replace function nothingsports_recovery.fixture_alias_v1(value text) returns text language sql immutable set search_path='' as $$select value$$"),/baseline function drift/,before);checks.push('function fingerprint drift rejects before changing rows');
+ await reject(db,()=>db.query("delete from nothingsports_fixture_current where fixture_id='epl-2026-27-129031'"),/complete primary identity review/,before);checks.push('incomplete accepted source rejects atomically');
+ await reject(db,()=>db.query("update nothingsports_prediction_rules set version='consensus.v1' where event_id=$1",[canonicalB]),/rules differ/,before);checks.push('different original/canonical rules reject atomically');
+ await reject(db,()=>db.query("insert into nothingsports_nsc_contributions(event_id,user_id,phase,rating) values('event:football:premier-league:401879217',$1,'heat',3)",[peer]),/newly discovered legacy activity/,before);checks.push('additional operating activity requires review rather than orphaning it');
+ await reject(db,()=>db.query('insert into nothingsports_chat_rooms values(gen_random_uuid(),$1)',[legacyA]),/private room requires review/,before);checks.push('late private-room references cannot be silently combined');
+ await db.exec('begin');await db.exec(migration);await db.exec('commit');
+ const after=await allRows(db);for(const table of allTables.filter(x=>!['nothingsports_score_fixtures','nothingsports_prediction_rules'].includes(x)))assert.deepEqual(after[table],before[table],table+' keeps every original field, row ID and reference');
+ for(const table of ['nothingsports_score_fixtures','nothingsports_prediction_rules']){assert.equal(after[table].length,before[table].length+1);for(const row of before[table])assert(after[table].some(x=>JSON.stringify(x)===JSON.stringify(row)),'original catalog records remain exact');}
+ const rule=(await db.query('select * from nothingsports_prediction_rules where event_id=$1',[canonicalA])).rows[0];assert.equal(rule.version,'anticipation.v2');assert.equal(rule.completed_at,null);assert.equal(rule.cutoff,null);assert.equal(rule.settled_at,null);
+ assert.equal(after.nothingsports_inbox.length,before.nothingsports_inbox.length);assert.equal(after.nothingsports_friend_activity.length,before.nothingsports_friend_activity.length);assert.equal(after.nothingsports_live_rating_alerts.length,before.nothingsports_live_rating_alerts.length);
+ assert.equal((await db.query("select count(*)::int n from nothingsports_recovery.coverage_repair_rows where version=$1 and table_name<>'@function'",[version])).rows[0].n,0);checks.push('apply adds one accepted world parent and unchanged applicable rule; zero customer/preimage/settlement/outbox changes');
+ const inventory=(await db.query('select inventory from nothingsports_recovery.coverage_repair_versions where version=$1',[version])).rows[0].inventory;assert.equal(Object.keys(inventory.functionPostState).length,10);assert.equal(Object.keys(inventory.securityBefore).length,7);
+ const identities=require('../data/canonical/epl-provider-identities.v1.json').fixtures.flatMap(([p,s])=>[ [`event:premier-league:${p}`,`event:premier-league:${p}`],[`epl-2026-27-${p}`,`event:premier-league:${p}`],[`event:football:premier-league:${s}`,`event:premier-league:${p}`],[`football-premier-league-2026-27-${s}`,`event:premier-league:${p}`] ]);
+ const mapped=(await db.query("select value->>0 requested,nothingsports_recovery.fixture_alias_v1(value->>0) canonical from jsonb_array_elements($1::jsonb)",[JSON.stringify(identities)])).rows;
+ assert.equal(mapped.length,1520);mapped.forEach((row,i)=>assert.equal(row.canonical,identities[i][1]));checks.push('all four reviewed identities for all 380 games use the same official fixture');
+ for(const role of ['anon','authenticated']){await db.exec('set role '+role);await assert.rejects(db.query('select nothingsports_epl_identity_ready()'),/permission denied/);await assert.rejects(db.query('select * from nothingsports_recovery.coverage_repair_rows'),/permission denied/);await db.exec('reset role');}
+ await db.exec('set role service_role');assert.equal((await db.query('select nothingsports_epl_identity_ready() ready')).rows[0].ready,true);await assert.rejects(db.query('select * from nothingsports_recovery.coverage_repair_rows'),/permission denied/);await db.exec('reset role');checks.push('service-only public readiness works; private forced-RLS archive stays denied');
+ await db.exec(migration);assert.deepEqual(await allRows(db),after);checks.push('unchanged migration rerun has no sporting/customer effect');
+ await rejectUndo(db,()=>db.query("insert into nothingsports_nsc_contributions(event_id,user_id,phase,rating) values($1,$2,'impact',4)",[canonicalA,peer]),/newer scoped activity/,);checks.push('undo refuses subsequent user activity');
+ await rejectUndo(db,()=>db.query('delete from auth.users where id=$1',[user]),/activity\/erasure review/);checks.push('undo refuses erased account changes and cannot resurrect them');
+ await rejectUndo(db,()=>db.query("update nothingsports_user_state set ratings=ratings||'{\"unrelated\":5}'::jsonb where user_id=$1",[user]),/saved choice\/private room review/);checks.push('conservative undo refuses later saved-state changes');
+ await rejectUndo(db,()=>db.query('insert into nothingsports_chat_rooms values(gen_random_uuid(),$1)',[canonicalA]),/saved choice\/private room review/);checks.push('undo refuses a new private room for an affected game');
+ await rejectUndo(db,()=>db.exec('grant execute on function public.nothingsports_epl_identity_ready() to authenticated'),/function grant\/owner review/);checks.push('undo refuses later permission changes');
+ await db.exec('begin');await db.exec(undo);assert.deepEqual(await allRows(db),before);assert.equal((await db.query("select to_regprocedure('public.nothingsports_epl_identity_ready()') is null absent")).rows[0].absent,true);await db.exec('rollback');checks.push('guarded operator undo restores only functions and removes unused new world records; original rows stay exact');
+ const writerProof=await helpers.runWriterChecks(db);assert.deepEqual(await allRows(db),after,'writer and settlement scenarios roll back every new test effect');
+ const report={status:'passing exact migration/undo and actual writer/settlement rehearsal',checks,writerChecks:writerProof.passed,customerRowsCopied:0,productionChanges:0,limits:['fabricated accounts and controlled current source replay','real affected function/trigger definitions and constraints, unrelated empty sender surfaces','no production apply, provider refresh, sender/replay, browser or release proof']};console.log(JSON.stringify(report));
+}finally{await db.close();}})().catch(e=>{console.error(e.message);if(e.stack)console.error(e.stack.split('\n').slice(1,5).join('\n'));process.exitCode=1;});

@@ -1,0 +1,62 @@
+{
+  "recordedAt": "2026-10-12 21:08:35 UTC",
+  "kind": "read-only production source relation DDL; no row data",
+  "columns": [
+    {
+      "type": "text",
+      "not_null": true,
+      "column_name": "source_id",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "column_name": "fixture_id",
+      "default_value": null
+    },
+    {
+      "type": "text[]",
+      "not_null": true,
+      "column_name": "identity_keys",
+      "default_value": "'{}'::text[]"
+    },
+    {
+      "type": "jsonb",
+      "not_null": true,
+      "column_name": "fixture",
+      "default_value": null
+    },
+    {
+      "type": "text",
+      "not_null": true,
+      "column_name": "content_hash",
+      "default_value": null
+    },
+    {
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "column_name": "updated_at",
+      "default_value": "clock_timestamp()"
+    }
+  ],
+  "indexes": [
+    "CREATE INDEX nothingsports_fixture_current_identity_idx ON public.nothingsports_fixture_current USING gin (identity_keys)",
+    "CREATE UNIQUE INDEX nothingsports_fixture_current_pkey ON public.nothingsports_fixture_current USING btree (source_id, fixture_id)",
+    "CREATE INDEX nothingsports_fixture_current_updated_idx ON public.nothingsports_fixture_current USING btree (updated_at DESC)"
+  ],
+  "triggers": null,
+  "constraints": [
+    {
+      "name": "nothingsports_fixture_current_fixture_check",
+      "definition": "CHECK ((jsonb_typeof(fixture) = 'object'::text))"
+    },
+    {
+      "name": "nothingsports_fixture_current_pkey",
+      "definition": "PRIMARY KEY (source_id, fixture_id)"
+    },
+    {
+      "name": "nothingsports_fixture_current_source_id_fkey",
+      "definition": "FOREIGN KEY (source_id) REFERENCES nothingsports_fixture_sources(source_id) ON DELETE CASCADE"
+    }
+  ]
+}

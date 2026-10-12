@@ -132,6 +132,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-epl-provider-persistence.js"],
   ["scripts/validate-epl-identity-api.js"],
   ["scripts/validate-epl-local-ratings.js"],
+  ["scripts/validate-epl-identity-database.js"],
   ["scripts/validate-feed-card-presentation.js"],
   ["scripts/refresh-discovery.js"],
   ["scripts/build-athlete-participation.js"],
@@ -919,6 +920,17 @@ async function runMain() {
       ['scripts/validate-rugby-reviewed-identity.js','--published'],['scripts/validate-rugby-identity-api.js'],['scripts/validate-reviewed-au-viewing.js','--published']
     ])runStep(step);
     console.log('Reviewed future Rugby identity/timing rebuilt through canonical owner; no source refresh or database cutover performed.');return;
+  }
+  if(process.argv.includes('--epl-identities')){
+    // Retained projection through the canonical owner, without a provider poll.
+    for(const step of [
+      ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],['scripts/build-code-inspector.js','--codes=football'],
+      ['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],['scripts/build-app-shell-runtime.js','--check'],
+      ['scripts/validate-epl-provider-identities.js'],['scripts/validate-epl-provider-persistence.js'],['scripts/validate-epl-identity-api.js'],['scripts/validate-epl-local-ratings.js'],['scripts/validate-epl-identity-database.js'],
+      ['scripts/validate-follow-policy-parity.js'],['scripts/validate-feed.js','data/events.json'],['scripts/qa-storyline-spoilers.js','data/events.json']
+    ])runStep(step);
+    console.log('Reviewed EPL identities projected through the canonical owner; no provider check, database application or release.');return;
   }
   if(process.argv.includes('--viewing-reconciliation')){
     for(const step of [

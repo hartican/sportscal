@@ -7,6 +7,7 @@ cache.exports={...actual,async supabaseServiceRequest(path,options){
  calls.push({path,options});
  if(path.includes('/rpc/nothingsports_epl_identity_ready')){if(mode==='missing')throw Error('not deployed');return mode==='ready';}
  const url=new URL(path,'http://mock'),table=url.pathname.split('/').pop();
+ if(mode==='leaderboard'&&table==='nothingsports_nsc_points')return [old,canonical,...Array.from({length:8},(_,i)=>`event:unchanged:${i}`)].map(event_id=>({user_id:user,event_id,points:10,awarded_at:'2026-10-12T18:00:00Z'}));
  if(['nothingsports_nsc_contributions','nothingsports_nsc_points'].includes(table)){
   const ids=url.searchParams.get('event_id');assert(ids.includes(canonical)&&ids.includes(old),'the two proven operating identities are read in the existing query');
   if(table==='nothingsports_nsc_points')return [{event_id:old,action_key:'impact_rating',points:2},{event_id:canonical,action_key:'impact_rating',points:2}];
@@ -31,5 +32,10 @@ delete require.cache[np];
  assert.equal(result[0].peerResults.count,1,'a contributor represented by two source IDs is counted once');
  assert(!JSON.stringify(result).includes(user),'hidden profile/account identifiers are not disclosed');
  assert.equal(calls.filter(c=>/nothingsports_nsc_(contributions|likes|presence|marquee_sessions|points)/.test(c.path)).length,5,'alias expansion adds no snapshot query');
+ mode='leaderboard';calls=[];const [rank]=await server.leaderboard('lifetime');
+ assert.equal(rank.points,100,'every original credit stays in the leaderboard');
+ assert.equal(rank.uniqueFixtures,9,'two reviewed provider IDs count as one match; unrelated fixture IDs stay distinct');
+ assert.equal(rank.risingEligible,false,'a duplicate source match cannot unlock the ten-match badge');
+ assert.equal(calls.filter(c=>c.path.includes('/nothingsports_nsc_points')).length,1,'identity counting adds no ledger read');
  console.log('EPL API: official record, requested legacy keys, latest rating once, all original credits, hidden profiles, existing query count and narrowly scoped missing/pending/ready guard passed.');
 }finally{delete require.cache[np];cache.exports=actual;}})().catch(e=>{console.error(e);process.exitCode=1;});

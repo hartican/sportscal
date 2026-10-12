@@ -1,0 +1,48 @@
+{
+  "recordedAt": "2026-10-12 20:31:47 UTC",
+  "kind": "Read-only actual alert trigger metadata",
+  "triggers": [
+    {
+      "name": "fixture_alias_v1",
+      "definition": "CREATE TRIGGER fixture_alias_v1 BEFORE INSERT OR UPDATE OF event_id ON public.nothingsports_friend_activity FOR EACH ROW EXECUTE FUNCTION nothingsports_recovery.alias_guard_v1()",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "name": "inbox_ratings",
+      "definition": "CREATE TRIGGER inbox_ratings AFTER INSERT ON public.nothingsports_friend_activity FOR EACH ROW EXECUTE FUNCTION nothingsports_inbox_source()",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "name": "nothingsports_account_erasure_guard",
+      "definition": "CREATE TRIGGER nothingsports_account_erasure_guard AFTER INSERT OR UPDATE ON public.nothingsports_friend_activity FOR EACH ROW EXECUTE FUNCTION private.nothingsports_guard_erasure_write('rater_user_id', 'recipient_user_id')",
+      "table_name": "nothingsports_friend_activity"
+    },
+    {
+      "name": "fixture_alias_v1",
+      "definition": "CREATE TRIGGER fixture_alias_v1 BEFORE INSERT OR UPDATE OF event_id ON public.nothingsports_live_rating_alerts FOR EACH ROW EXECUTE FUNCTION nothingsports_recovery.alias_guard_v1()",
+      "table_name": "nothingsports_live_rating_alerts"
+    },
+    {
+      "name": "nothingsports_account_erasure_guard",
+      "definition": "CREATE TRIGGER nothingsports_account_erasure_guard AFTER INSERT OR UPDATE ON public.nothingsports_live_rating_alerts FOR EACH ROW EXECUTE FUNCTION private.nothingsports_guard_erasure_write('recipient_user_id')",
+      "table_name": "nothingsports_live_rating_alerts"
+    }
+  ],
+  "functions": [
+    {
+      "signature": "nothingsports_inbox_source()",
+      "definition": "CREATE OR REPLACE FUNCTION public.nothingsports_inbox_source()\n RETURNS trigger\n LANGUAGE plpgsql\n SET search_path TO ''\nAS $function$\ndeclare j jsonb:=to_jsonb(new); m record; k text; recipient uuid; actor uuid; pts integer:=0; source text;begin\n if tg_table_name='nothingsports_chat_messages' then\n  if new.message_type='system' then return new;end if;\n  -- Serialize against the receipt update to avoid reopening an already-read group.\n  for m in select * from public.nothingsports_chat_members where room_id=new.room_id and user_id<>new.sender_id and member_kind='account' order by user_id for update loop\n   if new.created_at<=m.last_read_at then continue;end if;\n   insert into public.nothingsports_inbox(recipient_user_id,kind,source_key,actor_user_id,room_id,message_count,group_open,activity_at,created_at)\n   values(m.user_id,'chat','chat:'||new.id,new.sender_id,new.room_id,1,true,new.created_at,new.created_at)\n   on conflict(recipient_user_id,room_id) where group_open do update\n   set message_count=nothingsports_inbox.message_count+1,actor_user_id=excluded.actor_user_id,\n       activity_at=greatest(nothingsports_inbox.activity_at,excluded.activity_at),version=nothingsports_inbox.version+1,read_at=null;\n  end loop;\n  return new;\n elsif tg_table_name='nothingsports_chat_members' then\n  if tg_op='UPDATE' then\n   if new.last_read_at>old.last_read_at then\n    -- Messages read before their notification is viewed need no redundant item.\n    -- This also covers quiet rooms using the established 30-second polling cadence.\n    delete from public.nothingsports_inbox where recipient_user_id=new.user_id and room_id=new.room_id and group_open and activity_at<=new.last_read_at and surfaced_at is null;\n    update public.nothingsports_inbox set group_open=false where recipient_user_id=new.user_id and room_id=new.room_id and group_open and activity_at<=new.last_read_at;\n   end if;return new;\n  end if;\n  if new.member_kind<>'account' or new.user_id=new.added_by then return new;end if;\n  -- Accepted invitations already have their own story.\n  if exists(select 1 from public.nothingsports_chat_invitations where room_id=new.room_id and invitee_id=new.user_id) then return new;end if;\n  insert into public.nothingsports_inbox(recipient_user_id,kind,source_key,actor_user_id,room_id)\n  values(new.user_id,'added','member:'||new.room_id||':'||new.joined_at,new.added_by,new.room_id) on conflict do nothing;return new;\n elsif tg_table_name='nothingsports_chat_invitations' then\n  if new.status<>'pending' then return new;end if;\n  insert into public.nothingsports_inbox(recipient_user_id,kind,source_key,actor_user_id,room_id)\n  values(new.invitee_id,'invitation','invitation:'||new.invitation_id,new.inviter_id,new.room_id) on conflict do nothing;return new;\n elsif tg_table_name='nothingsports_social_notifications' then\n  k:=new.kind;recipient:=new.recipient_user_id;actor:=new.actor_user_id;pts:=new.points;source:='social:'||new.id;\n elsif tg_table_name='nothingsports_nsc_points' then\n  if new.action_key in ('followed_by_person','picks_copied') then return new;end if;\n  k:='points';recipient:=new.user_id;pts:=new.points;source:='points:'||new.ledger_id;\n elsif tg_table_name='nothingsports_friend_activity' then\n  k:='rating';recipient:=new.recipient_user_id;actor:=new.rater_user_id;source:='rating:'||new.id;\n end if;\n if recipient is not null then\n  insert into public.nothingsports_inbox(recipient_user_id,kind,source_key,actor_user_id,event_id,phase,points,detail)\n  values(recipient,k,source,actor,j->>'event_id',j->>'phase',pts,case when k='points' then j->>'action_key' end) on conflict do nothing;\n end if;return new;\nend $function$\n",
+      "definition_md5": "9ec34920fcc11167e6ff765c071aad93"
+    },
+    {
+      "signature": "nothingsports_recovery.alias_guard_v1()",
+      "definition": "CREATE OR REPLACE FUNCTION nothingsports_recovery.alias_guard_v1()\n RETURNS trigger\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$ begin new.event_id := nothingsports_recovery.fixture_alias_v1(new.event_id); if tg_table_name='nothingsports_nsc_points' and tg_op='INSERT' then if exists(select 1 from public.nothingsports_nsc_points p where p.user_id=new.user_id and nothingsports_recovery.fixture_alias_v1(p.event_id)=new.event_id and p.action_key=new.action_key) then return null; end if; end if; -- bledisloe-pending-timing-v1\n if tg_table_name='nothingsports_reminders' and new.event_id='rugby-australia-new-zealand-2026-10-17' then\n if new.dispatched_at is null and new.delivery_started_at is null and new.delivery_mode='match-15' then\n new.starts_at:='2026-10-17T05:00:00Z'::timestamptz;new.remind_at:='2026-10-17T04:45:00Z'::timestamptz;new.schedule_starts_at:=new.starts_at;\n end if;end if;\n return new; end $function$\n",
+      "definition_md5": "74bd214300fa55b327a96073c1f804b2"
+    },
+    {
+      "signature": "private.nothingsports_guard_erasure_write()",
+      "definition": "CREATE OR REPLACE FUNCTION private.nothingsports_guard_erasure_write()\n RETURNS trigger\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$\ndeclare actor uuid;actors uuid[]:='{}';column_name text;null_only boolean:=false;\nbegin\n if current_setting('transaction_isolation')<>'read committed' then\n  raise exception using errcode='25000',message='account_erasure_guard_requires_read_committed';\n end if;\n -- FK SET NULL actions must be able to detach attribution during Auth deletion,\n -- even when another column in the same row still references that account.\n if tg_op='UPDATE' then\n  null_only:=(to_jsonb(new)-tg_argv)=(to_jsonb(old)-tg_argv) and to_jsonb(new)<>to_jsonb(old);\n  -- Auth FK detachment may also erase this subject's copied audit snapshots.\n  -- Only this table, a removed target, empty snapshots and otherwise unchanged\n  -- content qualify; arbitrary edits still pass through the erasure barrier.\n  if tg_table_schema='public' and tg_table_name='nothingsports_nsc_admin_audit'\n     and to_jsonb(old)->>'target_user_id' is not null\n     and to_jsonb(new)->>'target_user_id' is null\n     and to_jsonb(new)->'before_state'='{}'::jsonb\n     and to_jsonb(new)->'after_state'='{}'::jsonb then\n   null_only:=(to_jsonb(new)-tg_argv-array['before_state','after_state'])\n             =(to_jsonb(old)-tg_argv-array['before_state','after_state']);\n  end if;\n  foreach column_name in array tg_argv loop\n   if (to_jsonb(new)->column_name) is distinct from (to_jsonb(old)->column_name)\n      and (to_jsonb(new)->>column_name) is not null then null_only:=false;end if;\n  end loop;\n  if null_only then return new;end if;\n end if;\n foreach column_name in array tg_argv loop\n  actor:=(to_jsonb(new)->>column_name)::uuid;\n  if actor is not null then actors:=array_append(actors,actor);end if;\n end loop;\n for actor in select distinct a from unnest(actors) a order by a loop\n  -- The shared transaction lock drains already-accepted writes before begin returns.\n  perform pg_catalog.pg_advisory_xact_lock_shared(pg_catalog.hashtextextended('account-erasure:'||actor::text,0));\n  if exists(select 1 from public.nothingsports_account_erasure_blocks b where b.user_id=actor) then\n   raise exception using errcode='55000',message='account_erasure_in_progress';\n  end if;\n end loop;\n return new;\nend $function$\n",
+      "definition_md5": "3047b83f226036253ff3c057c02f4c7f"
+    }
+  ]
+}
