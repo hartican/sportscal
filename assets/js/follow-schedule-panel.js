@@ -101,7 +101,7 @@ globalThis.renderFollowSchedulePanel=function(container){
     || String(first.time || "99:99").localeCompare(String(second.time || "99:99"))
     || String(first.id || "").localeCompare(String(second.id || ""))
   )));
-  const groupLabels = [...grouped.keys()].sort((first, second) => (football||rugby||!useRounds ? String(sortDate(grouped.get(first)[0])).localeCompare(String(sortDate(grouped.get(second)[0])))||String(first).localeCompare(String(second)) : FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second))
+  const groupLabels = [...grouped.keys()].sort((first, second) => (football||rugby||!useRounds ? String(sortDate(grouped.get(first)[0])).localeCompare(String(sortDate(grouped.get(second)[0])))||(rugby?String(first).localeCompare(String(second)):0) : FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second))
     ?? String(first).localeCompare(String(second), "en-AU", { numeric:true, sensitivity:"base" }));
   const current=fixtures.filter(f=>(!rugby||!['completed','finished','final','cancelled','canceled','abandoned'].includes(String(f.status||'').toLowerCase()))&&(f.endDate||f.date||f.schedulingWindow?.endsOn)>=today).sort((a,b)=>String(sortDate(a)).localeCompare(String(sortDate(b))))[0]||(rugby?fixtures.filter(f=>sortDate(f)!=='9999-12-31').sort((a,b)=>String(sortDate(a)).localeCompare(String(sortDate(b)))).at(-1):null)||fixtures.at(-1);
   const currentIndex=football?Math.max(0,footballPlan.currentKey?groupLabels.indexOf(footballPlan.currentKey):groupLabels.length-1):Math.max(0,groupLabels.indexOf(current?groupLabel(current):groupLabels[0]));
