@@ -7,7 +7,7 @@ async function scenario({mode='live',gate=true,matchCentre=true,latest=e,current
   if(route==='nothingsports_moments')return moments.map(payload=>({payload}));
   if(route==='nothingsports_read_match_scores')return [{fixture:latest}];
   if(route==='nothingsports_milestone_observations')return [{fixture:latest,score_hash:'source-current'}];
-  if(route==='nothingsports_milestone_accounts'){assert.deepEqual(options.body,{p_moment_ids:moments.map(m=>m.momentId)},'Account selection uses only the selected dispatcher batch');return [account];}
+  if(route==='nothingsports_milestone_accounts'){assert.deepEqual(options.body,{p_moment_ids:moments.filter(m=>rules.revalidate(m,latest,{now:+now})).map(m=>m.momentId)},'Account selection uses only currently valid selected moments');return [account];}
   if(route==='nothingsports_milestone_rollout')return [{enabled:gate,shadow_verified_at:gate&&now.toISOString(),device_verified_at:gate&&now.toISOString(),shadow_evidence:gate&&'controlled-only',device_evidence:gate&&'controlled-only'}];
   if(route==='nothingsports_record_milestone_shadow'||route==='nothingsports_discard_milestone_moments'||route==='nothingsports_milestone_maintenance')return null;
   if(route==='nothingsports_claim_milestone_group'){if(groupClaimed)return null;groupClaimed=true;return 'group';}
@@ -29,7 +29,7 @@ async function scenario({mode='live',gate=true,matchCentre=true,latest=e,current
  const gate=await scenario({gate:false});assert.equal(gate.result.mode,'shadow');assert.equal(gate.pushes.length,0);
  const disabledCentre=await scenario({matchCentre:false});assert.equal(disabledCentre.pushes.length,0,'Disabling Match Centre cannot leave live milestone pushes pointing at an unavailable landing');assert.equal(disabledCentre.result.mode,'shadow');
  const live=await scenario();assert.equal(live.result.sent,2);assert.equal(live.calls.filter(c=>c.path.includes('claim_milestone_group')).length,1,'One grouped account reservation spans all devices');assert(live.pushes.every(p=>p.options.TTL===120&&!/84|century/.test(p.payload.body)));assert.match(live.pushes[0].payload.url,/surface=match-centre/);
- assert.equal((await scenario({latest:data.fixture(now,{runs:103})})).pushes.length,0,'A passed threshold is rechecked before sending');
+ const passed=await scenario({latest:data.fixture(now,{runs:103})});assert.equal(passed.pushes.length,0,'A passed threshold is rechecked before sending');assert(!passed.calls.some(c=>c.path.endsWith('nothingsports_milestone_accounts')),'Invalid selected moments cannot keep handled accounts ahead of valid later work');
  const dismissed=structuredClone(e);dismissed.innings.at(-1).batting.forEach(p=>{p.isBatting=false;});assert.equal((await scenario({latest:dismissed})).pushes.length,0);
  const consent=structuredClone(account.preferences);consent.followFirst.notifications.milestones.enabled=false;assert.equal((await scenario({current:consent})).pushes.length,0,'Late category OFF prevents provider contact');
  assert.equal((await scenario({revision:'changed'})).pushes.length,0,'Concurrent preference revision fences all device sends');assert.equal((await scenario({erased:true})).pushes.length,0,'Existing account-erasure send admission remains authoritative');
