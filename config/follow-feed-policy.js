@@ -160,7 +160,7 @@
   function australianDomesticScope(event){
     // Canonical competition identity wins over broad aliases, never venue country.
     const competition=String(event?.competitionId||'');
-    if(competition)return /^competition:(?:afl-premiership|aflw|nrl-premiership|nrlw-premiership|state-of-origin|nbl|bbl|wbbl|supercars)(?:[:-]20\d{2})?$/.test(competition)||/^competition:horse-racing(?:[:-]|$)/.test(competition);
+    if(competition)return /^competition:(?:afl-premiership|aflw|nrl-premiership|nrlw-premiership|state-of-origin|nbl|bbl|wbbl|supercars|australian-thoroughbred)(?:[:-]20\d{2})?$/.test(competition)||/^competition:horse-racing(?:[:-]|$)/.test(competition);
     const scope=String(event?.selectorId||event?.sportDomainId||event?.key||event?.sportKey||'').replace(/^sport:/,'');
     return ['horse-racing','afl','aflw','afl-premiership','nrl','nrlw','nrl-premiership','state-of-origin','nbl','bbl','wbbl','supercars'].includes(scope);
   }

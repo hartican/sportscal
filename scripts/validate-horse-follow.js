@@ -16,6 +16,7 @@ function check(event,prefs,expected,label){
  assert.equal(result.events.some(e=>e.id===event.id),expected,'server policy: '+label);
 }
 for(const race of races){
+ assert.equal(policy.australiansFilterUseful(race),false,'Actual canonical Horse competition is domestic');
  check(race,on,true,'explicit feature-race sport follow: '+race.name);
  check(race,{},false,'browsing is not consent: '+race.name);
  check(race,{selectedSelectorEntityIds:[],followedSports:[]},false,'later unfollow: '+race.name);
