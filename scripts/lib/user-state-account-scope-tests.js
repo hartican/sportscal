@@ -7,13 +7,13 @@ function sources(){
  const slice=(from,to)=>{const a=html.indexOf(from),b=html.indexOf(to,a);assert(a>=0&&b>a,'actual application scope source');return html.slice(a,b);};
  return {scope:slice('function invalidateServerStateSyncScope(','\nasync function reconcileCurrentServerState('),reconcile:slice('async function reconcileCurrentServerState(','\nfunction syncCurrentServerState('),queue:slice('function syncCurrentServerState(','\nfunction normalizeServerArchiveReferences('),preserve:slice('function applyServerStatePreservingChanges(','\nfunction queueServerStateSync('),bootstrap:slice('async function hydrateUserMetaSeed(','\nfunction sydneyPartsFromIso('),logout:slice('      const signedOutUserId = serverPersistence.user?.id || serverSyncClient?.sessionSubject?.();','\n    });\n    appendPublicProfileAccountSettings')};
 }
-function context(src){
- let subject='A',device={preferences:{theme:'night'},profile:{},eventUserState:{}},baseline={...clone(device),preferences:{theme:'day'},updatedAt:'2026-10-04T00:00:00Z'};
+function context(src,accountStates=null){
+ let subject='A',device=accountStates?clone(accountStates.A):{preferences:{theme:'night'},profile:{},eventUserState:{}},baseline={...clone(device),preferences:{...clone(device.preferences),theme:'day'},updatedAt:'2026-10-04T00:00:00Z'};
  const calls={reads:0,writes:0,applies:0,metaReads:0,metaWrites:0,seed:0};
  const c={USER_STATE_SYNC:sync,structuredClone,serverSyncTimer:null,serverStateSyncGeneration:0,serverSyncSequence:Promise.resolve(),serverPersistence:{state:'signedIn',user:{id:'A'}},serverStateBaseline:{state:clone(baseline),updatedAt:baseline.updatedAt},startupSessionStateBaseline:clone(device),userPreferences:{followFirst:{startupMeta:{sports:['football']}}},
  clearTimeout(){},currentServerStatePayload:()=>clone(device),emptyServerStatePayload:()=>({}),setServerPersistence:p=>Object.assign(c.serverPersistence,p),setPreferenceRecovery(){},setServerStateBaseline:s=>{c.serverStateBaseline={state:clone(s),updatedAt:s.updatedAt};},serverAuthoritativeFixturePins:(_s,d)=>d,clearAcknowledgedFixturePinCommands(){},applyServerState:s=>{calls.applies++;device=clone(s);},serverErrorEndsSession:e=>e.code==='invalid_refresh_token',showToast(){},fantasyPreferencesDiffer:()=>false,savePreferences(){calls.seed++;},FOLLOW_FIRST:{normalizeMeta:x=>x,applyMetaSeed:()=>({changed:true,preferences:{}})},console:{warn(){}},disablePushInstallation:async()=>{},clearCachedPersonalisedFeed:async()=>{},
  serverSyncClient:{sessionSubject:()=>subject,status:async()=>({configured:true}),restoreSession:async()=>({accessToken:'synthetic'}),loadState:async opts=>{calls.reads++;assert.equal(opts.accountId,'A');return{user:{id:'A'},state:clone(baseline)};},savePatch:async(p,opts)=>{calls.writes++;assert.equal(opts.accountId,'A');return{user:{id:'A'},state:{...sync.applyPatch(baseline,p),updatedAt:'2026-10-04T00:01:00Z'}};},loadMeta:async opts=>{calls.metaReads++;assert.equal(opts.accountId,'A');return{meta:{sports:['football']}};},saveMeta:async(m,opts)=>{calls.metaWrites++;assert.equal(opts.accountId,'A');return{meta:m};},signOut:async opts=>{calls.logout=(calls.logout||0)+1;assert.equal(opts.accountId,'A');subject='';}},
- switchAccount(){subject='B';c.serverPersistence={state:'signedIn',user:{id:'B'},message:'B active'};c.serverStateBaseline={state:{preferences:{theme:'B'}},updatedAt:'B baseline'};},endSession(){subject='';},currentDevice:()=>clone(device),calls,
+ switchAccount(){subject='B';if(accountStates)device=clone(accountStates.B);c.serverPersistence={state:'signedIn',user:{id:'B'},message:'B active'};c.serverStateBaseline={state:accountStates?clone(device):{preferences:{theme:'B'}},updatedAt:'B baseline'};},endSession(){subject='';},currentDevice:()=>clone(device),calls,
  };
  vm.createContext(c);vm.runInContext([src.scope,src.preserve,src.reconcile,src.queue,src.bootstrap,'async function qaLogout(){\n'+src.logout+'\n}'].join('\n'),c);return c;
 }
@@ -123,4 +123,19 @@ async function overlappingRefreshes({useLease=false}={}){
  assert.equal(client.sessionSubject(),'B');assert.equal(requests.filter(x=>x==='refresh').length,2);client.clearSession();return ['SDK overlapping refresh jobs '+(useLease?'storage lease':'Web Locks')];
  }finally{if(useLease)Object.defineProperty(globalThis,'navigator',navigatorDescriptor);}
 }
-module.exports=async function validateAccountScopes(){const cases=[...await orchestration(),...await sdk(),...await recoveryUi(),...await overlappingRefreshes(),...await overlappingRefreshes({useLease:true})];console.log(`Account isolation: ${cases.length} actual orchestration/SDK/recovery scenarios passed; no service or database connection.`);return cases;};
+async function horseAccountScopes(){
+ const follow=require('../../config/follow-first'),identity=require('../../config/fixture-identity');
+ const fixtures=require('../../data/code-inspector/horse-racing.json').fixtures.map(f=>identity.fromSchedule(f,'horse-racing'));
+ const edition='overview:horse-racing:carnival:melbourne-cup-carnival:2026:2026';
+ const state=(sport,choice)=>({preferences:follow.migratePreferences({theme:'night',selectedSelectorEntityIds:sport?['sport:horse-racing']:[],followedSports:sport?['horse-racing']:[],followFirst:{eventEditionDecisions:{schemaVersion:'event-edition-decisions.v1',states:{[edition]:choice}}}}),profile:{},eventUserState:{}});
+ const cases=[],src=sources();
+ for(const [label,A,B,count] of [['on-to-off',state(true,'followed'),state(false,'excluded'),0],['off-to-on',state(false,'excluded'),state(true,'excluded'),5],['edition-to-off',state(false,'followed'),state(false,'excluded'),0]])for(const phase of ['load','write']){
+  const c=context(src,{A,B}),old=c.serverSyncClient.loadState;
+  if(phase==='load')c.serverSyncClient.loadState=async opts=>{const response=await old(opts);c.switchAccount();return response;};
+  else c.serverSyncClient.savePatch=async()=>{c.calls.writes++;c.switchAccount();return {user:{id:'A'},state:A};};
+  await c.reconcileCurrentServerState();assert.equal(c.serverPersistence.user.id,'B');assert.equal(c.calls.applies,0,'An old Horse profile response cannot apply after subject replacement');assert.deepEqual(c.currentDevice(),B,'Replacement Horse choices remain exact');
+  assert.equal(fixtures.filter(e=>follow.reasonForEvent(e,c.currentDevice().preferences)).length,count,'Actual replacement Horse sport/edition policy remains isolated');cases.push('Horse subject replacement '+label+' '+phase);
+ }
+ return cases;
+}
+module.exports=async function validateAccountScopes(){const cases=[...await orchestration(),...await sdk(),...await recoveryUi(),...await overlappingRefreshes(),...await overlappingRefreshes({useLease:true}),...await horseAccountScopes()];console.log(`Account isolation: ${cases.length} actual orchestration/SDK/recovery scenarios passed; no service or database connection.`);return cases;};
