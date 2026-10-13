@@ -112,6 +112,7 @@ function normalizeCopyReview(value) {
 }
 
 function ensureEventDefaults(event, index) {
+  if(event.score?.racing?.kind==='horse')event={...event,score:{racing:require('../../config/racing-details').sanitizeHorseDetail(event.score.racing)}};
   if(surfNotes.isReviewedNote(event))event=surfNotes.qualify(event);
   const id = normalizeId(event.id || event.eventId || event.name || "event-" + index);
   const copyReview = normalizeCopyReview(event.copyReview);

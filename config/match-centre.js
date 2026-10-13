@@ -81,7 +81,7 @@
  }
  function racingSummary(r){
   const l=r.leader||r.entries?.[0],names=l?.drivers?.filter(name=>typeof name==='string').join(' / ')||l?.currentDriver;
-  if(r.kind==='horse')return [r.statusText,r.entryCount+' entries',r.raceTime?'Race time '+r.raceTime:null].filter(Boolean).join(' · ');
+  if(r.kind==='horse')return [['nominations','acceptances'].includes(r.phase)?'Early entries':r.statusText,r.entryCount+' entries',r.raceTime?'Race time '+r.raceTime:null].filter(Boolean).join(' · ');
   const laps=l?.laps??l?.[r.columns?.find(([label])=>/^laps$/i.test(label))?.[1]];
   return [l?.position!=null?'P'+l.position:null,names,laps!=null?'Lap '+laps+(r.totalLaps?' / '+r.totalLaps:''):null].filter(Boolean).join(' · ');
  }
@@ -154,7 +154,7 @@
  }
  function racingDetail(e){
   const reviewed=reviewedBathurstClassification(e);if(reviewed)return reviewed;
-  if(e.score?.racing?.schema==='racing.v1')return e.score.racing;
+  if(e.score?.racing?.schema==='racing.v1')return typeof module==='object'?require('./racing-details').sanitizeHorseDetail(e.score.racing,{horse:sport(e)==='horse-racing'}):e.score.racing;
   if(!/^(f1|supercars|motogp|wrc)$/.test(sport(e)))return null;
   const results=e.fixtureResults,columns=results?.columns,rows=results?.rows;
   const fallback={schema:'racing.v1',kind:'classification',eventId:id(e),sessionId:id(e),sessionName:e.name,provider:e.sourceName||'Official source',officialUrl:e.officialTimingUrl||(final(e)?safeUrl(e.resultSourceUrl):null)||({'f1':'https://www.formula1.com/en/timing/f1-live-lite','motogp':'https://www.motogp.com/en/gp-results','wrc':'https://www.wrc.com/en/results-and-standings','supercars':'https://www.supercars.com/live-timing'})[sport(e)],providerAt:null,checkedAt:null,phase:'unavailable',status:e.status,statusText:'Embedded timing unavailable',entries:[]};

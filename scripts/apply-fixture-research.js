@@ -6,9 +6,12 @@ const narrative=require('./lib/editorial-narrative');
 function apply(knowledge,feed,majorEvents,research,catalogue=[]){
   const retention=require('../data/canonical/cricket-retention.v1.json');
   const retired=new Set((retention.retiredFixtureIds||[]).filter(id=>!retention.fixtureIds.includes(id)));
-  knowledge.eventProjections=knowledge.eventProjections.map(p=>p.targetType==='feed-event'?{...p,targetIds:p.targetIds.filter(id=>!retired.has(id))}:p).filter(p=>p.targetIds.length);
+  if(research.scope!=='horse-flagships')knowledge.eventProjections=knowledge.eventProjections.map(p=>p.targetType==='feed-event'?{...p,targetIds:p.targetIds.filter(id=>!retired.has(id))}:p).filter(p=>p.targetIds.length);
   const upsert=(field,value)=>{const index=knowledge[field].findIndex(row=>row.id===value.id);if(index<0)knowledge[field].push(value);else knowledge[field][index]=value;};
   for(const entry of research.entries){
+    // Undated Horse editions use this same researched document as Events
+    // context. They cannot become fixture projections before a dated edition.
+    if(entry.id.startsWith('event:horse-racing:')&&require('../feeds/provider-exports/horse-racing/marquee-calendar.v1.json').entries.some(r=>r.id===entry.id&&!r.date))continue;
     if(retired.has(entry.id))continue;
     if(require('../config/coverage-pauses').womensT20({key:'cricket',name:entry.title}))continue;
     const fixturePrefix=`fixture-research:${entry.id.replace(/[^a-z0-9:._-]/g,'-')}`;
@@ -64,12 +67,26 @@ function apply(knowledge,feed,majorEvents,research,catalogue=[]){
   const issues=narrative.validateKnowledge(knowledge);if(issues.length)throw new Error(issues.join('\n'));
   return {knowledge,feed,majorEvents};
 }
+function projectHorseFeed(feed,knowledge){
+  const indexes=narrative.indexesFor(knowledge);
+  return {...feed,events:feed.events.map(event=>{
+    if(event.key!=='horse-racing'&&event.sportKey!=='horse-racing')return event;
+    const projection=narrative.projectionForTarget(knowledge,'feed-event',event);
+    return projection?narrative.applyToFeedEvent(event,projection,indexes):event;
+  })};
+}
 if(require.main===module){
   const files=['data/editorial-knowledge.v1.json','feeds/incoming/events.json','data/major-events.v1.json'];
   const values=files.map(file=>JSON.parse(fs.readFileSync(file)));
   const catalogue=[...JSON.parse(fs.readFileSync('data/follow-sources/coverage.v1.json')).events,...JSON.parse(fs.readFileSync('data/events.json')).events,...JSON.parse(fs.readFileSync('data/tennis-feed-parents.v1.json')).parents];
-  const result=apply(...values,JSON.parse(fs.readFileSync('data/editorial-fixture-research.v1.json')),catalogue);
+  const research=JSON.parse(fs.readFileSync('data/editorial-fixture-research.v1.json'));
+  if(process.argv.includes('--horse-only')){research.scope='horse-flagships';research.entries=research.entries.filter(e=>e.id.startsWith('event:horse-racing:'));}
+  const result=apply(...values,research,catalogue);
+  // Retain the current published sporting observations outside this scope.
+  // Publishing the entire incoming document here could replace newer scores.
+  const published=research.scope==='horse-flagships'?projectHorseFeed(JSON.parse(fs.readFileSync('data/events.json')),result.knowledge):null;
   [result.knowledge,result.feed,result.majorEvents].forEach((value,i)=>fs.writeFileSync(files[i],JSON.stringify(value,null,2)+'\n'));
+  if(published)fs.writeFileSync('data/events.json',JSON.stringify(published,null,2)+'\n');
   console.log('Applied independently researched fixture narratives and editorial replay recommendations.');
 }
-module.exports={apply};
+module.exports={apply,projectHorseFeed};

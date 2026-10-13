@@ -1,0 +1,17 @@
+# Horse fields and sporting stories — phase2
+
+Approved scope: [phased contract](../plans/horse-flagship-2026-10-13.md). Local source preparation from main7a614317; production/canonical proof remains with Audit.
+
+The existing racing.v1 Horse entry adds optional countryCode: a sourced two-letter code. Published Horse-name suffixes from Racing Australia map IRE→IE, USA→US, GER→DE, JPN→JP, SAF→ZA and other explicit codes; absent codes stay unknown. Displayed country does not imply registration, trainer nationality or venue origin. Horse/saddlecloth number remains number; gate remains barrier; assigned weight remains weight. Event programme raceNumber is independent. Gate/weight sorting uses numbers, missing last and number/name/id ties. The existing100-entry collection limit rejects over-budget/duplicate/unnamed bodies; it cannot turn a truncated body into a complete field.
+
+Only permitted entry and provenance keys survive collection/public publication, selected API and renderer normalization. No historical Form, odds, tips or betting analysis is collected into the entry interface. Current-race position/margin are retained sporting outcomes, rendered only with Results visible. Neutral entries remain with Results OFF, including early weights. Source checkedAt/provenance/date/clock are not renewed by formatting or deployment.
+
+The twelve stories use the existing fixture-research document, immutable knowledge revisions and canonical owner. Cup keeps the approved warm paragraph; the old procedural projection is replaced for its existing aliases. Three pending editions use the same research document for Events context only; they cannot create fixture projections until dated. The current VRC programme does not confirm order/start, so no R7/3pm is created. All stages/clocks/field freshness use separate factual labels.
+
+Every expanded Horse card places gambling-free/financial caution and Gambling Help Online/1800858858 below editorial. No collapsed warning, banner, odds or betting partner. Shared Product Charter text/link remains deferred until approved actual publication; no placeholder. Support details are sourced to https://www.dss.gov.au/gambling/gambling-support-services and https://www.gamblinghelponline.org.au/.
+
+Canonical transformation: node scripts/update-cards.js --horse-presentation-only --local-only through Audit after phase1 closes. It skips provider calls and retains original source/coverage clocks. The ordinary existing Horse fields route still owns bounded source updates. No standalone refresh or source scheduler is introduced. Source-only preparation has not invoked this publication path or mutated customer state.
+
+Focused checks: source/country/gate/weight/tie/public allowlist and in-memory12stories/9dated-projections/3pending-context contracts; existing actual26car selected API/source/persistence/cadence controls; eight Chromium/WebKit390/1280day/night cases using the retained71-horse source plus clearly labelled controlled privacy/order variations. API failures in this local harness are deliberate, with no service/customer/provider requests. Upgrade/offline and live actual public fields still require Audit’s exact release evidence; controlled browsers never establish a physical phone pass.
+
+Evidence: /Users/jackhartican/Documents/AI/Codex/horse-flagship-2026-10-13/phase-2. Preserve phase1 guarded choice repair and completed cohort; no migration replay or notification/Follow change.

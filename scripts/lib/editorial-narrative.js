@@ -323,7 +323,8 @@ function applyToFeedEvent(event, projection, indexes){
   if(pauses.womensT20(event))return pauses.apply(event);
   const primarySource = indexes.sources.get(projection.sourceIds[0]);
   const narrative = editorialNarrativeFor(projection, indexes);
-  const completed = event.status === "completed";
+  const horse=event.key==='horse-racing'||event.sportKey==='horse-racing';
+  const completed = !horse && event.status === "completed";
   const lifecycle = require('../../config/editorial-lifecycle');
   if(completed){
     const previous=event.editorialNarrative;
@@ -340,7 +341,7 @@ function applyToFeedEvent(event, projection, indexes){
   // Root summaries are visible with Results OFF. Reapplying dated preview
   // research after a confirmed final must use the same protected lifecycle
   // copy as the card, while retaining the research inside its narrative.
-  const displayCopy = lifecycle.copy(event,narrative,false);
+  const displayCopy = horse?{hook:narrative.hook,synopsis:narrative.synopsis}:lifecycle.copy(event,narrative,false);
   const contextSignals = unique(["event-specific", ...narrative.dimensions.map(value => `narrative:${value}`)]);
   const threadTitle = indexes.threads.get(projection.threadIds[0])?.title || "Persistent editorial thread";
   return locks.apply({

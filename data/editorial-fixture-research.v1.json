@@ -2837,85 +2837,6 @@
       "researchedAt": "2026-10-11T03:06:32.411Z"
     },
     {
-      "id": "event:horse-racing:melbourne-cup:2026",
-      "title": "Melbourne Cup — a staying test and the path into the field",
-      "hook": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
-      "synopsis": "The Group 1 Melbourne Cup is scheduled for 3 November at Flemington over 3200 metres. Its history began in 1861. Eleven Golden Ticket winners receive ballot exemption for the 2026 edition, giving the lead-up races a direct connection to Cup day. The VRC announced 101 nominations on 1 September. That was an early entry-stage snapshot, not a prediction of the final runners. Later acceptances and scratchings can change the field; use the latest published entry details on the card.",
-      "closingCopy": "The long-distance race and its qualifying paths give the build-up its shape. Golden Ticket exemption and an early acceptance list do not decide the race. The confirmed race time, final line-up and result remain separate from this background.",
-      "sources": [
-        "https://www.vrc.com.au/race-days-and-events/2026-2027/lexus-melbourne-cup-day/",
-        "https://www.vrc.com.au/racing/2026-lexus-melbourne-cup-golden-ticket-entry/",
-        "https://www.vrc.com.au/latest-news/101-nominations-received-for-the-166th-lexus-melbourne-cup/"
-      ],
-      "sourceObservations": [
-        {
-          "name": "VRC official 2026 Melbourne Cup day and race history",
-          "url": "https://www.vrc.com.au/race-days-and-events/2026-2027/lexus-melbourne-cup-day/",
-          "resolvedUrl": "https://www.vrc.com.au/race-days-and-events/2026-2027/lexus-melbourne-cup-day/",
-          "status": 200,
-          "checkedAt": "2026-10-11T03:44:06.720Z",
-          "bytes": 238712,
-          "sha256": "1b96a8530a891a97d1adf3bc46575d8bbbc53b7324ddf7dc2e9d3f673950ce38"
-        },
-        {
-          "name": "VRC official 2026 Golden Ticket entry programme",
-          "url": "https://www.vrc.com.au/racing/2026-lexus-melbourne-cup-golden-ticket-entry/",
-          "resolvedUrl": "https://www.vrc.com.au/racing/2026-lexus-melbourne-cup-golden-ticket-entry/",
-          "status": 200,
-          "checkedAt": "2026-10-11T03:44:06.856Z",
-          "bytes": 773784,
-          "sha256": "b4d2fc39974d0b127340a448028c135caf1671b1ba6443726c4c230be09b800e"
-        },
-        {
-          "name": "VRC nominations announcement dated 1 September 2026",
-          "url": "https://www.vrc.com.au/latest-news/101-nominations-received-for-the-166th-lexus-melbourne-cup/",
-          "checkedAt": "2026-10-11T03:45:38.502Z",
-          "bytes": 70758,
-          "sha256": "7e0b8a69c08201ac6c6e4face65fa1885d54f90770af0ec51a9119018e65196a"
-        }
-      ],
-      "facts": [
-        {
-          "dimension": "schedule",
-          "statement": "The VRC schedules Melbourne Cup day at Flemington on 3 November 2026.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "format",
-          "statement": "The feature race is the Group 1 Lexus Melbourne Cup over 3200 metres.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "history",
-          "statement": "The first Melbourne Cup was run on 7 November 1861.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "Eleven Golden Ticket winners receive ballot exemption for the 2026 Melbourne Cup.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "On 1 September 2026, the VRC reported 101 initial nominations for the Melbourne Cup; that early entry-stage count does not identify the final field.",
-          "sourceIndexes": [
-            2
-          ]
-        }
-      ],
-      "researchDepth": 5,
-      "researchedAt": "2026-10-11T03:45:38.506Z",
-      "changeReason": "Supply the missing persistent marquee background through the existing research owner; preserve fixture facts, original observation dates, stage uncertainty and spoiler protection."
-    },
-    {
       "id": "fixture:cricket:espn:1525660",
       "title": "South Africa v Australia - Second Test",
       "hook": "Inglis is returning to the squad, not yet the XI: Australia's Gqeberha puzzle combines batting places with a possible second spinner.",
@@ -3154,6 +3075,637 @@
       ],
       "researchDepth": 5,
       "researchedAt": "2026-10-12T22:50:31.092Z"
+    },
+    {
+      "id": "event:horse-racing:melbourne-cup:2026",
+      "title": "Melbourne Cup — sporting tradition and why it matters",
+      "hook": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
+      "synopsis": "At Flemington, 3,200 metres separate a field of horses and jockeys from a place in racing history. Storied, celebrated and sometimes controversial, it is Australia’s defining horse race.",
+      "closingCopy": "The Cup matters because it turns an extraordinary test of endurance and riding skill into a national occasion, bringing generations of stories and rivalries together for a few unforgettable minutes.",
+      "researchDepth": 5,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.vrc.com.au/race-days-and-events/2026-2027/lexus-melbourne-cup-day/",
+        "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/aiui32r2/2026-lexus-melbourne-cup-full-conditions-final.pdf",
+        "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Melbourne Cup — official sporting context",
+          "url": "https://www.vrc.com.au/race-days-and-events/2026-2027/lexus-melbourne-cup-day/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Melbourne Cup — official sporting context",
+          "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/aiui32r2/2026-lexus-melbourne-cup-full-conditions-final.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Melbourne Cup — official sporting context",
+          "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Melbourne Cup is a 3200-metre Group1 race at Flemington.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "VRC describes the Melbourne Cup as the Race That Stops a Nation.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "VRC identifies its2026 Melbourne Cup as the166th of the series.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The2026 VRC spring programme lists3November for Cup Day and explicitly leaves race order unconfirmed.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:caulfield-cup:2026",
+      "title": "Caulfield Cup — sporting tradition and why it matters",
+      "hook": "The Caulfield Cup turns 2,400 metres into one of spring’s great endurance contests.",
+      "synopsis": "Local and international stayers meet in a race where patience, positioning and a powerful finish all matter.",
+      "closingCopy": "Its place in Australian racing comes from that meeting of worlds: visiting challengers, familiar rivals and generations of stories carried into the Caulfield straight.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://mrc.racing.com/racing/racing-information/feature-race-information/caulfield-cup?sc_site=MRC",
+        "https://mrc.racing.com/greatest-caulfield-cup"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Caulfield Cup — official sporting context",
+          "url": "https://mrc.racing.com/racing/racing-information/feature-race-information/caulfield-cup?sc_site=MRC",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Caulfield Cup — official sporting context",
+          "url": "https://mrc.racing.com/greatest-caulfield-cup",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Caulfield Cup is a2400-metre handicap.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Caulfield Cup is held at Caulfield.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "MRC describes the Caulfield Cup as drawing elite local and international stayers and celebrates its great winners.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:cox-plate:2026",
+      "title": "Cox Plate — sporting tradition and why it matters",
+      "hook": "The Cox Plate is where racing’s great reputations face a championship test.",
+      "synopsis": "Its tradition brings horses of different ages together in a test of sustained excellence and the skill of horse and rider.",
+      "closingCopy": "The race matters because a few minutes can add a defining chapter to a champion’s story, or introduce a new name to the sport’s biggest stage.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.thevalley.com.au/racing/ws-cox-plate",
+        "https://www.thevalley.com.au/ladbrokes-cox-plate-carnival/guide"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Cox Plate — official sporting context",
+          "url": "https://www.thevalley.com.au/racing/ws-cox-plate",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Cox Plate — official sporting context",
+          "url": "https://www.thevalley.com.au/ladbrokes-cox-plate-carnival/guide",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Cox Plate is a weight-for-age contest for horses aged three and older.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "MVRC calls the Cox Plate the Weight-For-Age Championship of Australasia.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The current2026 organiser guide identifies Flemington as the host venue; traditional Valley distance is not an edition2026 fact.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:the-everest:2026",
+      "title": "The Everest — sporting tradition and why it matters",
+      "hook": "The Everest puts sprinting’s explosive speed at the heart of a Sydney sporting occasion.",
+      "synopsis": "Over 1,200 metres at Royal Randwick, the contest leaves little room for hesitation: a clean start, a jockey’s judgement and a decisive burst can shape the race.",
+      "closingCopy": "Its appeal is immediate and visceral, bringing elite sprinters together for a short, fiercely contested show of speed.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.australianturfclub.com.au/races/everest-day/",
+        "https://www.racingnsw.com.au/wp-content/uploads/RNSW-AR18-web.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "The Everest — official sporting context",
+          "url": "https://www.australianturfclub.com.au/races/everest-day/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "The Everest — official sporting context",
+          "url": "https://www.racingnsw.com.au/wp-content/uploads/RNSW-AR18-web.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "venue",
+          "statement": "The Everest is held at Royal Randwick.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "Racing NSW describes The Everest as a1200-metre race.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Racing NSW records the introduction of The Everest in2017.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:victoria-derby:2026",
+      "title": "Victoria Derby — sporting tradition and why it matters",
+      "hook": "The Victoria Derby asks a new generation to find the strength for a classic test.",
+      "synopsis": "Three-year-old horses tackle 2,500 metres at Flemington, where promise must become endurance.",
+      "closingCopy": "As the carnival’s opening classic, the Derby matters beyond one afternoon: it gives young horses and their riders a chance to write the first major chapter of a lasting sporting story.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.vrc.com.au/latest-news/victoria-derby-tradition-and-triumph/",
+        "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Victoria Derby — official sporting context",
+          "url": "https://www.vrc.com.au/latest-news/victoria-derby-tradition-and-triumph/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Victoria Derby — official sporting context",
+          "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "VRC describes the Victoria Derby as a long-running Flemington classic.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The current VRC programme specifies2500metres and three-year-olds for the Victoria Derby.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Victoria Derby is part of the Flemington Melbourne Cup Carnival.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:vrc-oaks:2026",
+      "title": "VRC Oaks — sporting tradition and why it matters",
+      "hook": "The VRC Oaks gives young fillies their own place in Flemington’s classic tradition.",
+      "synopsis": "The 2,500-metre journey at Flemington tests stamina, composure and a rider’s sense of pace.",
+      "closingCopy": "Set within the colour and occasion of Oaks Day, the race matters as a stage where emerging talent can become a memorable name, carrying the carnival’s story into a fresh generation.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:26:31.106Z",
+      "sources": [
+        "https://www.vrc.com.au/latest-news/treasurethe-moment-wins-memorable-crown-oaks/",
+        "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "VRC Oaks — official sporting context",
+          "url": "https://www.vrc.com.au/latest-news/treasurethe-moment-wins-memorable-crown-oaks/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "VRC Oaks — official sporting context",
+          "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The VRC Oaks is a2500-metre race for three-year-old fillies.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "VRC records a long Oaks tradition within the Melbourne Cup Carnival.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "VRC places the Oaks at Flemington during the carnival.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:champions-stakes:2026",
+      "title": "Champions Stakes — sporting tradition and why it matters",
+      "hook": "The Champions Stakes brings the Melbourne carnival to a championship finish.",
+      "synopsis": "This 2,000-metre contest at Flemington puts established horses and ambitious challengers on the same stage.",
+      "closingCopy": "It matters because the carnival’s last big chapter belongs to sporting excellence: the ability to settle, respond and finish strongly when the race demands everything.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.vrc.com.au/race-days-and-events/2026-2027/tab-champions-stakes-day/",
+        "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Champions Stakes — official sporting context",
+          "url": "https://www.vrc.com.au/race-days-and-events/2026-2027/tab-champions-stakes-day/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Champions Stakes — official sporting context",
+          "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Champions Stakes is a2000-metre weight-for-age race.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "The race originated as the Melbourne Stakes and was repositioned to the carnival final day in2016.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Champions Stakes is held at Flemington on the final carnival day.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:golden-slipper:2027",
+      "title": "Golden Slipper — sporting tradition and why it matters",
+      "hook": "The Golden Slipper is a coming-of-age moment for racing’s youngest stars.",
+      "synopsis": "Two-year-olds meet at Rosehill Gardens in a sprint that tests speed and composure on a major stage.",
+      "closingCopy": "The race matters because so much of its drama is about discovery: young horses, trainers and jockeys stepping into a tradition that has helped shape Australian racing for generations.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.australianturfclub.com.au/history-of-the-golden-slipper/",
+        "https://www.australianturfclub.com.au/nominations-open-for-iconic-2027-group-1-5-million-tab-golden-slipper/"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Golden Slipper — official sporting context",
+          "url": "https://www.australianturfclub.com.au/history-of-the-golden-slipper/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Golden Slipper — official sporting context",
+          "url": "https://www.australianturfclub.com.au/nominations-open-for-iconic-2027-group-1-5-million-tab-golden-slipper/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Golden Slipper is restricted to two-year-olds.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "The Golden Slipper first ran at Rosehill in1957.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Golden Slipper is a centrepiece of the Sydney autumn programme at Rosehill Gardens.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:australian-cup:2027",
+      "title": "Australian Cup — sporting tradition and why it matters",
+      "hook": "The Australian Cup carries Flemington’s championship tradition into autumn.",
+      "synopsis": "Over 2,000 metres, accomplished horses must combine endurance with the speed to answer a late challenge.",
+      "closingCopy": "The race’s long history gives that contest a deeper resonance: an autumn afternoon can connect a new champion with generations of horses and riders who have made the Cup a sporting landmark.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.vrc.com.au/latest-news/australian-cup-the-evolution-of-a-flemington-feature/",
+        "https://www.vrc.com.au/latest-news/it-all-began-with-dulcify/"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Australian Cup — official sporting context",
+          "url": "https://www.vrc.com.au/latest-news/australian-cup-the-evolution-of-a-flemington-feature/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Australian Cup — official sporting context",
+          "url": "https://www.vrc.com.au/latest-news/it-all-began-with-dulcify/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "The Australian Cup first ran in1863.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The Australian Cup developed into a2000-metre weight-for-age feature.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Australian Cup is a Flemington autumn feature.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:doncaster-mile:2027",
+      "title": "Doncaster Mile — sporting tradition and why it matters",
+      "hook": "The Doncaster Mile turns Randwick’s famous mile into a test of timing and resolve.",
+      "synopsis": "Its handicap tradition brings different horses together in a contest where the pace, the passage through the field and the final surge all matter.",
+      "closingCopy": "With a history stretching back to 1866, it links Sydney’s autumn sporting occasion with one of Australian racing’s enduring stories.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.australianturfclub.com.au/history-of-the-doncaster/",
+        "https://www.australianturfclub.com.au/races/championships-day-1/"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Doncaster Mile — official sporting context",
+          "url": "https://www.australianturfclub.com.au/history-of-the-doncaster/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Doncaster Mile — official sporting context",
+          "url": "https://www.australianturfclub.com.au/races/championships-day-1/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "The Doncaster Mile first ran in1866.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The Doncaster is a handicap over a mile,1600metres.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Doncaster Mile is a feature of Randwick’s autumn programme.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:queen-elizabeth-stakes:2027",
+      "title": "Queen Elizabeth Stakes — sporting tradition and why it matters",
+      "hook": "The Queen Elizabeth Stakes is a centrepiece of Sydney’s autumn championship stage.",
+      "synopsis": "The 2,000-metre contest at Royal Randwick brings the demands of stamina and acceleration together.",
+      "closingCopy": "It matters as a meeting point for established champions and ambitious challengers, where the strength of a sporting reputation has to be shown again on the track.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://racing.australianturfclub.com.au/feature-races/queen-elizabeth-stakes",
+        "https://www.australianturfclub.com.au/races/championships-day-2/"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Queen Elizabeth Stakes — official sporting context",
+          "url": "https://racing.australianturfclub.com.au/feature-races/queen-elizabeth-stakes",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Queen Elizabeth Stakes — official sporting context",
+          "url": "https://www.australianturfclub.com.au/races/championships-day-2/",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "ATC lists the Queen Elizabeth Stakes as a2000-metre Group1 race.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "ATC places the Queen Elizabeth Stakes among the major features of The Championships.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Queen Elizabeth Stakes is held at Royal Randwick.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event:horse-racing:stradbroke-handicap:2027",
+      "title": "Stradbroke Handicap — sporting tradition and why it matters",
+      "hook": "The Stradbroke Handicap gives Queensland racing its signature sporting occasion.",
+      "synopsis": "Eagle Farm’s 1,400-metre contest combines sustained speed with the judgement to finish strongly.",
+      "closingCopy": "As the winter carnival’s flagship, it matters to the sport’s national rhythm: the spotlight moves north, bringing local pride and visiting challengers into a race with a distinct Queensland identity.",
+      "researchDepth": 4,
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "sources": [
+        "https://www.brc.com.au/ArticleDocuments/3738/20250404_MEDIA%20GUIDE_A4_PRINT.pdf.aspx?Embed=Y",
+        "https://www.racingqueensland.com.au/news/2023/05-may/think-about-it-lands-stradbroke-lead-up"
+      ],
+      "sourceObservations": [
+        {
+          "name": "Stradbroke Handicap — official sporting context",
+          "url": "https://www.brc.com.au/ArticleDocuments/3738/20250404_MEDIA%20GUIDE_A4_PRINT.pdf.aspx?Embed=Y",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        },
+        {
+          "name": "Stradbroke Handicap — official sporting context",
+          "url": "https://www.racingqueensland.com.au/news/2023/05-may/think-about-it-lands-stradbroke-lead-up",
+          "checkedAt": "2026-10-13T08:14:23.253Z",
+          "method": "Human reviewed primary publication or primary search excerpt,13October2026; historical evidence is not a current edition clock."
+        }
+      ],
+      "facts": [
+        {
+          "dimension": "format",
+          "statement": "The Stradbroke Handicap is a1400-metre Group1 contest.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "venue",
+          "statement": "The Stradbroke Handicap is held at Eagle Farm.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "BRC identifies the Stradbroke as its signature Queensland carnival feature.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ]
     }
   ]
 }

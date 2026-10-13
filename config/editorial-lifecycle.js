@@ -3,7 +3,7 @@
  const completed=e=>['completed','finished','final','past'].includes(String(e?.status).toLowerCase());
  const signature=e=>JSON.stringify([completed(e)?'completed':e?.status||'',e?.outcomeText||'',e?.scoreDisplay||e?.score||'',e?.recapText||'']);
  function copy(event,narrative={},spoilers=false){
-  if(!completed(event))return {hook:narrative.hook||'',synopsis:narrative.synopsis||''};
+  if(!completed(event)||event.key==='horse-racing'||event.sportKey==='horse-racing')return {hook:narrative.hook||'',synopsis:narrative.synopsis||''};
   const safe=`${event.displayTitleCompact||event.name||'This fixture'} is complete. Reveal results for the outcome.`;
   const current=narrative.resultSignature===signature(event);
   if(!spoilers)return {hook:current&&narrative.phase==='recap'?narrative.hook||safe:safe,synopsis:current&&narrative.phase==='recap'?narrative.synopsis||'':''};

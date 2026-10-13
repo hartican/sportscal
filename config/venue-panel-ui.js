@@ -416,7 +416,7 @@ function buildFixtureCardEssentials(ev, {matchupIdentity, timingState, options, 
 }
 
 function buildExpandedScoreDetails(ev){
- if(!(isSpoilerVisible(ev)&&(ev.score?.racing||/^(f1|supercars|motogp|wrc|horse-racing)$/.test(ev.key)||ev.key==='cricket'||/football|soccer|fifa|premier-league|uefa-/.test(ev.key))))return null;
+ if(!(ev.key==='horse-racing'||isSpoilerVisible(ev)&&(ev.score?.racing||/^(f1|supercars|motogp|wrc|horse-racing)$/.test(ev.key)||ev.key==='cricket'||/football|soccer|fifa|premier-league|uefa-/.test(ev.key))))return null;
  const slot=document.createElement('div');slot.dataset.cardArea='expanded-information';slot.className='fixture-scorecard';
  loadDeferredScript('config/score-details.js?v=516').then(()=>NOTHINGSPORTS_SCORE_DETAILS.feed(slot,ev,()=>isSpoilerVisible(ev))).catch(()=>{if(slot.isConnected&&isSpoilerVisible(ev))slot.textContent='Scorecard unavailable.';});return slot;
 }
@@ -597,7 +597,7 @@ function buildEventWhyItMatters(ev){
   return buildEditorialL0Hook(hook, isValidatedEditorialCopy(consequence) ? consequence : "", {
     labelText:"Why it matters",
     formCopy:opened && !helper.completed(ev) && ev.editorialNarrative?.dimensions?.includes('form') ? uniqueCopy(ev.editorialNarrative.formCopy) : '',
-    closingCopy:opened && !helper.completed(ev) ? uniqueCopy(ev.editorialNarrative?.closingCopy) : '',
+    closingCopy:opened && (ev.key==='horse-racing'||!helper.completed(ev)) ? uniqueCopy(ev.editorialNarrative?.closingCopy) : '',
     supplementalCopy:isValidatedEditorialCopy(supplemental) ? supplemental : "",
   });
 }

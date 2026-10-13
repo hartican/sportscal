@@ -43,6 +43,7 @@
     let value = event && typeof event === "object" && !Array.isArray(event) ? event : {};
     const text = input => typeof input === "string" ? input : "";
     const normalized = {...value, key:sportKey(value)};
+    if(typeof module==='object'&&normalized.score?.racing?.kind==='horse')normalized.score={racing:require('./racing-details').sanitizeHorseDetail(normalized.score.racing)};
     const reviewed=globalThis.NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS || (typeof require==='function'?require('./reviewed-fixture-repairs'):null);
     const reviewedFacts=reviewed?.facts(canonicalFixtureId(value.id||value.eventId),value)||{};
     // A reviewed computed window never replaces a confirmed end. An explicit

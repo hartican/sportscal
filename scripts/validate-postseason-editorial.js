@@ -74,7 +74,8 @@ const cupApplied=applyResearch(read('data/editorial-knowledge.v1.json'),{events:
 const cupProjection=api.projectionForTarget(cupApplied.knowledge,'feed-event',cup);
 assert(cupProjection&&cupProjection.researchDepth===5);
 assert.equal(facts(cupApplied.feed.events[0]),facts(cup),'Background cannot replace the current entry stage, race time, IDs or source clocks');
-assert.match(cupProjection.synopsis,/1 September/);assert.match(cupProjection.synopsis,/not a prediction of the final runners/);
+assert.equal([cupProjection.hook,cupProjection.synopsis,cupProjection.closingCopy].join(' '),'Few sporting moments bring Australia to a halt quite like the Melbourne Cup. At Flemington, 3,200 metres separate a field of horses and jockeys from a place in racing history. Storied, celebrated and sometimes controversial, it is Australia’s defining horse race. The Cup matters because it turns an extraordinary test of endurance and riding skill into a national occasion, bringing generations of stories and rivalries together for a few unforgettable minutes.','The approved sporting story replaces procedural nomination copy');
+assert.doesNotMatch(cupProjection.hook+' '+cupProjection.synopsis+' '+cupProjection.closingCopy,/not a prediction|nominations|acceptances|unconfirmed|\bR7\b|3\s*pm/i,'Editorial cannot supply an unpublished programme clock or field caveat');
 assert(!cupProjection.hook.includes('101'),'A dated early nomination count cannot look like the current field');
 const currentCup=read('feeds/incoming/events.json').events.find(e=>e.canonicalEventId===cup.canonicalEventId);
 if(currentCup)assert.equal(facts(applyResearch(read('data/editorial-knowledge.v1.json'),{events:[currentCup]},{events:[]},{entries:[cupReview]}).feed.events[0]),facts(currentCup),'The real current Cup retains its complete source field without copying the roster into a test fixture');

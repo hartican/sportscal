@@ -13345,7 +13345,7 @@ function discoverySportHasFroth(nodeId, preferences = userPreferences){
     preference.enabled !== false
     && (
       preference.templateId === "template:froth"
-      // Preserve legacy all-fixture discovery depth.
+      // Keep discovery depth.
       || (preference.templateId === "template:custom" && preference.includeAllFixtures === true)
     )
     && (
@@ -15608,7 +15608,7 @@ function nothingscoreQueueRender(){
     nothingscoreRenderQueued = false;
     const anchor = captureViewportRenderAnchor().card;
     mutateWithScrollContinuity(anchor, () => {
-      // Patch scores without replacing the card.
+      // Patch scores in place.
       document.querySelectorAll(".nsc-summary").forEach(node => {
         const ev = nothingscoreEventRefs.get(node.dataset.nscEventId);
         if (!ev || inlineRatingRequests.has(nothingscoreEventId(ev))) return;
