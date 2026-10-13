@@ -2,6 +2,8 @@
 
 **13 October 2026 · local preparation; not published or deployed**
 
+This project record is published for review. The code changes remain local and await the combined release.
+
 The same source was being compressed again whenever a check asked for the card source. The existing compact-status check asks twice. A small change reuses the previous compression only inside the same Node process and only when the complete freshly assembled source is identical. Every call still reads the current inputs.
 
 In a bounded local sample, the second and third builds took **3.157 seconds before and 0.227 seconds after**, about **92.8% less repeated work**. Generated app bytes are identical. The first build varied from 1921 to 2231 milliseconds; no cold-build, whole-release, browser, cash or token saving is claimed from this small sample.

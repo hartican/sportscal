@@ -2,6 +2,8 @@
 
 **13 October 2026 · prepared locally; not published or deployed**
 
+This project record is published for review. The code changes remain local and await the combined release.
+
 The live version has badge assignments for all 84 pilot clubs. A controlled check of 45 published fixtures through its actual shared card constructor loads 82 distinct club badges. Celje and Sabah fall back to named letter icons because both configured image URLs return HTTP 404 HTML. The narrowed two-fixture command reproduces that failure with a non-zero exit. The other source-host groups and card frames work.
 
 Replace only those two image references. Celje uses the file page's supplied 250-pixel thumbnail, instead of its 3,750-pixel original. Sabah uses the Azerbaijani club's own match badge. Both replacements load on the hosted origin in Chromium and WebKit and have light/dark preview evidence. The [Celje file page](https://commons.wikimedia.org/wiki/File:NK_Celje_logo.png) records an uploader CC0 dedication; this is separate from club-mark permission. The [Sabah club source](https://sabahfc.az/) establishes the Azerbaijani identity, rather than the Malaysian club or unrelated uses of the name. Full commercial permission stays open.
