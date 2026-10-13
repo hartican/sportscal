@@ -25,7 +25,7 @@ async function render(container){
  const choice=buildSurfaceCategoryChooser('events',available,renderEventsView,{includeAll:true});node.replaceChildren(controls,choice.select);
  const marker=text('div','Now','events-now-marker is-active');marker.setAttribute('role','separator');marker.setAttribute('aria-label','Current and upcoming events');node.append(marker);
  const visible=available.filter(e=>isTarget(e)||choice.selected==='all'||NOTHINGSPORTS_SURFACE_CATEGORY.category(e)===choice.selected).sort((a,b)=>Math.max((a.date||'9999').localeCompare(today),0)-Math.max((b.date||'9999').localeCompare(today),0)||(a.date||'9999').localeCompare(b.date||'9999')||a.id.localeCompare(b.id));
- function buildOverviewCard(event){
+ function buildOverviewCard(event,{openTarget=false}={}){
   let card=document.createElement('article');card.className='match-centre-card events-overview-card';card.dataset.eventOverviewId=event.id;card.dataset.eventId=event.id;card.dataset.scrollKey='event:overview:'+event.id;card.tabIndex=-1;
   card._rebuildCard=()=>buildOverviewCard(event);card._retargetCard=target=>{card=target;};
   const state=cardStateForEvent(event);card.dataset.cardState=state;
@@ -39,7 +39,7 @@ async function render(container){
   for(const fixture of next.slice(0,2)){const row=text('p',fixture.spoilerSafeTitle||fixture.name,'athletes-next-match');const timing=NOTHINGSPORTS_CARD_TIMING.presentation(fixture,nowAEST());row.append(document.createTextNode(' · '+timing.fullSchedule));card.append(row);}
   if(!next.length&&(event.participantIds||[]).some(follows))card.append(text('p','Next followed appearance has not been verified.','athletes-coverage-gap'));
   card.append(buildEventEditionToggle({...event,tournamentParent:true}));
-  const details=document.createElement('details'),summary=text('summary','Fixtures');details.append(summary);details.open=state==='opened'||eventOverviewOpen.has(event.id)||Boolean(isTarget(event));card.append(details);let loaded=false;
+  const details=document.createElement('details'),summary=text('summary','Fixtures');details.append(summary);details.open=state==='opened'||eventOverviewOpen.has(event.id)||openTarget;card.append(details);let loaded=false;
   if(timing.progress)details.append(text('p',timing.fullSchedule,'fixture-source-dates'));
   const mount=async()=>{if(!details.open||loaded)return;loaded=true;const list=document.createElement('div');list.textContent='Loading published fixtures…';details.append(list);try{
     let fixtures;if(event.sportKey.startsWith('tennis'))fixtures=(await loadTennisFeedContests()).fixtures.filter(f=>(f.tournamentId||f.tennisTournamentId)===event.tournamentId);
@@ -54,7 +54,7 @@ async function render(container){
   if(event.sourceUrl){const source=text('a','Event source');source.href=event.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';card.append(document.createTextNode(' · '),source);}
   if(event.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(event.sportKey))appendVenuePanel(card,card,event);card.append(buildCardDisclosureControl(event.name,state,activate));return card;
  }
- for(const event of visible){const card=buildOverviewCard(event);node.append(card);if(isTarget(event)){Promise.resolve(card._targetReady).then(()=>requestAnimationFrame(()=>{if(!card.isConnected)return;card.style.scrollMarginTop=((document.querySelector('.header')||document.querySelector('header'))?.offsetHeight||160)+16+'px';card.scrollIntoView({block:'start'});(card.querySelector('.minimised-card-summary')||card).focus({preventScroll:true});pendingMajorEventFocusId=null;globalThis.pendingTournamentFocusFixture=null;}));}
+ for(const event of visible){const card=buildOverviewCard(event,{openTarget:Boolean(isTarget(event))});node.append(card);if(isTarget(event)){Promise.resolve(card._targetReady).then(()=>requestAnimationFrame(()=>{if(!card.isConnected)return;card.style.scrollMarginTop=((document.querySelector('.header')||document.querySelector('header'))?.offsetHeight||160)+16+'px';card.scrollIntoView({block:'start'});(card.querySelector('.minimised-card-summary')||card).focus({preventScroll:true});pendingMajorEventFocusId=null;globalThis.pendingTournamentFocusFixture=null;}));}
  }
  if(!visible.length)node.append(text('p',scope==='followed'?'No current events match your follows. Browse All events or follow an athlete, team or competition.':'No current events are published for this category.'));
 }

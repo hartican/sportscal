@@ -33,14 +33,21 @@ vm.createContext(client);vm.runInContext(['nothingscoreEventId','visibleNothings
 client.nothingscoreReadRecovery=createReadRecovery({...time,active:()=>client.document.visibilityState!=='hidden'&&client.navigator.onLine!==false,eligible:()=>client.visibleNothingscoreReadIds(),pending:id=>inFlight.has(id)||pending.has(id),retry:ids=>{ids.forEach(id=>pending.add(id));void client.flushNothingscoreBatch();}});
 nodes.set('fixture',{dataset:{nscEventId:'fixture'},getClientRects:()=>[{}],closest:()=>null});
 async function stalePollCannotChangeCurrentAccount(fails){
- const timers=new Map(),cleared=[],inFlight=new Set();let nextTimer=0,settle,syncs=0;
+ const timers=new Map(),cleared=[],delays=[],inFlight=new Set();let nextTimer=0,settle,syncs=0;
  const poll={nothingscoreReadGeneration:1,nothingscorePollFailures:0,nothingscorePollTimer:null,nothingscoreBatchInFlight:inFlight,
-  navigator:{onLine:true},document:{visibilityState:'visible'},visiblePulseNothingscoreIds:()=>['shared-fixture'],
-  window:{setTimeout(fn){const id=++nextTimer;timers.set(id,fn);return id;},clearTimeout(id){cleared.push(id);timers.delete(id);}},
+  NOTHINGSCORE:{},nscRankingGeneration:0,nothingscoreReadRecovery:{reset(){}},nothingscoreBatchTimer:null,nothingscoreDetailLoading:new Set(),
+  nothingscoreSnapshots:new Map(),nothingscoreLoadedAt:new Map(),nothingscoreLoadErrors:new Map(),nothingscorePendingIds:new Set(),nothingscoreWatching:new Set(),nothingscoreHeartbeatTimer:null,nothingscoreQueueRender(){},
+  navigator:{onLine:true},document:{visibilityState:'visible',getElementById:()=>null},visiblePulseNothingscoreIds:()=>['shared-fixture'],
+  window:{setTimeout(fn,delay){const id=++nextTimer;delays.push(delay);timers.set(id,fn);return id;},clearTimeout(id){cleared.push(id);timers.delete(id);}},
   loadNothingscoreBatch:()=>new Promise((resolve,reject)=>{settle=fails?reject:resolve;}),syncNothingscoreReadRecovery(){syncs++;}};
- vm.createContext(poll);vm.runInContext(source('scheduleNothingscorePoll'),poll);
+ vm.createContext(poll);vm.runInContext(source('scheduleNothingscorePoll')+'\n'+source('syncNothingscoreSessionState'),poll);
  poll.scheduleNothingscorePoll();const oldCallback=timers.get(poll.nothingscorePollTimer),late=oldCallback();
- poll.nothingscoreReadGeneration++;poll.nothingscorePollFailures=2;poll.scheduleNothingscorePoll();
+ poll.nothingscorePollFailures=3;poll.syncNothingscoreSessionState('old-account','current-account');
+ assert.equal(poll.nothingscoreReadGeneration,2,'actual account replacement advances the read generation');
+ assert.equal(poll.nothingscorePollFailures,0,'actual account replacement resets the old poll failure budget');
+ assert.equal(delays.at(-1),120_000,'current account keeps the existing healthy poll interval');
+ assert.equal(timers.size,1,'account replacement keeps one current healthy poll timer');
+ poll.nothingscorePollFailures=2;inFlight.add('shared-fixture');
  const currentTimer=poll.nothingscorePollTimer,clearCount=cleared.length,timerCount=nextTimer;
  settle(fails?Error('old account poll failure'):undefined);await late;
  assert.equal(poll.nothingscorePollFailures,2,`stale ${fails?'failed':'successful'} poll cannot change the current account's failure count`);
@@ -49,6 +56,12 @@ async function stalePollCannotChangeCurrentAccount(fails){
  assert.equal(nextTimer,timerCount,'stale completion cannot schedule a replacement poll');
  assert(inFlight.has('shared-fixture'),'stale completion cannot release a current account in-flight ID');
  assert.equal(syncs,0,'stale completion cannot sync current account recovery');
+ for(const [visibility,online]of [['hidden',true],['visible',false]]){
+  poll.document.visibilityState=visibility;poll.navigator.onLine=online;poll.nothingscorePollFailures=3;
+  poll.syncNothingscoreSessionState('current-account','next-account');
+  assert.equal(poll.nothingscorePollFailures,0,'inactive account replacement still resets failure ownership');
+  assert.equal(timers.size,0,'hidden/offline account replacement cannot schedule a poll');
+ }
 }
 (async()=>{
  client.nothingscoreReadFailed('fixture');time.advance(300_000);await new Promise(resolve=>setImmediate(resolve));assert.equal(requests.length,1);assert(!errors.has('fixture'),'successful timed read clears the error');

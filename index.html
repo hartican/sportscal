@@ -22687,6 +22687,8 @@ function syncChatSessionState(previousOwnerId, nextOwnerId){
 function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
   if (!NOTHINGSCORE || previousOwnerId === nextOwnerId) return;
   ++nothingscoreReadGeneration;nothingscoreReadRecovery.reset();
+  window.clearTimeout(nothingscorePollTimer);nothingscorePollTimer=null;
+  nothingscorePollFailures=0;scheduleNothingscorePoll();
   window.clearTimeout(nothingscoreBatchTimer);nothingscoreBatchTimer=null;
   nothingscoreBatchInFlight.clear();
   nothingscoreDetailLoading.clear();

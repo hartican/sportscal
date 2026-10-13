@@ -84,6 +84,21 @@ async function dedicated(page,width,theme){
  await page.evaluate(async overviews=>{activeTab='events';userPreferences.eventsScope='all';for(const e of overviews)setCardState(e,'compact');const list=document.getElementById('listView');list.replaceChildren();await NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(list);for(const [i,card] of [...list.querySelectorAll('.events-overview-card')].entries()){card.dataset.minimisedQa=String(i);card.dataset.qaCase='dedicated-events-'+i;}},dedicatedOverviews);
  const overviewRows=await geometry(page);assert.equal(overviewRows.length,3);for(const row of overviewRows){assert.equal(Math.round(row.card.height),56);assert.equal(row.children,1);assert.equal(row.nested,1);assert.equal(row.forbidden,0);assert(row.time.right<=row.card.right+1&&row.name.right<=row.time.x+1,'dedicated Events overview stays in one line');}
  const overviewCard=page.locator('#listView .events-overview-card').first();await overviewCard.locator('.minimised-card-summary').click();assert(!(await overviewCard.getAttribute('class')).includes('is-minimised-row'));assert.equal(await overviewCard.locator('details').getAttribute('open'),null,'Events row keeps Fixtures closed');assert(await overviewCard.locator('.event-edition-toggle').count()||await overviewCard.locator('[aria-pressed]').count(),'normal Events overview retains its edition control');await overviewCard.locator('.event-card-disclosure').click();assert((await overviewCard.getAttribute('class')).includes('is-minimised-row'));
+ // Consume a real navigation target once; a retained tournament match must
+ // not reopen Fixtures when the user subsequently expands a minimised row.
+ await page.evaluate(async overviews=>{
+  for(const event of overviews)setCardState(event,'selected');
+  pendingMajorEventFocusId=overviews[0].id;globalThis.pendingTournamentFocusFixture={id:'qa:overview-navigation-target',tournamentId:overviews[0].tournamentId};
+  const list=document.getElementById('listView');list.replaceChildren();await NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(list);
+ },dedicatedOverviews);
+ await page.waitForFunction(()=>pendingMajorEventFocusId===null&&globalThis.pendingTournamentFocusFixture===null);
+ const targeted=page.locator(`#listView .events-overview-card[data-event-overview-id="${dedicatedOverviews[0].id}"]`);
+ assert.equal(await targeted.locator('details').getAttribute('open'),'','initial navigation still opens the target fixtures');
+ for(let i=0;i<2;i++){
+  await targeted.locator('.event-card-disclosure').click();await targeted.locator('.minimised-card-summary').click();
+  assert.equal(await targeted.locator('details').getAttribute('open'),null,'reopening a targeted row keeps Fixtures closed');
+  await targeted.locator('details>summary').click();assert.equal(await targeted.locator('details').getAttribute('open'),'','explicit Fixtures choice still opens details');
+ }
  // A delayed published-fixture read may finish after the user minimises the
  // parent. It must not resurrect detached normal-card content into the row.
  await page.evaluate(async parent=>{
