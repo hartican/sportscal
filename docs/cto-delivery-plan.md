@@ -10,6 +10,8 @@
 
 **Current architecture — 13 October:** Keep the existing stack and one checked release path. Published sport facts, private choices/history, reviewed editorial and future sponsor support stay separate. The next change reuses the shared card engine within the existing size limits. [Current map and evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/architecture-current-2026-10-13.md).
 
+**Current Football badges — 13 October:** All 84 pilot clubs have a badge assigned; the older 39-missing list is superseded. Reliable image loading and commercial permission remain open. The existing unsent enquiry now covers the actual source groups. [Dated inventory](https://github.com/hartican/sportscal/blob/main/docs/quality/football-artwork-current-2026-10-13.md).
+
 **Next five actions, in order:**
 
 - Finish the remaining Football quality checks: working Australian viewing links, dependable standings, permitted commercial use and mobile presentation. The 380-fixture comparison and duplicate fix do not certify the whole sport.

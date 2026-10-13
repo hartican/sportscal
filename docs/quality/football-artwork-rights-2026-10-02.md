@@ -1,5 +1,7 @@
 # Football artwork and commercial-use boundary — 2 October 2026
 
+**Current count update — 13 October:** All 84 pilot clubs now resolve to badges, with none missing an assignment. The 39 missing count below is a historical observation. The remaining work is applicable permission, source reliability and actual rendering, rather than another badge-completion batch. See the [current dated inventory](football-artwork-current-2026-10-13.md). The original source observations and permission limits below remain dated evidence.
+
 Recommendation: resolve the existing data/branding permission scope before expanding crest collection or launching sponsorship. Retain honest named-participant monograms for unsupported artwork. Once a usable permission route is established, complete the 39 missing club identities in one bounded Football polish module; do not create an owner-maintained badge tracker or claim that data attribution licenses logos.
 
 ## Verified current inventory
