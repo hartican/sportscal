@@ -69,6 +69,6 @@ for(const status of ['live','stumps','rain-delay']){
 }
 assert(!admitted({...ongoing,statusCheckedAt:'2026-09-24T01:00Z'},cricketPrefs));
 assert(!admitted({...ongoing,status:'completed'},cricketPrefs));
-const summary=score.presentation(cricket,{resultsOn:true,now:+now});assert(summary.summary.includes('33/0'));assert(!summary.summary.includes('390/10'));assert(summary.text.length>summary.summary.length);
+const summary=score.presentation(cricket,{resultsOn:true,now:+now});const projectedInnings=require('../config/match-centre').compact(cricket).score.innings;const current=projectedInnings.reduce((a,b)=>Number(b.inningNumber)>Number(a.inningNumber)?b:a);assert(summary.summary.includes(current.runs+'/'+current.wickets));assert(!summary.summary.includes(projectedInnings[0].runs+'/'+projectedInnings[0].wickets));assert(summary.text.length>summary.summary.length);
 const reverse={...cricket,innings:[...cricket.innings].reverse()};assert.equal(score.presentation(reverse,{resultsOn:true,now:+now}).summary,summary.summary,'Published innings numbers, not provider array order, select the current summary');assert.equal(score.presentation(cricket,{resultsOn:false}),null);
 console.log('Consistent cards: actual tennis flags/R128/BJK, opening/pin/opponent boundaries, source outlook/withdrawal, Sydney seven-day expiry, early completion and concise score privacy passed.');

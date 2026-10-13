@@ -29,7 +29,7 @@ async function main(){
 
   const source=read("lib/live-fixtures.js");
   const handler=read("lib/live-fixture-handler.js");
-  const html=read("index.html");
+  const html=require('./app-shell-test-utils').readCardApplicationSource();
   const chat=read("config/chat-contract.js");
   const score=read("config/nothingscore.js");
   const alerts=read("lib/live-rating-alerts.js");

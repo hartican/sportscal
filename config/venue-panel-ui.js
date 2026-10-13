@@ -69,15 +69,6 @@ function composeFeedCard(card,ev,{compact,renderCardState}){
   if(timing){const kind=document.createElement('span');kind.className='matchup-format-badge fixture-kind';kind.textContent=formatLabel;if(formatLabel)timing.prepend(kind);timing.prepend(header);}else card.prepend(header);
   card.querySelector('.fixture-timing-header')?.remove();
   card.querySelector('.event-date-line')?.remove();
-  if(compact){
-    for(const side of summary.querySelectorAll('.compact-matchup-side')){
-      const index=[...summary.querySelectorAll('.compact-matchup-side')].indexOf(side),ids=matchupIdentityMatches(ev,compactFixtureName(ev));
-      const rank=NOTHINGSPORTS_FEED_CARD_PRESENTATION.ranking(ev,ids[index]?.participant?.id||ids[index]?.mark?.id,canonicalSportsData?.ladderSnapshots||NOTHINGSPORTS_FEED_CARD_STANDINGS);
-      const name=side.querySelector('.fixture-profile-link');if(name)name.textContent=NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(ids[index]?.participant?.id||ids[index]?.mark?.id,name.textContent);
-      if(rank){const el=document.createElement('small');el.className='fixture-standing';el.textContent=rank.label;el.title=rank.description;side.append(el);}
-    }
-    main.appendChild(buildNothingscoreSummary(ev,{showAggregate:true}));
-  }
   const actions=card.querySelector('.event-card-primary-actions');
   if(actions){actions.querySelectorAll('a:has(.provider-action-mark),.viewing-tbc').forEach(n=>n.remove());}
   const info=document.createElement('div');info.className='fixture-access';info.dataset.cardArea='essentials';
@@ -88,10 +79,8 @@ function composeFeedCard(card,ev,{compact,renderCardState}){
 
   const rating=main.querySelector('.nsc-summary');if(rating)rating.after(info);else main.append(info);
   const more=document.createElement('button');more.type='button';more.className='fixture-more';more.textContent=cardStateForEvent(ev)==='opened'?'Less':'More…';more.setAttribute('aria-expanded',String(cardStateForEvent(ev)==='opened'));more.onclick=e=>{e.stopPropagation();renderCardState(cardStateForEvent(ev)==='opened'?'selected':'opened',{restoreFocus:true,focusTarget:'.fixture-more'});};
-  if(compact){const hook=buildEventWhyItMatters(ev);if(hook)main.append(hook);}
   const footer=document.createElement('div');footer.className='fixture-card-footer';footer.append(more);
   if(actions)footer.append(actions);
-  else if(compact){const secondary=document.createElement('div');secondary.className='event-card-primary-actions';appendEventQuickActions(secondary,ev,{viewing:false});footer.append(secondary);}
   main.append(footer);
 }
 
@@ -108,13 +97,16 @@ function buildTennisFixtureContext(ev){
   row.append(competition,round);return row;
 }
 function buildTournamentMarker(event){
- const id=String(event.eventId||event.id),card=document.createElement('article');card.className='event-card tournament-start-marker';card.dataset.eventId=id;card.dataset.scrollKey=`event:calendar:${id}`;
+ const id=String(event.eventId||event.id);let card=document.createElement('article');card.className='event-card tournament-start-marker';card.dataset.eventId=id;card.dataset.scrollKey=`event:calendar:${id}`;card._retargetCard=target=>{card=target;};card._rebuildCard=()=>buildTournamentMarker(event);
+ if(cardStateForEvent(event)==='compact'||getEventAction(event).isMinimised){
+   card.dataset.cardState='compact';return mountMinimisedCard(card,event,(state,options)=>{if(getEventAction(event).isMinimised)updateEventAction(event,{isMinimised:false});if(state==='selected')tennisFeedOpenParents.delete(id);setCardState(event,state);refreshExpandableCard(card,buildTournamentMarker(event),options);syncNothingscoreReadRecovery();});
+ }
  const details=document.createElement('details'),summary=document.createElement('summary');details.className='feed-tournament-details';details.open=tennisFeedOpenParents.has(id);
  const title=document.createElement('h3');title.textContent=[fixtureCompetitionLabel(event),event.name].filter((v,i,a)=>v&&a.indexOf(v)===i).join(' · ');const dates=document.createElement('p'),timing=NOTHINGSPORTS_CARD_TIMING.presentation(event,nowAEST());dates.textContent=(timing.progress||[event.date,event.endDate!==event.date?event.endDate:null].filter(Boolean).map(value=>NOTHINGSPORTS_AUSTRALIAN_DATES.date(value)).join(' – '))+(timing.status==='FINISHED'?' · FINISHED':'');dates.title=timing.ariaLabel;summary.append(title,dates);details.append(summary);if(timing.progress){const full=document.createElement('p');full.className='fixture-source-dates';full.textContent=timing.fullSchedule;details.append(full);}
  summary.setAttribute('aria-label','Expand '+event.name+'. '+timing.ariaLabel);
  const content=document.createElement('div');content.className='feed-tournament-appearances';details.append(content);let mounted=false;
  const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=509').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
- card.append(details,buildEventCardControls(event,{card}));if(details.open)queueMicrotask(mount);return card;
+ card.append(details,buildEventCardControls(event,{card}),buildCardDisclosureControl(event.name,'selected',(state,options)=>{setCardState(event,state);refreshExpandableCard(card,buildTournamentMarker(event),options);syncNothingscoreReadRecovery();}));if(details.open)queueMicrotask(mount);return card;
 }
 
 function buildFixtureTimingBadge(ev){
@@ -162,56 +154,62 @@ function compactFixtureStage(ev,format){
   const stage=String(FOLLOW_FIRST?.stageLabel?.(ev)||ev.roundLabel||ev.round||ev.stage||'').trim();
   return stage&&stage.toLowerCase()!==String(format||'').toLowerCase()?stage:'';
 }
-function buildCompactMatchupMiddle(ev){
-  const middle=document.createElement('span');middle.className='compact-matchup-middle';
-  const format=compactFixtureFormat(ev),stage=compactFixtureStage(ev,format);
-  if(format){const badge=document.createElement('span');badge.className='matchup-format-badge compact-format-badge';badge.textContent=format;middle.appendChild(badge);}
-  else{const versus=document.createElement('span');versus.className='compact-matchup-v';versus.textContent='v';middle.appendChild(versus);}
-  if(stage && activeTab!=='feed'){const detail=document.createElement('small');detail.className='compact-stage-label';detail.textContent=stage;middle.appendChild(detail);}
-  return middle;
+function buildMinimisedParticipant(identity,ev){
+  const frame=document.createElement('span');frame.className='minimised-participant-frame';frame.setAttribute('aria-hidden','true');
+  const mark=identity.mark||{},person=identity.participant||{};
+  const country=person.countryCode||identity.countryCode;
+  if(['tennis','wimbledon'].includes(ev.key)&&country){
+    const flag=COUNTRY_FLAGS?.flagMarkup?.(country,{nationality:true});if(flag){frame.insertAdjacentHTML('beforeend',flag);return frame;}
+  }
+  const fallback=document.createElement('span');fallback.className='minimised-participant-fallback';fallback.textContent=(identity.label||'?').split(/\s+/).map(word=>word[0]).join('').slice(0,2);frame.append(fallback);
+  if(mark.url||mark.logo?.primary){const img=document.createElement('img');img.className='minimised-participant-mark';img.alt='';img.width=20;img.height=20;img.loading='lazy';img.decoding='async';img.onerror=()=>img.remove();applyTeamLogoAsset(img,mark,'icon',themeUsesDarkAssets());frame.append(img);}
+  return frame;
 }
-
-function buildCompactParticipant(identity,ev){
-  const side=document.createElement('span');side.className='compact-matchup-side';
-  const mark=identity.mark||{};
-  const frame=document.createElement('span');frame.className='compact-participant-frame';side.append(frame);
-  const fallback=document.createElement('span');fallback.className='compact-participant-fallback';fallback.textContent=(identity.label||'?').split(/\s+/).map(x=>x[0]).join('').slice(0,2);frame.appendChild(fallback);
-  if(mark.url||mark.logo?.primary){const image=document.createElement('img');image.className='compact-participant-mark';image.alt='';image.loading='lazy';image.decoding='async';image.addEventListener('load',()=>fallback.remove(),{once:true});image.addEventListener('error',()=>image.remove(),{once:true});applyTeamLogoAsset(image,mark,'icon',themeUsesDarkAssets());frame.appendChild(image);if(image.complete&&image.naturalWidth>0)fallback.remove();}
-  side.appendChild(participantProfileLink(identity.participant?.id||mark.id,identity.label,ev.key));return side;
-}
-function buildCompactCardSummary(ev,{minimal=false}={}){
-  const summary=document.createElement('div');summary.className='compact-card-summary';
+function buildCompactCardSummary(ev){
+  const summary=document.createElement('button');summary.type='button';summary.className='compact-card-summary minimised-card-summary';summary.dataset.cardArea='essentials';
+  const value=NOTHINGSPORTS_CARD_TIMING.minimised(ev,nowAEST());
   if(ev.timePrecision==='not-before')summary.dataset.timePrecision='not-before';
-  const title=document.createElement('span');title.className='compact-card-name';
-  const identities=matchupIdentityMatches(ev,compactFixtureName(ev));
-  const tennisLineup=['tennis','wimbledon'].includes(ev.key)?majorEventMatchupLineup(ev,{compact:true}):null;
-  if(tennisLineup){title.classList.add('has-compact-matchup');const versus=tennisLineup.querySelector('.major-event-matchup-v');if(versus&&!minimal)versus.replaceWith(buildCompactMatchupMiddle(ev));if(minimal)for(const link of tennisLineup.querySelectorAll('.fixture-profile-link'))if(link.title)link.textContent=link.title;title.appendChild(tennisLineup);}
-  else if(identities.length===2){title.classList.add('compact-matchup-grid','has-compact-matchup');title.appendChild(buildCompactParticipant(identities[0],ev));title.appendChild(buildCompactMatchupMiddle(ev));title.appendChild(buildCompactParticipant(identities[1],ev));}
-  else renderEventTitleIdentity(title,ev,compactFixtureName(ev),{compact:true});
-  const time=document.createElement('span');time.className='compact-card-time';
-  const start=ev.timePrecision==='follows'?null:FEED_CONTROLS.eventStart(ev);
-  const progressTiming=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
-  if(progressTiming.progress)summary.dataset.progress=progressTiming.progress;
-  const timing=progressTiming.progress|| (ev.timePrecision==='not-before'||ev.timingProvenance?.precision==='venue-calendar'?progressTiming.fullSchedule:ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start).replace(/Sept/g,'Sep').replace(/, /g,' ').replace(/ (am|pm)/g,'$1') : compactFallbackTiming(ev));
-  const format=compactFixtureFormat(ev);const tennisCompetition=ev.competitionName||ev.majorEventName||String(ev.summary||'').split(' · ')[0];const sportLabel=ev.key==='tennis'||ev.key==='wimbledon'?`Tennis${tennisCompetition?' · '+tennisCompetition:''}`:(ev.sport||sportMetaForEvent(ev).label||ev.key).replace('American Football','NFL');time.textContent=`${timing} • ${sportLabel}${!title.classList.contains('has-compact-matchup')&&format?' · '+format:''}`;
-  summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${time.textContent}`);summary.title=summary.getAttribute('aria-label');
-  if(activeTab === 'feed'){
-    summary.dataset.cardArea='essentials';
-    summary.appendChild(buildFixtureTimingGroup(ev));
-    const badgeTiming=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
-    const pause=NOTHINGSPORTS_CARD_TIMING.pausePresentation(ev,nowAEST());
-    time.textContent=minimal?[badgeTiming.progress||(ev.timePrecision==='not-before'?badgeTiming.schedule:badgeTiming.fullSchedule),badgeTiming.status,NOTHINGSPORTS_FIXTURE_LABELS.tennisContext(ev)?'':FOLLOW_FIRST.stageLabel(ev)].filter(Boolean).join(' · '):`${badgeTiming.status&&!badgeTiming.progress ? badgeTiming.fullSchedule+' • ' : ''}${sportLabel}${!title.classList.contains('has-compact-matchup')&&format?' · '+format:''}`;
-    if(pause)time.textContent=(badgeTiming.status.toLowerCase()===pause.label.toLowerCase()?'':pause.label+' · ')+time.textContent+' · '+pause.restart;
-    summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${badgeTiming.ariaLabel}. ${pause?[pause.label,pause.restart].join('. '):''}. ${sportLabel}`);
-    summary.title=summary.getAttribute('aria-label');
+  const overview=ev.tournamentParent||ev.isEditionOverview||ev.majorEventMarker||['tennis_parent','golf_tournament','tournament_overview'].includes(ev.cardType);
+  let identities=overview?[]:matchupIdentityMatches(ev,compactFixtureName(ev));
+  const tennis=['tennis','wimbledon'].includes(ev.key);
+  if(tennis&&!overview&&identities.length!==2){
+    let sides=ev.matchupSides||[];
+    if(sides.length!==2&&ev.participants?.length===2)sides=ev.participants.map(player=>({players:[typeof player==='string'?{name:player}:player]}));
+    if(sides.length===2)identities=NOTHINGSPORTS_FIXTURE_LABELS.australianFirst(sides,ev,cardIdentityParticipants()).map(side=>{
+      const players=side.players||[],person=players[0]||{},known=NOTHINGSPORTS_FIXTURE_LABELS.participantRecord(person,ev,cardIdentityParticipants());
+      return {participant:{...known,id:person.id||person.playerId||known.id},label:players.map(p=>p.name||p.displayName||'Player TBC').join(' / '),shortLabel:players.map(p=>{const record=NOTHINGSPORTS_FIXTURE_LABELS.participantRecord(p,ev,cardIdentityParticipants());return record.shortName||record.familyName||record.lastName||p.shortName||p.name||p.displayName||'Player TBC';}).join('/')};
+    });
   }
-  summary.append(title,time);
-
-  if(activeTab !== 'feed'){
-    const phase=NOTHINGSPORTS_CARD_TIMING.tournamentPhase(ev);
-    if(phase){summary.appendChild(buildEventTimingStateChip(ev,phase));summary.setAttribute('aria-label',`${summary.getAttribute('aria-label')}. ${phase.ariaLabel}`);summary.title=summary.getAttribute('aria-label');}
-  }
+  const name=document.createElement('span');name.className='compact-card-name minimised-card-name';
+  const label=document.createElement('span');label.className='minimised-card-label';
+  if(identities.length===2){
+    const short=identities.map(side=>side.shortLabel||NOTHINGSPORTS_FEED_CARD_PRESENTATION.shortLabel(side.participant?.id||side.mark?.id,NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(side.mark?.id,side.mark?.label||side.label),side.participant));
+    label.textContent=short.join(' v ');name.append(buildMinimisedParticipant(identities[0],ev),label,buildMinimisedParticipant(identities[1],ev));
+  }else{label.textContent=overview?ev.name:compactFixtureName(ev);const brand=CARD_IDENTITIES.markForEvent(ev);if(brand&&(brand.url||brand.logo?.primary))name.append(buildMinimisedParticipant({mark:brand,label:ev.name},ev));name.append(label);}
+  const format=document.createElement('span');format.className='minimised-card-format';
+  const gender=NOTHINGSPORTS_FIXTURE_LABELS.gender(ev),kind=compactFixtureFormat(ev);
+  format.textContent=tennis?fixtureCompetitionLabel(ev):ev.key==='cricket'?[gender==='men'?'Men’s':gender==='women'?'Women’s':gender==='mixed'?'Mixed':'',kind].filter(Boolean).join(' '):kind;
+  const progress=document.createElement('span');progress.className='minimised-card-progress';
+  const context=tennis?NOTHINGSPORTS_FIXTURE_LABELS.tennisContext(ev):null;
+  progress.textContent=overview?value.progress||'':value.progress||(context?.round==='Final'?'FINAL':context?.round)||compactFixtureStage(ev,format.textContent);
+  if(progress.textContent)summary.dataset.progress=progress.textContent;
+  const time=document.createElement('span');time.className='compact-card-time minimised-card-time';time.textContent=value.time;
+  summary.dataset.longTiming=String(time.textContent.length>14);
+  summary.dataset.longProgress=String(progress.textContent.length>20);
+  summary.append(name,format,progress,time);
+  summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${format.textContent}. ${progress.textContent}. ${value.ariaLabel}. Expand card`);summary.title=summary.getAttribute('aria-label');
   return summary;
+}
+function mountMinimisedCard(card,ev,activate){
+  card.classList.add('is-compact-row','is-minimised-row');card.dataset.cardLevel='L0';card.removeAttribute('tabindex');card.removeAttribute('aria-keyshortcuts');
+  for(const child of [...card.children])if(!child.classList.contains('calendar-select-label'))child.remove();
+  const summary=buildCompactCardSummary(ev);
+  summary.onclick=event=>{event.stopPropagation();const mounted=summary.closest('.event-card')||card,choice=mounted.querySelector('[data-calendar-id]');if(calendarChoice.active&&activeTab==='feed'&&choice){if(!choice.disabled)choice.click();return;}activate('selected',{restoreFocus:event.detail===0,focusTarget:mounted});};
+  card.append(summary);return card;
+}
+function refreshMinimisedCard(card,ev){
+  const row=card.querySelector('.minimised-card-summary');if(!row)return;
+  const fresh=buildCompactCardSummary(ev);syncElementAttributes(row,fresh);row.replaceChildren(...fresh.childNodes);
 }
 
 
@@ -229,8 +227,7 @@ function buildDetailedEventCard(ev, options = {}){
   const matchupIdentity = isTeamMatchup && mode !== "premium-rail" ? buildMatchupIdentity(ev, displayTitle) : null;
   const soloIdentity = !matchupIdentity && mode !== "premium-rail";
   const expandable = mode !== "premium-rail";
-  const multiDay=activeTab==='feed'&&NOTHINGSPORTS_FEED_CARD_PRESENTATION.cricketCompact(ev,nowAEST());
-  const storedState = multiDay&&!multiDayCricketExpanded.has(ev.id)?'compact':expandable ? cardStateForEvent(ev) : "compact";
+  const storedState = expandable ? cardStateForEvent(ev) : "compact";
   const state = storedState;
   const importanceColor = importanceColorForEvent(ev);
   const spoilerVisible = isSpoilerVisible(ev);
@@ -244,7 +241,7 @@ function buildDetailedEventCard(ev, options = {}){
   const isMinimised = activeTab!=="feed" && Boolean(action.isMinimised);
   const card = document.createElement("article");
   let interactionCard = options.interactionCard || card;
-  card._retargetCard=target=>{interactionCard=target;};
+  card._retargetCard=target=>{interactionCard=target;card._mountedCard=target;};
   card._rebuildCard=()=>buildEventCard(ev,{...options,interactionCard});
   appendCalendarChoice(card,ev);
   card.className = [
@@ -286,12 +283,11 @@ function buildDetailedEventCard(ev, options = {}){
     }));
   }
   const renderCardState=(nextState,{restoreFocus=false,focusTarget=interactionCard}={})=>{
-    if(multiDay&&nextState==='selected')nextState='opened';
     if(getEventAction(ev).isMinimised) updateEventAction(ev, {isMinimised:false});
     if(nextState==="opened")recordEventFeedAction(ev, "open", { surface:"card-content" });
-    if(NOTHINGSPORTS_FEED_CARD_PRESENTATION.cricketCompact(ev,nowAEST())){if(nextState==='compact')multiDayCricketExpanded.delete(ev.id);else multiDayCricketExpanded.add(ev.id);}
     setCardState(ev, nextState);
-    refreshExpandableCard(interactionCard, buildEventCard(ev, {...options, interactionCard}), {restoreFocus,focusTarget});
+    refreshExpandableCard(interactionCard, buildEventCard(profileFixtureEvents.get(String(ev.eventId||ev.id))||ev, {...options, interactionCard}), {restoreFocus,focusTarget});
+    syncNothingscoreReadRecovery();
   };
   if (expandable) bindCardCycle(card, ({restoreFocus=false}={}) => {
     renderCardState(nextCardState(state),{restoreFocus,focusTarget:interactionCard});
@@ -300,12 +296,7 @@ function buildDetailedEventCard(ev, options = {}){
   card.setAttribute("aria-expanded", String(state !== "compact" && !isMinimised));
   if(expandable)card.appendChild(buildCardDisclosureControl(displayTitle,state,renderCardState));
   if ((state === "compact" || isMinimised) && expandable){
-    card.classList.add("is-compact-row");
-    card.appendChild(buildCompactCardSummary(ev,{minimal:activeTab==='feed'}));
-    if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
-    if(activeTab==='feed'||activeTab==='events'||mode==='schedule'){card.classList.add('is-minimal-fixture');composeFeedCard(card,ev,{compact:true,renderCardState});}
-    else if(ev.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(ev.key))appendVenuePanel(card,card,ev);
-    return card;
+    return mountMinimisedCard(card,ev,renderCardState);
   }
   if(activeTab === 'feed'||activeTab==='events'||mode==='schedule'){
     card.classList.add('has-fixture-timing');
@@ -711,16 +702,17 @@ function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=
     const phase=snapshot?.phase||({upcoming:'heat',live:'pulse',past:'impact'})[getEventStatus(ev)];
     const singular=peers?.count===1;
     const verb=phase==='heat'?(singular?'expects':'expect'):phase==='pulse'?(singular?'is rating this':'are rating this'):(singular?'has rated this':'have rated this');
-    summary.textContent=!peers?(nothingscoreLoadErrors.has(nothingscoreEventId(ev))?'Community ratings unavailable':snapshot?.ratingRequired?'Rate to reveal community ratings':snapshot||nothingscoreLoadErrors.has(nothingscoreEventId(ev))?'Ratings unavailable':'Ratings loading…'):!peers.count?'Be the first to rate':`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${fixtureStakesLabel(peers.rawAverage??peers.average)} · ${Number(peers.average).toFixed(1)}/5`;
+    const failed=nothingscoreLoadErrors.has(nothingscoreEventId(ev));
+    summary.textContent=!peers?(failed?'Community ratings unavailable':snapshot?.ratingRequired?'Rate to reveal community ratings':snapshot?'Ratings unavailable':'Ratings loading…'):!peers.count?(failed?'Community ratings unavailable':'Be the first to rate'):`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${fixtureStakesLabel(peers.rawAverage??peers.average)} · ${Number(peers.average).toFixed(1)}/5${failed?' · Saved ratings; update unavailable':''}`;
     root.appendChild(summary);
-    if(nothingscoreLoadErrors.has(nothingscoreEventId(ev))&&(snapshot||!serverSyncClient?.sessionSubject())){
-      const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry ratings';
-      retry.onclick=event=>{event.stopPropagation();nothingscoreLoadErrors.delete(nothingscoreEventId(ev));registerNothingscoreEvent(ev,{force:true});nothingscoreQueueRender();};root.append(retry);
-    }
     const tags=document.createElement('div');tags.className='fixture-tags';
     const labels=[];const homeTag=followedHomeTag(ev);if(homeTag)labels.push(homeTag);if(NOTHINGSPORTS_PROMOTED_REPLAY.recommendation(ev,snapshot,phase))labels.push('Promoted replay');
     for(const tag of ev.consensusTags||[])if(['Rivalry','Derby','Round-Robin','Knockout','Final','Record Chase'].includes(tag.label)&&tag.sourceUrls?.some(url=>/^https:\/\//.test(url))&&Number(tag.confidence)>=.6)labels.push(tag.label);
     for(const label of new Set(labels)){const tag=document.createElement('span');tag.className='fixture-tag';tag.textContent=label.toUpperCase();tags.appendChild(tag);}if(tags.childElementCount)root.appendChild(tags);
+  }
+  if(nothingscoreLoadErrors.has(nothingscoreEventId(ev))){
+    const recovery=nothingscoreReadRecoveryState(ev),retry=document.createElement('button');retry.type='button';retry.className='btn ghost nsc-rating-retry';retry.textContent=recovery.pending?'Retrying ratings…':'Retry ratings';retry.disabled=recovery.pending;
+    retry.onclick=event=>{event.stopPropagation();retryNothingscoreRatings(ev);};root.append(retry);
   }
   return root;
 }
@@ -754,13 +746,14 @@ function buildInlineCrowdRating(ev,snapshot){
         if(receipt.pointsAwarded&&!matchMedia('(prefers-reduced-motion: reduce)').matches)status.animate([{opacity:0,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:300});
         if(value===5){root.classList.add('is-epic-burst');setTimeout(()=>root.classList.remove('is-epic-burst'),700);}
         const prior=nothingscoreSnapshots.get(id)||snapshot;mergeNothingscoreSnapshot({...prior,currentUser:{...prior.currentUser,contribution:{rating:value},submissions:{...prior.currentUser?.submissions,[phase]:receipt}}});
+        const readGeneration=nothingscoreReadGeneration;
         try{
           const fresh=await serverSyncClient.nothingscoreRequest({eventId:id});
-          if(owner===(serverPersistence.user?.id)){
+          if(owner===(serverPersistence.user?.id)&&readGeneration===nothingscoreReadGeneration){
             if(!fresh.detail)throw Error('Community summary unavailable');
-            nothingscoreLoadErrors.delete(id);mergeNothingscoreSnapshot(fresh.detail);
+            nothingscoreReadRecovered(id);mergeNothingscoreSnapshot(fresh.detail);
           }
-        }catch(error){if(owner===(serverPersistence.user?.id)){nothingscoreLoadErrors.set(id,Date.now());status.textContent='Rating saved. Community ratings could not refresh.';}}
+        }catch(error){if(owner===(serverPersistence.user?.id)&&readGeneration===nothingscoreReadGeneration){nothingscoreReadFailed(id);status.textContent='Rating saved. Community ratings could not refresh.';}}
       }catch(error){chosen=previous;status.textContent=`${error.message || 'Could not save.'} Tap to retry.`;paint(chosen);}
       finally{inlineRatingRequests.delete(id);group.querySelectorAll('button').forEach(x=>x.disabled=false);if(owner===(serverPersistence.user?.id))nothingscoreQueueRender();}
     };group.appendChild(b);
@@ -768,11 +761,6 @@ function buildInlineCrowdRating(ev,snapshot){
   if(awaitingViewer){
     const failed=nothingscoreLoadErrors.has(id);
     status.textContent=failed?'Ratings are temporarily unavailable. Retry to check your saved rating.':'Checking your rating…';
-    if(failed){
-      const retry=document.createElement('button');retry.type='button';retry.className='nsc-rating-retry';retry.textContent='Retry ratings';
-      retry.onclick=event=>{event.stopPropagation();nothingscoreLoadErrors.delete(id);registerNothingscoreEvent(ev,{force:true});nothingscoreQueueRender();};
-      status.append(' ',retry);
-    }
   }
   paint(chosen);root.append(group,prompt);
   if(phase==='heat'&&!exactTiming&&!ev.dateOnly&&ev.timePrecision!=='date-only'){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent=ev.startTimeUtc&&['not-before','not_before'].includes(ev.timePrecision)?'Not-before start; exact start may be later':'Start time unconfirmed';root.appendChild(timing);}
@@ -1151,3 +1139,387 @@ function renderEventTitleIdentity(nameElement, ev, displayTitle, options){
   });
   if (cursor < displayTitle.length) nameElement.append(document.createTextNode(displayTitle.slice(cursor)));
 }
+
+function buildFixtureFallbackCard(event, options = {}){
+  const ev = globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(event);
+  let card = document.createElement("article");
+  card._retargetCard=target=>{card=target;};card._rebuildCard=()=>buildFixtureFallbackCard(ev,options);
+  const mode = options.mode || "calendar";
+  card.className = `event-card mode-${mode} is-compact-row is-fixture-fallback`;
+  card.dataset.eventId = ev.eventId || ev.id;
+  card.dataset.scrollKey = `event:${mode}:${ev.eventId || ev.id}`;
+  card.dataset.cardMode = mode;
+  card.dataset.cardState = "compact";
+  card.dataset.cardLevel = "L0";
+  if(cardStateForEvent(ev)==='compact'||getEventAction(ev).isMinimised){
+    return mountMinimisedCard(card,ev,(state,settings)=>{if(getEventAction(ev).isMinimised)updateEventAction(ev,{isMinimised:false});setCardState(ev,state);refreshExpandableCard(card,buildFixtureFallbackCard(ev,options),settings);syncNothingscoreReadRecovery();});
+  }
+  if (options.inspectorFixture) card.dataset.inspectorFixtureId = options.inspectorFixture.id;
+  const copy = document.createElement("div");
+  copy.className = "compact-card-copy";
+  const title = document.createElement("h3");
+  title.className = "compact-card-name";
+  if(ev.calendarNote){copy.style.minWidth="0";title.style.whiteSpace="normal";}
+  let label = ev.name;
+  try { label = spoilerSafeDisplayTitle(ev) || label; } catch {}
+  title.textContent = label;
+  const timing = document.createElement("p");
+  timing.className = "compact-card-meta";
+  const fallbackClock = ev.time && !ev.timeTbc && !ev.startTimeTbc && !ev.dateOnly
+    ? `${ev.timePrecision === 'estimated' ? 'Approx. ' : ev.timePrecision === 'not-before' ? 'Not before ' : ''}${ev.time}` : "TIME TBC";
+  timing.textContent = ev.timingProvenance?.precision==='venue-calendar' ? NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule : [NOTHINGSPORTS_AUSTRALIAN_DATES.date(ev.date), fallbackClock,
+    ["cancelled", "canceled", "abandoned", "postponed"].includes(ev.scheduleStatus || ev.status) ? ev.scheduleStatus || ev.status : ""].filter(Boolean).join(" · ");
+  if(ev.calendarNote?.localDateLabel)timing.textContent=ev.calendarNote.localDateLabel+' · Sydney time TBC';
+  if(activeTab === 'feed')copy.appendChild(ev.calendarNote?.localDateLabel?timing:buildFixtureTimingGroup(ev));
+  copy.append(title,...(ev.calendarNote&&activeTab==='feed'?[]:[timing]));
+  if(ev.calendarNote){const note=document.createElement('p');note.className='code-inspector-note';note.textContent=ev.fullSpiel;const source=document.createElement('a');source.href=ev.calendarNote.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Organiser calendar';const links=document.createElement('div');links.className='event-card-secondary-actions';links.append(source,buildFeedScheduleLink(ev));copy.append(note,links);}
+  if(activeTab !== 'feed'){
+    const phase=NOTHINGSPORTS_CARD_TIMING.tournamentPhase(ev);
+    if(phase)copy.appendChild(buildEventTimingStateChip(ev,phase));
+  }
+  card.append(copy,...(ev.calendarNote?[]:[buildFeedScheduleLink(ev)]));
+  if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
+  card.setAttribute("aria-label", `${label}. Fixture details.`);
+  card.append(buildCardDisclosureControl(label,'selected',(state,settings)=>{setCardState(ev,state);refreshExpandableCard(card,buildFixtureFallbackCard(ev,options),settings);syncNothingscoreReadRecovery();}));
+  return card;
+}
+
+
+function buildDetailedMajorEventCard(record, { interactionCard = null } = {}){
+  const meta = sportMetaForEvent(majorEventIdentityEvent(record));
+  const actionEvent = majorEventActionEvent(record);
+  const eventAction = getEventAction(actionEvent);
+  const isMinimised = Boolean(eventAction.isMinimised);
+  const state = cardStateForEvent(record);
+  const card = document.createElement("article");
+  let eventCard = interactionCard || card;
+  card._retargetCard=target=>{eventCard=target;};
+  card._rebuildCard=()=> (eventCard.classList.contains("ticket-sale-card")?buildTicketSaleCard:buildMajorEventCard)(record,{interactionCard:eventCard});
+  appendCalendarChoice(card,record);
+  card.className = [
+    "event-card",
+    "mode-events",
+    "major-event-card",
+    "events-feed-card",
+    state === "selected" ? "is-selected" : "",
+    state === "opened" ? "is-opened" : "",
+    isMinimised ? "is-event-minimised" : "",
+  ].filter(Boolean).join(" ");
+  card.id = `major-event-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
+  card.dataset.majorEventId = record.id;
+  card.dataset.eventId = actionEvent.eventId || actionEvent.id;
+  card.dataset.scrollKey = `major-event:${record.id}`;
+  card.dataset.cardState = isMinimised ? "minimised" : state;
+  card.dataset.cardLevel = isMinimised ? "L0" : cardLevelForState(state);
+  card.tabIndex = 0;
+  card.setAttribute("aria-expanded", String(!isMinimised && state !== "compact"));
+  card.setAttribute("aria-label", `${record.name}. ${isMinimised ? "Minimised view" : state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
+  card.style.setProperty("--sport-color", meta.color);
+
+  const renderMajorState = (nextState,{ restoreFocus = false,focusTarget=eventCard } = {}) => {
+    if(getEventAction(actionEvent).isMinimised)updateEventAction(actionEvent, {isMinimised:false});
+    activeMajorEventNowId = record.id;
+    if(nextState==="opened")recordEventFeedAction(actionEvent, "open", { surface:"card-content" });
+    setCardState(record, nextState);
+    refreshExpandableCard(eventCard, (eventCard.classList.contains("ticket-sale-card") ? buildTicketSaleCard : buildMajorEventCard)(record, { interactionCard:eventCard }), {
+      restoreFocus,
+      focusTarget,
+    });
+  };
+  bindCardCycle(card, options=>renderMajorState(nextCardState(cardStateForEvent(record)),options));
+  card.appendChild(buildEventCardControls(actionEvent,{card:eventCard,eventsOnly:true,displayLabel:record.name}));
+  card.appendChild(buildCardDisclosureControl(record.name,state,renderMajorState));
+  if(isMinimised || state==='compact'){
+    return mountMinimisedCard(card,{...record,key:record.sportKey,date:record.startDate,time:null,isEditionOverview:true,dateOnly:true},renderMajorState);
+  }
+  const ticketRow = document.createElement("div");
+  ticketRow.className = "major-event-ticket-row event-card-primary-actions";
+  const ticketLink = buildMajorEventTicketLink(record);
+  if (ticketLink) ticketRow.appendChild(ticketLink);
+  const primaryTimeline = MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST(), { level:"L0", timeZone:"Australia/Sydney" });
+  const primaryItem = primaryTimeline.upcoming[0] || primaryTimeline.recent.at(-1) || null;
+  const primaryFixture = (primaryItem ? majorEventFixtureSnapshot(primaryItem.subEvent, record) : null) || majorEventActionEvent(record);
+  appendEventQuickActions(ticketRow, primaryFixture);
+
+  const navigationRow = document.createElement("div");
+  navigationRow.className = "major-event-navigation-row";
+  navigationRow.appendChild(buildEventEditionToggle({...majorEventActionEvent(record),editionId:record.id,eventFamilyId:MAJOR_EVENTS.eventFamilyId(record),tournamentParent:true}));
+
+  const inspect = document.createElement("button");
+  inspect.type = "button";
+  inspect.className = "event-quick-action major-event-timetable";
+  inspect.innerHTML = `${glyphMarkup("ui:list", { preferImage:true })}<span>Schedule</span>`;
+  inspect.addEventListener("click", event => {
+    event.stopPropagation();
+    activeMajorEventNowId = record.id;
+    if (getEventAction(actionEvent).isMinimised) updateEventAction(actionEvent, { isMinimised:false });
+    setCardState(record, "opened");
+    refreshExpandableCard(eventCard, (eventCard.classList.contains("ticket-sale-card") ? buildTicketSaleCard : buildMajorEventCard)(record, { interactionCard:eventCard }), { restoreFocus:false });
+    window.requestAnimationFrame(() => focusMajorEventSchedule(record.id));
+  });
+  navigationRow.appendChild(inspect);
+
+  const identity = document.createElement("header");
+  identity.className = "major-event-identity";
+  const logo = document.createElement("div");
+  logo.className = "major-event-logo";
+  logo.dataset.scrollStable = `major-event-logo:${record.id}`;
+  renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta);
+  const title = document.createElement("h3");
+  title.textContent = record.name;
+  const facts = document.createElement("div");
+  facts.className = "major-event-facts";
+  [majorEventDateLabel(record), record.venue].filter(Boolean).forEach(value => {
+    const fact = document.createElement("span");
+    fact.textContent = value;
+    facts.appendChild(fact);
+  });
+  identity.append(logo, title);
+  identity.appendChild(facts);
+  if (isMinimised && primaryItem){
+    const next = document.createElement("p");
+    next.className = "major-event-next-fixture";
+    next.textContent = `${primaryTimeline.upcoming.length ? "Next" : "Latest"}: ${spoilerSafeDisplayTitle(primaryFixture)} · ${eventDateLabel(primaryFixture)} · ${eventTimeLabel(primaryFixture)}`;
+    identity.appendChild(next);
+  }
+  if (!isMinimised && state === "opened"){
+    const whyItMatters = buildEventWhyItMatters(record);
+    if (whyItMatters) identity.appendChild(whyItMatters);
+  }
+
+  ticketRow.append(...navigationRow.children);
+  card.append(identity,ticketRow);
+  if (!isMinimised && state === "opened"){
+    const draw = buildMajorEventDraw(record);
+    if (draw) card.appendChild(draw);
+  }
+  if (!isMinimised && state === "opened"){
+    const immediateSchedule = buildMajorEventSchedule(record, {
+      level: cardLevelForState(state),
+      headingText: state === "opened" ? "Published timeline" : state === "selected" ? "Around now" : "Next match or line-up",
+      compact: state === "compact",
+    });
+    if (immediateSchedule) card.appendChild(immediateSchedule);
+    else {
+      const tbc = document.createElement("p");
+      tbc.className = "major-event-immediate-tbc";
+      tbc.textContent = "Immediate match line-up TBC. Open Schedule for the source-published schedule.";
+      card.appendChild(tbc);
+    }
+    const tablePreview = buildMajorEventTablePreview(record);
+    if (tablePreview && state !== "compact") card.appendChild(tablePreview);
+  }
+  if (!isMinimised && state === "opened"){
+    card.dataset.editorialProvenance = record.editorialNarrative ? "validated" : "structural";
+  }
+
+  return card;
+}
+
+
+function visibleNothingscoreReadIds(){
+  return [...document.querySelectorAll('.nsc-summary[data-nsc-event-id], .nsc-panel[data-nsc-panel]')]
+    .filter(node=>node.getClientRects().length&&!node.closest('.is-compact-row, .is-minimised-row'))
+    .map(node=>node.dataset.nscEventId||node.dataset.nscPanel).filter(Boolean);
+}
+
+function syncNothingscoreReadRecovery(){
+  nothingscoreReadRecovery.sync();
+  if(document.visibilityState==="hidden"||navigator.onLine===false){
+    window.clearTimeout(nothingscoreBatchTimer);nothingscoreBatchTimer=null;return;
+  }
+  const mounted=new Set(visibleNothingscoreReadIds());
+  for(const id of nothingscorePendingIds)if(!mounted.has(id))nothingscorePendingIds.delete(id);
+  if(nothingscorePendingIds.size&&!nothingscoreBatchTimer)nothingscoreBatchTimer=window.setTimeout(flushNothingscoreBatch,0);
+}
+
+function nothingscoreReadRecoveryState(ev){
+  const id=nothingscoreEventId(ev);
+  return {...nothingscoreReadRecovery.state(id),failed:nothingscoreLoadErrors.has(id)};
+}
+
+function retryNothingscoreRatings(ev){
+  const id=nothingscoreEventId(ev);
+  if(!id||!NOTHINGSCORE||!serverSyncClient?.nothingscoreRequest)return false;
+  const started=nothingscoreReadRecovery.manual(id);
+  if(started)nothingscoreQueueRender();
+  return started;
+}
+
+function nothingscoreReadFailed(id){
+  const changed=!nothingscoreLoadErrors.has(id);
+  nothingscoreLoadErrors.set(id,Date.now());nothingscoreReadRecovery.failure(id);return changed;
+}
+
+function nothingscoreReadRecovered(id){
+  nothingscoreReadRecovery.success(id);return nothingscoreLoadErrors.delete(id);
+}
+
+async function loadNothingscoreBatch(ids, { rerender = true } = {}){
+  if (!NOTHINGSCORE || !serverSyncClient?.nothingscoreRequest) return null;
+  const requested = [...new Set((ids || []).map(String).filter(Boolean))].slice(0, 50);
+  if (!requested.length) return null;
+  const owner = serverPersistence.user?.id || "";
+  const generation=nothingscoreReadGeneration;
+  const before=new Map(nothingscoreSnapshots);
+  let payload;
+  try{payload=await serverSyncClient.nothingscoreRequest({ids:requested});}
+  catch(error){
+    if(owner===(serverPersistence.user?.id||"")&&generation===nothingscoreReadGeneration){
+      requested.forEach(nothingscoreReadFailed);if(rerender)nothingscoreQueueRender();
+    }
+    throw error;
+  }
+  if (owner !== (serverPersistence.user?.id || "")||generation!==nothingscoreReadGeneration) return null;
+  let changed = false;
+  const returnedIds=new Set((payload.snapshots || []).map(snapshot=>String(snapshot.eventId)));
+  (payload.snapshots || []).forEach(snapshot => {
+    if(before.get(String(snapshot.eventId))!==nothingscoreSnapshots.get(String(snapshot.eventId)))return;
+    changed = nothingscoreReadRecovered(String(snapshot.eventId)) || changed;
+    changed = mergeNothingscoreSnapshot(snapshot) || changed;
+  });
+  Object.entries(payload.eventAliases||{}).forEach(([alias,id])=>{if(returnedIds.has(id)){returnedIds.add(alias);if(alias===id||before.get(alias)!==nothingscoreSnapshots.get(alias))return;const snapshot=nothingscoreSnapshots.get(id);if(snapshot){changed=nothingscoreReadRecovered(alias)||changed;changed=mergeNothingscoreSnapshot({...snapshot,eventId:alias})||changed;}}});
+  requested.filter(id=>!returnedIds.has(id)).forEach(id=>{changed=nothingscoreReadFailed(id)||changed;});
+  if (payload.viewer) nothingscoreViewer = payload.viewer;
+  if (changed && rerender) nothingscoreQueueRender();
+  return payload;
+}
+
+async function flushNothingscoreBatch(){
+  window.clearTimeout(nothingscoreBatchTimer);
+  nothingscoreBatchTimer = null;
+  if(document.visibilityState==="hidden"||navigator.onLine===false)return;
+  const mounted=new Set(visibleNothingscoreReadIds());
+  for(const id of nothingscorePendingIds)if(!mounted.has(id))nothingscorePendingIds.delete(id);
+  const ids = [...nothingscorePendingIds].filter(id=>!nothingscoreBatchInFlight.has(id)).slice(0, 50);
+  ids.forEach(id => nothingscorePendingIds.delete(id));
+  if (!ids.length) return;
+  const generation=nothingscoreReadGeneration;
+  ids.forEach(id => nothingscoreBatchInFlight.add(id));
+  try{
+    await loadNothingscoreBatch(ids);
+  }catch(error){
+    console.warn("Nothingscore summary refresh paused", error);
+  }finally{
+    if(generation===nothingscoreReadGeneration){
+      ids.forEach(id=>nothingscoreBatchInFlight.delete(id));syncNothingscoreReadRecovery();nothingscoreQueueRender();
+    }
+  }
+}
+
+function registerNothingscoreEvent(ev, { force = false } = {}){
+  if (!NOTHINGSCORE || !serverSyncClient?.nothingscoreRequest) return;
+  const eventId = nothingscoreEventId(ev);
+  if (!eventId) return;
+  if(nothingscoreBatchInFlight.has(eventId)||nothingscorePendingIds.has(eventId))return;
+  if(nothingscoreLoadErrors.has(eventId)){
+    if(force)retryNothingscoreRatings(ev);
+    return;
+  }
+  const snapshot = nothingscoreSnapshots.get(eventId);
+  const maxAge = snapshot?.phase === "pulse" ? 120_000 : 5 * 60_000;
+  if (!force && Date.now() - Number(nothingscoreLoadedAt.get(eventId) || 0) < maxAge) return;
+  nothingscorePendingIds.add(eventId);
+  if (!nothingscoreBatchTimer) nothingscoreBatchTimer = window.setTimeout(flushNothingscoreBatch, 0);
+}
+
+
+function mergeNothingscoreSnapshot(snapshot){
+  const eventId = String(snapshot?.eventId || "");
+  if (!eventId) return false;
+  const previous = nothingscoreSnapshots.get(eventId) || null;
+  const merged = {
+    ...previous,
+    ...snapshot,
+    // A slower batch summary must not erase the breakdown just opened. If its
+    // totals changed, discard the old histogram and refresh the visible detail.
+    peerResults:snapshot.ratingRequired ? undefined : snapshot.peerResults && !snapshot.peerResults.distribution
+      && previous?.peerResults?.distribution
+      && ["phase","count","average"].every(key => previous.peerResults[key] === snapshot.peerResults[key])
+      ? {...previous.peerResults,...snapshot.peerResults} : snapshot.peerResults || previous?.peerResults,
+    currentUser:globalThis.NOTHINGSPORTS_NSC_SUBMISSION_STATE.mergeCurrentUser(previous?.currentUser, snapshot.currentUser),
+    ...(snapshot.contributors === undefined && previous?.contributors !== undefined ? { contributors:previous.contributors } : {}),
+  };
+  const fingerprint = value => JSON.stringify({
+    phase:value?.phase,
+    ratingRequired:value?.ratingRequired,
+    aggregate:value?.aggregate,
+    aggregates:value?.aggregates,
+    watchingCount:value?.watchingCount,
+    currentUser:value?.currentUser,
+    contributors:value?.contributors,
+    series:value?.series,
+    crowdEditorial:value?.crowdEditorial,
+    filterRatings:value?.filterRatings,
+    peerResults:value?.peerResults,
+  });
+  nothingscoreSnapshots.set(eventId, merged);
+  nothingscoreLoadedAt.set(eventId, Date.now());
+  return fingerprint(previous) !== fingerprint(merged);
+}
+
+
+async function loadNothingscoreDetail(ev){
+  const eventId = nothingscoreEventId(ev);
+  if (!eventId || nothingscoreDetailLoading.has(eventId) || (nothingscoreSnapshots.get(eventId)?.contributors !== undefined && nothingscoreSnapshots.get(eventId)?.peerResults?.distribution)) return;
+  nothingscoreDetailLoading.add(eventId);
+  const owner = serverPersistence.user?.id || "",generation=nothingscoreReadGeneration;
+  try{
+    const payload = await serverSyncClient.nothingscoreRequest({ eventId });
+    if (owner !== (serverPersistence.user?.id || "")||generation!==nothingscoreReadGeneration) return;
+    if (payload.viewer) nothingscoreViewer = payload.viewer;
+    if(payload.detail){
+      const recovered=nothingscoreReadRecovered(eventId);
+      if(mergeNothingscoreSnapshot(payload.detail)||recovered)nothingscoreQueueRender();
+    }
+  }catch(error){
+    console.warn("Nothingscore contributor detail unavailable", error);
+  }finally{
+    if(generation===nothingscoreReadGeneration)nothingscoreDetailLoading.delete(eventId);
+  }
+}
+
+
+
+
+
+async function openNothingscoreContribution(ev, {showResults = false} = {}){
+  const id=nothingscoreEventId(ev);nscDetailEvents.set(id,ev);
+  if(activeNothingscoreContributionEvent!==ev){
+    nscOpenedFromRankings=document.body.classList.contains('nsc-open');
+    if(nscOpenedFromRankings)nscRankingState.scrollTop=document.getElementById('nothingscoreBody').scrollTop;
+    history.pushState({nscPage:{view:'fixture',eventId:id}},'', '#nsc');
+  }
+  activeNothingscoreContributionEvent = ev;
+  activeNothingscoreContributionError = "";
+  setNothingscoreDrawerOpen(true);
+  if(getEventStatus(ev)==="live"&&serverPersistence.user&&!nothingscoreWatching.has(id)){
+    nothingscoreWatching.add(id);nothingscoreWatchingStartedAt.set(id,Date.now());
+    try{await serverSyncClient?.nothingscoreRequest?.({}, {action:"watching",eventId:id});nothingscoreHeartbeatFailures.set(id,0);scheduleNothingscoreHeartbeat(60_000);}
+    catch(_error){nothingscoreWatching.delete(id);nothingscoreWatchingStartedAt.delete(id);}
+  }
+  const owner = serverPersistence.user?.id || "",generation=nothingscoreReadGeneration;
+  try{
+    const payload = await serverSyncClient?.nothingscoreRequest?.({ eventId:nothingscoreEventId(ev) });
+    if (owner !== (serverPersistence.user?.id || "")||generation!==nothingscoreReadGeneration) return;
+    if (payload?.viewer) nothingscoreViewer = payload.viewer;
+    if (payload?.detail){
+      nothingscoreReadRecovered(nothingscoreEventId(ev));
+      const phase = payload.detail.phase;
+      const key = nothingscoreSubmissionKey(nothingscoreEventId(ev),phase);
+      const receipt = payload.detail.currentUser?.submissions?.[phase];
+      if (receipt) nothingscoreSubmissionStore.confirm(key,receipt);
+      else if (!nothingscoreSubmissionRequests.has(key)) nothingscoreSubmissionStore.release(key);
+      mergeNothingscoreSnapshot(payload.detail);
+    }
+  }catch(error){
+    if(owner!==(serverPersistence.user?.id||"")||generation!==nothingscoreReadGeneration)return;
+    console.warn("Nothingscore contribution unavailable", error);
+    activeNothingscoreContributionError = error?.message || "Your contribution form could not be loaded.";
+  }
+  if (document.getElementById("nothingscoreBackdrop")?.classList.contains("show") && activeNothingscoreContributionEvent === ev){
+    renderNothingscoreDrawer();
+    if (showResults) document.getElementById("nothingscoreBackdrop")?.querySelector(".nsc-peer-results details")?.setAttribute("open", "");
+  }
+}
+

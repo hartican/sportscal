@@ -9,15 +9,16 @@ class Element{
 }
 function validate({source=require('./app-shell-test-utils').readCardFunction('buildCompactCardSummary')}={}){
  assert(source.startsWith('function buildCompactCardSummary('),'Actual compact card boundary exists');
- const context=vm.createContext({document:{createElement:()=>new Element()},activeTab:'feed',compactFixtureName:e=>e.name,matchupIdentityMatches:()=>[],renderEventTitleIdentity:(node,e)=>{node.textContent=e.name;},compactFixtureFormat:()=>null,compactFallbackTiming:()=>'',sportMetaForEvent:()=>({label:'Football'}),spoilerSafeDisplayTitle:e=>e.name,FOLLOW_FIRST:{stageLabel:()=>null},FEED_CONTROLS:require('../config/feed-controls'),NOTHINGSPORTS_CARD_TIMING:require('../config/card-timing'),buildFixtureTimingGroup:()=>new Element(),Intl,Date});
+ const context=vm.createContext({document:{createElement:()=>new Element()},activeTab:'feed',CARD_IDENTITIES:{markForEvent:()=>null},compactFixtureName:e=>e.name,matchupIdentityMatches:()=>[],renderEventTitleIdentity:(node,e)=>{node.textContent=e.name;},compactFixtureFormat:()=>null,compactFixtureStage:event=>event.roundLabel||event.round||event.stage||'',compactFallbackTiming:()=>'',sportMetaForEvent:()=>({label:'Football'}),spoilerSafeDisplayTitle:e=>e.name,FOLLOW_FIRST:{stageLabel:()=>null},FEED_CONTROLS:require('../config/feed-controls'),NOTHINGSPORTS_CARD_TIMING:require('../config/card-timing'),buildFixtureTimingGroup:()=>new Element(),Intl,Date});
  vm.runInContext(source,context);
  context.NOTHINGSPORTS_FIXTURE_LABELS=require('../config/fixture-labels');
  vm.runInContext(require('./app-shell-test-utils').readCardFunction('buildTennisFixtureContext'),context);
  let cases=0;
  function check(event,now,expected){
   context.nowAEST=()=>new Date(now);const before=JSON.stringify(event),summary=context.buildCompactCardSummary(event,{minimal:true}),time=summary.children.at(-1).textContent;
-  assert(time.includes(expected),event.name+': compact card must visibly show '+expected+'; received '+time);
-  assert((context.NOTHINGSPORTS_CARD_TIMING.progress(event,now)?summary.getAttribute('aria-label'):time).includes('Sydney time'),'Original scheduled time keeps its zone in the capsule or its accessible full dates');
+  const visible=expected.startsWith('Awaiting')?'AWAITING UPDATE':expected.startsWith('Live again')?'18:30':expected==='Resume time unconfirmed'?'TIME TBC':expected;
+  assert(time.includes(visible),event.name+': compact card must visibly show '+visible+'; received '+time);
+  assert(summary.getAttribute('aria-label').includes('Sydney time'),'Original scheduled time keeps its zone in accessible full dates');
   assert(summary.getAttribute('aria-label').includes(expected),'Accessible status remains available');
   if(event.scoreDisplay)assert(!time.includes(event.scoreDisplay),'A status label does not expose scores');
   assert.equal(JSON.stringify(event),before,'Display preserves source facts and clocks');cases++;return {time,aria:summary.getAttribute('aria-label')};
@@ -35,7 +36,7 @@ function validate({source=require('./app-shell-test-utils').readCardFunction('bu
  const narrative='Australia lead by 139 runs',safe=check({...cricket,status:'break',scheduleStatus:'break',statusText:narrative,statusCheckedAt:pauseNow},pauseNow,'BREAK');assert(![safe.time,safe.aria].some(text=>text.includes(narrative)),'Unreviewed pause narrative cannot become a public status label');
  const stale=check(base,new Date(Date.parse(capture.checkedAt)+240001).toISOString(),'Awaiting match update');assert(/half-time/i.test(stale.time+stale.aria),'Awaiting status retains the safe pause context');
  for(const [scheduleStatus,label] of [['cancelled','CANCELLED'],['completed','FINISHED']])check({...cricket,status:'break',scheduleStatus,statusText:narrative,statusCheckedAt:pauseNow},pauseNow,label);
- for(const [restartTimeUtc,label] of [[restart,'Live again at 6:30 pm'],[null,'Resume time unconfirmed'],['invalid','Resume time unconfirmed'],['2026-10-11T23:00:00Z','Awaiting resumption update']])check({...base,status:'stumps',scheduleStatus:'stumps',statusText:null,restartTimeUtc},pauseNow,label);
+ for(const [restartTimeUtc,label] of [[restart,'Live again at 6:30 pm'],[null,'Resume time unconfirmed'],['invalid','Resume time unconfirmed'],['2026-10-11T23:00:00Z','Awaiting resumption update']])check({...base,key:'cricket',competitionId:'controlled:cricket',status:'stumps',scheduleStatus:'stumps',statusText:null,statusCheckedAt:pauseNow,restartTimeUtc},pauseNow,label);
  // These canonical states are controlled safety cases, not provider-code evidence.
  for(const status of ['cancelled','canceled','postponed','suspended','abandoned'])check({...base,status,scheduleStatus:status,statusText:null},capture.checkedAt,status==='canceled'?'CANCELLED':status.toUpperCase());
  for(const key of ['nrl','afl']){

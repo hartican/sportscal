@@ -1,17 +1,17 @@
-const CACHE_NAME = "nothingsport-shell-v522";
-const SHELL_VERSION = "522";
+const CACHE_NAME = "nothingsport-shell-v523";
+const SHELL_VERSION = "523";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
 const APP_SHELL = [
   "/config/participant-directory.js?v=512",
   "/assets/js/football-card-context.js?v=511",
-  "/assets/js/tennis-parent-ui.js?v=516",
+  "/assets/js/tennis-parent-ui.js?v=523",
   "/assets/js/calendar-sync-ui.js?v=513",
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
-  "/assets/js/follow-presentation-ui.js?v=522",
+  "/assets/js/follow-presentation-ui.js?v=523",
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
@@ -61,7 +61,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=522",
+  "/assets/js/app-shell-runtime.js?v=523",
   "/assets/js/follow-schedule-panel.js?v=522",
   "/assets/js/fixture-navigation.js?v=487",
   "/config/cricket-innings.js?v=486",
@@ -83,7 +83,7 @@ const APP_SHELL = [
   "/config/follow-summary.js?v=397",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=516",
+  "/styles/follow-feed-rework.css?v=523",
   "/config/marquee-live-renderer.js?v=358",
   "/styles/comms-live.css?v=358",
   "/styles/owner-content.css?v=358",
@@ -95,15 +95,15 @@ const APP_SHELL = [
   "/config/marquee-campaigns.js",
   "/config/server-sync.js",
   "/config/major-events.js?v=467",
-  "/config/event-overviews-ui.js?v=522",
+  "/config/event-overviews-ui.js?v=523",
   "/config/surface-category-ui.js?v=403",
   "/assets/styles/match-centre.css?v=507",
   "/config/match-centre.js?v=509",
   // An upgrading page can receive this deferred module from its old worker.
   // Own it in the new cache before activation removes that old cache.
   "/assets/js/match-centre-ui.js?v=509",
-  "/config/feed-live-scores.js?v=516",
-  "/config/feed-live-score-loader.js?v=509",
+  "/config/feed-live-scores.js?v=523",
+  "/config/feed-live-score-loader.js?v=523",
   "/config/athletes.js?v=471",
   "/assets/js/athletes-ui.js?v=518",
   // Profile UI caches after first use; optional detail stays out of shell budget.

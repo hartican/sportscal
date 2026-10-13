@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## True minimised rows and readable Cricket cards — 13 October 2026 Sydney
+
+Jack approved one 56px-high native-button row for minimised Feed, Events and Schedule matches and event/tournament overviews. Keep 20px marks, approved short teams/event name and a source-qualified 24-hour clock or explicit status; competition/format is omitted before progress when space is limited, and names truncate. Full source dates/context remain accessible. No score, editorial, rating, provider, venue or action bar is mounted in this state; explicit calendar-selection mode retains its existing selection target. A row opens the normal selected card, then score/More opens details. Dedicated overview row taps close their prior details; saved choices and all other draw selections remain. Match Centre's scoreboard layout is unchanged.
+
+Cricket no longer forces compact mode after day one. Normal cards use the same contained 96px/80px narrow-phone team frames as other team sports; flags remain small. The existing native score-summary button removes its underline, uses venue-label typography and conservatively replaces proven source aliases with canonical display labels. Current innings, original observations, unknown prose and Results OFF are retained. A repeated exact known status prefix/footer may be removed when the header already presents it. Deferred score loading follows the connected patched card and checks current privacy, owner and view; a late completion cannot add scores to a minimised row.
+
+This supersedes the older bulky compact-card presentation only. Feed admission, seven-day retention, edition follows, fixture/alias identities, rating/reminder consent and saved actions remain. [Approved plan](quality/compact-cards-ratings-plan-2026-10-13.md). Regressions: minimised timing/native renderer matrix, dedicated overview and logo/score browser checks, existing compact status/timing/identity gates and both installed-update rehearsals.
+
 ## Horse Racing discovery and explicit catalogue follow — 13 October 2026 Sydney
 
 Owner-approved repair: expose one gender-neutral Horse Racing entry in Follow Sports, reachable from either gender's sport picker. Horse Racing opens Schedule and offers Major Events, with a visible explicit Follow Horse Racing control. It has no gender, Teams & Players or standings section; horses and jockeys remain sourced field information, not followable participant profiles. Keep the existing nine dated feature races and three edition-date-pending Events entries; pending dates stay labelled and cannot create Feed fixtures or reminder clocks.

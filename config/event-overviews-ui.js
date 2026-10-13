@@ -5,7 +5,7 @@ function loadMatchCentreStyles(){
  const link=document.createElement('link');link.rel='stylesheet';link.href='assets/styles/match-centre.css?v=507';link.dataset.mcStyle='';document.head.append(link);
 }
 loadMatchCentreStyles();
-let eventOverviewsDocument=null,eventOverviewsPending=null;const sessionSchedules=new Map();
+let eventOverviewsDocument=null,eventOverviewsPending=null;const sessionSchedules=new Map(),eventOverviewOpen=new Set();
 const text=(tag,value,className)=>{const node=document.createElement(tag);node.textContent=value;if(className)node.className=className;return node;};
 async function render(container){
  const node=document.createElement('section');node.className='events-section';node.id='eventsViewPanel';node.setAttribute('role','tabpanel');node.setAttribute('aria-labelledby','events-view-tab-overviews');container.append(node);
@@ -25,8 +25,12 @@ async function render(container){
  const choice=buildSurfaceCategoryChooser('events',available,renderEventsView,{includeAll:true});node.replaceChildren(controls,choice.select);
  const marker=text('div','Now','events-now-marker is-active');marker.setAttribute('role','separator');marker.setAttribute('aria-label','Current and upcoming events');node.append(marker);
  const visible=available.filter(e=>isTarget(e)||choice.selected==='all'||NOTHINGSPORTS_SURFACE_CATEGORY.category(e)===choice.selected).sort((a,b)=>Math.max((a.date||'9999').localeCompare(today),0)-Math.max((b.date||'9999').localeCompare(today),0)||(a.date||'9999').localeCompare(b.date||'9999')||a.id.localeCompare(b.id));
- for(const event of visible){
-  const card=document.createElement('article');card.className='match-centre-card events-overview-card';card.dataset.eventOverviewId=event.id;card.dataset.eventId=event.id;card.tabIndex=-1;
+ function buildOverviewCard(event){
+  let card=document.createElement('article');card.className='match-centre-card events-overview-card';card.dataset.eventOverviewId=event.id;card.dataset.eventId=event.id;card.dataset.scrollKey='event:overview:'+event.id;card.tabIndex=-1;
+  card._rebuildCard=()=>buildOverviewCard(event);card._retargetCard=target=>{card=target;};
+  const state=cardStateForEvent(event);card.dataset.cardState=state;
+  const activate=(nextState,options)=>{if(getEventAction(event).isMinimised)updateEventAction(event,{isMinimised:false});if(nextState==='selected')eventOverviewOpen.delete(event.id);setCardState(event,nextState);refreshExpandableCard(card,buildOverviewCard(event),options);syncNothingscoreReadRecovery();};
+  if(state==='compact'||getEventAction(event).isMinimised){card.classList.add('event-card');return mountMinimisedCard(card,{...event,key:event.key||event.sportKey,tournamentParent:true,isEditionOverview:true,dateOnly:true},activate);}
   const timing=NOTHINGSPORTS_CARD_TIMING.presentation(event,nowAEST());
   const title=text('h3',[fixtureCompetitionLabel(event),event.name].filter((v,i,a)=>v&&a.indexOf(v)===i).join(' · ')),dates=text('p',(event.calendarPending?'Edition date pending':timing.progress||NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.date)+(event.endDate!==event.date?' – '+NOTHINGSPORTS_AUSTRALIAN_DATES.date(event.endDate):''))+(timing.status==='FINISHED'?' · FINISHED':''));dates.title=timing.fullSchedule;dates.setAttribute('aria-label',timing.ariaLabel);card.append(title,dates);
   const upcoming=(event.upcomingFixtures||[]).filter(f=>(f.date||'')>=today),next=upcoming.filter(f=>(f.participantIds||[]).some(follows));
@@ -35,7 +39,7 @@ async function render(container){
   for(const fixture of next.slice(0,2)){const row=text('p',fixture.spoilerSafeTitle||fixture.name,'athletes-next-match');const timing=NOTHINGSPORTS_CARD_TIMING.presentation(fixture,nowAEST());row.append(document.createTextNode(' · '+timing.fullSchedule));card.append(row);}
   if(!next.length&&(event.participantIds||[]).some(follows))card.append(text('p','Next followed appearance has not been verified.','athletes-coverage-gap'));
   card.append(buildEventEditionToggle({...event,tournamentParent:true}));
-  const details=document.createElement('details'),summary=text('summary','Fixtures');details.append(summary);details.open=Boolean(isTarget(event));card.append(details);let loaded=false;
+  const details=document.createElement('details'),summary=text('summary','Fixtures');details.append(summary);details.open=state==='opened'||eventOverviewOpen.has(event.id)||Boolean(isTarget(event));card.append(details);let loaded=false;
   if(timing.progress)details.append(text('p',timing.fullSchedule,'fixture-source-dates'));
   const mount=async()=>{if(!details.open||loaded)return;loaded=true;const list=document.createElement('div');list.textContent='Loading published fixtures…';details.append(list);try{
     let fixtures;if(event.sportKey.startsWith('tennis'))fixtures=(await loadTennisFeedContests()).fixtures.filter(f=>(f.tournamentId||f.tennisTournamentId)===event.tournamentId);
@@ -45,10 +49,12 @@ async function render(container){
     }else {await loadDeferredScript('assets/js/tournament-fixture-ui.js?v=467');const horizon=await loadTournamentHorizon();fixtures=horizon.tournaments?.find(t=>t.tournamentId===event.tournamentId)?.publishedFixtures||[];}
     if(!list.isConnected)return;fixtures=fixtures.filter(f=>!FOLLOW_FEED_POLICY.multiDayMarker(f)&&FOLLOW_FEED_POLICY.scheduleVisible(f,prefs,collections));
     list.replaceChildren();let count=0;const more=()=>{for(const f of fixtures.slice(count,count+20))list.append(buildEventCard(NOTHINGSPORTS_FIXTURE_IDENTITY.fromSchedule(f,event.sportKey),{mode:'schedule'}));count+=20;if(count<fixtures.length){const b=text('button','More fixtures','btn ghost');b.type='button';b.onclick=()=>{b.remove();more();};list.append(b);}};more();if(!fixtures.length)list.append(text('p','No published fixtures match this view.'));
-  }catch{loaded=false;list.textContent='Fixtures could not load. ';const retry=text('button','Retry fixtures','btn ghost');retry.type='button';retry.onclick=()=>{list.remove();void mount();};list.append(retry);}};details.addEventListener('toggle',()=>void mount());const mounted=mount();
+  }catch{if(!list.isConnected)return;loaded=false;list.textContent='Fixtures could not load. ';const retry=text('button','Retry fixtures','btn ghost');retry.type='button';retry.onclick=()=>{list.remove();void mount();};list.append(retry);}};details.addEventListener('toggle',()=>{if(!card.isConnected||!details.isConnected)return;if(details.open)eventOverviewOpen.add(event.id);else eventOverviewOpen.delete(event.id);card.dataset.cardState=details.open?'opened':'selected';setCardState(event,card.dataset.cardState);void mount();});card._targetReady=mount();
   const link=buildFeedScheduleLink({...event,sportDomainId:'sport:'+event.sportKey});link.textContent='Full schedule in Follow';card.append(link);
   if(event.sourceUrl){const source=text('a','Event source');source.href=event.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';card.append(document.createTextNode(' · '),source);}
-  if(event.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(event.sportKey))appendVenuePanel(card,card,event);node.append(card);if(isTarget(event)){mounted.then(()=>requestAnimationFrame(()=>{if(!card.isConnected)return;card.style.scrollMarginTop=((document.querySelector('.header')||document.querySelector('header'))?.offsetHeight||160)+16+'px';card.scrollIntoView({block:'start'});card.focus({preventScroll:true});pendingMajorEventFocusId=null;globalThis.pendingTournamentFocusFixture=null;}));}
+  if(event.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(event.sportKey))appendVenuePanel(card,card,event);card.append(buildCardDisclosureControl(event.name,state,activate));return card;
+ }
+ for(const event of visible){const card=buildOverviewCard(event);node.append(card);if(isTarget(event)){Promise.resolve(card._targetReady).then(()=>requestAnimationFrame(()=>{if(!card.isConnected)return;card.style.scrollMarginTop=((document.querySelector('.header')||document.querySelector('header'))?.offsetHeight||160)+16+'px';card.scrollIntoView({block:'start'});(card.querySelector('.minimised-card-summary')||card).focus({preventScroll:true});pendingMajorEventFocusId=null;globalThis.pendingTournamentFocusFixture=null;}));}
  }
  if(!visible.length)node.append(text('p',scope==='followed'?'No current events match your follows. Browse All events or follow an athlete, team or competition.':'No current events are published for this category.'));
 }

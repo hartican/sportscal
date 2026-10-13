@@ -95,9 +95,9 @@ assert.match(stableCardIntensityIcon, /<img\b/, "small stakes card glyphs must u
 
 assert(!html.includes('src="data/events.js"'), "the generated direct-file event bundle must not block the initial parser");
 assert(html.includes('function loadLatestBundledEvents()') && html.includes('return reloadBundledEventsScript();'), "the generated direct-file event bundle must remain available as an on-demand fallback");
-const uiSource = html;
+const uiSource = require("./app-shell-test-utils").readCardApplicationSource();
 const cardUiSource = uiSource.slice(uiSource.indexOf("function buildEventCard(ev"),uiSource.indexOf("function jointTournamentIsActive"))
-  + uiSource.slice(uiSource.indexOf("function buildMajorEventCard"),uiSource.indexOf("function buildTicketSaleCard"));
+  + require("./app-shell-test-utils").readCardFunction("buildDetailedMajorEventCard");
 assert.doesNotMatch(cardUiSource, /\p{Extended_Pictographic}|\p{Regional_Indicator}{2}/u, "sporting card graphics must not use emoji; native chat reactions and copyright text are separate");
 assert.match(uiSource, /function stripDecorativeGlyphs/, "legacy editorial glyphs must be removed before rendering or export");
 assert.match(uiSource, /class="skip-link"/, "keyboard users must receive a skip link");

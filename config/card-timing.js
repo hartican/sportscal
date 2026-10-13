@@ -118,9 +118,32 @@
     if(observed?.key==='awaiting-update')status=observed.label;
     return Object.freeze({day:progressLabel|| (precision==='not-before'?day:venueCalendar?day:date?(range?day:dated(date)):'DATE TBC'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
   }
+  function minimised(event, reference = new Date()){
+    const value=presentation(event,reference),pause=pausePresentation(event,reference);
+    const clock=raw=>new Intl.DateTimeFormat('en-AU',{timeZone,hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw));
+    const restart=Date.parse(event.restartTimeUtc||'');
+    let time=value.status;
+    if(pause&&!/^(FINISHED|CANCELLED|POSTPONED|ABANDONED)$/.test(time)){
+      const suffix=Number.isFinite(restart)&&restart>+new Date(reference)?clock(restart):Number.isFinite(restart)||/awaiting/i.test(value.status)?'AWAITING UPDATE':'TIME TBC';
+      time=pause.label.toUpperCase()+' · '+suffix;
+    }else if(/awaiting/i.test(time))time='AWAITING UPDATE';
+    if(!time){
+      const raw=event.timePrecision==='estimated'?event.estimatedStartTimeUtc||event.startTimeUtc:event.startTimeUtc;
+      const known=!event.dateOnly&&!event.timeTbc&&!event.startTimeTbc&&(!event.timePrecision||['exact','session-start','estimated','not-before'].includes(event.timePrecision))&&Number.isFinite(Date.parse(raw||''));
+      time=known?(event.timePrecision==='not-before'?'NB ':event.timePrecision==='estimated'?'APPROX. ':'')+clock(raw):event.timePrecision==='follows'?'FOLLOWS':'TIME TBC';
+    }
+    const overview=event.tournamentParent||event.isEditionOverview||event.majorEventMarker||['tennis_parent','golf_tournament','tournament_overview'].includes(event.cardType);
+    if(overview&&!value.progress){
+      const date=calendarDate(event.date||event.startDate),end=calendarDate(event.endDate);
+      const short=day=>format(day,{day:'numeric',month:'short'});
+      time=(date?short(date)+(end&&dayKey(end)!==dayKey(date)?'–'+short(end):''):'DATE TBC')+(value.status?' · '+value.status:'');
+    }
+    const ariaLabel=[value.ariaLabel,pause?[pause.label,pause.restart].join('. '):''].filter(Boolean).join('. ');
+    return Object.freeze({...value,time,ariaLabel});
+  }
   function dateOnlyLabel(event){
     if(['completed','finished','final'].includes(event.status))return 'Completed';
     return event.eventType==='match'||event.timingProvenance?.precision==='venue-calendar'?'Time TBC':event.displayTime||'Session times vary';
   }
-  return Object.freeze({presentation,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason,progress});
+  return Object.freeze({presentation,minimised,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason,progress});
 });

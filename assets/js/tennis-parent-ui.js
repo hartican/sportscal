@@ -1,11 +1,15 @@
-const parentStyle=document.createElement('style');parentStyle.textContent='.tennis-feed-parent{padding:16px;min-width:0;}\n#listView .event-card.tennis-feed-parent{display:block;text-align:left;}\n#listView .tennis-feed-parent>details>summary{text-align:left;}\n#listView .tennis-feed-parent>.feed-schedule-link{position:static;display:inline-block;max-width:100%;margin-top:12px;}\n.tennis-tie-details p{margin:6px 0;line-height:1.45;}\n.tennis-feed-parent summary{cursor:pointer;min-height:44px;overflow-wrap:anywhere;}\n.tennis-feed-parent summary strong,.tennis-feed-parent summary span{display:block;}\n.tennis-feed-parent summary span{font-size:.75rem;color:var(--text-dim);margin-top:6px;}\n.tennis-parent-contests{margin-top:12px;}\n.tennis-contest-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--border);font-size:.8rem;}\n.tennis-contest-row>span{flex:1 1 150px;min-width:0;overflow-wrap:anywhere;}\n.tennis-contest-row button{min-height:44px;}\n\n';document.head.append(parentStyle);
+const parentStyle=document.createElement('style');parentStyle.textContent='.tennis-feed-parent:not(.is-minimised-row){padding:48px 16px 16px;min-width:0;}\n#listView .event-card.tennis-feed-parent:not(.is-minimised-row){display:block;text-align:center;}\n#listView .tennis-feed-parent>details>summary{text-align:center;}\n#listView .tennis-feed-parent>.feed-schedule-link{position:static;display:inline-block;max-width:100%;margin-top:12px;}\n.tennis-tie-details p{margin:6px 0;line-height:1.45;}\n.tennis-feed-parent summary{cursor:pointer;min-height:44px;overflow-wrap:anywhere;}\n.tennis-feed-parent summary strong,.tennis-feed-parent summary span{display:block;}\n.tennis-feed-parent summary span{font-size:.75rem;color:var(--text-dim);margin-top:6px;}\n.tennis-parent-contests{margin-top:12px;}\n.tennis-contest-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--border);font-size:.8rem;}\n.tennis-contest-row>span{flex:1 1 150px;min-width:0;overflow-wrap:anywhere;}\n.tennis-contest-row button{min-height:44px;}\n\n';document.head.append(parentStyle);
 'use strict';
 const tennisParentDrawTabs=new Map();
 function category(parent){return (parent.tourCategories||[{tour:parent.tour,level:parent.tournamentLevel}]).map(t=>{const level=String(t.level||'').match(/(1000|500|250)/)?.[1]||(/grand.slam/.test(t.level||'')?'Grand Slam':null);return [t.tour==='BOTH'?'ATP / WTA':t.tour,level].filter(Boolean).join(' ');}).join(' / ');}
 function tennisParentDate(date){const parsed=/^\d{4}-\d{2}-\d{2}$/.test(date||'')?new Date(date+'T12:00:00Z'):null;return parsed&&!Number.isNaN(+parsed)?parsed.toLocaleDateString('en-AU',{timeZone:'UTC',day:'numeric',month:'short'}):null;}
 function tennisParentDates(parent){const timing=NOTHINGSPORTS_CARD_TIMING.presentation(parent,nowAEST());if(timing.progress)return timing.progress;const start=tennisParentDate(parent.date),end=tennisParentDate(parent.endDate);return (start?[start,end&&parent.endDate!==parent.date?end:null].filter(Boolean).join(' – ')+(parent.timingProvisional?' · Provisional':''):NOTHINGSPORTS_TENNIS_FEED.timingLabel(parent))+(timing.status==='FINISHED'?' · FINISHED':'');}
 function buildTennisParentCard(parent){
-  const card=document.createElement('article');card.className='event-card tennis-feed-parent';card.dataset.eventId=parent.id;
+  let card=document.createElement('article');card.className='event-card tennis-feed-parent';card.dataset.eventId=parent.id;card.dataset.scrollKey='event:calendar:'+parent.id;card.tabIndex=-1;
+  card._rebuildCard=()=>buildTennisParentCard(parent);card._retargetCard=target=>{card=target;};
+  const state=cardStateForEvent(parent);card.dataset.cardState=state;
+  const activate=(nextState,options)=>{if(getEventAction(parent).isMinimised)updateEventAction(parent,{isMinimised:false});if(nextState==='selected')tennisFeedOpenParents.delete(parent.id);setCardState(parent,nextState);refreshExpandableCard(card,buildTennisParentCard(parent),options);syncNothingscoreReadRecovery();};
+  if(state==='compact'||getEventAction(parent).isMinimised)return mountMinimisedCard(card,{...parent,key:parent.key||'tennis',tournamentParent:true,dateOnly:true},activate);
   const details=document.createElement('details'),summary=document.createElement('summary'),timing=document.createElement('span');
   const ongoing=NOTHINGSPORTS_FEED_CARD_PRESENTATION.parentCompact(parent,nowAEST());
   card.classList.toggle('parent-ongoing',ongoing);
@@ -19,13 +23,15 @@ function buildTennisParentCard(parent){
   dates.title=NOTHINGSPORTS_CARD_TIMING.presentation(parent,nowAEST()).fullSchedule;
   const sourceDates=document.createElement('p');sourceDates.className='fixture-source-dates';sourceDates.textContent=dates.title;details.append(sourceDates);
   const body=document.createElement('div');body.className='tennis-parent-contests';details.append(body);
-  let loaded=false,focusDraw=false;
+  card.append(buildCardDisclosureControl(parent.name,state,activate));
+  let loaded=false,focusDraw=false,paintGeneration=0;
   async function paint(){
+    const generation=++paintGeneration,ownsView=()=>card.isConnected&&body.isConnected&&next.isConnected&&generation===paintGeneration;
     body.replaceChildren();body.textContent='Loading contests…';next.textContent='Checking published matches…';
     try{
       const doc=await loadTennisFeedContests();
       if(doc.fixtures.some(f=>f.rubbers?.length))await loadDeferredScript('assets/js/tennis-tie-details.js?v=305');
-      if(!card.isConnected)return;
+      if(!ownsView())return;
       const fixtures=NOTHINGSPORTS_TENNIS_FEED.reconcile({...parent,childContests:doc.fixtures.filter(e=>NOTHINGSPORTS_TENNIS_FEED.matches(parent,e))},activeEvents).childContests;
       body.replaceChildren();next.replaceChildren();const current=fixtures.filter(f=>!['completed','finished','final','cancelled','abandoned','not-required'].includes(f.status)&&(/^(live|in-progress|suspended)$/.test(f.status)||!f.date||f.date>=formatDateKey(nowAEST()))).sort((a,b)=>Number(/^(live|in-progress)$/.test(b.status))-Number(/^(live|in-progress)$/.test(a.status))||(a.startTimeUtc||a.date||'9999').localeCompare(b.startTimeUtc||b.date||'9999'));const personal=current.filter(f=>FOLLOW_FEED_POLICY.participantIds(f).some(id=>FOLLOW_FIRST.effectiveParticipantFollow(id,userPreferences,followCollectionsById()).followed));for(const f of (personal.length?personal:current).slice(0,2)){const ev=NOTHINGSPORTS_FIXTURE_IDENTITY.fromSchedule(f,'tennis'),row=document.createElement('p');row.className='tennis-parent-next-match';const name=document.createElement('strong');name.textContent=spoilerSafeDisplayTitle(ev);row.append(name,document.createElement('br'),document.createTextNode([f.roundLabel||f.round,NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).schedule].filter(Boolean).join(' · ')));next.append(row);}if(!next.children.length)next.textContent='No upcoming match published';
       if(!fixtures.length){body.textContent='Contests will appear as reliable schedules become available.';return;}
@@ -56,11 +62,11 @@ function buildTennisParentCard(parent){
         }if(upcoming.length)more(upcoming,section);else{const empty=document.createElement('p');empty.textContent='No upcoming match published';section.append(empty);}if(past.length){const history=document.createElement('details');history.className='tennis-past-matches';const label=document.createElement('summary');label.textContent=`Past matches (${past.length})`;history.append(label);const list=document.createElement('div');history.append(list);let painted=false;history.addEventListener('toggle',()=>{if(history.open&&!painted){painted=true;more(past,list);}});section.append(history);}
       }
       if(focusDraw){focusDraw=false;tabs.querySelector('[aria-selected="true"]')?.focus();}
-    }catch(error){loaded=false;next.textContent='Match details are temporarily unavailable. ';const again=document.createElement('button');again.type='button';again.className='btn ghost';again.textContent='Retry matches';again.onclick=()=>void paint();next.append(again);body.textContent='Contests could not load. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry';retry.onclick=()=>void paint();body.append(retry);}
+    }catch(error){if(!ownsView())return;loaded=false;next.textContent='Match details are temporarily unavailable. ';const again=document.createElement('button');again.type='button';again.className='btn ghost';again.textContent='Retry matches';again.onclick=()=>void paint();next.append(again);body.textContent='Contests could not load. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry';retry.onclick=()=>void paint();body.append(retry);}
   }
   summary.addEventListener('click',()=>{if(details.open)tennisFeedOpenParents.delete(parent.id);else tennisFeedOpenParents.add(parent.id);});
-  details.open=tennisFeedOpenParents.has(parent.id);
-  details.addEventListener('toggle',()=>{if(!card.isConnected)return;toggle.setAttribute('aria-expanded',String(details.open));if(details.open)tennisFeedOpenParents.add(parent.id);else tennisFeedOpenParents.delete(parent.id);if(details.open&&!loaded){loaded=true;void paint();}});
+  details.open=state==='opened'||tennisFeedOpenParents.has(parent.id);
+  details.addEventListener('toggle',()=>{if(!card.isConnected||!details.isConnected)return;toggle.setAttribute('aria-expanded',String(details.open));card.dataset.cardState=details.open?'opened':'selected';setCardState(parent,card.dataset.cardState);if(details.open)tennisFeedOpenParents.add(parent.id);else tennisFeedOpenParents.delete(parent.id);if(details.open&&!loaded){loaded=true;void paint();}});
   toggle.setAttribute('aria-expanded',String(details.open));queueMicrotask(()=>{if(card.isConnected){loaded=true;void paint();}});return card;
 }
 

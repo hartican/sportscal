@@ -47,3 +47,4 @@ assert.equal(p({...fixture,featuredSubjects:[{id:'driver:one'},{id:'driver:two'}
 console.log('Card timing: calendar boundaries, DST, source status, uncertainty and sporting-start semantics passed.');
 require('./validate-compact-fixture-status')();
 require('./validate-card-context')();
+require('./validate-minimised-cards');

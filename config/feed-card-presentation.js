@@ -47,6 +47,10 @@
   };
   const aflWomen={8098:10,7887:20,8096:30,8097:40,9406:50,7886:60,8467:70,9407:80,7386:90,8466:100,9409:110,8788:120,8796:130,7387:140,8787:150,9408:160,8786:1000,7889:1010};
   const nicknames={'team:football:brazil':'Brazil · Canarinho','team:football:socceroos':'Socceroos','team:football:matildas':'Matildas','team:cricket:south-africa':'Proteas','team:cricket:south-africa-women':'Proteas Women','team:cricket:new-zealand':'Black Caps','team:cricket:new-zealand-women':'White Ferns','team:rugby:australia':'Wallabies','team:rugby:new-zealand':'All Blacks','team:rugby:south-africa':'Springboks'};
+  function shortLabel(id, fallback, participant={}){
+    const names={'team:cricket:australia':'Aus','team:cricket:australia-women':'Aus','team:cricket:south-africa':'S. Africa','team:cricket:south-africa-women':'S. Africa','team:cricket:new-zealand':'NZ','team:cricket:new-zealand-women':'NZ'};
+    return names[id]||club(id)?.[0]||participant.shortName||participant.abbreviation||displayLabel(id,fallback);
+  }
   const nationalColours={AU:'#c29b2f',BR:'#c4a42e',ZA:'#368566',NZ:'#525965',GB:'#345a88',ES:'#b63342',CZ:'#3863a5',FR:'#3766a2',IT:'#3a79ad',AR:'#69a3c1',JP:'#b94554',CN:'#bb3d43',US:'#385f9a',CA:'#bc4550',IN:'#367dbe',PK:'#357c59',BD:'#36815d',LK:'#4659a2',IE:'#448367',DE:'#555c65',NL:'#c67d40',PT:'#a43d4c',BE:'#b8464a',CH:'#b8464a',RS:'#b34d54',HR:'#b84b55',PL:'#b94a56',RO:'#b7a040',FI:'#4875a5',SE:'#bcaa46',NO:'#b84850',DK:'#b94750',KR:'#b64850',UA:'#4486b6',UY:'#6b9bb4'};
   const tournaments={'competition:masters':'#248458','competition:pga-tour':'#355c93','competition:pga-championship':'#355c93','competition:dp-world-tour':'#66549d','competition:us-open':'#355c93','competition:the-open':'#355c93','competition:presidents-cup':'#ab8b3e','competition:tennis:wimbledon':'#50865e','competition:tennis:us-open':'#345ea6','competition:tennis:australian-open':'#318eb6','competition:billie-jean-king-cup':'#259b98','competition:tennis:billie-jean-king-cup':'#259b98','competition:tennis:roland-garros':'#b4714c'};
   const hosts={MY:['#b99b34','#50535a'],ES:['#b63342','#c59a24'],AU:['#397c66','#c8a733'],GB:['#345a88','#a54454'],IT:['#4e806c','#b64749'],JP:['#b94554','#8e8791'],SG:['#b94b59','#8c8897'],US:['#345a88','#a54454'],BR:['#438368','#c1a53e'],MX:['#448569','#b3444e'],NL:['#c67d40','#b79345'],BE:['#555c65','#b79b3d'],CA:['#b94b59','#8c8897'],FR:['#345a88','#a54454'],CN:['#b94554','#c59a24'],AT:['#b94b59','#8c8897'],HU:['#b94554','#448569'],AZ:['#b94554','#448569','#458da1'],MC:['#b94554','#8c8897'],QA:['#86425b','#8c8897'],AE:['#448569','#b3444e'],SA:['#448569','#8c8897'],BH:['#b94b59','#8c8897'],DE:['#555c65','#b8464a','#b99b34'],CZ:['#345a88','#b94554'],TH:['#345a88','#b94554'],ID:['#b94b59','#8c8897'],PT:['#448569','#b3444e'],AR:['#69a3c1','#8c8897'],SE:['#345a88','#bcaa46'],KE:['#555c65','#448569','#b94554'],HR:['#345a88','#b84b55'],GR:['#345a88','#8c8897'],EE:['#345a88','#555c65'],FI:['#4875a5','#8c8897'],PY:['#345a88','#b94554'],CL:['#345a88','#b94554']};
@@ -55,10 +59,6 @@
   function parentCompact(event,now=new Date()){
     const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
     return Boolean((event.tournamentParent||event.cardType==='tennis_parent')&&event.date&&today>event.date&&(today<=(event.endDate||event.date)||['live','in_progress','interrupted','suspended'].includes(event.status))&&!['completed','cancelled','abandoned'].includes(event.status));
-  }
-  function cricketCompact(event,now=new Date()){
-    const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
-    return event.key==='cricket'&&event.date&&event.endDate>event.date&&today>event.date&&today<=event.endDate&&!['completed','finished','final','cancelled','canceled','abandoned'].includes(event.status);
   }
   const identityKey=id=>String(id||'').replace(/^participant:/,'');
   function club(id){const key=identityKey(id).replace(/^team:/,'');const womens=key.match(/^aflw:cd_t(\d+)$/);return clubs[womens?'afl:cd_t'+aflWomen[womens[1]]:key];}
@@ -112,5 +112,5 @@
     const name=String(event.venue||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
     const id=circuits.find(([namePart])=>name.includes(namePart))?.[1];return id?`assets/identities/f1/circuits/${id}.svg`:null;
   }
-  return Object.freeze({dateBanner,venue,ranking,standingPosition,palette,ordinal,displayLabel,parentCompact,cricketCompact,circuitAsset,raceLabel,circuitCaption,venueArtwork});
+  return Object.freeze({dateBanner,venue,ranking,standingPosition,palette,ordinal,displayLabel,shortLabel,parentCompact,circuitAsset,raceLabel,circuitCaption,venueArtwork});
 });

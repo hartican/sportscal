@@ -1,21 +1,23 @@
 #!/usr/bin/env node
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const html=fs.readFileSync(process.argv[2]||'index.html','utf8');
+const html=fs.readFileSync(process.argv[2]||'index.html','utf8')+'\n'+fs.readFileSync('config/venue-panel-ui.js','utf8');
 const source=html.match(/async function loadNothingscoreBatch\(ids, \{ rerender = true \} = \{\}\)\{[\s\S]*?\n\}/)?.[0];
 assert(source,'actual browser batch loader');
+const recoverySource=['nothingscoreReadFailed','nothingscoreReadRecovered'].map(name=>html.match(new RegExp(`function ${name}\\(id\\)\\{[\\s\\S]*?\\n\\}`))?.[0]).join('\n');
+const recoveryContext=()=>({nothingscoreReadGeneration:0,nothingscoreReadRecovery:{failure(){},success(){}}});
 let renders=0;
-const errors=new Map(),context={NOTHINGSCORE:{},serverPersistence:{user:null},serverSyncClient:{nothingscoreRequest:async()=>({snapshots:[]})},nothingscoreSnapshots:new Map(),nothingscoreLoadErrors:errors,mergeNothingscoreSnapshot:()=>false,nothingscoreQueueRender:()=>renders++,nothingscoreViewer:null};
-vm.createContext(context);vm.runInContext(source,context);
+const errors=new Map(),context={...recoveryContext(),NOTHINGSCORE:{},serverPersistence:{user:null},serverSyncClient:{nothingscoreRequest:async()=>({snapshots:[]})},nothingscoreSnapshots:new Map(),nothingscoreLoadErrors:errors,mergeNothingscoreSnapshot:()=>false,nothingscoreQueueRender:()=>renders++,nothingscoreViewer:null};
+vm.createContext(context);vm.runInContext(recoverySource+'\n'+source,context);
 (async()=>{
  await context.loadNothingscoreBatch(['missing']);
  assert(errors.has('missing'),'an omitted fixture must enter cooldown instead of requesting on every render');
  await context.loadNothingscoreBatch(['missing']);
  assert.equal(renders,1,'unchanged unavailable state must not keep rebuilding panels');
  const merge=html.match(/function mergeNothingscoreSnapshot\(snapshot\)\{[\s\S]*?\n\}/)?.[0];assert(merge,'actual client snapshot merge');
- const client={NOTHINGSCORE:{},serverPersistence:{user:null},nothingscoreSnapshots:new Map(),nothingscoreLoadedAt:new Map(),nothingscoreLoadErrors:new Map(),NOTHINGSPORTS_NSC_SUBMISSION_STATE:require('../config/nsc-submission-state'),nothingscoreQueueRender(){client.renders++;},renders:0};
+ const client={...recoveryContext(),NOTHINGSCORE:{},serverPersistence:{user:null},nothingscoreSnapshots:new Map(),nothingscoreLoadedAt:new Map(),nothingscoreLoadErrors:new Map(),NOTHINGSPORTS_NSC_SUBMISSION_STATE:require('../config/nsc-submission-state'),nothingscoreQueueRender(){client.renders++;},renders:0};
  client.serverSyncClient={nothingscoreRequest:async()=>({snapshots:[{eventId:'known',phase:'heat',ratingRequired:true}],eventAliases:{known:'known'}})};
- vm.createContext(client);vm.runInContext(merge+'\n'+source,client);
+ vm.createContext(client);vm.runInContext(recoverySource+'\n'+merge+'\n'+source,client);
  await client.loadNothingscoreBatch(['known']);
  assert(client.nothingscoreSnapshots.has('known'));
  assert.equal(client.renders,1,'accepted self-alias snapshot settles the mounted loading summary');
@@ -34,3 +36,5 @@ vm.createContext(context);vm.runInContext(source,context);
  client.serverSyncClient.nothingscoreRequest=async()=>({snapshots:[{eventId:'silent',phase:'heat'}]});const renderCount=client.renders;await client.loadNothingscoreBatch(['silent'],{rerender:false});assert(client.nothingscoreSnapshots.has('silent'));assert.equal(client.renders,renderCount,'caller-owned data-only load remains data-only');
  console.log('Empty batches and accepted identity aliases settle the actual client once.');
 })().catch(error=>{console.error(error);process.exitCode=1;});
+// The existing ratings release gate also exercises the shared timed controller.
+require('./validate-ratings-read-recovery');

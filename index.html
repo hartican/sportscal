@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="522">
+<meta name="app-shell-version" content="523">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=522" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=523" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6879,7 +6879,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=463">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=516">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=523">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=424">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7176,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=522"></script>
+<script src="assets/js/app-shell-runtime.js?v=523"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7560,8 +7560,8 @@ function glyphMarkup(key, options = {}){
 }
 
 const IDENTITY_IMAGE_SELECTOR = "img[data-event-logo-light],img[data-team-logo-light],img[data-identity-image]";
-const IDENTITY_FRAME_SELECTOR = ".compact-matchup-side,.identity-frame,.matchup-team-logo-slot,.event-hero-mark,.major-event-logo,.major-event-marker-logo,.matchup-competition-icon,.event-icon,.team-name-with-logo,.football-club-head";
-const IDENTITY_FALLBACK_SELECTOR = ".team-logo-fallback,.team-logo-monogram,.code-inspector-identity-fallback,.event-sport-mark";
+const IDENTITY_FRAME_SELECTOR = ".minimised-participant-frame,.compact-matchup-side,.identity-frame,.matchup-team-logo-slot,.event-hero-mark,.major-event-logo,.major-event-marker-logo,.matchup-competition-icon,.event-icon,.team-name-with-logo,.football-club-head";
+const IDENTITY_FALLBACK_SELECTOR = ".minimised-participant-fallback,.team-logo-fallback,.team-logo-monogram,.code-inspector-identity-fallback,.event-sport-mark";
 let identityRecoveryHandle = null;
 
 function identityImageSource(image){
@@ -8739,6 +8739,13 @@ const nothingscoreLoadedAt = new Map();
 const nothingscoreLoadErrors = new Map();
 const nothingscoreBatchInFlight = new Set();
 const nothingscorePendingIds = new Set();
+let nothingscoreReadGeneration = 0;
+const nothingscoreReadRecovery = globalThis.NOTHINGSPORTS_NSC_SUBMISSION_STATE.createReadRecovery({
+  active:()=>document.visibilityState!=="hidden"&&navigator.onLine!==false,
+  eligible:visibleNothingscoreReadIds,
+  pending:id=>nothingscoreBatchInFlight.has(id)||nothingscorePendingIds.has(id),
+  retry:ids=>{ids.forEach(id=>nothingscorePendingIds.add(id));void flushNothingscoreBatch();nothingscoreQueueRender();},
+});
 const nothingscoreDetailLoading = new Set();
 const nothingscoreWatching = new Set();
 const nothingscoreHeartbeatFailures = new Map();
@@ -10785,11 +10792,11 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 }
 
 let feedScoreUiLoading=null;
-function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=509').catch(error=>{feedScoreUiLoading=null;throw error;});}
+function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=523').catch(error=>{feedScoreUiLoading=null;throw error;});}
 function installFeedLiveScore(card,event){
   if(globalThis.NOTHINGSPORTS_FEED_SCORE_UI){globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);return;}
-  const owner=serverSyncClient?.sessionSubject()||'public';
-  void ensureFeedScoreUi().then(()=>{if(card.isConnected&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);}).catch(()=>{});
+  const owner=serverSyncClient?.sessionSubject()||'public',tab=activeTab;
+  void ensureFeedScoreUi().then(()=>{const target=card._mountedCard||card,current=profileFixtureEvents.get(String(event.eventId||event.id))||event;if(target.isConnected&&tab===activeTab&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(target,current);}).catch(()=>{});
 }
 async function refreshLiveFixtureSnapshot(){
   if((activeTab==='follow'&&followHomeView==='favourites')){return globalThis.NOTHINGSPORTS_ATHLETES_UI?.refresh();}if(document.hidden||!['feed','events','follow'].includes(activeTab))return;try{await ensureFeedScoreUi();return globalThis.NOTHINGSPORTS_FEED_SCORE_UI.refresh();}catch{}}
@@ -15611,117 +15618,6 @@ function nothingscoreQueueRender(){
   });
 }
 
-function mergeNothingscoreSnapshot(snapshot){
-  const eventId = String(snapshot?.eventId || "");
-  if (!eventId) return false;
-  const previous = nothingscoreSnapshots.get(eventId) || null;
-  const merged = {
-    ...previous,
-    ...snapshot,
-    // A slower batch summary must not erase the breakdown just opened. If its
-    // totals changed, discard the old histogram and refresh the visible detail.
-    peerResults:snapshot.ratingRequired ? undefined : snapshot.peerResults && !snapshot.peerResults.distribution
-      && previous?.peerResults?.distribution
-      && ["phase","count","average"].every(key => previous.peerResults[key] === snapshot.peerResults[key])
-      ? {...previous.peerResults,...snapshot.peerResults} : snapshot.peerResults || previous?.peerResults,
-    currentUser:globalThis.NOTHINGSPORTS_NSC_SUBMISSION_STATE.mergeCurrentUser(previous?.currentUser, snapshot.currentUser),
-    ...(snapshot.contributors === undefined && previous?.contributors !== undefined ? { contributors:previous.contributors } : {}),
-  };
-  const fingerprint = value => JSON.stringify({
-    phase:value?.phase,
-    ratingRequired:value?.ratingRequired,
-    aggregate:value?.aggregate,
-    aggregates:value?.aggregates,
-    watchingCount:value?.watchingCount,
-    currentUser:value?.currentUser,
-    contributors:value?.contributors,
-    series:value?.series,
-    crowdEditorial:value?.crowdEditorial,
-    filterRatings:value?.filterRatings,
-    peerResults:value?.peerResults,
-  });
-  nothingscoreSnapshots.set(eventId, merged);
-  nothingscoreLoadedAt.set(eventId, Date.now());
-  return fingerprint(previous) !== fingerprint(merged);
-}
-
-async function loadNothingscoreBatch(ids, { rerender = true } = {}){
-  if (!NOTHINGSCORE || !serverSyncClient?.nothingscoreRequest) return null;
-  const requested = [...new Set((ids || []).map(String).filter(Boolean))].slice(0, 50);
-  if (!requested.length) return null;
-  const owner = serverPersistence.user?.id || "";
-  const before=new Map(nothingscoreSnapshots);
-  const payload = await serverSyncClient.nothingscoreRequest({ ids:requested });
-  if (owner !== (serverPersistence.user?.id || "")) return null;
-  let changed = false;
-  const returnedIds=new Set((payload.snapshots || []).map(snapshot=>String(snapshot.eventId)));
-  (payload.snapshots || []).forEach(snapshot => {
-    if(before.get(String(snapshot.eventId))!==nothingscoreSnapshots.get(String(snapshot.eventId)))return;
-    changed = nothingscoreLoadErrors.delete(String(snapshot.eventId)) || changed;
-    changed = mergeNothingscoreSnapshot(snapshot) || changed;
-  });
-  Object.entries(payload.eventAliases||{}).forEach(([alias,id])=>{if(returnedIds.has(id)){returnedIds.add(alias);if(alias===id||before.get(alias)!==nothingscoreSnapshots.get(alias))return;const snapshot=nothingscoreSnapshots.get(id);if(snapshot){changed=nothingscoreLoadErrors.delete(alias)||changed;changed=mergeNothingscoreSnapshot({...snapshot,eventId:alias})||changed;}}});
-  requested.filter(id=>!returnedIds.has(id)).forEach(id=>{if(!nothingscoreLoadErrors.has(id))changed=true;nothingscoreLoadErrors.set(id,Date.now());});
-  if (payload.viewer) nothingscoreViewer = payload.viewer;
-  if (changed && rerender) nothingscoreQueueRender();
-  return payload;
-}
-
-async function flushNothingscoreBatch(){
-  window.clearTimeout(nothingscoreBatchTimer);
-  nothingscoreBatchTimer = null;
-  const ids = [...nothingscorePendingIds].slice(0, 50);
-  ids.forEach(id => nothingscorePendingIds.delete(id));
-  if (!ids.length) return;
-  const owner = serverPersistence.user?.id || "";
-  ids.forEach(id => nothingscoreBatchInFlight.add(id));
-  try{
-    await loadNothingscoreBatch(ids);
-  }catch(error){
-    if (owner === (serverPersistence.user?.id || "")){
-      ids.forEach(id => nothingscoreLoadErrors.set(id, Date.now()));
-      nothingscoreQueueRender();
-    }
-    console.warn("Nothingscore summary refresh paused", error);
-  }finally{
-    ids.forEach(id => nothingscoreBatchInFlight.delete(id));
-    if (nothingscorePendingIds.size) nothingscoreBatchTimer = window.setTimeout(flushNothingscoreBatch, 0);
-  }
-}
-
-function registerNothingscoreEvent(ev, { force = false } = {}){
-  if (!NOTHINGSCORE || !serverSyncClient?.nothingscoreRequest) return;
-  const eventId = nothingscoreEventId(ev);
-  if (!eventId) return;
-  if (nothingscoreBatchInFlight.has(eventId)) return;
-  if (!force && Date.now() - Number(nothingscoreLoadErrors.get(eventId) || 0) < 60_000) return;
-  const snapshot = nothingscoreSnapshots.get(eventId);
-  const maxAge = snapshot?.phase === "pulse" ? 120_000 : 5 * 60_000;
-  if (!force && Date.now() - Number(nothingscoreLoadedAt.get(eventId) || 0) < maxAge) return;
-  nothingscorePendingIds.add(eventId);
-  if (!nothingscoreBatchTimer) nothingscoreBatchTimer = window.setTimeout(flushNothingscoreBatch, 0);
-}
-
-async function loadNothingscoreDetail(ev){
-  const eventId = nothingscoreEventId(ev);
-  if (!eventId || nothingscoreDetailLoading.has(eventId) || (nothingscoreSnapshots.get(eventId)?.contributors !== undefined && nothingscoreSnapshots.get(eventId)?.peerResults?.distribution)) return;
-  nothingscoreDetailLoading.add(eventId);
-  const owner = serverPersistence.user?.id || "";
-  try{
-    const payload = await serverSyncClient.nothingscoreRequest({ eventId });
-    if (owner !== (serverPersistence.user?.id || "")) return;
-    if (payload.viewer) nothingscoreViewer = payload.viewer;
-    if (payload.detail && mergeNothingscoreSnapshot(payload.detail)) nothingscoreQueueRender();
-  }catch(error){
-    console.warn("Nothingscore contributor detail unavailable", error);
-  }finally{
-    nothingscoreDetailLoading.delete(eventId);
-  }
-}
-
-
-
-
 const FIXTURE_STAKES_LABELS=Object.freeze(['Low stakes','Mid stakes','High stakes','Huge stakes','Epic stakes']);
 function fixtureStakesLabel(value){
   const rating=Number(value);
@@ -15905,16 +15801,18 @@ async function reconcileNothingscoreSubmission(eventId,phase,{expectedOwner = se
 
 function visiblePulseNothingscoreIds(){
   return [...document.querySelectorAll('.event-card[data-nsc-phase="pulse"]')]
-    .filter(card => card.getClientRects().length)
-    .map(card => card.dataset.eventId)
-    .filter(Boolean);
+    .filter(card => card.getClientRects().length&&card.querySelector('.nsc-summary'))
+    .map(card => card.querySelector('.nsc-summary')?.dataset.nscEventId||card.dataset.eventId)
+    .filter(id=>id&&!nothingscoreLoadErrors.has(id)&&!nothingscoreBatchInFlight.has(id)&&!nothingscorePendingIds.has(id));
 }
 
 function scheduleNothingscorePoll(delay = 120_000){
   window.clearTimeout(nothingscorePollTimer);
-  if (document.visibilityState === "hidden" || nothingscorePollFailures >= 3) return;
+  if (document.visibilityState === "hidden" || navigator.onLine===false || nothingscorePollFailures >= 3) return;
   nothingscorePollTimer = window.setTimeout(async () => {
     const ids = visiblePulseNothingscoreIds();
+    const generation=nothingscoreReadGeneration;
+    ids.forEach(id=>nothingscoreBatchInFlight.add(id));
     try{
       if (ids.length) await loadNothingscoreBatch(ids);
       nothingscorePollFailures = 0;
@@ -15922,6 +15820,10 @@ function scheduleNothingscorePoll(delay = 120_000){
     }catch(_error){
       nothingscorePollFailures += 1;
       scheduleNothingscorePoll(120_000);
+    }finally{
+      if(generation===nothingscoreReadGeneration){
+        ids.forEach(id=>nothingscoreBatchInFlight.delete(id));syncNothingscoreReadRecovery();
+      }
     }
   }, delay);
 }
@@ -16033,7 +15935,6 @@ function buildFixtureResultAvailability(ev){
   return note;
 }
 
-const multiDayCricketExpanded=new Set();
 function installFantasyCard(card,ev,options){globalThis.NOTHINGSPORTS_FANTASY_UI?.install(card,ev,options);}
 function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.clearSpace();}
 let fantasyUiLoading=null;
@@ -16050,6 +15951,7 @@ function buildEventCard(ev, options = {}){
   profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
   try {
     const card = buildDetailedEventCard(ev, options);
+    if(card.classList.contains('is-minimised-row'))return card;
     installFeedLiveScore(card,ev);
     installFantasyCard(card,ev,options);
     const attribution=buildFixtureDataAttribution(ev);if(attribution)card.append(attribution);
@@ -16086,44 +15988,6 @@ function buildEventCard(ev, options = {}){
   }
 }
 
-function buildFixtureFallbackCard(event, options = {}){
-  const ev = globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(event);
-  const card = document.createElement("article");
-  const mode = options.mode || "calendar";
-  card.className = `event-card mode-${mode} is-compact-row is-fixture-fallback`;
-  card.dataset.eventId = ev.eventId || ev.id;
-  card.dataset.scrollKey = `event:${mode}:${ev.eventId || ev.id}`;
-  card.dataset.cardMode = mode;
-  card.dataset.cardState = "compact";
-  card.dataset.cardLevel = "L0";
-  if (options.inspectorFixture) card.dataset.inspectorFixtureId = options.inspectorFixture.id;
-  const copy = document.createElement("div");
-  copy.className = "compact-card-copy";
-  const title = document.createElement("h3");
-  title.className = "compact-card-name";
-  if(ev.calendarNote){copy.style.minWidth="0";title.style.whiteSpace="normal";}
-  let label = ev.name;
-  try { label = spoilerSafeDisplayTitle(ev) || label; } catch {}
-  title.textContent = label;
-  const timing = document.createElement("p");
-  timing.className = "compact-card-meta";
-  const fallbackClock = ev.time && !ev.timeTbc && !ev.startTimeTbc && !ev.dateOnly
-    ? `${ev.timePrecision === 'estimated' ? 'Approx. ' : ev.timePrecision === 'not-before' ? 'Not before ' : ''}${ev.time}` : "TIME TBC";
-  timing.textContent = ev.timingProvenance?.precision==='venue-calendar' ? NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule : [NOTHINGSPORTS_AUSTRALIAN_DATES.date(ev.date), fallbackClock,
-    ["cancelled", "canceled", "abandoned", "postponed"].includes(ev.scheduleStatus || ev.status) ? ev.scheduleStatus || ev.status : ""].filter(Boolean).join(" · ");
-  if(ev.calendarNote?.localDateLabel)timing.textContent=ev.calendarNote.localDateLabel+' · Sydney time TBC';
-  if(activeTab === 'feed')copy.appendChild(ev.calendarNote?.localDateLabel?timing:buildFixtureTimingGroup(ev));
-  copy.append(title,...(ev.calendarNote&&activeTab==='feed'?[]:[timing]));
-  if(ev.calendarNote){const note=document.createElement('p');note.className='code-inspector-note';note.textContent=ev.fullSpiel;const source=document.createElement('a');source.href=ev.calendarNote.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Organiser calendar';const links=document.createElement('div');links.className='event-card-secondary-actions';links.append(source,buildFeedScheduleLink(ev));copy.append(note,links);}
-  if(activeTab !== 'feed'){
-    const phase=NOTHINGSPORTS_CARD_TIMING.tournamentPhase(ev);
-    if(phase)copy.appendChild(buildEventTimingStateChip(ev,phase));
-  }
-  card.append(copy,...(ev.calendarNote?[]:[buildFeedScheduleLink(ev)]));
-  if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
-  card.setAttribute("aria-label", `${label}. Fixture details.`);
-  return card;
-}
 
 function jointTournamentIsActive(document = jointTournamentData, reference = nowAEST()){
   const tournament = document?.tournament;
@@ -16558,6 +16422,9 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mo
   card.id = "cincinnatiTournamentCard";
   card.dataset.tournamentId = spoilerView.tournament.tournamentId;
   card.dataset.scrollKey = `joint-tournament:${spoilerView.tournament.tournamentId}`;
+  if(cardStateForEvent(tournamentEvent)==='compact'||getEventAction(tournamentEvent).isMinimised){
+    card.classList.add('event-card');return mountMinimisedCard(card,{...tournamentEvent,tournamentParent:true,dateOnly:true,representedTours:['ATP','WTA']},(state,settings)=>{if(getEventAction(tournamentEvent).isMinimised)updateEventAction(tournamentEvent,{isMinimised:false});setCardState(tournamentEvent,state);refreshExpandableCard(card,buildJointTournamentCard(tournamentDocument,{mode}),settings);syncNothingscoreReadRecovery();});
+  }
   card.dataset.cardState = jointTournamentNavigationOpen ? "opened" : "compact";
   const head = globalThis.document.createElement("header");
   head.className = "joint-tournament-head";
@@ -17843,7 +17710,7 @@ function followHasStandings(code){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=522';
+  const url='assets/js/follow-presentation-ui.js?v=523';
   return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -18437,141 +18304,6 @@ function buildMajorEventCard(record, options = {}){
   }
 }
 
-function buildDetailedMajorEventCard(record, { interactionCard = null } = {}){
-  const meta = sportMetaForEvent(majorEventIdentityEvent(record));
-  const actionEvent = majorEventActionEvent(record);
-  const eventAction = getEventAction(actionEvent);
-  const isMinimised = Boolean(eventAction.isMinimised);
-  const state = cardStateForEvent(record);
-  const card = document.createElement("article");
-  let eventCard = interactionCard || card;
-  card._retargetCard=target=>{eventCard=target;};
-  card._rebuildCard=()=> (eventCard.classList.contains("ticket-sale-card")?buildTicketSaleCard:buildMajorEventCard)(record,{interactionCard:eventCard});
-  appendCalendarChoice(card,record);
-  card.className = [
-    "event-card",
-    "mode-events",
-    "major-event-card",
-    "events-feed-card",
-    state === "selected" ? "is-selected" : "",
-    state === "opened" ? "is-opened" : "",
-    isMinimised ? "is-event-minimised" : "",
-  ].filter(Boolean).join(" ");
-  card.id = `major-event-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
-  card.dataset.majorEventId = record.id;
-  card.dataset.eventId = actionEvent.eventId || actionEvent.id;
-  card.dataset.scrollKey = `major-event:${record.id}`;
-  card.dataset.cardState = isMinimised ? "minimised" : state;
-  card.dataset.cardLevel = isMinimised ? "L0" : cardLevelForState(state);
-  card.tabIndex = 0;
-  card.setAttribute("aria-expanded", String(!isMinimised && state !== "compact"));
-  card.setAttribute("aria-label", `${record.name}. ${isMinimised ? "Minimised view" : state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
-  card.style.setProperty("--sport-color", meta.color);
-
-  const renderMajorState = (nextState,{ restoreFocus = false,focusTarget=eventCard } = {}) => {
-    if(getEventAction(actionEvent).isMinimised)updateEventAction(actionEvent, {isMinimised:false});
-    activeMajorEventNowId = record.id;
-    if(nextState==="opened")recordEventFeedAction(actionEvent, "open", { surface:"card-content" });
-    setCardState(record, nextState);
-    refreshExpandableCard(eventCard, (eventCard.classList.contains("ticket-sale-card") ? buildTicketSaleCard : buildMajorEventCard)(record, { interactionCard:eventCard }), {
-      restoreFocus,
-      focusTarget,
-    });
-  };
-  bindCardCycle(card, options=>renderMajorState(nextCardState(cardStateForEvent(record)),options));
-  card.appendChild(buildEventCardControls(actionEvent,{card:eventCard,eventsOnly:true,displayLabel:record.name}));
-  card.appendChild(buildCardDisclosureControl(record.name,state,renderMajorState));
-  if(isMinimised || state==='compact'){
-    card.classList.add('is-compact-row');
-    const summary=buildCompactCardSummary({...record,key:record.sportKey,date:record.startDate,time:null});
-    const label=majorEventDateLabel(record);
-    summary.querySelector('.compact-card-time').textContent=label;
-    summary.setAttribute('aria-label',record.name+'. '+label);summary.title=summary.getAttribute('aria-label');
-    card.appendChild(summary);return card;
-  }
-  const ticketRow = document.createElement("div");
-  ticketRow.className = "major-event-ticket-row event-card-primary-actions";
-  const ticketLink = buildMajorEventTicketLink(record);
-  if (ticketLink) ticketRow.appendChild(ticketLink);
-  const primaryTimeline = MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST(), { level:"L0", timeZone:"Australia/Sydney" });
-  const primaryItem = primaryTimeline.upcoming[0] || primaryTimeline.recent.at(-1) || null;
-  const primaryFixture = (primaryItem ? majorEventFixtureSnapshot(primaryItem.subEvent, record) : null) || majorEventActionEvent(record);
-  appendEventQuickActions(ticketRow, primaryFixture);
-
-  const navigationRow = document.createElement("div");
-  navigationRow.className = "major-event-navigation-row";
-  navigationRow.appendChild(buildEventEditionToggle({...majorEventActionEvent(record),editionId:record.id,eventFamilyId:MAJOR_EVENTS.eventFamilyId(record),tournamentParent:true}));
-
-  const inspect = document.createElement("button");
-  inspect.type = "button";
-  inspect.className = "event-quick-action major-event-timetable";
-  inspect.innerHTML = `${glyphMarkup("ui:list", { preferImage:true })}<span>Schedule</span>`;
-  inspect.addEventListener("click", event => {
-    event.stopPropagation();
-    activeMajorEventNowId = record.id;
-    if (getEventAction(actionEvent).isMinimised) updateEventAction(actionEvent, { isMinimised:false });
-    setCardState(record, "opened");
-    refreshExpandableCard(eventCard, (eventCard.classList.contains("ticket-sale-card") ? buildTicketSaleCard : buildMajorEventCard)(record, { interactionCard:eventCard }), { restoreFocus:false });
-    window.requestAnimationFrame(() => focusMajorEventSchedule(record.id));
-  });
-  navigationRow.appendChild(inspect);
-
-  const identity = document.createElement("header");
-  identity.className = "major-event-identity";
-  const logo = document.createElement("div");
-  logo.className = "major-event-logo";
-  logo.dataset.scrollStable = `major-event-logo:${record.id}`;
-  renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta);
-  const title = document.createElement("h3");
-  title.textContent = record.name;
-  const facts = document.createElement("div");
-  facts.className = "major-event-facts";
-  [majorEventDateLabel(record), record.venue].filter(Boolean).forEach(value => {
-    const fact = document.createElement("span");
-    fact.textContent = value;
-    facts.appendChild(fact);
-  });
-  identity.append(logo, title);
-  identity.appendChild(facts);
-  if (isMinimised && primaryItem){
-    const next = document.createElement("p");
-    next.className = "major-event-next-fixture";
-    next.textContent = `${primaryTimeline.upcoming.length ? "Next" : "Latest"}: ${spoilerSafeDisplayTitle(primaryFixture)} · ${eventDateLabel(primaryFixture)} · ${eventTimeLabel(primaryFixture)}`;
-    identity.appendChild(next);
-  }
-  if (!isMinimised && state === "opened"){
-    const whyItMatters = buildEventWhyItMatters(record);
-    if (whyItMatters) identity.appendChild(whyItMatters);
-  }
-
-  ticketRow.append(...navigationRow.children);
-  card.append(identity,ticketRow);
-  if (!isMinimised && state === "opened"){
-    const draw = buildMajorEventDraw(record);
-    if (draw) card.appendChild(draw);
-  }
-  if (!isMinimised && state === "opened"){
-    const immediateSchedule = buildMajorEventSchedule(record, {
-      level: cardLevelForState(state),
-      headingText: state === "opened" ? "Published timeline" : state === "selected" ? "Around now" : "Next match or line-up",
-      compact: state === "compact",
-    });
-    if (immediateSchedule) card.appendChild(immediateSchedule);
-    else {
-      const tbc = document.createElement("p");
-      tbc.className = "major-event-immediate-tbc";
-      tbc.textContent = "Immediate match line-up TBC. Open Schedule for the source-published schedule.";
-      card.appendChild(tbc);
-    }
-    const tablePreview = buildMajorEventTablePreview(record);
-    if (tablePreview && state !== "compact") card.appendChild(tablePreview);
-  }
-  if (!isMinimised && state === "opened"){
-    card.dataset.editorialProvenance = record.editorialNarrative ? "validated" : "structural";
-  }
-
-  return card;
-}
 
 function focusMajorEventSchedule(eventId){
   const selector = `[data-major-event-timetable="${CSS.escape(String(eventId))}"]`;
@@ -18720,7 +18452,7 @@ function buildDismissedEventStub(record){
 
 async function renderEventOverviews(container){
  const host=document.createElement('div');host.className='event-overviews-host';container.append(host);
- try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=522');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=523');
  if(!host.isConnected)return;
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(host);
  }catch{if(!host.isConnected)return;const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';host.append(notice);}
@@ -19125,6 +18857,7 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   }
   committedFeedPresentationFingerprint = currentFeedPresentationFingerprint();
   scheduleIdentityImageRecovery(listView);
+  syncNothingscoreReadRecovery();
 }
 
 function firstNormalFeedCard(){
@@ -22951,6 +22684,10 @@ function syncChatSessionState(previousOwnerId, nextOwnerId){
 
 function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
   if (!NOTHINGSCORE || previousOwnerId === nextOwnerId) return;
+  ++nothingscoreReadGeneration;nothingscoreReadRecovery.reset();
+  window.clearTimeout(nothingscoreBatchTimer);nothingscoreBatchTimer=null;
+  nothingscoreBatchInFlight.clear();
+  nothingscoreDetailLoading.clear();
   nothingscoreSnapshots.clear();
   nothingscoreLoadedAt.clear();
   nothingscoreLoadErrors.clear();
@@ -23019,45 +22756,6 @@ function nscPageBack(){
   if(history.state?.nscPage){history.back();return;}
   if(activeNothingscoreContributionEvent&&nscOpenedFromRankings){activeNothingscoreContributionEvent=null;nscMyView=false;renderNothingscoreDrawer();return;}
   setNothingscoreDrawerOpen(false);
-}
-
-async function openNothingscoreContribution(ev, {showResults = false} = {}){
-  const id=nothingscoreEventId(ev);nscDetailEvents.set(id,ev);
-  if(activeNothingscoreContributionEvent!==ev){
-    nscOpenedFromRankings=document.body.classList.contains('nsc-open');
-    if(nscOpenedFromRankings)nscRankingState.scrollTop=document.getElementById('nothingscoreBody').scrollTop;
-    history.pushState({nscPage:{view:'fixture',eventId:id}},'', '#nsc');
-  }
-  activeNothingscoreContributionEvent = ev;
-  activeNothingscoreContributionError = "";
-  setNothingscoreDrawerOpen(true);
-  if(getEventStatus(ev)==="live"&&serverPersistence.user&&!nothingscoreWatching.has(id)){
-    nothingscoreWatching.add(id);nothingscoreWatchingStartedAt.set(id,Date.now());
-    try{await serverSyncClient?.nothingscoreRequest?.({}, {action:"watching",eventId:id});nothingscoreHeartbeatFailures.set(id,0);scheduleNothingscoreHeartbeat(60_000);}
-    catch(_error){nothingscoreWatching.delete(id);nothingscoreWatchingStartedAt.delete(id);}
-  }
-  const owner = serverPersistence.user?.id || "";
-  try{
-    const payload = await serverSyncClient?.nothingscoreRequest?.({ eventId:nothingscoreEventId(ev) });
-    if (owner !== (serverPersistence.user?.id || "")) return;
-    if (payload?.viewer) nothingscoreViewer = payload.viewer;
-    if (payload?.detail){
-      nothingscoreLoadErrors.delete(nothingscoreEventId(ev));
-      const phase = payload.detail.phase;
-      const key = nothingscoreSubmissionKey(nothingscoreEventId(ev),phase);
-      const receipt = payload.detail.currentUser?.submissions?.[phase];
-      if (receipt) nothingscoreSubmissionStore.confirm(key,receipt);
-      else if (!nothingscoreSubmissionRequests.has(key)) nothingscoreSubmissionStore.release(key);
-      mergeNothingscoreSnapshot(payload.detail);
-    }
-  }catch(error){
-    console.warn("Nothingscore contribution unavailable", error);
-    activeNothingscoreContributionError = error?.message || "Your contribution form could not be loaded.";
-  }
-  if (document.getElementById("nothingscoreBackdrop")?.classList.contains("show") && activeNothingscoreContributionEvent === ev){
-    renderNothingscoreDrawer();
-    if (showResults) document.getElementById("nothingscoreBackdrop")?.querySelector(".nsc-peer-results details")?.setAttribute("open", "");
-  }
 }
 
 function nothingscoreProfileForm(){
@@ -23416,6 +23114,7 @@ document.addEventListener("keydown", event => {
   else if (!event.shiftKey && document.activeElement === last){ event.preventDefault(); first.focus(); }
 });
 document.addEventListener("visibilitychange", () => {
+  syncNothingscoreReadRecovery();
   if (document.visibilityState === "hidden"){
     window.clearTimeout(nothingscorePollTimer);
     window.clearTimeout(nothingscoreHeartbeatTimer);
@@ -23426,11 +23125,13 @@ document.addEventListener("visibilitychange", () => {
   if (nothingscoreWatching.size) scheduleNothingscoreHeartbeat();
 });
 window.addEventListener("online", () => {
+  syncNothingscoreReadRecovery();
   nothingscorePollFailures = 0;
   scheduleNothingscorePoll(0);
   if (nothingscoreWatching.size) scheduleNothingscoreHeartbeat();
 });
 window.addEventListener("offline", () => {
+  syncNothingscoreReadRecovery();
   window.clearTimeout(nothingscorePollTimer);
   window.clearTimeout(nothingscoreHeartbeatTimer);
 });

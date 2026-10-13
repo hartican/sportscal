@@ -1,4 +1,5 @@
 'use strict';
+require('./validate-cricket-summary');
 const assert=require('node:assert/strict'),view=require('../config/feed-live-scores').presentation;
 const now=Date.now(),base={key:'tennis',status:'live',homeParticipantId:'a',awayParticipantId:'b',participants:[{id:'a',displayName:'First'},{id:'b',displayName:'Second'}],scoreCheckedAt:new Date(now).toISOString(),sets:[{home:6,away:4}],games:{home:2,away:1}};
 assert.equal(view(base),null,'Results OFF has no score presentation');

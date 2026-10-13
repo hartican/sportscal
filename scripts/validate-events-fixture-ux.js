@@ -44,7 +44,7 @@ assert(html.includes("buildInlineCrowdRating(ev,snapshot)"), "standard Feed card
 assert(!eventCardSource.includes("buildPostEventRatingPrompt"), "Feed cards must keep the separate impact rating prompt hidden behind the contribution action");
 assert(!/Less of this|More of this/.test(html) && html.includes("eventIsHighStakesSuggestion"), "Feed must remove duplicate feedback controls and gate Like to suggestions");
 assert(html.includes("buildInlineCrowdRating"), "cards retain the real crowd rating control");
-const majorCardSource = html.slice(html.indexOf("function buildMajorEventCard"), html.indexOf("function buildTicketSaleCard"));
+const majorCardSource = require("./app-shell-test-utils").readCardFunction("buildDetailedMajorEventCard");
 assert(!majorCardSource.includes('expand.className = "major-event-expand-control"'), "major cards must not duplicate Timetable with a chevron control");
 assert(!majorCardSource.includes("buildEventFeedbackButtons"), "Events cards must not show thumbs controls");
 assert(!majorCardSource.includes("buildEventNothingscoreAction")&&!html.includes("row.appendChild(buildNothingscoreSummary(crowdEvent))"), "Events excludes all rating inputs");

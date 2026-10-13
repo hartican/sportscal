@@ -62,39 +62,13 @@ header.top .vector-glyph{width:20px;height:20px;}
 .event-card .event-card-secondary-actions:empty{display:none;}
 .event-card .event-why-it-matters,.event-card .nsc-peer-results{margin:4px 0;}
 
-#listView .event-card.is-compact-row{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;box-sizing:border-box;width:100%;height:auto;min-height:48px;max-height:none;padding:0 44px 0 8px;gap:0;border-radius:10px;aspect-ratio:auto;contain-intrinsic-size:auto 48px;grid-template-columns:none;align-self:start;container:compact-row / inline-size;}
-#listView .compact-card-summary{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-items:center;gap:3px;flex:1;width:100%;min-width:0;min-height:58px;line-height:1.25;font-size:.72rem;text-align:left;}
 .compact-card-name{grid-column:1;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .compact-card-time{grid-column:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.65rem;color:var(--text-dim);}
-#listView .compact-card-summary[data-time-precision="not-before"]>.compact-card-time{white-space:normal;overflow:visible;text-overflow:clip;}
-.compact-matchup-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;overflow:visible;}
-.compact-matchup-side{min-width:0;display:flex;align-items:center;gap:5px;overflow:hidden;}
-.compact-matchup-side:last-child{justify-content:flex-end;}
-.compact-matchup-side .fixture-profile-link{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.compact-participant-mark,.compact-participant-fallback{width:22px;height:22px;flex:0 0 22px;object-fit:contain;display:grid;place-items:center;font-size:.52rem;font-weight:900;border-radius:50%;}
-.compact-participant-fallback{border:1px solid var(--border);color:var(--text-dim);}
-.compact-matchup-v{display:grid;place-items:center;min-width:20px;color:var(--text-dim);font-weight:900;}
-.compact-matchup-middle{display:grid;place-items:center;gap:2px;min-width:38px;max-width:112px;}
-.compact-format-badge{width:auto;max-width:112px;height:auto!important;min-height:22px;padding:4px 7px!important;font-size:.62rem!important;text-align:center;white-space:normal;}
-.compact-stage-label{max-width:100px;color:var(--text-dim);font-size:.54rem;line-height:1.05;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-#listView .event-card.is-compact-row:has(.event-card-disclosure){padding-left:44px;}
-.compact-card-name .major-event-matchup-sides{width:100%;margin:0;gap:4px;}
-.compact-card-name .major-event-matchup-player{display:inline-flex;overflow:hidden;}
-.compact-card-name .major-event-matchup-player .country-flag{width:16px;height:12px;flex-basis:16px;}
-.compact-card-name .fixture-profile-link{max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;}
-.compact-card-name .team-name-with-logo{max-width:100%;overflow:hidden;vertical-align:middle;}
-.compact-card-name:has(.team-name-with-logo){display:flex;align-items:center;gap:3px;}
-.compact-card-name .team-name-with-logo{flex:1 1 0;min-width:0;gap:3px;}
-.compact-card-name .team-logo,.compact-card-name .team-name-logo-fallback{width:16px;height:16px;flex:0 0 16px;}
 .feed-card-slot[data-card-state="compact"] .feed-card-placeholder{padding:8px 44px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.72rem;line-height:32px;}
 
-@container compact-row (max-width:24rem){
-  #listView .compact-card-summary{grid-template-columns:minmax(0,1fr);padding:4px 0;box-sizing:border-box;}
-  .compact-card-stakes{grid-column:3;grid-row:1;}
-}
-.compact-card-stakes,.event-action-stakes{display:inline-flex;align-items:center;gap:1px;flex:0 0 auto;}
-.compact-card-stakes i,.event-action-stakes i{display:block;width:2px;height:9px;border-radius:2px;background:color-mix(in srgb,var(--text-dim) 26%,transparent);}
-.compact-card-stakes i.is-filled,.event-action-stakes i.is-filled{background:var(--accent);}
+.event-action-stakes{display:inline-flex;align-items:center;gap:1px;flex:0 0 auto;}
+.event-action-stakes i{display:block;width:2px;height:9px;border-radius:2px;background:color-mix(in srgb,var(--text-dim) 26%,transparent);}
+.event-action-stakes i.is-filled{background:var(--accent);}
 .event-action-stakes{min-width:24px;min-height:44px;justify-content:center;}
 .feed-now-marker{grid-column:1/-1;width:100%;min-height:30px;}
 .feed-view-actions,.calendar-selection-toolbar{position:sticky;top:var(--sticky-top-bar-height,132px);z-index:45;display:flex;align-items:center;justify-content:center;gap:4px;width:100%;box-sizing:border-box;margin:0 0 8px;padding:4px;border-bottom:1px solid var(--border);background:var(--bg);}
@@ -170,7 +144,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 .nsc-peer-summary{font-size:.65rem;margin:3px 0 5px;text-align:center;}
 .fixture-tags{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;}.fixture-tag{font-size:.58rem;letter-spacing:.045em;font-weight:800;padding:3px 6px;color:var(--accent);border:1px solid var(--border);border-radius:4px;}
 .fixture-event-caption{display:block;width:100%;text-align:center;font-size:.8rem;line-height:1.25;letter-spacing:.035em;margin:0 0 7px;}
-.major-event-schedule-list>.event-card{margin:8px 0;}.is-compact-row:has(.event-card-disclosure){padding-left:48px;}
+.major-event-schedule-list>.event-card{margin:8px 0;}
 .nsc-rating-block:focus-visible{outline:2px solid currentColor;}
 .nsc-rating-prompt{min-height:1.2em;font-size:.7rem;font-weight:700;color:var(--text-dim);}
 .nsc-rating-status{min-height:1.1em;font-size:.7rem;color:var(--accent);text-align:center;}
@@ -215,9 +189,6 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .event-card .fixture-timing-header{grid-column:1/-1;width:100%;min-height:32px;padding-right:76px;text-align:left;flex:0 0 auto;}
 #listView .event-card.has-fixture-timing>.event-card-disclosure{left:auto;right:44px;}
 #listView .event-card.has-fixture-timing .event-date-chip:empty{display:none;}
-#listView .compact-card-summary:has(>.fixture-timing-group){padding-block:7px;gap:5px;}
-#listView .compact-card-summary>.fixture-timing-group{grid-column:1;justify-self:start;}
-#listView .compact-card-summary:has(>.fixture-timing-group)>.compact-card-time{white-space:normal;overflow:visible;}
 
 .fixture-timing-clock{white-space:nowrap;}
 
@@ -231,7 +202,6 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .date-heading .today-flag{color:inherit;border-color:currentColor;background:transparent;}
 .event-card.feed-fixture{--fixture-left:#7c8797;--fixture-right:#7c8797;display:block;position:relative;--fixture-logo-size:96px;--fixture-space:8px;padding:48px 16px 10px;min-width:0;border:1px solid var(--border);border-radius:18px;background:var(--bg-card);overflow:hidden;}
 .feed-fixture::before{content:'';position:absolute;inset:0 0 auto;height:205px;pointer-events:none;background:linear-gradient(90deg,color-mix(in srgb,var(--fixture-left) 13%,transparent) 50%,color-mix(in srgb,var(--fixture-right) 13%,transparent) 50%);mask-image:linear-gradient(#000 62%,transparent);}
-.feed-fixture .event-main,.feed-fixture .compact-card-summary{position:relative;display:flex;flex-direction:column;align-items:stretch;width:100%;min-width:0;gap:0;padding:0;margin:0;text-align:center;}
 .feed-fixture .event-card-disclosure{left:12px;right:auto;top:6px;width:44px;height:44px;min-height:44px;}
 .feed-fixture .event-card-controls{right:10px;top:6px;}
 .feed-fixture .event-card-control{width:44px;height:44px;min-height:44px;}
@@ -259,7 +229,6 @@ header.top .vector-glyph{width:20px;height:20px;}
 .feed-fixture .feed-opponent .matchup-team-name{margin:0;}
 .feed-fixture .fixture-profile-link{display:flex;align-items:center;justify-content:center;width:100%;}
 .feed-fixture .fixture-participant-links>.fixture-profile-link{width:auto;max-width:none;white-space:nowrap;overflow-wrap:normal;}
-.feed-fixture.is-compact-row .fixture-competition-link img{height:32px;width:64px;}
 .feed-fixture .provider-action-text-fallback{white-space:normal;overflow:visible;text-overflow:clip;}
 .feed-fixture .event-top-row{display:block;margin:0;}
 .feed-fixture .event-title-stack{width:100%;text-align:center;}
@@ -290,12 +259,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 .fixture-providers .provider-action-logo{width:100%;height:100%;max-width:54px;max-height:24px;object-fit:contain;}
 .tennis-fixture-context{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px 8px;font-size:.7rem;line-height:1.4;font-weight:750;}
 .tennis-fixture-round{overflow-wrap:anywhere;}
-.compact-participant-frame{display:grid;place-items:center;width:48px;height:48px;flex:0 0 48px;}
-.compact-participant-frame>*{grid-area:1/1;}
-.event-card .compact-card-summary[data-progress]>.compact-card-time{display:block;visibility:visible;white-space:normal;overflow:visible;}
 .event-card:not(.is-compact-row) .matchup-team-logo-slot{width:96px;height:96px;}
-.event-card.is-compact-row :is(.compact-participant-mark,.compact-participant-fallback){width:48px;height:48px;flex-basis:48px;}
-.event-card.is-compact-row .compact-matchup-side{flex-wrap:wrap;justify-content:center;overflow:visible;}
 @media(max-width:359px){.event-card:not(.is-compact-row) .matchup-team-logo-slot{width:80px;height:80px;}}
 
 .fixture-providers .viewing-tbc{font-size:.73rem;color:var(--text-dim);}
@@ -310,20 +274,12 @@ header.top .vector-glyph{width:20px;height:20px;}
 .feed-fixture .event-card-primary-actions .event-quick-actions{justify-content:center;margin:0;}
 .feed-fixture .event-card-primary-actions .fixture-providers:empty{display:none;}
 .feed-fixture .event-quick-action{min-height:44px;}
-.feed-fixture .compact-card-time{white-space:normal;overflow:visible;text-align:center;font-size:.7rem;margin-bottom:6px;}
-.feed-fixture.is-compact-row{--fixture-logo-size:48px;padding:48px 12px 8px;}
-.feed-fixture.is-compact-row .compact-card-name{width:100%;font-size:.9rem;white-space:normal;overflow:visible;}
-.feed-fixture.is-compact-row .compact-participant-fallback{font-size:1rem;}
 
 .mode-schedule .matchup-identity-row{grid-template-columns:minmax(0,1fr) minmax(54px,.85fr) minmax(0,1fr);gap:6px;}
 .mode-schedule .matchup-stage-slot{min-width:0;max-width:100%;flex-wrap:wrap;}
 .mode-schedule .matchup-team-logo-slot{width:100%;max-width:120px;padding:0;grid-template-columns:minmax(0,1fr);}
 .mode-schedule .team-logo-monogram{height:auto;aspect-ratio:1;}
 .mode-schedule .fixture-timing-clock{white-space:normal;}
-.feed-fixture.is-compact-row .compact-matchup-side{display:flex;flex-direction:column;gap:3px;}
-.feed-fixture.is-compact-row .nsc-summary{padding:7px 0;margin:0;}
-.feed-fixture.is-compact-row .editorial-l0-hook-copy{font-size:.8rem;}
-.feed-fixture.is-compact-row .fixture-access{margin-bottom:8px;}
 .feed-fixture .fixture-more:hover,.fixture-providers .provider-link:hover{background:var(--soft-fill);}
 .feed-fixture :is(button,a):focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(prefers-reduced-motion:no-preference){.fixture-more,.fixture-providers .provider-link{transition:background-color .15s ease,box-shadow .15s ease;}}
@@ -343,23 +299,19 @@ header.top .vector-glyph{width:20px;height:20px;}
 .feed-fixture .nsc-rating-status:empty{display:none;}
 .feed-fixture .event-name{padding-inline:0;}
 .feed-fixture .feed-player-matchup{grid-template-columns:minmax(0,1fr) minmax(72px,.85fr) minmax(0,1fr);gap:7px;align-items:center;}
-.feed-fixture .major-event-matchup-side{align-items:center;text-align:center;}
-.feed-fixture .major-event-matchup-player{justify-content:center;flex-wrap:wrap;font-size:.9rem;line-height:1.35;}
-.feed-fixture .compact-matchup-middle:empty{display:none;}
 .feed-fixture .editorial-l0-supplement,.feed-fixture .editorial-l0-consequence{font-family:inherit;font-size:.86rem;line-height:1.55;font-weight:400;text-align:left;}
 
 
 .nsc-rating-retry{min-height:44px;min-width:44px;padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--soft-fill);color:var(--text);font:inherit;}
 
 
-.feed-fixture .matchup-team-name,.feed-fixture .compact-matchup-side{text-align:center;}
 .feed-fixture .matchup-team-logo-slot img[src*="socceroos-symbol"]{object-fit:contain;padding:10%;box-sizing:border-box;}
 .feed-fixture[style*="--fixture-accent"]::before{background:linear-gradient(160deg,transparent 70%,color-mix(in srgb,var(--fixture-accent) 7%,transparent)),linear-gradient(90deg,color-mix(in srgb,var(--fixture-left) 13%,transparent) 50%,color-mix(in srgb,var(--fixture-right) 13%,transparent) 50%);}
 #listView .tournament-parent-heading{display:flex;align-items:center;gap:8px;min-width:0;}
 #listView .tournament-parent-heading .feed-schedule-link{flex:1;min-width:0;min-height:44px;display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:underline;overflow-wrap:anywhere;}
 #listView .tournament-parent-heading button{min-width:44px;min-height:44px;}
 #listView .tennis-feed-parent.parent-ongoing{padding:6px 12px;}
-#listView .parent-ongoing .tournament-parent-heading .feed-schedule-link{justify-content:flex-start;text-align:left;}
+#listView .parent-ongoing .tournament-parent-heading .feed-schedule-link{justify-content:center;text-align:center;}
 #listView .tennis-feed-parent:not(.parent-ongoing) .tournament-parent-heading{flex-wrap:wrap;padding:12px 0;}
 #listView .tennis-feed-parent:not(.parent-ongoing) .feed-schedule-link{font-size:1.2rem;font-weight:700;}
 #listView .tennis-feed-parent:not(.parent-ongoing) .tournament-parent-context{order:3;flex-basis:100%;text-align:center;}
@@ -388,15 +340,9 @@ header.top .vector-glyph{width:20px;height:20px;}
 .f1-location-labels{position:absolute;top:10px;left:10px;right:10px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
 .f1-location-date,.f1-location-race{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-size:.85rem;line-height:1.25;padding:7px 10px;border-radius:5px;background:#fff;color:#10141a;font-weight:800;text-transform:uppercase;}
 .f1-location-caption{display:block;padding:8px 12px;background:#0008;color:#fff;font-size:.8rem;text-align:center;}
-.venue-location-card.is-compact-row .f1-location-hero{min-height:90px;}
-.venue-location-card.is-compact-row{flex-wrap:wrap;}
-#listView .venue-location-card.is-compact-row>.compact-card-summary{flex-basis:100%;}
-.venue-location-card.is-compact-row .f1-location-hero img{height:130px;}
 .venue-location-card .venue-location-hero{grid-column:1/-1;flex-basis:100%;width:100%;}
 .venue-location-card .event-icon,.venue-location-card .event-hero-mark,.venue-location-card>.fixture-event-caption{display:none;}
-.venue-location-card.is-compact-row>.venue-location-hero{order:0;}
 .venue-location-hero.is-venue-fallback img{padding:55px 35px;}
-.is-compact-row .venue-location-hero.is-venue-fallback img{padding:30px 25px;}
 
 .follow-navigation.is-floating{position:fixed;left:max(12px,calc((100vw - 1120px)/2));right:max(12px,calc((100vw - 1120px)/2));width:auto;box-shadow:0 5px 15px #0002;}
 .follow-navigation-spacer{height:49px;}
@@ -409,9 +355,6 @@ header.top .vector-glyph{width:20px;height:20px;}
 .feed-fixture .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-width:0;width:100%;}
 .fixture-timing-day,.fixture-timing-clock{display:block;font-size:inherit;font-weight:inherit;line-height:inherit;max-width:100%;}
 .fixture-timing-badge>small{font-size:.65rem;font-weight:650;letter-spacing:.025em;line-height:1.4;}
-.feed-fixture.is-compact-row .compact-matchup-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,1fr);}
-.feed-fixture.is-compact-row .compact-matchup-side{overflow:visible;justify-content:center;align-items:center;}
-.feed-fixture.is-compact-row .fixture-timing-badge{font-size:clamp(.95rem,2.8vw,1.4rem);}
 
 
 .fantasy-deadline{margin:3px 0;font-size:12px;line-height:1.35;color:var(--text);opacity:.85;font-variant-numeric:tabular-nums;white-space:normal;overflow-wrap:anywhere;}
@@ -429,28 +372,12 @@ header.top .vector-glyph{width:20px;height:20px;}
 .athletes-person{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg-card)}
 .athletes-name{display:block;min-height:44px;border:0;background:none;color:var(--text);font-size:1rem;font-weight:800;padding:4px 0;text-align:left;cursor:pointer}
 
-.event-card.feed-fixture.is-minimal-fixture{display:block;padding:8px 44px;background:var(--bg-card);}
-.feed-fixture.is-minimal-fixture .compact-card-summary{width:100%;min-height:0;gap:5px;}
-.feed-fixture.is-minimal-fixture .compact-card-name{width:100%;font-size:.8rem;overflow:visible;white-space:normal;}
-.feed-fixture.is-minimal-fixture .major-event-matchup-sides{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:6px;}
-.feed-fixture.is-minimal-fixture .major-event-matchup-side{min-width:0;}
-.feed-fixture.is-minimal-fixture .major-event-matchup-side:last-child{justify-content:flex-end;}
-.feed-fixture.is-minimal-fixture .compact-matchup-middle{min-width:16px;}
-.feed-fixture.is-minimal-fixture .event-quick-actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:6px;}
-.feed-fixture.is-minimal-fixture .fixture-competition-link{display:inline-flex;font-size:.65rem;margin-top:4px;}
-.feed-fixture.is-minimal-fixture .event-quick-action{min-height:32px;padding:4px 8px;}
-.feed-fixture.is-minimal-fixture .provider-link{min-height:44px;}
-.feed-fixture.is-minimal-fixture .fixture-providers{max-width:100%;}
-.feed-fixture.is-minimal-fixture .viewing-tbc{font-size:.6rem;line-height:1.15;}
-.feed-fixture.is-minimal-fixture .event-quick-action{font-size:.65rem;}
-.feed-fixture.is-minimal-fixture .fixture-competition-link{margin:0;}
-.feed-fixture.is-minimal-fixture .major-event-matchup-player{white-space:normal;}
 
 /* Preserve the original official square asset while giving its wordmark room. */
 .event-hero-mark[data-card-identity="brand:baycurrent-classic"]{position:relative;width:180px;height:76px;margin:4px auto;overflow:hidden;background:white;border-radius:8px;}
 .event-hero-mark[data-card-identity="brand:baycurrent-classic"] .event-brand-logo{position:absolute;width:180px;height:180px;top:50%;left:0;transform:translateY(-50%) scale(1.55);}
-.tennis-feed-parent{padding:16px!important;background:var(--bg-card);border:1px solid var(--border);border-top:3px solid var(--c-tennis,#67a776);border-radius:16px;}
-.tennis-feed-parent .tournament-parent-heading{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;}
+.tennis-feed-parent:not(.is-minimised-row){padding:48px 16px 16px;background:var(--bg-card);border:1px solid var(--border);border-top:3px solid var(--c-tennis,#67a776);border-radius:16px;}
+.tennis-feed-parent .tournament-parent-heading{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center;text-align:center;}
 .tennis-parent-mark{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--c-tennis,#67a776) 10%,var(--panel));border-radius:12px;}
 .tennis-parent-mark img,.tennis-parent-mark svg{max-width:38px;max-height:38px;}
 .tennis-parent-title>a{display:block;font-weight:750;font-size:1rem;text-decoration:none;line-height:1.35;}
@@ -464,8 +391,8 @@ header.top .vector-glyph{width:20px;height:20px;}
 .tennis-parent-draw[hidden]{display:none;}.tennis-contest-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:.8rem;line-height:1.45;}
 .tennis-contest-copy{min-width:0;flex:1;}.tennis-contest-copy>strong,.tennis-contest-meta{display:block;}.tennis-contest-meta{margin-top:4px;color:var(--text-dim);font-size:.75rem;}.tennis-contest-row>.btn{flex-shrink:0;align-self:center;min-height:44px;}.tennis-past-matches{margin-top:14px;}.tennis-past-matches>summary{min-height:44px;display:flex;align-items:center;font-size:.8rem;color:var(--text-dim);cursor:pointer;}.tennis-past-matches>summary::before{content:'›';font-size:1.2rem;margin-right:8px;}.tennis-past-matches[open]>summary::before{transform:rotate(90deg);}.athletes-alert-setup>summary{min-height:44px;display:flex;align-items:center;cursor:pointer;}.athletes-alert-setup p{font-size:.8rem;color:var(--text-dim);}.athletes-match-details{font-size:.8rem;color:var(--text-dim);}.athletes-match-details>summary{min-height:44px;display:flex;align-items:center;cursor:pointer;}
 #listView .tennis-feed-parent .tournament-parent-heading{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;padding:0;flex-wrap:nowrap;}
-#listView .tennis-feed-parent .tennis-parent-title .feed-schedule-link{display:block;min-height:0;font-size:1rem;font-weight:750;text-align:left;justify-content:flex-start;text-decoration:none;line-height:1.35;}
-#listView .tennis-feed-parent .tennis-parent-title .tournament-parent-context{text-align:left;}
+#listView .tennis-feed-parent .tennis-parent-title .feed-schedule-link{display:block;min-height:0;font-size:1rem;font-weight:750;text-align:center;justify-content:center;text-decoration:none;line-height:1.35;}
+#listView .tennis-feed-parent .tennis-parent-title .tournament-parent-context{text-align:center;}
 #listView .tennis-feed-parent .tournament-parent-heading:has(.has-brand-logo){grid-template-columns:76px minmax(0,1fr) auto;}.tennis-parent-mark.has-brand-logo{width:76px;}.tennis-parent-mark.has-brand-logo img{max-width:68px;max-height:38px;}
 .tennis-contest-row>span{min-width:0;}.tennis-contest-row>button{flex:none;align-self:center;}
 
@@ -483,7 +410,6 @@ header.top .vector-glyph{width:20px;height:20px;}
 
 /* Shared matchup hierarchy, including the minimal Feed and Events paths. */
 .event-card.feed-fixture{padding:32px 12px 10px;text-align:center;}
-.event-card.feed-fixture.is-minimal-fixture{padding:32px 12px 10px;}
 .event-card.feed-fixture .fixture-card-header{position:static;width:100%;margin:0;padding:0;min-height:0;}
 .event-card.feed-fixture .fixture-card-header .fixture-competition-link{font:inherit;font-size:.7rem;font-weight:750;text-decoration:underline;text-align:center;justify-content:center;overflow-wrap:anywhere;display:block;}
 .event-card.feed-fixture .fixture-card-header img{display:none;}
@@ -493,19 +419,16 @@ header.top .vector-glyph{width:20px;height:20px;}
 .event-card.feed-fixture .fixture-timing-day:empty{display:none;}
 .event-card.feed-fixture .tennis-fixture-competition{display:none;}
 .event-card.feed-fixture .matchup-stage-badge{height:auto;min-width:0;width:fit-content;padding:2px 6px;line-height:1.3;font-size:.7rem;}
-.event-card.feed-fixture .compact-card-summary{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;}
-.event-card.feed-fixture .compact-card-name{white-space:normal;width:100%;overflow:visible;}
-.event-card.feed-fixture .compact-card-summary>.compact-card-time{display:none;}
-.event-card.feed-fixture .compact-matchup-grid,.event-card.feed-fixture .major-event-matchup-sides{display:grid;grid-template-columns:minmax(0,1fr) minmax(82px,.95fr) minmax(0,1fr);gap:6px;align-items:center;width:100%;}
-.event-card.feed-fixture .compact-matchup-side,.event-card.feed-fixture .major-event-matchup-side,.event-card.feed-fixture .major-event-matchup-player{display:flex;flex-direction:column;justify-content:center;align-items:center;min-width:0;width:100%;gap:6px;text-align:center;}
-.event-card.feed-fixture .compact-matchup-side a,.event-card.feed-fixture .matchup-team-name{display:block;max-width:100%;overflow-wrap:anywhere;text-align:center;}
 .event-card.feed-fixture .event-quick-actions{width:100%;justify-content:center;}
 .event-card.feed-fixture .fixture-providers{max-width:100%;flex-wrap:nowrap;}
 .event-card.feed-fixture .provider-access{display:none;}
+.event-card.feed-fixture .major-event-matchup-sides{display:grid;grid-template-columns:minmax(0,1fr) minmax(82px,.95fr) minmax(0,1fr);gap:6px;align-items:center;width:100%;}
+.event-card.feed-fixture :is(.major-event-matchup-side,.major-event-matchup-player){display:flex;flex-direction:column;justify-content:center;align-items:center;min-width:0;width:100%;gap:6px;text-align:center;}
+.events-overview-card:not(.is-minimised-row){position:relative;padding-top:44px;}
 
 .event-card.feed-fixture.is-opened .fixture-providers .provider-link{flex-direction:column;}
 .event-card.feed-fixture .feed-live-score{text-align:center;padding:8px 0;max-width:100%;}
-.fixture-score-summary{display:block;width:100%;min-height:44px;padding:4px;border:0;background:none;color:inherit;font:inherit;font-weight:750;text-align:center;overflow-wrap:anywhere;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
+.fixture-score-summary{display:block;width:100%;min-height:44px;padding:4px;border:0;background:none;color:inherit;font-family:inherit;font-size:clamp(.85rem,2.4vw,1.05rem);line-height:1.4;font-weight:700;text-align:center;overflow-wrap:anywhere;cursor:pointer;text-decoration:none;}
 .event-card.feed-fixture .fixture-scorecard :is(p,small,th,td,caption){text-align:center;}
 .event-card.feed-fixture :is(.editorial-l0-hook,.event-full-spiel){text-align:left;}
 .event-card.feed-fixture .matchup-team-logo[src*="/flags/"]{width:32px;height:24px;inset:50% auto auto 50%;transform:translate(-50%,-50%);}
@@ -514,4 +437,22 @@ header.top .vector-glyph{width:20px;height:20px;}
 
 .event-card.feed-fixture .tennis-set-table :is(th,td){text-align:center;}
 
-.event-card.feed-fixture .nsc-peer-results .btn{justify-self:center;margin-inline:auto;}
+.nsc-peer-results .nsc-rating-retry{display:block;justify-self:center;margin:8px auto 0;}
+
+/* The minimised state mounts only this row; ordinary card composition is skipped. */
+.event-card.is-minimised-row,#listView .event-card.is-minimised-row{box-sizing:border-box;display:block;width:100%;height:56px;min-height:56px;max-height:56px;padding:0 8px;border-radius:10px;aspect-ratio:auto;contain-intrinsic-size:auto 56px;container:minimised-row / inline-size;overflow:hidden;}
+.is-minimised-row .minimised-card-summary{box-sizing:border-box;display:flex;align-items:center;gap:8px;width:100%;height:100%;min-height:44px;margin:0;padding:0;border:0;background:none;color:inherit;font-family:inherit;font-weight:700;font-size:.75rem;line-height:1.2;text-align:center;cursor:pointer;white-space:nowrap;}
+.is-minimised-row .minimised-card-name{display:flex;align-items:center;justify-content:center;gap:4px;flex:1;min-width:76px;width:auto;margin:0;white-space:nowrap;overflow:hidden;}
+.is-minimised-row .minimised-card-label{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.is-minimised-row .minimised-participant-frame{display:grid;place-items:center;flex:0 0 20px;width:20px;height:20px;overflow:hidden;}
+.minimised-participant-frame>*{grid-area:1/1;}
+.is-minimised-row :is(.minimised-participant-mark,.minimised-participant-fallback){width:20px;height:20px;object-fit:contain;font-size:9px;line-height:20px;text-align:center;}
+.is-minimised-row .minimised-participant-frame :is(.country-flag,img[src*='/flags/']){width:20px;height:14px;object-fit:contain;margin:0;}
+.is-minimised-row :is(.minimised-card-format,.minimised-card-progress,.minimised-card-time){display:block;flex:0 0 auto;min-width:0;margin:0;font-size:.7rem;line-height:1.2;white-space:nowrap;text-align:center;}
+.is-minimised-row :is(.minimised-card-format,.minimised-card-progress):empty{display:none;}
+.is-minimised-row .minimised-card-summary:focus-visible{outline:2px solid var(--accent);outline-offset:-3px;border-radius:6px;}
+.is-minimised-row:has(.calendar-select-label){display:flex;padding-left:8px;}
+.is-minimised-row .calendar-select-label{flex:0 0 44px;margin:0;}
+@container minimised-row (max-width:520px){.is-minimised-row .minimised-card-format{display:none;}}
+@container minimised-row (max-width:320px){.is-minimised-row .minimised-card-progress{display:none;}}
+@container minimised-row (max-width:520px){.is-minimised-row .minimised-card-summary:is([data-long-timing=true],[data-long-progress=true]) .minimised-card-progress{display:none;}}
