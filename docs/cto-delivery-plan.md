@@ -14,10 +14,12 @@
 
 **Current Football badges — 13 October:** All 84 pilot clubs have a badge assigned. A full display check found 82 working images and two missing files, for Celje and Sabah. Both fixes now pass locally in Feed and Schedule, with a guard against using another club’s badge. They await the combined card release. Commercial permission and physical-phone checks remain open. [Dated repair evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/football-badge-source-repair-2026-10-13.md).
 
+**Horse Racing navigation — 13 October:** The existing nine dated races and three date-pending event entries are now connected to Follow in the local release assembly. Browsing changes no follows; the explicit follow switch preserves existing exclusions and leaves automatic reminders off. The complete local check list passed, including both browser checks and returning from Events. Combined card, installed-app update and production checks remain pending; this is not a live release or expanded race coverage.
+
 **Next five actions, in order:**
 
 - Finish the remaining Football quality checks: working Australian viewing links, dependable standings, permitted commercial use and mobile presentation. The 380-fixture comparison and duplicate fix do not certify the whole sport.
-- Complete the separately approved smaller-card and Cricket/Tennis clarity update through the same checked release path.
+- Complete the separately approved smaller-card and Cricket/Tennis clarity update, Horse Racing navigation and Football badge fixes through one checked release path.
 - Close remaining carried-sport gaps against the NRL/AFL reference. Keep the three failed source checks visible: an NHL timestamp mismatch, a WRC timeout and a Tennis identity disagreement.
 - Complete real-phone and invited-user return-use checks when available. Independent recovery in Passwords/iCloud remains parked.
 - Keep the small sponsor experiment prepared. Launch still depends on quality, permission and audience evidence; no outreach or purchase now.
