@@ -11843,7 +11843,7 @@ function normalizeEvents(events = activeEvents){
       ev.round = ev.round || inferRound(ev.name);
     }
     } catch (_error){
-      // Keep core identity on optional failure.
+      // Keep core identity.
       console.warn("Fixture presentation normalization fallback", ev.eventId || ev.id);
     }
     globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.apply(ev,{inPlace:true});
@@ -11856,7 +11856,7 @@ syncLegacyArchiveReferences(activeEvents);
 purgeDerivedCardCache();
 rebuildDerivedCardCache(activeEvents);
 
-// Device clock; labels default to Sydney time.
+// Sydney labels.
 function nowAEST(){
   return new Date();
 }
@@ -15716,7 +15716,7 @@ async function submitNothingscoreAction(command, panel, { success = "Your Nothin
       try {
         result = await serverSyncClient.nothingscoreRequest({}, command);
       } catch(error){
-        // A lost reply may still mean a committed vote.
+        // Lost reply may follow commit.
         nothingscoreSubmissionStore.uncertain(key);
         const receipt = await reconcileNothingscoreSubmission(eventId,submittedPhase,{expectedOwner:owner});
         if (receipt) result = {...receipt,replayed:true};
@@ -15901,7 +15901,7 @@ function loadTennisFeedContests(){
 const tennisFeedOpenParents=new Set();
 function eventEditionFollowed(event){
   const decision=FOLLOW_FEED_POLICY.editionDecision(event,userPreferences);
-  return decision?decision==='followed':Boolean(NOTHINGSPORTS_TENNIS_FEED.reason(event,userPreferences,{collectionsById:followCollectionsById(),participantTours:tennisFeedParentDocument?.participantTours,now:nowAEST()}));
+  return decision?decision==='followed':Boolean((FOLLOW_FEED_POLICY.sportKey(event)==='horse-racing'?FOLLOW_FIRST.reasonForEvent:NOTHINGSPORTS_TENNIS_FEED.reason)(event,userPreferences,{collectionsById:followCollectionsById(),participantTours:tennisFeedParentDocument?.participantTours,now:nowAEST()}));
 }
 function buildEventEditionToggle(event){
   const button=document.createElement('button');button.type='button';button.className='btn ghost event-edition-toggle';button.dataset.edition=FOLLOW_FEED_POLICY.editionKey(event);
