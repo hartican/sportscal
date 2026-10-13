@@ -17,6 +17,14 @@ const user='11111111-1111-4111-8111-111111111111',guest='22222222-2222-4222-8222
  for(const name of ['nothingsports_fixture_observation_time','nothingsports_project_fixture_observations']){const start=observationMigration.indexOf('create or replace function public.'+name+'('),end=observationMigration.indexOf('$$;',start)+3;assert(start>=0&&end>start);await db.exec(observationMigration.slice(start,end));}
  await db.exec('grant execute on function public.nothingsports_fixture_observation_time(text),public.nothingsports_project_fixture_observations(jsonb,jsonb,jsonb,timestamptz) to service_role');
  await db.exec(fs.readFileSync(migration,'utf8'));
+ const erasureMigration=fs.readFileSync('supabase/migrations/20260927144441_guard_account_erasure_writes.sql','utf8');
+ const erasureStart=erasureMigration.indexOf('create function private.nothingsports_guard_erasure_write()');
+ const erasureEnd=erasureMigration.indexOf('$$;',erasureStart)+3;
+ assert(erasureStart>=0&&erasureEnd>erasureStart);
+ await db.exec(erasureMigration.slice(erasureStart,erasureEnd));
+ await db.exec(fs.readFileSync('supabase/migrations/20261013215847_cricket_milestone_erasure_guards.sql','utf8'));
+ const unguarded=(await db.query("select c.relname from pg_class c where c.oid in('public.nothingsports_milestone_groups'::regclass,'public.nothingsports_milestone_receipts'::regclass) and not exists(select 1 from pg_trigger t where t.tgrelid=c.oid and t.tgfoid='private.nothingsports_guard_erasure_write()'::regprocedure and t.tgenabled in('O','A') and t.tgtype=21 and position(quote_literal('user_id') in pg_get_triggerdef(t.oid))>0)")).rows;
+ assert.deepEqual(unguarded,[],'Every direct account reference uses the existing insert/update erasure barrier');
  const unindexed=(await db.query(`select c.conname from pg_constraint c where c.contype='f' and c.conrelid in('public.nothingsports_milestone_groups'::regclass,'public.nothingsports_milestone_receipts'::regclass,'public.nothingsports_milestone_installations'::regclass) and cardinality(c.conkey)=1 and not exists(select 1 from pg_index i where i.indrelid=c.conrelid and i.indisvalid and i.indkey[0]=c.conkey[1])`)).rows;
  assert.deepEqual(unindexed,[],'Every child foreign key has an index with its reference as the first key for bounded retention and account/device erasure');
  await db.query('insert into auth.users values($1,false),($2,true)',[user,guest]);
@@ -76,6 +84,15 @@ const user='11111111-1111-4111-8111-111111111111',guest='22222222-2222-4222-8222
  }
  const oldMoment=moment(999).momentId;await db.query("insert into public.nothingsports_moments values($1,$2,'cricket',$3,now()-interval '31 days',now()-interval '31 days')",[oldMoment,fixture,moment(999)]);await db.query("insert into public.nothingsports_milestone_receipts(user_id,moment_id,disposition,created_at) values($1,$2,'choice',now()-interval '31 days')",[user,oldMoment]);
  await db.exec('select public.nothingsports_inbox_maintenance()');assert.equal((await db.query('select calls from public.inbox_maintenance_probe')).rows[0].calls,1,'The existing inbox body is preserved and remains the single maintenance RPC');assert.equal((await db.query('select count(*)::int n from public.nothingsports_moments where moment_id=$1',[oldMoment])).rows[0].n,0,'30-day retention runs even without another fresh source publication');assert.equal((await db.query('select count(*)::int n from public.nothingsports_milestone_receipts where moment_id=$1',[oldMoment])).rows[0].n,0,'Retention cascades to old receipts');
+ const guardMoment=moment(987).momentId,nextGuardMoment=moment(988).momentId;
+ for(const id of [guardMoment,nextGuardMoment])await db.query("insert into public.nothingsports_moments values($1,$2,'cricket',$3,now()+interval '4 minutes',now())",[id,fixture,{...moment(1),momentId:id}]);
+ const guardGroup=(await db.query("insert into public.nothingsports_milestone_groups(user_id,fixture_id,score_hash,created_at,expires_at) values($1,$2,'score-one',now(),now()+interval '2 minutes') returning group_id",[user,fixture])).rows[0].group_id;
+ await db.query("insert into public.nothingsports_milestone_receipts(user_id,moment_id,group_id,disposition,created_at) values($1,$2,$3,'choice',now())",[user,guardMoment,guardGroup]);
+ await db.exec('reset role');await db.query('insert into public.nothingsports_account_erasure_blocks(user_id) values($1)',[user]);await db.exec('set role service_role');
+ await assert.rejects(()=>db.query("insert into public.nothingsports_milestone_groups(user_id,fixture_id,score_hash,created_at,expires_at) values($1,$2,'score-one',now(),now())",[user,fixture]),/account_erasure_in_progress/);
+ await assert.rejects(()=>db.query("update public.nothingsports_milestone_groups set status='failed' where group_id=$1",[guardGroup]),/account_erasure_in_progress/);
+ await assert.rejects(()=>db.query("insert into public.nothingsports_milestone_receipts(user_id,moment_id,disposition,created_at) values($1,$2,'choice',now())",[user,nextGuardMoment]),/account_erasure_in_progress/);
+ await assert.rejects(()=>db.query("update public.nothingsports_milestone_receipts set disposition='suppressed' where user_id=$1 and moment_id=$2",[user,guardMoment]),/account_erasure_in_progress/);
  await db.exec('reset role');await db.query('delete from public.nothingsports_push_installations where user_id=$1',[user]);await db.query('delete from public.nothingsports_user_state where user_id=$1',[user]);await db.query('delete from auth.users where id=$1',[user]);
  assert.equal((await db.query('select count(*)::int n from public.nothingsports_milestone_receipts')).rows[0].n,0);assert.equal((await db.query('select count(*)::int n from public.nothingsports_milestone_groups')).rows[0].n,0);assert.equal((await db.query('select count(*)::int n from public.nothingsports_milestone_installations')).rows[0].n,0,'Account erasure cascades through every recipient-owned row');
  console.log('Milestone database: RLS, private registration check, rollout gates, replay fencing, grouped account budgets, device claims/retries and erasure passed.');
