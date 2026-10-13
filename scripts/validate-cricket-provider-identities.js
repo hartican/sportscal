@@ -7,6 +7,10 @@ const source=require('./fixtures/source-coverage/lancashire-durham-identities.js
 const caId='fixture:cricket:CA:39484',espnId='fixture:cricket:espn:1513451';
 const protectedIds=new Set(require('../data/canonical/cricket-retention.v1.json').fixtureIds),protectedHistory=[caId,espnId].some(id=>protectedIds.has(id));
 const ca=source.find(f=>f.id===caId),espn=source.find(f=>f.id===espnId);
+const {catalogueFixtureAllowed}=require('../lib/calendar-catalogue');
+assert.equal(catalogueFixtureAllowed(ca,new Set()),false,'Unprotected retired source facts do not enter the public rating/calendar catalogue');
+for(const retained of [caId,espnId])assert.equal(catalogueFixtureAllowed({...ca,sourceEventIds:[caId,espnId]},new Set([retained])),true,'Actual history protection works under either reviewed fixture alias');
+assert.equal(catalogueFixtureAllowed({...ca,id:'fixture:cricket:other',eventId:'fixture:cricket:other',canonicalEventId:'fixture:cricket:other',sourceEventIds:[]},new Set([caId])),false,'History protection is exact, not a retired-competition opt-in');
 const caTeam='team:cricket:ca-50',espnTeam='team:cricket:espn-1116';
 assert(ca&&espn,'test requires retained source records');
 for(const order of [[ca,espn],[espn,ca]]){
