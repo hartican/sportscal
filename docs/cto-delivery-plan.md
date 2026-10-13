@@ -10,7 +10,9 @@
 
 **Current architecture — 13 October:** Keep the existing stack and one checked release path. Published sport facts, private choices/history, reviewed editorial and future sponsor support stay separate. The next change reuses the shared card engine within the existing size limits. [Current map and evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/architecture-current-2026-10-13.md).
 
-**Current Football badges — 13 October:** All 84 pilot clubs have a badge assigned; the older 39-missing list is superseded. Reliable image loading and commercial permission remain open. The existing unsent enquiry now covers the actual source groups. [Dated inventory](https://github.com/hartican/sportscal/blob/main/docs/quality/football-artwork-current-2026-10-13.md).
+**Current Football tables — 13 October:** The Premier League table agrees with the latest official table for all 20 clubs. All three published tables agree with their recorded completed scores. The existing automatic update successfully published these tables, and they remain on the verified live site. European rankings stay provisional. [Dated table and ordinary-update evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/football-table-current-2026-10-13.md).
+
+**Current Football badges — 13 October:** All 84 pilot clubs have a badge assigned. A full display check found 82 working images and two missing files, for Celje and Sabah. Both fixes now pass locally in Feed and Schedule, with a guard against using another club’s badge. They await the combined card release. Commercial permission and physical-phone checks remain open. [Dated repair evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/football-badge-source-repair-2026-10-13.md).
 
 **Next five actions, in order:**
 
