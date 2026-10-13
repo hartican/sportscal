@@ -650,7 +650,12 @@
       metadata:{ titleAliases:[slot?.label, slot?.displayName, slot?.name].filter(Boolean) },
     })).filter(participant => participant.id);
     const participantList = [...(Array.isArray(participants) ? participants : []), ...slotParticipants]; const byId = new Map(participantList.map(participant => [participant.id, participant])); const resolved = []; const seen = new Set();
-    const addParticipant = participant => { const mark = participantMarks[participant?.id] || directoryMarkForParticipant(participant); if (!participant || !mark || seen.has(participant.id)) return; seen.add(participant.id); resolved.push(Object.freeze({ participant, mark })); };
+    const fixtureParticipantIds = new Set([...(Array.isArray(event?.participantIds) ? event.participantIds : []), ...slotParticipants.map(participant => participant.id)]);
+    const addParticipant = participant => {
+      // These source repairs are exact-ID references, not new name aliases.
+      if (reviewedFootballClubMarks[participant?.id] && !fixtureParticipantIds.has(participant.id)) return;
+      const mark = participantMarks[participant?.id] || directoryMarkForParticipant(participant); if (!participant || !mark || seen.has(participant.id)) return; seen.add(participant.id); resolved.push(Object.freeze({ participant, mark }));
+    };
     const nationalTeamIdentities = getNationalTeamIdentities();
     [...(Array.isArray(event?.participantIds) ? event.participantIds : []), ...slotParticipants.map(participant => participant.id)].map(participantId => nationalTeamIdentities?.canonicalId(participantId) || participantId).map(participantId => byId.get(participantId) || identityParticipants[participantId]).forEach(addParticipant);
     (nationalTeamIdentities?.identitiesForEvent({ ...event, name:title || event?.name }) || []).map(team => nationalTeamIdentities.participantsById[team.id]).forEach(addParticipant);
@@ -705,11 +710,12 @@
     const resolved = participantMarksForEvent(event, participants, source);
     const labelsApi = globalThis.NOTHINGSPORTS_FIXTURE_LABELS || (typeof require === "function" ? require("./fixture-labels") : null);
     const sides = labels.map((label, index) => {
+      const explicitId=event.participantSlots?.[index]?.participantId || event.participantIds?.[index];
       const identity = resolved.find(candidate => {
+        if (reviewedFootballClubMarks[candidate.participant?.id] && candidate.participant.id !== explicitId) return false;
         const record=labelsApi ? labelsApi.participantRecord(candidate.participant,event,participants) : candidate.participant;
         return aliasRange(label,{...record,metadata:{...(record.metadata||{}),titleAliases:[...(record.metadata?.titleAliases||[]),...(record.aliases||[]),...(candidate.mark?.aliases||[]),labelsApi?labelsApi.displayName(record.name,event):record.name].filter(Boolean)}});
-      }) || resolved.find(candidate => candidate.participant?.id === (event.participantSlots?.[index]?.participantId || event.participantIds?.[index])) || null;
-      const explicitId=event.participantSlots?.[index]?.participantId || event.participantIds?.[index];
+      }) || resolved.find(candidate => candidate.participant?.id === explicitId) || null;
       const supplied=[...(event.participants||[]),...(participants||[])].find(p=>(p.id||p.participantId)===explicitId);
       // Artwork may be unavailable while the sourced participant is known.
       // Preserve that identity for profile/follow links without inventing a logo.

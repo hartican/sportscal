@@ -345,6 +345,16 @@ for(const club of reviewedClubCrests){
   assert.equal(side.mark.sourceUrl,club.logoReview.sourceUrl,'image provenance follows its actual reviewed source');
 }
 for(const club of reviewedClubCrests){
+  const reviewedParticipant=retainedFootballFixtures.flatMap(event=>event.participants||[]).find(participant=>participant.id===club.participantId);
+  assert(reviewedParticipant,'the constructor context must include the carried reviewed club');
+  const constructorContext=[...footballDirectory.teams,reviewedParticipant];
   const ambiguousClub={key:'football',name:`${club.displayName} v Unknown`,participantIds:[club.participantId+'-different-club','team:football:club:unresolved-opponent'],participants:[]};
-  assert(!identities.matchupSidesForEvent(ambiguousClub,[],ambiguousClub.name).some(side=>side.participant?.id===club.participantId),'a different or unknown club must not inherit reviewed artwork by name');
+  const ambiguousSides=identities.matchupSidesForEvent(ambiguousClub,constructorContext,ambiguousClub.name);
+  assert.deepEqual(ambiguousSides.map(side=>side.participant?.id),ambiguousClub.participantIds,'the populated constructor context must preserve different explicit club IDs');
+  assert(!ambiguousSides.some(side=>side.mark?.url===club.logoUrl),'a different club must not inherit reviewed artwork by name');
+  const unknownClub={key:'football',name:ambiguousClub.name};
+  assert(!identities.matchupSidesForEvent(unknownClub,constructorContext,unknownClub.name).some(side=>side.participant?.id===club.participantId),'a title-only club must not inherit the reviewed identity from global context');
+  const swappedLabels={...ambiguousClub,participantIds:['team:football:club:unresolved-opponent',club.participantId]};
+  const swappedSides=identities.matchupSidesForEvent(swappedLabels,constructorContext,swappedLabels.name);
+  assert.deepEqual(swappedSides.map(side=>side.participant?.id),swappedLabels.participantIds,'a reviewed badge must belong to its explicitly identified fixture side');
 }
