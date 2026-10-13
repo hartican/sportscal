@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20261012225957817-20261012231626742",
+  "version": "weekend-editorial-20261012225957817-20261012231626742-20261013101924575",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-12T23:16:26.742Z",
+  "publishedAt": "2026-10-13T10:19:24.575Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -42,7 +42,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-10-12",
+    "basisDate": "2026-10-13",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -50,7 +50,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-03",
     "lastEventDate": "2027-10-10",
-    "daysAhead": 363,
+    "daysAhead": 362,
     "coversStandardPreloadWindow": true,
     "sports": {
       "dakar": {
@@ -169,9 +169,9 @@
         "lastEventDate": "2026-11-01"
       },
       "tennis": {
-        "count": 284,
+        "count": 300,
         "firstEventDate": "2026-09-03",
-        "lastEventDate": "2026-10-13"
+        "lastEventDate": "2026-10-14"
       },
       "fiba-women": {
         "count": 17,

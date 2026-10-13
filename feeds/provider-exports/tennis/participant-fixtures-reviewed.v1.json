@@ -2663,5 +2663,275 @@
         "checkedAt": "2026-10-11T09:22:06.343Z"
       }
     }
+  ],
+  "wuhanPairingUpdates": [
+    {
+      "kind": "reviewed-official-draw-correction",
+      "fixtureId": "fixture:tennis:espn:wta:185340",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "roundLabel": "Round of 64",
+      "priorParticipantIds": [
+        "competitor:tennis:wta:anna-kalinskaya",
+        "competitor:tennis:wta:zhang-shuai"
+      ],
+      "participantIds": [
+        "competitor:tennis:wta:ashlyn-krueger",
+        "competitor:tennis:wta:zhang-shuai"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:ashlyn-krueger",
+          "name": "Ashlyn Krueger",
+          "displayName": "Ashlyn Krueger",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis"
+        },
+        {
+          "id": "competitor:tennis:wta:zhang-shuai",
+          "name": "Zhang Shuai",
+          "displayName": "Zhang Shuai",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis"
+        }
+      ],
+      "officialPlayerLabels": [
+        "A. Krueger",
+        "S. Zhang"
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+      "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+      "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+      "validUntil": "2026-10-13T12:59:40.000Z",
+      "publisher": {
+        "fixtureId": "fixture:tennis:espn:wta:185340",
+        "eventId": "381-2026",
+        "roundLabel": "Round of 64",
+        "participantIds": [
+          "competitor:tennis:wta:ashlyn-krueger",
+          "competitor:tennis:wta:zhang-shuai"
+        ],
+        "status": "scheduled",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013",
+        "sourceSha256": "e758d8a3f55f2f9cfa9fe080e4b2895c9c75b092242791fb010d21a06ae92964",
+        "checkedAt": "2026-10-13T06:59:40.000Z",
+        "bodyCompletedAt": "2026-10-13T06:59:40.821Z"
+      }
+    },
+    {
+      "kind": "reviewed-official-draw-correction",
+      "fixtureId": "fixture:tennis:espn:wta:185341",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "roundLabel": "Round of 64",
+      "priorParticipantIds": [
+        "competitor:tennis:wta:diane-parry",
+        "competitor:tennis:wta:anna-kalinskaya"
+      ],
+      "participantIds": [
+        "competitor:tennis:wta:diane-parry",
+        "competitor:tennis:wta:lanlana-tararudee"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:diane-parry",
+          "name": "Diane Parry",
+          "displayName": "Diane Parry",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis"
+        },
+        {
+          "id": "competitor:tennis:wta:lanlana-tararudee",
+          "name": "Lanlana Tararudee",
+          "displayName": "Lanlana Tararudee",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis"
+        }
+      ],
+      "officialPlayerLabels": [
+        "D. Parry",
+        "L. Tararudee"
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+      "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+      "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+      "validUntil": "2026-10-13T12:59:40.000Z",
+      "publisher": {
+        "fixtureId": "fixture:tennis:espn:wta:185341",
+        "eventId": "381-2026",
+        "roundLabel": "Round of 64",
+        "participantIds": [
+          "competitor:tennis:wta:diane-parry",
+          "competitor:tennis:wta:lanlana-tararudee"
+        ],
+        "status": "completed",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013",
+        "sourceSha256": "e758d8a3f55f2f9cfa9fe080e4b2895c9c75b092242791fb010d21a06ae92964",
+        "checkedAt": "2026-10-13T06:59:40.000Z",
+        "bodyCompletedAt": "2026-10-13T06:59:40.821Z",
+        "sets": [
+          {
+            "home": 4.0,
+            "away": 6.0
+          },
+          {
+            "home": 1.0,
+            "away": 6.0
+          }
+        ],
+        "winnerParticipantId": "competitor:tennis:wta:lanlana-tararudee"
+      },
+      "result": {
+        "kind": "official-draw-result",
+        "fixtureId": "fixture:tennis:espn:wta:185341",
+        "participantIds": [
+          "competitor:tennis:wta:diane-parry",
+          "competitor:tennis:wta:lanlana-tararudee"
+        ],
+        "winnerParticipantId": "competitor:tennis:wta:lanlana-tararudee",
+        "sets": [
+          {
+            "home": 4.0,
+            "away": 6.0
+          },
+          {
+            "home": 1.0,
+            "away": 6.0
+          }
+        ],
+        "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+        "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+        "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+        "matchRow": "D. Parry 4 1 / L. Tararudee 6 6; winner-b"
+      }
+    },
+    {
+      "kind": "reviewed-official-draw-correction",
+      "fixtureId": "fixture:tennis:espn:wta:185333",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "roundLabel": "Round of 64",
+      "priorParticipantIds": [
+        "competitor:tennis:wta:iva-jovic",
+        "competitor:tennis:wta:mia-pohankova"
+      ],
+      "participantIds": [
+        "competitor:tennis:wta:anna-bondar",
+        "competitor:tennis:wta:mia-pohankova"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:anna-bondar",
+          "name": "Anna Bondar"
+        },
+        {
+          "id": "competitor:tennis:wta:mia-pohankova",
+          "name": "Mia Pohankova"
+        }
+      ],
+      "officialPlayerLabels": [
+        "A. Bondar",
+        "M. Pohankova"
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+      "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+      "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+      "validUntil": "2026-10-13T12:59:40.000Z",
+      "publisher": {
+        "fixtureId": "fixture:tennis:espn:wta:185333",
+        "eventId": "381-2026",
+        "roundLabel": "Round of 64",
+        "participantIds": [
+          "competitor:tennis:wta:anna-bondar",
+          "competitor:tennis:wta:mia-pohankova"
+        ],
+        "status": "completed",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013",
+        "sourceSha256": "e758d8a3f55f2f9cfa9fe080e4b2895c9c75b092242791fb010d21a06ae92964",
+        "checkedAt": "2026-10-13T06:59:40.000Z",
+        "bodyCompletedAt": "2026-10-13T06:59:40.821Z",
+        "sets": [
+          {
+            "home": 1,
+            "away": 6
+          },
+          {
+            "home": 3,
+            "away": 6
+          }
+        ],
+        "winnerParticipantId": "competitor:tennis:wta:mia-pohankova"
+      },
+      "result": {
+        "kind": "official-draw-result",
+        "fixtureId": "fixture:tennis:espn:wta:185333",
+        "participantIds": [
+          "competitor:tennis:wta:anna-bondar",
+          "competitor:tennis:wta:mia-pohankova"
+        ],
+        "winnerParticipantId": "competitor:tennis:wta:mia-pohankova",
+        "sets": [
+          {
+            "home": 1,
+            "away": 6
+          },
+          {
+            "home": 3,
+            "away": 6
+          }
+        ],
+        "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+        "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+        "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+        "matchRow": "A. Bondar 1 3 / M. Pohankova 6 6; winner-b"
+      }
+    },
+    {
+      "kind": "reviewed-official-draw-correction",
+      "fixtureId": "fixture:tennis:espn:wta:185343",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "roundLabel": "Round of 64",
+      "priorParticipantIds": [
+        "competitor:tennis:wta:ann-li",
+        "competitor:tennis:wta:zheng-qinwen"
+      ],
+      "participantIds": [
+        "competitor:tennis:wta:ann-li",
+        "competitor:tennis:wta:camila-osorio"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:ann-li",
+          "name": "Ann Li"
+        },
+        {
+          "id": "competitor:tennis:wta:camila-osorio",
+          "name": "Camila Osorio"
+        }
+      ],
+      "officialPlayerLabels": [
+        "A. Li",
+        "C. Osorio"
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+      "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+      "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+      "validUntil": "2026-10-13T12:59:40.000Z",
+      "publisher": {
+        "fixtureId": "fixture:tennis:espn:wta:185343",
+        "eventId": "381-2026",
+        "roundLabel": "Round of 64",
+        "participantIds": [
+          "competitor:tennis:wta:ann-li",
+          "competitor:tennis:wta:camila-osorio"
+        ],
+        "status": "scheduled",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013",
+        "sourceSha256": "e758d8a3f55f2f9cfa9fe080e4b2895c9c75b092242791fb010d21a06ae92964",
+        "checkedAt": "2026-10-13T06:59:40.000Z",
+        "bodyCompletedAt": "2026-10-13T06:59:40.821Z"
+      }
+    }
   ]
 }

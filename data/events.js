@@ -142414,12 +142414,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T04:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -142450,18 +142450,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:learner-tien",
     "awayParticipantId": "competitor:tennis:atp:casper-ruud",
-    "venue": "Shanghai",
+    "venue": "Grandstand 2",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184932",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184932",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184932",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -142479,10 +142479,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Grandstand 2",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Learner Tien v Casper Ruud",
     "broadcastOptions": [],
@@ -142505,7 +142503,36 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 4,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 3,
+        "awayTiebreak": 7
+      }
+    ],
+    "score": "4–6, 6–7",
+    "scoreDisplay": "4–6, 6–7",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184932",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:casper-ruud",
+    "loserParticipantId": "competitor:tennis:atp:learner-tien",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:learner-tien"
+    ],
+    "resultStatus": "published",
+    "result": "4–6, 6–7",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Casper Ruud won. 4–6, 6–7",
+    "recapText": "ESPN reports Casper Ruud as the winner of this round of 32 match. 4–6, 6–7"
   },
   {
     "id": "fixture-tennis-espn-atp-184933",
@@ -142540,12 +142567,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T04:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -142575,18 +142602,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:pablo-carreno-busta",
     "awayParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
-    "venue": "Shanghai",
+    "venue": "Stadium Court",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184933",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184933",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184933",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -142604,10 +142631,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Stadium Court",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Pablo Carreno Busta v Felix Auger Aliassime",
     "broadcastOptions": [],
@@ -142630,7 +142655,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 1,
+        "away": 6
+      }
+    ],
+    "score": "3–6, 6–4, 1–6",
+    "scoreDisplay": "3–6, 6–4, 1–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184933",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
+    "loserParticipantId": "competitor:tennis:atp:pablo-carreno-busta",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:pablo-carreno-busta"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 6–4, 1–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Felix Auger Aliassime won. 3–6, 6–4, 1–6",
+    "recapText": "ESPN reports Felix Auger Aliassime as the winner of this round of 32 match. 3–6, 6–4, 1–6"
   },
   {
     "id": "fixture-tennis-espn-atp-184934",
@@ -142665,12 +142721,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T07:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T09:25:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -142705,13 +142761,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184934",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184934",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184934",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -142731,8 +142787,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Grandstand 2",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Daniil Medvedev v Dalibor Svrcina",
     "broadcastOptions": [],
@@ -142755,7 +142809,34 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 6,
+        "away": 2
+      },
+      {
+        "home": 6,
+        "away": 3
+      }
+    ],
+    "score": "6–2, 6–3",
+    "scoreDisplay": "6–2, 6–3",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184934",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:daniil-medvedev",
+    "loserParticipantId": "competitor:tennis:atp:dalibor-svrcina",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:dalibor-svrcina"
+    ],
+    "resultStatus": "published",
+    "result": "6–2, 6–3",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Daniil Medvedev won. 6–2, 6–3",
+    "recapText": "ESPN reports Daniil Medvedev as the winner of this round of 32 match. 6–2, 6–3"
   },
   {
     "id": "fixture-tennis-espn-atp-184937",
@@ -142790,12 +142871,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T08:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T11:00:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -142831,13 +142912,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184937",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184937",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184937",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -142880,8 +142961,33 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "sets": [
+      {
+        "home": 5,
+        "away": 7
+      },
+      {
+        "home": 4,
+        "away": 6
+      }
+    ],
+    "score": "5–7, 4–6",
+    "scoreDisplay": "5–7, 4–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184937",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:botic-van-de-zandschulp",
+    "loserParticipantId": "competitor:tennis:atp:arthur-fils",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:arthur-fils"
+    ],
+    "resultStatus": "published",
+    "result": "5–7, 4–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Botic van de Zandschulp won. 5–7, 4–6",
+    "recapText": "ESPN reports Botic van de Zandschulp as the winner of this round of 32 match. 5–7, 4–6"
   },
   {
     "id": "fixture-tennis-espn-atp-184938",
@@ -142916,12 +143022,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T05:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T06:15:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -142957,13 +143063,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184938",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184938",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184938",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -142983,8 +143089,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Grandstand 2",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jiri Lehecka v Rafael Jodar",
     "broadcastOptions": [],
@@ -143007,7 +143111,40 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 2,
+        "awayTiebreak": 7
+      },
+      {
+        "home": 4,
+        "away": 6
+      }
+    ],
+    "score": "6–4, 6–7, 4–6",
+    "scoreDisplay": "6–4, 6–7, 4–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184938",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:rafael-jodar",
+    "loserParticipantId": "competitor:tennis:atp:jiri-lehecka",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:jiri-lehecka"
+    ],
+    "resultStatus": "published",
+    "result": "6–4, 6–7, 4–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Rafael Jodar won. 6–4, 6–7, 4–6",
+    "recapText": "ESPN reports Rafael Jodar as the winner of this round of 32 match. 6–4, 6–7, 4–6"
   },
   {
     "id": "fixture-tennis-espn-atp-184939",
@@ -143042,12 +143179,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T05:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T06:30:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -143083,13 +143220,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184939",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184939",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184939",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -143109,8 +143246,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Stadium Court",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Stefanos Tsitsipas v Taylor Fritz",
     "broadcastOptions": [],
@@ -143133,7 +143268,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 7,
+        "away": 5
+      },
+      {
+        "home": 6,
+        "away": 3
+      }
+    ],
+    "score": "3–6, 7–5, 6–3",
+    "scoreDisplay": "3–6, 7–5, 6–3",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184939",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
+    "loserParticipantId": "competitor:tennis:atp:taylor-fritz",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:taylor-fritz"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 7–5, 6–3",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Stefanos Tsitsipas won. 3–6, 7–5, 6–3",
+    "recapText": "ESPN reports Stefanos Tsitsipas as the winner of this round of 32 match. 3–6, 7–5, 6–3"
   },
   {
     "id": "fixture-tennis-espn-atp-184940",
@@ -143168,12 +143334,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T11:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T12:30:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -143209,13 +143375,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184940",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184940",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184940",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -143258,8 +143424,33 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 6,
+        "away": 2
+      }
+    ],
+    "score": "6–4, 6–2",
+    "scoreDisplay": "6–4, 6–2",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184940",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:tommy-paul",
+    "loserParticipantId": "competitor:tennis:atp:valentin-vacherot",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:valentin-vacherot"
+    ],
+    "resultStatus": "published",
+    "result": "6–4, 6–2",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Tommy Paul won. 6–4, 6–2",
+    "recapText": "ESPN reports Tommy Paul as the winner of this round of 32 match. 6–4, 6–2"
   },
   {
     "id": "fixture-tennis-espn-wta-185314",
@@ -143294,12 +143485,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T03:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T03:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -143334,13 +143525,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185314",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185314",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185314",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -143348,8 +143539,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Anhelina Kalinina v Sonay Kartal",
     "broadcastOptions": [
@@ -143374,7 +143563,34 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 5,
+        "away": 7
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "score": "5–7, 3–6",
+    "scoreDisplay": "5–7, 3–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185314",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:sonay-kartal",
+    "loserParticipantId": "competitor:tennis:wta:anhelina-kalinina",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:anhelina-kalinina"
+    ],
+    "resultStatus": "published",
+    "result": "5–7, 3–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Sonay Kartal won. 5–7, 3–6",
+    "recapText": "ESPN reports Sonay Kartal as the winner of this round of 64 match. 5–7, 3–6"
   },
   {
     "id": "fixture-tennis-espn-wta-185318",
@@ -143409,12 +143625,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T07:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T08:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -143449,13 +143665,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185318",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185318",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185318",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -143488,8 +143704,39 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "sets": [
+      {
+        "home": 2,
+        "away": 6
+      },
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 2
+      },
+      {
+        "home": 6,
+        "away": 4
+      }
+    ],
+    "score": "2–6, 7–6, 6–4",
+    "scoreDisplay": "2–6, 7–6, 6–4",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185318",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:catherine-mcnally",
+    "loserParticipantId": "competitor:tennis:wta:yuliia-starodubtseva",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:yuliia-starodubtseva"
+    ],
+    "resultStatus": "published",
+    "result": "2–6, 7–6, 6–4",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Catherine McNally won. 2–6, 7–6, 6–4",
+    "recapText": "ESPN reports Catherine McNally as the winner of this round of 64 match. 2–6, 7–6, 6–4"
   },
   {
     "id": "fixture-tennis-espn-wta-185321",
@@ -143524,12 +143771,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T06:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T06:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -143565,13 +143812,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185321",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185321",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185321",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -143579,8 +143826,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jasmine Paolini v Sara Bejlek",
     "broadcastOptions": [
@@ -143605,7 +143850,34 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 6,
+        "away": 4
+      }
+    ],
+    "score": "6–3, 6–4",
+    "scoreDisplay": "6–3, 6–4",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185321",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:jasmine-paolini",
+    "loserParticipantId": "competitor:tennis:wta:sara-bejlek",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:sara-bejlek"
+    ],
+    "resultStatus": "published",
+    "result": "6–3, 6–4",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Jasmine Paolini won. 6–3, 6–4",
+    "recapText": "ESPN reports Jasmine Paolini as the winner of this round of 64 match. 6–3, 6–4"
   },
   {
     "id": "fixture-tennis-espn-wta-185327",
@@ -143640,12 +143912,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T06:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T07:25:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -143681,13 +143953,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185327",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185327",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185327",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -143695,8 +143967,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Maria Sakkari v Donna Vekic",
     "broadcastOptions": [
@@ -143721,7 +143991,34 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 6,
+        "away": 2
+      }
+    ],
+    "score": "6–4, 6–2",
+    "scoreDisplay": "6–4, 6–2",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185327",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:maria-sakkari",
+    "loserParticipantId": "competitor:tennis:wta:donna-vekic",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:donna-vekic"
+    ],
+    "resultStatus": "published",
+    "result": "6–4, 6–2",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Maria Sakkari won. 6–4, 6–2",
+    "recapText": "ESPN reports Maria Sakkari as the winner of this round of 64 match. 6–4, 6–2"
   },
   {
     "id": "fixture-tennis-espn-wta-185331",
@@ -143756,12 +144053,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T04:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T04:55:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -143797,13 +144094,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185331",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185331",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185331",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -143811,8 +144108,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Clara Tauson v Marie Bouzkova",
     "broadcastOptions": [
@@ -143837,7 +144132,34 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 1,
+        "away": 6
+      },
+      {
+        "home": 0,
+        "away": 2
+      }
+    ],
+    "score": "1–6, 0–2",
+    "scoreDisplay": "1–6, 0–2",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185331",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:marie-bouzkova",
+    "loserParticipantId": "competitor:tennis:wta:clara-tauson",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:clara-tauson"
+    ],
+    "resultStatus": "published",
+    "result": "1–6, 0–2",
+    "resultLabels": [
+      "Retirement"
+    ],
+    "outcomeText": "Marie Bouzkova won. 1–6, 0–2",
+    "recapText": "ESPN reports Marie Bouzkova as the winner of this round of 64 match. 1–6, 0–2"
   },
   {
     "id": "fixture-tennis-espn-wta-185333",
@@ -143868,7 +144190,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "round": "knockout",
     "roundLabel": "Round of 64",
     "stage": "Round of 64",
-    "name": "Iva Jovic v Mia Pohankova",
+    "name": "Anna Bondar v Mia Pohankova",
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
@@ -143877,24 +144199,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
     "participantsConfirmed": true,
     "participantIds": [
-      "competitor:tennis:wta:iva-jovic",
+      "competitor:tennis:wta:anna-bondar",
       "competitor:tennis:wta:mia-pohankova"
     ],
     "participants": [
       {
-        "id": "competitor:tennis:wta:iva-jovic",
-        "name": "Iva Jovic",
-        "displayName": "Iva Jovic",
-        "type": "athlete",
-        "entityType": "athlete",
-        "sportDomainId": "sport:tennis",
-        "countryCode": "US"
+        "id": "competitor:tennis:wta:anna-bondar",
+        "name": "Anna Bondar",
+        "sourceName": "WTA",
+        "sourceType": "official",
+        "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+        "sourceCheckedAt": "2026-10-13T07:18:05.511537+00:00"
       },
       {
         "id": "competitor:tennis:wta:mia-pohankova",
@@ -143902,10 +144223,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "displayName": "Mia Pohankova",
         "type": "athlete",
         "entityType": "athlete",
-        "sportDomainId": "sport:tennis"
+        "sportDomainId": "sport:tennis",
+        "sourceName": "WTA",
+        "sourceType": "official",
+        "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+        "sourceCheckedAt": "2026-10-13T07:18:05.511537+00:00"
       }
     ],
-    "homeParticipantId": "competitor:tennis:wta:iva-jovic",
+    "homeParticipantId": "competitor:tennis:wta:anna-bondar",
     "awayParticipantId": "competitor:tennis:wta:mia-pohankova",
     "venue": "Dongfeng Voyah Center Court",
     "venueCity": "Wuhan",
@@ -143913,23 +144238,24 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185333",
     "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185333",
-    "statusSourceName": "ESPN",
+    "statusCheckedAt": "2026-10-13T07:18:05.511537+00:00",
+    "statusSourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+    "statusSourceName": "WTA",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185333",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018",
+      "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
-    "statusSourceType": "reputable",
+    "statusSourceType": "official",
     "selectedSentence": "",
     "fullSpiel": "",
     "sourceTrust": "unverified",
-    "displayTitleCompact": "Iva Jovic v Mia Pohankova",
+    "displayTitleCompact": "Anna Bondar v Mia Pohankova",
     "broadcastOptions": [
       "Australian viewing unconfirmed"
     ],
@@ -143938,7 +144264,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": false,
     "briefingEligible": false,
     "catchupEligible": false,
-    "participantSlots": [],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "competitor:tennis:wta:anna-bondar",
+        "label": "Anna Bondar",
+        "logoUrl": null
+      },
+      {
+        "slot": 2,
+        "participantId": "competitor:tennis:wta:mia-pohankova",
+        "label": "Mia Pohankova",
+        "logoUrl": null
+      }
+    ],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
     "broadcasterIds": [],
@@ -143952,7 +144291,139 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "pairingSourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+    "pairingSourceCheckedAt": "2026-10-13T07:18:05.511537+00:00",
+    "pairingEvidence": {
+      "kind": "reviewed-official-draw-correction",
+      "fixtureId": "fixture:tennis:espn:wta:185333",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "roundLabel": "Round of 64",
+      "priorParticipantIds": [
+        "competitor:tennis:wta:iva-jovic",
+        "competitor:tennis:wta:mia-pohankova"
+      ],
+      "participantIds": [
+        "competitor:tennis:wta:anna-bondar",
+        "competitor:tennis:wta:mia-pohankova"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:anna-bondar",
+          "name": "Anna Bondar"
+        },
+        {
+          "id": "competitor:tennis:wta:mia-pohankova",
+          "name": "Mia Pohankova"
+        }
+      ],
+      "officialPlayerLabels": [
+        "A. Bondar",
+        "M. Pohankova"
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+      "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+      "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+      "validUntil": "2026-10-13T12:59:40.000Z",
+      "publisher": {
+        "fixtureId": "fixture:tennis:espn:wta:185333",
+        "eventId": "381-2026",
+        "roundLabel": "Round of 64",
+        "participantIds": [
+          "competitor:tennis:wta:anna-bondar",
+          "competitor:tennis:wta:mia-pohankova"
+        ],
+        "status": "completed",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013",
+        "sourceSha256": "e758d8a3f55f2f9cfa9fe080e4b2895c9c75b092242791fb010d21a06ae92964",
+        "checkedAt": "2026-10-13T06:59:40.000Z",
+        "bodyCompletedAt": "2026-10-13T06:59:40.821Z",
+        "sets": [
+          {
+            "home": 1,
+            "away": 6
+          },
+          {
+            "home": 3,
+            "away": 6
+          }
+        ],
+        "winnerParticipantId": "competitor:tennis:wta:mia-pohankova"
+      },
+      "result": {
+        "kind": "official-draw-result",
+        "fixtureId": "fixture:tennis:espn:wta:185333",
+        "participantIds": [
+          "competitor:tennis:wta:anna-bondar",
+          "competitor:tennis:wta:mia-pohankova"
+        ],
+        "winnerParticipantId": "competitor:tennis:wta:mia-pohankova",
+        "sets": [
+          {
+            "home": 1,
+            "away": 6
+          },
+          {
+            "home": 3,
+            "away": 6
+          }
+        ],
+        "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+        "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+        "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+        "matchRow": "A. Bondar 1 3 / M. Pohankova 6 6; winner-b"
+      }
+    },
+    "sets": [
+      {
+        "home": 1,
+        "away": 6
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "score": "1–6, 3–6",
+    "scoreDisplay": "1–6, 3–6",
+    "result": "1–6, 3–6",
+    "resultStatus": "official",
+    "winnerParticipantId": "competitor:tennis:wta:mia-pohankova",
+    "loserParticipantId": "competitor:tennis:wta:anna-bondar",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:anna-bondar"
+    ],
+    "resultEvidence": {
+      "kind": "official-draw-result",
+      "fixtureId": "fixture:tennis:espn:wta:185333",
+      "participantIds": [
+        "competitor:tennis:wta:anna-bondar",
+        "competitor:tennis:wta:mia-pohankova"
+      ],
+      "winnerParticipantId": "competitor:tennis:wta:mia-pohankova",
+      "sets": [
+        {
+          "home": 1,
+          "away": 6
+        },
+        {
+          "home": 3,
+          "away": 6
+        }
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+      "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+      "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+      "matchRow": "A. Bondar 1 3 / M. Pohankova 6 6; winner-b"
+    },
+    "resultSourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+    "resultSourceCheckedAt": "2026-10-13T07:18:05.511537+00:00",
+    "scoreCheckedAt": "2026-10-13T07:18:05.511537+00:00",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Mia Pohankova won. Anna Bondar v Mia Pohankova: 1–6, 3–6.",
+    "recapText": "Mia Pohankova won. Anna Bondar v Mia Pohankova: 1–6, 3–6."
   },
   {
     "id": "fixture-tennis-espn-wta-185334",
@@ -143987,12 +144458,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T11:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T11:35:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -144026,13 +144497,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185334",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185334",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185334",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -144040,8 +144511,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Wang Xiyu v Wang Xinyu",
     "broadcastOptions": [
@@ -144066,7 +144535,34 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 6,
+        "away": 2
+      },
+      {
+        "home": 6,
+        "away": 0
+      }
+    ],
+    "score": "6–2, 6–0",
+    "scoreDisplay": "6–2, 6–0",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185334",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:wang-xiyu",
+    "loserParticipantId": "competitor:tennis:wta:wang-xinyu",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:wang-xinyu"
+    ],
+    "resultStatus": "published",
+    "result": "6–2, 6–0",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Wang Xiyu won. 6–2, 6–0",
+    "recapText": "ESPN reports Wang Xiyu as the winner of this round of 64 match. 6–2, 6–0"
   },
   {
     "id": "fixture-tennis-espn-wta-185336",
@@ -144101,12 +144597,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T03:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T03:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -144142,13 +144638,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185336",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185336",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185336",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -144156,8 +144652,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ekaterina Alexandrova v Leylah Fernandez",
     "broadcastOptions": [
@@ -144182,7 +144676,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 4,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "score": "4–6, 6–3, 3–6",
+    "scoreDisplay": "4–6, 6–3, 3–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185336",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:leylah-fernandez",
+    "loserParticipantId": "competitor:tennis:wta:ekaterina-alexandrova",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:ekaterina-alexandrova"
+    ],
+    "resultStatus": "published",
+    "result": "4–6, 6–3, 3–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Leylah Fernandez won. 4–6, 6–3, 3–6",
+    "recapText": "ESPN reports Leylah Fernandez as the winner of this round of 64 match. 4–6, 6–3, 3–6"
   },
   {
     "id": "fixture-tennis-espn-wta-185341",
@@ -144213,7 +144738,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "round": "knockout",
     "roundLabel": "Round of 64",
     "stage": "Round of 64",
-    "name": "Diane Parry v Anna Kalinskaya",
+    "name": "Diane Parry v Lanlana Tararudee",
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
@@ -144222,14 +144747,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
     "participantsConfirmed": true,
     "participantIds": [
       "competitor:tennis:wta:diane-parry",
-      "competitor:tennis:wta:anna-kalinskaya"
+      "competitor:tennis:wta:lanlana-tararudee"
     ],
     "participants": [
       {
@@ -144239,43 +144764,51 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "type": "athlete",
         "entityType": "athlete",
         "sportDomainId": "sport:tennis",
-        "countryCode": "FR"
+        "countryCode": "FR",
+        "sourceName": "WTA",
+        "sourceType": "official",
+        "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+        "sourceCheckedAt": "2026-10-13T07:18:05.511537+00:00"
       },
       {
-        "id": "competitor:tennis:wta:anna-kalinskaya",
-        "name": "Anna Kalinskaya",
-        "displayName": "Anna Kalinskaya",
+        "id": "competitor:tennis:wta:lanlana-tararudee",
+        "name": "Lanlana Tararudee",
+        "displayName": "Lanlana Tararudee",
         "type": "athlete",
         "entityType": "athlete",
         "sportDomainId": "sport:tennis",
-        "countryCode": "RU"
+        "sourceName": "WTA",
+        "sourceType": "official",
+        "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+        "sourceCheckedAt": "2026-10-13T07:18:05.511537+00:00"
       }
     ],
     "homeParticipantId": "competitor:tennis:wta:diane-parry",
-    "awayParticipantId": "competitor:tennis:wta:anna-kalinskaya",
+    "awayParticipantId": "competitor:tennis:wta:lanlana-tararudee",
     "venue": "Wuhan",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185341",
     "sourceCheckedAt": "2026-10-10T12:28:08.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:08.000Z",
-    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185341",
-    "statusSourceName": "ESPN",
+    "statusCheckedAt": "2026-10-13T07:18:05.511537+00:00",
+    "statusSourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+    "statusSourceName": "WTA",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185341",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261017",
+      "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
     "court": "",
-    "statusSourceType": "reputable",
+    "statusSourceType": "official",
     "selectedSentence": "",
     "fullSpiel": "",
     "sourceTrust": "unverified",
-    "displayTitleCompact": "Diane Parry v Anna Kalinskaya",
+    "displayTitleCompact": "Diane Parry v Lanlana Tararudee",
     "broadcastOptions": [
       "Australian viewing unconfirmed"
     ],
@@ -144284,9 +144817,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": false,
     "briefingEligible": false,
     "catchupEligible": false,
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "representativeCountryCodes": [],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "competitor:tennis:wta:diane-parry",
+        "label": "Diane Parry",
+        "logoUrl": null
+      },
+      {
+        "slot": 2,
+        "participantId": "competitor:tennis:wta:lanlana-tararudee",
+        "label": "Lanlana Tararudee",
+        "logoUrl": null
+      }
+    ],
+    "participantCountryCodes": [
+      "FR"
+    ],
+    "representativeCountryCodes": [
+      "FR"
+    ],
     "broadcasterIds": [],
     "broadcasts": [],
     "consensusTags": [
@@ -144298,7 +144848,147 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "pairingSourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+    "pairingSourceCheckedAt": "2026-10-13T07:18:05.511537+00:00",
+    "pairingEvidence": {
+      "kind": "reviewed-official-draw-correction",
+      "fixtureId": "fixture:tennis:espn:wta:185341",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "roundLabel": "Round of 64",
+      "priorParticipantIds": [
+        "competitor:tennis:wta:diane-parry",
+        "competitor:tennis:wta:anna-kalinskaya"
+      ],
+      "participantIds": [
+        "competitor:tennis:wta:diane-parry",
+        "competitor:tennis:wta:lanlana-tararudee"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:diane-parry",
+          "name": "Diane Parry",
+          "displayName": "Diane Parry",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis"
+        },
+        {
+          "id": "competitor:tennis:wta:lanlana-tararudee",
+          "name": "Lanlana Tararudee",
+          "displayName": "Lanlana Tararudee",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis"
+        }
+      ],
+      "officialPlayerLabels": [
+        "D. Parry",
+        "L. Tararudee"
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+      "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+      "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+      "validUntil": "2026-10-13T12:59:40.000Z",
+      "publisher": {
+        "fixtureId": "fixture:tennis:espn:wta:185341",
+        "eventId": "381-2026",
+        "roundLabel": "Round of 64",
+        "participantIds": [
+          "competitor:tennis:wta:diane-parry",
+          "competitor:tennis:wta:lanlana-tararudee"
+        ],
+        "status": "completed",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013",
+        "sourceSha256": "e758d8a3f55f2f9cfa9fe080e4b2895c9c75b092242791fb010d21a06ae92964",
+        "checkedAt": "2026-10-13T06:59:40.000Z",
+        "bodyCompletedAt": "2026-10-13T06:59:40.821Z",
+        "sets": [
+          {
+            "home": 4,
+            "away": 6
+          },
+          {
+            "home": 1,
+            "away": 6
+          }
+        ],
+        "winnerParticipantId": "competitor:tennis:wta:lanlana-tararudee"
+      },
+      "result": {
+        "kind": "official-draw-result",
+        "fixtureId": "fixture:tennis:espn:wta:185341",
+        "participantIds": [
+          "competitor:tennis:wta:diane-parry",
+          "competitor:tennis:wta:lanlana-tararudee"
+        ],
+        "winnerParticipantId": "competitor:tennis:wta:lanlana-tararudee",
+        "sets": [
+          {
+            "home": 4,
+            "away": 6
+          },
+          {
+            "home": 1,
+            "away": 6
+          }
+        ],
+        "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+        "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+        "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+        "matchRow": "D. Parry 4 1 / L. Tararudee 6 6; winner-b"
+      }
+    },
+    "sets": [
+      {
+        "home": 4,
+        "away": 6
+      },
+      {
+        "home": 1,
+        "away": 6
+      }
+    ],
+    "score": "4–6, 1–6",
+    "scoreDisplay": "4–6, 1–6",
+    "result": "4–6, 1–6",
+    "resultStatus": "official",
+    "winnerParticipantId": "competitor:tennis:wta:lanlana-tararudee",
+    "loserParticipantId": "competitor:tennis:wta:diane-parry",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:diane-parry"
+    ],
+    "resultEvidence": {
+      "kind": "official-draw-result",
+      "fixtureId": "fixture:tennis:espn:wta:185341",
+      "participantIds": [
+        "competitor:tennis:wta:diane-parry",
+        "competitor:tennis:wta:lanlana-tararudee"
+      ],
+      "winnerParticipantId": "competitor:tennis:wta:lanlana-tararudee",
+      "sets": [
+        {
+          "home": 4,
+          "away": 6
+        },
+        {
+          "home": 1,
+          "away": 6
+        }
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+      "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+      "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+      "matchRow": "D. Parry 4 1 / L. Tararudee 6 6; winner-b"
+    },
+    "resultSourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+    "resultSourceCheckedAt": "2026-10-13T07:18:05.511537+00:00",
+    "scoreCheckedAt": "2026-10-13T07:18:05.511537+00:00",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Lanlana Tararudee won. Diane Parry v Lanlana Tararudee: 4–6, 1–6.",
+    "recapText": "Lanlana Tararudee won. Diane Parry v Lanlana Tararudee: 4–6, 1–6."
   },
   {
     "id": "fixture-tennis-espn-wta-185342",
@@ -144333,12 +145023,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T06:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T06:20:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -144373,13 +145063,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185342",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185342",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185342",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -144412,8 +145102,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 5,
+        "awayTiebreak": 7
+      }
+    ],
+    "score": "3–6, 6–7",
+    "scoreDisplay": "3–6, 6–7",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185342",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:magdalena-frech",
+    "loserParticipantId": "competitor:tennis:wta:mananchaya-sawangkaew",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:mananchaya-sawangkaew"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 6–7",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Magdalena Frech won. 3–6, 6–7",
+    "recapText": "ESPN reports Magdalena Frech as the winner of this round of 64 match. 3–6, 6–7"
   },
   {
     "id": "fixture-tennis-espn-wta-185344",
@@ -144448,12 +145165,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-12",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T04:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T04:50:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -144488,13 +145205,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185344",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185344",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185344",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -144502,8 +145219,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Court 2",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Janice Tjen v Aoi Ito",
     "broadcastOptions": [
@@ -144603,7 +145318,34 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "sourceSha256": "9c166c7d1ea2ff503a7b4f3c2baa21aedc7e3b8e0a9c9fc1c359d8c60f5b96c0",
         "checkedAt": "2026-10-11T09:22:06.343Z"
       }
-    }
+    },
+    "sets": [
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 6,
+        "away": 1
+      }
+    ],
+    "score": "6–3, 6–1",
+    "scoreDisplay": "6–3, 6–1",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185344",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:janice-tjen",
+    "loserParticipantId": "competitor:tennis:wta:aoi-ito",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:aoi-ito"
+    ],
+    "resultStatus": "published",
+    "result": "6–3, 6–1",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Janice Tjen won. 6–3, 6–1",
+    "recapText": "ESPN reports Janice Tjen as the winner of this round of 64 match. 6–3, 6–1"
   },
   {
     "id": "epl-2026-27-128976",
@@ -145186,12 +145928,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T05:55:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -145221,18 +145963,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:arthur-gea",
     "awayParticipantId": "competitor:tennis:atp:jakub-mensik",
-    "venue": "Shanghai",
+    "venue": "Stadium Court",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184951",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184951",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184951",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -145250,7 +145992,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Stadium Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Arthur Gea v Jakub Mensik",
@@ -145275,8 +146017,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "sets": [
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 4
+      },
+      {
+        "home": 6,
+        "away": 4
+      }
+    ],
+    "score": "7–6, 6–4",
+    "scoreDisplay": "7–6, 6–4",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184951",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:arthur-gea",
+    "loserParticipantId": "competitor:tennis:atp:jakub-mensik",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:jakub-mensik"
+    ],
+    "resultStatus": "published",
+    "result": "7–6, 6–4",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Arthur Gea won. 7–6, 6–4",
+    "recapText": "ESPN reports Arthur Gea as the winner of this round of 16 match. 7–6, 6–4"
   },
   {
     "id": "fixture-tennis-espn-wta-185320",
@@ -145311,12 +146080,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T05:35:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -145346,27 +146115,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:guo-hanyu",
     "awayParticipantId": "competitor:tennis:wta:sorana-cirstea",
-    "venue": "Wuhan",
+    "venue": "Dongfeng Voyah Center Court",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185320",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185320",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185320",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Guo Hanyu v Sorana Cirstea",
     "broadcastOptions": [
@@ -145391,7 +146158,40 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 1,
+        "away": 6
+      },
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 8,
+        "awayTiebreak": 6
+      },
+      {
+        "home": 7,
+        "away": 5
+      }
+    ],
+    "score": "1–6, 7–6, 7–5",
+    "scoreDisplay": "1–6, 7–6, 7–5",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185320",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:guo-hanyu",
+    "loserParticipantId": "competitor:tennis:wta:sorana-cirstea",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:sorana-cirstea"
+    ],
+    "resultStatus": "published",
+    "result": "1–6, 7–6, 7–5",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Guo Hanyu won. 1–6, 7–6, 7–5",
+    "recapText": "ESPN reports Guo Hanyu as the winner of this round of 64 match. 1–6, 7–6, 7–5"
   },
   {
     "id": "fixture-tennis-espn-wta-185322",
@@ -145426,12 +146226,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T06:50:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -145461,27 +146261,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:lilli-tagger",
     "awayParticipantId": "competitor:tennis:wta:nikola-bartunkova",
-    "venue": "Wuhan",
+    "venue": "Court 3",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185322",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185322",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185322",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Court 3",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Lilli Tagger v Nikola Bartunkova",
     "broadcastOptions": [
@@ -145506,7 +146304,40 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 4,
+        "awayTiebreak": 7
+      },
+      {
+        "home": 6,
+        "away": 2
+      },
+      {
+        "home": 1,
+        "away": 6
+      }
+    ],
+    "score": "6–7, 6–2, 1–6",
+    "scoreDisplay": "6–7, 6–2, 1–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185322",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:nikola-bartunkova",
+    "loserParticipantId": "competitor:tennis:wta:lilli-tagger",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:lilli-tagger"
+    ],
+    "resultStatus": "published",
+    "result": "6–7, 6–2, 1–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Nikola Bartunkova won. 6–7, 6–2, 1–6",
+    "recapText": "ESPN reports Nikola Bartunkova as the winner of this round of 64 match. 6–7, 6–2, 1–6"
   },
   {
     "id": "fixture-tennis-espn-wta-185323",
@@ -145541,12 +146372,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T05:35:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -145575,24 +146406,24 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:yulia-putintseva",
     "awayParticipantId": "competitor:tennis:wta:zeynep-sonmez",
-    "venue": "Wuhan",
+    "venue": "Court 1",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185323",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185323",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185323",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Yulia Putintseva v Zeynep Sonmez",
@@ -145619,8 +146450,39 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "sets": [
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 1,
+        "awayTiebreak": 7
+      },
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 7,
+        "away": 5
+      }
+    ],
+    "score": "6–7, 6–3, 7–5",
+    "scoreDisplay": "6–7, 6–3, 7–5",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185323",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:yulia-putintseva",
+    "loserParticipantId": "competitor:tennis:wta:zeynep-sonmez",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:zeynep-sonmez"
+    ],
+    "resultStatus": "published",
+    "result": "6–7, 6–3, 7–5",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Yulia Putintseva won. 6–7, 6–3, 7–5",
+    "recapText": "ESPN reports Yulia Putintseva as the winner of this round of 64 match. 6–7, 6–3, 7–5"
   },
   {
     "id": "fixture-tennis-espn-wta-185324",
@@ -145655,12 +146517,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T06:30:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -145690,27 +146552,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:katie-boulter",
     "awayParticipantId": "competitor:tennis:wta:diana-shnaider",
-    "venue": "Wuhan",
+    "venue": "Court 2",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185324",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185324",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185324",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Court 2",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Katie Boulter v Diana Shnaider",
     "broadcastOptions": [
@@ -145735,7 +146595,34 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 1,
+        "away": 6
+      }
+    ],
+    "score": "3–6, 1–6",
+    "scoreDisplay": "3–6, 1–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185324",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:diana-shnaider",
+    "loserParticipantId": "competitor:tennis:wta:katie-boulter",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:katie-boulter"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 1–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Diana Shnaider won. 3–6, 1–6",
+    "recapText": "ESPN reports Diana Shnaider as the winner of this round of 64 match. 3–6, 1–6"
   },
   {
     "id": "fixture-tennis-espn-wta-185325",
@@ -145770,12 +146657,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-12T13:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-12T13:05:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -145810,13 +146697,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185325",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185325",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185325",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
@@ -145849,8 +146736,37 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "score": "6–4, 3–6, 3–6",
+    "scoreDisplay": "6–4, 3–6, 3–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185325",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:shi-han",
+    "loserParticipantId": "competitor:tennis:wta:alexandra-eala",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:alexandra-eala"
+    ],
+    "resultStatus": "published",
+    "result": "6–4, 3–6, 3–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Shi Han won. 6–4, 3–6, 3–6",
+    "recapText": "ESPN reports Shi Han as the winner of this round of 64 match. 6–4, 3–6, 3–6"
   },
   {
     "id": "fixture-tennis-espn-wta-185326",
@@ -145885,12 +146801,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T03:00:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -145920,27 +146836,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:dayana-yastremska",
     "awayParticipantId": "competitor:tennis:wta:cristina-bucsa",
-    "venue": "Wuhan",
+    "venue": "Court 1",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185326",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185326",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185326",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Court 1",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Dayana Yastremska v Cristina Bucsa",
     "broadcastOptions": [
@@ -145965,7 +146879,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 5,
+        "away": 7
+      },
+      {
+        "home": 6,
+        "away": 3
+      }
+    ],
+    "score": "6–4, 5–7, 6–3",
+    "scoreDisplay": "6–4, 5–7, 6–3",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185326",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:dayana-yastremska",
+    "loserParticipantId": "competitor:tennis:wta:cristina-bucsa",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:cristina-bucsa"
+    ],
+    "resultStatus": "published",
+    "result": "6–4, 5–7, 6–3",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Dayana Yastremska won. 6–4, 5–7, 6–3",
+    "recapText": "ESPN reports Dayana Yastremska as the winner of this round of 64 match. 6–4, 5–7, 6–3"
   },
   {
     "id": "fixture-tennis-espn-wta-185330",
@@ -146000,12 +146945,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T03:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -146035,27 +146980,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:katerina-siniakova",
     "awayParticipantId": "competitor:tennis:wta:liudmila-samsonova",
-    "venue": "Wuhan",
+    "venue": "Dongfeng Voyah Center Court",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185330",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185330",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185330",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Katerina Siniakova v Liudmila Samsonova",
     "broadcastOptions": [
@@ -146080,7 +147023,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 1,
+        "away": 6
+      },
+      {
+        "home": 7,
+        "away": 5
+      },
+      {
+        "home": 2,
+        "away": 6
+      }
+    ],
+    "score": "1–6, 7–5, 2–6",
+    "scoreDisplay": "1–6, 7–5, 2–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185330",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:liudmila-samsonova",
+    "loserParticipantId": "competitor:tennis:wta:katerina-siniakova",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:katerina-siniakova"
+    ],
+    "resultStatus": "published",
+    "result": "1–6, 7–5, 2–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Liudmila Samsonova won. 1–6, 7–5, 2–6",
+    "recapText": "ESPN reports Liudmila Samsonova as the winner of this round of 64 match. 1–6, 7–5, 2–6"
   },
   {
     "id": "fixture-tennis-espn-wta-185332",
@@ -146115,12 +147089,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T05:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -146150,27 +147124,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:mayar-sherif",
     "awayParticipantId": "competitor:tennis:wta:maja-chwalinska",
-    "venue": "Wuhan",
+    "venue": "Court 3",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185332",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185332",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185332",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Court 3",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Mayar Sherif v Maja Chwalinska",
     "broadcastOptions": [
@@ -146195,7 +147167,34 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 2,
+        "away": 6
+      }
+    ],
+    "score": "3–6, 2–6",
+    "scoreDisplay": "3–6, 2–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185332",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:maja-chwalinska",
+    "loserParticipantId": "competitor:tennis:wta:mayar-sherif",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:mayar-sherif"
+    ],
+    "resultStatus": "published",
+    "result": "3–6, 2–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Maja Chwalinska won. 3–6, 2–6",
+    "recapText": "ESPN reports Maja Chwalinska as the winner of this round of 64 match. 3–6, 2–6"
   },
   {
     "id": "fixture-tennis-espn-wta-185335",
@@ -146230,12 +147229,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T03:00:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -146265,24 +147264,24 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:kimberly-birrell",
     "awayParticipantId": "competitor:tennis:wta:katie-volynets",
-    "venue": "Wuhan",
+    "venue": "Court 2",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185335",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185335",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185335",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Court 2",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Kimberly Birrell v Katie Volynets",
@@ -146309,8 +147308,41 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "sets": [
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 1
+      },
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 3,
+        "awayTiebreak": 7
+      },
+      {
+        "home": 3,
+        "away": 6
+      }
+    ],
+    "score": "7–6, 6–7, 3–6",
+    "scoreDisplay": "7–6, 6–7, 3–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185335",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:katie-volynets",
+    "loserParticipantId": "competitor:tennis:wta:kimberly-birrell",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:kimberly-birrell"
+    ],
+    "resultStatus": "published",
+    "result": "7–6, 6–7, 3–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Katie Volynets won. 7–6, 6–7, 3–6",
+    "recapText": "ESPN reports Katie Volynets as the winner of this round of 64 match. 7–6, 6–7, 3–6"
   },
   {
     "id": "fixture-tennis-espn-wta-185337",
@@ -146345,12 +147377,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T08:45:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -146381,24 +147413,24 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:daria-kasatkina",
     "awayParticipantId": "competitor:tennis:wta:jelena-ostapenko",
-    "venue": "Wuhan",
+    "venue": "Court 1",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185337",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185337",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185337",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Daria Kasatkina v Jelena Ostapenko",
@@ -146425,8 +147457,33 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "",
-    "fullSpiel": ""
+    "sets": [
+      {
+        "home": 1,
+        "away": 6
+      },
+      {
+        "home": 1,
+        "away": 6
+      }
+    ],
+    "score": "1–6, 1–6",
+    "scoreDisplay": "1–6, 1–6",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185337",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:jelena-ostapenko",
+    "loserParticipantId": "competitor:tennis:wta:daria-kasatkina",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:daria-kasatkina"
+    ],
+    "resultStatus": "published",
+    "result": "1–6, 1–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Jelena Ostapenko won. 1–6, 1–6",
+    "recapText": "ESPN reports Jelena Ostapenko as the winner of this round of 64 match. 1–6, 1–6"
   },
   {
     "id": "fixture-tennis-espn-wta-185339",
@@ -146461,12 +147518,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T08:15:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -146497,27 +147554,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:wta:daria-snigur",
     "awayParticipantId": "competitor:tennis:wta:elise-mertens",
-    "venue": "Wuhan",
+    "venue": "Court 2",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185339",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185339",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185339",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Court 2",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Daria Snigur v Elise Mertens",
     "broadcastOptions": [
@@ -146542,7 +147597,34 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 6,
+        "away": 4
+      },
+      {
+        "home": 7,
+        "away": 5
+      }
+    ],
+    "score": "6–4, 7–5",
+    "scoreDisplay": "6–4, 7–5",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185339",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:daria-snigur",
+    "loserParticipantId": "competitor:tennis:wta:elise-mertens",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:elise-mertens"
+    ],
+    "resultStatus": "published",
+    "result": "6–4, 7–5",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Daria Snigur won. 6–4, 7–5",
+    "recapText": "ESPN reports Daria Snigur as the winner of this round of 64 match. 6–4, 7–5"
   },
   {
     "id": "fixture-tennis-espn-wta-185340",
@@ -146573,11 +147655,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "round": "knockout",
     "roundLabel": "Round of 64",
     "stage": "Round of 64",
-    "name": "Anna Kalinskaya v Zhang Shuai",
+    "name": "Ashlyn Krueger v Zhang Shuai",
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T11:00:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
@@ -146588,18 +147670,17 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "contestUnit": "match",
     "participantsConfirmed": true,
     "participantIds": [
-      "competitor:tennis:wta:anna-kalinskaya",
+      "competitor:tennis:wta:ashlyn-krueger",
       "competitor:tennis:wta:zhang-shuai"
     ],
     "participants": [
       {
-        "id": "competitor:tennis:wta:anna-kalinskaya",
-        "name": "Anna Kalinskaya",
-        "displayName": "Anna Kalinskaya",
+        "id": "competitor:tennis:wta:ashlyn-krueger",
+        "name": "Ashlyn Krueger",
+        "displayName": "Ashlyn Krueger",
         "type": "athlete",
         "entityType": "athlete",
-        "sportDomainId": "sport:tennis",
-        "countryCode": "RU"
+        "sportDomainId": "sport:tennis"
       },
       {
         "id": "competitor:tennis:wta:zhang-shuai",
@@ -146610,31 +147691,31 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "sportDomainId": "sport:tennis"
       }
     ],
-    "homeParticipantId": "competitor:tennis:wta:anna-kalinskaya",
+    "homeParticipantId": "competitor:tennis:wta:ashlyn-krueger",
     "awayParticipantId": "competitor:tennis:wta:zhang-shuai",
-    "venue": "Wuhan",
+    "venue": "Dongfeng Voyah Center Court",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185340",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185340",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185340",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "selectedSentence": "",
     "fullSpiel": "",
     "sourceTrust": "unverified",
-    "displayTitleCompact": "Anna Kalinskaya v Zhang Shuai",
+    "displayTitleCompact": "Ashlyn Krueger v Zhang Shuai",
     "broadcastOptions": [
       "Australian viewing unconfirmed"
     ],
@@ -146646,8 +147727,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantSlots": [
       {
         "slot": 1,
-        "participantId": "competitor:tennis:wta:anna-kalinskaya",
-        "label": "Anna Kalinskaya",
+        "participantId": "competitor:tennis:wta:ashlyn-krueger",
+        "label": "Ashlyn Krueger",
         "logoUrl": null
       },
       {
@@ -146657,12 +147738,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "logoUrl": null
       }
     ],
-    "participantCountryCodes": [
-      "RU"
-    ],
-    "representativeCountryCodes": [
-      "RU"
-    ],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
     "consensusTags": [
@@ -146676,30 +147753,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "pairingSourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
-    "pairingSourceCheckedAt": "2026-10-11T11:08:55.586Z",
+    "pairingSourceCheckedAt": "2026-10-13T07:18:05.511537+00:00",
     "pairingEvidence": {
-      "kind": "reviewed-official-draw-update",
+      "kind": "reviewed-official-draw-correction",
       "fixtureId": "fixture:tennis:espn:wta:185340",
       "tournamentId": "tournament:tennis:wta-wuhan-2026",
       "roundLabel": "Round of 64",
       "priorParticipantIds": [
-        "competitor:tennis:wta:belinda-bencic",
+        "competitor:tennis:wta:anna-kalinskaya",
         "competitor:tennis:wta:zhang-shuai"
       ],
       "participantIds": [
-        "competitor:tennis:wta:anna-kalinskaya",
+        "competitor:tennis:wta:ashlyn-krueger",
         "competitor:tennis:wta:zhang-shuai"
       ],
       "participants": [
         {
-          "id": "competitor:tennis:wta:anna-kalinskaya",
-          "name": "Anna Kalinskaya",
-          "displayName": "Anna Kalinskaya",
+          "id": "competitor:tennis:wta:ashlyn-krueger",
+          "name": "Ashlyn Krueger",
+          "displayName": "Ashlyn Krueger",
           "type": "athlete",
           "entityType": "athlete",
-          "sportDomainId": "sport:tennis",
-          "countryCode": "RU",
-          "officialDrawLabel": "A. Kalinskaya"
+          "sportDomainId": "sport:tennis"
         },
         {
           "id": "competitor:tennis:wta:zhang-shuai",
@@ -146707,30 +147782,30 @@ globalThis.NOTHINGSPORTS_EVENTS = [
           "displayName": "Zhang Shuai",
           "type": "athlete",
           "entityType": "athlete",
-          "sportDomainId": "sport:tennis",
-          "officialDrawLabel": "S. Zhang"
+          "sportDomainId": "sport:tennis"
         }
       ],
       "officialPlayerLabels": [
-        "A. Kalinskaya",
+        "A. Krueger",
         "S. Zhang"
       ],
       "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
-      "sourceSha256": "33646037b8e4fdb3d852d3c7ccbd0a713518d356e79b3a22f607af0ff545f3e0",
-      "checkedAt": "2026-10-11T11:08:55.586Z",
-      "validBefore": "2026-10-12T00:00:00+08:00",
+      "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+      "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+      "validUntil": "2026-10-13T12:59:40.000Z",
       "publisher": {
         "fixtureId": "fixture:tennis:espn:wta:185340",
         "eventId": "381-2026",
         "roundLabel": "Round of 64",
         "participantIds": [
-          "competitor:tennis:wta:anna-kalinskaya",
+          "competitor:tennis:wta:ashlyn-krueger",
           "competitor:tennis:wta:zhang-shuai"
         ],
         "status": "scheduled",
-        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261011",
-        "sourceSha256": "9c166c7d1ea2ff503a7b4f3c2baa21aedc7e3b8e0a9c9fc1c359d8c60f5b96c0",
-        "checkedAt": "2026-10-11T09:22:06.343Z"
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013",
+        "sourceSha256": "e758d8a3f55f2f9cfa9fe080e4b2895c9c75b092242791fb010d21a06ae92964",
+        "checkedAt": "2026-10-13T06:59:40.000Z",
+        "bodyCompletedAt": "2026-10-13T06:59:40.821Z"
       }
     }
   },
@@ -146763,23 +147838,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "round": "knockout",
     "roundLabel": "Round of 64",
     "stage": "Round of 64",
-    "name": "Ann Li v Zheng Qinwen",
+    "name": "Ann Li v Camila Osorio",
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T10:00:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "live",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
     "participantsConfirmed": true,
     "participantIds": [
       "competitor:tennis:wta:ann-li",
-      "competitor:tennis:wta:zheng-qinwen"
+      "competitor:tennis:wta:camila-osorio"
     ],
     "participants": [
       {
@@ -146792,39 +147867,39 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "countryCode": "US"
       },
       {
-        "id": "competitor:tennis:wta:zheng-qinwen",
-        "name": "Zheng Qinwen",
-        "displayName": "Zheng Qinwen",
+        "id": "competitor:tennis:wta:camila-osorio",
+        "name": "Camila Osorio",
+        "displayName": "Camila Osorio",
         "type": "athlete",
         "entityType": "athlete",
         "sportDomainId": "sport:tennis"
       }
     ],
     "homeParticipantId": "competitor:tennis:wta:ann-li",
-    "awayParticipantId": "competitor:tennis:wta:zheng-qinwen",
-    "venue": "Wuhan",
+    "awayParticipantId": "competitor:tennis:wta:camila-osorio",
+    "venue": "Court 1",
     "venueCity": "Wuhan",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185343",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185343",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185343",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
     "broadcaster": "Australian viewing unconfirmed",
     "viewingOptions": [],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Court 1",
     "statusSourceType": "reputable",
     "selectedSentence": "",
     "fullSpiel": "",
     "sourceTrust": "unverified",
-    "displayTitleCompact": "Ann Li v Zheng Qinwen",
+    "displayTitleCompact": "Ann Li v Camila Osorio",
     "broadcastOptions": [
       "Australian viewing unconfirmed"
     ],
@@ -146833,9 +147908,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": false,
     "briefingEligible": false,
     "catchupEligible": false,
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "representativeCountryCodes": [],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "competitor:tennis:wta:ann-li",
+        "label": "Ann Li",
+        "logoUrl": null
+      },
+      {
+        "slot": 2,
+        "participantId": "competitor:tennis:wta:camila-osorio",
+        "label": "Camila Osorio",
+        "logoUrl": null
+      }
+    ],
+    "participantCountryCodes": [
+      "US"
+    ],
+    "representativeCountryCodes": [
+      "US"
+    ],
     "broadcasterIds": [],
     "broadcasts": [],
     "consensusTags": [
@@ -146847,7 +147939,66 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "pairingSourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+    "pairingSourceCheckedAt": "2026-10-13T07:18:05.511537+00:00",
+    "pairingEvidence": {
+      "kind": "reviewed-official-draw-correction",
+      "fixtureId": "fixture:tennis:espn:wta:185343",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "roundLabel": "Round of 64",
+      "priorParticipantIds": [
+        "competitor:tennis:wta:ann-li",
+        "competitor:tennis:wta:zheng-qinwen"
+      ],
+      "participantIds": [
+        "competitor:tennis:wta:ann-li",
+        "competitor:tennis:wta:camila-osorio"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:wta:ann-li",
+          "name": "Ann Li"
+        },
+        {
+          "id": "competitor:tennis:wta:camila-osorio",
+          "name": "Camila Osorio"
+        }
+      ],
+      "officialPlayerLabels": [
+        "A. Li",
+        "C. Osorio"
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws",
+      "sourceSha256": "3f70f1b7c00399068798a602b16dfc4490b439d0d6d0a7bc3de3184bb740e941",
+      "checkedAt": "2026-10-13T07:18:05.511537+00:00",
+      "validUntil": "2026-10-13T12:59:40.000Z",
+      "publisher": {
+        "fixtureId": "fixture:tennis:espn:wta:185343",
+        "eventId": "381-2026",
+        "roundLabel": "Round of 64",
+        "participantIds": [
+          "competitor:tennis:wta:ann-li",
+          "competitor:tennis:wta:camila-osorio"
+        ],
+        "status": "scheduled",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013",
+        "sourceSha256": "e758d8a3f55f2f9cfa9fe080e4b2895c9c75b092242791fb010d21a06ae92964",
+        "checkedAt": "2026-10-13T06:59:40.000Z",
+        "bodyCompletedAt": "2026-10-13T06:59:40.821Z"
+      }
+    },
+    "sets": [
+      {
+        "home": 4,
+        "away": 0
+      }
+    ],
+    "score": "4–0",
+    "scoreDisplay": "4–0",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185343",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z"
   },
   {
     "id": "fixture-mlb-849813",
@@ -263981,7 +265132,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T11:30:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
@@ -264017,18 +265168,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:hubert-hurkacz",
     "awayParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
-    "venue": "Shanghai",
+    "venue": "Stadium Court",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
-    "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
-    "statusCheckedAt": "2026-10-11T19:55:36.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184952",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -264046,7 +265197,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Stadium Court",
     "statusSourceType": "reputable",
     "selectedSentence": "",
     "fullSpiel": "",
@@ -264107,12 +265258,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T04:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T10:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "live",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -264143,18 +265294,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:alexander-zverev",
     "awayParticipantId": "competitor:tennis:atp:alexander-bublik",
-    "venue": "Shanghai",
+    "venue": "Stadium Court",
     "venueCity": "Shanghai",
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
-    "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
-    "statusCheckedAt": "2026-10-11T19:55:36.000Z",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184959",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -264172,7 +265323,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "expected": null,
     "liveWindow": 5,
-    "court": "",
+    "court": "Stadium Court",
     "statusSourceType": "reputable",
     "selectedSentence": "",
     "fullSpiel": "",
@@ -264198,7 +265349,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "sets": [
+      {
+        "home": 0,
+        "away": 1
+      }
+    ],
+    "score": "0–1",
+    "scoreDisplay": "0–1",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z"
   },
   {
     "id": "fixture-tennis-espn-atp-184950",
@@ -264238,7 +265400,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "confirmed",
     "timeTbc": false,
     "scheduleNote": "Starts at 12:00 Shanghai (15:00 Sydney), 13 October; directly attached to de Minaur–Khachanov, the first Stadium Court match in the official order of play.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -264269,18 +265431,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "homeParticipantId": "competitor:tennis:atp:alex-de-minaur",
     "awayParticipantId": "competitor:tennis:atp:karen-khachanov",
-    "venue": "Shanghai",
+    "venue": "Stadium Court",
     "venueCity": "Shanghai",
     "sourceName": "ATP Shanghai official order of play",
     "sourceType": "official",
     "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
     "sourceCheckedAt": "2026-10-12T13:26:58.180994+00:00",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184950",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184950",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -264323,8 +265485,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "method": "published-schedule.v1"
       }
     ],
-    "selectedSentence": "De Minaur's Turin chase meets Khachanov's big-stage pedigree, with recovery and rally depth both under examination.",
-    "fullSpiel": "A Shanghai quarterfinal place is at stake on the hard courts. Tennis Australia's current preview says a De Minaur victory would move him to ninth in the race to Turin; that is a route towards qualification, not a guaranteed Finals berth. Keeping Khachanov from dictating the rally will matter as much as retrieving another ball. Recovery progress is the player's account, not a medical declaration of full fitness. Neither this match's outcome nor scores from earlier rounds are revealed.",
     "schedulePrecision": "exact",
     "dateOnly": false,
     "startTimeTbc": false,
@@ -264390,31 +265550,34 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Alex de Minaur v Karen Khachanov - Shanghai round of 16",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path",
-        "narrative:history",
-        "narrative:consequence"
-      ],
-      "sourceName": "Alex de Minaur v Karen Khachanov - Shanghai round of 16 — official research 1",
-      "sourceUrl": "https://www.tennis.com.au/fan-zone/news/2026/10/11/de-minaur-wins-again-to-reach-shanghai-masters-fourth-round",
-      "sourceCheckedAt": "2026-10-12T22:50:31.088Z",
-      "needsPreviewRefresh": false
-    },
     "lastReviewedAt": "2026-10-12T22:50:31.088Z",
-    "storyline": {
-      "researchDepth": 5,
-      "arcStage": "preview",
-      "hookSpoilerOff": "De Minaur's Turin chase meets Khachanov's big-stage pedigree, with recovery and rally depth both under examination.",
-      "hookSpoilerOn": "De Minaur's Turin chase meets Khachanov's big-stage pedigree, with recovery and rally depth both under examination.",
-      "synopsisSpoilerOff": "A Shanghai quarterfinal place is at stake on the hard courts. Tennis Australia's current preview says a De Minaur victory would move him to ninth in the race to Turin; that is a route towards qualification, not a guaranteed Finals berth. Keeping Khachanov from dictating the rally will matter as much as retrieving another ball. Recovery progress is the player's account, not a medical declaration of full fitness. Neither this match's outcome nor scores from earlier rounds are revealed.",
-      "synopsisSpoilerOn": "A Shanghai quarterfinal place is at stake on the hard courts. Tennis Australia's current preview says a De Minaur victory would move him to ninth in the race to Turin; that is a route towards qualification, not a guaranteed Finals berth. Keeping Khachanov from dictating the rally will matter as much as retrieving another ball. Recovery progress is the player's account, not a medical declaration of full fitness. Neither this match's outcome nor scores from earlier rounds are revealed.",
-      "lastReviewedAt": "2026-10-12T22:50:31.088Z"
-    }
+    "sets": [
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 6,
+        "away": 4
+      }
+    ],
+    "score": "6–3, 6–4",
+    "scoreDisplay": "6–3, 6–4",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184950",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:alex-de-minaur",
+    "loserParticipantId": "competitor:tennis:atp:karen-khachanov",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:karen-khachanov"
+    ],
+    "resultStatus": "published",
+    "result": "6–3, 6–4",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Alex De Minaur won. 6–3, 6–4",
+    "recapText": "ESPN reports Alex De Minaur as the winner of this round of 16 match. 6–3, 6–4"
   },
   {
     "id": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
@@ -267962,5 +269125,1879 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Nikola Bartunkova won. 6–4, 6–3",
       "synopsisSpoilerOn": "ESPN reports Nikola Bartunkova as the winner of this round of 32 match. 6–4, 6–3"
     }
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184953",
+    "eventId": "fixture-tennis-espn-atp-184953",
+    "canonicalEventId": "fixture:tennis:espn:atp:184953",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184953",
+      "fixture-tennis-espn-atp-184953"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184953",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 16",
+    "stage": "Round of 16",
+    "name": "Botic van de Zandschulp v Rafael Jodar",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:botic-van-de-zandschulp",
+      "competitor:tennis:atp:rafael-jodar"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:botic-van-de-zandschulp",
+        "name": "Botic van de Zandschulp",
+        "displayName": "Botic van de Zandschulp",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "NL"
+      },
+      {
+        "id": "competitor:tennis:atp:rafael-jodar",
+        "name": "Rafael Jodar",
+        "displayName": "Rafael Jodar",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "ES"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:botic-van-de-zandschulp",
+    "awayParticipantId": "competitor:tennis:atp:rafael-jodar",
+    "venue": "Stadium Court",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184953",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184953",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184953",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+        "verifiedAt": "2026-10-11T05:19:19.930Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Botic van de Zandschulp v Rafael Jodar",
+    "broadcastOptions": [],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184953"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184948",
+    "eventId": "fixture-tennis-espn-atp-184948",
+    "canonicalEventId": "fixture:tennis:espn:atp:184948",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184948",
+      "fixture-tennis-espn-atp-184948"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184948",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 16",
+    "stage": "Round of 16",
+    "name": "Casper Ruud v Felix Auger Aliassime",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T05:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:casper-ruud",
+      "competitor:tennis:atp:felix-auger-aliassime"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:casper-ruud",
+        "name": "Casper Ruud",
+        "displayName": "Casper Ruud",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "NO"
+      },
+      {
+        "id": "competitor:tennis:atp:felix-auger-aliassime",
+        "name": "Felix Auger Aliassime",
+        "displayName": "Felix Auger Aliassime",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CA"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:casper-ruud",
+    "awayParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
+    "venue": "Stadium Court",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184948",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+        "verifiedAt": "2026-10-11T05:19:19.930Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Casper Ruud v Felix Auger Aliassime",
+    "broadcastOptions": [],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184948"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184949",
+    "eventId": "fixture-tennis-espn-atp-184949",
+    "canonicalEventId": "fixture:tennis:espn:atp:184949",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184949",
+      "fixture-tennis-espn-atp-184949"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184949",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 16",
+    "stage": "Round of 16",
+    "name": "Daniil Medvedev v Stefanos Tsitsipas",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T10:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:daniil-medvedev",
+      "competitor:tennis:atp:stefanos-tsitsipas"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:daniil-medvedev",
+        "name": "Daniil Medvedev",
+        "displayName": "Daniil Medvedev",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "RU"
+      },
+      {
+        "id": "competitor:tennis:atp:stefanos-tsitsipas",
+        "name": "Stefanos Tsitsipas",
+        "displayName": "Stefanos Tsitsipas",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "GR"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:daniil-medvedev",
+    "awayParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
+    "venue": "Stadium Court",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184949",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+        "verifiedAt": "2026-10-11T05:19:19.930Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Daniil Medvedev v Stefanos Tsitsipas",
+    "broadcastOptions": [],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184949"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184958",
+    "eventId": "fixture-tennis-espn-atp-184958",
+    "canonicalEventId": "fixture:tennis:espn:atp:184958",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184958",
+      "fixture-tennis-espn-atp-184958"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184958",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 16",
+    "stage": "Round of 16",
+    "name": "Tommy Paul v Zizou Bergs",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T11:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:tommy-paul",
+      "competitor:tennis:atp:zizou-bergs"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:tommy-paul",
+        "name": "Tommy Paul",
+        "displayName": "Tommy Paul",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      },
+      {
+        "id": "competitor:tennis:atp:zizou-bergs",
+        "name": "Zizou Bergs",
+        "displayName": "Zizou Bergs",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "BE"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:tommy-paul",
+    "awayParticipantId": "competitor:tennis:atp:zizou-bergs",
+    "venue": "Stadium Court",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184958",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184958",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184958",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+        "verifiedAt": "2026-10-11T05:19:19.930Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Tommy Paul v Zizou Bergs",
+    "broadcastOptions": [],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184958"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185360",
+    "eventId": "fixture-tennis-espn-wta-185360",
+    "canonicalEventId": "fixture:tennis:espn:wta:185360",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185360",
+      "fixture-tennis-espn-wta-185360"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185360",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Maria Sakkari v Marta Kostyuk",
+    "date": "2026-10-13",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-13T08:35:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "live",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:maria-sakkari",
+      "competitor:tennis:wta:marta-kostyuk"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:maria-sakkari",
+        "name": "Maria Sakkari",
+        "displayName": "Maria Sakkari",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "GR"
+      },
+      {
+        "id": "competitor:tennis:wta:marta-kostyuk",
+        "name": "Marta Kostyuk",
+        "displayName": "Marta Kostyuk",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "UA"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:maria-sakkari",
+    "awayParticipantId": "competitor:tennis:wta:marta-kostyuk",
+    "venue": "Dongfeng Voyah Center Court",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185360",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185360",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185360",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Dongfeng Voyah Center Court",
+    "statusSourceType": "reputable",
+    "sets": [
+      {
+        "home": 4,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 2
+      },
+      {
+        "home": 3,
+        "away": 1
+      }
+    ],
+    "score": "4–6, 6–2, 3–1",
+    "scoreDisplay": "4–6, 6–2, 3–1",
+    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185360",
+    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Maria Sakkari v Marta Kostyuk",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185360"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185359",
+    "eventId": "fixture-tennis-espn-wta-185359",
+    "canonicalEventId": "fixture:tennis:espn:wta:185359",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185359",
+      "fixture-tennis-espn-wta-185359"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185359",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Mia Pohankova v Wang Xiyu",
+    "date": "2026-10-13",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-13T12:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:mia-pohankova",
+      "competitor:tennis:wta:wang-xiyu"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:mia-pohankova",
+        "name": "Mia Pohankova",
+        "displayName": "Mia Pohankova",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:wta:wang-xiyu",
+        "name": "Wang Xiyu",
+        "displayName": "Wang Xiyu",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:mia-pohankova",
+    "awayParticipantId": "competitor:tennis:wta:wang-xiyu",
+    "venue": "Dongfeng Voyah Center Court",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185359",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185359",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185359",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Dongfeng Voyah Center Court",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Mia Pohankova v Wang Xiyu",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185359"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185349",
+    "eventId": "fixture-tennis-espn-wta-185349",
+    "canonicalEventId": "fixture:tennis:espn:wta:185349",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185349",
+      "fixture-tennis-espn-wta-185349"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185349",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Elina Svitolina v Liudmila Samsonova",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T03:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:elina-svitolina",
+      "competitor:tennis:wta:liudmila-samsonova"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:elina-svitolina",
+        "name": "Elina Svitolina",
+        "displayName": "Elina Svitolina",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "UA"
+      },
+      {
+        "id": "competitor:tennis:wta:liudmila-samsonova",
+        "name": "Liudmila Samsonova",
+        "displayName": "Liudmila Samsonova",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "RU"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:elina-svitolina",
+    "awayParticipantId": "competitor:tennis:wta:liudmila-samsonova",
+    "venue": "Court 1",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185349",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185349",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185349",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Court 1",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Elina Svitolina v Liudmila Samsonova",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185349"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185352",
+    "eventId": "fixture-tennis-espn-wta-185352",
+    "canonicalEventId": "fixture:tennis:espn:wta:185352",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185352",
+      "fixture-tennis-espn-wta-185352"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185352",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Sonay Kartal v Belinda Bencic",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T03:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:sonay-kartal",
+      "competitor:tennis:wta:belinda-bencic"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:sonay-kartal",
+        "name": "Sonay Kartal",
+        "displayName": "Sonay Kartal",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:wta:belinda-bencic",
+        "name": "Belinda Bencic",
+        "displayName": "Belinda Bencic",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CH"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:sonay-kartal",
+    "awayParticipantId": "competitor:tennis:wta:belinda-bencic",
+    "venue": "Court 2",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185352",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185352",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185352",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Court 2",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Sonay Kartal v Belinda Bencic",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185352"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185355",
+    "eventId": "fixture-tennis-espn-wta-185355",
+    "canonicalEventId": "fixture:tennis:espn:wta:185355",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185355",
+      "fixture-tennis-espn-wta-185355"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185355",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Magdalena Frech v Iga Swiatek",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T03:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:magdalena-frech",
+      "competitor:tennis:wta:iga-swiatek"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:magdalena-frech",
+        "name": "Magdalena Frech",
+        "displayName": "Magdalena Frech",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "PL"
+      },
+      {
+        "id": "competitor:tennis:wta:iga-swiatek",
+        "name": "Iga Swiatek",
+        "displayName": "Iga Swiatek",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "PL"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:magdalena-frech",
+    "awayParticipantId": "competitor:tennis:wta:iga-swiatek",
+    "venue": "Dongfeng Voyah Center Court",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185355",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185355",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185355",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Dongfeng Voyah Center Court",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Magdalena Frech v Iga Swiatek",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185355"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185358",
+    "eventId": "fixture-tennis-espn-wta-185358",
+    "canonicalEventId": "fixture:tennis:espn:wta:185358",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185358",
+      "fixture-tennis-espn-wta-185358"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185358",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Marie Bouzkova v Maja Chwalinska",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T03:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:marie-bouzkova",
+      "competitor:tennis:wta:maja-chwalinska"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:marie-bouzkova",
+        "name": "Marie Bouzkova",
+        "displayName": "Marie Bouzkova",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CZ"
+      },
+      {
+        "id": "competitor:tennis:wta:maja-chwalinska",
+        "name": "Maja Chwalinska",
+        "displayName": "Maja Chwalinska",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "PL"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:marie-bouzkova",
+    "awayParticipantId": "competitor:tennis:wta:maja-chwalinska",
+    "venue": "Court 3",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185358",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Court 3",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Marie Bouzkova v Maja Chwalinska",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185358"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185345",
+    "eventId": "fixture-tennis-espn-wta-185345",
+    "canonicalEventId": "fixture:tennis:espn:wta:185345",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185345",
+      "fixture-tennis-espn-wta-185345"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185345",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Karolina Muchova v Catherine McNally",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T04:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:karolina-muchova",
+      "competitor:tennis:wta:catherine-mcnally"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:karolina-muchova",
+        "name": "Karolina Muchova",
+        "displayName": "Karolina Muchova",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CZ"
+      },
+      {
+        "id": "competitor:tennis:wta:catherine-mcnally",
+        "name": "Catherine McNally",
+        "displayName": "Catherine McNally",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:karolina-muchova",
+    "awayParticipantId": "competitor:tennis:wta:catherine-mcnally",
+    "venue": "Dongfeng Voyah Center Court",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185345",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185345",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185345",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Dongfeng Voyah Center Court",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Karolina Muchova v Catherine McNally",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185345"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185346",
+    "eventId": "fixture-tennis-espn-wta-185346",
+    "canonicalEventId": "fixture:tennis:espn:wta:185346",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185346",
+      "fixture-tennis-espn-wta-185346"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185346",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Yulia Putintseva v Diana Shnaider",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T04:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:yulia-putintseva",
+      "competitor:tennis:wta:diana-shnaider"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:yulia-putintseva",
+        "name": "Yulia Putintseva",
+        "displayName": "Yulia Putintseva",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:wta:diana-shnaider",
+        "name": "Diana Shnaider",
+        "displayName": "Diana Shnaider",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "RU"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:yulia-putintseva",
+    "awayParticipantId": "competitor:tennis:wta:diana-shnaider",
+    "venue": "Court 3",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185346",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185346",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185346",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Court 3",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Yulia Putintseva v Diana Shnaider",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185346"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185351",
+    "eventId": "fixture-tennis-espn-wta-185351",
+    "canonicalEventId": "fixture:tennis:espn:wta:185351",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185351",
+      "fixture-tennis-espn-wta-185351"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185351",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Jasmine Paolini v Nikola Bartunkova",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T04:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:jasmine-paolini",
+      "competitor:tennis:wta:nikola-bartunkova"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:jasmine-paolini",
+        "name": "Jasmine Paolini",
+        "displayName": "Jasmine Paolini",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "IT"
+      },
+      {
+        "id": "competitor:tennis:wta:nikola-bartunkova",
+        "name": "Nikola Bartunkova",
+        "displayName": "Nikola Bartunkova",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CZ"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:jasmine-paolini",
+    "awayParticipantId": "competitor:tennis:wta:nikola-bartunkova",
+    "venue": "Court 1",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185351",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185351",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185351",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Court 1",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Jasmine Paolini v Nikola Bartunkova",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185351"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185356",
+    "eventId": "fixture-tennis-espn-wta-185356",
+    "canonicalEventId": "fixture:tennis:espn:wta:185356",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185356",
+      "fixture-tennis-espn-wta-185356"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185356",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Iva Jovic v Dayana Yastremska",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T04:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:iva-jovic",
+      "competitor:tennis:wta:dayana-yastremska"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:iva-jovic",
+        "name": "Iva Jovic",
+        "displayName": "Iva Jovic",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      },
+      {
+        "id": "competitor:tennis:wta:dayana-yastremska",
+        "name": "Dayana Yastremska",
+        "displayName": "Dayana Yastremska",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:iva-jovic",
+    "awayParticipantId": "competitor:tennis:wta:dayana-yastremska",
+    "venue": "Court 2",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185356",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185356",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185356",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Court 2",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Iva Jovic v Dayana Yastremska",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185356"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185350",
+    "eventId": "fixture-tennis-espn-wta-185350",
+    "canonicalEventId": "fixture:tennis:espn:wta:185350",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185350",
+      "fixture-tennis-espn-wta-185350"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185350",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Katie Volynets v Guo Hanyu",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T06:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:katie-volynets",
+      "competitor:tennis:wta:guo-hanyu"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:katie-volynets",
+        "name": "Katie Volynets",
+        "displayName": "Katie Volynets",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:wta:guo-hanyu",
+        "name": "Guo Hanyu",
+        "displayName": "Guo Hanyu",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:katie-volynets",
+    "awayParticipantId": "competitor:tennis:wta:guo-hanyu",
+    "venue": "Court 1",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185350",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185350",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185350",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Court 1",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Katie Volynets v Guo Hanyu",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185350"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185347",
+    "eventId": "fixture-tennis-espn-wta-185347",
+    "canonicalEventId": "fixture:tennis:espn:wta:185347",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185347",
+      "fixture-tennis-espn-wta-185347"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185347",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Shi Han v Leylah Fernandez",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T12:30:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:shi-han",
+      "competitor:tennis:wta:leylah-fernandez"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:shi-han",
+        "name": "Shi Han",
+        "displayName": "Shi Han",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:wta:leylah-fernandez",
+        "name": "Leylah Fernandez",
+        "displayName": "Leylah Fernandez",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "CA"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:shi-han",
+    "awayParticipantId": "competitor:tennis:wta:leylah-fernandez",
+    "venue": "Dongfeng Voyah Center Court",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185347",
+    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185347",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185347",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Dongfeng Voyah Center Court",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Shi Han v Leylah Fernandez",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185347"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
   }
 ];

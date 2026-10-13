@@ -4,8 +4,14 @@
 const fs=require('node:fs'),assert=require('node:assert/strict');
 const document=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json');
 const pairingCorrections=require('../lib/reviewed-tennis-pairing-corrections');
+const wuhanUpdates=require('../lib/reviewed-wuhan-pairing-updates');
+function projectPairings(records,doc){
+ const late=doc.wuhanPairingUpdates||[];
+ const prior=(doc.pairingCorrections||[]).filter(c=>!late.some(n=>n.fixtureId===c.fixtureId));
+ return wuhanUpdates.project(pairingCorrections.project(records,prior),late);
+}
 function validate(doc=document){
- pairingCorrections.validate(doc.pairingCorrections||[]); assert.equal(doc.schemaVersion,'reviewed-participant-fixtures.v1');const seen=new Set();
+ pairingCorrections.validate(doc.pairingCorrections||[]); wuhanUpdates.validate(doc.wuhanPairingUpdates||[]); assert.equal(doc.schemaVersion,'reviewed-participant-fixtures.v1');const seen=new Set();
  for(const e of doc.events){assert(!seen.has(e.id));seen.add(e.id);assert.equal(e.participantsConfirmed,true);assert.equal(e.contestUnit,'match');assert.equal(e.participantIds.length,2);assert(e.participantIds.every(id=>/^(athlete|competitor):tennis:/.test(id)));assert(/^https:\/\//.test(e.sourceUrl));assert(Number.isFinite(Date.parse(e.sourceCheckedAt))&&Date.parse(e.sourceCheckedAt)<=Date.now());assert(['exact','not-before','followed-by','unresolved'].includes(e.timePrecision));if(['exact','not-before'].includes(e.timePrecision))assert(Number.isFinite(Date.parse(e.startTimeUtc)));else assert(!e.startTimeUtc);assert(e.timingEvidence?.matchRow&&e.timingEvidence?.clockAssociation);}
  for(const e of doc.events.filter(e=>e.scheduleEvidence)){
   const proof=e.scheduleEvidence;
@@ -93,7 +99,7 @@ function validate(doc=document){
  return doc;
 }
 const scheduleFields=['sourceUrl','sourceName','sourceCheckedAt','canonicalSourceCheckedAt','date','time','startTimeUtc','timePrecision','scheduleStatus','timeTbc','timingVerified','timingEvidence','schedulingWindow'];
-function apply({root='.',doc=document}={}){validate(doc);const plans=[];for(const file of ['data/events.json','feeds/incoming/events.json']){const target=require('node:path').join(root,file),before=fs.readFileSync(target,'utf8'),data=JSON.parse(before);data.events=pairingCorrections.project(data.events,doc.pairingCorrections||[]);const identity=e=>e.canonicalEventId||e.eventId||e.id;const ids=new Set(doc.events.map(identity));const prior=data.events.filter(e=>ids.has(identity(e)));const settled=e=>['completed','finished','final','abandoned'].includes(e?.status);const updates=doc.events.filter(e=>!settled(prior.find(p=>identity(p)===identity(e)))||settled(e)).map(e=>{
+function apply({root='.',doc=document}={}){validate(doc);const plans=[];for(const file of ['data/events.json','feeds/incoming/events.json']){const target=require('node:path').join(root,file),before=fs.readFileSync(target,'utf8'),data=JSON.parse(before);data.events=projectPairings(data.events,doc);const identity=e=>e.canonicalEventId||e.eventId||e.id;const ids=new Set(doc.events.map(identity));const prior=data.events.filter(e=>ids.has(identity(e)));const settled=e=>['completed','finished','final','abandoned'].includes(e?.status);const updates=doc.events.filter(e=>!settled(prior.find(p=>identity(p)===identity(e)))||settled(e)).map(e=>{
   const base=prior.find(p=>identity(p)===identity(e));
   // A retained review must not replace a later publisher final or replay
   // already accepted result copy/aliases at the same observation.
@@ -118,5 +124,5 @@ function apply({root='.',doc=document}={}){validate(doc);const plans=[];for(cons
   const rules=require('./lib/storyline-card-rules'),storyline=rules.storylineFor(e),safe=rules.spoilerSafeRootCopy(e,storyline);
   const {editorialPreview,...retained}=e;
   return {...retained,storyline,selectedSentence:safe.hook,fullSpiel:safe.synopsis};
- });data.events=require('../lib/session-order-estimates').apply([...data.events.filter(e=>!ids.has(identity(e))),...reviewed]);plans.push({file,target,before,after:JSON.stringify(data,null,2)+'\n'});}if(doc.pairingCorrections?.length){const file='data/canonical/tennis-scoreboard.v1.json',target=require('node:path').join(root,file),before=fs.readFileSync(target,'utf8'),data=JSON.parse(before);data.fixtures=pairingCorrections.project(data.fixtures,doc.pairingCorrections);plans.push({file,target,before,after:JSON.stringify(data,null,2)+'\n'});}for(const p of plans)if(p.after!==p.before)fs.writeFileSync(p.target,p.after);return plans.map(p=>({file:p.file,fixtures:doc.events.length}));}
+ });data.events=require('../lib/session-order-estimates').apply([...data.events.filter(e=>!ids.has(identity(e))),...reviewed]);plans.push({file,target,before,after:JSON.stringify(data,null,2)+'\n'});}if(doc.pairingCorrections?.length||doc.wuhanPairingUpdates?.length){const file='data/canonical/tennis-scoreboard.v1.json',target=require('node:path').join(root,file),before=fs.readFileSync(target,'utf8'),data=JSON.parse(before);data.fixtures=projectPairings(data.fixtures,doc);plans.push({file,target,before,after:JSON.stringify(data,null,2)+'\n'});}for(const p of plans)if(p.after!==p.before)fs.writeFileSync(p.target,p.after);return plans.map(p=>({file:p.file,fixtures:doc.events.length}));}
 module.exports={apply,validate};if(require.main===module)console.log(JSON.stringify(apply()));

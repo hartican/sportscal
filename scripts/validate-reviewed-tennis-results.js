@@ -1,7 +1,7 @@
 'use strict';
 // Exercises the retained publication boundary, not a source-fetch rehearsal.
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
-const {validate,apply}=require('./apply-reviewed-participant-fixtures'),doc={...validate(),pairingCorrections:[]},policy=require('../config/fixture-reminder-policy'),model=require('../config/athletes');
+const {validate,apply}=require('./apply-reviewed-participant-fixtures'),doc={...validate(),pairingCorrections:[],wuhanPairingUpdates:[]},policy=require('../config/fixture-reminder-policy'),model=require('../config/athletes');
 const clone=()=>structuredClone(doc),finals=doc.events.filter(e=>e.status==='completed');
 assert.equal(finals.length,8);
 assert.deepEqual(finals.find(e=>e.id.includes('sabalenka-bartunkova')).sets,[{home:4,away:6},{home:3,away:6}],'winner-first draw scores must orient to Sabalenka home');

@@ -7,7 +7,7 @@ const files=Object.keys(baseline.records),clock=Date.parse(whole.pairingCorrecti
 const templates=Object.fromEntries(files.map(f=>[f,JSON.parse(fs.readFileSync(path.resolve(__dirname,'..',f)))]));
 async function run(){
  const realNow=Date.now,root=fs.mkdtempSync(path.join(os.tmpdir(),'ns-wuhan-pairing-'));
- const doc={...structuredClone(whole),events:[]};
+ const doc={...structuredClone(whole),events:[],wuhanPairingUpdates:[]};
  const reset=()=>{for(const file of files){fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),JSON.stringify({...templates[file],events:file.includes('scoreboard')?undefined:structuredClone(baseline.records[file]),fixtures:file.includes('scoreboard')?structuredClone(baseline.records[file]):undefined})+'\n');}};
  const bytes=()=>files.map(f=>fs.readFileSync(path.join(root,f)));
  try{

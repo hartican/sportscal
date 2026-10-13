@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Reviewed Wuhan identity correction uses existing owners — 13 October 2026 Sydney
+
+The bounded four-match correction uses the retained three-document writer, existing four-resource canonical Tennis refresh and one-resource live WTA adapter. Full publication plans preflight before writes. Current Tennis refresh also rebuilds its affected Follow directories through the same canonical owner. Keep original organiser/publisher receipts and the existing six-hour/deadline/lease/cadence limits; no retry, scheduler, provider, migration, customer mutation, reminder replay or routine owner task. An official final retains its score, winner and copy during a publisher disagreement. The mandatory regression covers actual persistence, full captured-response evidence, stable IDs and current live adapter. [Scope and evidence](quality/wuhan-pairing-repair-2026-10-13.md); exact production and saved-fact proof remain separate.
+
 ## Guarded Horse flagship rollout — 13 October 2026 Sydney
 
 The approved phased contract reuses existing Schedule/Events documents and account-state patch/CAS. Major Events reuses one cached Horse schedule, with no organiser requests or new endpoint. Canonical domestic classification is shared client/server. Optional before-values on existing sport-list patches preserve genuine local deltas during rebase; the durable Horse choice fences legacy replacements. The staged one-time private frozen registered cohort retains snapshots, revision-safe locked current states, the existing erasure advisory barrier, private RLS and Auth-cascade cleanup. Apply only after verified application release through Audit. No tennis replay, notification/permission/queue mutation, source owner, dispatcher, cron, polling or request-budget change. Required gates and precise production/database receipts remain separate.

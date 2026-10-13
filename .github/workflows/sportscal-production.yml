@@ -79,6 +79,7 @@ jobs:
           node scripts/validate-current-fixture-bundle.js
           node scripts/validate-profile-fixture-scope.js
           node scripts/validate-reviewed-tennis-live.js
+          node scripts/validate-wuhan-pairing-updates.js
           node scripts/validate-follow-first.js
           node scripts/validate-follow-directories.js
           node scripts/validate-follow-collection-loading.js

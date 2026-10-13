@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Reviewed Wuhan opponents retain activity identities — 13 October 2026 Sydney
+
+The authorised CTO accuracy repair binds four existing Wuhan R64 fixtures to the captured organiser draw and exact publisher IDs. Correct opponents on untimed, unplayed prior pairings only, with the existing six-hour receipt budget; reject unknown, played, newer or stale remaps. Keep IDs/aliases, original scheduling observations, viewing, saved choices, Results OFF and reminders. Two independently published official finals keep their oriented score, winner and copy together. No draw-derived start/finish, extra Follow or consent. Earlier and later pairing receipts stay separate. See [acceptance and dated evidence](quality/wuhan-pairing-repair-2026-10-13.md) and the mandatory Wuhan writer/live-adapter regression.
+
 ## Flagship racing and Australian domestic filters — 13 October 2026 Sydney
 
 Jack approved the [phased contract](plans/horse-flagship-2026-10-13.md). Horse Major Events now selects twelve individual race editions, nine dated and three date-pending. Carnivals remain Events context without new Horse carnival switches; retained carnival choices still bind sourced children and more-specific race choices win. Only dated approved individual races enter Feed. Canonical IDs, other follows/exclusions and Horse sport-only reminder exclusion remain.
