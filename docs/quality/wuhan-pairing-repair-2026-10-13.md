@@ -1,4 +1,4 @@
-# Wuhan opponents and confirmed result — 13 October 2026
+# Wuhan opponents and confirmed results — 13 October 2026
 
 ## Authorised scope and acceptance
 
@@ -18,4 +18,10 @@ The fresh canonical owner completed its existing four requests successfully at `
 
 ## Release status
 
-Implementation and verification are in progress. Production approval, exact release proof and hosted rendering must be recorded separately. This correction does not certify Tennis, the whole cross-sport MVP or a physical phone.
+The scoped repair is live at exact e59ef1d55e1c52ad7e66ab51e1f45373b3bc6ea2 / shell526. [Normal workflow38386764002](https://github.com/hartican/sportscal/actions/runs/38386764002) succeeded; READY dpl_F1sEVB7vXU4iVtw7jSLScGGLNrtM and the sealed served snapshot agree. Four pairings and two final result orientations passed hosted mobile/desktop, theme and both-engine rendering with Results OFF/ON. Four installed upgrade cases passed. Independent Standards review found no hard violations and one low-priority possible duplicated qualification for future seam work; Spec found no issue. No required gate was changed.
+
+The ordinary current-data owner also recovered. Read-only verification at WTA revision9564, checked2026-10-13T11:28:09.433868+00:00, failureCount0 confirms all four identities and the two official finals in current fixtures and the separate score reader. Original organiser observation2026-10-13T07:18:05.511537+00:00 is preserved. No actual start or finish instant was invented. This existing-owner recovery is separate from application deployment.
+
+A local CLI verification attempt received protected placeholder keys and failed before any provider request or write. That access limitation did not establish a production failure. No credential rotation, new refresh step or workflow change was published; the successful existing owner provides the scoped storage proof instead. Original failed observations and controlled replay receipts are retained in /Users/jackhartican/Documents/AI/Codex/wuhan-pairing-repair-2026-10-13.
+
+The later racing release retains this correction. Full Tennis, cross-sport MVP, all private activity, physical phone and source reuse permission remain unproven.

@@ -1,6 +1,6 @@
 # Nothing Sport — current architecture and next step
 
-**13 October 2026 · Verified live app 7a614317 / version 524**
+**13 October 2026 · Verified live app ff8f53b9 / version 527**
 
 Keep the present stack. The important work is making its boundaries clearer and proving the remaining launch checks. A rewrite is not supported by the current evidence.
 
@@ -63,3 +63,5 @@ flowchart LR
 Evidence inspected: `.github/workflows/canonical-card-refresh.yml`, `.github/workflows/sportscal-production.yml`, `api/feed.js`, `api/user-state.js`, `lib/live-fixtures.js`, `lib/compact-fixture-observations.js`, `lib/supabase-server.js`, `lib/editorial-maintenance.js`, `scripts/audit-coverage-quality.js` and `config/quality/coverage-contract.json`. Release: workflow 38322796704, READY dpl_3WnfLDuJvg8iSCnE6tCzEePJ66uM. Ordinary primary: revision 9334, checked 13 October 00:04:10.399495 UTC, zero failures. Detailed receipts: `/Users/jackhartican/Documents/AI/Codex/football-fixture-continuity-2026-10-13/natural-owner-verified.json`; current viewing: `/Users/jackhartican/Documents/AI/Codex/football-viewing-current-2026-10-13/comparison.json`.
 
 Latest release: [38365280599](https://github.com/hartican/sportscal/actions/runs/38365280599), exact app 7a614317, READY dpl_D7wbtpUgpPZVHPwU3M2fa68Gdh2c. Separate guarded account application: 13 October 08:08:56 UTC, eleven verified accounts. No provider refresh is attributed to this app release.
+
+The later Tennis repair shares one reviewed identity/result qualification across retained and current-data publication; the ordinary source owner recovered without another scheduler. The racing fields release uses one bounded sanitizer across collection, public/API and cached rendering, retains source clocks, and reuses the existing shared About Charter. Its canonical retained route also builds that optional About asset. Required racing assets join shell527 within unchanged startup limits. [Tennis proof](wuhan-pairing-repair-2026-10-13.md) and [racing proof](horse-fields-editorial-2026-10-13.md) keep current-data, controlled/browser and release evidence separate. Latest exact app ff8f53b9fa2d95996e7c14b67bb3d3636f8373a7, workflow38394700521, READY dpl_7gCy9fdXUMYRPByfLKYU2ChgdPDs. No provider, schema migration, new timer or recurring owner task is added.
