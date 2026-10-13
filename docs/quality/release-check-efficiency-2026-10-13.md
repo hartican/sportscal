@@ -1,8 +1,8 @@
 # Repeated build checks — measured reduction without weaker gates
 
-**13 October 2026 · local preparation; not published or deployed**
+**13 October 2026 · published and verified live in shell 522**
 
-This project record is published for review. The code changes remain local and await the combined release.
+The checked first clean module is published and deployed at `369907bf9fc6be86dfb2f286fe0334c7930ce1db`. [Normal release](https://github.com/hartican/sportscal/actions/runs/38347923232) passed. The separately approved smaller-card module follows later; no extra app deployment is needed for this report update.
 
 The same source was being compressed again whenever a check asked for the card source. The existing compact-status check asks twice. A small change reuses the previous compression only inside the same Node process and only when the complete freshly assembled source is identical. Every call still reads the current inputs.
 
@@ -19,7 +19,7 @@ In a bounded local sample, the second and third builds took **3.157 seconds befo
 
 The focused regression passes: repeated output, actual source invalidation, missing/invalid-source failures, stale-output rejection through the real `--check` command and normal recovery. Actual card identity and timing checks pass. Its initial disposable copy lacked the existing compiler dependency; the test now reuses the same installed compiler via a temporary link, without downloading anything. The initial setup failure is retained. The disposable folder is removed in `finally`.
 
-**Business value:** reduces a demonstrated repeated part of verification while preserving its protections. **Effort:** small builder change and targeted regression; combined release remains pending. **Dependencies:** existing source assembler, installed compiler and exact-byte gate. **New cash:** A$0; no new package or subscription. **Owner time:** no new decision or routine. **Acceptance:** identical unchanged bytes, fresh changed output, intact failure/normal release checks, bounded measured benefit and exact eventual release. **Why now/defer:** the repeated work is measured; defer persistent/shared caches and broader test-harness rewrites until a whole-run profile justifies them.
+**Business value:** reduces a demonstrated repeated part of verification while preserving its protections. **Effort:** small builder change and targeted regression; the checked release is complete. **Dependencies:** existing source assembler, installed compiler and exact-byte gate. **New cash:** A$0; no new package or subscription. **Owner time:** no new decision or routine. **Acceptance:** identical unchanged bytes, fresh changed output, intact failure/normal release checks, bounded measured benefit and exact eventual release. **Why now/defer:** the repeated work is measured; defer persistent/shared caches and broader test-harness rewrites until a whole-run profile justifies them.
 
 Receipts: `before.json`, `after.json`, `comparison.json`, `cache-regression-final.log`, `card-identities.log`, `card-timing.log` and `normal-byte-gate.log`. These are local tool checks; neither app launch speed nor billed token cost was measured. No app presentation, source facts, customer state, API, cache version or production service was changed by this tool repair.
 
@@ -43,9 +43,15 @@ Recommended next operating step: after the approved card release, profile the sa
 
 A strengthened source-change check found that the existing builder read its module manifest only once when the Node process loaded. Adding a real module afterwards left the generated output unchanged, so the new assertion failed. The builder now reads that manifest during each source assembly. Added, malformed and missing manifests are covered alongside source-file changes. Restoring the manifest restores exact original output; the normal byte gate still passes. This closes a pre-existing warm-process input gap, with no app-byte or cache-version change for unchanged inputs.
 
-Receipts: `manifest-regression-red.log`, `manifest-regression-green.log`, `current-cache-regression.log` and `current-byte-gate.log`. Final independent review covers this correction as well; publication and deployment remain pending.
+Receipts: `manifest-regression-red.log`, `manifest-regression-green.log`, `current-cache-regression.log` and `current-byte-gate.log`. Final independent review covers this correction as well; exact publication and deployment are now verified.
 
 
 ## Independent review closeout
 
-Both final Spec and Standards reviews of source `ce0e8304` report zero actionable findings. They are independent static reviews, separate from the recorded local tests and timing sample. The combined normal release and production proof remain pending.
+Both final Spec and Standards reviews of source `ce0e8304` report zero actionable findings. They are independent static reviews, separate from the recorded local tests and timing sample. The normal exact release and production proof now pass.
+
+## Verified delivery
+
+App `369907bf9fc6be86dfb2f286fe0334c7930ce1db`, shell 522, normal run 38347923232 SUCCESS, READY `dpl_Eg1sFsJ1g27ZvkT58gqniQCpG2UZ`. CI confirms all 43 account-scope cases, 8 critical requests, 1.19% compressed-growth budget and 141 assets / 2.99 MiB precache. Unchanged limits remain enforced. The sealed inventory has 1,619 files; primary core and 16 affected served hashes agree. Actual badge constructors in Feed/Schedule pass both engines. Horse native, controlled subject replacement and installed/offline cases are separate receipts. Physical-phone and commercial permission remain open.
+
+The release establishes publication, not a quantified whole-release or browser speed improvement. Only the earlier bounded in-process repeated-build measurement supports the reported savings.

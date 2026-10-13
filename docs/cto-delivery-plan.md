@@ -1,6 +1,8 @@
 # CTO delivery programme — authoritative current queue
 
-**Current decision — 13 October 2026:** The Football duplicate fix is live. Arsenal now shows 39 calendar entries instead of 44, removing five repeated matches. Official times, saved choices, older ratings and earned points are kept. Shanghai’s confirmed 3 pm appointment is live, and the normal reminder system has queued it for 2:45 pm; phone delivery is a separate check.
+**Current delivery — 13 October 2026:** Horse Racing is now reachable under Follow, with its existing races, an explicit follow switch and honest pending-date labels. Carnival exclusions and the Australian-only setting work. Celje and Sabah’s broken Football badges are repaired on the live site. No subscription or routine is added.
+
+**Earlier Football delivery:** Arsenal shows 39 calendar entries instead of 44 after five repeated matches were removed. Official times, saved choices, older ratings and earned points were preserved. Shanghai’s confirmed 3 pm appointment was published and its normal reminder queued for 2:45 pm; actual phone delivery remains separate.
 
 **What this changes for users:** One appointment per match, fewer contradictory times and continuity for earlier activity. The release keeps all newer results and previews. The safe history update left existing customer records unchanged. No subscription or extra routine is added.
 
@@ -12,14 +14,14 @@
 
 **Current Football tables — 13 October:** The Premier League table agrees with the latest official table for all 20 clubs. All three published tables agree with their recorded completed scores. The existing automatic update successfully published these tables, and they remain on the verified live site. European rankings stay provisional. [Dated table and ordinary-update evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/football-table-current-2026-10-13.md).
 
-**Current Football badges — 13 October:** All 84 pilot clubs have a badge assigned. A full display check found 82 working images and two missing files, for Celje and Sabah. Both fixes now pass locally in Feed and Schedule, with a guard against using another club’s badge. They await the combined card release. Commercial permission and physical-phone checks remain open. [Dated repair evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/football-badge-source-repair-2026-10-13.md).
+**Current Football badges — 13 October:** All 84 pilot clubs have a badge assigned. A full display check found 82 working images and two missing files, for Celje and Sabah. Both fixes are now live and render in Feed and Schedule in both browsers, with a guard against using another club’s badge. Commercial permission and physical-phone checks remain open. [Dated repair evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/football-badge-source-repair-2026-10-13.md).
 
-**Horse Racing navigation — 13 October:** The existing nine dated races and three date-pending event entries are now connected to Follow in the local release assembly. Browsing changes no follows; the explicit follow switch preserves existing exclusions and leaves automatic reminders off. The complete local check list passed, including both browser checks and returning from Events. Combined card, installed-app update and production checks remain pending; this is not a live release or expanded race coverage.
+**Horse Racing navigation — 13 October:** The existing nine dated races and three date-pending entries are now connected to Follow on the live site. Browsing changes no follows. The explicit switch preserves exclusions and leaves automatic reminders off; carnival choices apply to their child races. Native Follow → Feed → unfollow, Back/focus and offline restoration pass in both browsers. Controlled account-switch tests pass separately. No new race coverage or physical-phone claim is made. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/horse-follow-current-2026-10-13.md).
 
 **Next five actions, in order:**
 
 - Finish the remaining Football quality checks: working Australian viewing links, dependable standings, permitted commercial use and mobile presentation. The 380-fixture comparison and duplicate fix do not certify the whole sport.
-- Complete the separately approved smaller-card and Cricket/Tennis clarity update, Horse Racing navigation and Football badge fixes through one checked release path.
+- Complete the separately approved smaller-card and Cricket/Tennis clarity update next, through the same checked release path.
 - Close remaining carried-sport gaps against the NRL/AFL reference. Keep the three failed source checks visible: an NHL timestamp mismatch, a WRC timeout and a Tennis identity disagreement.
 - Complete real-phone and invited-user return-use checks when available. Independent recovery in Passwords/iCloud remains parked.
 - Keep the small sponsor experiment prepared. Launch still depends on quality, permission and audience evidence; no outreach or purchase now.
@@ -29,3 +31,5 @@
 **Operating default:** One ordered queue. Short everyday-English updates: result, user impact and next step; technical detail on request. Reuse unchanged evidence, keep investigations bounded, test in proportion to risk and retain failed observations. Escalate only material product choices, spending or irreversible actions. No new recurring owner task. Model/runner costs remain unpriced; a dependable whole-programme finish date is not established.
 
 **Evidence:** [Verified Football release](https://github.com/hartican/sportscal/actions/runs/38322796704); detailed receipts in the Football delivery folder. The scheduled update also completed its normal publication and deployment with separate browser proof. Its three retained-source exceptions remain open.
+
+**Latest release proof:** [The normal release passed](https://github.com/hartican/sportscal/actions/runs/38347923232). The exact published app version is live; both public names resolve to it, while the project hostname keeps its existing sign-in protection. All changed served files match the sealed snapshot. The smaller-card module remains separate and unfinished.
