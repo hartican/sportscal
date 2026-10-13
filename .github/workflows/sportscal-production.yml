@@ -75,6 +75,7 @@ jobs:
           node scripts/validate-view-cache.js
           node scripts/validate-fixture-route-facts.js
           node scripts/validate-session-order-estimates.js
+          node scripts/validate-publisher-planning-times.js
           node scripts/validate-current-score-placement.js
           node scripts/validate-event-overviews.js
           node scripts/validate-current-fixture-bundle.js
