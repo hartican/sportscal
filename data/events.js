@@ -24070,7 +24070,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992102",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -24256,7 +24256,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142008",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8205",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -24371,7 +24371,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992103",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -24486,7 +24486,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142004",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8210",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -25046,7 +25046,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142003",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8201",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -25159,7 +25159,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992104",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -25402,7 +25402,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142006",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8206",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -25517,7 +25517,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142005",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8208",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -25758,7 +25758,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992105",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -25873,7 +25873,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992106",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -26080,7 +26080,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142009",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8204",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -26572,7 +26572,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142002",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8203",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -26813,7 +26813,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992107",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -26928,7 +26928,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142007",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8207",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -27043,7 +27043,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992108",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -29165,7 +29165,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142102",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8213",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -29270,7 +29270,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992201",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -29535,7 +29535,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992202",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -29650,7 +29650,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992203",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -29765,7 +29765,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142104",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8218",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -30232,7 +30232,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142109",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8217",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -30473,7 +30473,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142106",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8212",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -30588,7 +30588,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992204",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -30918,7 +30918,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992205",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -31123,7 +31123,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142107",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8221",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -31238,7 +31238,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992206",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -31353,7 +31353,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142101",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8209",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -32066,7 +32066,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142108",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8214",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -32308,7 +32308,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992207",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -32423,7 +32423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142105",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8215",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -32664,7 +32664,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992208",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -33189,7 +33189,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142209",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8224",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -33306,7 +33306,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992301",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -33421,7 +33421,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992302",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -33536,7 +33536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142202",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8223",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -33651,7 +33651,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992303",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -33892,7 +33892,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142205",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8220",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -34007,7 +34007,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992304",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -34248,7 +34248,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142207",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8222",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -34363,7 +34363,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142203",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8219",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -34605,7 +34605,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992305",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -34720,7 +34720,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992306",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -34835,7 +34835,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142201",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8230",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35271,7 +35271,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142204",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8228",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35512,7 +35512,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992307",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -35629,7 +35629,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992308",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -35744,7 +35744,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142208",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8227",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35985,7 +35985,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142206",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8225",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -36110,7 +36110,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-30T22:50:31.966Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "score": "Bangladesh beat Australia by 9 wickets",
@@ -36249,7 +36249,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992401",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -36364,7 +36364,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992402",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -36479,7 +36479,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992403",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -36594,7 +36594,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142303",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8237",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -36709,7 +36709,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142308",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8238",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -36950,7 +36950,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992404",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -37284,7 +37284,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142306",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8231",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -37399,7 +37399,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142301",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8229",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -37640,7 +37640,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992405",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -37755,7 +37755,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992406",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -37870,7 +37870,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142305",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8244",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -37983,7 +37983,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142307",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8234",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -38224,7 +38224,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142304",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8233",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -38466,7 +38466,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992407",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -38581,7 +38581,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142309",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8232",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -38694,7 +38694,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992408",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -38809,7 +38809,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142302",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8226",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -39050,7 +39050,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142407",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8242",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -39165,7 +39165,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992501",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39290,7 +39290,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992502",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39395,7 +39395,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142402",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8239",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -39510,7 +39510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992503",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -39760,7 +39760,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-30T22:50:31.966Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
@@ -40024,7 +40024,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142403",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8240",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40139,7 +40139,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992504",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -40380,7 +40380,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142406",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8236",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40621,7 +40621,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992505",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -40736,7 +40736,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992506",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -40851,7 +40851,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142405",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8246",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -40966,7 +40966,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142401",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8243",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42165,7 +42165,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142404",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8235",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42454,7 +42454,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992507",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -42612,7 +42612,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142408",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8245",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -42774,7 +42774,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992508",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -43058,7 +43058,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142409",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8241",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -43762,7 +43762,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceTrust": "unverified",
     "score": "1 Lando Norris; 2 Kimi Antonelli +11.536s; 3 George Russell +15.906s",
     "outcomeText": "Lando Norris won the Dutch Grand Prix ahead of Kimi Antonelli and George Russell.",
@@ -45276,7 +45276,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992601",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -45531,7 +45531,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992602",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -45682,7 +45682,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -45691,7 +45691,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142502",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9020",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -45955,7 +45955,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992603",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -46387,7 +46387,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640301",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8897",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -46631,7 +46631,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640302",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8899",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -46749,7 +46749,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992604",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47037,7 +47037,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640303",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8902",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -47281,7 +47281,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992605",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47443,7 +47443,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992606",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -47598,7 +47598,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -47607,7 +47607,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142501",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9021",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -48942,7 +48942,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640304",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8900",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49060,7 +49060,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640305",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8901",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49304,7 +49304,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992607",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -49614,7 +49614,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640306",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8903",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49732,7 +49732,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640307",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8904",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49850,7 +49850,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992608",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -50014,7 +50014,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640308",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8908",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -50258,7 +50258,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640309",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8906",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -51663,7 +51663,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Daniel Merida v Andrey Rublev is complete. Reveal results for the outcome.",
     "fullSpiel": "Daniel Merida v Andrey Rublev is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
     "outcomeText": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
@@ -51883,7 +51883,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Dino Prizmic v Tommy Paul is complete. Reveal results for the outcome.",
     "fullSpiel": "Dino Prizmic v Tommy Paul is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
     "outcomeText": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
@@ -52100,7 +52100,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "James Duckworth v Yibing Wu is complete. Reveal results for the outcome.",
     "fullSpiel": "James Duckworth v Yibing Wu is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
     "outcomeText": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
@@ -52189,7 +52189,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -52198,7 +52198,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992701",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -52356,7 +52356,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -52365,7 +52365,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142601",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9024",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -52843,7 +52843,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Alexei Popyrin v Alejandro Tabilo is complete. Reveal results for the outcome.",
     "fullSpiel": "Alexei Popyrin v Alejandro Tabilo is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
     "outcomeText": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
@@ -53060,7 +53060,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Jakub Mensik v Jurij Rodionov is complete. Reveal results for the outcome.",
     "fullSpiel": "Jakub Mensik v Jurij Rodionov is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
     "outcomeText": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
@@ -53305,7 +53305,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
     "fullSpiel": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
@@ -53391,7 +53391,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -53400,7 +53400,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992702",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -53558,7 +53558,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -53567,7 +53567,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142603",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9022",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -53824,7 +53824,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -53833,7 +53833,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992703",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -54238,7 +54238,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers is complete. Reveal results for the outcome.",
     "fullSpiel": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
     "outcomeText": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
@@ -54455,7 +54455,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Alexander Bublik v Tommy Paul is complete. Reveal results for the outcome.",
     "fullSpiel": "Alexander Bublik v Tommy Paul is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
     "outcomeText": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
@@ -54865,7 +54865,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640401",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8905",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -55030,7 +55030,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640402",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8907",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -55195,7 +55195,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640403",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8910",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -55351,7 +55351,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -55360,7 +55360,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992704",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -55518,7 +55518,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -55527,7 +55527,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142602",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9029",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -56036,7 +56036,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -56045,7 +56045,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992705",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -56210,7 +56210,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640404",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8909",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -56366,7 +56366,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -56375,7 +56375,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992706",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -56533,7 +56533,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -56542,7 +56542,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142604",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9025",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -58794,7 +58794,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
     "fullSpiel": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
@@ -59323,7 +59323,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Jakub Mensik v Learner Tien is complete. Reveal results for the outcome.",
     "fullSpiel": "Jakub Mensik v Learner Tien is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
     "outcomeText": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
@@ -59555,7 +59555,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640405",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8911",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -59720,7 +59720,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640406",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8912",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -60002,7 +60002,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -60011,7 +60011,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992707",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -60199,7 +60199,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640407",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8914",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -60364,7 +60364,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640408",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8916",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -60520,7 +60520,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -60529,7 +60529,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992708",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -60717,7 +60717,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640409",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8913",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -61058,7 +61058,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-valencia-day-2",
@@ -61532,7 +61532,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:00:00.000Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceTrust": "unverified",
     "sourceType": "official",
     "startTimeUtc": "2026-09-06T13:00:00.000Z",
@@ -62509,7 +62509,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Tommy Paul v Carlos Alcaraz is complete. Reveal results for the outcome.",
     "fullSpiel": "Tommy Paul v Carlos Alcaraz is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
     "outcomeText": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
@@ -63806,7 +63806,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
     "fullSpiel": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceCheckedAt": "2026-10-11T12:36:43.421Z",
     "score": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
     "outcomeText": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
@@ -67510,7 +67510,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -67519,7 +67519,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142701",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9023",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -68365,7 +68365,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640501",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8915",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -68530,7 +68530,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640502",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8919",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -68695,7 +68695,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640503",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8917",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -69045,7 +69045,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640504",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8918",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -69478,7 +69478,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/ladder",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -69487,7 +69487,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142702",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9030",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -71868,7 +71868,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640505",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8923",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72033,7 +72033,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640506",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8921",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72370,7 +72370,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640507",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8920",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72535,7 +72535,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640508",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8922",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -72887,7 +72887,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640509",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8924",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -74128,7 +74128,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640601",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8925",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -74388,7 +74388,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Sydney Swans v Fremantle is complete. Reveal results for the outcome.",
     "fullSpiel": "Sydney Swans v Fremantle is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142802",
       "event-afl-cd_m20260142802"
@@ -74465,7 +74465,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142802",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9026",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "isInternational": false,
     "competitionScope": "domestic",
@@ -74875,7 +74875,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640602",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8926",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -75040,7 +75040,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640603",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8928",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -75205,7 +75205,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640604",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8927",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -75370,7 +75370,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640605",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8930",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -75764,7 +75764,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Hawthorn v Brisbane Lions is complete. Reveal results for the outcome.",
     "fullSpiel": "Hawthorn v Brisbane Lions is complete. Reveal results for the outcome.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142801",
       "event-afl-cd_m20260142801"
@@ -75841,7 +75841,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142801",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9027",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "isInternational": false,
     "competitionScope": "domestic",
@@ -77805,7 +77805,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640606",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8929",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -77980,7 +77980,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640607",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8931",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -78379,7 +78379,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640608",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8932",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -78974,7 +78974,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640609",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8933",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -81304,7 +81304,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640701",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8935",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -82497,7 +82497,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640702",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8934",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -82662,7 +82662,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640703",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8936",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -82827,7 +82827,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640704",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8939",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -83558,7 +83558,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640705",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8937",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -84012,7 +84012,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
     "fullSpiel": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:preliminary-final-2",
       "major-match-nrl-finals-2026-preliminary-final-2"
@@ -84230,7 +84230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceTrust": "verified",
     "sourceCheckedAt": "2026-09-27T06:35:07.891Z",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "selectedSentence": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
     "fullSpiel": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
     "replayEligible": true,
@@ -84416,7 +84416,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "fixtureResults": {
       "schemaVersion": "fixture-results.v1",
       "columns": [
@@ -84996,7 +84996,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -85005,7 +85005,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142901",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9028",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -85529,7 +85529,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "fixtureResults": {
       "schemaVersion": "fixture-results.v1",
       "columns": [
@@ -86336,7 +86336,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640707",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8938",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -86501,7 +86501,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640706",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8941",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -86800,7 +86800,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640708",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8940",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -87395,7 +87395,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640709",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8942",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -88048,7 +88048,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceTrust": "verified",
     "sourceCheckedAt": "2026-09-29T23:26:24.078Z",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "selectedSentence": "Socceroos v Brazil is complete. Reveal results for the outcome.",
     "fullSpiel": "Socceroos v Brazil is complete. Reveal results for the outcome.",
     "replayEligible": true,
@@ -88247,7 +88247,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Atlanta Braves v Philadelphia Phillies is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Philadelphia Phillies is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -88376,7 +88376,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Houston Astros v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Houston Astros v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -88624,7 +88624,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "New York Yankees v Boston Red Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "New York Yankees v Boston Red Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -88753,7 +88753,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "San Diego Padres v Chicago Cubs is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "San Diego Padres v Chicago Cubs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -93127,7 +93127,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceCheckedAt": "2026-10-10T20:27:38.375Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -93864,7 +93864,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Atlanta Braves v Philadelphia Phillies is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Philadelphia Phillies is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -93993,7 +93993,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Houston Astros v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Houston Astros v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -94122,7 +94122,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "New York Yankees v Boston Red Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "New York Yankees v Boston Red Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -94251,7 +94251,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "San Diego Padres v Chicago Cubs is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "San Diego Padres v Chicago Cubs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -94341,7 +94341,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640801",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8943",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -100713,7 +100713,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Atlanta Braves v Philadelphia Phillies is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Philadelphia Phillies is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -101955,7 +101955,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640802",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8945",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -106266,7 +106266,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640803",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8946",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -107008,7 +107008,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640804",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8944",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -107175,7 +107175,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640805",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8947",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -107605,7 +107605,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-01T23:21:33.194Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:evt_f1_2026_bahrain_qualifying",
@@ -108203,7 +108203,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640806",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8948",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -112181,7 +112181,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Cleveland Guardians v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Cleveland Guardians v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -112310,7 +112310,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Los Angeles Dodgers v Atlanta Braves is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Los Angeles Dodgers v Atlanta Braves is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -112558,7 +112558,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Tampa Bay Rays v New York Yankees is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Tampa Bay Rays v New York Yankees is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -112687,7 +112687,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Milwaukee Brewers v San Diego Padres is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Milwaukee Brewers v San Diego Padres is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -112777,7 +112777,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640807",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8949",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -113176,7 +113176,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640808",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8950",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -113392,7 +113392,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-01T23:21:33.194Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:evt_nrlw_2026_grand_final",
@@ -113786,7 +113786,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640809",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8953",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -113975,7 +113975,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-01T23:21:33.194Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:evt_f1_2026_bahrain_race",
@@ -116814,7 +116814,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Milwaukee Brewers v San Diego Padres is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Milwaukee Brewers v San Diego Padres is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -116943,7 +116943,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Los Angeles Dodgers v Atlanta Braves is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Los Angeles Dodgers v Atlanta Braves is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -118608,7 +118608,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Cleveland Guardians v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Cleveland Guardians v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -118737,7 +118737,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-06T04:14:20.205Z",
     "selectedSentence": "Tampa Bay Rays v New York Yankees is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Tampa Bay Rays v New York Yankees is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -119493,7 +119493,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-07T20:59:15.968Z",
     "selectedSentence": "Atlanta Braves v Los Angeles Dodgers is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -119622,7 +119622,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-07T20:59:15.968Z",
     "selectedSentence": "San Diego Padres v Milwaukee Brewers is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "San Diego Padres v Milwaukee Brewers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -119975,13 +119975,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184839",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184839",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184839",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -120042,9 +120042,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–1, 6–7, 2–6",
     "scoreDisplay": "6–1, 6–7, 2–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184839",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:tomas-machac",
     "loserParticipantId": "competitor:tennis:atp:zhang-zhizhen",
     "eliminatedParticipantIds": [
@@ -120057,6 +120057,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Tomas Machac won. 6–1, 6–7, 2–6",
     "recapText": "ESPN reports Tomas Machac as the winner of this round of 128 match. 6–1, 6–7, 2–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -120144,13 +120145,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184840",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184840",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184840",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -120211,9 +120212,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "7–6, 1–6, 4–6",
     "scoreDisplay": "7–6, 1–6, 4–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184840",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:matteo-berrettini",
     "loserParticipantId": "competitor:tennis:atp:aleksandar-kovacevic",
     "eliminatedParticipantIds": [
@@ -120226,6 +120227,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Matteo Berrettini won. 7–6, 1–6, 4–6",
     "recapText": "ESPN reports Matteo Berrettini as the winner of this round of 128 match. 7–6, 1–6, 4–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -120312,13 +120314,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184842",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184842",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184842",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -120373,9 +120375,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 5–7",
     "scoreDisplay": "3–6, 5–7",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184842",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:rei-sakamoto",
     "loserParticipantId": "competitor:tennis:atp:marco-trungelliti",
     "eliminatedParticipantIds": [
@@ -120388,6 +120390,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Rei Sakamoto won. 3–6, 5–7",
     "recapText": "ESPN reports Rei Sakamoto as the winner of this round of 128 match. 3–6, 5–7",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -120475,13 +120478,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184847",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184847",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184847",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -120538,9 +120541,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 7–6",
     "scoreDisplay": "6–4, 7–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184847",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:quentin-halys",
     "loserParticipantId": "competitor:tennis:atp:chak-lam-coleman-wong",
     "eliminatedParticipantIds": [
@@ -120553,6 +120556,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Quentin Halys won. 6–4, 7–6",
     "recapText": "ESPN reports Quentin Halys as the winner of this round of 128 match. 6–4, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -120640,13 +120644,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184849",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184849",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184849",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -120703,9 +120707,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "7–6, 6–1",
     "scoreDisplay": "7–6, 6–1",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184849",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:arthur-fery",
     "loserParticipantId": "competitor:tennis:atp:marin-cilic",
     "eliminatedParticipantIds": [
@@ -120718,6 +120722,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Arthur Fery won. 7–6, 6–1",
     "recapText": "ESPN reports Arthur Fery as the winner of this round of 128 match. 7–6, 6–1",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -120804,13 +120809,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184854",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184854",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184854",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -120869,9 +120874,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "4–6, 6–1, 6–2",
     "scoreDisplay": "4–6, 6–1, 6–2",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184854",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:alex-molcan",
     "loserParticipantId": "competitor:tennis:atp:federico-cina",
     "eliminatedParticipantIds": [
@@ -120884,6 +120889,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Alex Molcan won. 4–6, 6–1, 6–2",
     "recapText": "ESPN reports Alex Molcan as the winner of this round of 128 match. 4–6, 6–1, 6–2",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -120970,13 +120976,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184862",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184862",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184862",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -121033,9 +121039,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–3, 7–6",
     "scoreDisplay": "6–3, 7–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184862",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:wu-yibing",
     "loserParticipantId": "competitor:tennis:atp:michael-zheng",
     "eliminatedParticipantIds": [
@@ -121048,6 +121054,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Wu Yibing won. 6–3, 7–6",
     "recapText": "ESPN reports Wu Yibing as the winner of this round of 128 match. 6–3, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -121134,13 +121141,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184870",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184870",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184870",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -121201,9 +121208,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "4–6, 6–3, 6–7",
     "scoreDisplay": "4–6, 6–3, 6–7",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184870",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:zhou-yi",
     "loserParticipantId": "competitor:tennis:atp:mattia-bellucci",
     "eliminatedParticipantIds": [
@@ -121216,6 +121223,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Zhou Yi won. 4–6, 6–3, 6–7",
     "recapText": "ESPN reports Zhou Yi as the winner of this round of 128 match. 4–6, 6–3, 6–7",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -121302,13 +121310,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184878",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184878",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184878",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -121373,9 +121381,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–7, 7–6, 7–6",
     "scoreDisplay": "6–7, 7–6, 7–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184878",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:yannick-hanfmann",
     "loserParticipantId": "competitor:tennis:atp:kamil-majchrzak",
     "eliminatedParticipantIds": [
@@ -121388,6 +121396,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Yannick Hanfmann won. 6–7, 7–6, 7–6",
     "recapText": "ESPN reports Yannick Hanfmann as the winner of this round of 128 match. 6–7, 7–6, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -121474,13 +121483,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184880",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184880",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184880",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -121541,9 +121550,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–7, 6–1, 6–2",
     "scoreDisplay": "6–7, 6–1, 6–2",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184880",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:arthur-gea",
     "loserParticipantId": "competitor:tennis:atp:jaime-faria",
     "eliminatedParticipantIds": [
@@ -121556,6 +121565,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Arthur Gea won. 6–7, 6–1, 6–2",
     "recapText": "ESPN reports Arthur Gea as the winner of this round of 128 match. 6–7, 6–1, 6–2",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -121642,13 +121652,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184881",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184881",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184881",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -121703,9 +121713,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–3, 2–2",
     "scoreDisplay": "6–3, 2–2",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184881",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:adrian-mannarino",
     "loserParticipantId": "competitor:tennis:atp:nikoloz-basilashvili",
     "eliminatedParticipantIds": [
@@ -121718,6 +121728,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Adrian Mannarino won. 6–3, 2–2",
     "recapText": "ESPN reports Adrian Mannarino as the winner of this round of 128 match. 6–3, 2–2",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -121805,13 +121816,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184888",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184888",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184888",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -121866,9 +121877,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "5–7, 3–6",
     "scoreDisplay": "5–7, 3–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184888",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:roman-safiullin",
     "loserParticipantId": "competitor:tennis:atp:rinky-hijikata",
     "eliminatedParticipantIds": [
@@ -121881,6 +121892,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Roman Safiullin won. 5–7, 3–6",
     "recapText": "ESPN reports Roman Safiullin as the winner of this round of 128 match. 5–7, 3–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -121967,13 +121979,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184889",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184889",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184889",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -122028,9 +122040,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "2–6, 4–6",
     "scoreDisplay": "2–6, 4–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184889",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:miomir-kecmanovic",
     "loserParticipantId": "competitor:tennis:atp:sho-shimabukuro",
     "eliminatedParticipantIds": [
@@ -122043,6 +122055,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Miomir Kecmanovic won. 2–6, 4–6",
     "recapText": "ESPN reports Miomir Kecmanovic as the winner of this round of 128 match. 2–6, 4–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -122602,7 +122615,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-08T21:00:48.348Z",
     "selectedSentence": "Chicago White Sox v Cleveland Guardians is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Chicago White Sox v Cleveland Guardians is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -122731,7 +122744,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-08T21:00:48.348Z",
     "selectedSentence": "Atlanta Braves v Los Angeles Dodgers is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Atlanta Braves v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -122860,7 +122873,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-08T21:00:48.348Z",
     "selectedSentence": "New York Yankees v Tampa Bay Rays is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "New York Yankees v Tampa Bay Rays is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -122989,7 +123002,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-08T21:00:48.348Z",
     "selectedSentence": "San Diego Padres v Milwaukee Brewers is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "San Diego Padres v Milwaukee Brewers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -123342,13 +123355,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184841",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184841",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184841",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -123403,9 +123416,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "4–6, 4–6",
     "scoreDisplay": "4–6, 4–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184841",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:jan-lennard-struff",
     "loserParticipantId": "competitor:tennis:atp:martin-landaluce",
     "eliminatedParticipantIds": [
@@ -123418,6 +123431,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Jan-Lennard Struff won. 4–6, 4–6",
     "recapText": "ESPN reports Jan-Lennard Struff as the winner of this round of 128 match. 4–6, 4–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -123506,13 +123520,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184843",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184843",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184843",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -123567,9 +123581,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 1–6",
     "scoreDisplay": "3–6, 1–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184843",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:matteo-arnaldi",
     "loserParticipantId": "competitor:tennis:atp:bernard-tomic",
     "eliminatedParticipantIds": [
@@ -123582,6 +123596,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Matteo Arnaldi won. 3–6, 1–6",
     "recapText": "ESPN reports Matteo Arnaldi as the winner of this round of 128 match. 3–6, 1–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -123668,13 +123683,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184850",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184850",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184850",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -123729,9 +123744,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–3, 6–1",
     "scoreDisplay": "6–3, 6–1",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184850",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:adolfo-daniel-vallejo",
     "loserParticipantId": "competitor:tennis:atp:valentin-royer",
     "eliminatedParticipantIds": [
@@ -123744,6 +123759,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Adolfo Daniel Vallejo won. 6–3, 6–1",
     "recapText": "ESPN reports Adolfo Daniel Vallejo as the winner of this round of 128 match. 6–3, 6–1",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -123831,13 +123847,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184851",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184851",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184851",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -123896,9 +123912,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 6–3, 4–6",
     "scoreDisplay": "3–6, 6–3, 4–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184851",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:dalibor-svrcina",
     "loserParticipantId": "competitor:tennis:atp:cameron-norrie",
     "eliminatedParticipantIds": [
@@ -123911,6 +123927,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Dalibor Svrcina won. 3–6, 6–3, 4–6",
     "recapText": "ESPN reports Dalibor Svrcina as the winner of this round of 128 match. 3–6, 6–3, 4–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -123998,13 +124015,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184855",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184855",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184855",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -124059,9 +124076,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 5–7",
     "scoreDisplay": "3–6, 5–7",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184855",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
     "loserParticipantId": "competitor:tennis:atp:kimmer-coppejans",
     "eliminatedParticipantIds": [
@@ -124074,6 +124091,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Stefanos Tsitsipas won. 3–6, 5–7",
     "recapText": "ESPN reports Stefanos Tsitsipas as the winner of this round of 128 match. 3–6, 5–7",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -124142,8 +124160,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "displayName": "Nuno Borges",
         "type": "athlete",
         "entityType": "athlete",
-        "sportDomainId": "sport:tennis",
-        "countryCode": "PT"
+        "sportDomainId": "sport:tennis"
       },
       {
         "id": "competitor:tennis:atp:facundo-diaz-acosta",
@@ -124161,13 +124178,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184857",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184857",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184857",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -124224,9 +124241,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "7–6, 6–2",
     "scoreDisplay": "7–6, 6–2",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184857",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:nuno-borges",
     "loserParticipantId": "competitor:tennis:atp:facundo-diaz-acosta",
     "eliminatedParticipantIds": [
@@ -124239,6 +124256,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Nuno Borges won. 7–6, 6–2",
     "recapText": "ESPN reports Nuno Borges as the winner of this round of 128 match. 7–6, 6–2",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -124325,13 +124343,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184858",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184858",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184858",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -124386,9 +124404,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 6–2",
     "scoreDisplay": "6–4, 6–2",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184858",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:thiago-agustin-tirante",
     "loserParticipantId": "competitor:tennis:atp:hamad-medjedovic",
     "eliminatedParticipantIds": [
@@ -124401,6 +124419,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Thiago Agustin Tirante won. 6–4, 6–2",
     "recapText": "ESPN reports Thiago Agustin Tirante as the winner of this round of 128 match. 6–4, 6–2",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -124488,13 +124507,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184863",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184863",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184863",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -124553,9 +124572,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 5–7, 3–6",
     "scoreDisplay": "6–4, 5–7, 3–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184863",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:pablo-carreno-busta",
     "loserParticipantId": "competitor:tennis:atp:mariano-navone",
     "eliminatedParticipantIds": [
@@ -124568,6 +124587,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Pablo Carreno Busta won. 6–4, 5–7, 3–6",
     "recapText": "ESPN reports Pablo Carreno Busta as the winner of this round of 128 match. 6–4, 5–7, 3–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -124654,13 +124674,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184864",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184864",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184864",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -124719,9 +124739,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "2–6, 6–2, 7–5",
     "scoreDisplay": "2–6, 6–2, 7–5",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184864",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:camilo-ugo-carabelli",
     "loserParticipantId": "competitor:tennis:atp:ilia-simakin",
     "eliminatedParticipantIds": [
@@ -124734,6 +124754,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Camilo Ugo Carabelli won. 2–6, 6–2, 7–5",
     "recapText": "ESPN reports Camilo Ugo Carabelli as the winner of this round of 128 match. 2–6, 6–2, 7–5",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -124820,13 +124841,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184867",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184867",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184867",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -124883,9 +124904,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 6–7",
     "scoreDisplay": "3–6, 6–7",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184867",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:zachary-svajda",
     "loserParticipantId": "competitor:tennis:atp:fabian-marozsan",
     "eliminatedParticipantIds": [
@@ -124898,6 +124919,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Zachary Svajda won. 3–6, 6–7",
     "recapText": "ESPN reports Zachary Svajda as the winner of this round of 128 match. 3–6, 6–7",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -124985,13 +125007,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184868",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184868",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184868",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -125048,9 +125070,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–7, 3–6",
     "scoreDisplay": "6–7, 3–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184868",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:bu-yunchaokete",
     "loserParticipantId": "competitor:tennis:atp:luca-van-assche",
     "eliminatedParticipantIds": [
@@ -125063,6 +125085,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Bu Yunchaokete won. 6–7, 3–6",
     "recapText": "ESPN reports Bu Yunchaokete as the winner of this round of 128 match. 6–7, 3–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -125151,13 +125174,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184869",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184869",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184869",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -125214,9 +125237,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–3, 7–6",
     "scoreDisplay": "6–3, 7–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184869",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:hubert-hurkacz",
     "loserParticipantId": "competitor:tennis:atp:james-duckworth",
     "eliminatedParticipantIds": [
@@ -125229,6 +125252,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Hubert Hurkacz won. 6–3, 7–6",
     "recapText": "ESPN reports Hubert Hurkacz as the winner of this round of 128 match. 6–3, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -125315,13 +125339,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184874",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184874",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184874",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -125378,9 +125402,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 7–6",
     "scoreDisplay": "6–4, 7–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184874",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:pavel-kotov",
     "loserParticipantId": "competitor:tennis:atp:tallon-griekspoor",
     "eliminatedParticipantIds": [
@@ -125393,6 +125417,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Pavel Kotov won. 6–4, 7–6",
     "recapText": "ESPN reports Pavel Kotov as the winner of this round of 128 match. 6–4, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -125481,13 +125506,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184875",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184875",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184875",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -125546,9 +125571,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "1–6, 6–3, 6–4",
     "scoreDisplay": "1–6, 6–3, 6–4",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184875",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:botic-van-de-zandschulp",
     "loserParticipantId": "competitor:tennis:atp:daniel-merida",
     "eliminatedParticipantIds": [
@@ -125561,6 +125586,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Botic van de Zandschulp won. 1–6, 6–3, 6–4",
     "recapText": "ESPN reports Botic van de Zandschulp as the winner of this round of 128 match. 1–6, 6–3, 6–4",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -125629,7 +125655,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "displayName": "Jaume Munar",
         "type": "athlete",
         "entityType": "athlete",
-        "sportDomainId": "sport:tennis"
+        "sportDomainId": "sport:tennis",
+        "countryCode": "ES"
       },
       {
         "id": "competitor:tennis:atp:jenson-brooksby",
@@ -125647,13 +125674,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184877",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184877",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184877",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -125708,9 +125735,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "5–7, 4–6",
     "scoreDisplay": "5–7, 4–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184877",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:jenson-brooksby",
     "loserParticipantId": "competitor:tennis:atp:jaume-munar",
     "eliminatedParticipantIds": [
@@ -125723,6 +125750,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Jenson Brooksby won. 5–7, 4–6",
     "recapText": "ESPN reports Jenson Brooksby as the winner of this round of 128 match. 5–7, 4–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -125809,13 +125837,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184882",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184882",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184882",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -125874,9 +125902,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–1, 3–6, 4–6",
     "scoreDisplay": "6–1, 3–6, 4–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184882",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:sebastian-baez",
     "loserParticipantId": "competitor:tennis:atp:marcos-giron",
     "eliminatedParticipantIds": [
@@ -125889,6 +125917,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Sebastian Baez won. 6–1, 3–6, 4–6",
     "recapText": "ESPN reports Sebastian Baez as the winner of this round of 128 match. 6–1, 3–6, 4–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -125975,13 +126004,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184885",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184885",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184885",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -126042,9 +126071,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–1, 6–7, 4–6",
     "scoreDisplay": "6–1, 6–7, 4–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184885",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:daniel-altmaier",
     "loserParticipantId": "competitor:tennis:atp:holger-rune",
     "eliminatedParticipantIds": [
@@ -126057,6 +126086,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Daniel Altmaier won. 6–1, 6–7, 4–6",
     "recapText": "ESPN reports Daniel Altmaier as the winner of this round of 128 match. 6–1, 6–7, 4–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -126144,13 +126174,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184892",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184892",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184892",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -126205,9 +126235,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 1–6",
     "scoreDisplay": "3–6, 1–6",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184892",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:zizou-bergs",
     "loserParticipantId": "competitor:tennis:atp:vit-kopriva",
     "eliminatedParticipantIds": [
@@ -126220,6 +126250,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Zizou Bergs won. 3–6, 1–6",
     "recapText": "ESPN reports Zizou Bergs as the winner of this round of 128 match. 3–6, 1–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -126306,13 +126337,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184893",
-    "sourceCheckedAt": "2026-10-08T21:01:35.000Z",
-    "statusCheckedAt": "2026-10-08T21:01:35.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184893",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184893",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261015"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -126367,9 +126398,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 6–4",
     "scoreDisplay": "6–4, 6–4",
-    "scoreCheckedAt": "2026-10-08T21:01:35.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184893",
-    "resultSourceCheckedAt": "2026-10-08T21:01:35.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:juan-manuel-cerundolo",
     "loserParticipantId": "competitor:tennis:atp:nicolas-mejia",
     "eliminatedParticipantIds": [
@@ -126382,6 +126413,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Juan Manuel Cerundolo won. 6–4, 6–4",
     "recapText": "ESPN reports Juan Manuel Cerundolo as the winner of this round of 128 match. 6–4, 6–4",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -126943,7 +126975,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
     "selectedSentence": "Chicago White Sox v Cleveland Guardians is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Chicago White Sox v Cleveland Guardians is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -127200,7 +127232,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640901",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8951",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -128190,7 +128222,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-11T12:40:36.882Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-f1-2026-singapore-sprint-qualifying",
@@ -128807,13 +128839,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184904",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184904",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184904",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -128868,9 +128900,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "4–6, 4–6",
     "scoreDisplay": "4–6, 4–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184904",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:frances-tiafoe",
     "loserParticipantId": "competitor:tennis:atp:yannick-hanfmann",
     "eliminatedParticipantIds": [
@@ -128883,6 +128915,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Frances Tiafoe won. 4–6, 4–6",
     "recapText": "ESPN reports Frances Tiafoe as the winner of this round of 64 match. 4–6, 4–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -128970,13 +129003,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184914",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184914",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184914",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -129031,9 +129064,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 6–4",
     "scoreDisplay": "6–4, 6–4",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184914",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:rei-sakamoto",
     "loserParticipantId": "competitor:tennis:atp:andrey-rublev",
     "eliminatedParticipantIds": [
@@ -129046,6 +129079,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Rei Sakamoto won. 6–4, 6–4",
     "recapText": "ESPN reports Rei Sakamoto as the winner of this round of 64 match. 6–4, 6–4",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -129134,13 +129168,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184915",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184915",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184915",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -129205,9 +129239,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "7–6, 6–7, 7–6",
     "scoreDisplay": "7–6, 6–7, 7–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184915",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:karen-khachanov",
     "loserParticipantId": "competitor:tennis:atp:arthur-fery",
     "eliminatedParticipantIds": [
@@ -129220,6 +129254,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Karen Khachanov won. 7–6, 6–7, 7–6",
     "recapText": "ESPN reports Karen Khachanov as the winner of this round of 64 match. 7–6, 6–7, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -129307,13 +129342,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184916",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184916",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184916",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -129372,9 +129407,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–1, 4–6, 6–3",
     "scoreDisplay": "6–1, 4–6, 6–3",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184916",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:adrian-mannarino",
     "loserParticipantId": "competitor:tennis:atp:flavio-cobolli",
     "eliminatedParticipantIds": [
@@ -129387,6 +129422,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Adrian Mannarino won. 6–1, 4–6, 6–3",
     "recapText": "ESPN reports Adrian Mannarino as the winner of this round of 64 match. 6–1, 4–6, 6–3",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -129474,13 +129510,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184918",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184918",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184918",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -129543,9 +129579,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "7–6, 3–6, 7–6",
     "scoreDisplay": "7–6, 3–6, 7–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184918",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:zhou-yi",
     "loserParticipantId": "competitor:tennis:atp:lorenzo-musetti",
     "eliminatedParticipantIds": [
@@ -129558,6 +129594,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Zhou Yi won. 7–6, 3–6, 7–6",
     "recapText": "ESPN reports Zhou Yi as the winner of this round of 64 match. 7–6, 3–6, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -129645,13 +129682,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184919",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184919",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184919",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -129706,9 +129743,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–1, 6–3",
     "scoreDisplay": "6–1, 6–3",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184919",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
     "loserParticipantId": "competitor:tennis:atp:jenson-brooksby",
     "eliminatedParticipantIds": [
@@ -129721,6 +129758,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Alejandro Davidovich Fokina won. 6–1, 6–3",
     "recapText": "ESPN reports Alejandro Davidovich Fokina as the winner of this round of 64 match. 6–1, 6–3",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -129808,13 +129846,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184920",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184920",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184920",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -129871,9 +129909,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–3, 7–6",
     "scoreDisplay": "6–3, 7–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184920",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:ben-shelton",
     "loserParticipantId": "competitor:tennis:atp:daniel-altmaier",
     "eliminatedParticipantIds": [
@@ -129886,6 +129924,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Ben Shelton won. 6–3, 7–6",
     "recapText": "ESPN reports Ben Shelton as the winner of this round of 64 match. 6–3, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -129973,13 +130012,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184921",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184921",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184921",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -130038,9 +130077,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 3–6, 6–1",
     "scoreDisplay": "6–4, 3–6, 6–1",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184921",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:arthur-gea",
     "loserParticipantId": "competitor:tennis:atp:ugo-humbert",
     "eliminatedParticipantIds": [
@@ -130053,6 +130092,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Arthur Gea won. 6–4, 3–6, 6–1",
     "recapText": "ESPN reports Arthur Gea as the winner of this round of 64 match. 6–4, 3–6, 6–1",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -130140,13 +130180,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184922",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184922",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184922",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -130203,9 +130243,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "7–6, 6–3",
     "scoreDisplay": "7–6, 6–3",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184922",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:francisco-cerundolo",
     "loserParticipantId": "competitor:tennis:atp:roman-safiullin",
     "eliminatedParticipantIds": [
@@ -130218,6 +130258,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Francisco Cerundolo won. 7–6, 6–3",
     "recapText": "ESPN reports Francisco Cerundolo as the winner of this round of 64 match. 7–6, 6–3",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -130305,13 +130346,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184923",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184923",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184923",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -130366,9 +130407,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 3–6",
     "scoreDisplay": "3–6, 3–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184923",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:jakub-mensik",
     "loserParticipantId": "competitor:tennis:atp:miomir-kecmanovic",
     "eliminatedParticipantIds": [
@@ -130381,6 +130422,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Jakub Mensik won. 3–6, 3–6",
     "recapText": "ESPN reports Jakub Mensik as the winner of this round of 64 match. 3–6, 3–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -130469,13 +130511,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184924",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184924",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184924",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -130536,9 +130578,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "4–6, 7–6, 6–4",
     "scoreDisplay": "4–6, 7–6, 6–4",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184924",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:quentin-halys",
     "loserParticipantId": "competitor:tennis:atp:alexander-blockx",
     "eliminatedParticipantIds": [
@@ -130551,6 +130593,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Quentin Halys won. 4–6, 7–6, 6–4",
     "recapText": "ESPN reports Quentin Halys as the winner of this round of 64 match. 4–6, 7–6, 6–4",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -130638,13 +130681,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184925",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184925",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184925",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -130701,9 +130744,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 7–6",
     "scoreDisplay": "6–4, 7–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184925",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:alexander-bublik",
     "loserParticipantId": "competitor:tennis:atp:tomas-machac",
     "eliminatedParticipantIds": [
@@ -130716,6 +130759,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Alexander Bublik won. 6–4, 7–6",
     "recapText": "ESPN reports Alexander Bublik as the winner of this round of 64 match. 6–4, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -130804,13 +130848,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184926",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184926",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184926",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -130867,9 +130911,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–7, 5–7",
     "scoreDisplay": "6–7, 5–7",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184926",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:brandon-nakashima",
     "loserParticipantId": "competitor:tennis:atp:matteo-berrettini",
     "eliminatedParticipantIds": [
@@ -130882,6 +130926,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Brandon Nakashima won. 6–7, 5–7",
     "recapText": "ESPN reports Brandon Nakashima as the winner of this round of 64 match. 6–7, 5–7",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -130969,13 +131014,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184928",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184928",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184928",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -131032,9 +131077,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 7–6",
     "scoreDisplay": "6–4, 7–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184928",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:alexander-zverev",
     "loserParticipantId": "competitor:tennis:atp:wu-yibing",
     "eliminatedParticipantIds": [
@@ -131047,6 +131092,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Alexander Zverev won. 6–4, 7–6",
     "recapText": "ESPN reports Alexander Zverev as the winner of this round of 64 match. 6–4, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -131451,7 +131497,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
     "selectedSentence": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
     "fullSpiel": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -131601,7 +131647,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640902",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8952",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -131768,7 +131814,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640903",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8955",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -131935,7 +131981,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640904",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8954",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -132295,7 +132341,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640905",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8958",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -132725,7 +132771,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-11T12:40:36.882Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-f1-2026-singapore-sprint",
@@ -133294,7 +133340,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640906",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8956",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -133913,13 +133959,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184897",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184897",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184897",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -133974,9 +134020,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 4–6",
     "scoreDisplay": "3–6, 4–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184897",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
     "loserParticipantId": "competitor:tennis:atp:luciano-darderi",
     "eliminatedParticipantIds": [
@@ -133989,6 +134035,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Stefanos Tsitsipas won. 3–6, 4–6",
     "recapText": "ESPN reports Stefanos Tsitsipas as the winner of this round of 64 match. 3–6, 4–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -134077,13 +134124,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184898",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184898",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184898",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -134138,9 +134185,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "5–7, 4–6",
     "scoreDisplay": "5–7, 4–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184898",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:taylor-fritz",
     "loserParticipantId": "competitor:tennis:atp:matteo-arnaldi",
     "eliminatedParticipantIds": [
@@ -134153,6 +134200,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Taylor Fritz won. 5–7, 4–6",
     "recapText": "ESPN reports Taylor Fritz as the winner of this round of 64 match. 5–7, 4–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -134240,13 +134288,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184899",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184899",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184899",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -134301,9 +134349,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–2, 6–2",
     "scoreDisplay": "6–2, 6–2",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184899",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:tommy-paul",
     "loserParticipantId": "competitor:tennis:atp:adolfo-daniel-vallejo",
     "eliminatedParticipantIds": [
@@ -134316,6 +134364,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Tommy Paul won. 6–2, 6–2",
     "recapText": "ESPN reports Tommy Paul as the winner of this round of 64 match. 6–2, 6–2",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -134403,13 +134452,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184900",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184900",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184900",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -134466,9 +134515,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "4–6, 6–7",
     "scoreDisplay": "4–6, 6–7",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184900",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:valentin-vacherot",
     "loserParticipantId": "competitor:tennis:atp:sebastian-baez",
     "eliminatedParticipantIds": [
@@ -134481,6 +134530,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Valentin Vacherot won. 4–6, 6–7",
     "recapText": "ESPN reports Valentin Vacherot as the winner of this round of 64 match. 4–6, 6–7",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -134568,13 +134618,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184901",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184901",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184901",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -134633,9 +134683,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–3, 3–6, 7–5",
     "scoreDisplay": "6–3, 3–6, 7–5",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184901",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:dalibor-svrcina",
     "loserParticipantId": "competitor:tennis:atp:tomas-martin-etcheverry",
     "eliminatedParticipantIds": [
@@ -134648,6 +134698,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Dalibor Svrcina won. 6–3, 3–6, 7–5",
     "recapText": "ESPN reports Dalibor Svrcina as the winner of this round of 64 match. 6–3, 3–6, 7–5",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -134736,13 +134787,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184902",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184902",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184902",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -134797,9 +134848,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "0–6, 3–6",
     "scoreDisplay": "0–6, 3–6",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184902",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:zizou-bergs",
     "loserParticipantId": "competitor:tennis:atp:ignacio-buse",
     "eliminatedParticipantIds": [
@@ -134812,6 +134863,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Zizou Bergs won. 0–6, 3–6",
     "recapText": "ESPN reports Zizou Bergs as the winner of this round of 64 match. 0–6, 3–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -134899,13 +134951,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184903",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184903",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184903",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -134960,9 +135012,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 3–6",
     "scoreDisplay": "3–6, 3–6",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184903",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:carlos-alcaraz",
     "loserParticipantId": "competitor:tennis:atp:juan-manuel-cerundolo",
     "eliminatedParticipantIds": [
@@ -134975,6 +135027,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Carlos Alcaraz won. 3–6, 3–6",
     "recapText": "ESPN reports Carlos Alcaraz as the winner of this round of 64 match. 3–6, 3–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -135062,13 +135115,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184905",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184905",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184905",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -135123,9 +135176,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–3, 6–4",
     "scoreDisplay": "6–3, 6–4",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184905",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:arthur-fils",
     "loserParticipantId": "competitor:tennis:atp:pavel-kotov",
     "eliminatedParticipantIds": [
@@ -135138,6 +135191,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Arthur Fils won. 6–3, 6–4",
     "recapText": "ESPN reports Arthur Fils as the winner of this round of 64 match. 6–3, 6–4",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -135226,13 +135280,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184906",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184906",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184906",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -135287,9 +135341,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 6–4",
     "scoreDisplay": "6–4, 6–4",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184906",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:botic-van-de-zandschulp",
     "loserParticipantId": "competitor:tennis:atp:alex-michelsen",
     "eliminatedParticipantIds": [
@@ -135302,6 +135356,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Botic van de Zandschulp won. 6–4, 6–4",
     "recapText": "ESPN reports Botic van de Zandschulp as the winner of this round of 64 match. 6–4, 6–4",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -135379,8 +135434,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "displayName": "Nuno Borges",
         "type": "athlete",
         "entityType": "athlete",
-        "sportDomainId": "sport:tennis",
-        "countryCode": "PT"
+        "sportDomainId": "sport:tennis"
       }
     ],
     "homeParticipantId": "competitor:tennis:atp:jiri-lehecka",
@@ -135390,13 +135444,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184907",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184907",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184907",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -135455,9 +135509,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–3, 3–6, 6–3",
     "scoreDisplay": "6–3, 3–6, 6–3",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184907",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:jiri-lehecka",
     "loserParticipantId": "competitor:tennis:atp:nuno-borges",
     "eliminatedParticipantIds": [
@@ -135470,6 +135524,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Jiri Lehecka won. 6–3, 3–6, 6–3",
     "recapText": "ESPN reports Jiri Lehecka as the winner of this round of 64 match. 6–3, 3–6, 6–3",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -135557,13 +135612,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184908",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184908",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184908",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -135624,9 +135679,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 6–7, 5–7",
     "scoreDisplay": "6–4, 6–7, 5–7",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184908",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
     "loserParticipantId": "competitor:tennis:atp:camilo-ugo-carabelli",
     "eliminatedParticipantIds": [
@@ -135639,6 +135694,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Felix Auger Aliassime won. 6–4, 6–7, 5–7",
     "recapText": "ESPN reports Felix Auger Aliassime as the winner of this round of 64 match. 6–4, 6–7, 5–7",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -135726,13 +135782,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184909",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184909",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184909",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -135791,9 +135847,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "4–6, 6–4, 6–3",
     "scoreDisplay": "4–6, 6–4, 6–3",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184909",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:daniil-medvedev",
     "loserParticipantId": "competitor:tennis:atp:jan-lennard-struff",
     "eliminatedParticipantIds": [
@@ -135806,6 +135862,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Daniil Medvedev won. 4–6, 6–4, 6–3",
     "recapText": "ESPN reports Daniil Medvedev as the winner of this round of 64 match. 4–6, 6–4, 6–3",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -135893,13 +135950,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184910",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184910",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184910",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -135958,9 +136015,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 2–6, 3–6",
     "scoreDisplay": "6–4, 2–6, 3–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184910",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:rafael-jodar",
     "loserParticipantId": "competitor:tennis:atp:thiago-agustin-tirante",
     "eliminatedParticipantIds": [
@@ -135973,6 +136030,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Rafael Jodar won. 6–4, 2–6, 3–6",
     "recapText": "ESPN reports Rafael Jodar as the winner of this round of 64 match. 6–4, 2–6, 3–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -136060,13 +136118,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184911",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184911",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184911",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -136121,9 +136179,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "7–5, 7–5",
     "scoreDisplay": "7–5, 7–5",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184911",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:learner-tien",
     "loserParticipantId": "competitor:tennis:atp:zachary-svajda",
     "eliminatedParticipantIds": [
@@ -136136,6 +136194,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Learner Tien won. 7–5, 7–5",
     "recapText": "ESPN reports Learner Tien as the winner of this round of 64 match. 7–5, 7–5",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -136223,13 +136282,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184912",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184912",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184912",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -136286,9 +136345,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "1–6, 6–7",
     "scoreDisplay": "1–6, 6–7",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184912",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:casper-ruud",
     "loserParticipantId": "competitor:tennis:atp:bu-yunchaokete",
     "eliminatedParticipantIds": [
@@ -136301,6 +136360,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Casper Ruud won. 1–6, 6–7",
     "recapText": "ESPN reports Casper Ruud as the winner of this round of 64 match. 1–6, 6–7",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -136388,13 +136448,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184913",
-    "sourceCheckedAt": "2026-10-10T12:28:07.000Z",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184913",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184913",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -136455,9 +136515,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 6–7, 4–6",
     "scoreDisplay": "6–4, 6–7, 4–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184913",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:pablo-carreno-busta",
     "loserParticipantId": "competitor:tennis:atp:alejandro-tabilo",
     "eliminatedParticipantIds": [
@@ -136470,6 +136530,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Pablo Carreno Busta won. 6–4, 6–7, 4–6",
     "recapText": "ESPN reports Pablo Carreno Busta as the winner of this round of 64 match. 6–4, 6–7, 4–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -136870,7 +136931,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
     "selectedSentence": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
     "fullSpiel": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -137051,7 +137112,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
     "selectedSentence": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
     "fullSpiel": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -137223,7 +137284,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-10-11T12:40:36.882Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-32",
@@ -138768,7 +138829,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
     "selectedSentence": "Cleveland Guardians v Chicago White Sox is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Cleveland Guardians v Chicago White Sox is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -138957,7 +139018,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timePrecision": "exact",
     "narrativeType": "all",
     "briefingEligible": true,
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T07:45:02.471Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -139301,7 +139362,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640907",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8957",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -139468,7 +139529,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640908",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8959",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -139868,7 +139929,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640909",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8960",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -140883,13 +140944,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184930",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184930",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184930",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -140950,9 +141011,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 6–7, 6–3",
     "scoreDisplay": "6–4, 6–7, 6–3",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184930",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:alexander-zverev",
     "loserParticipantId": "competitor:tennis:atp:quentin-halys",
     "eliminatedParticipantIds": [
@@ -140965,6 +141026,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Alexander Zverev won. 6–4, 6–7, 6–3",
     "recapText": "ESPN reports Alexander Zverev as the winner of this round of 32 match. 6–4, 6–7, 6–3",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -141052,13 +141114,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184935",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184935",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184935",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -141117,9 +141179,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–2, 3–6, 6–3",
     "scoreDisplay": "6–2, 3–6, 6–3",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184935",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:hubert-hurkacz",
     "loserParticipantId": "competitor:tennis:atp:zhou-yi",
     "eliminatedParticipantIds": [
@@ -141132,6 +141194,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Hubert Hurkacz won. 6–2, 3–6, 6–3",
     "recapText": "ESPN reports Hubert Hurkacz as the winner of this round of 32 match. 6–2, 3–6, 6–3",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -141220,13 +141283,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184936",
-    "sourceCheckedAt": "2026-10-11T19:55:36.000Z",
-    "statusCheckedAt": "2026-10-11T19:55:36.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184936",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184936",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -141289,9 +141352,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "7–6, 4–6, 7–6",
     "scoreDisplay": "7–6, 4–6, 7–6",
-    "scoreCheckedAt": "2026-10-11T19:55:36.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184936",
-    "resultSourceCheckedAt": "2026-10-11T19:55:36.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
     "loserParticipantId": "competitor:tennis:atp:frances-tiafoe",
     "eliminatedParticipantIds": [
@@ -141304,6 +141367,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Alejandro Davidovich Fokina won. 7–6, 4–6, 7–6",
     "recapText": "ESPN reports Alejandro Davidovich Fokina as the winner of this round of 32 match. 7–6, 4–6, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -141391,13 +141455,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184943",
-    "sourceCheckedAt": "2026-10-11T12:36:55.000Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184943",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184943",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -141456,9 +141520,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–7, 6–7",
     "scoreDisplay": "6–7, 6–7",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184943",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:arthur-gea",
     "loserParticipantId": "competitor:tennis:atp:ben-shelton",
     "eliminatedParticipantIds": [
@@ -141471,6 +141535,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Arthur Gea won. 6–7, 6–7",
     "recapText": "ESPN reports Arthur Gea as the winner of this round of 32 match. 6–7, 6–7",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -141564,7 +141629,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
     "selectedSentence": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
     "fullSpiel": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -142280,7 +142345,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-12T22:43:24.652Z",
     "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Milwaukee Brewers v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -142455,8 +142520,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184932",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184932",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -142518,9 +142583,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "4–6, 6–7",
     "scoreDisplay": "4–6, 6–7",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184932",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:casper-ruud",
     "loserParticipantId": "competitor:tennis:atp:learner-tien",
     "eliminatedParticipantIds": [
@@ -142532,7 +142597,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Casper Ruud won. 4–6, 6–7",
-    "recapText": "ESPN reports Casper Ruud as the winner of this round of 32 match. 4–6, 6–7"
+    "recapText": "ESPN reports Casper Ruud as the winner of this round of 32 match. 4–6, 6–7",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Learner Tien v Casper Ruud is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Learner Tien v Casper Ruud is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Casper Ruud won. 4–6, 6–7",
+      "synopsisSpoilerOn": "ESPN reports Casper Ruud as the winner of this round of 32 match. 4–6, 6–7"
+    },
+    "selectedSentence": "Learner Tien v Casper Ruud is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Learner Tien v Casper Ruud is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184933",
@@ -142607,8 +142686,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184933",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184933",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -142672,9 +142751,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 6–4, 1–6",
     "scoreDisplay": "3–6, 6–4, 1–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184933",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
     "loserParticipantId": "competitor:tennis:atp:pablo-carreno-busta",
     "eliminatedParticipantIds": [
@@ -142686,7 +142765,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Felix Auger Aliassime won. 3–6, 6–4, 1–6",
-    "recapText": "ESPN reports Felix Auger Aliassime as the winner of this round of 32 match. 3–6, 6–4, 1–6"
+    "recapText": "ESPN reports Felix Auger Aliassime as the winner of this round of 32 match. 3–6, 6–4, 1–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Pablo Carreno Busta v Felix Auger Aliassime is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Pablo Carreno Busta v Felix Auger Aliassime is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Felix Auger Aliassime won. 3–6, 6–4, 1–6",
+      "synopsisSpoilerOn": "ESPN reports Felix Auger Aliassime as the winner of this round of 32 match. 3–6, 6–4, 1–6"
+    },
+    "selectedSentence": "Pablo Carreno Busta v Felix Auger Aliassime is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Pablo Carreno Busta v Felix Auger Aliassime is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184934",
@@ -142761,8 +142854,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184934",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184934",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -142822,9 +142915,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–2, 6–3",
     "scoreDisplay": "6–2, 6–3",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184934",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:daniil-medvedev",
     "loserParticipantId": "competitor:tennis:atp:dalibor-svrcina",
     "eliminatedParticipantIds": [
@@ -142836,7 +142929,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Daniil Medvedev won. 6–2, 6–3",
-    "recapText": "ESPN reports Daniil Medvedev as the winner of this round of 32 match. 6–2, 6–3"
+    "recapText": "ESPN reports Daniil Medvedev as the winner of this round of 32 match. 6–2, 6–3",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Daniil Medvedev v Dalibor Svrcina is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Daniil Medvedev v Dalibor Svrcina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Daniil Medvedev won. 6–2, 6–3",
+      "synopsisSpoilerOn": "ESPN reports Daniil Medvedev as the winner of this round of 32 match. 6–2, 6–3"
+    },
+    "selectedSentence": "Daniil Medvedev v Dalibor Svrcina is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Daniil Medvedev v Dalibor Svrcina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184937",
@@ -142912,8 +143019,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184937",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184937",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -142973,9 +143080,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "5–7, 4–6",
     "scoreDisplay": "5–7, 4–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184937",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:botic-van-de-zandschulp",
     "loserParticipantId": "competitor:tennis:atp:arthur-fils",
     "eliminatedParticipantIds": [
@@ -142987,7 +143094,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Botic van de Zandschulp won. 5–7, 4–6",
-    "recapText": "ESPN reports Botic van de Zandschulp as the winner of this round of 32 match. 5–7, 4–6"
+    "recapText": "ESPN reports Botic van de Zandschulp as the winner of this round of 32 match. 5–7, 4–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Arthur Fils v Botic van de Zandschulp is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Arthur Fils v Botic van de Zandschulp is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Botic van de Zandschulp won. 5–7, 4–6",
+      "synopsisSpoilerOn": "ESPN reports Botic van de Zandschulp as the winner of this round of 32 match. 5–7, 4–6"
+    },
+    "selectedSentence": "Arthur Fils v Botic van de Zandschulp is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Arthur Fils v Botic van de Zandschulp is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184938",
@@ -143063,8 +143184,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184938",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184938",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -143130,9 +143251,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 6–7, 4–6",
     "scoreDisplay": "6–4, 6–7, 4–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184938",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:rafael-jodar",
     "loserParticipantId": "competitor:tennis:atp:jiri-lehecka",
     "eliminatedParticipantIds": [
@@ -143144,7 +143265,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Rafael Jodar won. 6–4, 6–7, 4–6",
-    "recapText": "ESPN reports Rafael Jodar as the winner of this round of 32 match. 6–4, 6–7, 4–6"
+    "recapText": "ESPN reports Rafael Jodar as the winner of this round of 32 match. 6–4, 6–7, 4–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Jiri Lehecka v Rafael Jodar is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Jiri Lehecka v Rafael Jodar is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Rafael Jodar won. 6–4, 6–7, 4–6",
+      "synopsisSpoilerOn": "ESPN reports Rafael Jodar as the winner of this round of 32 match. 6–4, 6–7, 4–6"
+    },
+    "selectedSentence": "Jiri Lehecka v Rafael Jodar is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Jiri Lehecka v Rafael Jodar is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184939",
@@ -143220,8 +143355,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184939",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184939",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -143285,9 +143420,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 7–5, 6–3",
     "scoreDisplay": "3–6, 7–5, 6–3",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184939",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
     "loserParticipantId": "competitor:tennis:atp:taylor-fritz",
     "eliminatedParticipantIds": [
@@ -143299,7 +143434,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Stefanos Tsitsipas won. 3–6, 7–5, 6–3",
-    "recapText": "ESPN reports Stefanos Tsitsipas as the winner of this round of 32 match. 3–6, 7–5, 6–3"
+    "recapText": "ESPN reports Stefanos Tsitsipas as the winner of this round of 32 match. 3–6, 7–5, 6–3",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Stefanos Tsitsipas v Taylor Fritz is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Stefanos Tsitsipas v Taylor Fritz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Stefanos Tsitsipas won. 3–6, 7–5, 6–3",
+      "synopsisSpoilerOn": "ESPN reports Stefanos Tsitsipas as the winner of this round of 32 match. 3–6, 7–5, 6–3"
+    },
+    "selectedSentence": "Stefanos Tsitsipas v Taylor Fritz is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Stefanos Tsitsipas v Taylor Fritz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184940",
@@ -143375,8 +143524,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184940",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184940",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -143436,9 +143585,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 6–2",
     "scoreDisplay": "6–4, 6–2",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184940",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:tommy-paul",
     "loserParticipantId": "competitor:tennis:atp:valentin-vacherot",
     "eliminatedParticipantIds": [
@@ -143450,7 +143599,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Tommy Paul won. 6–4, 6–2",
-    "recapText": "ESPN reports Tommy Paul as the winner of this round of 32 match. 6–4, 6–2"
+    "recapText": "ESPN reports Tommy Paul as the winner of this round of 32 match. 6–4, 6–2",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Tommy Paul v Valentin Vacherot is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Tommy Paul v Valentin Vacherot is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Tommy Paul won. 6–4, 6–2",
+      "synopsisSpoilerOn": "ESPN reports Tommy Paul as the winner of this round of 32 match. 6–4, 6–2"
+    },
+    "selectedSentence": "Tommy Paul v Valentin Vacherot is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Tommy Paul v Valentin Vacherot is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185314",
@@ -143525,8 +143688,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185314",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185314",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -143576,9 +143739,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "5–7, 3–6",
     "scoreDisplay": "5–7, 3–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185314",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:sonay-kartal",
     "loserParticipantId": "competitor:tennis:wta:anhelina-kalinina",
     "eliminatedParticipantIds": [
@@ -143590,7 +143753,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Sonay Kartal won. 5–7, 3–6",
-    "recapText": "ESPN reports Sonay Kartal as the winner of this round of 64 match. 5–7, 3–6"
+    "recapText": "ESPN reports Sonay Kartal as the winner of this round of 64 match. 5–7, 3–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Anhelina Kalinina v Sonay Kartal is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Anhelina Kalinina v Sonay Kartal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Sonay Kartal won. 5–7, 3–6",
+      "synopsisSpoilerOn": "ESPN reports Sonay Kartal as the winner of this round of 64 match. 5–7, 3–6"
+    },
+    "selectedSentence": "Anhelina Kalinina v Sonay Kartal is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Anhelina Kalinina v Sonay Kartal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185318",
@@ -143665,8 +143842,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185318",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185318",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -143722,9 +143899,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "2–6, 7–6, 6–4",
     "scoreDisplay": "2–6, 7–6, 6–4",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185318",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:catherine-mcnally",
     "loserParticipantId": "competitor:tennis:wta:yuliia-starodubtseva",
     "eliminatedParticipantIds": [
@@ -143736,7 +143913,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Catherine McNally won. 2–6, 7–6, 6–4",
-    "recapText": "ESPN reports Catherine McNally as the winner of this round of 64 match. 2–6, 7–6, 6–4"
+    "recapText": "ESPN reports Catherine McNally as the winner of this round of 64 match. 2–6, 7–6, 6–4",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Catherine McNally v Yuliia Starodubtseva is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Catherine McNally v Yuliia Starodubtseva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Catherine McNally won. 2–6, 7–6, 6–4",
+      "synopsisSpoilerOn": "ESPN reports Catherine McNally as the winner of this round of 64 match. 2–6, 7–6, 6–4"
+    },
+    "selectedSentence": "Catherine McNally v Yuliia Starodubtseva is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Catherine McNally v Yuliia Starodubtseva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185321",
@@ -143812,8 +144003,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185321",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185321",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -143863,9 +144054,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–3, 6–4",
     "scoreDisplay": "6–3, 6–4",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185321",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:jasmine-paolini",
     "loserParticipantId": "competitor:tennis:wta:sara-bejlek",
     "eliminatedParticipantIds": [
@@ -143877,7 +144068,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Jasmine Paolini won. 6–3, 6–4",
-    "recapText": "ESPN reports Jasmine Paolini as the winner of this round of 64 match. 6–3, 6–4"
+    "recapText": "ESPN reports Jasmine Paolini as the winner of this round of 64 match. 6–3, 6–4",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Jasmine Paolini v Sara Bejlek is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Jasmine Paolini v Sara Bejlek is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Jasmine Paolini won. 6–3, 6–4",
+      "synopsisSpoilerOn": "ESPN reports Jasmine Paolini as the winner of this round of 64 match. 6–3, 6–4"
+    },
+    "selectedSentence": "Jasmine Paolini v Sara Bejlek is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Jasmine Paolini v Sara Bejlek is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185327",
@@ -143953,8 +144158,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185327",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185327",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -144004,9 +144209,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 6–2",
     "scoreDisplay": "6–4, 6–2",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185327",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:maria-sakkari",
     "loserParticipantId": "competitor:tennis:wta:donna-vekic",
     "eliminatedParticipantIds": [
@@ -144018,7 +144223,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Maria Sakkari won. 6–4, 6–2",
-    "recapText": "ESPN reports Maria Sakkari as the winner of this round of 64 match. 6–4, 6–2"
+    "recapText": "ESPN reports Maria Sakkari as the winner of this round of 64 match. 6–4, 6–2",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Maria Sakkari v Donna Vekic is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Maria Sakkari v Donna Vekic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Maria Sakkari won. 6–4, 6–2",
+      "synopsisSpoilerOn": "ESPN reports Maria Sakkari as the winner of this round of 64 match. 6–4, 6–2"
+    },
+    "selectedSentence": "Maria Sakkari v Donna Vekic is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Maria Sakkari v Donna Vekic is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185331",
@@ -144094,8 +144313,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185331",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185331",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -144145,9 +144364,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "1–6, 0–2",
     "scoreDisplay": "1–6, 0–2",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185331",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:marie-bouzkova",
     "loserParticipantId": "competitor:tennis:wta:clara-tauson",
     "eliminatedParticipantIds": [
@@ -144159,7 +144378,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Retirement"
     ],
     "outcomeText": "Marie Bouzkova won. 1–6, 0–2",
-    "recapText": "ESPN reports Marie Bouzkova as the winner of this round of 64 match. 1–6, 0–2"
+    "recapText": "ESPN reports Marie Bouzkova as the winner of this round of 64 match. 1–6, 0–2",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Clara Tauson v Marie Bouzkova is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Clara Tauson v Marie Bouzkova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Marie Bouzkova won. 1–6, 0–2",
+      "synopsisSpoilerOn": "ESPN reports Marie Bouzkova as the winner of this round of 64 match. 1–6, 0–2"
+    },
+    "selectedSentence": "Clara Tauson v Marie Bouzkova is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Clara Tauson v Marie Bouzkova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185333",
@@ -144252,8 +144485,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "official",
-    "selectedSentence": "",
-    "fullSpiel": "",
+    "selectedSentence": "Anna Bondar v Mia Pohankova is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Anna Bondar v Mia Pohankova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Anna Bondar v Mia Pohankova",
     "broadcastOptions": [
@@ -144423,7 +144656,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Mia Pohankova won. Anna Bondar v Mia Pohankova: 1–6, 3–6.",
-    "recapText": "Mia Pohankova won. Anna Bondar v Mia Pohankova: 1–6, 3–6."
+    "recapText": "Mia Pohankova won. Anna Bondar v Mia Pohankova: 1–6, 3–6.",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Anna Bondar v Mia Pohankova is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Anna Bondar v Mia Pohankova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Mia Pohankova won. Anna Bondar v Mia Pohankova: 1–6, 3–6.",
+      "synopsisSpoilerOn": "Mia Pohankova won. Anna Bondar v Mia Pohankova: 1–6, 3–6."
+    }
   },
   {
     "id": "fixture-tennis-espn-wta-185334",
@@ -144497,8 +144741,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185334",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185334",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -144548,9 +144792,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–2, 6–0",
     "scoreDisplay": "6–2, 6–0",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185334",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:wang-xiyu",
     "loserParticipantId": "competitor:tennis:wta:wang-xinyu",
     "eliminatedParticipantIds": [
@@ -144562,7 +144806,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Wang Xiyu won. 6–2, 6–0",
-    "recapText": "ESPN reports Wang Xiyu as the winner of this round of 64 match. 6–2, 6–0"
+    "recapText": "ESPN reports Wang Xiyu as the winner of this round of 64 match. 6–2, 6–0",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Wang Xiyu v Wang Xinyu is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Wang Xiyu v Wang Xinyu is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Wang Xiyu won. 6–2, 6–0",
+      "synopsisSpoilerOn": "ESPN reports Wang Xiyu as the winner of this round of 64 match. 6–2, 6–0"
+    },
+    "selectedSentence": "Wang Xiyu v Wang Xinyu is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Wang Xiyu v Wang Xinyu is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185336",
@@ -144638,8 +144896,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185336",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185336",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -144693,9 +144951,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "4–6, 6–3, 3–6",
     "scoreDisplay": "4–6, 6–3, 3–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185336",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:leylah-fernandez",
     "loserParticipantId": "competitor:tennis:wta:ekaterina-alexandrova",
     "eliminatedParticipantIds": [
@@ -144707,7 +144965,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Leylah Fernandez won. 4–6, 6–3, 3–6",
-    "recapText": "ESPN reports Leylah Fernandez as the winner of this round of 64 match. 4–6, 6–3, 3–6"
+    "recapText": "ESPN reports Leylah Fernandez as the winner of this round of 64 match. 4–6, 6–3, 3–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Ekaterina Alexandrova v Leylah Fernandez is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Ekaterina Alexandrova v Leylah Fernandez is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Leylah Fernandez won. 4–6, 6–3, 3–6",
+      "synopsisSpoilerOn": "ESPN reports Leylah Fernandez as the winner of this round of 64 match. 4–6, 6–3, 3–6"
+    },
+    "selectedSentence": "Ekaterina Alexandrova v Leylah Fernandez is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Ekaterina Alexandrova v Leylah Fernandez is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185341",
@@ -144805,8 +145077,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "",
     "statusSourceType": "official",
-    "selectedSentence": "",
-    "fullSpiel": "",
+    "selectedSentence": "Diane Parry v Lanlana Tararudee is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Diane Parry v Lanlana Tararudee is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Diane Parry v Lanlana Tararudee",
     "broadcastOptions": [
@@ -144988,7 +145260,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Lanlana Tararudee won. Diane Parry v Lanlana Tararudee: 4–6, 1–6.",
-    "recapText": "Lanlana Tararudee won. Diane Parry v Lanlana Tararudee: 4–6, 1–6."
+    "recapText": "Lanlana Tararudee won. Diane Parry v Lanlana Tararudee: 4–6, 1–6.",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Diane Parry v Lanlana Tararudee is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Diane Parry v Lanlana Tararudee is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Lanlana Tararudee won. Diane Parry v Lanlana Tararudee: 4–6, 1–6.",
+      "synopsisSpoilerOn": "Lanlana Tararudee won. Diane Parry v Lanlana Tararudee: 4–6, 1–6."
+    }
   },
   {
     "id": "fixture-tennis-espn-wta-185342",
@@ -145063,8 +145346,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185342",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185342",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -145116,9 +145399,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 6–7",
     "scoreDisplay": "3–6, 6–7",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185342",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:magdalena-frech",
     "loserParticipantId": "competitor:tennis:wta:mananchaya-sawangkaew",
     "eliminatedParticipantIds": [
@@ -145130,7 +145413,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Magdalena Frech won. 3–6, 6–7",
-    "recapText": "ESPN reports Magdalena Frech as the winner of this round of 64 match. 3–6, 6–7"
+    "recapText": "ESPN reports Magdalena Frech as the winner of this round of 64 match. 3–6, 6–7",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Mananchaya Sawangkaew v Magdalena Frech is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Mananchaya Sawangkaew v Magdalena Frech is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Magdalena Frech won. 3–6, 6–7",
+      "synopsisSpoilerOn": "ESPN reports Magdalena Frech as the winner of this round of 64 match. 3–6, 6–7"
+    },
+    "selectedSentence": "Mananchaya Sawangkaew v Magdalena Frech is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Mananchaya Sawangkaew v Magdalena Frech is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185344",
@@ -145205,8 +145502,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185344",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185344",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -145331,9 +145628,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–3, 6–1",
     "scoreDisplay": "6–3, 6–1",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185344",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:janice-tjen",
     "loserParticipantId": "competitor:tennis:wta:aoi-ito",
     "eliminatedParticipantIds": [
@@ -145345,7 +145642,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Janice Tjen won. 6–3, 6–1",
-    "recapText": "ESPN reports Janice Tjen as the winner of this round of 64 match. 6–3, 6–1"
+    "recapText": "ESPN reports Janice Tjen as the winner of this round of 64 match. 6–3, 6–1",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Janice Tjen v Aoi Ito is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Janice Tjen v Aoi Ito is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Janice Tjen won. 6–3, 6–1",
+      "synopsisSpoilerOn": "ESPN reports Janice Tjen as the winner of this round of 64 match. 6–3, 6–1"
+    },
+    "selectedSentence": "Janice Tjen v Aoi Ito is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Janice Tjen v Aoi Ito is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "epl-2026-27-128976",
@@ -145466,20 +145777,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Coventry City — 2026/27 identity under pressure",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup"
-      ],
-      "sourceName": "Premier League current 2026/27 table",
-      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-      "needsPreviewRefresh": false
-    },
     "storyline": {
       "researchDepth": 2,
       "arcStage": "recap",
@@ -145523,7 +145820,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayScore": 1,
     "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
     "resultSourceCheckedAt": "2026-10-12T22:43:24.652Z",
-    "scoreCheckedAt": "2026-10-12T22:43:24.652Z"
+    "scoreCheckedAt": "2026-10-12T22:43:24.652Z",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Coventry City — 2026/27 identity under pressure",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
+      ],
+      "sourceName": "Premier League current 2026/27 table",
+      "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "fixture-mlb-849812",
@@ -145545,7 +145856,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeUtc": "2026-10-12T21:00:00.000Z",
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
-    "status": "live",
+    "status": "completed",
     "venue": "American Family Field",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -145586,14 +145897,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "label": "Milwaukee Brewers",
         "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
         "homeAway": "home",
-        "score": 3
+        "score": 7
       },
       {
         "participantId": "team:mlb:119",
         "label": "Los Angeles Dodgers",
         "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
         "homeAway": "away",
-        "score": 2
+        "score": 4
       }
     ],
     "sourceName": "MLB",
@@ -145601,22 +145912,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.mlb.com/gameday/849812",
     "sourceRefs": [
       "https://www.mlb.com/gameday/849812",
-      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-05&endDate=2026-10-26&hydrate=team"
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-06&endDate=2026-10-27&hydrate=team"
     ],
-    "sourceCheckedAt": "2026-10-12T22:43:24.652Z",
-    "statusCheckedAt": "2026-10-12T22:43:24.652Z",
-    "selectedSentence": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-    "fullSpiel": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "sourceCheckedAt": "2026-10-13T20:59:25.934Z",
+    "statusCheckedAt": "2026-10-13T20:59:25.934Z",
+    "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Milwaukee Brewers v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
-      "hookSpoilerOff": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-      "synopsisSpoilerOff": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-      "hookSpoilerOn": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers in NLCS Game 2: the result is available to reveal.",
+      "synopsisSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Milwaukee Brewers defeated Los Angeles Dodgers in NLCS Game 2.",
+      "synopsisSpoilerOn": "NLCS Game 2: Milwaukee Brewers 7–4 Los Angeles Dodgers. MLB reports this game as final.",
       "expectedSpectacle": 1,
       "intensitySource": "computed"
     },
@@ -145668,21 +145979,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-10-11T02:39:29.237Z",
       "refreshAfter": null,
       "generationMode": "researched",
-      "phase": "preview"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "NLCS Game 2: the path to the World Series",
-      "contextSignals": [
-        "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
-      ],
-      "sourceName": "MLB official game",
-      "sourceUrl": "https://www.mlb.com/gameday/849812",
-      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
-      "needsPreviewRefresh": false
+      "phase": "preview",
+      "hookSpoilerOn": "Milwaukee Brewers defeated Los Angeles Dodgers in NLCS Game 2.",
+      "synopsisSpoilerOn": "Milwaukee Brewers defeated Los Angeles Dodgers in NLCS Game 2. NLCS Game 2: Milwaukee Brewers 7–4 Los Angeles Dodgers. MLB reports this game as final."
     },
     "resultEditorialBranches": {
       "home": {
@@ -145707,12 +146006,18 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "revealed": "Milwaukee Brewers and Los Angeles Dodgers finished level in NLCS Game 2."
       }
     },
-    "score": "Milwaukee Brewers 3–2 Los Angeles Dodgers",
-    "homeScore": 3,
-    "awayScore": 2,
-    "scoreCheckedAt": "2026-10-12T22:43:24.652Z",
+    "score": "Milwaukee Brewers 7–4 Los Angeles Dodgers",
+    "homeScore": 7,
+    "awayScore": 4,
+    "scoreCheckedAt": "2026-10-13T20:59:25.934Z",
     "resultSourceUrl": "https://www.mlb.com/gameday/849812",
-    "resultSourceCheckedAt": "2026-10-12T22:43:24.652Z"
+    "resultSourceCheckedAt": "2026-10-13T20:59:25.934Z",
+    "resultStatus": "official",
+    "outcomeText": "Milwaukee Brewers 7–4 Los Angeles Dodgers",
+    "recapText": "NLCS Game 2: Milwaukee Brewers 7–4 Los Angeles Dodgers. MLB reports this game as final.",
+    "winnerParticipantId": "team:mlb:158",
+    "endTimeUtc": "2026-10-13T03:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-mlb-849820",
@@ -145734,7 +146039,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeUtc": "2026-10-13T00:00:00.000Z",
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "venue": "Tropicana Field",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -145774,13 +146079,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "participantId": "team:mlb:139",
         "label": "Tampa Bay Rays",
         "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
-        "homeAway": "home"
+        "homeAway": "home",
+        "score": 3
       },
       {
         "participantId": "team:mlb:114",
         "label": "Cleveland Guardians",
         "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
-        "homeAway": "away"
+        "homeAway": "away",
+        "score": 7
       }
     ],
     "sourceName": "MLB",
@@ -145788,22 +146095,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.mlb.com/gameday/849820",
     "sourceRefs": [
       "https://www.mlb.com/gameday/849820",
-      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-06&endDate=2026-10-27&hydrate=team"
     ],
-    "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
-    "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
-    "fullSpiel": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "sourceCheckedAt": "2026-10-13T20:59:25.934Z",
+    "statusCheckedAt": "2026-10-13T20:59:25.934Z",
+    "selectedSentence": "Tampa Bay Rays v Cleveland Guardians is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Tampa Bay Rays v Cleveland Guardians is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
-      "hookSpoilerOff": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
-      "synopsisSpoilerOff": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
-      "hookSpoilerOn": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians in ALCS Game 1: the result is available to reveal.",
+      "synopsisSpoilerOff": "Tampa Bay Rays v Cleveland Guardians is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Cleveland Guardians defeated Tampa Bay Rays in ALCS Game 1.",
+      "synopsisSpoilerOn": "ALCS Game 1: Tampa Bay Rays 3–7 Cleveland Guardians. MLB reports this game as final.",
       "expectedSpectacle": 1,
       "intensitySource": "computed"
     },
@@ -145834,21 +146141,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-10-11T12:38:02.024Z",
       "refreshAfter": null,
       "generationMode": "researched",
-      "phase": "preview"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "ALCS Game 1: the path to the World Series",
-      "contextSignals": [
-        "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
-      ],
-      "sourceName": "MLB official game",
-      "sourceUrl": "https://www.mlb.com/gameday/849820",
-      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
-      "needsPreviewRefresh": false
+      "phase": "preview",
+      "hookSpoilerOn": "Cleveland Guardians defeated Tampa Bay Rays in ALCS Game 1.",
+      "synopsisSpoilerOn": "Cleveland Guardians defeated Tampa Bay Rays in ALCS Game 1. ALCS Game 1: Tampa Bay Rays 3–7 Cleveland Guardians. MLB reports this game as final."
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Tampa Bay Rays v Cleveland Guardians",
@@ -145893,7 +146188,19 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "fixture-mlb-849820"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "score": "Tampa Bay Rays 3–7 Cleveland Guardians",
+    "resultStatus": "official",
+    "outcomeText": "Tampa Bay Rays 3–7 Cleveland Guardians",
+    "recapText": "ALCS Game 1: Tampa Bay Rays 3–7 Cleveland Guardians. MLB reports this game as final.",
+    "winnerParticipantId": "team:mlb:114",
+    "homeScore": 3,
+    "awayScore": 7,
+    "scoreCheckedAt": "2026-10-13T20:59:25.934Z",
+    "resultSourceUrl": "https://www.mlb.com/gameday/849820",
+    "resultSourceCheckedAt": "2026-10-13T20:59:25.934Z",
+    "endTimeUtc": "2026-10-13T06:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-tennis-espn-atp-184951",
@@ -145968,8 +146275,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184951",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184951",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -146031,9 +146338,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "7–6, 6–4",
     "scoreDisplay": "7–6, 6–4",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184951",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:arthur-gea",
     "loserParticipantId": "competitor:tennis:atp:jakub-mensik",
     "eliminatedParticipantIds": [
@@ -146045,7 +146352,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Arthur Gea won. 7–6, 6–4",
-    "recapText": "ESPN reports Arthur Gea as the winner of this round of 16 match. 7–6, 6–4"
+    "recapText": "ESPN reports Arthur Gea as the winner of this round of 16 match. 7–6, 6–4",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Arthur Gea v Jakub Mensik is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Arthur Gea v Jakub Mensik is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Arthur Gea won. 7–6, 6–4",
+      "synopsisSpoilerOn": "ESPN reports Arthur Gea as the winner of this round of 16 match. 7–6, 6–4"
+    },
+    "selectedSentence": "Arthur Gea v Jakub Mensik is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Arthur Gea v Jakub Mensik is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185320",
@@ -146120,8 +146441,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185320",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185320",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -146177,9 +146498,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "1–6, 7–6, 7–5",
     "scoreDisplay": "1–6, 7–6, 7–5",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185320",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:guo-hanyu",
     "loserParticipantId": "competitor:tennis:wta:sorana-cirstea",
     "eliminatedParticipantIds": [
@@ -146191,7 +146512,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Guo Hanyu won. 1–6, 7–6, 7–5",
-    "recapText": "ESPN reports Guo Hanyu as the winner of this round of 64 match. 1–6, 7–6, 7–5"
+    "recapText": "ESPN reports Guo Hanyu as the winner of this round of 64 match. 1–6, 7–6, 7–5",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Guo Hanyu v Sorana Cirstea is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Guo Hanyu v Sorana Cirstea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Guo Hanyu won. 1–6, 7–6, 7–5",
+      "synopsisSpoilerOn": "ESPN reports Guo Hanyu as the winner of this round of 64 match. 1–6, 7–6, 7–5"
+    },
+    "selectedSentence": "Guo Hanyu v Sorana Cirstea is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Guo Hanyu v Sorana Cirstea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185322",
@@ -146266,8 +146601,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185322",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185322",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -146323,9 +146658,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–7, 6–2, 1–6",
     "scoreDisplay": "6–7, 6–2, 1–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185322",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:nikola-bartunkova",
     "loserParticipantId": "competitor:tennis:wta:lilli-tagger",
     "eliminatedParticipantIds": [
@@ -146337,7 +146672,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Nikola Bartunkova won. 6–7, 6–2, 1–6",
-    "recapText": "ESPN reports Nikola Bartunkova as the winner of this round of 64 match. 6–7, 6–2, 1–6"
+    "recapText": "ESPN reports Nikola Bartunkova as the winner of this round of 64 match. 6–7, 6–2, 1–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Lilli Tagger v Nikola Bartunkova is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Lilli Tagger v Nikola Bartunkova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Nikola Bartunkova won. 6–7, 6–2, 1–6",
+      "synopsisSpoilerOn": "ESPN reports Nikola Bartunkova as the winner of this round of 64 match. 6–7, 6–2, 1–6"
+    },
+    "selectedSentence": "Lilli Tagger v Nikola Bartunkova is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Lilli Tagger v Nikola Bartunkova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185323",
@@ -146411,8 +146760,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185323",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185323",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -146468,9 +146817,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–7, 6–3, 7–5",
     "scoreDisplay": "6–7, 6–3, 7–5",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185323",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:yulia-putintseva",
     "loserParticipantId": "competitor:tennis:wta:zeynep-sonmez",
     "eliminatedParticipantIds": [
@@ -146482,7 +146831,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Yulia Putintseva won. 6–7, 6–3, 7–5",
-    "recapText": "ESPN reports Yulia Putintseva as the winner of this round of 64 match. 6–7, 6–3, 7–5"
+    "recapText": "ESPN reports Yulia Putintseva as the winner of this round of 64 match. 6–7, 6–3, 7–5",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Yulia Putintseva v Zeynep Sonmez is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Yulia Putintseva v Zeynep Sonmez is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Yulia Putintseva won. 6–7, 6–3, 7–5",
+      "synopsisSpoilerOn": "ESPN reports Yulia Putintseva as the winner of this round of 64 match. 6–7, 6–3, 7–5"
+    },
+    "selectedSentence": "Yulia Putintseva v Zeynep Sonmez is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Yulia Putintseva v Zeynep Sonmez is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185324",
@@ -146557,8 +146920,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185324",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185324",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -146608,9 +146971,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 1–6",
     "scoreDisplay": "3–6, 1–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185324",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:diana-shnaider",
     "loserParticipantId": "competitor:tennis:wta:katie-boulter",
     "eliminatedParticipantIds": [
@@ -146622,7 +146985,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Diana Shnaider won. 3–6, 1–6",
-    "recapText": "ESPN reports Diana Shnaider as the winner of this round of 64 match. 3–6, 1–6"
+    "recapText": "ESPN reports Diana Shnaider as the winner of this round of 64 match. 3–6, 1–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Katie Boulter v Diana Shnaider is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Katie Boulter v Diana Shnaider is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Diana Shnaider won. 3–6, 1–6",
+      "synopsisSpoilerOn": "ESPN reports Diana Shnaider as the winner of this round of 64 match. 3–6, 1–6"
+    },
+    "selectedSentence": "Katie Boulter v Diana Shnaider is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Katie Boulter v Diana Shnaider is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185325",
@@ -146697,8 +147074,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185325",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185325",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -146752,9 +147129,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 3–6, 3–6",
     "scoreDisplay": "6–4, 3–6, 3–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185325",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:shi-han",
     "loserParticipantId": "competitor:tennis:wta:alexandra-eala",
     "eliminatedParticipantIds": [
@@ -146766,7 +147143,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Shi Han won. 6–4, 3–6, 3–6",
-    "recapText": "ESPN reports Shi Han as the winner of this round of 64 match. 6–4, 3–6, 3–6"
+    "recapText": "ESPN reports Shi Han as the winner of this round of 64 match. 6–4, 3–6, 3–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Alexandra Eala v Shi Han is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Alexandra Eala v Shi Han is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Shi Han won. 6–4, 3–6, 3–6",
+      "synopsisSpoilerOn": "ESPN reports Shi Han as the winner of this round of 64 match. 6–4, 3–6, 3–6"
+    },
+    "selectedSentence": "Alexandra Eala v Shi Han is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Alexandra Eala v Shi Han is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185326",
@@ -146841,8 +147232,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185326",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185326",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -146896,9 +147287,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 5–7, 6–3",
     "scoreDisplay": "6–4, 5–7, 6–3",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185326",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:dayana-yastremska",
     "loserParticipantId": "competitor:tennis:wta:cristina-bucsa",
     "eliminatedParticipantIds": [
@@ -146910,7 +147301,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Dayana Yastremska won. 6–4, 5–7, 6–3",
-    "recapText": "ESPN reports Dayana Yastremska as the winner of this round of 64 match. 6–4, 5–7, 6–3"
+    "recapText": "ESPN reports Dayana Yastremska as the winner of this round of 64 match. 6–4, 5–7, 6–3",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Dayana Yastremska v Cristina Bucsa is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Dayana Yastremska v Cristina Bucsa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Dayana Yastremska won. 6–4, 5–7, 6–3",
+      "synopsisSpoilerOn": "ESPN reports Dayana Yastremska as the winner of this round of 64 match. 6–4, 5–7, 6–3"
+    },
+    "selectedSentence": "Dayana Yastremska v Cristina Bucsa is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Dayana Yastremska v Cristina Bucsa is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185330",
@@ -146985,8 +147390,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185330",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185330",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -147040,9 +147445,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "1–6, 7–5, 2–6",
     "scoreDisplay": "1–6, 7–5, 2–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185330",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:liudmila-samsonova",
     "loserParticipantId": "competitor:tennis:wta:katerina-siniakova",
     "eliminatedParticipantIds": [
@@ -147054,7 +147459,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Liudmila Samsonova won. 1–6, 7–5, 2–6",
-    "recapText": "ESPN reports Liudmila Samsonova as the winner of this round of 64 match. 1–6, 7–5, 2–6"
+    "recapText": "ESPN reports Liudmila Samsonova as the winner of this round of 64 match. 1–6, 7–5, 2–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Katerina Siniakova v Liudmila Samsonova is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Katerina Siniakova v Liudmila Samsonova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Liudmila Samsonova won. 1–6, 7–5, 2–6",
+      "synopsisSpoilerOn": "ESPN reports Liudmila Samsonova as the winner of this round of 64 match. 1–6, 7–5, 2–6"
+    },
+    "selectedSentence": "Katerina Siniakova v Liudmila Samsonova is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Katerina Siniakova v Liudmila Samsonova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185332",
@@ -147129,8 +147548,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185332",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185332",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -147180,9 +147599,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 2–6",
     "scoreDisplay": "3–6, 2–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185332",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:maja-chwalinska",
     "loserParticipantId": "competitor:tennis:wta:mayar-sherif",
     "eliminatedParticipantIds": [
@@ -147194,7 +147613,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Maja Chwalinska won. 3–6, 2–6",
-    "recapText": "ESPN reports Maja Chwalinska as the winner of this round of 64 match. 3–6, 2–6"
+    "recapText": "ESPN reports Maja Chwalinska as the winner of this round of 64 match. 3–6, 2–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Mayar Sherif v Maja Chwalinska is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Mayar Sherif v Maja Chwalinska is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Maja Chwalinska won. 3–6, 2–6",
+      "synopsisSpoilerOn": "ESPN reports Maja Chwalinska as the winner of this round of 64 match. 3–6, 2–6"
+    },
+    "selectedSentence": "Mayar Sherif v Maja Chwalinska is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Mayar Sherif v Maja Chwalinska is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185335",
@@ -147269,8 +147702,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185335",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185335",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -147328,9 +147761,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "7–6, 6–7, 3–6",
     "scoreDisplay": "7–6, 6–7, 3–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185335",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:katie-volynets",
     "loserParticipantId": "competitor:tennis:wta:kimberly-birrell",
     "eliminatedParticipantIds": [
@@ -147342,7 +147775,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Katie Volynets won. 7–6, 6–7, 3–6",
-    "recapText": "ESPN reports Katie Volynets as the winner of this round of 64 match. 7–6, 6–7, 3–6"
+    "recapText": "ESPN reports Katie Volynets as the winner of this round of 64 match. 7–6, 6–7, 3–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Kimberly Birrell v Katie Volynets is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Kimberly Birrell v Katie Volynets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Katie Volynets won. 7–6, 6–7, 3–6",
+      "synopsisSpoilerOn": "ESPN reports Katie Volynets as the winner of this round of 64 match. 7–6, 6–7, 3–6"
+    },
+    "selectedSentence": "Kimberly Birrell v Katie Volynets is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Kimberly Birrell v Katie Volynets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185337",
@@ -147418,8 +147865,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185337",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185337",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -147469,9 +147916,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "1–6, 1–6",
     "scoreDisplay": "1–6, 1–6",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185337",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:jelena-ostapenko",
     "loserParticipantId": "competitor:tennis:wta:daria-kasatkina",
     "eliminatedParticipantIds": [
@@ -147483,7 +147930,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Jelena Ostapenko won. 1–6, 1–6",
-    "recapText": "ESPN reports Jelena Ostapenko as the winner of this round of 64 match. 1–6, 1–6"
+    "recapText": "ESPN reports Jelena Ostapenko as the winner of this round of 64 match. 1–6, 1–6",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Daria Kasatkina v Jelena Ostapenko is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Daria Kasatkina v Jelena Ostapenko is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Jelena Ostapenko won. 1–6, 1–6",
+      "synopsisSpoilerOn": "ESPN reports Jelena Ostapenko as the winner of this round of 64 match. 1–6, 1–6"
+    },
+    "selectedSentence": "Daria Kasatkina v Jelena Ostapenko is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Daria Kasatkina v Jelena Ostapenko is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185339",
@@ -147559,8 +148020,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185339",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185339",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -147610,9 +148071,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–4, 7–5",
     "scoreDisplay": "6–4, 7–5",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185339",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:wta:daria-snigur",
     "loserParticipantId": "competitor:tennis:wta:elise-mertens",
     "eliminatedParticipantIds": [
@@ -147624,7 +148085,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Daria Snigur won. 6–4, 7–5",
-    "recapText": "ESPN reports Daria Snigur as the winner of this round of 64 match. 6–4, 7–5"
+    "recapText": "ESPN reports Daria Snigur as the winner of this round of 64 match. 6–4, 7–5",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Daria Snigur v Elise Mertens is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Daria Snigur v Elise Mertens is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Daria Snigur won. 6–4, 7–5",
+      "synopsisSpoilerOn": "ESPN reports Daria Snigur as the winner of this round of 64 match. 6–4, 7–5"
+    },
+    "selectedSentence": "Daria Snigur v Elise Mertens is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Daria Snigur v Elise Mertens is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185340",
@@ -147659,12 +148134,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T11:00:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T11:20:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -147698,8 +148173,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185340",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185340",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -147712,8 +148187,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ashlyn Krueger v Zhang Shuai",
     "broadcastOptions": [
@@ -147807,7 +148280,48 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "checkedAt": "2026-10-13T06:59:40.000Z",
         "bodyCompletedAt": "2026-10-13T06:59:40.821Z"
       }
-    }
+    },
+    "planningTimeEvidence": null,
+    "sets": [
+      {
+        "home": 6,
+        "away": 3
+      },
+      {
+        "home": 6,
+        "away": 0
+      }
+    ],
+    "score": "6–3, 6–0",
+    "scoreDisplay": "6–3, 6–0",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185340",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:ashlyn-krueger",
+    "loserParticipantId": "competitor:tennis:wta:zhang-shuai",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:zhang-shuai"
+    ],
+    "resultStatus": "published",
+    "result": "6–3, 6–0",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Ashlyn Krueger won. 6–3, 6–0",
+    "recapText": "ESPN reports Ashlyn Krueger as the winner of this round of 64 match. 6–3, 6–0",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Ashlyn Krueger v Zhang Shuai is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Ashlyn Krueger v Zhang Shuai is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Ashlyn Krueger won. 6–3, 6–0",
+      "synopsisSpoilerOn": "ESPN reports Ashlyn Krueger as the winner of this round of 64 match. 6–3, 6–0"
+    },
+    "selectedSentence": "Ashlyn Krueger v Zhang Shuai is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Ashlyn Krueger v Zhang Shuai is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185343",
@@ -147847,7 +148361,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "live",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -147882,8 +148396,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185343",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185343",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -147896,8 +148410,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ann Li v Camila Osorio",
     "broadcastOptions": [
@@ -147990,15 +148502,45 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "sets": [
       {
-        "home": 4,
+        "home": 6,
+        "away": 1
+      },
+      {
+        "home": 3,
         "away": 0
       }
     ],
-    "score": "4–0",
-    "scoreDisplay": "4–0",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "score": "6–1, 3–0",
+    "scoreDisplay": "6–1, 3–0",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185343",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z"
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "planningTimeEvidence": null,
+    "winnerParticipantId": "competitor:tennis:wta:ann-li",
+    "loserParticipantId": "competitor:tennis:wta:camila-osorio",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:camila-osorio"
+    ],
+    "resultStatus": "published",
+    "result": "6–1, 3–0",
+    "resultLabels": [
+      "Retirement"
+    ],
+    "outcomeText": "Ann Li won. 6–1, 3–0",
+    "recapText": "ESPN reports Ann Li as the winner of this round of 64 match. 6–1, 3–0",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Ann Li v Camila Osorio is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Ann Li v Camila Osorio is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Ann Li won. 6–1, 3–0",
+      "synopsisSpoilerOn": "ESPN reports Ann Li as the winner of this round of 64 match. 6–1, 3–0"
+    },
+    "selectedSentence": "Ann Li v Camila Osorio is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Ann Li v Camila Osorio is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-mlb-849813",
@@ -148080,7 +148622,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
     "selectedSentence": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
     "fullSpiel": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -148468,7 +149010,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
     "selectedSentence": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
     "fullSpiel": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -148994,7 +149536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
     "selectedSentence": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
     "fullSpiel": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -149175,7 +149717,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
     "selectedSentence": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
     "fullSpiel": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -149324,7 +149866,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641001",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8961",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -149803,7 +150345,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
     "selectedSentence": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
     "fullSpiel": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -149952,7 +150494,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641002",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8962",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -150090,7 +150632,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641003",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8964",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -150403,7 +150945,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641004",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8963",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -150755,7 +151297,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641005",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8966",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -151303,7 +151845,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
     "selectedSentence": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
     "fullSpiel": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -152121,7 +152663,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641006",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8965",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -152272,7 +152814,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641007",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8967",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -152604,7 +153146,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641008",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8968",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -152948,7 +153490,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641009",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8969",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -153287,7 +153829,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
     "selectedSentence": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
     "fullSpiel": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -154130,7 +154672,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
     "selectedSentence": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
     "fullSpiel": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -154477,7 +155019,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
     "selectedSentence": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
     "fullSpiel": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -154658,7 +155200,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
     "selectedSentence": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
     "fullSpiel": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -155045,7 +155587,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
     "selectedSentence": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
     "fullSpiel": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
@@ -155400,7 +155942,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641101",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8970",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -156170,7 +156712,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641102",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8971",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -156308,7 +156850,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641103",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8974",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -156446,7 +156988,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641104",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8972",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -156798,7 +157340,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641105",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8973",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -158074,7 +158616,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641106",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8977",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -158212,7 +158754,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641107",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8979",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -158557,7 +159099,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641108",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8976",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -158914,7 +159456,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641109",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8975",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -160865,7 +161407,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641201",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8978",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -161469,7 +162011,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641202",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8984",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -161607,7 +162149,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641203",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8980",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -161745,7 +162287,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641204",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8981",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -161883,7 +162425,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641205",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8982",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -164239,7 +164781,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641206",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8983",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -164364,7 +164906,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641207",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8986",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -164708,7 +165250,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641208",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8985",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -165052,7 +165594,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641209",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8987",
-    "canonicalSourceCheckedAt": "2026-10-12T22:43:38.237Z",
+    "canonicalSourceCheckedAt": "2026-10-13T20:59:44.521Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -234285,7 +234827,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Thailand Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -235308,7 +235850,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Brazil Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -236331,7 +236873,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Americas Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -237354,7 +237896,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Spain Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -238377,7 +238919,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP France Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -238674,7 +239216,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP France Grand Prix is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -239399,7 +239941,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Catalunya Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -240422,7 +240964,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Italy Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -241445,7 +241987,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Hungary Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -242468,7 +243010,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Czechia Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -243491,7 +244033,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Netherlands Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -244514,7 +245056,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Germany Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -245537,7 +246079,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Great Britain Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -246560,7 +247102,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Aragon Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -247583,7 +248125,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP San Marino Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -248656,7 +249198,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Austria Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -249730,7 +250272,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "MotoGP Japan Grand Prix · Qualifying (Q1 + Q2) is complete. A verified result is unavailable.",
       "lastReviewedAt": "2026-10-11T13:40:40.662Z"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
     "participantSlots": [],
     "participantCountryCodes": [],
@@ -262419,15 +262961,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Round of 16",
     "stage": "Round of 16",
     "name": "Hubert Hurkacz v Alejandro Davidovich Fokina",
-    "date": "2026-10-13",
+    "date": "2026-10-14",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T11:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T13:10:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -262463,8 +263005,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -262489,8 +263031,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Stadium Court",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Hubert Hurkacz v Alejandro Davidovich Fokina",
     "broadcastOptions": [],
@@ -262513,7 +263053,54 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": null,
+    "sets": [
+      {
+        "home": 6,
+        "away": 1
+      },
+      {
+        "home": 3,
+        "away": 6
+      },
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 6,
+        "awayTiebreak": 8
+      }
+    ],
+    "score": "6–1, 3–6, 6–7",
+    "scoreDisplay": "6–1, 3–6, 6–7",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184952",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "winnerParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
+    "loserParticipantId": "competitor:tennis:atp:hubert-hurkacz",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:hubert-hurkacz"
+    ],
+    "resultStatus": "published",
+    "result": "6–1, 3–6, 6–7",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Alejandro Davidovich Fokina won. 6–1, 3–6, 6–7",
+    "recapText": "ESPN reports Alejandro Davidovich Fokina as the winner of this round of 16 match. 6–1, 3–6, 6–7",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Hubert Hurkacz v Alejandro Davidovich Fokina is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Hubert Hurkacz v Alejandro Davidovich Fokina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Alejandro Davidovich Fokina won. 6–1, 3–6, 6–7",
+      "synopsisSpoilerOn": "ESPN reports Alejandro Davidovich Fokina as the winner of this round of 16 match. 6–1, 3–6, 6–7"
+    },
+    "selectedSentence": "Hubert Hurkacz v Alejandro Davidovich Fokina is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Hubert Hurkacz v Alejandro Davidovich Fokina is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-atp-184959",
@@ -262553,7 +263140,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "live",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -262589,8 +263176,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -262615,8 +263202,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 5,
     "court": "Stadium Court",
     "statusSourceType": "reputable",
-    "selectedSentence": "",
-    "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alexander Zverev v Alexander Bublik",
     "broadcastOptions": [],
@@ -262642,15 +263227,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sets": [
       {
-        "home": 0,
-        "away": 1
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 8,
+        "awayTiebreak": 6
+      },
+      {
+        "home": 4,
+        "away": 6
+      },
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 1
       }
     ],
-    "score": "0–1",
-    "scoreDisplay": "0–1",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "score": "7–6, 4–6, 7–6",
+    "scoreDisplay": "7–6, 4–6, 7–6",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z"
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "planningTimeEvidence": null,
+    "winnerParticipantId": "competitor:tennis:atp:alexander-zverev",
+    "loserParticipantId": "competitor:tennis:atp:alexander-bublik",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:alexander-bublik"
+    ],
+    "resultStatus": "published",
+    "result": "7–6, 4–6, 7–6",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Alexander Zverev won. 7–6, 4–6, 7–6",
+    "recapText": "ESPN reports Alexander Zverev as the winner of this round of 16 match. 7–6, 4–6, 7–6",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Alexander Zverev v Alexander Bublik is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Alexander Zverev v Alexander Bublik is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Alexander Zverev won. 7–6, 4–6, 7–6",
+      "synopsisSpoilerOn": "ESPN reports Alexander Zverev as the winner of this round of 16 match. 7–6, 4–6, 7–6"
+    },
+    "selectedSentence": "Alexander Zverev v Alexander Bublik is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Alexander Zverev v Alexander Bublik is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185360",
@@ -262690,7 +263313,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "live",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -262726,8 +263349,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185360",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185360",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -262750,15 +263373,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "away": 2
       },
       {
-        "home": 3,
-        "away": 1
+        "home": 6,
+        "away": 2
       }
     ],
-    "score": "4–6, 6–2, 3–1",
-    "scoreDisplay": "4–6, 6–2, 3–1",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "score": "4–6, 6–2, 6–2",
+    "scoreDisplay": "4–6, 6–2, 6–2",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185360",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Maria Sakkari v Marta Kostyuk",
     "broadcastOptions": [
@@ -262783,7 +263406,33 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": null,
+    "winnerParticipantId": "competitor:tennis:wta:maria-sakkari",
+    "loserParticipantId": "competitor:tennis:wta:marta-kostyuk",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:marta-kostyuk"
+    ],
+    "resultStatus": "published",
+    "result": "4–6, 6–2, 6–2",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Maria Sakkari won. 4–6, 6–2, 6–2",
+    "recapText": "ESPN reports Maria Sakkari as the winner of this round of 32 match. 4–6, 6–2, 6–2",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Maria Sakkari v Marta Kostyuk is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Maria Sakkari v Marta Kostyuk is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Maria Sakkari won. 4–6, 6–2, 6–2",
+      "synopsisSpoilerOn": "ESPN reports Maria Sakkari as the winner of this round of 32 match. 4–6, 6–2, 6–2"
+    },
+    "selectedSentence": "Maria Sakkari v Marta Kostyuk is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Maria Sakkari v Marta Kostyuk is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185359",
@@ -262818,12 +263467,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-10-13",
     "time": null,
     "startTimeUtc": null,
-    "estimatedStartTimeUtc": "2026-10-13T12:30:00.000Z",
+    "estimatedStartTimeUtc": "2026-10-13T12:50:00.000Z",
     "timePrecision": "unresolved",
     "scheduleStatus": "unresolved",
     "timeTbc": true,
     "scheduleNote": "Publisher planning time; official match start unconfirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -262857,8 +263506,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185359",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185359",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -262895,7 +263544,56 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": null,
+    "sets": [
+      {
+        "home": 7,
+        "away": 6,
+        "homeTiebreak": 7,
+        "awayTiebreak": 2
+      },
+      {
+        "home": 6,
+        "away": 7,
+        "homeTiebreak": 7,
+        "awayTiebreak": 9
+      },
+      {
+        "home": 6,
+        "away": 1
+      }
+    ],
+    "score": "7–6, 6–7, 6–1",
+    "scoreDisplay": "7–6, 6–7, 6–1",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185359",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "winnerParticipantId": "competitor:tennis:wta:mia-pohankova",
+    "loserParticipantId": "competitor:tennis:wta:wang-xiyu",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:wang-xiyu"
+    ],
+    "resultStatus": "published",
+    "result": "7–6, 6–7, 6–1",
+    "resultLabels": [
+      "Completed"
+    ],
+    "outcomeText": "Mia Pohankova won. 7–6, 6–7, 6–1",
+    "recapText": "ESPN reports Mia Pohankova as the winner of this round of 32 match. 7–6, 6–7, 6–1",
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Mia Pohankova v Wang Xiyu is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Mia Pohankova v Wang Xiyu is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Mia Pohankova won. 7–6, 6–7, 6–1",
+      "synopsisSpoilerOn": "ESPN reports Mia Pohankova as the winner of this round of 32 match. 7–6, 6–7, 6–1"
+    },
+    "selectedSentence": "Mia Pohankova v Wang Xiyu is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Mia Pohankova v Wang Xiyu is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-185349",
@@ -262928,13 +263626,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Round of 32",
     "name": "Elina Svitolina v Liudmila Samsonova",
     "date": "2026-10-14",
-    "time": null,
+    "time": "14:00",
     "startTimeUtc": null,
     "estimatedStartTimeUtc": "2026-10-14T03:00:00.000Z",
-    "timePrecision": "unresolved",
-    "scheduleStatus": "unresolved",
-    "timeTbc": true,
-    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "timePrecision": "estimated",
+    "scheduleStatus": "provisional",
+    "timeTbc": false,
+    "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
     "status": "scheduled",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -262971,8 +263669,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185349",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185349",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -263009,7 +263707,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": {
+      "kind": "publisher-start-estimate",
+      "fixtureId": "fixture:tennis:espn:wta:185349",
+      "startsAt": "2026-10-14T03:00:00.000Z",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185349",
+      "checkedAt": "2026-10-13T21:00:17.000Z",
+      "timeTbc": false,
+      "participantIds": [
+        "competitor:tennis:wta:elina-svitolina",
+        "competitor:tennis:wta:liudmila-samsonova"
+      ]
+    },
+    "startTimeTbc": false,
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-wta-185352",
@@ -263042,13 +263756,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Round of 32",
     "name": "Sonay Kartal v Belinda Bencic",
     "date": "2026-10-14",
-    "time": null,
+    "time": "14:00",
     "startTimeUtc": null,
     "estimatedStartTimeUtc": "2026-10-14T03:00:00.000Z",
-    "timePrecision": "unresolved",
-    "scheduleStatus": "unresolved",
-    "timeTbc": true,
-    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "timePrecision": "estimated",
+    "scheduleStatus": "provisional",
+    "timeTbc": false,
+    "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
     "status": "scheduled",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -263084,8 +263798,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185352",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185352",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -263122,7 +263836,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": {
+      "kind": "publisher-start-estimate",
+      "fixtureId": "fixture:tennis:espn:wta:185352",
+      "startsAt": "2026-10-14T03:00:00.000Z",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185352",
+      "checkedAt": "2026-10-13T21:00:17.000Z",
+      "timeTbc": false,
+      "participantIds": [
+        "competitor:tennis:wta:sonay-kartal",
+        "competitor:tennis:wta:belinda-bencic"
+      ]
+    },
+    "startTimeTbc": false,
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-wta-185355",
@@ -263155,13 +263885,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Round of 32",
     "name": "Magdalena Frech v Iga Swiatek",
     "date": "2026-10-14",
-    "time": null,
+    "time": "14:00",
     "startTimeUtc": null,
     "estimatedStartTimeUtc": "2026-10-14T03:00:00.000Z",
-    "timePrecision": "unresolved",
-    "scheduleStatus": "unresolved",
-    "timeTbc": true,
-    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "timePrecision": "estimated",
+    "scheduleStatus": "provisional",
+    "timeTbc": false,
+    "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
     "status": "scheduled",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -263198,8 +263928,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185355",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185355",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -263236,7 +263966,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": {
+      "kind": "publisher-start-estimate",
+      "fixtureId": "fixture:tennis:espn:wta:185355",
+      "startsAt": "2026-10-14T03:00:00.000Z",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185355",
+      "checkedAt": "2026-10-13T21:00:17.000Z",
+      "timeTbc": false,
+      "participantIds": [
+        "competitor:tennis:wta:magdalena-frech",
+        "competitor:tennis:wta:iga-swiatek"
+      ]
+    },
+    "startTimeTbc": false,
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-wta-185358",
@@ -263269,13 +264015,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Round of 32",
     "name": "Marie Bouzkova v Maja Chwalinska",
     "date": "2026-10-14",
-    "time": null,
+    "time": "14:00",
     "startTimeUtc": null,
     "estimatedStartTimeUtc": "2026-10-14T03:00:00.000Z",
-    "timePrecision": "unresolved",
-    "scheduleStatus": "unresolved",
-    "timeTbc": true,
-    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "timePrecision": "estimated",
+    "scheduleStatus": "provisional",
+    "timeTbc": false,
+    "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
     "status": "scheduled",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -263312,8 +264058,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -263350,7 +264096,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": {
+      "kind": "publisher-start-estimate",
+      "fixtureId": "fixture:tennis:espn:wta:185358",
+      "startsAt": "2026-10-14T03:00:00.000Z",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
+      "checkedAt": "2026-10-13T21:00:17.000Z",
+      "timeTbc": false,
+      "participantIds": [
+        "competitor:tennis:wta:marie-bouzkova",
+        "competitor:tennis:wta:maja-chwalinska"
+      ]
+    },
+    "startTimeTbc": false,
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-wta-185345",
@@ -263425,8 +264187,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185345",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185345",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -263463,7 +264225,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": null,
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-wta-185346",
@@ -263538,8 +264303,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185346",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185346",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -263576,7 +264341,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": null,
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-wta-185351",
@@ -263652,8 +264420,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185351",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185351",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -263690,7 +264458,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": null,
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-wta-185356",
@@ -263765,8 +264536,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185356",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185356",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -263803,7 +264574,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": null,
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-wta-185350",
@@ -263877,8 +264651,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185350",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185350",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -263915,7 +264689,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": null,
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-wta-185347",
@@ -263948,13 +264725,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Round of 32",
     "name": "Shi Han v Leylah Fernandez",
     "date": "2026-10-14",
-    "time": null,
+    "time": "23:30",
     "startTimeUtc": null,
     "estimatedStartTimeUtc": "2026-10-14T12:30:00.000Z",
-    "timePrecision": "unresolved",
-    "scheduleStatus": "unresolved",
-    "timeTbc": true,
-    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "timePrecision": "estimated",
+    "scheduleStatus": "provisional",
+    "timeTbc": false,
+    "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
     "status": "scheduled",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -263990,8 +264767,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185347",
-    "sourceCheckedAt": "2026-10-13T10:19:23.000Z",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185347",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -264028,7 +264805,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "planningTimeEvidence": {
+      "kind": "publisher-start-estimate",
+      "fixtureId": "fixture:tennis:espn:wta:185347",
+      "startsAt": "2026-10-14T12:30:00.000Z",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185347",
+      "checkedAt": "2026-10-13T21:00:17.000Z",
+      "timeTbc": false,
+      "participantIds": [
+        "competitor:tennis:wta:shi-han",
+        "competitor:tennis:wta:leylah-fernandez"
+      ]
+    },
+    "startTimeTbc": false,
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "evt_horse_racing_melbourne_cup_2026",
@@ -265038,7 +265831,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 10,
       "hookSpoilerOff": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
@@ -265062,7 +265855,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-13T08:14:23.253Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-13T08:14:23.253Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T02:27:38.973Z",
     "participantIds": [],
     "participantSlots": [],
@@ -265634,7 +266427,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "The Caulfield Cup turns 2,400 metres into one of spring’s great endurance contests.",
@@ -265658,7 +266451,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-13T08:14:23.253Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-13T08:14:23.253Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T02:27:38.973Z",
     "participantIds": [],
     "participantSlots": [],
@@ -266081,7 +266874,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "The Cox Plate is where racing’s great reputations face a championship test.",
@@ -266105,7 +266898,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-13T08:14:23.253Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-13T08:14:23.253Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T02:27:38.973Z",
     "participantIds": [],
     "participantSlots": [],
@@ -266217,7 +267010,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "The Everest puts sprinting’s explosive speed at the heart of a Sydney sporting occasion.",
@@ -266241,7 +267034,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-13T08:14:23.253Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-13T08:14:23.253Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T02:24:19.031Z",
     "participantIds": [],
     "participantSlots": [],
@@ -266353,7 +267146,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "The Victoria Derby asks a new generation to find the strength for a classic test.",
@@ -266377,7 +267170,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-13T08:14:23.253Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-13T08:14:23.253Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T02:24:19.031Z",
     "participantIds": [],
     "participantSlots": [],
@@ -266489,7 +267282,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "The VRC Oaks gives young fillies their own place in Flemington’s classic tradition.",
@@ -266513,7 +267306,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-13T08:14:23.253Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-13T08:26:31.106Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T02:24:19.031Z",
     "participantIds": [],
     "participantSlots": [],
@@ -266625,7 +267418,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "The Champions Stakes brings the Melbourne carnival to a championship finish.",
@@ -266649,7 +267442,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-13T08:14:23.253Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-13T08:14:23.253Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T02:24:19.031Z",
     "participantIds": [],
     "participantSlots": [],
@@ -266761,7 +267554,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "The Golden Slipper is a coming-of-age moment for racing’s youngest stars.",
@@ -266785,7 +267578,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-13T08:14:23.253Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-13T08:14:23.253Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T02:24:19.031Z",
     "participantIds": [],
     "participantSlots": [],
@@ -266897,7 +267690,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "manual",
+      "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "The Australian Cup carries Flemington’s championship tradition into autumn.",
@@ -266921,7 +267714,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-10-13T08:14:23.253Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-10-13T08:14:23.253Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "statusCheckedAt": "2026-10-11T02:24:19.031Z",
     "participantIds": [],
     "participantSlots": [],
@@ -267037,7 +267830,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
     "sourceCheckedAt": "2026-10-12T13:26:58.180994+00:00",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184950",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -267163,9 +267956,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–3, 6–4",
     "scoreDisplay": "6–3, 6–4",
-    "scoreCheckedAt": "2026-10-13T10:19:23.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184950",
-    "resultSourceCheckedAt": "2026-10-13T10:19:23.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:alex-de-minaur",
     "loserParticipantId": "competitor:tennis:atp:karen-khachanov",
     "eliminatedParticipantIds": [
@@ -267177,7 +267970,23 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Completed"
     ],
     "outcomeText": "Alex De Minaur won. 6–3, 6–4",
-    "recapText": "ESPN reports Alex De Minaur as the winner of this round of 16 match. 6–3, 6–4"
+    "recapText": "ESPN reports Alex De Minaur as the winner of this round of 16 match. 6–3, 6–4",
+    "planningTimeEvidence": null,
+    "storyline": {
+      "stakes": 1,
+      "intensity": 1,
+      "arcStage": "recap",
+      "expectedSpectacle": 1,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "Alex De Minaur v Karen Khachanov is complete; the key moments are protected until you choose to reveal them.",
+      "synopsisSpoilerOff": "Alex De Minaur v Karen Khachanov is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Alex De Minaur won. 6–3, 6–4",
+      "synopsisSpoilerOn": "ESPN reports Alex De Minaur as the winner of this round of 16 match. 6–3, 6–4"
+    },
+    "selectedSentence": "Alex De Minaur v Karen Khachanov is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Alex De Minaur v Karen Khachanov is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "endTimeUtc": "2026-10-13T09:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
@@ -268055,7 +268864,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Carlos Alcaraz won. 7–6, 6–4",
       "synopsisSpoilerOn": "ESPN reports Carlos Alcaraz as the winner of this final match. 7–6, 6–4"
     },
-    "lastReviewedAt": "2026-10-12T22:44:14.143Z",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "storyline": {
       "researchDepth": 5,
       "arcStage": "recap",
@@ -268626,12 +269435,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
     "sourceCheckedAt": "2026-10-09T00:25:46.204783+00:00",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184917",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184917",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -268738,9 +269547,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "4–6, 3–6",
     "scoreDisplay": "4–6, 3–6",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184917",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:hubert-hurkacz",
     "loserParticipantId": "athlete:tennis:novak-djokovic",
     "eliminatedParticipantIds": [
@@ -268753,6 +269562,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Hubert Hurkacz won. 4–6, 3–6",
     "recapText": "ESPN reports Hubert Hurkacz as the winner of this round of 64 match. 4–6, 3–6",
+    "endTimeUtc": "2026-10-09T15:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -268765,9 +269577,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "ESPN reports Hubert Hurkacz as the winner of this round of 64 match. 4–6, 3–6"
     },
     "selectedSentence": "Novak Djokovic v Hubert Hurkacz is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Novak Djokovic v Hubert Hurkacz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "endTimeUtc": "2026-10-09T15:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "fullSpiel": "Novak Djokovic v Hubert Hurkacz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-atp-shanghai-2026-r64-de-minaur-molcan",
@@ -268833,7 +269643,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "Shanghai Masters official order of play",
     "sourceType": "official",
     "sourceCheckedAt": "2026-10-09T00:25:46.204783+00:00",
-    "statusCheckedAt": "2026-10-10T12:28:07.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "timingEvidence": {
       "matchRow": "9 October, Grandstand 2, match 3: Alex DE MINAUR v Alex MOLCAN, Followed By",
       "clockAssociation": "Followed By belongs to this named third match. The court Starts At 12:00 applies only to Mannarino–Cobolli; neither it nor the prior match provides this fixture a clock.",
@@ -268945,14 +269755,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184927",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261017"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "statusSourceType": "reputable",
     "scoreDisplay": "Walkover",
     "score": "Walkover",
-    "scoreCheckedAt": "2026-10-10T12:28:07.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184927",
-    "resultSourceCheckedAt": "2026-10-10T12:28:07.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "athlete:tennis:alex-de-minaur",
     "loserParticipantId": "competitor:tennis:atp:alex-molcan",
     "eliminatedParticipantIds": [
@@ -268965,6 +269775,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Alex De Minaur won. Walkover",
     "recapText": "ESPN reports Alex De Minaur as the winner of this round of 64 match. Walkover",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -269053,12 +269864,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
     "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184942",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184942",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -269181,9 +269992,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–2, 6–4",
     "scoreDisplay": "6–2, 6–4",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184942",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:karen-khachanov",
     "loserParticipantId": "competitor:tennis:atp:adrian-mannarino",
     "eliminatedParticipantIds": [
@@ -269196,6 +270007,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Karen Khachanov won. 6–2, 6–4",
     "recapText": "ESPN reports Karen Khachanov as the winner of this round of 32 match. 6–2, 6–4",
+    "endTimeUtc": "2026-10-11T09:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -269208,9 +270022,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "ESPN reports Karen Khachanov as the winner of this round of 32 match. 6–2, 6–4"
     },
     "selectedSentence": "Karen Khachanov v Adrian Mannarino is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Karen Khachanov v Adrian Mannarino is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "endTimeUtc": "2026-10-11T09:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "fullSpiel": "Karen Khachanov v Adrian Mannarino is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
   },
   {
     "id": "fixture-tennis-espn-wta-184356",
@@ -269507,12 +270319,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
     "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184929",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184929",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -269641,9 +270453,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "7–6, 6–4",
     "scoreDisplay": "7–6, 6–4",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184929",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "athlete:tennis:alex-de-minaur",
     "loserParticipantId": "competitor:tennis:atp:rei-sakamoto",
     "eliminatedParticipantIds": [
@@ -269656,6 +270468,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Alex De Minaur won. 7–6, 6–4",
     "recapText": "ESPN reports Alex De Minaur as the winner of this round of 32 match. 7–6, 6–4",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -269745,12 +270558,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
     "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
-    "statusCheckedAt": "2026-10-11T19:55:36.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184931",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184931",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -269885,9 +270698,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "6–7, 6–3, 7–6",
     "scoreDisplay": "6–7, 6–3, 7–6",
-    "scoreCheckedAt": "2026-10-11T19:55:36.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184931",
-    "resultSourceCheckedAt": "2026-10-11T19:55:36.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:alexander-bublik",
     "loserParticipantId": "competitor:tennis:atp:brandon-nakashima",
     "eliminatedParticipantIds": [
@@ -269900,6 +270713,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Alexander Bublik won. 6–7, 6–3, 7–6",
     "recapText": "ESPN reports Alexander Bublik as the winner of this round of 32 match. 6–7, 6–3, 7–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -269989,12 +270803,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
     "sourceCheckedAt": "2026-10-10T11:36:33.460Z",
-    "statusCheckedAt": "2026-10-11T12:36:55.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184944",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184944",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261018"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -270125,9 +270939,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "score": "3–6, 6–3, 2–6",
     "scoreDisplay": "3–6, 6–3, 2–6",
-    "scoreCheckedAt": "2026-10-11T12:36:55.000Z",
+    "scoreCheckedAt": "2026-10-13T21:00:17.000Z",
     "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184944",
-    "resultSourceCheckedAt": "2026-10-11T12:36:55.000Z",
+    "resultSourceCheckedAt": "2026-10-13T21:00:17.000Z",
     "winnerParticipantId": "competitor:tennis:atp:jakub-mensik",
     "loserParticipantId": "competitor:tennis:atp:francisco-cerundolo",
     "eliminatedParticipantIds": [
@@ -270140,6 +270954,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "outcomeText": "Jakub Mensik won. 3–6, 6–3, 2–6",
     "recapText": "ESPN reports Jakub Mensik as the winner of this round of 32 match. 3–6, 6–3, 2–6",
+    "planningTimeEvidence": null,
     "storyline": {
       "stakes": 1,
       "intensity": 1,
@@ -270881,7 +271696,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "startsAt": "2026-10-14T04:00:00.000Z",
       "matchRow": "14 October Stadium Court row 1: Botic van de Zandschulp v Rafael Jodar; Starts At 12:00",
       "clockAssociation": "Clock band directly attaches to this named row; no neighbouring row receives its clock."
-    }
+    },
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-atp-184948",
@@ -271071,7 +271888,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "earliestStartTimeUtc": "2026-10-14T05:10:00.000Z",
       "latestStartTimeUtc": "2026-10-14T06:10:00.000Z",
       "durationAllowanceMinutes": 30,
-      "calculatedAt": "2026-10-13T15:06:24.560Z",
+      "calculatedAt": "2026-10-13T15:06:24.652Z",
       "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
       "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
       "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6",
@@ -271081,7 +271898,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "manualEstimateHeld": false,
     "estimatedEarliestStartTimeUtc": "2026-10-14T05:10:00.000Z",
-    "estimatedLatestStartTimeUtc": "2026-10-14T06:10:00.000Z"
+    "estimatedLatestStartTimeUtc": "2026-10-14T06:10:00.000Z",
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-atp-184949",
@@ -271158,7 +271977,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
     "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -271215,7 +272034,19 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "clockAssociation": "Clock band directly attaches to this named row; no neighbouring row receives its clock.",
       "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6"
     },
-    "planningTimeEvidence": null,
+    "planningTimeEvidence": {
+      "kind": "publisher-start-estimate",
+      "fixtureId": "fixture:tennis:espn:atp:184949",
+      "startsAt": "2026-10-14T10:00:00.000Z",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
+      "checkedAt": "2026-10-13T21:00:17.000Z",
+      "timeTbc": false,
+      "participantIds": [
+        "competitor:tennis:atp:daniil-medvedev",
+        "competitor:tennis:atp:stefanos-tsitsipas"
+      ]
+    },
     "scheduleEvidence": {
       "kind": "official-order-of-play",
       "fixtureId": "fixture:tennis:espn:atp:184949",
@@ -271238,7 +272069,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "startsAt": "2026-10-14T10:00:00.000Z",
       "matchRow": "14 October Stadium Court row 4: Daniil Medvedev v Stefanos Tsitsipas; Not Before 18:00",
       "clockAssociation": "Clock band directly attaches to this named row; no neighbouring row receives its clock."
-    }
+    },
+    "selectedSentence": "",
+    "fullSpiel": ""
   },
   {
     "id": "fixture-tennis-espn-atp-184958",
@@ -271315,7 +272148,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
     "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184958",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -271364,7 +272197,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "schedulePrecision": "followed-by",
-    "startTimeTbc": true,
+    "startTimeTbc": false,
     "dateOnly": false,
     "timingVerified": false,
     "timingEvidence": {
@@ -271372,7 +272205,19 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "clockAssociation": "Official Followed By row; no individual clock is published.",
       "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6"
     },
-    "planningTimeEvidence": null,
+    "planningTimeEvidence": {
+      "kind": "publisher-start-estimate",
+      "fixtureId": "fixture:tennis:espn:atp:184958",
+      "startsAt": "2026-10-14T11:30:00.000Z",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184958",
+      "checkedAt": "2026-10-13T21:00:17.000Z",
+      "timeTbc": false,
+      "participantIds": [
+        "competitor:tennis:atp:tommy-paul",
+        "competitor:tennis:atp:zizou-bergs"
+      ]
+    },
     "scheduleEvidence": {
       "kind": "official-order-of-play",
       "fixtureId": "fixture:tennis:espn:atp:184958",
@@ -271395,6 +272240,869 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "startsAt": null,
       "matchRow": "14 October Stadium Court row 5: Tommy Paul v Zizou Bergs; Followed By",
       "clockAssociation": "Official Followed By row; no individual clock is published."
-    }
+    },
+    "selectedSentence": "",
+    "fullSpiel": ""
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184954",
+    "eventId": "fixture-tennis-espn-atp-184954",
+    "canonicalEventId": "fixture:tennis:espn:atp:184954",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184954",
+      "fixture-tennis-espn-atp-184954"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184954",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Quarterfinal",
+    "stage": "Quarterfinal",
+    "name": "Alexander Zverev v Alex De Minaur",
+    "date": "2026-10-15",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-15T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:alexander-zverev",
+      "competitor:tennis:atp:alex-de-minaur"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:alexander-zverev",
+        "name": "Alexander Zverev",
+        "displayName": "Alexander Zverev",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "DE"
+      },
+      {
+        "id": "competitor:tennis:atp:alex-de-minaur",
+        "name": "Alex De Minaur",
+        "displayName": "Alex De Minaur",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "AU"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:alexander-zverev",
+    "awayParticipantId": "competitor:tennis:atp:alex-de-minaur",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184954",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184954",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184954",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+        "verifiedAt": "2026-10-11T05:19:19.930Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "expected": null,
+    "liveWindow": 5,
+    "planningTimeEvidence": null,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Alexander Zverev v Alex De Minaur",
+    "broadcastOptions": [],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184954"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-atp-184955",
+    "eventId": "fixture-tennis-espn-atp-184955",
+    "canonicalEventId": "fixture:tennis:espn:atp:184955",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184955",
+      "fixture-tennis-espn-atp-184955"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184955",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Quarterfinal",
+    "stage": "Quarterfinal",
+    "name": "Arthur Gea v Alejandro Davidovich Fokina",
+    "date": "2026-10-15",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-15T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:arthur-gea",
+      "competitor:tennis:atp:alejandro-davidovich-fokina"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:arthur-gea",
+        "name": "Arthur Gea",
+        "displayName": "Arthur Gea",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:atp:alejandro-davidovich-fokina",
+        "name": "Alejandro Davidovich Fokina",
+        "displayName": "Alejandro Davidovich Fokina",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "ES"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:arthur-gea",
+    "awayParticipantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
+    "venue": "Shanghai",
+    "venueCity": "Shanghai",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184955",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184955",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184955",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+        "verifiedAt": "2026-10-11T05:19:19.930Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "expected": null,
+    "liveWindow": 5,
+    "planningTimeEvidence": null,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Arthur Gea v Alejandro Davidovich Fokina",
+    "broadcastOptions": [],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=184955"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185348",
+    "eventId": "fixture-tennis-espn-wta-185348",
+    "canonicalEventId": "fixture:tennis:espn:wta:185348",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185348",
+      "fixture-tennis-espn-wta-185348"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185348",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Jelena Ostapenko v Jessica Pegula",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T06:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:jelena-ostapenko",
+      "competitor:tennis:wta:jessica-pegula"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:jelena-ostapenko",
+        "name": "Jelena Ostapenko",
+        "displayName": "Jelena Ostapenko",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "LV"
+      },
+      {
+        "id": "competitor:tennis:wta:jessica-pegula",
+        "name": "Jessica Pegula",
+        "displayName": "Jessica Pegula",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:jelena-ostapenko",
+    "awayParticipantId": "competitor:tennis:wta:jessica-pegula",
+    "venue": "Dongfeng Voyah Center Court",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185348",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185348",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185348",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "planningTimeEvidence": null,
+    "court": "Dongfeng Voyah Center Court",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Jelena Ostapenko v Jessica Pegula",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185348"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185353",
+    "eventId": "fixture-tennis-espn-wta-185353",
+    "canonicalEventId": "fixture:tennis:espn:wta:185353",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185353",
+      "fixture-tennis-espn-wta-185353"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185353",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Janice Tjen v Daria Snigur",
+    "date": "2026-10-14",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T06:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:janice-tjen",
+      "competitor:tennis:wta:daria-snigur"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:janice-tjen",
+        "name": "Janice Tjen",
+        "displayName": "Janice Tjen",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "ID"
+      },
+      {
+        "id": "competitor:tennis:wta:daria-snigur",
+        "name": "Daria Snigur",
+        "displayName": "Daria Snigur",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "UA"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:janice-tjen",
+    "awayParticipantId": "competitor:tennis:wta:daria-snigur",
+    "venue": "Court 2",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185353",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185353",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185353",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "planningTimeEvidence": null,
+    "court": "Court 2",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Janice Tjen v Daria Snigur",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185353"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185354",
+    "eventId": "fixture-tennis-espn-wta-185354",
+    "canonicalEventId": "fixture:tennis:espn:wta:185354",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185354",
+      "fixture-tennis-espn-wta-185354"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185354",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Ashlyn Krueger v Lanlana Tararudee",
+    "date": "2026-10-14",
+    "time": "18:30",
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T07:30:00.000Z",
+    "timePrecision": "estimated",
+    "scheduleStatus": "provisional",
+    "timeTbc": false,
+    "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:ashlyn-krueger",
+      "competitor:tennis:wta:lanlana-tararudee"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:ashlyn-krueger",
+        "name": "Ashlyn Krueger",
+        "displayName": "Ashlyn Krueger",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:wta:lanlana-tararudee",
+        "name": "Lanlana Tararudee",
+        "displayName": "Lanlana Tararudee",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:ashlyn-krueger",
+    "awayParticipantId": "competitor:tennis:wta:lanlana-tararudee",
+    "venue": "Court 1",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185354",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185354",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185354",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "planningTimeEvidence": {
+      "kind": "publisher-start-estimate",
+      "fixtureId": "fixture:tennis:espn:wta:185354",
+      "startsAt": "2026-10-14T07:30:00.000Z",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185354",
+      "checkedAt": "2026-10-13T21:00:17.000Z",
+      "timeTbc": false,
+      "participantIds": [
+        "competitor:tennis:wta:ashlyn-krueger",
+        "competitor:tennis:wta:lanlana-tararudee"
+      ]
+    },
+    "startTimeTbc": false,
+    "court": "Court 1",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Ashlyn Krueger v Lanlana Tararudee",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185354"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185357",
+    "eventId": "fixture-tennis-espn-wta-185357",
+    "canonicalEventId": "fixture:tennis:espn:wta:185357",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185357",
+      "fixture-tennis-espn-wta-185357"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185357",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 32",
+    "stage": "Round of 32",
+    "name": "Aryna Sabalenka v Ann Li",
+    "date": "2026-10-14",
+    "time": "22:00",
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-14T11:00:00.000Z",
+    "timePrecision": "estimated",
+    "scheduleStatus": "provisional",
+    "timeTbc": false,
+    "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:aryna-sabalenka",
+      "competitor:tennis:wta:ann-li"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:aryna-sabalenka",
+        "name": "Aryna Sabalenka",
+        "displayName": "Aryna Sabalenka",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "BY"
+      },
+      {
+        "id": "competitor:tennis:wta:ann-li",
+        "name": "Ann Li",
+        "displayName": "Ann Li",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "US"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:aryna-sabalenka",
+    "awayParticipantId": "competitor:tennis:wta:ann-li",
+    "venue": "Dongfeng Voyah Center Court",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185357",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185357",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185357",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "planningTimeEvidence": {
+      "kind": "publisher-start-estimate",
+      "fixtureId": "fixture:tennis:espn:wta:185357",
+      "startsAt": "2026-10-14T11:00:00.000Z",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185357",
+      "checkedAt": "2026-10-13T21:00:17.000Z",
+      "timeTbc": false,
+      "participantIds": [
+        "competitor:tennis:wta:aryna-sabalenka",
+        "competitor:tennis:wta:ann-li"
+      ]
+    },
+    "startTimeTbc": false,
+    "court": "Dongfeng Voyah Center Court",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Aryna Sabalenka v Ann Li",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185357"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
+  },
+  {
+    "id": "fixture-tennis-espn-wta-185365",
+    "eventId": "fixture-tennis-espn-wta-185365",
+    "canonicalEventId": "fixture:tennis:espn:wta:185365",
+    "sourceEventIds": [
+      "fixture:tennis:espn:wta:185365",
+      "fixture-tennis-espn-wta-185365"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:wta-tour",
+    "competitionName": "Wuhan Open",
+    "tournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+    "tournamentName": "Wuhan Open",
+    "eventFamilyId": "wuhan-open",
+    "tour": "WTA",
+    "gender": "women",
+    "discipline": "singles",
+    "eventType": "womens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "185365",
+    "tennisProviderEventId": "381-2026",
+    "tennisProviderTour": "wta",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 16",
+    "stage": "Round of 16",
+    "name": "Mia Pohankova v Maria Sakkari",
+    "date": "2026-10-15",
+    "time": null,
+    "startTimeUtc": null,
+    "estimatedStartTimeUtc": "2026-10-15T04:00:00.000Z",
+    "timePrecision": "unresolved",
+    "scheduleStatus": "unresolved",
+    "timeTbc": true,
+    "scheduleNote": "Publisher planning time; official match start unconfirmed.",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:wta:mia-pohankova",
+      "competitor:tennis:wta:maria-sakkari"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:wta:mia-pohankova",
+        "name": "Mia Pohankova",
+        "displayName": "Mia Pohankova",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis"
+      },
+      {
+        "id": "competitor:tennis:wta:maria-sakkari",
+        "name": "Maria Sakkari",
+        "displayName": "Maria Sakkari",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "GR"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:wta:mia-pohankova",
+    "awayParticipantId": "competitor:tennis:wta:maria-sakkari",
+    "venue": "Wuhan",
+    "venueCity": "Wuhan",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185365",
+    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185365",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=185365",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "Australian viewing unconfirmed",
+    "viewingOptions": [],
+    "expected": null,
+    "liveWindow": 5,
+    "planningTimeEvidence": null,
+    "court": "",
+    "statusSourceType": "reputable",
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Mia Pohankova v Maria Sakkari",
+    "broadcastOptions": [
+      "Australian viewing unconfirmed"
+    ],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.espn.com/tennis/matchstats?gameId=185365"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ]
   }
 ];

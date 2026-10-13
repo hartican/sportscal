@@ -2,88 +2,10 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "ice-hockey",
   "label": "Ice Hockey",
-  "generatedAt": "2026-10-11T12:38:08.39871Z",
+  "generatedAt": "2026-10-11T13:40:40.662Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
-    {
-      "id": "team:nhl:vgk",
-      "displayName": "Vegas Golden Knights",
-      "shortName": "Golden Knights",
-      "aliases": [
-        "VGK",
-        "Golden Knights"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "US",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 1,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:nhl",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:nhl:vgk",
-      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
-      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.nhl.com/info/teams/",
-        "https://www.nhl.com/vgk/roster"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
-      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
-      "competitionId": "competition:nhl"
-    },
-    {
-      "id": "team:nhl:edm",
-      "displayName": "Edmonton Oilers",
-      "shortName": "Oilers",
-      "aliases": [
-        "EDM",
-        "Oilers"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "CA",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 2,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:nhl",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:nhl:edm",
-      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
-      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.nhl.com/info/teams/",
-        "https://www.nhl.com/edm/roster"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
-      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
-      "competitionId": "competition:nhl"
-    },
     {
       "id": "team:nhl:car",
       "displayName": "Carolina Hurricanes",
@@ -98,7 +20,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 3,
+      "ladderPosition": 1,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
@@ -119,85 +41,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
-      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
-      "competitionId": "competition:nhl"
-    },
-    {
-      "id": "team:nhl:tbl",
-      "displayName": "Tampa Bay Lightning",
-      "shortName": "Lightning",
-      "aliases": [
-        "TBL",
-        "Lightning"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "US",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 4,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:nhl",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:nhl:tbl",
-      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
-      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.nhl.com/info/teams/",
-        "https://www.nhl.com/tbl/roster"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
-      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
-      "competitionId": "competition:nhl"
-    },
-    {
-      "id": "team:nhl:ana",
-      "displayName": "Anaheim Ducks",
-      "shortName": "Ducks",
-      "aliases": [
-        "ANA",
-        "Ducks"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "US",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 5,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:nhl",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:nhl:ana",
-      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
-      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/ANA_dark.svg",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.nhl.com/info/teams/",
-        "https://www.nhl.com/ana/roster"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -215,7 +59,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 6,
+      "ladderPosition": 2,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
@@ -236,46 +80,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
-      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
-      "competitionId": "competition:nhl"
-    },
-    {
-      "id": "team:nhl:uta",
-      "displayName": "Utah Mammoth",
-      "shortName": "Mammoth",
-      "aliases": [
-        "UTA",
-        "Mammoth"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "US",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 7,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:nhl",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:nhl:uta",
-      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg",
-      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/UTA_dark.svg",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.nhl.com/info/teams/",
-        "https://www.nhl.com/uta/roster"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -293,7 +98,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 8,
+      "ladderPosition": 3,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
@@ -314,17 +119,17 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
     {
-      "id": "team:nhl:bos",
-      "displayName": "Boston Bruins",
-      "shortName": "Bruins",
+      "id": "team:nhl:vgk",
+      "displayName": "Vegas Golden Knights",
+      "shortName": "Golden Knights",
       "aliases": [
-        "BOS",
-        "Bruins"
+        "VGK",
+        "Golden Knights"
       ],
       "entityType": "team",
       "current": true,
@@ -332,28 +137,67 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 9,
+      "ladderPosition": 4,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
       "teamKind": null,
       "position": null,
-      "identityId": "team:nhl:bos",
-      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg",
-      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/BOS_dark.svg",
+      "identityId": "team:nhl:vgk",
+      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.nhl.com/info/teams/",
-        "https://www.nhl.com/bos/roster"
+        "https://www.nhl.com/vgk/roster"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
+      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "competitionId": "competition:nhl"
+    },
+    {
+      "id": "team:nhl:edm",
+      "displayName": "Edmonton Oilers",
+      "shortName": "Oilers",
+      "aliases": [
+        "EDM",
+        "Oilers"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "CA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 5,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:nhl",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:nhl:edm",
+      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
+      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.nhl.com/info/teams/",
+        "https://www.nhl.com/edm/roster"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -371,7 +215,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 10,
+      "ladderPosition": 6,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
@@ -392,7 +236,202 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
+      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "competitionId": "competition:nhl"
+    },
+    {
+      "id": "team:nhl:tbl",
+      "displayName": "Tampa Bay Lightning",
+      "shortName": "Lightning",
+      "aliases": [
+        "TBL",
+        "Lightning"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "US",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 7,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:nhl",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:nhl:tbl",
+      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
+      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.nhl.com/info/teams/",
+        "https://www.nhl.com/tbl/roster"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-13",
+      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "competitionId": "competition:nhl"
+    },
+    {
+      "id": "team:nhl:ana",
+      "displayName": "Anaheim Ducks",
+      "shortName": "Ducks",
+      "aliases": [
+        "ANA",
+        "Ducks"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "US",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 8,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:nhl",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:nhl:ana",
+      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
+      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/ANA_dark.svg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.nhl.com/info/teams/",
+        "https://www.nhl.com/ana/roster"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-13",
+      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "competitionId": "competition:nhl"
+    },
+    {
+      "id": "team:nhl:sea",
+      "displayName": "Seattle Kraken",
+      "shortName": "Kraken",
+      "aliases": [
+        "SEA",
+        "Kraken"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "US",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 9,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:nhl",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:nhl:sea",
+      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg",
+      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/SEA_dark.svg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.nhl.com/info/teams/",
+        "https://www.nhl.com/sea/roster"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-13",
+      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "competitionId": "competition:nhl"
+    },
+    {
+      "id": "team:nhl:uta",
+      "displayName": "Utah Mammoth",
+      "shortName": "Mammoth",
+      "aliases": [
+        "UTA",
+        "Mammoth"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "US",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 10,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:nhl",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:nhl:uta",
+      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg",
+      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/UTA_dark.svg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.nhl.com/info/teams/",
+        "https://www.nhl.com/uta/roster"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-13",
+      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "competitionId": "competition:nhl"
+    },
+    {
+      "id": "team:nhl:bos",
+      "displayName": "Boston Bruins",
+      "shortName": "Bruins",
+      "aliases": [
+        "BOS",
+        "Bruins"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "US",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 11,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:nhl",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:nhl:bos",
+      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg",
+      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/BOS_dark.svg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.nhl.com/info/teams/",
+        "https://www.nhl.com/bos/roster"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -410,7 +449,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 11,
+      "ladderPosition": 12,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
@@ -431,7 +470,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -449,7 +488,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 12,
+      "ladderPosition": 13,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
@@ -470,7 +509,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -488,7 +527,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 13,
+      "ladderPosition": 14,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
@@ -509,46 +548,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
-      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
-      "competitionId": "competition:nhl"
-    },
-    {
-      "id": "team:nhl:wsh",
-      "displayName": "Washington Capitals",
-      "shortName": "Capitals",
-      "aliases": [
-        "WSH",
-        "Capitals"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "US",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 14,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:nhl",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:nhl:wsh",
-      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg",
-      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.nhl.com/info/teams/",
-        "https://www.nhl.com/wsh/roster"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -587,17 +587,17 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
     {
-      "id": "team:nhl:sea",
-      "displayName": "Seattle Kraken",
-      "shortName": "Kraken",
+      "id": "team:nhl:wsh",
+      "displayName": "Washington Capitals",
+      "shortName": "Capitals",
       "aliases": [
-        "SEA",
-        "Kraken"
+        "WSH",
+        "Capitals"
       ],
       "entityType": "team",
       "current": true,
@@ -611,22 +611,22 @@
       "leagueId": "competition:nhl",
       "teamKind": null,
       "position": null,
-      "identityId": "team:nhl:sea",
-      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg",
-      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/SEA_dark.svg",
+      "identityId": "team:nhl:wsh",
+      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg",
+      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.nhl.com/info/teams/",
-        "https://www.nhl.com/sea/roster"
+        "https://www.nhl.com/wsh/roster"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -670,45 +670,6 @@
       "competitionId": "competition:nhl"
     },
     {
-      "id": "team:nhl:fla",
-      "displayName": "Florida Panthers",
-      "shortName": "Panthers",
-      "aliases": [
-        "FLA",
-        "Panthers"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "US",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 18,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:nhl",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:nhl:fla",
-      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
-      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.nhl.com/info/teams/",
-        "https://www.nhl.com/fla/roster"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
-      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
-      "competitionId": "competition:nhl"
-    },
-    {
       "id": "team:nhl:sjs",
       "displayName": "San Jose Sharks",
       "shortName": "Sharks",
@@ -722,7 +683,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 19,
+      "ladderPosition": 18,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
@@ -743,7 +704,85 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
+      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "competitionId": "competition:nhl"
+    },
+    {
+      "id": "team:nhl:buf",
+      "displayName": "Buffalo Sabres",
+      "shortName": "Sabres",
+      "aliases": [
+        "BUF",
+        "Sabres"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "US",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 19,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:nhl",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:nhl:buf",
+      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
+      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.nhl.com/info/teams/",
+        "https://www.nhl.com/buf/roster"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-13",
+      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
+      "competitionId": "competition:nhl"
+    },
+    {
+      "id": "team:nhl:fla",
+      "displayName": "Florida Panthers",
+      "shortName": "Panthers",
+      "aliases": [
+        "FLA",
+        "Panthers"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "US",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 20,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:nhl",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:nhl:fla",
+      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.nhl.com/info/teams/",
+        "https://www.nhl.com/fla/roster"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -761,7 +800,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 20,
+      "ladderPosition": 21,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
@@ -782,7 +821,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -800,7 +839,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 21,
+      "ladderPosition": 22,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
@@ -821,7 +860,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -839,7 +878,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 22,
+      "ladderPosition": 23,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nhl",
@@ -860,46 +899,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
-      "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
-      "competitionId": "competition:nhl"
-    },
-    {
-      "id": "team:nhl:njd",
-      "displayName": "New Jersey Devils",
-      "shortName": "Devils",
-      "aliases": [
-        "NJD",
-        "Devils"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "US",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 23,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:nhl",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:nhl:njd",
-      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
-      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.nhl.com/info/teams/",
-        "https://www.nhl.com/njd/roster"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -938,7 +938,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -977,17 +977,17 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
     {
-      "id": "team:nhl:buf",
-      "displayName": "Buffalo Sabres",
-      "shortName": "Sabres",
+      "id": "team:nhl:njd",
+      "displayName": "New Jersey Devils",
+      "shortName": "Devils",
       "aliases": [
-        "BUF",
-        "Sabres"
+        "NJD",
+        "Devils"
       ],
       "entityType": "team",
       "current": true,
@@ -1001,22 +1001,22 @@
       "leagueId": "competition:nhl",
       "teamKind": null,
       "position": null,
-      "identityId": "team:nhl:buf",
-      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
-      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg",
+      "identityId": "team:nhl:njd",
+      "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+      "logoDarkUrl": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.nhl.com/info/teams/",
-        "https://www.nhl.com/buf/roster"
+        "https://www.nhl.com/njd/roster"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -1055,7 +1055,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -1211,7 +1211,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-11",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://api-web.nhle.com/v1/standings/now",
       "competitionId": "competition:nhl"
     },
@@ -1285,7 +1285,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:chl:842afa3146e67ae462babeaf",
@@ -1382,7 +1382,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8482691",
@@ -1577,7 +1577,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8484166",
@@ -1643,7 +1643,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8478874",
@@ -1676,7 +1676,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8484790",
@@ -1709,7 +1709,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:chl:37f7de1311911f7d2e76e0ff",
@@ -1807,7 +1807,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8476392",
@@ -1840,7 +1840,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:chl:4259c91bd386ab156a83fb93",
@@ -2034,7 +2034,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:cc67c17cde9071f6a461ba45",
@@ -2164,7 +2164,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "team:chl:9bd414328e8c2658731938a0",
@@ -2361,7 +2361,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:chl:95956d88f9d4bf3fe2d90e74",
@@ -2491,7 +2491,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:1be3f259f4f0256cedb5214a",
@@ -2556,7 +2556,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8477493",
@@ -2589,7 +2589,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:chl:0a1c180d188174e623249380",
@@ -2718,7 +2718,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8479337",
@@ -2784,7 +2784,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8480113",
@@ -2817,7 +2817,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8473986",
@@ -2850,7 +2850,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8482155",
@@ -2916,7 +2916,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8477968",
@@ -2949,7 +2949,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8481618",
@@ -2982,7 +2982,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8471214",
@@ -3015,7 +3015,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8477949",
@@ -3048,7 +3048,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8481532",
@@ -3277,7 +3277,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8478851",
@@ -3310,7 +3310,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:chl:fe6a53adf4ccb95de4270fa7",
@@ -3375,7 +3375,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8480281",
@@ -3408,7 +3408,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8482109",
@@ -3441,7 +3441,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:4bd9400d91f4958897a1ce61",
@@ -3506,7 +3506,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8483695",
@@ -3539,7 +3539,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:855e09f3312053c8f7eb61bd",
@@ -3604,7 +3604,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8477444",
@@ -3637,7 +3637,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8481732",
@@ -3864,7 +3864,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8480830",
@@ -3897,7 +3897,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8476883",
@@ -3930,7 +3930,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8477429",
@@ -4029,7 +4029,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:chl:1df4908db00c34fd0d627a17",
@@ -4126,7 +4126,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8478519",
@@ -4159,7 +4159,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8477407",
@@ -4257,7 +4257,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:c5344bc44a93092d9251debb",
@@ -4322,7 +4322,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:chl:981072175d1a013b6afe45ba",
@@ -4518,7 +4518,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:chl:98e9d5bb1f240d400286d7bd",
@@ -4615,7 +4615,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:chl:561bfe909fa1f959bcbc82c3",
@@ -4680,7 +4680,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:nhl:8483395",
@@ -4811,7 +4811,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:59d3e26aaeace58ecd9f1711",
@@ -4973,7 +4973,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8484783",
@@ -5232,7 +5232,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:chl:5d77008c4beddf26eab5d391",
@@ -5459,7 +5459,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8480849",
@@ -5492,7 +5492,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:chl:ef88716e5f496871dae14afb",
@@ -5589,7 +5589,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8484762",
@@ -5622,7 +5622,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8475279",
@@ -5688,7 +5688,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8483570",
@@ -5721,7 +5721,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:chl:96e0920b44594a6d1738c964",
@@ -5946,7 +5946,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "team:chl:865ec7e2959da256a2a97a8b",
@@ -6014,7 +6014,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8481481",
@@ -6047,7 +6047,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8480870",
@@ -6080,7 +6080,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:nhl:8477500",
@@ -6146,7 +6146,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8482259",
@@ -6179,7 +6179,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8478147",
@@ -6212,7 +6212,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8476432",
@@ -6245,7 +6245,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "team:chl:50e896abe7f9760028ebd0c3",
@@ -6378,7 +6378,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8473419",
@@ -6411,7 +6411,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8482073",
@@ -6444,7 +6444,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:b2cb3bd3127f06d0a8a4bc21",
@@ -6542,7 +6542,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8483890",
@@ -6575,7 +6575,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:nhl:8483548",
@@ -6608,7 +6608,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8478443",
@@ -6641,7 +6641,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:chl:3cebd2c480c9fc987f2d30e7",
@@ -6706,7 +6706,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:nhl:8479542",
@@ -6739,7 +6739,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8477986",
@@ -6772,7 +6772,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8482730",
@@ -6870,7 +6870,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:nhl:8478010",
@@ -6903,7 +6903,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8475170",
@@ -7034,7 +7034,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:nhl:8482747",
@@ -7165,7 +7165,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:nhl:8476967",
@@ -7231,7 +7231,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:f19b4db4a0a302053573503f",
@@ -7394,7 +7394,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8475754",
@@ -7524,7 +7524,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8479985",
@@ -7557,7 +7557,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8480069",
@@ -7784,7 +7784,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8475764",
@@ -7817,7 +7817,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8475660",
@@ -7916,7 +7916,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8479336",
@@ -8047,7 +8047,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:nhl:8482802",
@@ -8145,7 +8145,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8484759",
@@ -8178,7 +8178,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8475231",
@@ -8244,7 +8244,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:nhl:8479999",
@@ -8277,7 +8277,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:chl:ac8a5414fb5a107a2ef43de7",
@@ -8342,7 +8342,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8480426",
@@ -8375,7 +8375,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8475745",
@@ -8441,7 +8441,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8479325",
@@ -8474,7 +8474,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8475184",
@@ -8507,7 +8507,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8475690",
@@ -8540,7 +8540,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:chl:8e2482d587f715393853fa91",
@@ -8798,7 +8798,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8483532",
@@ -8831,7 +8831,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:chl:a03f9802e3f92fbb00217cb0",
@@ -8896,7 +8896,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:chl:a4daf5b24e5d9dfa2cc863d2",
@@ -9026,7 +9026,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:nhl:8484786",
@@ -9059,7 +9059,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8481540",
@@ -9092,7 +9092,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8484873",
@@ -9125,7 +9125,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8481043",
@@ -9158,7 +9158,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8482149",
@@ -9191,7 +9191,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8482705",
@@ -9290,7 +9290,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:02b6e2891e583672deb99397",
@@ -9387,7 +9387,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8481551",
@@ -9420,7 +9420,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8482703",
@@ -9453,7 +9453,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8476892",
@@ -9486,7 +9486,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8476925",
@@ -9519,7 +9519,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:nhl:8484144",
@@ -9585,7 +9585,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:nhl:8477365",
@@ -9618,7 +9618,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8480980",
@@ -9651,7 +9651,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8476945",
@@ -9684,7 +9684,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8478402",
@@ -9717,7 +9717,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8481580",
@@ -9750,7 +9750,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8476473",
@@ -9783,7 +9783,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8478856",
@@ -9849,7 +9849,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8479982",
@@ -9882,7 +9882,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8470621",
@@ -9948,7 +9948,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8483445",
@@ -9981,7 +9981,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8482094",
@@ -10014,7 +10014,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8484164",
@@ -10047,7 +10047,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8478435",
@@ -10369,7 +10369,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8480193",
@@ -10435,7 +10435,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:chl:3295c22122d2e22b701b61aa",
@@ -10631,7 +10631,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8478178",
@@ -10664,7 +10664,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:chl:d523bee9d15fd4b6ec9ce6c5",
@@ -10922,7 +10922,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8483766",
@@ -10955,7 +10955,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:chl:3da3e12a00b4f5a150d8860a",
@@ -11052,7 +11052,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:nhl:8483398",
@@ -11085,7 +11085,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8480990",
@@ -11118,7 +11118,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:776af19f26aca1b63762bcfb",
@@ -11247,7 +11247,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:chl:f67ee561140ad4d87993f4e4",
@@ -11411,7 +11411,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8478038",
@@ -11477,7 +11477,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8484386",
@@ -11510,7 +11510,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8481716",
@@ -11576,7 +11576,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8475200",
@@ -11609,7 +11609,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:chl:368962de9a22bc1b3a3a4368",
@@ -11674,7 +11674,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:chl:89f7f4bb53c2564c1e57f305",
@@ -11867,7 +11867,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:742ddf41c7c3192a4685438d",
@@ -11932,7 +11932,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8474563",
@@ -11998,7 +11998,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8482055",
@@ -12097,7 +12097,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:nhl:8481528",
@@ -12130,7 +12130,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8476331",
@@ -12163,7 +12163,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:chl:a73a90f11d46cd98c699a5b4",
@@ -12228,7 +12228,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8482699",
@@ -12261,7 +12261,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8482077",
@@ -12294,7 +12294,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8477946",
@@ -12392,7 +12392,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8482121",
@@ -12425,7 +12425,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8480049",
@@ -12458,7 +12458,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8478440",
@@ -12491,7 +12491,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "team:chl:3e2b15fb0e41329efc1f6237",
@@ -12559,7 +12559,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:chl:571a3cc86a153aa1a693d400",
@@ -12656,7 +12656,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:269eeaf407019fe56449befc",
@@ -12753,7 +12753,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:chl:005df9e86a16c355cd6505bd",
@@ -12818,7 +12818,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:chl:3b63676ad02776e5eadc6307",
@@ -13014,7 +13014,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8480012",
@@ -13177,7 +13177,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8482126",
@@ -13308,7 +13308,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:chl:1c2f10ff77918706ff2ca86e",
@@ -13534,7 +13534,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8478416",
@@ -13567,7 +13567,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8475790",
@@ -13699,7 +13699,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:chl:401c48302632375fe06e5e22",
@@ -13796,7 +13796,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:nhl:8482807",
@@ -13862,7 +13862,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8480803",
@@ -13895,7 +13895,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8478542",
@@ -13928,7 +13928,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:nhl:8471215",
@@ -13961,7 +13961,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:chl:ff44aaaf9929500df9a2967a",
@@ -14058,7 +14058,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8482768",
@@ -14382,7 +14382,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8480842",
@@ -14415,7 +14415,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:d567c8615856201a990059f9",
@@ -14865,7 +14865,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:chl:b3240203252ddbd30ecdb31f",
@@ -14995,7 +14995,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:chl:733973409891133977844471",
@@ -15092,7 +15092,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:chl:fbd5f0a1c6215a81f23bd014",
@@ -15157,7 +15157,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8477919",
@@ -15190,7 +15190,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8475883",
@@ -15223,7 +15223,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:7f92bcda49c013708d097580",
@@ -15422,7 +15422,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:7ebc30ba9d5d845c92f6a9d1",
@@ -15520,7 +15520,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:chl:6682857e5913c53487ceb49a",
@@ -15585,7 +15585,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8477903",
@@ -15618,7 +15618,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8475253",
@@ -15684,7 +15684,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "team:chl:e407e3c30bba319774cc4bea",
@@ -16047,7 +16047,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:chl:bcd38ac0b8e5c2244cfe9c61",
@@ -16144,7 +16144,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:chl:014a8cae3ff3deaed5ecb2a2",
@@ -16209,7 +16209,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:chl:ff71b641ed07f41ef779fd11",
@@ -16274,7 +16274,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "team:chl:fc04d1152903083968962750",
@@ -16410,7 +16410,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:chl:7c0fd326404c467d202e54ff",
@@ -16898,7 +16898,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8484994",
@@ -16931,7 +16931,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:chl:d0616625cbc4d8202dbae217",
@@ -16996,7 +16996,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:5a9632391a76f45ef744ec7d",
@@ -17094,7 +17094,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8484999",
@@ -17127,7 +17127,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8478009",
@@ -17193,7 +17193,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:8b2934342af175483b1eba21",
@@ -17354,7 +17354,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8477964",
@@ -17387,7 +17387,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:nhl:8484984",
@@ -17420,7 +17420,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8483491",
@@ -17453,7 +17453,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8478500",
@@ -17519,7 +17519,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:chl:e015d9c7dd4ba89adc9dd25c",
@@ -17584,7 +17584,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8477456",
@@ -17650,7 +17650,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8476958",
@@ -17683,7 +17683,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:chl:188687a4d9b6e7e9d86cef35",
@@ -17814,7 +17814,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:nhl:8481559",
@@ -17847,7 +17847,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:62cc0606deeb97272c6dae3d",
@@ -17912,7 +17912,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8482097",
@@ -17945,7 +17945,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8478458",
@@ -17978,7 +17978,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:nhl:8481030",
@@ -18011,7 +18011,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8482809",
@@ -18044,7 +18044,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8481605",
@@ -18077,7 +18077,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:chl:230f143167235b4683470cff",
@@ -18207,7 +18207,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:chl:046493a1c0d894e180bb925a",
@@ -18272,7 +18272,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8482874",
@@ -18305,7 +18305,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:chl:0e4b677d111e9bc5446a10dd",
@@ -18370,7 +18370,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8475768",
@@ -18436,7 +18436,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:nhl:8481161",
@@ -18535,7 +18535,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8477404",
@@ -18568,7 +18568,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:chl:a8e49fa7b1211382fa506298",
@@ -18633,7 +18633,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:nhl:8478136",
@@ -18699,7 +18699,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8485383",
@@ -18732,7 +18732,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8479979",
@@ -18765,7 +18765,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:nhl:8482105",
@@ -18798,7 +18798,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8478013",
@@ -18831,7 +18831,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8479345",
@@ -18864,7 +18864,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:chl:13198438d55f0b08bff9a793",
@@ -18993,7 +18993,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:chl:a7a2b0fa682e15b1019aee90",
@@ -19282,7 +19282,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8485395",
@@ -19315,7 +19315,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8473994",
@@ -19348,7 +19348,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:nhl:8482142",
@@ -19991,7 +19991,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8474716",
@@ -20024,7 +20024,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8483756",
@@ -20186,7 +20186,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:a5b457c8039c541ff68ca575",
@@ -20283,7 +20283,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8480027",
@@ -20316,7 +20316,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:783cc05a8ec84bfa088cba54",
@@ -20511,7 +20511,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8479705",
@@ -20544,7 +20544,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:chl:42135c1578700ae478397648",
@@ -20641,7 +20641,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:nhl:8480280",
@@ -20674,7 +20674,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8480003",
@@ -20707,7 +20707,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:nhl:8479407",
@@ -20740,7 +20740,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:062e21241194f04ef9e50379",
@@ -20869,7 +20869,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8480829",
@@ -20902,7 +20902,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:chl:5200065e9314f3b8486a2f46",
@@ -21032,7 +21032,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:chl:d8bcd9b29eb29038e2a3e848",
@@ -21097,7 +21097,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:chl:a99e821f5f87fff68677ecdd",
@@ -21194,7 +21194,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:chl:637a55fe03ef2b0aea282828",
@@ -21357,7 +21357,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8480797",
@@ -21456,7 +21456,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:chl:ec4a533e056f02844a7843a8",
@@ -21553,7 +21553,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:c12ac0dd3fa4b5b103a8cefc",
@@ -21618,7 +21618,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:chl:47b1a71355d1aa0b9e05bc75",
@@ -21747,7 +21747,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8476434",
@@ -21877,7 +21877,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8475166",
@@ -21910,7 +21910,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:chl:cb1eb03c00bed53084529380",
@@ -21975,7 +21975,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:e4b0721bbfab03d86cbda122",
@@ -22040,7 +22040,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8476463",
@@ -22073,7 +22073,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:chl:e5428a04317e83b25bd66041",
@@ -22202,7 +22202,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:5c9c176442c80f5bcb52a91a",
@@ -22267,7 +22267,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8481219",
@@ -22300,7 +22300,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8484154",
@@ -22689,7 +22689,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:0acb6b293dbc71f9c6342d96",
@@ -22754,7 +22754,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8474586",
@@ -22787,7 +22787,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8478413",
@@ -22853,7 +22853,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8476921",
@@ -22886,7 +22886,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8481606",
@@ -22919,7 +22919,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8473533",
@@ -22952,7 +22952,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:chl:5d95c4d959906f55b726a4a9",
@@ -23081,7 +23081,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8479361",
@@ -23147,7 +23147,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:chl:2ecb19eb30247626d7bfd3ef",
@@ -23212,7 +23212,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8479372",
@@ -23245,7 +23245,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8476312",
@@ -23311,7 +23311,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8480064",
@@ -23344,7 +23344,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8484509",
@@ -23377,7 +23377,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:be973a68e3ab6e0b82978367",
@@ -23442,7 +23442,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:chl:181f5e07bc17a2777a109713",
@@ -23763,7 +23763,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8482111",
@@ -23796,7 +23796,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8479638",
@@ -23829,7 +23829,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8479941",
@@ -23862,7 +23862,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8475753",
@@ -23928,7 +23928,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:5ae20b3a0a8da5c180d707dd",
@@ -23993,7 +23993,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8481020",
@@ -24188,7 +24188,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:chl:0d97726afb6fd2a7efd427ef",
@@ -24253,7 +24253,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8481554",
@@ -24286,7 +24286,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "team:chl:954f0696fef5e714282a6d75",
@@ -24354,7 +24354,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:chl:5b7704e178e30e2ce6143f44",
@@ -24419,7 +24419,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8479977",
@@ -24452,7 +24452,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:chl:34bdd0f8f280671a34c8d617",
@@ -24517,7 +24517,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:chl:32783ce081318b73778fa534",
@@ -24806,7 +24806,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:a9e152db34feabf43e997485",
@@ -25357,7 +25357,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8480748",
@@ -25390,7 +25390,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:chl:1108c721db8d048da69becbe",
@@ -25487,7 +25487,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8478864",
@@ -25520,7 +25520,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8480893",
@@ -25553,7 +25553,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "team:chl:104c3b90fcb6da8e653c05eb",
@@ -25621,7 +25621,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "team:chl:c9840a203093f97cae0a9495",
@@ -25753,7 +25753,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:chl:4aef7fe42dd658e6381f6c3b",
@@ -25882,7 +25882,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:nhl:8478476",
@@ -25915,7 +25915,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:nhl:8478398",
@@ -25948,7 +25948,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8481237",
@@ -26047,7 +26047,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8474189",
@@ -26080,7 +26080,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:chl:5bde9b6196fe22f5f8a280ae",
@@ -26273,7 +26273,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:chl:e58b415c51c59f316d975e7c",
@@ -26563,7 +26563,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:chl:f8d25eb8d8db1ebe3ef9ad3b",
@@ -26660,7 +26660,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:4572297c58f574aff9dd698e",
@@ -26917,7 +26917,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8483499",
@@ -27015,7 +27015,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:7f22afabe40f5b03fcc9bb10",
@@ -27241,7 +27241,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8483431",
@@ -27274,7 +27274,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8482733",
@@ -27307,7 +27307,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8481186",
@@ -27373,7 +27373,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8479378",
@@ -27439,7 +27439,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:chl:66cb5d3876dd3daa49e3782c",
@@ -27600,7 +27600,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:chl:14cb010d10e3ea250c8c6fee",
@@ -27761,7 +27761,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:chl:f85f2bd83171af5ba42e2e83",
@@ -28308,7 +28308,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:chl:e03d7aec91ce90aaed85acf4",
@@ -28629,7 +28629,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:nhl:8482684",
@@ -28662,7 +28662,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:f893aa62d1e986291c5ac61c",
@@ -28793,7 +28793,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8482713",
@@ -28826,7 +28826,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8484801",
@@ -28859,7 +28859,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:chl:aad7afc022dcdfb933751fde",
@@ -29180,7 +29180,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8483553",
@@ -29213,7 +29213,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:chl:6fa92bb75461fe09fa95940d",
@@ -29472,7 +29472,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8477969",
@@ -29505,7 +29505,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:949bdb2ae508aaefa39b8ba8",
@@ -29666,7 +29666,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:chl:90a763f3eed784c1eee87c19",
@@ -29763,7 +29763,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8480355",
@@ -29796,7 +29796,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8476460",
@@ -29829,7 +29829,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8475913",
@@ -29862,7 +29862,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:chl:3ea03f1b29d79f16055f6e8e",
@@ -30151,7 +30151,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:chl:d2b7dedda0ac52f3405cad99",
@@ -30443,7 +30443,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8478975",
@@ -30476,7 +30476,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8482745",
@@ -30509,7 +30509,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:chl:6c52f113670d2b1636f9f457",
@@ -30926,7 +30926,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8479671",
@@ -31090,7 +31090,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8482679",
@@ -31156,7 +31156,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:nhl:8476891",
@@ -31189,7 +31189,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8482641",
@@ -31222,7 +31222,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8483575",
@@ -31288,7 +31288,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8478911",
@@ -31321,7 +31321,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8483512",
@@ -31354,7 +31354,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:c83bb6ed9f4a766520d7c065",
@@ -31517,7 +31517,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8485366",
@@ -31583,7 +31583,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:chl:708aba642cd0888ad26362e5",
@@ -31713,7 +31713,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:43b1864bcb7b6bd62b83157a",
@@ -31778,7 +31778,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8480807",
@@ -31811,7 +31811,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8482665",
@@ -31844,7 +31844,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:chl:b324c8df66bb50ac36730fbe",
@@ -32071,7 +32071,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8482145",
@@ -32169,7 +32169,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:chl:8b0f2aaada0fe134f4b0c877",
@@ -32266,7 +32266,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:54190751a1e64a5a72e84e1f",
@@ -32428,7 +32428,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8484958",
@@ -32782,7 +32782,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8484794",
@@ -32881,7 +32881,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8480022",
@@ -32914,7 +32914,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:chl:267fc0dd4f4f9df0b06e53c9",
@@ -32979,7 +32979,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:chl:a84a0c4a8e4527e4c8bdbf62",
@@ -33044,7 +33044,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8485402",
@@ -33077,7 +33077,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:chl:8f501ee14bedcf67ae12b5ae",
@@ -33463,7 +33463,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8474150",
@@ -33529,7 +33529,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:chl:690eb55e9ebe5781555c673b",
@@ -33594,7 +33594,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8476422",
@@ -33627,7 +33627,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8479998",
@@ -33693,7 +33693,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:chl:b3eb5b8a8f5971e3e5975c7e",
@@ -33822,7 +33822,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:nhl:8477425",
@@ -33855,7 +33855,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:chl:99fb5706d2386f3b5f65ee58",
@@ -33920,7 +33920,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:2e431ba7657233720f59b9c9",
@@ -34017,7 +34017,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:chl:77a9e65db45bedc1fa21fcdc",
@@ -34114,7 +34114,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8480028",
@@ -34180,7 +34180,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8476853",
@@ -34213,7 +34213,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:chl:c12ac6a1b334f59b32815d9f",
@@ -34440,7 +34440,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8477492",
@@ -34603,7 +34603,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8475343",
@@ -34636,7 +34636,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:chl:8b3072d3f70fd4431d03ffd3",
@@ -34765,7 +34765,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:nhl:8476393",
@@ -34798,7 +34798,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8480084",
@@ -34831,7 +34831,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8473422",
@@ -34864,7 +34864,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8475324",
@@ -34897,7 +34897,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8484185",
@@ -34995,7 +34995,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:nhl:8480246",
@@ -35061,7 +35061,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8477951",
@@ -35094,7 +35094,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:nhl:8476372",
@@ -35160,7 +35160,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:chl:71c212aec4819af9de2223e7",
@@ -35385,7 +35385,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:4b48fe9f14f382b8595da3c3",
@@ -35482,7 +35482,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:9e4c1b326274eb3c88be66b1",
@@ -35547,7 +35547,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:chl:4d9ad80b2fb097fde9bb4362",
@@ -35612,7 +35612,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8479980",
@@ -35840,7 +35840,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8476453",
@@ -35873,7 +35873,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8481754",
@@ -35906,7 +35906,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8477507",
@@ -35939,7 +35939,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:chl:069e5fadfce2e89e8c393e8a",
@@ -36036,7 +36036,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:chl:aa0254351752170a6cc0aa7d",
@@ -36101,7 +36101,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8484321",
@@ -36134,7 +36134,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:chl:6f6ef3ffd42bbd368bccb7da",
@@ -36264,7 +36264,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:nhl:8475799",
@@ -36297,7 +36297,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:chl:644a536922fb16c3ec58af9e",
@@ -36395,7 +36395,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:chl:f4325aad9e64e9a970398c19",
@@ -36460,7 +36460,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:chl:ba0b26e31bdc23c205e7f0fd",
@@ -36558,7 +36558,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:a689c52b4080048633f1dc45",
@@ -36623,7 +36623,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:chl:251c8c1b3dc8b99497975997",
@@ -36688,7 +36688,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8478569",
@@ -36786,7 +36786,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:chl:1bea9407b6126f2fa8f89dc0",
@@ -36915,7 +36915,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8477416",
@@ -36948,7 +36948,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:7928728a3c79ba8902f78db6",
@@ -37013,7 +37013,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:nhl:8482775",
@@ -37046,7 +37046,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8484197",
@@ -37432,7 +37432,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:chl:b0af0544ab4534189d737b46",
@@ -37786,7 +37786,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:c39ab4c5aa870ccf8fb622e7",
@@ -38075,7 +38075,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8482671",
@@ -38108,7 +38108,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8480015",
@@ -38239,7 +38239,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:chl:4faa666d55b042b15fb27320",
@@ -38722,7 +38722,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8481604",
@@ -38755,7 +38755,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8483490",
@@ -38788,7 +38788,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8478401",
@@ -38821,7 +38821,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:chl:2d7bdf44afa5c50739e0ee36",
@@ -39142,7 +39142,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8481598",
@@ -39175,7 +39175,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8475831",
@@ -39208,7 +39208,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8476479",
@@ -39241,7 +39241,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:chl:62156ca792de1cc8a90bf3c1",
@@ -39306,7 +39306,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:chl:f4da09921a4af03e5bb803e9",
@@ -39371,7 +39371,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8480995",
@@ -39404,7 +39404,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:chl:14f13a6c6f37bc236caeec42",
@@ -39502,7 +39502,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:chl:3d398799c1e7c81fbf8bd3ee",
@@ -39599,7 +39599,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8482124",
@@ -39697,7 +39697,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:e347bb8a6c359851255ac351",
@@ -39762,7 +39762,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:chl:f8e2bcfd23bb6719a433354d",
@@ -39923,7 +39923,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:nhl:8478397",
@@ -39956,7 +39956,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:chl:8ab36c6f1ddb6d37db3eebab",
@@ -40053,7 +40053,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8477499",
@@ -40187,7 +40187,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:72c1b1ca0ffcbda91084d35b",
@@ -40284,7 +40284,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8482092",
@@ -40317,7 +40317,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8483478",
@@ -40350,7 +40350,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:chl:ddf907fe8489e822b110d666",
@@ -40511,7 +40511,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:chl:fa9fce6b04a924f2423f2621",
@@ -40805,7 +40805,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:c0add44e7a2094c45b3e5fe9",
@@ -40903,7 +40903,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8477987",
@@ -41002,7 +41002,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8484186",
@@ -41035,7 +41035,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8479324",
@@ -41068,7 +41068,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8479066",
@@ -41166,7 +41166,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8480802",
@@ -41199,7 +41199,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8476454",
@@ -41232,7 +41232,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8475158",
@@ -41298,7 +41298,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8477506",
@@ -41364,7 +41364,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8476458",
@@ -41430,7 +41430,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8482858",
@@ -41463,7 +41463,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "team:chl:6aa374572836df3fb42eb000",
@@ -41595,7 +41595,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8475842",
@@ -41628,7 +41628,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8482118",
@@ -41661,7 +41661,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8484806",
@@ -41694,7 +41694,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8478043",
@@ -41727,7 +41727,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8484258",
@@ -41793,7 +41793,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8483506",
@@ -41859,7 +41859,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:49ea47e03a9661a8f1e2f7a7",
@@ -41924,7 +41924,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:chl:61f588566e38358fdf796e5a",
@@ -41989,7 +41989,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:chl:fc4dc9c3870baa8826127d56",
@@ -42184,7 +42184,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:chl:08c83087958cea0752a62f33",
@@ -42377,7 +42377,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:chl:54d4001aa22f0ec64eca4f0e",
@@ -42604,7 +42604,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8477149",
@@ -42637,7 +42637,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8475809",
@@ -42736,7 +42736,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8476374",
@@ -42769,7 +42769,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8477497",
@@ -42835,7 +42835,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8478427",
@@ -42868,7 +42868,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:chl:8ef3385804fb3072aec55449",
@@ -42933,7 +42933,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:chl:1da95e36e1e3092cf43d6e06",
@@ -43095,7 +43095,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:nhl:8483703",
@@ -43128,7 +43128,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:chl:841de559ca76d9ef04fbf4ff",
@@ -43193,7 +43193,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:nhl:8482166",
@@ -43226,7 +43226,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8481596",
@@ -43259,7 +43259,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8483524",
@@ -43292,7 +43292,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8476906",
@@ -43325,7 +43325,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8477447",
@@ -43358,7 +43358,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:nhl:8480326",
@@ -43456,7 +43456,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:chl:8f2fe0acd2e48fc18011054d",
@@ -43976,7 +43976,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:chl:d43f20cc7d25553354917774",
@@ -44073,7 +44073,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:chl:fa23b783ab6ddd05ba24ac11",
@@ -44138,7 +44138,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:chl:e8d3749cd585efe249ea3ff9",
@@ -44335,7 +44335,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:chl:93ea2bcac7278e4027665d24",
@@ -44593,7 +44593,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8479661",
@@ -44626,7 +44626,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "team:chl:6a0612c54317b473a6f67f56",
@@ -44726,7 +44726,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8476927",
@@ -44759,7 +44759,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:chl:7157672f19d90bd2a55ad6cc",
@@ -44890,7 +44890,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:chl:789bf8b81b66c09bd33dd039",
@@ -45051,7 +45051,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8481581",
@@ -45084,7 +45084,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:b2f9b7c3a5b977a354851aee",
@@ -45309,7 +45309,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8485512",
@@ -45342,7 +45342,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8478414",
@@ -45375,7 +45375,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 23
+      "currentTeamRank": 26
     },
     {
       "id": "athlete:nhl:8480043",
@@ -45408,7 +45408,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:chl:f047d485237343b26c0000c9",
@@ -45826,7 +45826,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:chl:b0d5f7681513903f3cc3e5d6",
@@ -46051,7 +46051,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:chl:b51a5d19397e39ca87763a52",
@@ -46244,7 +46244,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8477950",
@@ -46343,7 +46343,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8477948",
@@ -46441,7 +46441,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8484803",
@@ -46474,7 +46474,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:nhl:8479675",
@@ -46540,7 +46540,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:nhl:8481533",
@@ -46606,7 +46606,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:ffe04d88c1aacbc3a2aa0e8d",
@@ -46671,7 +46671,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8479442",
@@ -46704,7 +46704,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:nhl:8480848",
@@ -46737,7 +46737,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8480834",
@@ -46770,7 +46770,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:92bd832224bfd870aee7005c",
@@ -46835,7 +46835,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8477479",
@@ -46901,7 +46901,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:nhl:8474574",
@@ -46934,7 +46934,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:chl:372a158cebbcf49f856de506",
@@ -46999,7 +46999,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:nhl:8475726",
@@ -47032,7 +47032,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8481006",
@@ -47065,7 +47065,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8482459",
@@ -47098,7 +47098,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:nhl:8482159",
@@ -47164,7 +47164,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8482896",
@@ -47197,7 +47197,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8480045",
@@ -47230,7 +47230,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:chl:b6bdf30593d8ddd3eb56aac2",
@@ -47295,7 +47295,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 18
+      "currentTeamRank": 20
     },
     {
       "id": "athlete:chl:72c1e384d199edc8287fe878",
@@ -47553,7 +47553,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:chl:1eb401ab1742e8e6332c0dac",
@@ -47846,7 +47846,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nhl:8483768",
@@ -47912,7 +47912,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:chl:abd36b6ef2c84e0562426244",
@@ -47977,7 +47977,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:chl:ec8b58556d5c9e8305e9a92c",
@@ -48203,7 +48203,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 5
+      "currentTeamRank": 8
     },
     {
       "id": "athlete:nhl:8482758",
@@ -48236,7 +48236,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 13
+      "currentTeamRank": 14
     },
     {
       "id": "athlete:chl:8cbeb16bd830416e3ac0e6e8",
@@ -48301,7 +48301,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:chl:11a809b45ebc978720b3c027",
@@ -48462,7 +48462,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 16
+      "currentTeamRank": 9
     },
     {
       "id": "athlete:nhl:8479576",
@@ -48495,7 +48495,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 14
+      "currentTeamRank": 16
     },
     {
       "id": "athlete:nhl:8482861",
@@ -48528,7 +48528,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:chl:08ac22745602e522a1f54c3f",
@@ -48593,7 +48593,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 10
     },
     {
       "id": "athlete:chl:54b651498ff4da75193d2837",
@@ -48723,7 +48723,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8476480",
@@ -48756,7 +48756,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 11
+      "currentTeamRank": 12
     },
     {
       "id": "athlete:chl:34beca45cdb926e5d0574650",
@@ -48853,7 +48853,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:chl:40a168e7d322182028502a91",
@@ -48918,7 +48918,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 9
+      "currentTeamRank": 11
     },
     {
       "id": "athlete:nhl:8482157",
@@ -48951,7 +48951,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 8
+      "currentTeamRank": 3
     },
     {
       "id": "athlete:nhl:8484227",
@@ -48984,7 +48984,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:chl:1de108ac1c50075537bdccb2",
@@ -49049,7 +49049,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 3
+      "currentTeamRank": 1
     },
     {
       "id": "athlete:nhl:8482667",
@@ -49082,7 +49082,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 2
     },
     {
       "id": "athlete:chl:5e9c94da854e4bb86677cea5",
@@ -49147,7 +49147,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 1
+      "currentTeamRank": 4
     },
     {
       "id": "athlete:chl:c1ddb83ca757061d25b80a05",
@@ -49212,7 +49212,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:chl:2b8e4e577c63cb2f467b1cf2",
@@ -49375,7 +49375,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 20
+      "currentTeamRank": 21
     },
     {
       "id": "athlete:nhl:8482176",
@@ -49473,7 +49473,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8482165",
@@ -49539,7 +49539,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:chl:232d5f19b1a1c40afaf06b0f",
@@ -49700,7 +49700,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8481068",
@@ -49798,7 +49798,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:nhl:8474567",
@@ -49831,7 +49831,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 10
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nhl:8482784",
@@ -49864,7 +49864,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 21
+      "currentTeamRank": 22
     },
     {
       "id": "athlete:nhl:8475786",
@@ -49897,7 +49897,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 2
+      "currentTeamRank": 5
     },
     {
       "id": "athlete:nhl:8484305",
@@ -49930,7 +49930,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 26
+      "currentTeamRank": 19
     },
     {
       "id": "athlete:chl:c3557b6652c8acdfec41b846",
@@ -50093,7 +50093,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 22
+      "currentTeamRank": 23
     },
     {
       "id": "athlete:nhl:8482742",
@@ -50159,7 +50159,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 12
+      "currentTeamRank": 13
     },
     {
       "id": "athlete:nhl:8482859",
@@ -50192,7 +50192,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 19
+      "currentTeamRank": 18
     },
     {
       "id": "athlete:nhl:8484768",
@@ -50323,7 +50323,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 4
+      "currentTeamRank": 7
     }
   ]
 }

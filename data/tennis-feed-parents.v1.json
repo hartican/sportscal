@@ -16552,7 +16552,7 @@
       "schedulingWindow": {},
       "timingProvisional": false,
       "dateLabel": null,
-      "status": "ongoing",
+      "status": "upcoming",
       "venue": "Shanghai, CHN",
       "sourceUrl": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
       "sourceName": "Tournament calendar",
@@ -16562,12 +16562,10 @@
       "participantIds": [
         "competitor:tennis:atp:arthur-gea",
         "competitor:tennis:atp:stefanos-tsitsipas",
-        "competitor:tennis:atp:hubert-hurkacz",
         "competitor:tennis:atp:botic-van-de-zandschulp",
         "competitor:tennis:atp:zizou-bergs",
         "athlete:tennis:alex-de-minaur",
         "competitor:tennis:atp:alejandro-davidovich-fokina",
-        "competitor:tennis:atp:alexander-bublik",
         "competitor:tennis:atp:alexander-zverev",
         "competitor:tennis:atp:tommy-paul",
         "competitor:tennis:atp:carlos-alcaraz",
@@ -16870,7 +16868,7 @@
         {
           "participantId": "competitor:tennis:atp:hubert-hurkacz",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -17044,7 +17042,7 @@
         {
           "participantId": "competitor:tennis:atp:alexander-bublik",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -17163,29 +17161,13 @@
         }
       ],
       "participantsConfirmed": true,
-      "tournamentProgress": [
-        {
-          "tour": "ATP",
-          "drawId": "singles",
-          "drawType": "singles",
-          "mainDraw": true,
-          "playDate": null,
-          "roundLabels": [
-            "Round of 16"
-          ],
-          "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184959",
-          "sourceCheckedAt": "2026-10-13T10:19:23.000Z"
-        }
-      ],
       "sourceParticipantIds": [
         "competitor:tennis:atp:arthur-gea",
         "competitor:tennis:atp:stefanos-tsitsipas",
-        "competitor:tennis:atp:hubert-hurkacz",
         "competitor:tennis:atp:botic-van-de-zandschulp",
         "competitor:tennis:atp:zizou-bergs",
         "athlete:tennis:alex-de-minaur",
         "competitor:tennis:atp:alejandro-davidovich-fokina",
-        "competitor:tennis:atp:alexander-bublik",
         "competitor:tennis:atp:alexander-zverev",
         "competitor:tennis:atp:tommy-paul",
         "competitor:tennis:atp:carlos-alcaraz",
@@ -17195,7 +17177,7 @@
         "competitor:tennis:atp:casper-ruud",
         "competitor:tennis:atp:alex-de-minaur"
       ],
-      "contestCount": 88,
+      "contestCount": 90,
       "outlookTours": [
         "ATP"
       ],
@@ -18515,7 +18497,7 @@
       "schedulingWindow": {},
       "timingProvisional": false,
       "dateLabel": null,
-      "status": "ongoing",
+      "status": "upcoming",
       "venue": "Wuhan, CHN",
       "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
       "sourceName": "Tournament calendar",
@@ -18529,7 +18511,6 @@
         "competitor:tennis:wta:maria-sakkari",
         "competitor:tennis:wta:marie-bouzkova",
         "competitor:tennis:wta:mia-pohankova",
-        "competitor:tennis:wta:wang-xiyu",
         "competitor:tennis:wta:leylah-fernandez",
         "competitor:tennis:wta:lanlana-tararudee",
         "competitor:tennis:wta:magdalena-frech",
@@ -18546,14 +18527,13 @@
         "competitor:tennis:wta:jelena-ostapenko",
         "competitor:tennis:wta:daria-snigur",
         "competitor:tennis:wta:ashlyn-krueger",
-        "competitor:tennis:wta:zhang-shuai",
         "competitor:tennis:wta:ann-li",
-        "competitor:tennis:wta:camila-osorio",
-        "competitor:tennis:wta:marta-kostyuk",
-        "competitor:tennis:wta:karolina-muchova",
         "competitor:tennis:wta:elina-svitolina",
         "competitor:tennis:wta:belinda-bencic",
         "competitor:tennis:wta:iga-swiatek",
+        "competitor:tennis:wta:aryna-sabalenka",
+        "competitor:tennis:wta:karolina-muchova",
+        "competitor:tennis:wta:jessica-pegula",
         "competitor:tennis:wta:iva-jovic"
       ],
       "expected": 5,
@@ -18633,7 +18613,7 @@
         {
           "participantId": "competitor:tennis:wta:wang-xiyu",
           "draw": "womens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -18831,7 +18811,7 @@
         {
           "participantId": "competitor:tennis:wta:zhang-shuai",
           "draw": "womens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -18843,19 +18823,13 @@
         {
           "participantId": "competitor:tennis:wta:camila-osorio",
           "draw": "womens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
           "participantId": "competitor:tennis:wta:marta-kostyuk",
           "draw": "womens-singles",
-          "active": true,
-          "excluded": false
-        },
-        {
-          "participantId": "competitor:tennis:wta:karolina-muchova",
-          "draw": "womens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -18877,6 +18851,24 @@
           "excluded": false
         },
         {
+          "participantId": "competitor:tennis:wta:aryna-sabalenka",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:karolina-muchova",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:jessica-pegula",
+          "draw": "womens-singles",
+          "active": true,
+          "excluded": false
+        },
+        {
           "participantId": "competitor:tennis:wta:iva-jovic",
           "draw": "womens-singles",
           "active": true,
@@ -18884,21 +18876,6 @@
         }
       ],
       "participantsConfirmed": true,
-      "tournamentProgress": [
-        {
-          "tour": "WTA",
-          "drawId": "singles",
-          "drawType": "singles",
-          "mainDraw": true,
-          "playDate": null,
-          "roundLabels": [
-            "Round of 64",
-            "Round of 32"
-          ],
-          "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185343",
-          "sourceCheckedAt": "2026-10-13T10:19:23.000Z"
-        }
-      ],
       "sourceParticipantIds": [
         "competitor:tennis:wta:sonay-kartal",
         "competitor:tennis:wta:catherine-mcnally",
@@ -18906,7 +18883,6 @@
         "competitor:tennis:wta:maria-sakkari",
         "competitor:tennis:wta:marie-bouzkova",
         "competitor:tennis:wta:mia-pohankova",
-        "competitor:tennis:wta:wang-xiyu",
         "competitor:tennis:wta:leylah-fernandez",
         "competitor:tennis:wta:lanlana-tararudee",
         "competitor:tennis:wta:magdalena-frech",
@@ -18923,17 +18899,16 @@
         "competitor:tennis:wta:jelena-ostapenko",
         "competitor:tennis:wta:daria-snigur",
         "competitor:tennis:wta:ashlyn-krueger",
-        "competitor:tennis:wta:zhang-shuai",
         "competitor:tennis:wta:ann-li",
-        "competitor:tennis:wta:camila-osorio",
-        "competitor:tennis:wta:marta-kostyuk",
-        "competitor:tennis:wta:karolina-muchova",
         "competitor:tennis:wta:elina-svitolina",
         "competitor:tennis:wta:belinda-bencic",
         "competitor:tennis:wta:iga-swiatek",
+        "competitor:tennis:wta:aryna-sabalenka",
+        "competitor:tennis:wta:karolina-muchova",
+        "competitor:tennis:wta:jessica-pegula",
         "competitor:tennis:wta:iva-jovic"
       ],
-      "contestCount": 36,
+      "contestCount": 41,
       "outlookTours": [
         "WTA"
       ],

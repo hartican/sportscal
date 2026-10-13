@@ -3093,7 +3093,7 @@
       "startTimeUtc": "2026-10-12T21:00:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "live",
+      "status": "completed",
       "venue": "American Family Field",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -3134,14 +3134,14 @@
           "label": "Milwaukee Brewers",
           "logoUrl": "https://www.mlbstatic.com/team-logos/158.svg",
           "homeAway": "home",
-          "score": 3
+          "score": 7
         },
         {
           "participantId": "team:mlb:119",
           "label": "Los Angeles Dodgers",
           "logoUrl": "https://www.mlbstatic.com/team-logos/119.svg",
           "homeAway": "away",
-          "score": 2
+          "score": 4
         }
       ],
       "sourceName": "MLB",
@@ -3149,28 +3149,32 @@
       "sourceUrl": "https://www.mlb.com/gameday/849812",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849812",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-05&endDate=2026-10-26&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-06&endDate=2026-10-27&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-12T22:43:24.652Z",
-      "statusCheckedAt": "2026-10-12T22:43:24.652Z",
-      "score": "Milwaukee Brewers 3–2 Los Angeles Dodgers",
-      "homeScore": 3,
-      "awayScore": 2,
-      "scoreCheckedAt": "2026-10-12T22:43:24.652Z",
+      "sourceCheckedAt": "2026-10-13T20:59:25.934Z",
+      "statusCheckedAt": "2026-10-13T20:59:25.934Z",
+      "score": "Milwaukee Brewers 7–4 Los Angeles Dodgers",
+      "resultStatus": "official",
+      "outcomeText": "Milwaukee Brewers 7–4 Los Angeles Dodgers",
+      "recapText": "NLCS Game 2: Milwaukee Brewers 7–4 Los Angeles Dodgers. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:158",
+      "homeScore": 7,
+      "awayScore": 4,
+      "scoreCheckedAt": "2026-10-13T20:59:25.934Z",
       "resultSourceUrl": "https://www.mlb.com/gameday/849812",
-      "resultSourceCheckedAt": "2026-10-12T22:43:24.652Z",
-      "selectedSentence": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-      "fullSpiel": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-12T22:43:24.652Z",
+      "resultSourceCheckedAt": "2026-10-13T20:59:25.934Z",
+      "selectedSentence": "NLCS Game 2 is complete. Reveal results for the outcome.",
+      "fullSpiel": "NLCS Game 2 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-13T20:59:25.934Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-        "hookSpoilerOn": "NLCS Game 2 at American Family Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "NLCS Game 2 at American Family Field. Check the official game page for updates."
+        "arcStage": "recap",
+        "hookSpoilerOff": "NLCS Game 2 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "NLCS Game 2 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Milwaukee Brewers 7–4 Los Angeles Dodgers",
+        "synopsisSpoilerOn": "Milwaukee Brewers 7–4 Los Angeles Dodgers"
       }
     },
     {
@@ -3653,7 +3657,7 @@
       "startTimeUtc": "2026-10-13T00:00:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "venue": "Tropicana Field",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -3693,13 +3697,15 @@
           "participantId": "team:mlb:139",
           "label": "Tampa Bay Rays",
           "logoUrl": "https://www.mlbstatic.com/team-logos/139.svg",
-          "homeAway": "home"
+          "homeAway": "home",
+          "score": 3
         },
         {
           "participantId": "team:mlb:114",
           "label": "Cleveland Guardians",
           "logoUrl": "https://www.mlbstatic.com/team-logos/114.svg",
-          "homeAway": "away"
+          "homeAway": "away",
+          "score": 7
         }
       ],
       "sourceName": "MLB",
@@ -3707,22 +3713,32 @@
       "sourceUrl": "https://www.mlb.com/gameday/849820",
       "sourceRefs": [
         "https://www.mlb.com/gameday/849820",
-        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-06&endDate=2026-10-27&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
-      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-      "selectedSentence": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
-      "fullSpiel": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
-      "lastReviewedAt": "2026-10-11T12:38:02.024Z",
+      "sourceCheckedAt": "2026-10-13T20:59:25.934Z",
+      "statusCheckedAt": "2026-10-13T20:59:25.934Z",
+      "score": "Tampa Bay Rays 3–7 Cleveland Guardians",
+      "resultStatus": "official",
+      "outcomeText": "Tampa Bay Rays 3–7 Cleveland Guardians",
+      "recapText": "ALCS Game 1: Tampa Bay Rays 3–7 Cleveland Guardians. MLB reports this game as final.",
+      "winnerParticipantId": "team:mlb:114",
+      "homeScore": 3,
+      "awayScore": 7,
+      "scoreCheckedAt": "2026-10-13T20:59:25.934Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849820",
+      "resultSourceCheckedAt": "2026-10-13T20:59:25.934Z",
+      "selectedSentence": "ALCS Game 1 is complete. Reveal results for the outcome.",
+      "fullSpiel": "ALCS Game 1 is complete. Reveal results for the outcome.",
+      "lastReviewedAt": "2026-10-13T20:59:25.934Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
-        "synopsisSpoilerOff": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
-        "hookSpoilerOn": "ALCS Game 1 at Tropicana Field. Check the official game page for updates.",
-        "synopsisSpoilerOn": "ALCS Game 1 at Tropicana Field. Check the official game page for updates."
+        "arcStage": "recap",
+        "hookSpoilerOff": "ALCS Game 1 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "ALCS Game 1 is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Tampa Bay Rays 3–7 Cleveland Guardians",
+        "synopsisSpoilerOn": "Tampa Bay Rays 3–7 Cleveland Guardians"
       }
     },
     {
@@ -4278,6 +4294,6 @@
       }
     }
   ],
-  "checkedAt": "2026-10-12T22:43:24.652Z",
-  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-05&endDate=2026-10-26&hydrate=team"
+  "checkedAt": "2026-10-13T20:59:25.934Z",
+  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-06&endDate=2026-10-27&hydrate=team"
 }

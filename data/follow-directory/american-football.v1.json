@@ -42,7 +42,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -83,7 +83,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -124,7 +124,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -165,7 +165,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -206,7 +206,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -247,7 +247,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -288,7 +288,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -329,7 +329,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -370,7 +370,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -411,51 +411,10 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
-    },
-    {
-      "id": "team:nfl:chi",
-      "displayName": "Chicago Bears",
-      "shortName": "Bears",
-      "aliases": [
-        "CHI",
-        "Chicago",
-        "Bears"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "US",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": 6,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:nfl",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:nfl:chi",
-      "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
-      "logoDarkUrl": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/chi.png",
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/team/_/name/chi/chicago-bears",
-        "https://www.espn.com/nfl/team/roster/_/name/chi/chicago-bears"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
-      "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
-      "competitionId": "competition:nfl",
-      "standingGroup": "NFL · NFC"
     },
     {
       "id": "team:nfl:den",
@@ -493,7 +452,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -513,7 +472,7 @@
       "countryBasis": "official-record",
       "genderCategory": "male",
       "ranking": null,
-      "ladderPosition": 7,
+      "ladderPosition": 6,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": "competition:nfl",
@@ -534,7 +493,48 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
+      "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
+      "competitionId": "competition:nfl",
+      "standingGroup": "NFL · NFC"
+    },
+    {
+      "id": "team:nfl:chi",
+      "displayName": "Chicago Bears",
+      "shortName": "Bears",
+      "aliases": [
+        "CHI",
+        "Chicago",
+        "Bears"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "US",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": 7,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:nfl:chi",
+      "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+      "logoDarkUrl": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/chi.png",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/team/_/name/chi/chicago-bears",
+        "https://www.espn.com/nfl/team/roster/_/name/chi/chicago-bears"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null,
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -575,7 +575,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -616,7 +616,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -657,7 +657,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -698,7 +698,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -739,7 +739,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -780,7 +780,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -821,7 +821,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -862,7 +862,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -903,7 +903,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -944,7 +944,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -985,7 +985,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -1026,7 +1026,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -1067,7 +1067,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -1108,7 +1108,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -1149,7 +1149,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -1190,7 +1190,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -1231,7 +1231,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -1272,7 +1272,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/7/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · NFC"
@@ -1313,7 +1313,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "rankingCheckedOn": "2026-10-12",
+      "rankingCheckedOn": "2026-10-13",
       "rankingSourceUrl": "https://www.espn.com/nfl/standings/_/group/8/season/2026",
       "competitionId": "competition:nfl",
       "standingGroup": "NFL · AFC"
@@ -1528,7 +1528,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4242390",
@@ -2320,7 +2320,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4603089",
@@ -2392,7 +2392,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4260394",
@@ -3904,7 +3904,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4039413",
@@ -4300,7 +4300,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4239694",
@@ -4372,7 +4372,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4577333",
@@ -5524,7 +5524,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:5143279",
@@ -5596,7 +5596,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:3894856",
@@ -6784,7 +6784,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4690999",
@@ -7288,7 +7288,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4890885",
@@ -7898,7 +7898,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4592823",
@@ -8078,7 +8078,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4046551",
@@ -8366,7 +8366,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4372070",
@@ -8906,7 +8906,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4429111",
@@ -9266,7 +9266,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4362018",
@@ -10778,7 +10778,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4360290",
@@ -11390,7 +11390,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4035631",
@@ -11678,7 +11678,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4432665",
@@ -11894,7 +11894,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4428990",
@@ -12650,7 +12650,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3916922",
@@ -13077,7 +13077,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4243331",
@@ -13185,7 +13185,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4685324",
@@ -13365,7 +13365,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4240719",
@@ -13833,7 +13833,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4431517",
@@ -14337,7 +14337,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4686361",
@@ -15669,7 +15669,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:17304",
@@ -18045,7 +18045,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4259606",
@@ -18441,7 +18441,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4362103",
@@ -18477,7 +18477,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3895856",
@@ -18585,7 +18585,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:3117251",
@@ -18765,7 +18765,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:5144457",
@@ -19161,7 +19161,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4384549",
@@ -19233,7 +19233,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3926229",
@@ -19809,7 +19809,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4879250",
@@ -20205,7 +20205,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4921249",
@@ -21282,7 +21282,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4259545",
@@ -21318,7 +21318,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:5118340",
@@ -21462,7 +21462,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3126352",
@@ -21858,7 +21858,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4426972",
@@ -22362,7 +22362,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4685582",
@@ -22794,7 +22794,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3917792",
@@ -23766,7 +23766,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4248911",
@@ -25062,7 +25062,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4429160",
@@ -26466,7 +26466,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4035495",
@@ -26646,7 +26646,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:3691739",
@@ -27006,7 +27006,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4035270",
@@ -27042,7 +27042,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4039050",
@@ -27222,7 +27222,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4037559",
@@ -27726,7 +27726,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4581189",
@@ -28266,7 +28266,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4047650",
@@ -28410,7 +28410,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:5082424",
@@ -31108,7 +31108,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4426844",
@@ -31180,7 +31180,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4362066",
@@ -31216,7 +31216,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4243328",
@@ -31900,7 +31900,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4691556",
@@ -32116,7 +32116,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4713277",
@@ -34276,7 +34276,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4431252",
@@ -35248,7 +35248,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:5145719",
@@ -35356,7 +35356,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4429251",
@@ -36364,7 +36364,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4428396",
@@ -36688,7 +36688,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4241372",
@@ -37264,7 +37264,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:3122797",
@@ -38056,7 +38056,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4429202",
@@ -38628,7 +38628,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4432440",
@@ -38808,7 +38808,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4249766",
@@ -38952,7 +38952,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4249739",
@@ -39204,7 +39204,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4431590",
@@ -39528,7 +39528,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4875295",
@@ -39924,7 +39924,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:5082312",
@@ -40644,7 +40644,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4427408",
@@ -40752,7 +40752,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4433887",
@@ -40968,7 +40968,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4360405",
@@ -42156,7 +42156,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4432734",
@@ -43308,7 +43308,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4361988",
@@ -43668,7 +43668,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4685984",
@@ -43812,7 +43812,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4570044",
@@ -43920,7 +43920,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4427401",
@@ -45468,7 +45468,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4383391",
@@ -46224,7 +46224,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4047655",
@@ -46620,7 +46620,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4241410",
@@ -47736,7 +47736,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4684970",
@@ -48060,7 +48060,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:3915511",
@@ -48384,7 +48384,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4428681",
@@ -49392,7 +49392,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4373956",
@@ -49716,7 +49716,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3916409",
@@ -50616,7 +50616,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4076803",
@@ -50868,7 +50868,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4428803",
@@ -51264,7 +51264,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4879194",
@@ -52380,7 +52380,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4373280",
@@ -52848,7 +52848,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4360590",
@@ -52956,7 +52956,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4360488",
@@ -53676,7 +53676,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:5150249",
@@ -54249,7 +54249,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3124890",
@@ -54969,7 +54969,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4242154",
@@ -56049,7 +56049,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4243493",
@@ -56229,7 +56229,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4870707",
@@ -56697,7 +56697,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4035537",
@@ -57129,7 +57129,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4430992",
@@ -57345,7 +57345,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4361508",
@@ -57813,7 +57813,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:5165139",
@@ -57957,7 +57957,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4035886",
@@ -59613,7 +59613,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4360248",
@@ -59829,7 +59829,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3917315",
@@ -60692,7 +60692,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4429110",
@@ -60764,7 +60764,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4431551",
@@ -61088,7 +61088,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4428119",
@@ -61484,7 +61484,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4569474",
@@ -61808,7 +61808,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4686906",
@@ -61880,7 +61880,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4040612",
@@ -62168,7 +62168,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:2566045",
@@ -62384,7 +62384,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3116679",
@@ -63067,7 +63067,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4570636",
@@ -63391,7 +63391,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4696211",
@@ -63823,7 +63823,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3139368",
@@ -64363,7 +64363,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4695705",
@@ -64831,7 +64831,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4682479",
@@ -66271,7 +66271,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:5278708",
@@ -67855,7 +67855,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:2575164",
@@ -67927,7 +67927,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4880014",
@@ -67999,7 +67999,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4371940",
@@ -68575,7 +68575,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4600597",
@@ -69799,7 +69799,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3892883",
@@ -69835,7 +69835,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4427636",
@@ -70555,7 +70555,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3915184",
@@ -70915,7 +70915,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4247590",
@@ -71167,7 +71167,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4035245",
@@ -71347,7 +71347,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4718457",
@@ -72499,7 +72499,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3929850",
@@ -73434,7 +73434,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4361652",
@@ -73506,7 +73506,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4363097",
@@ -74082,7 +74082,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4360378",
@@ -76818,7 +76818,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4433974",
@@ -76962,7 +76962,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4430876",
@@ -77106,7 +77106,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4432244",
@@ -77394,7 +77394,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3928931",
@@ -77574,7 +77574,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4870617",
@@ -78222,7 +78222,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4262199",
@@ -78582,7 +78582,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:15928",
@@ -78726,7 +78726,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4567242",
@@ -79014,7 +79014,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4373684",
@@ -79086,7 +79086,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4259592",
@@ -79554,7 +79554,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4714379",
@@ -80058,7 +80058,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:3886601",
@@ -80238,7 +80238,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:3057524",
@@ -80418,7 +80418,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4879561",
@@ -80454,7 +80454,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4430191",
@@ -80958,7 +80958,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4432215",
@@ -81459,7 +81459,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4036133",
@@ -82461,7 +82461,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4426698",
@@ -82605,7 +82605,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4431325",
@@ -83505,7 +83505,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4242436",
@@ -83721,7 +83721,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4569323",
@@ -83757,7 +83757,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:2983155",
@@ -84225,7 +84225,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4240391",
@@ -84585,7 +84585,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:16195",
@@ -84801,7 +84801,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4427207",
@@ -86025,7 +86025,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4248627",
@@ -87717,7 +87717,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4373626",
@@ -88005,7 +88005,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4568217",
@@ -88257,7 +88257,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 7
+      "currentTeamRank": 6
     },
     {
       "id": "athlete:nfl:4360499",
@@ -89049,7 +89049,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:14163",
@@ -89193,7 +89193,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4379397",
@@ -90237,7 +90237,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4430919",
@@ -91749,7 +91749,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4683062",
@@ -92793,7 +92793,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4869748",
@@ -92829,7 +92829,7 @@
       "collectionIds": [],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
-      "currentTeamRank": 6
+      "currentTeamRank": 7
     },
     {
       "id": "athlete:nfl:4429615",
