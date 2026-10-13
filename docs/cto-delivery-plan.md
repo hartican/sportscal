@@ -1,6 +1,10 @@
 # CTO delivery programme — authoritative current queue
 
-**Current delivery — 13 October 2026:** The checked racing fields and stories are live. Gates, weights and missing information are clearer. Twelve major races have short sporting stories; nine have confirmed dates and three remain date-pending. Expanded cards open the existing gambling-free Product Charter. Form, odds and betting tips are removed. Results stay hidden when chosen, and follows survive an offline restart. No source request, account update, subscription or extra owner routine was added. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/horse-fields-editorial-2026-10-13.md).
+**Current delivery — 14 October 2026:** The finished Golf and Bathurst events no longer produce repeated update failures. Both usual automatic updates have recovered. Confirmed scores, saved event links and original source dates are unchanged. The checked app is live; no subscription, source replay, reminder change or extra owner routine was added. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/completed-source-recovery-2026-10-14.md).
+
+**Immediate next release:** Publish the requested reliable Tennis times and clearly labelled estimates, plus the small Match Centre display repair. De Minaur’s next start remains unconfirmed; a placeholder is not accepted as a time. Source preparation has passing checks; a final elapsed-estimate case is being corrected. Combined integration, installed-update and live proof remain pending. Existing reminder choices stay intact.
+
+**Earlier racing delivery — 13 October 2026:** The checked racing fields and stories are live. Gates, weights and missing information are clearer. Twelve major races have short sporting stories; nine have confirmed dates and three remain date-pending. Expanded cards open the existing gambling-free Product Charter. Form, odds and betting tips are removed. Results stay hidden when chosen, and follows survive an offline restart. No source request, account update, subscription or extra owner routine was added. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/horse-fields-editorial-2026-10-13.md).
 
 **Tennis accuracy delivery:** Four Wuhan opponents and two confirmed results are corrected on the live site and in the usual current-data store. Existing match identities, source dates and saved choices remain protected. [Dated evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/wuhan-pairing-repair-2026-10-13.md).
 
@@ -30,11 +34,12 @@
 
 **Next five actions, in order:**
 
-- Finish the remaining Football quality checks: working Australian viewing links, dependable standings, permitted commercial use and mobile presentation. The 380-fixture comparison and duplicate fix do not certify the whole sport.
-- Resolve the retained NHL timestamp mismatch and WRC timeout with bounded fixes. Preserve last-good facts and original dates.
-- Close remaining carried-sport gaps against a verified NRL/AFL reference, reusing the shared clarity and reliability checks. Prioritise useful completeness over adding a worldwide catalogue.
-- Complete real-phone and invited-user return-use checks when available. Independent recovery in Passwords/iCloud remains parked.
-- Keep the small sponsor experiment prepared. Launch still depends on quality, permission and audience evidence; no outreach or purchase now.
+- Complete the requested Tennis planning-time and Match Centre display release through the existing checked lane. Keep confirmed times, estimates and unknown times distinct.
+- Finish Football's remaining launch checks: Australian viewing, standings, mobile presentation and commercial permission. Its delivered fixes do not certify the whole sport.
+- Investigate the retained NHL timestamp and WRC timeout without relaxing date checks, adding retries or losing reliable facts.
+- Lift the most useful carried-sport gaps against the verified NRL/AFL reference; complete real-phone and invited-user return-use checks when available. Independent iCloud/Passwords recovery remains parked.
+- Keep the small sponsor experiment prepared until quality, permission and audience evidence support launch. No outreach, purchase or subscription now.
+
 
 **Full programme:** 0/18 carried families and 0/3 Football pilots fully approved; target at least 15/18 families. These are complete launch checks, not a count of delivered improvements. The original 90-day repeat-use programme, 51-chapter audit and three architecture diagrams remain intact. Limited Horse Racing still means nine retained cards.
 
@@ -47,4 +52,7 @@
 **Earlier racing default release proof:** [The normal release passed](https://github.com/hartican/sportscal/actions/runs/38365280599). Exact app 7a614317 / shell524 is live; hosted native choices and actual Feed pass in both browsers, as do installed updates and dedicated cold offline reopening. The subsequent guarded account update is verified for all11 existing registered accounts; other saved state and notification choices agree. Physical-phone and whole-sport approval remain open.
 
 
-**Latest racing release proof:** [The normal release passed](https://github.com/hartican/sportscal/actions/runs/38394700521). Exact app ff8f53b9 / shell527 is READY and matches the live files. Eight hosted fields/Charter cases, two native Follow journeys, four installed updates and both cold offline restarts pass. The offline checks open the retained Cup field and shared Charter with the origin stopped. Source clocks and saved choices are retained. Physical-phone, commercial permission and whole-sport approval remain open.
+**Latest racing release proof:** [The normal release passed](https://github.com/hartican/sportscal/actions/runs/38394700521). Exact app ff8f53b9 / shell 527 is READY and matches the live files. Eight hosted fields/Charter cases, two native Follow journeys, four installed updates and both cold offline restarts pass. The offline checks open the retained Cup field and shared Charter with the origin stopped. Source clocks and saved choices are retained. Physical-phone, commercial permission and whole-sport approval remain open.
+
+
+**Latest source-repair proof:** [Normal release 38410348994](https://github.com/hartican/sportscal/actions/runs/38410348994) passed. Exact app `be0c35e25290af12bc98c0fa9b5999ed49e5ac42` / shell 527 is READY; served files and existing names agree. Natural Golf/Bathurst checks recovered without a forced refresh or reset, preserving all 16 current/result rows, original sporting dates and source revisions. Source-hunk Standards review and full Spec review found no issue; the remaining Standards test-body review was unavailable at service capacity. No complete eight-file Standards or whole-sport certificate is claimed. Detailed limits are linked above.
