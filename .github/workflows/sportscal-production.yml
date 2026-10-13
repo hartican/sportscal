@@ -62,6 +62,7 @@ jobs:
           node scripts/validate-code-inspector-ui.js
           node scripts/build-follow-directories.js --check
           node scripts/validate-athletes.js
+          node scripts/validate-profile-match-retention.js
           node scripts/validate-tennis-scoreboard.js
           node scripts/validate-tennis-match-centre-live.js
           node scripts/validate-match-centre.js

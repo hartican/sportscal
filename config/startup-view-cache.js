@@ -2,7 +2,7 @@
 (() => {
  'use strict';
  let saved;
- const key=()=>JSON.stringify([serverSyncClient?.sessionSubject()||'public',userPreferences,eventActions,feedViewFilters,activeFilter,activeView,currentFeedPresentationFingerprint(),todayMoreReveal,pendingNotificationEventId]);
+ const key=()=>{const viewed=globalThis.NOTHINGSPORTS_ATHLETES_UI?.viewedMatch?.();return JSON.stringify([serverSyncClient?.sessionSubject()||'public',userPreferences,eventActions,feedViewFilters,activeFilter,activeView,currentFeedPresentationFingerprint(),todayMoreReveal,pendingNotificationEventId,viewed&&(viewed.canonicalEventId||viewed.eventId||viewed.id)]);};
  const activate=activateTopLevelTab,render=renderListView;
  activateTopLevelTab=function(next,options){
   if(activeTab==='feed'&&next!=='feed'&&!activeInspectorCodeId&&!activeSportHubKey()&&!calendarChoice.active&&!startupCoordinator.isHydrating()){

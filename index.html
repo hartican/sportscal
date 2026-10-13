@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="528">
+<meta name="app-shell-version" content="529">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=528" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=529" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7206,7 +7206,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=528"></script>
+<script src="assets/js/app-shell-runtime.js?v=529"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8583,7 +8583,7 @@ async function loadAthletes(){
   if((activeTab!=='follow'||followHomeView!=='favourites'))return;
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
   const panel=document.getElementById('listView');renderFollowHomeLoading(panel);
-  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/athletes.js?v=471'),loadDeferredScript('config/participant-directory.js?v=512')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=528')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
+  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/athletes.js?v=471'),loadDeferredScript('config/participant-directory.js?v=512')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=529')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
   return loadAthletes.pending;
 }
 async function openAthleteProfile(id,label,sportKey,trigger){
@@ -8591,7 +8591,7 @@ async function openAthleteProfile(id,label,sportKey,trigger){
   const route=location.href,tab=activeTab,view=followHomeView;
   const request=openAthleteProfile.request=(openAthleteProfile.request||0)+1;
   await Promise.all([loadDeferredScript('config/athletes.js?v=471'),loadDeferredScript('config/participant-directory.js?v=512')]);
-  await loadDeferredScript('assets/js/athletes-ui.js?v=528');
+  await loadDeferredScript('assets/js/athletes-ui.js?v=529');
   if(request===openAthleteProfile.request&&location.href===route&&activeTab===tab&&followHomeView===view&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
 
@@ -16737,6 +16737,8 @@ function renderListView(){
   if (notificationEvent && !baseFiltered.some(event => String(event.eventId || event.id) === pendingNotificationEventId)){
     baseFiltered = orderSurfacedEvents([...baseFiltered, notificationEvent]);
   }
+  const viewedMatch=globalThis.NOTHINGSPORTS_ATHLETES_UI?.viewedMatch?.();
+  if(viewedMatch&&!baseFiltered.some(event=>(event.canonicalEventId||event.eventId||event.id)===(viewedMatch.canonicalEventId||viewedMatch.eventId||viewedMatch.id)))baseFiltered=orderSurfacedEvents([...baseFiltered,viewedMatch]);
   let filtered = baseFiltered;
   ensureSessionRatingPrompt(filtered);
   const focusedArchived = focusedArchivedEvents();
@@ -23258,7 +23260,7 @@ async function ensureFeedSourceReadiness(preferences=userPreferences){
   rebuildDerivedCardCache(activeEvents);
 }
 function loadDeferredStartupContext(){
-  return loadDeferredScript('config/startup-view-cache.js?v=528').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
+  return loadDeferredScript('config/startup-view-cache.js?v=529').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
 }
 
 let startupPostLoadHandled = false;

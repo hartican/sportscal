@@ -26,7 +26,8 @@
   return [...existing,...scheduleParticipants().filter(p=>{const id=recordKey(p);if(known.has(id))return false;known.add(id);return true;})];
  }
  function followed(){const prepared=FOLLOW_FIRST.migratePreferences(userPreferences),collections=followCollectionsById();return [...new Map(allRecords().filter(p=>model.individual(p)||String(p.id).startsWith('team:')).filter(p=>{const f=FOLLOW_FIRST.effectiveParticipantFollow(p.id,userPreferences,collections,prepared);return f.followed&&(!String(p.id).startsWith('team:')||f.source==='explicit');}).map(p=>[recordKey(p),{...p,sportKey:model.sport(p),displayName:p.displayName||p.canonicalName||p.name||'Athlete'}])).values()];}
- function availableEvents(){return events.filter(e=>!globalThis.NOTHINGSPORTS_TENNIS_FEED?.isParent(e)&&!FOLLOW_FEED_POLICY.explicitlyExcluded(e,userPreferences)&&!getEventAction(e).dismissed&&!getEventAction(e).archived);}
+ function matchAvailable(event){if(!event||FOLLOW_FEED_POLICY.explicitlyExcluded(event,userPreferences))return false;const action=getEventAction(event);return !action.dismissed&&!action.archived;}
+ function availableEvents(){return events.filter(e=>!globalThis.NOTHINGSPORTS_TENNIS_FEED?.isParent(e)&&matchAvailable(e));}
  function resolve(id,label,sportKey){const record=globalThis.NOTHINGSPORTS_PARTICIPANT_SEARCH?.getRecord(id)||allRecords().find(p=>model.identity(p.id)===model.identity(id))||{id,displayName:label||(String(id).startsWith('team:')?'Team':'Athlete')};return {...record,sportKey:model.sport({...record,sportKey:record.sportKey||sportKey})};}
  async function loadJourneys(){
   if(journeys)return journeys;
@@ -81,10 +82,17 @@
   activeInspectorCodeId=null;activeTab='follow';followHomeView='favourites';syncTopLevelNavigationState();renderAll();scrollTo({top:0,behavior:'instant'});requestAnimationFrame(()=>document.querySelector('.athletes-profile-back')?.focus({preventScroll:true}));
  }
  function openMatch(event,trigger){
-  if(FOLLOW_FEED_POLICY.explicitlyExcluded(event,userPreferences)||getEventAction(event).dismissed||getEventAction(event).archived){showToast('This fixture is unavailable in your Feed.');return;}
-  const state=snapshotOrigin(trigger);state.profileId=profileId;state.tab='follow';
+  if(!matchAvailable(event)){showToast('This fixture is unavailable in your Feed.');return;}
+  const state=snapshotOrigin(trigger);state.profileId=profileId;state.tab='follow';state.viewedFixtureId=event.canonicalEventId||event.eventId||event.id;
   matchReturn=state;history.pushState({athleteMatchReturn:state},'',location.pathname+location.search);
   openMatchCentreFeedFixture(event,{temporary:true});
+ }
+ function viewedMatch(){
+  if(!matchReturn)return null;
+  if(matchReturn.account!==owner()||history.state?.athleteMatchReturn?.viewedFixtureId!==matchReturn.viewedFixtureId){matchReturn=null;return null;}
+  if(activeTab!=='feed')return null;
+  const event=activeEvents.find(e=>[e.canonicalEventId,e.eventId,e.id,...(e.sourceEventIds||[])].includes(matchReturn.viewedFixtureId));
+  return matchAvailable(event)?event:null;
  }
  function matchButton(event,record,label='Open match',className='btn'){
   const button=node('button',label,className),key='profile-match:'+recordKey(record)+':'+(event.canonicalEventId||event.eventId||event.id);
@@ -198,7 +206,7 @@
 
  }
  function stop(){generation++;queuedOptions=null;pendingFocus=null;clearInterval(timer);timer=null;}
- function navigate(tab){if(matchReturn)pendingNotificationEventId='';if(tab==='follow'){profileId='';origin=null;}else{profileId='';origin=null;matchReturn=null;}}
+ function navigate(){if(matchReturn)pendingNotificationEventId='';profileId='';origin=null;matchReturn=null;}
  function route(){
   if(location.hash==='#follow/favourites'||location.hash==='#athletes'||(location.hash.startsWith('#follow/profile/')||location.hash.startsWith('#athletes/'))){const matchOrigin=matchReturn;matchReturn=null;if(matchOrigin)pendingNotificationEventId='';activeTab='follow';followHomeView='favourites';activeInspectorCodeId=null;try{profileId=history.state?.athleteProfile||decodeURIComponent(location.hash.match(/^#(?:follow\/profile|athletes)\/(.+)$/)?.[1]||'');}catch{profileId='';}if(!(model.individual(profileId)||profileId.startsWith('team:')))profileId='';if(history.state?.athleteOrigin)origin=history.state.athleteOrigin;syncTopLevelNavigationState();if(matchOrigin)restore(matchOrigin);else if(!profileId&&origin?.tab==='follow'){const saved=origin;origin=null;restore(saved);}else renderAll();return true;}
   if((activeTab==='follow'&&followHomeView==='favourites')&&origin){const saved=origin;origin=null;profileId='';stop();restore(saved);return true;}return false;
@@ -211,5 +219,5 @@
  window.addEventListener('pagehide',stop);
  window.addEventListener('pageshow',event=>{if(event.persisted)start();});
  const style=node('style');style.textContent='.athletes-heading,.athletes-actions,.athletes-featured-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.athletes-heading{justify-content:flex-end}.athletes-profile,.athletes-profile-fixtures,.athletes-featured{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg-card)}.athletes-person p,.athletes-profile-fixtures p{font-size:.8rem;line-height:1.5}.athletes-person small,.athletes-profile-fixtures small{color:var(--text-dim)}.athletes-profile-fixtures small{display:block;line-height:1.5;margin-top:6px}.athletes-official{display:block;padding:10px 0;color:var(--accent);font-size:.8rem}.athletes-profile-fixtures details{padding:10px 0}.athletes-coverage-gap{color:var(--text-dim)}';document.head.append(style);
- globalThis.NOTHINGSPORTS_ATHLETES_UI={start,stop,open,route,render,openMatch,navigate,refresh,buildParticipantFeedButton};
+ globalThis.NOTHINGSPORTS_ATHLETES_UI={start,stop,open,route,render,openMatch,viewedMatch,navigate,refresh,buildParticipantFeedButton};
 })();

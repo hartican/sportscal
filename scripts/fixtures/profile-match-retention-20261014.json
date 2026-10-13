@@ -1,0 +1,161 @@
+{
+  "capturedFrom": "29d85e8a5bf2101c8ccefaa97c5dbd5640a89fec:data/events.json",
+  "purpose": "Frozen actual Shanghai fixture for guest navigation and retirement-safe regressions; original sporting/source facts unchanged",
+  "fixture": {
+    "id": "fixture-tennis-espn-atp-184949",
+    "eventId": "fixture-tennis-espn-atp-184949",
+    "canonicalEventId": "fixture:tennis:espn:atp:184949",
+    "sourceEventIds": [
+      "fixture:tennis:espn:atp:184949",
+      "fixture-tennis-espn-atp-184949"
+    ],
+    "key": "tennis",
+    "sport": "Tennis",
+    "sportDomainId": "sport:tennis",
+    "competitionId": "competition:atp-tour",
+    "competitionName": "Rolex Shanghai Masters",
+    "tournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+    "tournamentName": "Rolex Shanghai Masters",
+    "eventFamilyId": "shanghai-masters",
+    "tour": "ATP",
+    "gender": "men",
+    "discipline": "singles",
+    "eventType": "mens-singles",
+    "season": 2026,
+    "tennisProviderMatchId": "184949",
+    "tennisProviderEventId": "315-2026",
+    "tennisProviderTour": "atp",
+    "tournamentLevel": "1000",
+    "round": "knockout",
+    "roundLabel": "Round of 16",
+    "stage": "Round of 16",
+    "name": "Daniil Medvedev v Stefanos Tsitsipas",
+    "date": "2026-10-14",
+    "time": "21:00",
+    "startTimeUtc": "2026-10-14T10:00:00.000Z",
+    "estimatedStartTimeUtc": null,
+    "timePrecision": "not-before",
+    "scheduleStatus": "confirmed",
+    "timeTbc": false,
+    "scheduleNote": "14 October Stadium Court row 4: Daniil Medvedev v Stefanos Tsitsipas; Not Before 18:00",
+    "status": "scheduled",
+    "cardKind": "fixture",
+    "kind": "fixture",
+    "contestUnit": "match",
+    "participantsConfirmed": true,
+    "participantIds": [
+      "competitor:tennis:atp:daniil-medvedev",
+      "competitor:tennis:atp:stefanos-tsitsipas"
+    ],
+    "participants": [
+      {
+        "id": "competitor:tennis:atp:daniil-medvedev",
+        "name": "Daniil Medvedev",
+        "displayName": "Daniil Medvedev",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "RU"
+      },
+      {
+        "id": "competitor:tennis:atp:stefanos-tsitsipas",
+        "name": "Stefanos Tsitsipas",
+        "displayName": "Stefanos Tsitsipas",
+        "type": "athlete",
+        "entityType": "athlete",
+        "sportDomainId": "sport:tennis",
+        "countryCode": "GR"
+      }
+    ],
+    "homeParticipantId": "competitor:tennis:atp:daniil-medvedev",
+    "awayParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
+    "venue": "Stadium Court",
+    "venueCity": "Shanghai",
+    "sourceName": "ATP Shanghai official order of play",
+    "sourceType": "official",
+    "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+    "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
+    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
+    "statusSourceName": "ESPN",
+    "sourceRefs": [
+      "https://www.espn.com/tennis/matchstats?gameId=184949",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+    ],
+    "broadcaster": "beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+        "verifiedAt": "2026-10-11T05:19:19.930Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "expected": null,
+    "liveWindow": 5,
+    "court": "Stadium Court",
+    "statusSourceType": "reputable",
+    "sourceTrust": "unverified",
+    "displayTitleCompact": "Daniil Medvedev v Stefanos Tsitsipas",
+    "broadcastOptions": [],
+    "narrativeType": "knockout",
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "consensusTags": [
+      {
+        "label": "Knockout",
+        "confidence": 0.9,
+        "sourceUrls": [
+          "https://www.protennislive.com/posting/2026/5014/op.pdf"
+        ],
+        "method": "published-schedule.v1"
+      }
+    ],
+    "schedulePrecision": "not-before",
+    "startTimeTbc": false,
+    "dateOnly": false,
+    "timingVerified": true,
+    "timingEvidence": {
+      "matchRow": "14 October Stadium Court row 4: Daniil Medvedev v Stefanos Tsitsipas; Not Before 18:00",
+      "clockAssociation": "Clock band directly attaches to this named row; no neighbouring row receives its clock.",
+      "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6"
+    },
+    "planningTimeEvidence": null,
+    "scheduleEvidence": {
+      "kind": "official-order-of-play",
+      "fixtureId": "fixture:tennis:espn:atp:184949",
+      "participantIds": [
+        "competitor:tennis:atp:daniil-medvedev",
+        "competitor:tennis:atp:stefanos-tsitsipas"
+      ],
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "checkedAt": "2026-10-13T13:29:55.629283+00:00",
+      "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6",
+      "sourcePublishedAtLocal": "2026-10-13T13:17:30+08:00",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "roundLabel": "Round of 16",
+      "matchDateLocal": "2026-10-14",
+      "timeZone": "Asia/Shanghai",
+      "court": "Stadium Court",
+      "playOrder": 4,
+      "timePrecision": "not-before",
+      "localTime": "18:00",
+      "startsAt": "2026-10-14T10:00:00.000Z",
+      "matchRow": "14 October Stadium Court row 4: Daniil Medvedev v Stefanos Tsitsipas; Not Before 18:00",
+      "clockAssociation": "Clock band directly attaches to this named row; no neighbouring row receives its clock."
+    }
+  }
+}
