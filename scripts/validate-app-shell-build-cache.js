@@ -44,6 +44,18 @@ try {
   fs.writeFileSync(path.join(temporary, "assets/js/app-shell-runtime.js"), original);
   const valid = cp.spawnSync(process.execPath, ["scripts/build-app-shell-runtime.js", "--check"], { cwd: temporary, encoding: "utf8" });
   assert.equal(valid.status, 0, valid.stderr);
+  const manifest = path.join(temporary, "config/app-shell-modules.json");
+  const originalManifest = fs.readFileSync(manifest, "utf8");
+  const addedModule = "config/build-cache-manifest-probe.js";
+  fs.writeFileSync(path.join(temporary, addedModule), "globalThis.NOTHINGSPORTS_BUILD_CACHE_MANIFEST_PROBE=1;\n");
+  fs.writeFileSync(manifest, JSON.stringify([...JSON.parse(originalManifest), addedModule]));
+  assert(builder.build() !== original, "a changed module manifest must be read before reuse");
+  fs.writeFileSync(manifest, "[");
+  assert.throws(() => builder.build(), { name: "SyntaxError" }, "invalid module metadata must not reuse output");
+  fs.unlinkSync(manifest);
+  assert.throws(() => builder.build(), { code: "ENOENT" }, "missing module metadata must fail");
+  fs.writeFileSync(manifest, originalManifest);
+  assert.equal(builder.build(), original, "restoring module order restores exact output");
   console.log("Build reuse: repeated bytes, real source changes, stale-output rejection and normal recovery pass in an isolated copy.");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });

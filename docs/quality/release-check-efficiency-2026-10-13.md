@@ -35,3 +35,10 @@ Three existing GitHub job records were read without rerunning them. The two succ
 The failed size-limit candidate stopped before deployment. The two successes are different historical snapshots, so their times cannot demonstrate a cache saving or regression. The current tool change has no full-run before/after measurement. Wall clock is not billed runner time or cash spend. Exact steps are in `release-timing.json` and the three raw job records.
 
 Recommended next operating step: after the approved card release, profile the safety commands within one normal validation pass, then remove demonstrated repeated setup while retaining every required assertion. Keep the existing one-release lane, frozen limits and targeted build-tool regression. Defer a persisted cache or wider test-harness rewrite until that profile justifies it. No separate recurring review or owner decision is added.
+
+
+## Module-list correction
+
+A strengthened source-change check found that the existing builder read its module manifest only once when the Node process loaded. Adding a real module afterwards left the generated output unchanged, so the new assertion failed. The builder now reads that manifest during each source assembly. Added, malformed and missing manifests are covered alongside source-file changes. Restoring the manifest restores exact original output; the normal byte gate still passes. This closes a pre-existing warm-process input gap, with no app-byte or cache-version change for unchanged inputs.
+
+Receipts: `manifest-regression-red.log`, `manifest-regression-green.log`, `current-cache-regression.log` and `current-byte-gate.log`. Final independent review covers this correction as well; publication and deployment remain pending.
