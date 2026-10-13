@@ -15,9 +15,9 @@ Current SVG: `/Users/jackhartican/Documents/AI/Codex/nothingsport-architecture-c
 - All 380 EPL fixtures have the exact reviewed links in their stored payloads and lookup keys. The history bridge protects the two reviewed older activity namespaces and preserves original customer records during cutover. Later routine reminder bookkeeping is separate; it did not dispatch a reminder during the follow-up window.
 - The browser keeps results hidden and reminders off when chosen. Desktop browser and installed-browser rehearsals are evidence for those environments; physical-phone proof remains open.
 
-## The next architecture change
+## The delivered architecture change
 
-Finish the approved card update using the existing shared code owner and the unchanged startup/cache budgets. Reuse one rendering path while retaining sport-specific score rules, source dates, saved choices and delayed/stale labels. Keep facts, personalisation, editorial and future commercial placements separately owned. This replaces duplicate work; it does not introduce another service or routine for the owner.
+The approved card update is live on shell 523, using the existing shared code owner and unchanged startup/cache limits. It reuses one rendering path while retaining sport-specific score rules, source dates, saved choices and delayed/stale labels. Keep facts, personalisation, editorial and future commercial placements separately owned. This replaces duplicate work; it does not introduce another service or routine for the owner.
 
 ## What still blocks launch approval
 
