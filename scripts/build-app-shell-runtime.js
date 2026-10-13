@@ -69,7 +69,7 @@ function build(){
   // startup budget. This browser bundle has no CommonJS loader, so omit Node-only
   // exports and require fallbacks. Four ordinary passes reduce transferred bytes
   // within the fixed startup budget. No property mangling or unsafe transforms.
-  const output = require("terser").minify_sync(source,{compress:{passes:4,global_defs:{module:undefined,require:undefined}},mangle:true,keep_fnames:false,format:{comments:false}}).code + "\n";
+  const output = require("terser").minify_sync(source,{compress:{passes:4,global_defs:{module:undefined,require:undefined,NOTHINGSPORTS_DEFER_SETTINGS_COPY:true,NOTHINGSPORTS_SETTINGS_COPY_ONLY:false}},mangle:true,keep_fnames:false,format:{comments:false}}).code + "\n";
   previousSource = source;
   previousOutput = output;
   return output;

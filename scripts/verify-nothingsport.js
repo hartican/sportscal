@@ -12,7 +12,8 @@ const sportContext = require("../config/sport-context.js");
 const sportHubs = require("../config/sport-hubs.js");
 const { createCanonicalSportsIndex } = require("./lib/canonical-sports");
 
-const html = require("./app-shell-test-utils").readCardApplicationSource();
+const settingsSource = fs.readFileSync("config/fantasy-deadline-ui.js", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource() + "\n" + settingsSource;
 const notFoundHtml = fs.readFileSync("404.html", "utf8");
 const privacyHtml = fs.readFileSync("privacy.html", "utf8");
 const termsHtml = fs.readFileSync("terms.html", "utf8");
@@ -90,18 +91,18 @@ assert.equal(brand.descriptor, requiredSlogan, "the canonical descriptor must ma
 assert.equal(brand.metadataDescription, requiredSlogan, "metadata must use the supplied slogan exactly");
 assert(html.includes(`<title data-brand-copy="title">${brand.title}</title>`), "the document title must use the canonical nothingsport title");
 assert(html.includes(brand.hero), "the canonical nothingsport hero line must be present");
-assert(html.includes(brand.about), "the canonical nothingsport About paragraph must be present verbatim");
+assert(settingsSource.includes('brand.about.split("\\n\\n")'), "About paragraphs must render from canonical brand copy");
 assert.equal(manifest.name, brand.title, "the install manifest must use the canonical nothingsport title");
 assert.equal(manifest.short_name, brand.name, "the installed app label must use the lowercase nothingsport name");
 assert.equal(manifest.description, brand.metadataDescription, "manifest copy must follow the brand source of truth");
 assert(html.includes(`content="${brand.metadataDescription}"`), "page metadata must follow the brand source of truth");
 assert(html.includes(`class="slogan" data-brand-copy="descriptor">${requiredSlogan}</div>`), "the compact header must show the exact slogan");
 assert(html.includes(`class="footer-slogan" data-brand-copy="descriptor">${requiredSlogan}</div>`), "the footer must show the exact slogan as live text");
-assert(html.includes('data-brand-copy-content="metadataDescription"') && html.includes('data-brand-copy="about"'), "rendered and metadata copy must hydrate from the shared brand-copy config");
+assert(html.includes('data-brand-copy-content="metadataDescription"') && settingsSource.includes('data-brand-section="about"'), "rendered and metadata copy must use the shared brand-copy config");
 assert(html.includes(`property="og:title" content="${brand.title}"`) && html.includes(`name="twitter:title" content="${brand.title}"`), "share-card titles must use the canonical smart-feed title");
 assert(!brand.about.includes(requiredSlogan), "About must expand the positioning without repeating the exact slogan");
-["live sports curator, tailored to your tastes", "sports, teams and players you follow", "Australian representatives in international competition", "Dismiss removes that exact card", "Follow for each sport’s Schedule"].forEach(phrase => {
-  assert(brand.about.includes(phrase), `About must explain the refreshed product behavior: ${phrase}`);
+["live sports curator, tailored to your tastes", "free from betting content and gambling promotion", "You can love sport without supporting sports gambling", "sports, teams and players you care about", "schedules, ladders and standings in Follow"].forEach(phrase => {
+  assert(brand.about.includes(phrase), `About must explain the approved product vision: ${phrase}`);
 });
 assert(notFoundHtml.includes(requiredSlogan), "the not-found route must use the exact current slogan");
 assert(!notFoundHtml.includes("nothingsport-logo-slogan.png"), "the not-found route must not render the stale slogan raster");

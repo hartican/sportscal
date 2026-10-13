@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="524">
+<meta name="app-shell-version" content="525">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=524" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=525" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -4917,6 +4917,36 @@ body.settings-open .app-footer{
 
 .settings-about-copy > p{ margin:0; }
 
+.settings-about-introduction,
+.product-charter-copy{
+  display:grid;
+  gap:12px;
+}
+
+.settings-about-introduction p,
+.product-charter-copy p,
+.product-charter-copy h3{ margin:0; }
+
+.product-charter > summary{
+  min-height:44px;
+  padding:10px 0;
+  color:var(--text);
+  font-weight:700;
+  cursor:pointer;
+}
+
+.product-charter-copy{
+  padding-top:4px;
+  font-size:0.875rem;
+  line-height:1.6;
+}
+
+.product-charter-copy h3{
+  margin-bottom:4px;
+  color:var(--text);
+  font-size:1em;
+}
+
 .country-acknowledgement{
   padding:14px;
   border-left:3px solid var(--accent);
@@ -7006,7 +7036,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
         <button class="settings-icon-btn" id="settingsBackBtn" type="button" aria-label="Back to Settings" hidden>‹</button>
         <div>
           <h2 id="settingsTitle">Settings</h2>
-          <p id="settingsCopy" data-brand-copy="onboardingDescription">Choose what you follow once. Nothing Sport keeps the feed smart, spoiler-safe and focused on moments worth your attention.</p>
+          <p id="settingsCopy" data-brand-copy="onboardingDescription">Nothing Sport is free from betting content and gambling promotion. Choose the sports you love, then refine teams and players in Follow.</p>
         </div>
       </div>
       <button class="settings-icon-btn" id="closeSettingsBtn" type="button" aria-label="Close Settings">×</button>
@@ -7176,7 +7206,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=524"></script>
+<script src="assets/js/app-shell-runtime.js?v=525"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -15940,7 +15970,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=463';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=525';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 function buildEventCard(ev, options = {}){
@@ -20292,6 +20322,7 @@ function renderSettingsScreen(){
     pilot: ["Trust pulse", "Five fixed choices about how well the feed is earning your trust."],
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
+  if (settingsFirstRun) copy.textContent = BRAND_COPY.onboardingDescription;
   if (settingsSection === "startup") renderStartupMetadataSettings(body);
   else if (settingsSection === "account") renderAccountSettings(body);
   else if (settingsSection === "all-followed") renderAllFollowedSettings(body);
