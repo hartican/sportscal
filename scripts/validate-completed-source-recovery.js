@@ -82,7 +82,9 @@ async function persistenceChecks(){
   }
   assert.equal(providerReads,0);
   const coldSources=adapters(async()=>{providerReads++;throw Error('Cold completed source must not contact provider');}).map(source=>({...source,id:source.id+'-cold-replay'}));
-  const cold=await refreshDueSources({sources:coldSources,store,now:new Date(),maxRuntimeMs:45000});assert.deepEqual(cold.failed,[]);assert.equal(cold.refreshed.length,2);
+  // These new IDs are not in the due manifest; replay the captured edition
+  // clock so the cold scenario also stays valid after the calendar year rolls.
+  const cold=await refreshDueSources({sources:coldSources,store,now,maxRuntimeMs:45000});assert.deepEqual(cold.failed,[]);assert.equal(cold.refreshed.length,2);
   const coldRows=(await db.query("select source_id,failure_count,jsonb_array_length(fixtures) as records from public.nothingsports_fixture_sources where source_id like '%-cold-replay' order by source_id")).rows;
   assert.equal(coldRows.length,2);assert(coldRows.every(r=>r.failure_count===0&&r.records>=1),'Both new source rows initialise without provider reads or invalid empty publication');assert.equal(providerReads,0);
  }finally{if(mode===undefined)delete process.env.MATCH_CENTRE_SCORE_WRITES;else process.env.MATCH_CENTRE_SCORE_WRITES=mode;await db.close();}
