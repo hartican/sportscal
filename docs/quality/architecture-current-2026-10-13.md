@@ -1,6 +1,6 @@
 # Nothing Sport — current architecture and next step
 
-**14 October 2026 · Verified live app 4ca05c6a / version 529**
+**14 October 2026 · Verified live app b64524b6 / version 532**
 
 Keep the present stack. The important work is making its boundaries clearer and proving the remaining launch checks. A rewrite is not supported by the current evidence.
 
@@ -70,3 +70,6 @@ The 14 October operational repair stays inside the existing two sport adapters. 
 
 
 The 14 October planning module separates official appointments, genuine publisher estimates and unresolved clocks across the existing server/client contract. An unchanged source check cannot freshen old evidence, and elapsed estimates cannot imply Live, completion or reminder consent. The subsequent profile repair separates viewing lifetime from one-shot scroll focus, reuses the already-loaded genuine fixture and ends the view on navigation/account changes. Both stay inside existing owners; no source request, database migration, API, scheduler or service is added. [Timing/source evidence](tennis-planning-current-2026-10-14.md); [actual navigation recovery](profile-match-retention-2026-10-14.md).
+
+
+Cricket milestones read accepted current source observations after publication. Service-only state, scoped account eligibility, grouped device budgets and30-day retention stay under the existing owners. Deferred controls use the canonical build and exact-fixture Match Centre. Shadow mode observes; a disabled delivery gate requires actual match/phone evidence. No replacement stack, provider service or scheduler. [Dated stage evidence](cricket-milestone-current-2026-10-14.md).
