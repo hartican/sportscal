@@ -134,6 +134,7 @@
     if(odi?.awaiting(event,now))return Object.freeze({key:'awaiting-result',label:odi.label,ariaLabel:odi.label});
     const status=String(event?.status || event?.scheduleStatus || "").toLowerCase();
     if(["cancelled","canceled","postponed","abandoned","suspended"].includes(status))return null;
+    if(event?.planningTimeEvidence&&['scheduled','upcoming'].includes(status)&&Date.parse(event.estimatedStartTimeUtc)<=+new Date(now))return Object.freeze({key:'awaiting-update',label:'Awaiting match update',ariaLabel:'Match status unconfirmed; awaiting a source update'});
     const start = eventStart(event);
     const reference = now instanceof Date ? now : new Date(now);
     if (Number.isNaN(reference.getTime())) return null;
