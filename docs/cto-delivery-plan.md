@@ -4,7 +4,7 @@
 
 **What this changes for users:** One appointment per match, fewer contradictory times and continuity for earlier activity. The release keeps all newer results and previews. The safe history update left existing customer records unchanged. No subscription or extra routine is added.
 
-**Verified:** All 47 history-protection checks pass. Both browser checks and both installed-app update rehearsals pass. The exact published version passed the normal release checks, and the live Arsenal calendar passed in both browsers. The live calendar works; confirmation that the normal source update stores every reviewed link remains open. No extra refresh was forced.
+**Verified:** All 47 history-protection checks pass. Both browser checks and both installed-app update rehearsals pass. The exact published version passed the normal release checks, and the live Arsenal calendar passed in both browsers. The existing normal data update has now stored every reviewed link for all 380 league matches, with no reported source failure. Exact stored lookup keys and original match times pass. No extra refresh was forced.
 
 **Latest viewing check — 13 October:** The next 46 Football matches agree with current Stan public listings in both NS calendar views. Kickoffs are compared using an explicitly inferred Sydney timezone. Paid playback, full-match replays and wider coverage remain open. [Dated viewing evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/football-viewing-current-2026-10-13.md).
 

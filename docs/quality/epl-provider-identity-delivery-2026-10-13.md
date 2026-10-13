@@ -4,7 +4,7 @@ Arsenal now shows 39 calendar entries instead of 44. Five repeated matches are r
 
 All 47 safety checks pass. Both browsers and both installed-app update rehearsals pass. The live calendar was checked in both browsers; the guarded history update left existing customer records unchanged. No subscription or extra routine is added.
 
-The live calendar works; confirmation that the normal source update stores every reviewed link remains open. No extra refresh was forced.
+The existing normal data update has now stored every reviewed link for all 380 league matches, with no reported source failure. Exact stored lookup keys and original match times pass. No extra refresh was forced.
 
 Shanghai’s confirmed 3 pm appointment is live and its normal 2:45 pm reminder is queued. Delivery to the physical phone remains a separate check.
 
@@ -24,4 +24,12 @@ The 380-match identity register is dated retained-source agreement. Native local
 - Security advisor comparison: no new notices; four prior warnings remain. Performance advisor readout has three informational categories; no matched before-readout is claimed. Whole-sport commercial permission, physical phone, invited repeat use and independent recovery are still open.
 - First release 38321687936 failed safely before deployment because retained Rugby/Cricket tests omitted an actual helper dependency. The two test harnesses were corrected with every behavioural assertion intact; three affected validators and both independent review axes pass. No gate was bypassed; app/data/cache/SQL were unchanged by that correction.
 
-The next ordinary source owner still needs to store the reviewed aliases: the immediate postflight sees 380 primary rows with no stored alias sets yet. No extra refresh was forced. Current visible/API identity protection and historical writes are live; this outstanding evidence is kept separate from whole-Football approval.
+## Later ordinary-owner proof — 13 October 2026
+
+The existing primary owner completed its ordinary check at 00:04:10.399495 UTC, revision 9334, zero failures and its normal next check due at 00:34:10.399495 UTC. Fresh read-only queries verify all 380 rows contain the exact four reviewed aliases in both their payload and indexed lookup keys. All 1,520 database mappings and 12 functions/roles remain correct. No manual source refresh, new scheduler or replay was used.
+
+The genuine new primary observation is 00:04:00.436 UTC. The earlier 20:54 receipt and its hosted proof remain unchanged historical evidence. All 38 retained Arsenal primary records keep their kickoffs and timing precision. New actual primary reads are separate from a later processing date or from the app publication date.
+
+Ordinary reminder bookkeeping has since changed in the broad 1,520-key season scope: 25 rows, 18 future starts, 23 updated after cutover and zero dispatches after cutover. None belongs to the four protected historical namespaces. This expected later activity does not alter the proof that the guarded migration changed zero existing customer rows. It also means operator reversal must keep its refusal of newer activity; no undo or customer replay was run.
+
+The scoped identity/history module is complete. Whole Football quality, commercial permission, physical-phone use and genuine repeat visits remain open. Detailed latest receipt: `natural-owner-verified.json` in the delivery folder.
