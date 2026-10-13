@@ -119,7 +119,9 @@ assert(
 );
 assert(html.includes("function renderFeedControls()") && html.includes("function eventRecommendationProfile(ev)"));
 assert(!html.includes('b.textContent = "Coming Up"') && !html.includes('b.textContent = "PAST"'), "generic Coming Up and Past badges must stay removed");
-assert.match(html, /dateLine\.appendChild\(dateChip\);[\s\S]+buildEventTimingStateChip\(ev, timingState\)[\s\S]+dateLine\.appendChild\(timingChip\)/, "timing state must sit immediately beside the start-time rail, including matchup cards");
+const timingRail=fs.readFileSync('config/venue-panel-ui.js','utf8'),timingPresentation=fs.readFileSync('config/card-timing.js','utf8');
+assert.match(timingRail,/badge\.append\(day\);if\(clock\.textContent\)badge\.append\(clock\);[\s\S]+if\(timing\.status&&!pause\)[\s\S]+badge\.append\(status\)/,'Current native timing badge must keep source status beside its clock, including matchup cards');
+assert.match(timingPresentation,/controls\?\.timingState\(event,reference\)[\s\S]+observed\?\.key==='awaiting-update'/,'The actual shared badge consumes the existing source-qualified timing state');
 assert.match(html, /\.event-timing-state\.starts-soon[\s\S]+\.event-timing-state\.live-now[\s\S]+\.event-timing-state\.just-finished/, "all three semantic timing states need distinct visible treatments");
 assert.match(html, /\.event-timing-state\.live-now::before[\s\S]+background:#ff3b4d/, "Live Now needs a restrained red dot");
 assert.match(html, /@media \(prefers-reduced-motion:reduce\)[\s\S]+\.event-timing-state\.live-now\{ animation:none/, "reduced-motion users must keep the static red state without pulse animation");
