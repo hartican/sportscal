@@ -14,6 +14,8 @@ Official WTA draw observed at `2026-10-13T07:18:05.511537+00:00`: [Wuhan draw](h
 
 Read-only aggregate preflight found zero ratings, predictions, points, likes, saved rating/actions, spoiler choices, settlement markers or presence under the four original canonical/legacy IDs. A further dated aggregate across all eight IDs found zero ratings/contributions, rating history, predictions, settlements, points, likes, completed markers, presence or marquee sessions. This is a scoped count, not a claim about all customer activity. Stable IDs preserve other existing activity. Private captures and detailed receipts are kept in the owner's Codex output folder, separate from repository and production certification.
 
+The fresh canonical owner completed its existing four requests successfully at `2026-10-13T10:19:23.003Z`, validating 124 fixtures. Its new play/results are separate from the earlier organiser review. The enlarged retained feed exceeded the unchanged 3 MiB precache budget. Removing whitespace from the cached major-events schema preserves every parsed rule while recovering 11,097 bytes; the twenty-card page and eight critical requests remain. Version the cached shell together and rehearse the installed upgrade.
+
 ## Release status
 
 Implementation and verification are in progress. Production approval, exact release proof and hosted rendering must be recorded separately. This correction does not certify Tennis, the whole cross-sport MVP or a physical phone.
