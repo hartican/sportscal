@@ -504,7 +504,7 @@ function renderTeamsAndPlayersDirectoryLoaded(container){
 function renderFollowViewLoaded(){
   if(!globalThis.NOTHINGSPORTS_FOLLOW_NAV){
     const panel=document.getElementById('listView');panel.replaceChildren();buildFollowHomeTabs(panel);const state=document.createElement('p');state.textContent='Loading sports…';state.setAttribute('role','status');panel.append(state);
-    void loadDeferredScript('assets/js/follow-navigation.js?v=511').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
+    void loadDeferredScript('assets/js/follow-navigation.js?v=522').then(()=>{if(activeTab==='follow')renderFollowView();}).catch(()=>{if(activeTab==='follow'){panel.textContent='Follow could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=renderFollowView;panel.append(retry);}});return;
   }
   const oldNavigation=document.querySelector('#listView > .follow-navigation');
   if(oldNavigation){for(const child of [...oldNavigation.querySelector('#follow-navigation-controls').children])oldNavigation.before(child);oldNavigation.remove();}
@@ -620,7 +620,7 @@ function renderFollowViewLoaded(){
   if(followViewSection==='major-events'){
     if(followDirectoryKey(entity).startsWith('tennis')){renderTennisMajorEvents(container);return;}
     const host=document.createElement('div');host.textContent='Loading published events…';container.append(host);
-    void loadDeferredScript('config/event-overviews-ui.js?v=516').then(()=>NOTHINGSPORTS_EVENT_OVERVIEWS_UI.followRows(host,followDirectoryKey(entity))).catch(()=>{if(host.isConnected){host.textContent='Events could not load. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry events';retry.onclick=renderFollowView;host.append(retry);}});
+    void loadDeferredScript('config/event-overviews-ui.js?v=522').then(()=>NOTHINGSPORTS_EVENT_OVERVIEWS_UI.followRows(host,followDirectoryKey(entity))).catch(()=>{if(host.isConnected){host.textContent='Events could not load. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry events';retry.onclick=renderFollowView;host.append(retry);}});
     return;
   }
   const panel=document.createElement('section');panel.className='follow-section-panel';panel.dataset.scrollKey=`follow-directory:${entity.id}`;
