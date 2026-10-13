@@ -13726,18 +13726,19 @@ async function syncCodeInspectorFromLocation(){
 }
 
 async function syncAppRouteFromLocation(){
+  const returningToFollow=(location.hash==='#follow/browse'||location.hash==='#follow')&&eventsDeepLinkReturnState?.activeTab==='follow';
   if(location.hash.startsWith('#athletes')||location.hash.startsWith('#follow/profile/')){activeTab='follow';followHomeView='favourites';await loadAthletes();globalThis.NOTHINGSPORTS_ATHLETES_UI?.route();return;}
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI?.route())return;
   if(location.hash==='#match-centre'){activeTab='match-centre';renderAll();return;}
-  if(location.hash==='#follow/browse'||location.hash==='#follow'){activeTab='follow';followHomeView='browse';saveFollowBrowse({section:'teams-players'});renderAll();return;}
+  if((location.hash==='#follow/browse'||location.hash==='#follow')&&!returningToFollow){activeTab='follow';followHomeView='browse';saveFollowBrowse({section:'teams-players'});renderAll();return;}
   if(location.hash==='#follow/favourites'){activeTab='follow';followHomeView='favourites';renderAll();return;}
   if(syncNscPageFromHistory())return;
   const inspectorRoute = Boolean(codeInspectorCodeFromLocation() || [inspectorPickerHash(), "#inspector"].includes(window.location.hash));
-  if (inspectorRoute){
+  if (inspectorRoute && !returningToFollow){
     await syncCodeInspectorFromLocation();
     return;
   }
-  await syncCodeInspectorFromLocation();
+  if(!returningToFollow)await syncCodeInspectorFromLocation();
   const notificationEventId = new URLSearchParams(window.location.search).get("event");
   if (notificationEventId){
     pendingNotificationEventId = String(notificationEventId).slice(0, 180);
@@ -13776,7 +13777,7 @@ async function syncAppRouteFromLocation(){
   activeView = returnState.activeView;
   activeFilter = returnState.activeFilter;
   renderAll();
-  window.requestAnimationFrame(() => window.scrollTo({ top: returnState.scrollY, behavior: "auto" }));
+  window.requestAnimationFrame(() => {if(returnState.followEventId)document.querySelector(`button[data-follow-event-id="${CSS.escape(returnState.followEventId)}"]`)?.focus({preventScroll:true});window.scrollTo({ top: returnState.scrollY, behavior: "auto" });});
 }
 
 let notificationFixtureLoading=false;
@@ -18646,7 +18647,7 @@ function openMajorEventInEvents(eventId, { pushHistory = true, tournament = fals
     return;
   }
   if (!eventsDeepLinkReturnState){
-    eventsDeepLinkReturnState = { activeTab, activeView, activeFilter, scrollY: window.scrollY };
+    eventsDeepLinkReturnState = { activeTab, activeView, activeFilter, scrollY: window.scrollY, followEventId: activeTab==='follow'?eventId:null };
   }
   eventsViewTab = tournament ? "overviews" : "major-events";
   const resolvedEventId = resolveMajorEventId(eventId);
