@@ -6,6 +6,9 @@ const entry=require('../feeds/provider-exports/horse-racing/marquee-calendar.v1.
 const detail=horse.parse(captured[1].html,entry,{now:new Date('2026-10-11T12:37:29.370Z')});
 let fixture=horse.fixture({...entry,name:'Melbourne Cup',key:'horse-racing',horseFeature:true},detail);
 const docs={knowledge:structuredClone(require('../data/editorial-knowledge.v1.json')),feed:{events:[fixture]},major:{events:[]}},story=structuredClone(require('../data/editorial-fixture-research.v1.json').entries.find(e=>e.id===entry.id));
+// Replace this subject's already-published projection in the isolated replay;
+// keeping it would create a second copy of the same hook under a test scope.
+docs.knowledge.eventProjections=docs.knowledge.eventProjections.filter(p=>p.fixtureId!==entry.id&&p.id!==`projection:fixture-research:${entry.id}`&&!p.id?.startsWith(`projection:fixture-research:${entry.id}:`));
 fixture=research.apply(docs.knowledge,docs.feed,docs.major,{scope:'horse-flagships',entries:[story]}).feed.events[0];
 (async()=>{const server=http.createServer((req,res)=>{const name=new URL(req.url,'http://localhost').pathname.slice(1)||'index.html';if(name.includes('..')){res.writeHead(400);res.end();return;}fs.readFile(path.join(root,name),(e,b)=>{res.writeHead(e?404:200,{'content-type':({'.js':'text/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml'})[path.extname(name)]||'text/html'});res.end(e?'':b);});});await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port,results=[];
 try{for(const engine of ['chromium','webkit']){const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:'chrome'}:{})});try{for(const width of [390,1280])for(const theme of ['day','night']){

@@ -51,7 +51,7 @@ function horseNotice(){
  const link=node('a','Gambling Help Online');link.href='https://www.gamblinghelponline.org.au/';link.target='_blank';link.rel='noopener noreferrer';
  const phone=node('a','1800 858 858');phone.href='tel:1800858858';p.append(link,' or by calling ',phone,', 24/7.');return p;
 }
-function styles(){if(document.querySelector('[data-racing-details-style]'))return;const l=node('link');l.rel='stylesheet';l.href='assets/styles/racing-details.css?v=491';l.dataset.racingDetailsStyle='';document.head.append(l);}
+function styles(){if(document.querySelector('[data-racing-details-style]'))return;const l=node('link');l.rel='stylesheet';l.href='assets/styles/racing-details.css?v=527';l.dataset.racingDetailsStyle='';document.head.append(l);}
 function summary(detail,now=Date.now()){
  if(!detail)return '';
  if(detail.kind==='horse')return [horseLabel(detail),`${detail.entryCount??detail.entries?.length??0} entries`,detail.raceTime?'Race time '+detail.raceTime:null].filter(Boolean).join(' · ');

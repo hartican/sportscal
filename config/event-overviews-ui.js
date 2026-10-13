@@ -43,7 +43,7 @@ async function render(container){
   if(event.sportKey==='horse-racing'){
    if(event.calendarPending&&event.hook){const story=text('p',[event.hook,event.context].filter(Boolean).join(' '),'horse-editorial-story');details.append(story);}
    const fine=document.createElement('div');details.append(fine);
-   const notice=()=>{if(!details.open)return;void loadDeferredScript('config/racing-details.js?v=491').then(()=>{if(!fine.isConnected||!details.open)return;fine.replaceChildren(NOTHINGSPORTS_RACING_DETAILS.horseNotice());}).catch(()=>{});};
+   const notice=()=>{if(!details.open)return;void loadDeferredScript('config/racing-details.js?v=527').then(()=>{if(!fine.isConnected||!details.open)return;fine.replaceChildren(NOTHINGSPORTS_RACING_DETAILS.horseNotice());}).catch(()=>{});};
    details.addEventListener('toggle',notice);notice();
   }
 

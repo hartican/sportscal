@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20261012225957817-20261012231626742-20261013101924575",
+  "version": "weekend-editorial-20261012225957817-20261012231626742-20261013101924575-20261013111839278",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-13T10:19:24.575Z",
+  "publishedAt": "2026-10-13T11:18:39.278Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -32,12 +32,12 @@
     "football",
     "baseball",
     "supercars",
-    "horse-racing",
     "ski",
     "big-wave",
     "goodwood",
     "downhill-mtb",
-    "motogp"
+    "motogp",
+    "horse-racing"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -193,11 +193,6 @@
         "firstEventDate": "2026-10-11",
         "lastEventDate": "2026-10-11"
       },
-      "horse-racing": {
-        "count": 9,
-        "firstEventDate": "2026-10-17",
-        "lastEventDate": "2027-03-27"
-      },
       "ski": {
         "count": 4,
         "firstEventDate": "2027-03-05",
@@ -207,6 +202,11 @@
         "count": 205,
         "firstEventDate": "2026-02-27",
         "lastEventDate": "2027-10-01"
+      },
+      "horse-racing": {
+        "count": 9,
+        "firstEventDate": "2026-10-17",
+        "lastEventDate": "2027-03-27"
       }
     }
   }

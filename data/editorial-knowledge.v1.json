@@ -1461,6 +1461,51 @@
       "id": "subject:fixture-research:epl-2026-27-128984:revision-58a588c06faac265b64474732bdfc3150fc4baa315bc41b1facba6e5f62c0d51",
       "kind": "event",
       "name": "Brentford v Liverpool - selection pressure at the Gtech"
+    },
+    {
+      "id": "subject:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729",
+      "kind": "event",
+      "name": "Melbourne Cup — sporting tradition and why it matters"
+    },
+    {
+      "id": "subject:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53",
+      "kind": "event",
+      "name": "Caulfield Cup — sporting tradition and why it matters"
+    },
+    {
+      "id": "subject:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a",
+      "kind": "event",
+      "name": "Cox Plate — sporting tradition and why it matters"
+    },
+    {
+      "id": "subject:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd",
+      "kind": "event",
+      "name": "The Everest — sporting tradition and why it matters"
+    },
+    {
+      "id": "subject:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1",
+      "kind": "event",
+      "name": "Victoria Derby — sporting tradition and why it matters"
+    },
+    {
+      "id": "subject:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c",
+      "kind": "event",
+      "name": "VRC Oaks — sporting tradition and why it matters"
+    },
+    {
+      "id": "subject:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d",
+      "kind": "event",
+      "name": "Champions Stakes — sporting tradition and why it matters"
+    },
+    {
+      "id": "subject:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604",
+      "kind": "event",
+      "name": "Golden Slipper — sporting tradition and why it matters"
+    },
+    {
+      "id": "subject:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32",
+      "kind": "event",
+      "name": "Australian Cup — sporting tradition and why it matters"
     }
   ],
   "sources": [
@@ -7525,6 +7570,139 @@
       "url": "https://www.liverpoolfc.com/news/ryan-gravenberch-suspended-for-brentford-v-liverpool-premier-league",
       "sourceType": "official",
       "checkedAt": "2026-10-12T22:50:31.092Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:0",
+      "name": "Melbourne Cup — official sporting context",
+      "url": "https://www.vrc.com.au/race-days-and-events/2026-2027/lexus-melbourne-cup-day/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:1",
+      "name": "Melbourne Cup — official sporting context",
+      "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/aiui32r2/2026-lexus-melbourne-cup-full-conditions-final.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:2",
+      "name": "Melbourne Cup — official sporting context",
+      "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:0",
+      "name": "Caulfield Cup — official sporting context",
+      "url": "https://mrc.racing.com/racing/racing-information/feature-race-information/caulfield-cup?sc_site=MRC",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:1",
+      "name": "Caulfield Cup — official sporting context",
+      "url": "https://mrc.racing.com/greatest-caulfield-cup",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:0",
+      "name": "Cox Plate — official sporting context",
+      "url": "https://www.thevalley.com.au/racing/ws-cox-plate",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:1",
+      "name": "Cox Plate — official sporting context",
+      "url": "https://www.thevalley.com.au/ladbrokes-cox-plate-carnival/guide",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:0",
+      "name": "The Everest — official sporting context",
+      "url": "https://www.australianturfclub.com.au/races/everest-day/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:1",
+      "name": "The Everest — official sporting context",
+      "url": "https://www.racingnsw.com.au/wp-content/uploads/RNSW-AR18-web.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:0",
+      "name": "Victoria Derby — official sporting context",
+      "url": "https://www.vrc.com.au/latest-news/victoria-derby-tradition-and-triumph/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:1",
+      "name": "Victoria Derby — official sporting context",
+      "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:0",
+      "name": "VRC Oaks — official sporting context",
+      "url": "https://www.vrc.com.au/latest-news/treasurethe-moment-wins-memorable-crown-oaks/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:1",
+      "name": "VRC Oaks — official sporting context",
+      "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:0",
+      "name": "Champions Stakes — official sporting context",
+      "url": "https://www.vrc.com.au/race-days-and-events/2026-2027/tab-champions-stakes-day/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:1",
+      "name": "Champions Stakes — official sporting context",
+      "url": "https://vrc-prod-cdn-cxdkhbhwgvh3e0g5.z01.azurefd.net/media/gcdhrzyi/vrc-00761-2026-spring-racing-program-poster-a3-v2_hr.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:0",
+      "name": "Golden Slipper — official sporting context",
+      "url": "https://www.australianturfclub.com.au/history-of-the-golden-slipper/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:1",
+      "name": "Golden Slipper — official sporting context",
+      "url": "https://www.australianturfclub.com.au/nominations-open-for-iconic-2027-group-1-5-million-tab-golden-slipper/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:0",
+      "name": "Australian Cup — official sporting context",
+      "url": "https://www.vrc.com.au/latest-news/australian-cup-the-evolution-of-a-flemington-feature/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:1",
+      "name": "Australian Cup — official sporting context",
+      "url": "https://www.vrc.com.au/latest-news/it-all-began-with-dulcify/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T08:14:23.253Z"
     }
   ],
   "narrativeFacts": [
@@ -37228,6 +37406,383 @@
       ],
       "observedAt": "2026-10-12T22:50:31.092Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:0",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729"
+      ],
+      "statement": "The Melbourne Cup is a 3200-metre Group1 race at Flemington.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:0",
+        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:1",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729"
+      ],
+      "statement": "VRC describes the Melbourne Cup as the Race That Stops a Nation.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:0",
+        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:2",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729"
+      ],
+      "statement": "VRC identifies its2026 Melbourne Cup as the166th of the series.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:3",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729"
+      ],
+      "statement": "The2026 VRC spring programme lists3November for Cup Day and explicitly leaves race order unconfirmed.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:2"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:0",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53"
+      ],
+      "statement": "The Caulfield Cup is a2400-metre handicap.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:0",
+        "source:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:1",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53"
+      ],
+      "statement": "The Caulfield Cup is held at Caulfield.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:0"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:2",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53"
+      ],
+      "statement": "MRC describes the Caulfield Cup as drawing elite local and international stayers and celebrates its great winners.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:0",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a"
+      ],
+      "statement": "The Cox Plate is a weight-for-age contest for horses aged three and older.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:0"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:1",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a"
+      ],
+      "statement": "MVRC calls the Cox Plate the Weight-For-Age Championship of Australasia.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:0"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:2",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a"
+      ],
+      "statement": "The current2026 organiser guide identifies Flemington as the host venue; traditional Valley distance is not an edition2026 fact.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:0",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd"
+      ],
+      "statement": "The Everest is held at Royal Randwick.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:0"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:1",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd"
+      ],
+      "statement": "Racing NSW describes The Everest as a1200-metre race.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:2",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd"
+      ],
+      "statement": "Racing NSW records the introduction of The Everest in2017.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:0",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1"
+      ],
+      "statement": "VRC describes the Victoria Derby as a long-running Flemington classic.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:0"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:1",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1"
+      ],
+      "statement": "The current VRC programme specifies2500metres and three-year-olds for the Victoria Derby.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:2",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1"
+      ],
+      "statement": "The Victoria Derby is part of the Flemington Melbourne Cup Carnival.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:0",
+        "source:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:0",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c"
+      ],
+      "statement": "The VRC Oaks is a2500-metre race for three-year-old fillies.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:0",
+        "source:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:1",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c"
+      ],
+      "statement": "VRC records a long Oaks tradition within the Melbourne Cup Carnival.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:0"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:2",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c"
+      ],
+      "statement": "VRC places the Oaks at Flemington during the carnival.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:0",
+        "source:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:0",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d"
+      ],
+      "statement": "The Champions Stakes is a2000-metre weight-for-age race.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:0",
+        "source:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:1",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d"
+      ],
+      "statement": "The race originated as the Melbourne Stakes and was repositioned to the carnival final day in2016.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:0"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:2",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d"
+      ],
+      "statement": "The Champions Stakes is held at Flemington on the final carnival day.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:0",
+        "source:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:0",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604"
+      ],
+      "statement": "The Golden Slipper is restricted to two-year-olds.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:0",
+        "source:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:1",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604"
+      ],
+      "statement": "The Golden Slipper first ran at Rosehill in1957.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:0"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:2",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604"
+      ],
+      "statement": "The Golden Slipper is a centrepiece of the Sydney autumn programme at Rosehill Gardens.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:0",
+        "source:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:0",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32"
+      ],
+      "statement": "The Australian Cup first ran in1863.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:0",
+        "source:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:1",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32"
+      ],
+      "statement": "The Australian Cup developed into a2000-metre weight-for-age feature.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:0",
+        "source:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:2",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32"
+      ],
+      "statement": "The Australian Cup is a Flemington autumn feature.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:0",
+        "source:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:1"
+      ],
+      "observedAt": "2026-10-13T08:14:23.253Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -41502,6 +42057,142 @@
       ],
       "status": "active",
       "updatedAt": "2026-10-12T22:50:31.092Z"
+    },
+    {
+      "id": "thread:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729"
+      ],
+      "title": "Melbourne Cup — sporting tradition and why it matters",
+      "summary": "At Flemington, 3,200 metres separate a field of horses and jockeys from a place in racing history. Storied, celebrated and sometimes controversial, it is Australia’s defining horse race.",
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:0",
+        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:1",
+        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:2",
+        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "thread:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53"
+      ],
+      "title": "Caulfield Cup — sporting tradition and why it matters",
+      "summary": "Local and international stayers meet in a race where patience, positioning and a powerful finish all matter.",
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:0",
+        "fact:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:1",
+        "fact:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "thread:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a"
+      ],
+      "title": "Cox Plate — sporting tradition and why it matters",
+      "summary": "Its tradition brings horses of different ages together in a test of sustained excellence and the skill of horse and rider.",
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:0",
+        "fact:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:1",
+        "fact:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "thread:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd"
+      ],
+      "title": "The Everest — sporting tradition and why it matters",
+      "summary": "Over 1,200 metres at Royal Randwick, the contest leaves little room for hesitation: a clean start, a jockey’s judgement and a decisive burst can shape the race.",
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:0",
+        "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:1",
+        "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "thread:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1"
+      ],
+      "title": "Victoria Derby — sporting tradition and why it matters",
+      "summary": "Three-year-old horses tackle 2,500 metres at Flemington, where promise must become endurance.",
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:0",
+        "fact:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:1",
+        "fact:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "thread:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c"
+      ],
+      "title": "VRC Oaks — sporting tradition and why it matters",
+      "summary": "The 2,500-metre journey at Flemington tests stamina, composure and a rider’s sense of pace.",
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:0",
+        "fact:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:1",
+        "fact:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T08:26:31.106Z"
+    },
+    {
+      "id": "thread:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d"
+      ],
+      "title": "Champions Stakes — sporting tradition and why it matters",
+      "summary": "This 2,000-metre contest at Flemington puts established horses and ambitious challengers on the same stage.",
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:0",
+        "fact:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:1",
+        "fact:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "thread:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604"
+      ],
+      "title": "Golden Slipper — sporting tradition and why it matters",
+      "summary": "Two-year-olds meet at Rosehill Gardens in a sprint that tests speed and composure on a major stage.",
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:0",
+        "fact:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:1",
+        "fact:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "thread:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32",
+      "subjectIds": [
+        "subject:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32"
+      ],
+      "title": "Australian Cup — sporting tradition and why it matters",
+      "summary": "Over 2,000 metres, accomplished horses must combine endurance with the speed to answer a late challenge.",
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:0",
+        "fact:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:1",
+        "fact:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:2"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T08:14:23.253Z"
     }
   ],
   "audienceMemories": [],
@@ -55157,41 +55848,6 @@
       }
     },
     {
-      "id": "projection:fixture-research:event:horse-racing:melbourne-cup:2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "evt_horse_racing_melbourne_cup_2026",
-        "event:horse-racing:melbourne-cup:2026"
-      ],
-      "researchDepth": 5,
-      "hook": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
-      "synopsis": "The Group 1 Melbourne Cup is scheduled for 3 November at Flemington over 3200 metres. Its history began in 1861. Eleven Golden Ticket winners receive ballot exemption for the 2026 edition, giving the lead-up races a direct connection to Cup day. The VRC announced 101 nominations on 1 September. That was an early entry-stage snapshot, not a prediction of the final runners. Later acceptances and scratchings can change the field; use the latest published entry details on the card.",
-      "closingCopy": "The long-distance race and its qualifying paths give the build-up its shape. Golden Ticket exemption and an early acceptance list do not decide the race. The confirmed race time, final line-up and result remain separate from this background.",
-      "threadIds": [
-        "thread:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6"
-      ],
-      "factIds": [
-        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:0",
-        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:1",
-        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:2",
-        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:3",
-        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:4"
-      ],
-      "sourceIds": [
-        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:0",
-        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:1",
-        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:2"
-      ],
-      "researchedAt": "2026-10-11T03:45:38.506Z",
-      "editorialPhase": "preview",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-11T03:45:38.506Z"
-      }
-    },
-    {
       "id": "projection:rolling:evt-f1-2026-brazil-practice-1",
       "targetType": "feed-event",
       "targetIds": [
@@ -58829,6 +59485,296 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-12T22:50:31.092Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event:horse-racing:melbourne-cup:2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_horse_racing_melbourne_cup_2026",
+        "event:horse-racing:melbourne-cup:2026"
+      ],
+      "researchDepth": 5,
+      "hook": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
+      "synopsis": "At Flemington, 3,200 metres separate a field of horses and jockeys from a place in racing history. Storied, celebrated and sometimes controversial, it is Australia’s defining horse race.",
+      "closingCopy": "The Cup matters because it turns an extraordinary test of endurance and riding skill into a national occasion, bringing generations of stories and rivalries together for a few unforgettable minutes.",
+      "threadIds": [
+        "thread:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729"
+      ],
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:0",
+        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:1",
+        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:2",
+        "fact:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:0",
+        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:1",
+        "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:2"
+      ],
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T08:14:23.253Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event:horse-racing:caulfield-cup:2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_horse_racing_caulfield_cup_2026",
+        "event:horse-racing:caulfield-cup:2026"
+      ],
+      "researchDepth": 4,
+      "hook": "The Caulfield Cup turns 2,400 metres into one of spring’s great endurance contests.",
+      "synopsis": "Local and international stayers meet in a race where patience, positioning and a powerful finish all matter.",
+      "closingCopy": "Its place in Australian racing comes from that meeting of worlds: visiting challengers, familiar rivals and generations of stories carried into the Caulfield straight.",
+      "threadIds": [
+        "thread:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53"
+      ],
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:0",
+        "fact:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:1",
+        "fact:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:2"
+      ],
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:0",
+        "source:fixture-research:event:horse-racing:caulfield-cup:2026:revision-d14dd9aafc2c42102fb1da8a3008d311917385b94aef883fbf1f90e362b7df53:1"
+      ],
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T08:14:23.253Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event:horse-racing:cox-plate:2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_horse_racing_cox_plate_2026",
+        "event:horse-racing:cox-plate:2026"
+      ],
+      "researchDepth": 4,
+      "hook": "The Cox Plate is where racing’s great reputations face a championship test.",
+      "synopsis": "Its tradition brings horses of different ages together in a test of sustained excellence and the skill of horse and rider.",
+      "closingCopy": "The race matters because a few minutes can add a defining chapter to a champion’s story, or introduce a new name to the sport’s biggest stage.",
+      "threadIds": [
+        "thread:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a"
+      ],
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:0",
+        "fact:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:1",
+        "fact:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:2"
+      ],
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:0",
+        "source:fixture-research:event:horse-racing:cox-plate:2026:revision-d32dba5e27f6d3095a1958339879b4c6b57de42351c964a4d7652be23b4c576a:1"
+      ],
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T08:14:23.253Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event:horse-racing:the-everest:2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_horse_racing_the_everest_2026",
+        "event:horse-racing:the-everest:2026"
+      ],
+      "researchDepth": 4,
+      "hook": "The Everest puts sprinting’s explosive speed at the heart of a Sydney sporting occasion.",
+      "synopsis": "Over 1,200 metres at Royal Randwick, the contest leaves little room for hesitation: a clean start, a jockey’s judgement and a decisive burst can shape the race.",
+      "closingCopy": "Its appeal is immediate and visceral, bringing elite sprinters together for a short, fiercely contested show of speed.",
+      "threadIds": [
+        "thread:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd"
+      ],
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:0",
+        "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:1",
+        "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:2"
+      ],
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:0",
+        "source:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:1"
+      ],
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T08:14:23.253Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event:horse-racing:victoria-derby:2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_horse_racing_victoria_derby_2026",
+        "event:horse-racing:victoria-derby:2026"
+      ],
+      "researchDepth": 4,
+      "hook": "The Victoria Derby asks a new generation to find the strength for a classic test.",
+      "synopsis": "Three-year-old horses tackle 2,500 metres at Flemington, where promise must become endurance.",
+      "closingCopy": "As the carnival’s opening classic, the Derby matters beyond one afternoon: it gives young horses and their riders a chance to write the first major chapter of a lasting sporting story.",
+      "threadIds": [
+        "thread:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1"
+      ],
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:0",
+        "fact:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:1",
+        "fact:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:2"
+      ],
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:0",
+        "source:fixture-research:event:horse-racing:victoria-derby:2026:revision-b81a11c5279d5cd3e8dbc5628a1c5fcb2ab8e20e1724696e8d2f899860b8e8d1:1"
+      ],
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T08:14:23.253Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event:horse-racing:vrc-oaks:2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_horse_racing_vrc_oaks_2026",
+        "event:horse-racing:vrc-oaks:2026"
+      ],
+      "researchDepth": 4,
+      "hook": "The VRC Oaks gives young fillies their own place in Flemington’s classic tradition.",
+      "synopsis": "The 2,500-metre journey at Flemington tests stamina, composure and a rider’s sense of pace.",
+      "closingCopy": "Set within the colour and occasion of Oaks Day, the race matters as a stage where emerging talent can become a memorable name, carrying the carnival’s story into a fresh generation.",
+      "threadIds": [
+        "thread:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c"
+      ],
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:0",
+        "fact:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:1",
+        "fact:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:2"
+      ],
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:0",
+        "source:fixture-research:event:horse-racing:vrc-oaks:2026:revision-302981b70d24a1e7627ed1d00ab611c34d6f82cf9a42e88bc1a2e5714b93d61c:1"
+      ],
+      "researchedAt": "2026-10-13T08:26:31.106Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T08:26:31.106Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event:horse-racing:champions-stakes:2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_horse_racing_champions_stakes_2026",
+        "event:horse-racing:champions-stakes:2026"
+      ],
+      "researchDepth": 4,
+      "hook": "The Champions Stakes brings the Melbourne carnival to a championship finish.",
+      "synopsis": "This 2,000-metre contest at Flemington puts established horses and ambitious challengers on the same stage.",
+      "closingCopy": "It matters because the carnival’s last big chapter belongs to sporting excellence: the ability to settle, respond and finish strongly when the race demands everything.",
+      "threadIds": [
+        "thread:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d"
+      ],
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:0",
+        "fact:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:1",
+        "fact:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:2"
+      ],
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:0",
+        "source:fixture-research:event:horse-racing:champions-stakes:2026:revision-356386655f31a6b636ddb1e3e65892323d6c7eed947ae0c67e55a226a0a4162d:1"
+      ],
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T08:14:23.253Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event:horse-racing:golden-slipper:2027",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_horse_racing_golden_slipper_2027",
+        "event:horse-racing:golden-slipper:2027"
+      ],
+      "researchDepth": 4,
+      "hook": "The Golden Slipper is a coming-of-age moment for racing’s youngest stars.",
+      "synopsis": "Two-year-olds meet at Rosehill Gardens in a sprint that tests speed and composure on a major stage.",
+      "closingCopy": "The race matters because so much of its drama is about discovery: young horses, trainers and jockeys stepping into a tradition that has helped shape Australian racing for generations.",
+      "threadIds": [
+        "thread:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604"
+      ],
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:0",
+        "fact:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:1",
+        "fact:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:2"
+      ],
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:0",
+        "source:fixture-research:event:horse-racing:golden-slipper:2027:revision-12fc39c65a8ea6f2eb203abc9bc83ce3dd87b47aceab9069d3fee990fa5da604:1"
+      ],
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T08:14:23.253Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event:horse-racing:australian-cup:2027",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_horse_racing_australian_cup_2027",
+        "event:horse-racing:australian-cup:2027"
+      ],
+      "researchDepth": 4,
+      "hook": "The Australian Cup carries Flemington’s championship tradition into autumn.",
+      "synopsis": "Over 2,000 metres, accomplished horses must combine endurance with the speed to answer a late challenge.",
+      "closingCopy": "The race’s long history gives that contest a deeper resonance: an autumn afternoon can connect a new champion with generations of horses and riders who have made the Cup a sporting landmark.",
+      "threadIds": [
+        "thread:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32"
+      ],
+      "factIds": [
+        "fact:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:0",
+        "fact:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:1",
+        "fact:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:2"
+      ],
+      "sourceIds": [
+        "source:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:0",
+        "source:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32:1"
+      ],
+      "researchedAt": "2026-10-13T08:14:23.253Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T08:14:23.253Z"
       }
     }
   ]
