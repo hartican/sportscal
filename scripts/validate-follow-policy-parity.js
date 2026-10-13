@@ -49,7 +49,9 @@ for(const [fields,expected] of [[{},true],[{participantsConfirmed:true},true],[{
 const order=require('../config/football-directory');
 assert.deepEqual(order.followOrder([{id:'club-a',teamKind:'club'},{id:'national',teamKind:'national'},{id:'club-b',teamKind:'club'}],{preferenceGraph:{entityFollows:[{participantId:'club-b',followLevel:'follow'}]}}).map(record=>record.id),['club-a','club-b','national']);
 for(const key of ["afl","aflw","nrl","nrlw"])assert.equal(policy.australiansFilterUseful({key}),false,`${key} has no redundant Australian toggle`);
-assert.equal(policy.australiansFilterUseful({key:"cricket",competitionScope:"domestic",countryCode:"AU"}),false);
+assert.equal(policy.australiansFilterUseful({key:"cricket",competitionScope:"domestic",countryCode:"AU"}),true,'A broad sport/country label cannot identify an approved domestic competition');
+for(const competitionId of ['competition:bbl','competition:wbbl'])assert.equal(policy.australiansFilterUseful({key:'cricket',competitionId}),false,'Approved domestic Cricket needs no Australian-only filter');
+assert.equal(policy.australiansFilterUseful({key:'cricket',competitionId:'competition:ipl',competitionScope:'domestic',countryCode:'AU'}),true,'An overseas competition identity wins over broad labels');
 assert.equal(policy.australiansFilterUseful({key:"football"}),true);
 const summary=require('../config/follow-summary').allFollowed({followedSports:["tennis"],followFirst:{collectionFollows:["collection:test"]},preferenceGraph:{entityFollows:[{participantId:"athlete:tennis:muted",followLevel:"mute"}]}}, {collectionsById:{"collection:test":{label:"Watch list",memberIds:["athlete:tennis:watched","athlete:tennis:muted"]}}});
 assert(summary.some(item=>item.id==="athlete:tennis:watched"&&item.origins.includes("Watch list")));
