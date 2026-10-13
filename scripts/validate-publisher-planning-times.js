@@ -46,6 +46,17 @@ assert.strictEqual(planning.retainElapsed(official,refreshed,refreshed.publisher
 const differentSport={...baseline,id:'fixture:football:one',canonicalEventId:'fixture:football:one',eventId:'fixture:football:one',key:'football',sport:'Football'};
 assert.match(timing.presentation(planning.apply(differentSport,{...wta.planningTimeEvidence,fixtureId:'fixture:football:one'},now),now).time,/APPROX/,'One shared source rule supports other sporting fixtures');
 const prefs={followFirst:{notifications:{autoRemindersEnabled:false}}};assert.equal(policy.automatic(wta,prefs,{},now),false);assert.equal(policy.intent(wta,prefs,{[wta.id]:{reminderChoice:'off'}},{},now).enabled,false);
+// Execute the actual deferred UI reconciliation functions, not only its model.
+const fs=require('node:fs'),vm=require('node:vm'),acorn=require('acorn'),model=require('../config/match-centre');
+const uiSource=fs.readFileSync('assets/js/match-centre-ui.source.js','utf8'),functions=new Map();
+function visit(node){if(!node||typeof node!=='object')return;if(node.type==='FunctionDeclaration'&&['planningFields','observations','currentFixture'].includes(node.id?.name))functions.set(node.id.name,uiSource.slice(node.start,node.end));for(const value of Object.values(node))if(Array.isArray(value))value.forEach(visit);else if(value&&typeof value==='object')visit(value);}
+visit(acorn.parse(uiSource,{ecmaVersion:'latest'}));assert.equal(functions.size,3,'Actual Match Centre planning reconciliation functions exist');
+for(const next of [retracted,rescheduled,{...official,id:wta.id,planningTimeEvidence:null},refreshMerged]){
+ const snapshot=model.compact(next),context={m:()=>model,scores:new Map([[model.id(wta),snapshot]]),membership:[wta],membershipOwner:'controlled',owner:()=> 'controlled',selectedView:'everything'};
+ vm.runInNewContext([...functions.values()].join('\n')+'\nglobalThis.actualObservations=observations();globalThis.actualCurrent=currentFixture(membership[0]);',context);
+ const expected=model.observation(model.compact(wta),snapshot);
+ for(const actual of [context.actualObservations[0],context.actualCurrent])for(const field of ['startTimeUtc','estimatedStartTimeUtc','planningTimeEvidence','timePrecision','scheduleStatus','timeTbc','startTimeTbc','time','date'])assert.deepEqual(JSON.parse(JSON.stringify(actual[field]??null)),JSON.parse(JSON.stringify(expected[field]??null)),'Actual UI carries current planning field '+field);
+}
 (async()=>{
  let reads=0;const fetchImpl=async()=>{reads++;return new Response(JSON.stringify(receipts[0].payload),{status:200,headers:{date:elapsed.toUTCString()}});};
  const adapter=require('../lib/live-tennis-scoreboard').sources({fetchImpl}).find(s=>s.id==='live-tennis-wta');
