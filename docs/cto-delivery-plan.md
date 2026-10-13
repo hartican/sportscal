@@ -8,6 +8,8 @@
 
 **Latest viewing check — 13 October:** The next 46 Football matches agree with current Stan public listings in both NS calendar views. Kickoffs are compared using an explicitly inferred Sydney timezone. Paid playback, full-match replays and wider coverage remain open. [Dated viewing evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/football-viewing-current-2026-10-13.md).
 
+**Current architecture — 13 October:** Keep the existing stack and one checked release path. Published sport facts, private choices/history, reviewed editorial and future sponsor support stay separate. The next change reuses the shared card engine within the existing size limits. [Current map and evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/architecture-current-2026-10-13.md).
+
 **Next five actions, in order:**
 
 - Finish the remaining Football quality checks: working Australian viewing links, dependable standings, permitted commercial use and mobile presentation. The 380-fixture comparison and duplicate fix do not certify the whole sport.
