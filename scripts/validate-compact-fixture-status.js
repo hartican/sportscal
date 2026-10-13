@@ -16,7 +16,7 @@ function validate({source=require('./app-shell-test-utils').readCardFunction('bu
  let cases=0;
  function check(event,now,expected){
   context.nowAEST=()=>new Date(now);const before=JSON.stringify(event),summary=context.buildCompactCardSummary(event,{minimal:true}),time=summary.children.at(-1).textContent;
-  const visible=expected.startsWith('Awaiting')?'AWAITING UPDATE':expected.startsWith('Live again')?'18:30':expected==='Resume time unconfirmed'?'TIME TBC':expected;
+  const visible=expected.startsWith('Awaiting')?'AWAITING UPDATE':expected.startsWith('Live again')?'18:30':expected==='Resume time TBD'?'TIME TBD':expected;
   assert(time.includes(visible),event.name+': compact card must visibly show '+visible+'; received '+time);
   assert(summary.getAttribute('aria-label').includes('Sydney time'),'Original scheduled time keeps its zone in accessible full dates');
   assert(summary.getAttribute('aria-label').includes(expected),'Accessible status remains available');
@@ -36,7 +36,7 @@ function validate({source=require('./app-shell-test-utils').readCardFunction('bu
  const narrative='Australia lead by 139 runs',safe=check({...cricket,status:'break',scheduleStatus:'break',statusText:narrative,statusCheckedAt:pauseNow},pauseNow,'BREAK');assert(![safe.time,safe.aria].some(text=>text.includes(narrative)),'Unreviewed pause narrative cannot become a public status label');
  const stale=check(base,new Date(Date.parse(capture.checkedAt)+240001).toISOString(),'Awaiting match update');assert(/half-time/i.test(stale.time+stale.aria),'Awaiting status retains the safe pause context');
  for(const [scheduleStatus,label] of [['cancelled','CANCELLED'],['completed','FINISHED']])check({...cricket,status:'break',scheduleStatus,statusText:narrative,statusCheckedAt:pauseNow},pauseNow,label);
- for(const [restartTimeUtc,label] of [[restart,'Live again at 6:30 pm'],[null,'Resume time unconfirmed'],['invalid','Resume time unconfirmed'],['2026-10-11T23:00:00Z','Awaiting resumption update']])check({...base,key:'cricket',competitionId:'controlled:cricket',status:'stumps',scheduleStatus:'stumps',statusText:null,statusCheckedAt:pauseNow,restartTimeUtc},pauseNow,label);
+ for(const [restartTimeUtc,label] of [[restart,'Live again at 6:30 pm'],[null,'Resume time TBD'],['invalid','Resume time TBD'],['2026-10-11T23:00:00Z','Awaiting resumption update']])check({...base,key:'cricket',competitionId:'controlled:cricket',status:'stumps',scheduleStatus:'stumps',statusText:null,statusCheckedAt:pauseNow,restartTimeUtc},pauseNow,label);
  // These canonical states are controlled safety cases, not provider-code evidence.
  for(const status of ['cancelled','canceled','postponed','suspended','abandoned'])check({...base,status,scheduleStatus:status,statusText:null},capture.checkedAt,status==='canceled'?'CANCELLED':status.toUpperCase());
  for(const key of ['nrl','afl']){

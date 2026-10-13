@@ -168,7 +168,7 @@
 
   function timelineDisplayDate(time, timeZone){
     const date = new Date(time);
-    if (!Number.isFinite(time) || Number.isNaN(date.getTime())) return "Date TBC";
+    if (!Number.isFinite(time) || Number.isNaN(date.getTime())) return "Date TBD";
     return new Intl.DateTimeFormat("en-AU", { timeZone, weekday:"short", day:"numeric", month:"short" }).format(date);
   }
 
@@ -190,7 +190,7 @@
     }
     if (["tbc", "unpublished", "date-only"].includes(subEvent?.timePrecision)) return "Time unpublished";
     const direct = new Date(subEvent?.startTimeUtc || "").getTime();
-    if (!Number.isFinite(direct)) return "Time TBC";
+    if (!Number.isFinite(direct)) return "Time TBD";
     return timelineTimeFormatter(timeZone)
       .format(new Date(direct)).replace(/\s/g, "").toLowerCase();
   }

@@ -19,7 +19,7 @@
     const name=record?.officialName||raw;
     const reviewedLocation=record?.aliases?.find(alias=>alias.includes(', '))?.split(', ').slice(1).join(', ');
     const city=String(event.venueCity||event.city||(typeof event.location==='string'?event.location:'')||reviewedLocation||'').trim();
-    if(!name||/^(?:tbc|tbd|unknown|venue tbc|location tbc)$/i.test(name))return city||'Venue TBC';
+    if(!name||/^(?:tbc|tbd|unknown|venue tbc|location tbc)$/i.test(name))return city||'Venue TBD';
     return city&&!name.split(',').some(part=>part.trim().toLowerCase()===city.toLowerCase())?`${name}, ${city}`:name;
   }
   function ranking(event,participantId,snapshots=[]){
@@ -62,7 +62,7 @@
   }
   const identityKey=id=>String(id||'').replace(/^participant:/,'');
   function club(id){const key=identityKey(id).replace(/^team:/,'');const womens=key.match(/^aflw:cd_t(\d+)$/);return clubs[womens?'afl:cd_t'+aflWomen[womens[1]]:key];}
-  function displayLabel(id,fallback){if(/^(?:winner|loser|tbc|tbd|qualifier|to be confirmed)\b/i.test(fallback||''))return fallback;return club(id)?.[0]||nicknames[identityKey(id)]||String(fallback||'').replace(/\s+Men(?:’s|'s)?$/i,'');}
+  function displayLabel(id,fallback){if(/^(?:winner|loser|tbc|tbd|qualifier|to be confirmed)\b/i.test(fallback||''))return String(fallback).replace(/\bTBC\b/gi,'TBD');return club(id)?.[0]||nicknames[identityKey(id)]||String(fallback||'').replace(/\s+Men(?:’s|'s)?$/i,'');}
   function palette(event,sides=[]){
     // SailGP's venue panel follows its host country, including retained cards
     // with confirmed team entries. Team colours do not identify the waterway.
@@ -92,7 +92,7 @@
     if(stats)parts.push(`${stats[0].toFixed(1)}km`,`${stats[1]} turns`);
     if(event.venueCaption)parts.push(event.venueCaption);
     if(event.key==='wrc'&&!event.courseGeometryVerified)parts.push('Edition route unverified');
-    if(event.key==='motogp'&&event.scheduleNote)parts.push('Session day and time TBC');
+    if(event.key==='motogp'&&event.scheduleNote)parts.push('Session day and time TBD');
     return parts.join(' • ');
   }
   function raceLabel(event){

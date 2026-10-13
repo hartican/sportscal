@@ -26,7 +26,7 @@ const cases=[['captured-cache',read('scripts/fixtures/rugby-seed-evt-100-2026101
      const result={text:host.innerText,id:normalized.id,date:normalized.date,time:normalized.time,participants:normalized.participantIds,reminderTiming:eventReminderTiming(normalized),preferencesPreserved:JSON.stringify(userPreferences)===preferences,inputUnchanged:JSON.stringify(record)===original,buttons:[...host.querySelectorAll('button')].map(b=>b.getAttribute('aria-label')||b.innerText),overflow:document.documentElement.scrollWidth>innerWidth+1};activeTab=prior;return result;
     },{record});
     assert.equal(result.id,id);assert(!result.date&&!result.time&&!result.reminderTiming);assert.deepEqual(result.participants,[]);assert(result.preferencesPreserved&&result.inputUnchanged&&!result.overflow);
-    assert(/unconfirmed listing/.test(result.text)&&/DATE TBC.*TIME TBC/s.test(result.text),result.text);
+    assert(/unconfirmed listing/.test(result.text)&&/DATE TBD.*TIME TBD/s.test(result.text),result.text);
     assert(!/28 NOV|00:00|12:00 AM|Watch via Stan Sport|Tap to rate|Remind/.test(result.text),result.text);
     assert(!result.buttons.some(label=>/remind|calendar/i.test(label)),'Unknown appointment has no scheduling control');
     const visibleCard=page.locator('#rugbyNoteAudit .event-card');await visibleCard.waitFor({state:'visible'});await page.evaluate(()=>window.scrollTo(0,0));

@@ -35,7 +35,7 @@ async function run(base){
       else{
         await page.getByRole('heading',{name:fixture.title,exact:true,level:2}).waitFor();
         if(name==='tbc'){
-          assert(await page.getByRole('button',{name:'Start time TBC'}).isDisabled());assert.equal(await page.locator('.rating:visible').count(),0);assert.equal(await page.locator('.privacy:visible').count(),0);
+          assert(await page.getByRole('button',{name:'Start time TBD'}).isDisabled());assert.equal(await page.locator('.rating:visible').count(),0);assert.equal(await page.locator('.privacy:visible').count(),0);
         }else{
           await page.getByRole('button',{name:'Join this fixture',exact:true}).click();await page.getByRole('button',{name:'Joined',exact:true}).waitFor();
           await page.getByRole('button',{name:'5 stars',exact:true}).click();await page.getByText('Rating saved.',{exact:true}).waitFor();

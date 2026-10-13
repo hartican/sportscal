@@ -14,7 +14,7 @@
   function calendarDate(value){
     if (!/^\d{4}-\d{2}-\d{2}$/.test(value || "")) return null;
     const date = new Date(`${value}T12:00:00+10:00`);
-    return Number.isFinite(+date) ? date : null;
+    return Number.isFinite(+date) && dayKey(date)===value ? date : null;
   }
   // A multi-day tournament phase is not evidence that a session is live now.
   // Keep this separate from clock filters and never infer it from its dates.
@@ -37,7 +37,7 @@
     const clock=Number.isFinite(restart)&&restart>+now?new Date(restart):null;
     const time=clock?new Intl.DateTimeFormat('en-AU',{timeZone,hour:'numeric',minute:'2-digit',hour12:true}).format(clock):null;
     const day=clock&&dayKey(clock)!==dayKey(now)?new Intl.DateTimeFormat('en-AU',{timeZone,weekday:'short',day:'numeric',month:'short',...(dayKey(clock).slice(0,4)!==dayKey(now).slice(0,4)?{year:'numeric'}:{})}).format(clock).replace(/,/g,'')+', ':'';
-    return {label,restart:clock?'Live again at '+day+time:Number.isFinite(restart)?'Awaiting resumption update':'Resume time unconfirmed'};
+    return {label,restart:clock?'Live again at '+day+time:Number.isFinite(restart)?'Awaiting resumption update':'Resume time TBD'};
   }
   function progress(event, reference = new Date()){
     const statuses=[event.status,event.scheduleStatus].map(value=>String(value||'').toLowerCase());
@@ -61,7 +61,7 @@
     if(tours.size>1)for(const tour of tours)if(!records.some(p=>p.tour===tour))labels.push(tour+' · ROUND UNCONFIRMED');
     return [...new Set(labels)].join(' · ')||'ROUND UNCONFIRMED';
   }
-  function presentation(event, reference = new Date()){
+  function presentation(event, reference = new Date(), {fullRange=false} = {}){
     const now = new Date(reference);
     const precision = event.timePrecision;
     const uncertain = event.timeTbc || event.startTimeTbc;
@@ -69,16 +69,16 @@
     const raw = pausedRestart || (precision === "estimated" ? event.estimatedStartTimeUtc || event.startTimeUtc : event.startTimeUtc);
     const parsed = new Date(raw || "");
     const hasTime = !event.dateOnly && !uncertain && (!precision || ["exact","session-start","estimated","not-before"].includes(precision)) && Number.isFinite(+parsed);
-    const date = hasTime ? parsed : calendarDate(event.date || event.startDate);
+    const first = calendarDate(event.date || event.startDate), end = calendarDate(event.endDate);
+    const date = fullRange && first && end > first ? first : hasTime ? parsed : first;
     const currentDay = dayKey(now);
     const key = date ? dayKey(date) : null;
     const delta = key ? (Date.parse(key) - Date.parse(currentDay)) / 86400000 : null;
     const dated = value => format(value, {weekday:"short", day:"numeric", month:"short", ...(dayKey(value).slice(0,4) !== currentDay.slice(0,4) ? {year:"numeric"} : {})});
-    let day = date ? delta === 0 ? "TODAY" : delta > 0 && (delta < 7 || precision==='not-before' && delta===7) ? format(date,{weekday:"short"}) : dated(date) : "DATE TBC";
+    let day = date ? delta === 0 ? "TODAY" : delta > 0 && (delta < 7 || precision==='not-before' && delta===7) ? format(date,{weekday:"short"}) : dated(date) : "DATE TBD";
     if(precision==='not-before'&&hasTime&&delta===0)day='';
-    let fullDate = date ? dated(date) : "DATE TBC";
-    const end = calendarDate(event.endDate);
-    const range = end && key && dayKey(end) !== key;
+    let fullDate = date ? dated(date) : "DATE TBD";
+    const range = end && key && dayKey(end) > key;
     if (range){ day = `${dated(date)} – ${dated(end)}`; fullDate += ` – ${dated(end)}`; }
     const clock = hasTime ? format(parsed,{hour:"numeric",minute:"2-digit",hour12:true}).replace(/\s+/g," ") : "";
     const overview=(event.dateOnly||precision==='date-only')&&(event.key==='wrc'||event.cardType==='golf_tournament');
@@ -86,14 +86,14 @@
     const windowStart=new Date(event.estimatedEarliestStartTimeUtc||''),windowEnd=new Date(event.estimatedLatestStartTimeUtc||'');
     const windowLabel=precision==='estimated'&&Number.isFinite(+windowStart)&&Number.isFinite(+windowEnd)?'APPROX. '+format(windowStart,{hour:'numeric',minute:'2-digit',hour12:true})+' – '+format(windowEnd,{hour:'numeric',minute:'2-digit',hour12:true}):null;
     const progressLabel=progress(event,reference);
-    const originalDate=progressLabel&&calendarDate(event.date||event.startDate);if(originalDate)fullDate=dated(originalDate)+(end&&dayKey(end)!==dayKey(originalDate)?' – '+dated(end):'');
-    const time = progressLabel&&event.dateOnly?'':windowLabel || (overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBC" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`);
+    const originalDate=progressLabel&&first;if(originalDate)fullDate=dated(originalDate)+(end>originalDate?' – '+dated(end):'');
+    const time = progressLabel&&event.dateOnly?'':windowLabel || (overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBD" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`);
     const schedule = [day,time].filter(Boolean).join(delta !== null && delta >= 0 && (delta < 7 || precision==='not-before' && delta===7) && !range ? " " : " · ");
     // Venue calendar dates cannot establish Sydney dates without a race start.
     const venueCalendar = !hasTime && event.timingProvenance?.precision === 'venue-calendar' && event.displayDateLabel;
     if(venueCalendar){day=fullDate=event.displayDateLabel;}
     const scheduleLabel = venueCalendar ? [day,time].join(' · ') : schedule;
-    const fullSchedule = [fullDate,time].filter(Boolean).join(" · ") + (venueCalendar ? ' · Sydney start TBC' : " (Sydney time)");
+    const fullSchedule = [fullDate,time].filter(Boolean).join(" · ") + (venueCalendar ? ' · Sydney start TBD' : " (Sydney time)");
     // Explicit source status only: duration heuristics must not claim completion.
     const statuses = [event.status,event.scheduleStatus].map(value => String(value || "").toLowerCase());
     const pause = pauseReason(event);
@@ -116,7 +116,7 @@
     const observed=controls?.timingState(event,reference);
     if(observed?.key==='half-time')status='HALF-TIME';
     if(observed?.key==='awaiting-update')status=observed.label;
-    return Object.freeze({day:progressLabel|| (precision==='not-before'?day:venueCalendar?day:date?(range?day:dated(date)):'DATE TBC'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
+    return Object.freeze({day:fullRange&&range?day:progressLabel|| (precision==='not-before'?day:venueCalendar?day:date?(range?day:dated(date)):'DATE TBD'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
   }
   function minimised(event, reference = new Date()){
     const value=presentation(event,reference),pause=pausePresentation(event,reference);
@@ -124,26 +124,26 @@
     const restart=Date.parse(event.restartTimeUtc||'');
     let time=value.status;
     if(pause&&!/^(FINISHED|CANCELLED|POSTPONED|ABANDONED)$/.test(time)){
-      const suffix=Number.isFinite(restart)&&restart>+new Date(reference)?clock(restart):Number.isFinite(restart)||/awaiting/i.test(value.status)?'AWAITING UPDATE':'TIME TBC';
+      const suffix=Number.isFinite(restart)&&restart>+new Date(reference)?clock(restart):Number.isFinite(restart)||/awaiting/i.test(value.status)?'AWAITING UPDATE':'TIME TBD';
       time=pause.label.toUpperCase()+' · '+suffix;
     }else if(/awaiting/i.test(time))time='AWAITING UPDATE';
     if(!time){
       const raw=event.timePrecision==='estimated'?event.estimatedStartTimeUtc||event.startTimeUtc:event.startTimeUtc;
       const known=!event.dateOnly&&!event.timeTbc&&!event.startTimeTbc&&(!event.timePrecision||['exact','session-start','estimated','not-before'].includes(event.timePrecision))&&Number.isFinite(Date.parse(raw||''));
-      time=known?(event.timePrecision==='not-before'?'NB ':event.timePrecision==='estimated'?'APPROX. ':'')+clock(raw):event.timePrecision==='follows'?'FOLLOWS':'TIME TBC';
+      time=known?(event.timePrecision==='not-before'?'NB ':event.timePrecision==='estimated'?'APPROX. ':'')+clock(raw):event.timePrecision==='follows'?'FOLLOWS':'TIME TBD';
     }
     const overview=event.tournamentParent||event.isEditionOverview||event.majorEventMarker||['tennis_parent','golf_tournament','tournament_overview'].includes(event.cardType);
     if(overview&&!value.progress){
       const date=calendarDate(event.date||event.startDate),end=calendarDate(event.endDate);
       const short=day=>format(day,{day:'numeric',month:'short'});
-      time=(date?short(date)+(end&&dayKey(end)!==dayKey(date)?'–'+short(end):''):'DATE TBC')+(value.status?' · '+value.status:'');
+      time=(date?short(date)+(end&&dayKey(end)!==dayKey(date)?'–'+short(end):''):'DATE TBD')+(value.status?' · '+value.status:'');
     }
     const ariaLabel=[value.ariaLabel,pause?[pause.label,pause.restart].join('. '):''].filter(Boolean).join('. ');
     return Object.freeze({...value,time,ariaLabel});
   }
   function dateOnlyLabel(event){
     if(['completed','finished','final'].includes(event.status))return 'Completed';
-    return event.eventType==='match'||event.timingProvenance?.precision==='venue-calendar'?'Time TBC':event.displayTime||'Session times vary';
+    return event.eventType==='match'||event.timingProvenance?.precision==='venue-calendar'?'Time TBD':String(event.displayTime||'Session times vary').replace(/\bTBC\b/gi,'TBD');
   }
   return Object.freeze({presentation,minimised,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason,progress});
 });

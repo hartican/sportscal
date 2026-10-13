@@ -18,7 +18,7 @@ const confirmed=programme.find(e=>alias(e).includes('evt_84'));
 const retained={...confirmed,startTimeUtc:null,time:null,timeTbc:true,startTimeTbc:true,dateOnly:true,timePrecision:'date-only'};
 const observation={...confirmed};for(const field of ['timeTbc','startTimeTbc','dateOnly'])delete observation[field];
 const reconciled=identity.mergeOverlays([retained],[observation])[0];
-for(const update of [{...observation,timeTbc:true},{...observation,dateOnly:true},{...observation,timePrecision:'unknown',timeTbc:true}])assert.equal(timing.presentation(identity.mergeOverlays([retained],[update])[0],new Date('2026-10-01T00:00:00Z')).time,'TIME TBC','explicit uncertainty remains conservative');
+for(const update of [{...observation,timeTbc:true},{...observation,dateOnly:true},{...observation,timePrecision:'unknown',timeTbc:true}])assert.equal(timing.presentation(identity.mergeOverlays([retained],[update])[0],new Date('2026-10-01T00:00:00Z')).time,'TIME TBD','explicit uncertainty remains conservative');
 assert.equal(timing.presentation(reconciled,new Date('2026-10-01T00:00:00Z')).time,'7:30 PM','confirmed kickoff replaces retained TBC flags in the real overlay path');
 assert.equal(reconciled.id,confirmed.id,'timing repair keeps saved-action identity');
 
@@ -29,7 +29,7 @@ const liveObservation={...confirmed,dateOnly:true,schedulePrecision:'date-only',
 const liveMerged=identity.mergeOverlays([confirmed],[liveObservation])[0];
 assert.equal(timing.presentation(liveMerged,'2026-10-01T00:00:00Z').time,'7:30 PM','a live API observation cannot restore stale date-only metadata over confirmed exact timing');
 assert.equal(identity.normalizeCore(liveObservation).dateOnly,false,'normalise contradictory persisted observations even without a prior card');
-for(const update of [{...liveObservation,timeTbc:true},{...liveObservation,startTimeTbc:true},{...liveObservation,timePrecision:'date-only'},{...liveObservation,scheduleStatus:'provisional'},{...liveObservation,startTimeUtc:null}])assert.equal(timing.presentation(identity.normalizeCore(update),'2026-10-01T00:00:00Z').time,'TIME TBC','new uncertainty, provisional dates and absent sporting times remain conservative');
+for(const update of [{...liveObservation,timeTbc:true},{...liveObservation,startTimeTbc:true},{...liveObservation,timePrecision:'date-only'},{...liveObservation,scheduleStatus:'provisional'},{...liveObservation,startTimeUtc:null}])assert.equal(timing.presentation(identity.normalizeCore(update),'2026-10-01T00:00:00Z').time,'TIME TBD','new uncertainty, provisional dates and absent sporting times remain conservative');
 
 const start=new Date('2026-10-04T08:30:00Z');
 for(const [zone,time] of [['Australia/Sydney','19:30'],['Australia/Brisbane','18:30']])assert.equal(new Intl.DateTimeFormat('en-GB',{timeZone:zone,hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(start),time);

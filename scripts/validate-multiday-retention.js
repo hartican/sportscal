@@ -21,7 +21,9 @@ for (const event of exactWindows) {
   for (const copyEvents of [true, false]) {
     const normalized = pipeline.normalizeEvent(event, new Date("2026-10-05T04:00Z"), {copyEvents});
     const archive = lifecycle.archivesAtForEvent(normalized);
-    assert(archive && +archive >= +lifecycle.sydneyEndOfDay(event.endDate) + lifecycle.ARCHIVE_MS,
+    const completed=/^(completed|finished|final)$/.test(event.status||'');
+    const verified=[event.actualEndTimeUtc,event.completedAt,event.firstConfirmedCompleteAt].find(v=>/T.*(?:Z|[+-]\d{2}:\d{2})$/.test(v||'')&&Date.parse(v)>=Date.parse(event.startTimeUtc));
+    assert(archive && +archive >= (completed&&verified?Date.parse(verified):+lifecycle.sydneyEndOfDay(event.endDate)) + lifecycle.ARCHIVE_MS,
       "A retained exact multi-day record cannot shorten its calendar-based retention: " + event.id);
     assert.equal(normalized.status, event.status);
     assert.equal(normalized.sourceCheckedAt, event.sourceCheckedAt);

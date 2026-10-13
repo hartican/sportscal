@@ -1208,3 +1208,15 @@ Push TTL is at most two minutes; the worker discards expired milestone payloads.
 Deferred controls and Match Centre compile through the existing canonical shell builder with the existing terser dependency. Preserve eight critical asset requests, the 1.25% compressed-growth gate and the three-MiB installed shell. The explicit, labelled milestone test reuses installation verification and erasure admission, waits eight seconds within its request, then sends a real-fixture test; it adds no scheduler and cannot establish live-innings detection proof. Scoped source commits are handed to Audit Sportscal architecture after its urgent timing release. GitHub, database, Vercel, browser and physical-phone evidence remain separate.
 
 Regressions: validate-milestone-source-budget, validate-milestone-alerts, validate-milestone-database (actual projection and new SQL), validate-milestone-dispatch, validate-milestone-worker, validate-milestone-test, existing notifications/erasure/live-owner/cache gates and Chromium/WebKit journeys.
+
+
+## Sourced approximate automatic reminders — 14 October 2026 Sydney
+
+The owner replaces official-only automatic timing with server-validated publisher/court-order estimates. The same policy and bounded reminder inventory feed automatic/manual intents and unsent schedule reconciliation. Relax only the database precision/origin restriction; retain service-only grants, revision/claim locks, OFF/account-erasure checks and immutable provider/sent receipts. Keep original evidence dates and source failure holds, no new endpoint, source request, timer, retry or scheduler. The sole five-minute dispatcher labels approximate push timing explicitly. Audit owns the serialized migration/application release and exact-SHA deployment.
+
+
+## Multi-day Feed final-day display — 14 October 2026 Sydney
+
+Reuse the existing shared Feed timeline and lifecycle for one published multi-day card on its final date. Ordinary personalised Feed uses that display day before its existing bounded pagination. Profile and Match Centre ordering are unchanged. Original sporting instants and source observations remain intact; final-day midnight is only a local sort key, never a fixture or notification clock. The native Feed score updater preserves the same central full range on expansion/refresh.
+
+Source completedAt/firstConfirmedCompleteAt may supply an explicit validated sporting end for existing retention; an inferred endTimeUtc cannot shorten a valid published multi-day window. Preserve the seven-day Feed rule and existing saved/history constants. No new provider read, endpoint, schema, database/account change, source refresh, scheduler, retry, browser polling or dispatcher. Audit retains sole generated-output/publication ownership and strict performance/installed-update gates.

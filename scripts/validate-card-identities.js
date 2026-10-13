@@ -316,7 +316,7 @@ assert(html.includes('appendTeamIdentityFallback(slot, mark, label') && html.inc
 assert(html.includes('function finalizeLoadedIdentityImage(image)') && html.includes('frame.querySelectorAll(IDENTITY_FALLBACK_SELECTOR).forEach(fallback => fallback.remove())') && html.includes('image.hidden = false'), "a successful crest must remove its own placeholder through the shared loaded-image lifecycle");
 assert(/logo\.addEventListener\("error", \(\) => \{\s*logo\.remove\(\);/.test(html), "a failed crest must leave the other side and its own placeholder intact");
 assert(!html.includes('mark?.label || "?"'), "recognised teams must never display a generic question-mark placeholder");
-assert(html.includes('mark?.label || "TBC"'), "unresolved finals participants need a semantic seed/monogram fallback");
+assert(html.includes('mark?.label || "TBD"'), "unresolved finals participants need a semantic seed/monogram fallback");
 
 console.log(`Card identities valid: ${activeNrlTeams.length} NRL, ${activeAflTeams.length} AFL, ${nflParticipants.length} NFL, ${nbaTeams.length} NBA and ${footballParticipants.length} football team marks across ${footballFixtureEvents.length} fixtures, local national-team identities, ${activeEventKeys.length} active sport/event identities, and two-slot matchup fallbacks.`);
 

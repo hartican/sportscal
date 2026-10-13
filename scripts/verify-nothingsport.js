@@ -2053,8 +2053,8 @@ assert.equal(app.isSpoilerVisible(nextRound), true, "per-event reveal must work 
 app.hideSpoilersForEvent(nextRound);
 assert.equal(app.isSpoilerVisible(nextRound), false, "per-event protection must work before an event starts");
 
-assert.equal(app.eventDateLabel({ date: "2027-03-07", displayDateLabel: "Date TBC - 2027" }), "Date TBC - 2027");
-assert.equal(app.eventTimeLabel({ time: "15:00", timeTbc: true }), "Time TBC");
+assert.equal(app.eventDateLabel({ date: "2027-03-07", displayDateLabel: "Date TBD - 2027" }), "Date TBD - 2027");
+assert.equal(app.eventTimeLabel({ time: "15:00", timeTbc: true }), "Time TBD");
 assert.equal(app.eventTimeLabel({ time: "20:00", displayTimeLabel: "Order of play; session from 8:00pm AEST" }), "Order of play; session from 8:00pm AEST");
 assert.equal(app.eventLocationLabel({ venue: "Optus Stadium, Perth" }), "Perth");
 assert.equal(app.eventLocationLabel({ venue: "Melbourne Cricket Ground" }), "Melbourne");

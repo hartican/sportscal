@@ -10,12 +10,12 @@ function sportHubDateTimeLabel(view){
       : dayDateLabel(view.event.date);
     return `${range} · ${["completed","finished","final"].includes(view.event.status)?"Completed":view.event.displayTime||"Session times vary"}`;
   }
-  if (!view?.event?.date || !view?.event?.time) return "Date and time TBC";
+  if (!view?.event?.date || !view?.event?.time) return "Date and time TBD";
   return `${dayDateLabel(view.event.date)} · ${fmtTime12(view.event.time)}`;
 }
 
 function sportHubVenueLabel(view){
-  return view?.event?.venue || "Venue TBC";
+  return view?.event?.venue || "Venue TBD";
 }
 
 function sportHubProviderCopy(providers, emptyCopy){
@@ -59,9 +59,9 @@ function buildSportHubFixtureRow(view, {
   details.className = "sport-hub-fixture-detail";
   details.textContent = resultsMode
     ? event.key === "wrc"
-      ? `${sportHubVenueLabel(view)} · ${event.resultStatus === "pending" ? "Official result pending" : "Official result"} · Replays: ${sportHubProviderCopy(view.replayProviders, "TBC")}`
+      ? `${sportHubVenueLabel(view)} · ${event.resultStatus === "pending" ? "Official result pending" : "Official result"} · Replays: ${sportHubProviderCopy(view.replayProviders, "TBD")}`
       : `${sportHubVenueLabel(view)} · Result record · video availability is not promised`
-    : `${sportHubVenueLabel(view)} · ${sportHubProviderCopy(view.liveProviders, "Broadcaster TBC")}`;
+    : `${sportHubVenueLabel(view)} · ${sportHubProviderCopy(view.liveProviders, "Broadcaster TBD")}`;
   main.append(titleLine, details);
 
   const status = document.createElement("div");
@@ -76,7 +76,7 @@ function buildSportHubFixtureRow(view, {
       status.textContent = "Completed · Result hidden";
     }
   } else if (event.scheduleStatus === "tbc"){
-    status.textContent = "Time TBC";
+    status.textContent = "Time TBD";
   } else {
     status.textContent = "Scheduled";
   }

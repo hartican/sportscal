@@ -30,7 +30,7 @@ const shared=model.buildParents({tournaments:[tournament,{...tournament,tourname
 const stages=model.buildParents({tournaments:[{...tournament,phaseId:'qualifiers'},{...tournament,phaseId:'final-eight'}]},[]);assert.equal(stages.length,2);
 const undated=model.buildParents({tournaments:[{...tournament,startDate:null,endDate:null}]},[])[0];assert.equal(undated.date,null);assert.match(model.timingLabel(undated),/confirmed/);assert.equal(timeline.groups([undated],now).unknown.length,1);
 const estimated=model.buildParents({tournaments:[{...tournament,startDate:null,endDate:null,schedulingWindow:{startsOn:'2026-11-01',endsOn:'2026-11-30',label:'November 2026'}}]},[])[0];assert.match(model.timingLabel(estimated),/November 2026.*Provisional/);
-assert.equal(timeline.groups([parent],now).today.length,1);
+assert.equal(timeline.groups([parent],now).future.length,1,"One multi-day parent stays on its final published day");
 const team={...fixture,id:'tie',eventId:'tie',contestUnit:'tie',tour:'TEAM',participantIds:['team:tennis:italy','team:tennis:spain']};
 assert(admitted(team,{preferenceGraph:{entityFollows:[{participantId:'team:tennis:italy',followLevel:'follow'}]}}));assert(!admitted(team,{preferenceGraph:{entityFollows:[{participantId:'team:football:italy',followLevel:'follow'}]}}));assert(admitted({...team,round:'Final'},broad));
 assert(!model.isFinal({...team,round:'Round robin',name:'ATP Finals'}));

@@ -70,7 +70,7 @@ const base=process.env.QA_BASE_URL || 'http://127.0.0.1:8765';
   await page.getByRole('button',{name:'Back to Follow',exact:true}).click();assert.equal(await page.getByRole('heading',{name:'AFL Premiership',exact:true}).count(),1);
   await page.locator('.tab-btn[data-tab="events"]').click();await page.getByRole('tab',{name:/^Tickets/}).click();await page.getByRole('article',{name:'Australian Open 2027. Summary view.',exact:true}).waitFor();
   assert((await page.getByRole('article',{name:'Australian Open 2027. Summary view.',exact:true}).innerText()).includes('11 Jan 2027 - 31 Jan 2027'));
-  assert((await page.getByRole('article',{name:'Formula 1 Australian Grand Prix 2027. Summary view.',exact:true}).innerText()).includes('Dates TBC'));
+  assert((await page.getByRole('article',{name:'Formula 1 Australian Grand Prix 2027. Summary view.',exact:true}).innerText()).includes('Dates TBD'));
   assert.equal(await page.getByRole('link',{name:/Join waitlist for Formula 1 Australian/}).count(),1);
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);assert(!overflow,`horizontal overflow ${width}`);
   evidence.push({width,anchorDeltas:deltas,expansionPaintMs,followDeltas,guestIcs:true,providers:true,followBack:true,ticketDates:true});await page.close();

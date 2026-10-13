@@ -58,13 +58,23 @@
     const firstDay = event?.date || event?.startDate;
     if (event?.endDate > firstDay && validDay(firstDay) && validDay(event.endDate)){
       // A supplied calendar window is a retention floor, never an observed finish.
-      const actual = new Date(event.actualEndTimeUtc || "");
-      if (["completed","finished","final"].includes(String(event.status || "").toLowerCase())
-          && /T/.test(event.actualEndTimeUtc || "") && start && +actual >= +start) return actual;
+      const actual = verifiedEnd(event);
+      if (actual) return actual;
       const windowEnd = sydneyEndOfDay(event.endDate);
       if (!end || +end < +windowEnd) end = windowEnd;
     }
     return end;
+  }
+
+  function verifiedEnd(event){
+    if(!/^(completed|finished|final)$/.test(String(event.status||'').toLowerCase()))return null;
+    const start=eventStart(event)||calendar.eventStart({date:event.date||event.startDate,time:'00:00'});
+    if(!start)return null;
+    for(const value of [event.actualEndTimeUtc,event.completedAt,event.firstConfirmedCompleteAt]){
+      const end=new Date(value||'');
+      if(/T.*(?:Z|[+-]\d{2}:\d{2})$/.test(value||'')&&Number.isFinite(+end)&&+end>=+start)return end;
+    }
+    return null;
   }
 
   // This independent source receipt is a bounded ongoing-play exception for
@@ -82,8 +92,8 @@
     const first = event.date || event.startDate, end = event.endDate || first;
     if(!terminal && validDay(end) && end >= today)return true;
     if(currentPlayUntil(event,now))return true;
-    const actual = event.actualEndTimeUtc || event.endTimeUtc;
-    const instant = new Date(actual || '');
+    const multiDay=validDay(first)&&validDay(end)&&end>first;
+    const instant = verifiedEnd(event)||new Date(!multiDay?event.endTimeUtc||'':'');
     const day = terminal && Number.isFinite(+instant) && +instant <= +now && (!validDay(first)||calendar.sydneyDay(instant)>=first) ? calendar.sydneyDay(instant) : end;
     if(!validDay(day))return true;
     const cutoff = new Date(today+'T12:00:00Z');cutoff.setUTCDate(cutoff.getUTCDate()-7);

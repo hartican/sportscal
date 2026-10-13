@@ -20,7 +20,7 @@ const root=path.resolve(__dirname,'..'),report=process.env.EPL_CERTAINTY_BROWSER
       const card=host.querySelector('[data-event-id]');if(!card)throw Error('Actual card did not render');const text=card.textContent;
       return {mode,kind,text,approx:/approx\./i.test(text),reminderClock:!!eventReminderTiming(event),preferencesPreserved:JSON.stringify(userPreferences)===before,overflow:document.documentElement.scrollWidth>innerWidth+1,status:event.scheduleStatus,precision:event.timePrecision,sourceClock:event.sourceCheckedAt};
      },{fixture:fixtures[kind],theme,mode,kind});
-     assert.equal(observation.reminderClock,kind==='confirmed');assert(observation.preferencesPreserved);assert(!observation.overflow,JSON.stringify({name,width,mode,kind}));assert.equal(observation.approx,['provisional','changed'].includes(kind),JSON.stringify({name,width,mode,kind,text:observation.text.slice(0,350)}));if(kind==='uncertain')assert(/time tbc/i.test(observation.text));observations.push({browser:name,width,theme,...observation});
+     assert.equal(observation.reminderClock,kind==='confirmed');assert(observation.preferencesPreserved);assert(!observation.overflow,JSON.stringify({name,width,mode,kind}));assert.equal(observation.approx,['provisional','changed'].includes(kind),JSON.stringify({name,width,mode,kind,text:observation.text.slice(0,350)}));if(kind==='uncertain')assert(/time TBD/i.test(observation.text));observations.push({browser:name,width,theme,...observation});
     }
    }finally{await browser.close();}
   }

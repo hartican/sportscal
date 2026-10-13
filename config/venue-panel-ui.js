@@ -7,12 +7,12 @@ function appendVenuePanel(card,main,ev){
   const artwork=p.venueArtwork(ev),track=p.circuitAsset(ev);
   if(track){const outline=document.createElement('img');outline.src=track;outline.alt=artwork?.label||`${ev.venue} circuit outline`;outline.width=600;outline.height=320;outline.loading='lazy';outline.decoding='async';hero.append(outline);if(artwork?.kind==='fallback')hero.classList.add('is-venue-fallback');outline.onerror=()=>{if(artwork&&!hero.classList.contains('is-venue-fallback')){hero.classList.add('is-venue-fallback');const fallback=p.venueArtwork({...ev,courseGeometryVerified:false,editionGeometryVerified:false,venueConfigurationVerified:false});outline.src=fallback.path;outline.alt=fallback.label;caption.textContent=[ev.venue,ev.venueCity,'Artwork unavailable'].filter(Boolean).join(' • ');}};}
   const labels=document.createElement('div');labels.className='f1-location-labels';
-  const badge=document.createElement('span');badge.className='f1-location-date';badge.textContent=ev.date?new Date(ev.date+'T12:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'short',timeZone:'UTC'}):'Date TBC';
+  const badge=document.createElement('span');badge.className='f1-location-date';badge.textContent=ev.date?new Date(ev.date+'T12:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'short',timeZone:'UTC'}):'Date TBD';
   if((ev.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(ev.key))&&ev.endDate&&ev.endDate!==ev.date)badge.textContent+=' – '+new Date(ev.endDate+'T12:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'short',timeZone:'UTC'});
   labels.append(badge);
   const raceLabel=p.raceLabel(ev);
   if(raceLabel){const race=document.createElement('span');race.className='f1-location-race';const flag=document.createElement('span');flag.className='f1-chequered-flag';flag.setAttribute('aria-hidden','true');flag.textContent='🏁';race.append(flag,document.createTextNode(raceLabel));labels.append(race);}
-  const caption=document.createElement('span');caption.className='f1-location-caption';caption.textContent=p.circuitCaption(ev)||'Venue TBC';
+  const caption=document.createElement('span');caption.className='f1-location-caption';caption.textContent=p.circuitCaption(ev)||'Venue TBD';
   hero.append(labels,caption);main.prepend(hero);
 }
 
@@ -102,21 +102,22 @@ function buildTournamentMarker(event){
    card.dataset.cardState='compact';return mountMinimisedCard(card,event,(state,options)=>{if(getEventAction(event).isMinimised)updateEventAction(event,{isMinimised:false});if(state==='selected')tennisFeedOpenParents.delete(id);setCardState(event,state);refreshExpandableCard(card,buildTournamentMarker(event),options);syncNothingscoreReadRecovery();});
  }
  const details=document.createElement('details'),summary=document.createElement('summary');details.className='feed-tournament-details';details.open=tennisFeedOpenParents.has(id);
- const title=document.createElement('h3');title.textContent=[fixtureCompetitionLabel(event),event.name].filter((v,i,a)=>v&&a.indexOf(v)===i).join(' · ');const dates=document.createElement('p'),timing=NOTHINGSPORTS_CARD_TIMING.presentation(event,nowAEST());dates.textContent=(timing.progress||[event.date,event.endDate!==event.date?event.endDate:null].filter(Boolean).map(value=>NOTHINGSPORTS_AUSTRALIAN_DATES.date(value)).join(' – '))+(timing.status==='FINISHED'?' · FINISHED':'');dates.title=timing.ariaLabel;summary.append(title,dates);details.append(summary);if(timing.progress){const full=document.createElement('p');full.className='fixture-source-dates';full.textContent=timing.fullSchedule;details.append(full);}
+ const title=document.createElement('h3');title.textContent=[fixtureCompetitionLabel(event),event.name].filter((v,i,a)=>v&&a.indexOf(v)===i).join(' · ');const dates=document.createElement('p'),timing=NOTHINGSPORTS_CARD_TIMING.presentation(event,nowAEST(),{fullRange:true});dates.textContent=(NOTHINGSPORTS_FEED_TIMELINE.finalDay(event)?timing.day:timing.progress||[event.date,event.endDate!==event.date?event.endDate:null].filter(Boolean).map(value=>NOTHINGSPORTS_AUSTRALIAN_DATES.date(value)).join(' – '))+(timing.status==='FINISHED'?' · FINISHED':'');dates.title=timing.ariaLabel;summary.append(title,dates);details.append(summary);if(timing.progress){const full=document.createElement('p');full.className='fixture-source-dates';full.textContent=timing.fullSchedule;details.append(full);}
  summary.setAttribute('aria-label','Expand '+event.name+'. '+timing.ariaLabel);
  const content=document.createElement('div');content.className='feed-tournament-appearances';details.append(content);let mounted=false;
- const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=509').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
+ const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=533').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
  card.append(details,buildEventCardControls(event,{card}),buildCardDisclosureControl(event.name,'selected',(state,options)=>{setCardState(event,state);refreshExpandableCard(card,buildTournamentMarker(event),options);syncNothingscoreReadRecovery();}));if(details.open)queueMicrotask(mount);return card;
 }
 
 function buildFixtureTimingBadge(ev){
-  const timing = NOTHINGSPORTS_CARD_TIMING.presentation(ev, nowAEST());
+  const timing = NOTHINGSPORTS_CARD_TIMING.presentation(ev, nowAEST(), {fullRange:activeTab==='feed'});
   const badge = document.createElement('button');badge.type='button';
   badge.className = 'fixture-timing-badge btn ghost';
   const day=document.createElement('span');day.className='fixture-timing-day';day.textContent=timing.day;
   const pause=ev.key==='cricket'&&timing.progress?NOTHINGSPORTS_CARD_TIMING.pausePresentation(ev,nowAEST()):null;
   const clock=document.createElement('span');clock.className='fixture-timing-clock';clock.textContent=pause?[timing.status,pause.restart].filter(Boolean).join(' • '):timing.time;
   badge.append(day);if(clock.textContent)badge.append(clock);
+  if(activeTab==='feed'&&NOTHINGSPORTS_FEED_TIMELINE.finalDay(ev)&&timing.progress){const progress=document.createElement('small');progress.className='fixture-source-progress';progress.textContent=timing.progress;badge.append(progress);}
   if(['RALLY DATES','TOURNAMENT DATES'].includes(timing.time)){const note=document.createElement('small');note.textContent=ev.key==='wrc'?'Stage timetable not verified':ev.appearances?.length?'See player tee times':'Tee times not verified';badge.append(note);}
   if(timing.status&&!pause){const status=document.createElement('small');status.className='fixture-timing-status';status.textContent=timing.status;badge.append(status);}
   badge.dataset.timingStatus = timing.status;
@@ -177,7 +178,7 @@ function buildCompactCardSummary(ev){
     if(sides.length!==2&&ev.participants?.length===2)sides=ev.participants.map(player=>({players:[typeof player==='string'?{name:player}:player]}));
     if(sides.length===2)identities=NOTHINGSPORTS_FIXTURE_LABELS.australianFirst(sides,ev,cardIdentityParticipants()).map(side=>{
       const players=side.players||[],person=players[0]||{},known=NOTHINGSPORTS_FIXTURE_LABELS.participantRecord(person,ev,cardIdentityParticipants());
-      return {participant:{...known,id:person.id||person.playerId||known.id},label:players.map(p=>p.name||p.displayName||'Player TBC').join(' / '),shortLabel:players.map(p=>{const record=NOTHINGSPORTS_FIXTURE_LABELS.participantRecord(p,ev,cardIdentityParticipants());return record.shortName||record.familyName||record.lastName||p.shortName||p.name||p.displayName||'Player TBC';}).join('/')};
+      return {participant:{...known,id:person.id||person.playerId||known.id},label:players.map(p=>p.name||p.displayName||'Player TBD').join(' / '),shortLabel:players.map(p=>{const record=NOTHINGSPORTS_FIXTURE_LABELS.participantRecord(p,ev,cardIdentityParticipants());return record.shortName||record.familyName||record.lastName||p.shortName||p.name||p.displayName||'Player TBD';}).join('/')};
     });
   }
   const name=document.createElement('span');name.className='compact-card-name minimised-card-name';
@@ -540,7 +541,7 @@ function majorEventMatchupLineup(subEvent,{compact=false}={}){
         person.className = "major-event-matchup-player";
         const known=NOTHINGSPORTS_FIXTURE_LABELS.participantRecord(player,subEvent,cardIdentityParticipants());
         const countryCode = known.countryCode;
-        const fullName=player.name || player.displayName || "Player TBC";
+        const fullName=player.name || player.displayName || "Player TBD";
         const name = participantProfileLink(player.id || player.playerId,fullName,subEvent.key || 'tennis');
         name.textContent = compact ? fullName.trim().split(/\s+/).slice(-1)[0] : fullName;
         if(compact)name.title=fullName;
@@ -551,7 +552,7 @@ function majorEventMatchupLineup(subEvent,{compact=false}={}){
         person.appendChild(name);
         group.appendChild(person);
       });
-    } else group.textContent = side.name || side.displayName || "Side TBC";
+    } else group.textContent = side.name || side.displayName || "Side TBD";
     matchup.appendChild(group);
   });
   return matchup;
@@ -763,7 +764,7 @@ function buildInlineCrowdRating(ev,snapshot){
     status.textContent=failed?'Ratings are temporarily unavailable. Retry to check your saved rating.':'Checking your rating…';
   }
   paint(chosen);root.append(group,prompt);
-  if(phase==='heat'&&!exactTiming&&!ev.dateOnly&&ev.timePrecision!=='date-only'){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent=ev.startTimeUtc&&['not-before','not_before'].includes(ev.timePrecision)?'Not-before start; exact start may be later':'Start time unconfirmed';root.appendChild(timing);}
+  if(phase==='heat'&&!exactTiming&&!ev.dateOnly&&ev.timePrecision!=='date-only'){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent=ev.startTimeUtc&&['not-before','not_before'].includes(ev.timePrecision)?'Not-before start; exact start may be later':'Rating window TBD';root.appendChild(timing);}
   root.appendChild(status);return root;
 }
 
@@ -800,7 +801,7 @@ function buildNothingscorePending(ev,phase){
 function buildNothingscorePanel(ev,snapshot){
  const panel=document.createElement('section');panel.className='nsc-panel';panel.dataset.nscPanel=nothingscoreEventId(ev);
  const back=document.createElement('button');back.type='button';back.className='btn ghost';back.textContent='Back to rankings';back.onclick=()=>{activeNothingscoreContributionEvent=null;renderCrowdRankings();};
- const timing=document.createElement('p');timing.textContent=ev.startTimeUtc?new Date(ev.startTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney'}):'Time TBC';
+ const timing=document.createElement('p');timing.textContent=ev.startTimeUtc?new Date(ev.startTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney'}):'Time TBD';
  panel.append(back,timing,buildNothingscorePeerResults(ev,snapshot,{inDrawer:true}));
  const incentive=document.createElement('p');incentive.className='nsc-note';incentive.textContent='Earn 1 point for Heat, plus 19 when another Nothinger matches it live or afterwards.';panel.appendChild(incentive);
  return panel;
@@ -982,14 +983,14 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
     reminderButton.type = "button";
     reminderButton.className = "event-quick-action primary";
     const reminderRequested = Boolean(getEventAction(ev).reminderRequested);
+    reminderButton.dataset.reminderPrecision = ev.timePrecision || "";
     reminderButton.dataset.reminderActionKey = eventActionKey(ev);
     reminderButton.dataset.reminderAliases = EVENT_ACTION_IDENTITY.aliasesForEvent(ev).join("|");
-    reminderButton.disabled = !reminderRequested && !reminderCanBeScheduled(timing);
     reminderButton.setAttribute("aria-pressed", String(reminderRequested));
     reminderButton.title = timing?.fallback
       ? "Background notification 15 minutes before the published broadcast time because a kickoff or race start is not available."
       : "Background notification 15 minutes before kickoff or race start.";
-    renderQuickReminderButton(reminderButton, reminderRequested);
+    renderQuickReminderButton(reminderButton, reminderRequested, {fixture:ev});
     reminderButton.addEventListener("click", event => {
       event.stopPropagation();
       void toggleQuickReminder(ev, reminderButton);
@@ -1092,14 +1093,14 @@ function appendTeamIdentityFallback(container, mark, label, className = "team-lo
   const monogram = document.createElement("span");
   monogram.className = `${className} team-logo-monogram`;
   monogram.setAttribute("aria-label", label);
-  monogram.textContent = String(label || mark?.label || "TBC").split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase() || "TBC";
+  monogram.textContent = String(label || mark?.label || "TBD").split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase() || "TBD";
   container.appendChild(monogram);
 }
 
 function renderEventTitleIdentity(nameElement, ev, displayTitle, options){
   displayTitle=NOTHINGSPORTS_FIXTURE_LABELS.matchupTitle(ev,displayTitle,cardIdentityParticipants());
   const compact=Boolean(options?.compact);
-  if((ev.key==='tennis'||ev.key==='wimbledon')&&!/hidden|winner of|loser of|TBC/i.test(displayTitle)){
+  if((ev.key==='tennis'||ev.key==='wimbledon')&&!/hidden|winner of|loser of|TBC|TBD/i.test(displayTitle)){
     const lineup=majorEventMatchupLineup(ev,{compact});
     if(lineup){nameElement.appendChild(lineup);return;}
   }
@@ -1169,10 +1170,10 @@ function buildFixtureFallbackCard(event, options = {}){
   const timing = document.createElement("p");
   timing.className = "compact-card-meta";
   const fallbackClock = ev.time && !ev.timeTbc && !ev.startTimeTbc && !ev.dateOnly
-    ? `${ev.timePrecision === 'estimated' ? 'Approx. ' : ev.timePrecision === 'not-before' ? 'Not before ' : ''}${ev.time}` : "TIME TBC";
+    ? `${ev.timePrecision === 'estimated' ? 'Approx. ' : ev.timePrecision === 'not-before' ? 'Not before ' : ''}${ev.time}` : "TIME TBD";
   timing.textContent = ev.timingProvenance?.precision==='venue-calendar' ? NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule : [NOTHINGSPORTS_AUSTRALIAN_DATES.date(ev.date), fallbackClock,
     ["cancelled", "canceled", "abandoned", "postponed"].includes(ev.scheduleStatus || ev.status) ? ev.scheduleStatus || ev.status : ""].filter(Boolean).join(" · ");
-  if(ev.calendarNote?.localDateLabel)timing.textContent=ev.calendarNote.localDateLabel+' · Sydney time TBC';
+  if(ev.calendarNote?.localDateLabel)timing.textContent=ev.calendarNote.localDateLabel+' · Sydney time TBD';
   if(activeTab === 'feed')copy.appendChild(ev.calendarNote?.localDateLabel?timing:buildFixtureTimingGroup(ev));
   copy.append(title,...(ev.calendarNote&&activeTab==='feed'?[]:[timing]));
   if(ev.calendarNote){const note=document.createElement('p');note.className='code-inspector-note';note.textContent=ev.fullSpiel;const source=document.createElement('a');source.href=ev.calendarNote.sourceUrl;source.target='_blank';source.rel='noopener noreferrer';source.textContent='Organiser calendar';const links=document.createElement('div');links.className='event-card-secondary-actions';links.append(source,buildFeedScheduleLink(ev));copy.append(note,links);}
@@ -1306,7 +1307,7 @@ function buildDetailedMajorEventCard(record, { interactionCard = null } = {}){
     else {
       const tbc = document.createElement("p");
       tbc.className = "major-event-immediate-tbc";
-      tbc.textContent = "Immediate match line-up TBC. Open Schedule for the source-published schedule.";
+      tbc.textContent = "Immediate match line-up TBD. Open Schedule for the source-published schedule.";
       card.appendChild(tbc);
     }
     const tablePreview = buildMajorEventTablePreview(record);

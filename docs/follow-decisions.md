@@ -984,3 +984,28 @@ Low includes reviewed records and competitive finishes (1 per match, 3 overall i
 A milestone link opens and expands the exact current or retained Cricket fixture in Match Centre without adding it to Feed. Existing source-verified provider actions and subscription ordering apply; unconfirmed viewing retains the scorecard link. A visible, expanded exact fixture on the receiving device gets a spoiler-aware cue instead of system display. No account-wide presence polling is introduced. A retained unavailable-source landing is labelled and remains subject to current privacy and account ownership.
 
 Regression coverage: validate-milestone-alerts, validate-milestone-database, validate-milestone-dispatch, validate-milestone-worker, validate-milestone-browser and validate-milestone-offline-browser. The labelled phone test is not evidence that automatic delivery is enabled. Audit Sportscal architecture remains the sole release owner; live delivery requires actual live-innings shadow evidence, natural dispatcher passes and a closed installed-phone receipt with exact Match Centre landing. Jack selected his existing iPhone Home Screen app for that gate.
+
+
+## Automatic reminders with approximate times — 14 October 2026 Sydney
+
+Jack explicitly supersedes the earlier official-only automatic timing rule and publisher-planning-only restriction. Automatic and deliberate manual reminders may use a source-bound named-fixture publisher estimate or a valid fresh verified court-order estimate. Official exact/not-before clocks take priority; keep the official UTC null for estimates and retain original source clocks. Explicit TBD, unbound sessions/parents/placeholders, failed/stale/held evidence, cancelled/withdrawn/live/completed fixtures and elapsed starts remain ineligible. The shared server policy resolves timing, never client-submitted guesses.
+
+Show a small “Time may be inaccurate” box beside estimated reminder controls on Feed, Match Centre, shared Follow profiles and nested Event fixtures, and identify approximate timing in the notification. Preserve existing automatic sport/stage/tier scope, follows, exclusions, fixture/global/device OFF, permission action, erasure/account isolation and one canonical delivery per installation. Reconcile unsent schedule changes only, using T-15 and the existing sole five-minute dispatcher; no new migration of follows or replay of sent receipts.
+
+Regression: validate-publisher-planning-times.js, validate-manual-estimated-reminders.js (now both origins), validate-automatic-reminders-browser.js, existing scope/schedule/capacity/security/privacy and installed-update contracts. Real queue/provider acceptance remains separate from physical-phone proof.
+
+
+## Approximate reminder wording and TBD timing — 14 October 2026 Sydney
+
+Jack replaces the short warning with “Actual start time may vary, but we’ve done our best.” Use it beside estimated reminder controls, in the accessible label and estimated push text. Unknown time/date labels use TBD instead of TBC. Source confirmation is not a prerequisite for publishing a genuinely bound approximate clock or its automatic reminder. A source marked TBC alongside a valid explicit named-fixture time may still supply that approximate time; actual TBD or absent own-fixture timing remains unknown. Preserve internal timeTbc/startTimeTbc field names and all source failure/stale, identity, stage, OFF and receipt safeguards; bare parent/session timestamps still cannot supply a match. This wording change does not rename IDs, stored choices or historical decisions.
+
+Public card placeholder labels also use TBD. Render retained cached TBC time/date labels as TBD without rewriting original source facts, IDs or internal flags. The rating-window placeholder refers to the separate rating window rather than claiming an approximate match time is unavailable.
+
+
+## One final-day multi-day Feed card — 14 October 2026 Sydney
+
+Jack chose “One full card displayed on the final day only, but with the full date range displayed in the centre.” Feed groups a valid published multi-day fixture or overview on its final published Sydney calendar day. It keeps one canonical card, without daily copies, and shows the original complete date range in the central timing capsule. Independently sourced Test day/progress remains secondary context. Ordinary future cards remain browsable at that final-day position; this is a display position, not a new sporting clock or a claim that play has begun. Independent published sessions retain their own identities. Existing user minimisation/expansion choices remain.
+
+The reported First South Africa–Australia Test retains its 9–13 October range and canonical1525659 identity, appearing under13October. Ordinary server Feed ordering uses the same final-day position before bounded pagination; profile and Match Centre ordering retain their existing rules. A completed multi-day card's seven-day Feed visibility uses a valid source completion receipt, falling back to its published last day rather than a derived opening-day duration. Invalid/backwards windows keep their original day. Preserve admission, follows, exclusions, dismissals, Results OFF, original source dates and reminder OFF; repositioning never creates a start, result, live state or reminder.
+
+Regression: validate-multiday-feed.js through the current-score-placement gate; existing multi-day retention, server Feed and tennis-normalisation checks; actual native Chromium/WebKit final-day heading, centred range, expansion, source-score refresh, hidden results and dismissal redraw at390/1280px. Exact publication, served bytes and hosted/installed-update evidence are separate release gates.

@@ -4,7 +4,9 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(calendar,controls){
   'use strict';
   const overview=event=>Boolean(event.tournamentParent||event.majorEventMarker||event.cardKind==='event'||['tennis_parent','tournament_overview','golf_tournament'].includes(event.cardType));
-  function todayOverview(event,now=new Date()){const today=calendar.sydneyDay(now);return overview(event)&&(event.date||event.startDate)<=today&&event.endDate>=today&&!['completed','finished','final','cancelled','canceled','abandoned'].includes(event.status);}
+  function finalDay(event){const first=event.date||event.startDate,end=event.endDate;return end>first&&calendar.knownDate({date:first})&&calendar.knownDate({date:end})?end:null;}
+  function displayDate(event){return finalDay(event)||event.date||event.startDate;}
+  function todayOverview(event,now=new Date()){return overview(event)&&displayDate(event)===calendar.sydneyDay(now)&&!['completed','finished','final','cancelled','canceled','abandoned'].includes(event.status);}
   function confirmedLive(event,now=new Date()){
     if(overview(event)||!['live','in-progress','in_progress'].includes(String(event.status||'').toLowerCase()))return false;
     const checked=Date.parse(event.statusCheckedAt||event.livePlayObservedAt||'');
@@ -27,7 +29,7 @@
     return start && +start<=+now?'past':'upcoming';
   }
   function sortTime(event){const restart=/^(stumps|rain-delay|break|suspended|interrupted)$/.test(event.status||'')?Date.parse(event.restartTimeUtc||''):NaN;if(Number.isFinite(restart))return restart;return +(calendar.eventStart(event)||Infinity);}
-  function compare(a,b){return String(a.date||a.startDate||'9999').localeCompare(String(b.date||b.startDate||'9999'))||sortTime(a)-sortTime(b)||(a.lemansCalendar&&b.lemansCalendar?a.sessionOrder-b.sessionOrder:0)||calendar.idFor(a).localeCompare(calendar.idFor(b));}
+  function compare(a,b){return String(displayDate(a)||'9999').localeCompare(String(displayDate(b)||'9999'))||sortTime(a)-sortTime(b)||(a.lemansCalendar&&b.lemansCalendar?a.sessionOrder-b.sessionOrder:0)||calendar.idFor(a).localeCompare(calendar.idFor(b));}
   function beforeNow(event,now=new Date()){
     const start=sortTime(event);
     return !todayOverview(event,now)&&!confirmedLive(event,now)&&(status(event,now)==='past'||Number.isFinite(start)&&start<=+now);
@@ -44,9 +46,9 @@
   function groups(events,now=new Date()){
     const today=calendar.sydneyDay(now),result={retainedPast:[],today:[],future:[],unknown:[]};
     for(const event of events){
-      const date=event.date || event.startDate;
+      const date=displayDate(event);
       if(!/^\d{4}-\d{2}-\d{2}$/.test(date || ''))result.unknown.push(event);
-      else if(date===today || date<today && (todayOverview(event,now) || ['live','ongoing','stumps','suspended','interrupted','rain-delay','break'].includes(event.status)&&Number.isFinite(Date.parse(event.statusCheckedAt||event.livePlayObservedAt||''))))result.today.push(event);
+      else if(date===today || !finalDay(event)&&date<today && (todayOverview(event,now) || ['live','ongoing','stumps','suspended','interrupted','rain-delay','break'].includes(event.status)&&Number.isFinite(Date.parse(event.statusCheckedAt||event.livePlayObservedAt||''))))result.today.push(event);
       else if(date<today)result.retainedPast.push(event);
       else if(date>today)result.future.push(event);
     }
@@ -54,5 +56,5 @@
     result.today=orderToday(result.today,now);
     return result;
   }
-  return {status,normalizedStatus,compare,groups,confirmedLive,overview,todayOverview,beforeNow,orderToday};
+  return {status,normalizedStatus,compare,groups,confirmedLive,overview,todayOverview,beforeNow,orderToday,finalDay,displayDate};
 });

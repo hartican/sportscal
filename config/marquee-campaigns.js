@@ -122,7 +122,7 @@
   }
   function dateOnlyParts(event){
     const source = clean(event?.date);
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(source)) return { day:"", weekday:"", date:clean(event?.displayDateLabel) || "Date TBC", time:"Time TBC", timezone:"Sydney time" };
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(source)) return { day:"", weekday:"", date:clean(event?.displayDateLabel) || "Date TBD", time:"Time TBD", timezone:"Sydney time" };
     const date = new Date(`${source}T00:00:00Z`);
     const short = new Intl.DateTimeFormat("en-AU", { timeZone:"UTC", weekday:"short", day:"numeric", month:"short", year:"numeric" }).formatToParts(date);
     const parts = Object.fromEntries(short.map(part => [part.type, part.value]));
@@ -130,7 +130,7 @@
       day:parts.weekday || "",
       weekday:new Intl.DateTimeFormat("en-AU", { timeZone:"UTC", weekday:"long" }).format(date),
       date:clean(event?.displayDateLabel) || [parts.weekday, parts.day, parts.month, parts.year].filter(Boolean).join(" "),
-      time:"Time TBC",
+      time:"Time TBD",
       timezone:"Sydney time",
     };
   }
@@ -150,10 +150,10 @@
     const when = hasConfirmedStart ? sydneyParts(timing.startTimeUtc) : dateOnlyParts(event);
     const finish = sydneyParts(timing.endTimeUtc);
     const matchupSuffix = identity.matchupLabel && !identity.recognisableTitle.toLowerCase().includes(identity.matchupLabel.toLowerCase()) ? `, ${identity.matchupLabel}` : "";
-    const scheduleLabel = hasConfirmedStart ? `${when.day} ${when.time}` : `${when.date} · time TBC`;
+    const scheduleLabel = hasConfirmedStart ? `${when.day} ${when.time}` : `${when.date} · time TBD`;
     const subject = `5/5 stakes: ${identity.recognisableTitle}${matchupSuffix} — ${scheduleLabel}`.slice(0, 150);
     const preheader = `Join the ${identity.shortTitle} watch party, then rate it after the finish.`.slice(0, 150);
-    const captionWhen = hasConfirmedStart ? `${when.date} at ${when.time} ${when.timezone}` : `${when.date}; exact time TBC`;
+    const captionWhen = hasConfirmedStart ? `${when.date} at ${when.time} ${when.timezone}` : `${when.date}; exact time TBD`;
     const caption = `UNMISSABLE ${clean(event?.sport || event?.key || "SPORT").toUpperCase()}: ${identity.recognisableTitle}${matchupSuffix}. ${captionWhen}. 5/5 stakes. ${hook} Join the watch party and rate it afterwards — link in bio.`;
     const altText = `Nothing Sport UNMISSABLE card for ${identity.recognisableTitle}${matchupSuffix}, ${hasConfirmedStart ? `starting ${when.date} at ${when.time} ${when.timezone}` : `listed for ${when.date} with the exact start time to be confirmed`}.`;
     const headline = hasConfirmedStart ? `${when.weekday || when.day} watch party: ${identity.shortTitle}` : `${identity.shortTitle}: on the 5/5 watchlist`;
