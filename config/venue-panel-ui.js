@@ -1522,4 +1522,3 @@ async function openNothingscoreContribution(ev, {showResults = false} = {}){
     if (showResults) document.getElementById("nothingscoreBackdrop")?.querySelector(".nsc-peer-results details")?.setAttribute("open", "");
   }
 }
-
