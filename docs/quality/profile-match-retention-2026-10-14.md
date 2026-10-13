@@ -22,3 +22,6 @@ Act before adding more features: losing an opened match blocks an ordinary retur
 ## Independent review scope
 
 Standards found zero actionable issues in inspected source integration, validation code and cache bindings. Spec found zero actionable issues in the actual profile/view/history/account/Back lifecycle, Feed caller, cache identity and release bindings. Spec sampled the large decision records and did not fully inspect the frozen fixture or browser harness; it was stopped at a bounded investigation limit. No exhaustive thirteen-file Spec certificate is claimed. Neither reviewer ran tests, services, production checks or real accounts/devices; root-run receipts remain separate. Generated runtime and sporting payload were not independently reviewed.
+
+
+Additional independent actual in-app-browser receipt at 13 October 19:15 UTC verifies the same app/shell: native Tsitsipas profile → Open match → unchanged Filter Feed/Apply and later ratings-response redraw retains one actual not-before 9 pm card; Back restores the profile and exact Open match focus. Results OFF and Follow count zero remain; no Follow/reminder/rating/pin controls, API overrides or fake clock were used, and no page errors were observed. Saved receipt and screenshot are in the delivery folder. This is actual guest browser evidence, not a physical phone or private real-account certificate.
