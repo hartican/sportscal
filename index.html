@@ -15815,9 +15815,11 @@ function scheduleNothingscorePoll(delay = 120_000){
     ids.forEach(id=>nothingscoreBatchInFlight.add(id));
     try{
       if (ids.length) await loadNothingscoreBatch(ids);
+      if(generation!==nothingscoreReadGeneration)return;
       nothingscorePollFailures = 0;
       scheduleNothingscorePoll(120_000);
     }catch(_error){
+      if(generation!==nothingscoreReadGeneration)return;
       nothingscorePollFailures += 1;
       scheduleNothingscorePoll(120_000);
     }finally{

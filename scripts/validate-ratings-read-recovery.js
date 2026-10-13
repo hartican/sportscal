@@ -32,6 +32,24 @@ client.serverSyncClient={async nothingscoreRequest({ids}){requests.push(ids);ret
 vm.createContext(client);vm.runInContext(['nothingscoreEventId','visibleNothingscoreReadIds','syncNothingscoreReadRecovery','nothingscoreReadRecoveryState','retryNothingscoreRatings','nothingscoreReadFailed','nothingscoreReadRecovered','loadNothingscoreBatch','flushNothingscoreBatch','registerNothingscoreEvent','visiblePulseNothingscoreIds'].map(source).join('\n'),client);
 client.nothingscoreReadRecovery=createReadRecovery({...time,active:()=>client.document.visibilityState!=='hidden'&&client.navigator.onLine!==false,eligible:()=>client.visibleNothingscoreReadIds(),pending:id=>inFlight.has(id)||pending.has(id),retry:ids=>{ids.forEach(id=>pending.add(id));void client.flushNothingscoreBatch();}});
 nodes.set('fixture',{dataset:{nscEventId:'fixture'},getClientRects:()=>[{}],closest:()=>null});
+async function stalePollCannotChangeCurrentAccount(fails){
+ const timers=new Map(),cleared=[],inFlight=new Set();let nextTimer=0,settle,syncs=0;
+ const poll={nothingscoreReadGeneration:1,nothingscorePollFailures:0,nothingscorePollTimer:null,nothingscoreBatchInFlight:inFlight,
+  navigator:{onLine:true},document:{visibilityState:'visible'},visiblePulseNothingscoreIds:()=>['shared-fixture'],
+  window:{setTimeout(fn){const id=++nextTimer;timers.set(id,fn);return id;},clearTimeout(id){cleared.push(id);timers.delete(id);}},
+  loadNothingscoreBatch:()=>new Promise((resolve,reject)=>{settle=fails?reject:resolve;}),syncNothingscoreReadRecovery(){syncs++;}};
+ vm.createContext(poll);vm.runInContext(source('scheduleNothingscorePoll'),poll);
+ poll.scheduleNothingscorePoll();const oldCallback=timers.get(poll.nothingscorePollTimer),late=oldCallback();
+ poll.nothingscoreReadGeneration++;poll.nothingscorePollFailures=2;poll.scheduleNothingscorePoll();
+ const currentTimer=poll.nothingscorePollTimer,clearCount=cleared.length,timerCount=nextTimer;
+ settle(fails?Error('old account poll failure'):undefined);await late;
+ assert.equal(poll.nothingscorePollFailures,2,`stale ${fails?'failed':'successful'} poll cannot change the current account's failure count`);
+ assert.equal(poll.nothingscorePollTimer,currentTimer,'stale completion must preserve the current account timer');
+ assert.equal(cleared.length,clearCount,'stale completion cannot clear current timers');
+ assert.equal(nextTimer,timerCount,'stale completion cannot schedule a replacement poll');
+ assert(inFlight.has('shared-fixture'),'stale completion cannot release a current account in-flight ID');
+ assert.equal(syncs,0,'stale completion cannot sync current account recovery');
+}
 (async()=>{
  client.nothingscoreReadFailed('fixture');time.advance(300_000);await new Promise(resolve=>setImmediate(resolve));assert.equal(requests.length,1);assert(!errors.has('fixture'),'successful timed read clears the error');
  client.nothingscoreReadFailed('fixture');const count=requests.length;for(let i=0;i<10;i++)client.registerNothingscoreEvent({id:'fixture'});time.advance(0);assert.equal(requests.length,count,'redraw does not bypass a failed-read budget');assert.equal(client.visiblePulseNothingscoreIds().length,0,'pulse polling excludes failed IDs');
@@ -40,5 +58,6 @@ nodes.set('fixture',{dataset:{nscEventId:'fixture'},getClientRects:()=>[{}],clos
  client.document.visibilityState='hidden';client.syncNothingscoreReadRecovery();time.advance(300_000);assert.equal(requests.length,count);client.navigator.onLine=false;client.document.visibilityState='visible';client.syncNothingscoreReadRecovery();time.advance(300_000);assert.equal(requests.length,count);
  let resolve;client.serverSyncClient.nothingscoreRequest=()=>new Promise(r=>{resolve=r;});const late=client.loadNothingscoreBatch(['private']);client.nothingscoreReadGeneration+=2;resolve({snapshots:[{eventId:'private',phase:'heat',currentUser:{submissions:{heat:{rating:5}}}}]});await late;assert(!snapshots.has('private'),'a same-owner sign-out/sign-in generation cannot accept an old private response');
  let reject;client.serverSyncClient.nothingscoreRequest=()=>new Promise((_,r)=>{reject=r;});const oldFailure=client.loadNothingscoreBatch(['old-owner']);client.nothingscoreReadGeneration++;reject(Error('old account failure'));await assert.rejects(oldFailure);assert(!errors.has('old-owner'),'old failures cannot schedule recovery for a new account');
+ await stalePollCannotChangeCurrentAccount(false);await stalePollCannotChangeCurrentAccount(true);
  console.log('Ratings reads: bounded 30/60/120 recovery, manual coalescing, foreground batches, route/offline cancellation, last-good privacy and account-generation fences pass.');
 })().catch(error=>{console.error(error);process.exitCode=1;});
