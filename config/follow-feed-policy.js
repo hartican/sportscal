@@ -157,13 +157,14 @@
     return labels?.gender(event)==='women'&&!['aflw','nrlw','wnba','fiba-women','netball'].includes(family)&&!family.endsWith('-women')?family+'-women':family;
   }
 
-  function australiansFilterUseful(event){
-    const key = sportKey(event);
-    if (["afl", "aflw", "nrl", "nrlw", "afl-premiership", "nrl-premiership"].includes(key)) return false;
-    if (["rugby", "cricket"].includes(key) && event?.competitionScope === "domestic"
-      && ["AU", "AUS"].includes(String(event?.countryCode || event?.competitionCountryCode || "").toUpperCase())) return false;
-    return true;
+  function australianDomesticScope(event){
+    // Canonical competition identity wins over broad aliases, never venue country.
+    const competition=String(event?.competitionId||'');
+    if(competition)return /^competition:(?:afl-premiership|aflw|nrl-premiership|nrlw-premiership|state-of-origin|nbl|bbl|wbbl|supercars)(?:[:-]20\d{2})?$/.test(competition)||/^competition:horse-racing(?:[:-]|$)/.test(competition);
+    const scope=String(event?.selectorId||event?.sportDomainId||event?.key||event?.sportKey||'').replace(/^sport:/,'');
+    return ['horse-racing','afl','aflw','afl-premiership','nrl','nrlw','nrl-premiership','state-of-origin','nbl','bbl','wbbl','supercars'].includes(scope);
   }
+  function australiansFilterUseful(event){return !australianDomesticScope(event);}
 
   function hasAustralianParticipant(event){
     const excluded = new Set(event?.excludedParticipantIds || []);
@@ -266,7 +267,7 @@
     if(event.universeOnly || !activeEligible(event) || !hasPublishedFixture(event) || aggregateEvent(event) && !multiDayMarker(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
-    if(sportKey(event)==='horse-racing')return approvedHorseFeature(event)&&Boolean(event.date)&&(!australiansOnly||hasAustralianParticipant(event))&&(sportFollow||competitionFollow||explicitEventFollow);
+    if(sportKey(event)==='horse-racing')return approvedHorseFeature(event)&&Boolean(event.date)&&(sportFollow||competitionFollow||explicitEventFollow);
     if(['golf','golf-women','masters'].includes(sportKey(event))){
       if(event.cardType!=='golf_session'&&event.participantsConfirmed===true&&(participantFollow||competitionFollow&&australiansOnly&&hasAustralianParticipant(event)))return true;
       // Retain the tournament identity for pins and confirmed golfer entries.
@@ -295,5 +296,5 @@
     return { mode:"manual", include:false, label:"Add to Feed" };
   }
 
-  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, presidentsCup, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, eventFamilyIds, editionKey, editionDecision, eventExcluded, activeEligible, scheduleVisible, multiDayMarker, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, participantFeedEligible, followedFixtureDecision });
+  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, presidentsCup, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, eventFamilyIds, editionKey, editionDecision, eventExcluded, activeEligible, scheduleVisible, multiDayMarker, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australianDomesticScope, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, participantFeedEligible, followedFixtureDecision });
 });

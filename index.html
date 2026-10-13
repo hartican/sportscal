@@ -11356,7 +11356,7 @@ async function performRemoteFeedRefresh({ quiet = false, signedInHint = false } 
         message: "Your local copy is active. The central feed rebuild is temporarily unavailable.",
       });
     }
-    // Failed reads retain validated pages, cursor and membership.
+    // Retain validated data on failure.
     if(activeEvents.length && derivedCardCache?.derivedCards?.length){
       if(!quiet)showToast('Refresh unavailable. Your saved fixtures are still available.');
       return {source:'last-valid',eventCount:activeEvents.length,cardCount:derivedCardCache.derivedCards.length,rendered:false};
@@ -11433,7 +11433,7 @@ function warmNextFeedPageDuringIdle(){
   warmedPublicFeedPages.add(path);
   const warm = () => {
     publicFeedWarmHandle = null;
-    // Drain prefetched bodies so a shell upgrade cannot be blocked.
+    // Drain prefetch before upgrade.
     fetch(path, { cache:"force-cache", credentials:"same-origin", signal:AbortSignal.timeout(8000) }).then(async response => {
       if (!response.ok){
         await response.body?.cancel();
@@ -11843,7 +11843,7 @@ function normalizeEvents(events = activeEvents){
       ev.round = ev.round || inferRound(ev.name);
     }
     } catch (_error){
-      // Core identity/date survive even when optional presentation is malformed.
+      // Keep core identity on optional failure.
       console.warn("Fixture presentation normalization fallback", ev.eventId || ev.id);
     }
     globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.apply(ev,{inPlace:true});
@@ -13315,9 +13315,7 @@ function discoverySportHasFroth(nodeId, preferences = userPreferences){
     preference.enabled !== false
     && (
       preference.templateId === "template:froth"
-      // Legacy "all fixtures" choices migrate to Custom. Treat that explicit
-      // depth as Froth for inherited one-off discovery so migration does not
-      // silently narrow a user's feed.
+      // Preserve legacy all-fixture discovery depth.
       || (preference.templateId === "template:custom" && preference.includeAllFixtures === true)
     )
     && (
@@ -14839,7 +14837,7 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
   restoreAnchor();
   scheduleRestore();
   window.requestAnimationFrame(() => {
-    // Recheck after browser anchoring to keep the tapped card steady.
+    // Recheck anchored position.
     scheduleRestore();
     if (restoreFocus){
       const requestedFocus = typeof focusTarget === "string"
@@ -15580,7 +15578,7 @@ function nothingscoreQueueRender(){
     nothingscoreRenderQueued = false;
     const anchor = captureViewportRenderAnchor().card;
     mutateWithScrollContinuity(anchor, () => {
-      // Scores patch only their live regions and preserve the fixture being read.
+      // Patch scores without replacing the card.
       document.querySelectorAll(".nsc-summary").forEach(node => {
         const ev = nothingscoreEventRefs.get(node.dataset.nscEventId);
         if (!ev || inlineRatingRequests.has(nothingscoreEventId(ev))) return;
@@ -15718,7 +15716,7 @@ async function submitNothingscoreAction(command, panel, { success = "Your Nothin
       try {
         result = await serverSyncClient.nothingscoreRequest({}, command);
       } catch(error){
-        // A lost response or conflict may still mean the server committed the vote.
+        // A lost reply may still mean a committed vote.
         nothingscoreSubmissionStore.uncertain(key);
         const receipt = await reconcileNothingscoreSubmission(eventId,submittedPhase,{expectedOwner:owner});
         if (receipt) result = {...receipt,replayed:true};
@@ -15998,7 +15996,7 @@ function jointTournamentIsActive(document = jointTournamentData, reference = now
   if (localDay > tournament.endDate) return false;
   if (localDay >= tournament.startDate) return true;
 
-  // An early official OOP may pin this card; an empty overview cannot.
+  // Only official OOP can pin this card.
   const scheduleDate = document?.schedule?.date;
   const retrievedAt = Date.parse(document?.retrievedAt || "");
   return Boolean(document?.schedule?.matches?.length
@@ -23308,8 +23306,7 @@ function runStartupFeedBarrier(){
       throw error;
     }));
   Promise.allSettled(startupTasks).then(() => {
-    // A timeout may finish before a valid source response. Only this same
-    // attempt can recover, and every task must still pass its original check.
+    // Recover only this valid timed-out attempt.
     if (startupFeedState.attempt !== attempt || !["loading", "failed"].includes(startupFeedState.phase)) return;
     const issues = tasks.filter(task => taskStates.get(task.name) !== "valid").map(task => task.name);
     if (issues.length) return;

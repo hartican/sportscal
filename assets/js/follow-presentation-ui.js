@@ -588,7 +588,7 @@ function renderFollowViewLoaded(){
   const follow=document.createElement('input');follow.type='checkbox';follow.checked=followed;follow.setAttribute('aria-label',`Follow ${entity.label}`);
   follow.addEventListener('change',()=>saveFollowSport({id:entity.canonicalSportKeys?.[0],selectorId:entity.id,label:entity.label},follow.checked));
   followLabel.append(follow,document.createTextNode(`Follow ${entity.label}`));commonControls.appendChild(followLabel);
-  if(followed && FOLLOW_FEED_POLICY.australiansFilterUseful({key:followDirectoryKey(entity)})){
+  if(followed && FOLLOW_FEED_POLICY.australiansFilterUseful({selectorId:entity.id,key:followDirectoryKey(entity),competitionId:entity.competitionId})){
     const label=document.createElement('label');label.className='follow-checkbox';
     const au=document.createElement('input');au.type='checkbox';au.checked=(userPreferences.followFirst.australiansOnlySportIds || []).includes(entity.id);au.setAttribute('aria-label','Follow Australians');
     au.onchange=()=>{const next=clonePreferences(userPreferences);const ids=new Set(next.followFirst.australiansOnlySportIds || []);au.checked?ids.add(entity.id):ids.delete(entity.id);next.followFirst.australiansOnlySportIds=[...ids];savePreferences(next);renderAll({preserveViewport:true});};

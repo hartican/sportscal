@@ -1,5 +1,13 @@
 # Follow and Feed decisions
 
+## Flagship racing and Australian domestic filters — 13 October 2026 Sydney
+
+Jack approved the [phased contract](plans/horse-flagship-2026-10-13.md). Horse Major Events now selects twelve individual race editions, nine dated and three date-pending. Carnivals remain Events context without new Horse carnival switches; retained carnival choices still bind sourced children and more-specific race choices win. Only dated approved individual races enter Feed. Canonical IDs, other follows/exclusions and Horse sport-only reminder exclusion remain.
+
+Retire Follow Australians for Horse Racing and represented wholly Australian domestic scopes (AFL/AFLW, NRL/NRLW, State of Origin, NBL, BBL/WBBL, Supercars). Shared canonical competition identity overrides broad sport labels; venue country is irrelevant. Mixed scopes preserve useful international/overseas controls while domestic fixtures bypass them. Normalization retires obsolete saved restrictions without adding any follows.
+
+A separately guarded one-time frozen registered-account cohort enables Horse only absent explicit sport refusal. Application verification precedes database application. Guests/future onboarding, tennis migration, notifications, device permissions, fixture OFF and race/carnival exclusions stay unchanged. Offline sport-list deltas preserve concurrent additions and explicit later removals; legacy replacement lists cannot erase the recorded Horse rollout choice. Regression: Horse Follow client/server parity, twelve native edition journeys, cross-device sync and staged Horse migration rehearsal. Release/database proof is recorded separately; a source commit is not deployment or cohort completion.
+
 ## True minimised rows and readable Cricket cards — 13 October 2026 Sydney
 
 Jack approved one 56px-high native-button row for minimised Feed, Events and Schedule matches and event/tournament overviews. Keep 20px marks, approved short teams/event name and a source-qualified 24-hour clock or explicit status; competition/format is omitted before progress when space is limited, and names truncate. Full source dates/context remain accessible. No score, editorial, rating, provider, venue or action bar is mounted in this state; explicit calendar-selection mode retains its existing selection target. A row opens the normal selected card, then score/More opens details. Dedicated overview row taps close their prior details; saved choices and all other draw selections remain. Match Centre's scoreboard layout is unchanged.

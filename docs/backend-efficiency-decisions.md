@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Guarded Horse flagship rollout — 13 October 2026 Sydney
+
+The approved phased contract reuses existing Schedule/Events documents and account-state patch/CAS. Major Events reuses one cached Horse schedule, with no organiser requests or new endpoint. Canonical domestic classification is shared client/server. Optional before-values on existing sport-list patches preserve genuine local deltas during rebase; the durable Horse choice fences legacy replacements. The staged one-time private frozen registered cohort retains snapshots, revision-safe locked current states, the existing erasure advisory barrier, private RLS and Auth-cascade cleanup. Apply only after verified application release through Audit. No tennis replay, notification/permission/queue mutation, source owner, dispatcher, cron, polling or request-budget change. Required gates and precise production/database receipts remain separate.
+
 ## Bounded foreground ratings read recovery — 13 October 2026 Sydney
 
 Jack explicitly authorised automatic client ratings-summary read retries after successive waits of 30, 60 and 120 seconds following failures, then a pause. One shared queue/timer reuses the existing fifty-ID batch reader, canonical IDs, pending/in-flight coalescing and accepted snapshot merge. Redraws and pulse polling cannot bypass a failed ID's budget. One centred manual Retry ratings control starts an immediate fresh cycle; duplicate in-flight actions coalesce. Hidden/offline views pause; foreground recovery sends at most one due batch, spacing remaining due IDs. Removed/minimised cards cannot generate retries. Account generation changes discard late success/failure and reset recovery. Healthy summary/detail reads clear failures; last-good values survive failed reads, and failure never proves zero peer ratings.

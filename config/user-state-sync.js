@@ -59,7 +59,7 @@
       return;
     }
     if (!plainObject(previous) || !plainObject(current)){
-      changes.push({ path: [...path], value: clone(current) });
+      changes.push({ path: [...path], value: clone(current), ...(sportSelectionPath(path)&&Array.isArray(previous)&&Array.isArray(current)?{baseValue:clone(previous)}:{}) });
       return;
     }
     const keys = [...new Set([...Object.keys(previous), ...Object.keys(current)])].sort();
@@ -89,7 +89,7 @@
       const removesValue = change.remove === true;
       if (hasValue === removesValue) throw new TypeError("A patch change requires either a value or remove flag.");
       if (removesValue) return { path: [...change.path], remove: true };
-      return { path: [...change.path], value: clone(change.value) };
+      return { path: [...change.path], value: clone(change.value), ...(sportSelectionPath(change.path)&&Array.isArray(change.baseValue)&&change.baseValue.every(id=>typeof id==='string')?{baseValue:clone(change.baseValue)}:{}) };
     });
     return {
       schemaVersion: PATCH_SCHEMA_VERSION,
@@ -110,12 +110,18 @@
       }
       const finalSegment = change.path[change.path.length - 1];
       if (change.remove) delete target[finalSegment];
-      else target[finalSegment] = clone(change.value);
+      else if(sportSelectionPath(change.path)&&Array.isArray(change.baseValue)&&Array.isArray(change.value)&&Array.isArray(target[finalSegment])){
+        const before=new Set(change.baseValue),after=new Set(change.value),merged=new Set(target[finalSegment]);
+        for(const id of before)if(!after.has(id))merged.delete(id);
+        for(const id of after)if(!before.has(id))merged.add(id);
+        target[finalSegment]=[...merged];
+      }else target[finalSegment] = clone(change.value);
     });
     preserveFantasyDecision(baseState, patch, next);
     return next;
   }
 
+  function sportSelectionPath(path){return path.length===2&&path[0]==='preferences'&&['selectedSelectorEntityIds','followedSports'].includes(path[1]);}
   function preserveFantasyDecision(baseState, patch, next){
     const prior=baseState?.preferences?.fantasyDeadlines;
     if (!Number.isSafeInteger(prior?.rolloutVersion) || prior.rolloutVersion<2) return;

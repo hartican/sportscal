@@ -39,7 +39,7 @@ assert(!follow.migratePreferences({}).selectedSelectorEntityIds.includes('sport:
 const overviews=JSON.parse(fs.readFileSync('data/event-overviews.v1.json')).events.filter(e=>e.sportKey==='horse-racing');
 const australians={...on,followFirst:{...on.followFirst,australiansOnlySportIds:['sport:horse-racing']}};
 for(const race of races){
- check(race,australians,false,'Australian-only cannot invent Australian field evidence: '+race.name);
+ check(race,australians,true,'Retired domestic Australian-only setting cannot hide flagship races: '+race.name);
  const canonical=race.canonicalEventId||race.id;
  const parent=overviews.find(e=>(e.fixtureIds||[]).includes(canonical));
  assert(parent,'Published carnival membership exists: '+race.name);
@@ -55,3 +55,9 @@ for(const race of races){
 }
 console.log('Horse Follow: Australian-only evidence and actual carnival child choices passed.');
 console.log('Horse Follow: actual nine-race browser/server parity, explicit consent/unfollow/exclusions, pending dates and no automatic reminders passed.');
+
+for(const id of ['afl-premiership','aflw','nrl-premiership','nrlw-premiership','state-of-origin','nbl','bbl','wbbl','supercars']){
+ assert.equal(policy.australiansFilterUseful({competitionId:'competition:'+id,key:'mixed'}),false,id);
+}
+for(const competitionId of ['competition:cricket-international','competition:ipl','competition:nba','competition:premier-league','competition:rugby-league-world-cup','competition:formula-one'])assert.equal(policy.australiansFilterUseful({competitionId,key:'nrl',venueCountryCode:'AU'}),true,competitionId);
+assert.deepEqual(follow.migratePreferences({followFirst:{australiansOnlySportIds:['sport:horse-racing','sport:nbl','sport:supercars','sport:cricket','sport:nba']}}).followFirst.australiansOnlySportIds,['sport:cricket','sport:nba']);

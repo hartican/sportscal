@@ -369,7 +369,7 @@
         startupMeta,
         appliedSeedHash:String(prior.appliedSeedHash || "") || null,
         australiaInternationalsEnabled:prior.australiaInternationalsEnabled !== false,
-        australiansOnlySportIds:Array.from(new Set((Array.isArray(prior.australiansOnlySportIds) ? prior.australiansOnlySportIds : []).filter(id => typeof id === "string" && id.startsWith("sport:")))),
+        australiansOnlySportIds:Array.from(new Set((Array.isArray(prior.australiansOnlySportIds) ? prior.australiansOnlySportIds : []).filter(id => typeof id === "string" && id.startsWith("sport:") && (root.NOTHINGSPORTS_FOLLOW_FEED_POLICY || (typeof require==='function'?require('./follow-feed-policy'):null))?.australiansFilterUseful({selectorId:id})))),
         followedMajorEventIds,
         excludedMajorEventIds,
         eventFamilyDecisions:{

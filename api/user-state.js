@@ -193,6 +193,7 @@ module.exports = async function userStateHandler(request, response){
       patch,
       userStateSync.applyPatch(priorState, patch),
     );
+    require('../lib/horse-follow-rollout').preserveHorseRollout(priorState,patch,merged);
     if (existing && sameUserState(existing, merged)){
       response.status(200).json({
         user: publicUser(user),

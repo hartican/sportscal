@@ -38,7 +38,7 @@ async function render(container){
   const context=[event.venueCity,event.tour,event.tournamentLevel,stage].filter(Boolean);if(context.length)card.append(text('p',[...new Set(context)].join(' · ')));
   for(const fixture of next.slice(0,2)){const row=text('p',fixture.spoilerSafeTitle||fixture.name,'athletes-next-match');const timing=NOTHINGSPORTS_CARD_TIMING.presentation(fixture,nowAEST());row.append(document.createTextNode(' · '+timing.fullSchedule));card.append(row);}
   if(!next.length&&(event.participantIds||[]).some(follows))card.append(text('p','Next followed appearance has not been verified.','athletes-coverage-gap'));
-  card.append(buildEventEditionToggle({...event,tournamentParent:true}));
+  if(event.sportKey!=='horse-racing'||event.calendarPending)card.append(buildEventEditionToggle({...event,tournamentParent:true}));
   const details=document.createElement('details'),summary=text('summary','Fixtures');details.append(summary);details.open=state==='opened'||eventOverviewOpen.has(event.id)||openTarget;card.append(details);let loaded=false;
   if(timing.progress)details.append(text('p',timing.fullSchedule,'fixture-source-dates'));
   const mount=async()=>{if(!details.open||loaded)return;loaded=true;const list=document.createElement('div');list.textContent='Loading published fixtures…';details.append(list);try{
@@ -64,8 +64,14 @@ async function followRows(container,sportKey){
  const calendarDay=e=>{if(e.legacyMajor&&e.timezone){try{return MAJOR_EVENTS.dateKey(reference,e.timezone);}catch{}}return today;};
  await loadMajorEventsData();if(!container.isConnected)return;
  const majors=(majorEventsDocument?.events||[]).filter(e=>e.kind!=='ticket_sale'&&COMPETITION_CLASSIFICATION.belongsInEvents(e)!==false).map(e=>({...e,...majorEventActionEvent(e),editionId:e.id,eventFamilyId:MAJOR_EVENTS.eventFamilyId(e),sportKey:e.sportKey,date:e.startDate,endDate:e.endDate,participantsConfirmed:true,legacyMajor:true}));
- const events=[...eventOverviewsDocument.events,...majors].filter(e=>e.sportKey===sportKey&&(e.calendarPending||(e.endDate||e.date)>=calendarDay(e))&&FOLLOW_FEED_POLICY.activeEligible({...e,key:e.sportKey}));
- for(const event of events){const card=document.createElement('div');card.className='follow-event-family';card.dataset.edition=FOLLOW_FEED_POLICY.editionKey(event);card.dataset.eventFamilyId=event.eventFamilyId||card.dataset.edition;const copy=text('div','');copy.append(text('strong',event.name),text('small',event.calendarPending?'Edition date pending':event.legacyMajor?majorEventDateLabel(event):event.date+' – '+event.endDate));const open=text('button','Open in Events','btn ghost');open.type='button';open.dataset.followEventId=event.id;open.onclick=()=>openMajorEventInEvents(event.id,{tournament:!event.legacyMajor});card.append(copy,buildEventEditionToggle({...event,tournamentParent:true}),open);container.append(card);}
+ let candidates=[...eventOverviewsDocument.events,...majors];
+ if(sportKey==='horse-racing'){
+  if(!sessionSchedules.has(sportKey))sessionSchedules.set(sportKey,fetchJson('data/follow-schedule/'+sportKey+'.json',{cache:'no-cache'}).catch(error=>{sessionSchedules.delete(sportKey);throw error;}));
+  const schedule=await sessionSchedules.get(sportKey);if(!container.isConnected)return;
+  candidates=[...(schedule.fixtures||[]).map(f=>({...NOTHINGSPORTS_FIXTURE_IDENTITY.fromSchedule(f,sportKey),id:f.id,editionId:f.id,sportKey,endDate:f.date})),...eventOverviewsDocument.events.filter(e=>e.sportKey===sportKey&&e.calendarPending)];
+ }
+ const events=candidates.filter(e=>e.sportKey===sportKey&&(e.calendarPending||(e.endDate||e.date)>=calendarDay(e))&&FOLLOW_FEED_POLICY.activeEligible({...e,key:e.sportKey}));
+ for(const event of events.sort((a,b)=>(a.date||'9999').localeCompare(b.date||'9999')||a.name.localeCompare(b.name))){const card=document.createElement('div');card.className='follow-event-family';card.dataset.edition=FOLLOW_FEED_POLICY.editionKey(event);card.dataset.eventFamilyId=event.eventFamilyId||card.dataset.edition;const copy=text('div','');copy.append(text('strong',event.name),text('small',event.calendarPending?'Edition date pending':event.legacyMajor?majorEventDateLabel(event):event.endDate&&event.endDate!==event.date?event.date+' – '+event.endDate:event.date));const open=text('button','Open in Events','btn ghost');open.type='button';open.dataset.followEventId=event.id;open.onclick=()=>openMajorEventInEvents(event.id,{tournament:!event.legacyMajor});card.append(copy,buildEventEditionToggle({...event,tournamentParent:true}),open);container.append(card);}
  if(!events.length)container.append(text('p','No current editions are published for this sport.'));
  const legacy=userPreferences.followFirst?.followedMajorEventIds||[];if(legacy.length){const note=text('p','Existing recurring selections are retained. These buttons change this edition only.');container.append(note);}installFollowEventBulk(container);
 }
