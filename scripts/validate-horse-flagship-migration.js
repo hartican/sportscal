@@ -1,7 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),{PGlite}=require('@electric-sql/pglite');
 const actualSync=require('../config/user-state-sync'),guard=require('../lib/horse-follow-rollout'),sync={...actualSync,applyPatch:(base,patch)=>{const next=actualSync.applyPatch(base,patch);guard.preserveHorseRollout(base,actualSync.normalizePatch(patch),next);return next;}},follow=require('../config/follow-first');
-const sql=fs.readFileSync('supabase/migrations/20261013065512_horse_flagship_existing_accounts.sql','utf8');
+const sql=fs.readFileSync('supabase/migrations/20261013080856_horse_flagship_existing_accounts.sql','utf8');
 const id=n=>'00000000-0000-4000-8000-'+String(n).padStart(12,'0');
 (async()=>{
  const db=new PGlite();try{

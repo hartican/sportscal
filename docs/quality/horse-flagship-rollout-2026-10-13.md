@@ -1,6 +1,6 @@
 # Horse flagship rollout — guarded execution and recovery
 
-Approved contract: [Flagship racing](../plans/horse-flagship-2026-10-13.md). Migration is staged, not applied. Audit applies it only after the exact application is READY, aliased, byte-verified and both-browser Follow/Feed/offline/upgrade checks pass. Source commit or local PostgreSQL rehearsal is not a database receipt.
+Approved contract: [Flagship racing](../plans/horse-flagship-2026-10-13.md). The migration was applied on 13 October at 08:08:56 UTC, after the checked application release. The execution rule is unchanged: Audit applies it only after the exact application is READY, aliased, byte-verified and both-browser Follow/Feed/offline/upgrade checks pass. Source commit or local PostgreSQL rehearsal is not a database receipt.
 
 The one transaction captures existing non-anonymous Auth accounts only, excludes erasure blocks, and takes the existing shared account-erasure advisory lock before current-state writes. Missing state uses insert-on-conflict-do-nothing before locked reread, so a concurrent first sync is retained. Existing revisions advance; normal API CAS rejects older revisions and rebase applies sport-list deltas. The server rollout fence preserves the recorded Horse choice against legacy replacement lists. Genuine later Follow/unfollow deltas win. Private snapshots and completion markers have no anon/authenticated privileges and force RLS; Auth deletion cascades the recovery snapshot. No callable privileged endpoint is added.
 
@@ -13,3 +13,7 @@ Private prior_preferences and prior_updated_at are retained in private.nothingsp
 ## Evidence limits
 
 The new staged migration rehearsal covers frozen registered/anonymous/blocked/missing-state rows, refusals, snapshots, normalisation, unrelated offline deltas, stale ON versus later OFF, legacy replacements, retry/new accounts and Auth erasure. Existing actual account sync/CAS harness covers API conflict retries, isolation and late local edits. These are local PostgreSQL and handler simulations, not proof of all real customers or physical installed devices. Final release and database evidence live under /Users/jackhartican/Documents/AI/Codex/horse-flagship-2026-10-13.
+
+## Applied receipt — 13 October 2026
+
+Application 7a614317 / shell 524 passed normal run 38365280599, exact READY/alias/served proof, hosted native Follow/Feed and both-engine installed/cold-offline cases before application. Cohort11, added10, enabled11, advanced revisions11; unrelated preferences and other sport choices changed0. Immediate saved-state and notification fingerprints agree. Private RLS/forced RLS and denied customer privileges pass. No recovery, replay or second application was run. Remote migration history20261013080856 is aligned with the repository filename; SQL bytes retain their release hash. See [plain delivery and limits](horse-flagship-current-2026-10-13.md).
