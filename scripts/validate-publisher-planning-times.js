@@ -25,6 +25,7 @@ const refreshed=parse(refreshedReceipt)[0];assert.equal(refreshed.planningTimeEv
 const refreshMerged=owner.merge([wta],[refreshed],{now:elapsed})[0];
 assert.deepEqual(refreshMerged.planningTimeEvidence,wta.planningTimeEvidence,'An ordinary unchanged refresh retains an already admitted estimate and its original receipt');
 assert.equal(require('../config/feed-timeline').status(refreshMerged,elapsed),'unknown');
+assert.equal(refreshMerged.status,'scheduled');assert.equal(require('../config/feed-controls').isLiveNow(refreshMerged,elapsed),false,'An ordinary refresh after an estimate cannot invent play');
 assert.equal(timing.presentation(refreshMerged,elapsed).status,'Awaiting match update','A real source refresh cannot remove the awaiting label');
 assert.equal(refreshMerged.startTimeUtc,null);assert.equal(policy.timing(refreshMerged,elapsed),null);assert.equal(policy.manualTiming(refreshMerged,elapsed),null);
 assert.notEqual(require('../config/match-centre').liveState(refreshMerged,+elapsed),'playing');assert.equal(timing.presentation(require('../config/match-centre').compact(refreshMerged),elapsed).status,'Awaiting match update');
@@ -38,8 +39,6 @@ const rescheduled=owner.merge([refreshMerged],parse(rescheduledReceipt),{now:ela
 rescheduledMatch.date='2026-10-14T10:00Z';rescheduledMatch.status.type.detail='Wed, October 14th at 6:00 AM EDT';rescheduledMatch.status.type.shortDetail='10/14 - 6:00 AM EDT';
 assert.equal(owner.merge([refreshMerged],parse(rescheduledReceipt),{now:elapsed})[0].planningTimeEvidence,null,'A different elapsed time is not a newly admitted estimate');
 assert.notEqual(require('../config/match-centre').liveState(wta,+new Date(wta.estimatedStartTimeUtc)+60000),'playing','An elapsed estimate cannot establish Live');
-const refreshedAfterEstimate=owner.parse(receipts[0].payload,{tour:receipts[0].tour,checkedAt:elapsed.toISOString(),now:elapsed,requestUrl:receipts[0].sourceUrl,catalogue}).fixtures.find(e=>e.tennisProviderMatchId==='185357');
-const mergedAfterEstimate=owner.merge([wta],[refreshedAfterEstimate],{now:elapsed})[0];assert.equal(mergedAfterEstimate.planningTimeEvidence,null);assert.equal(mergedAfterEstimate.startTimeUtc,null);assert.equal(mergedAfterEstimate.status,'scheduled');assert.notEqual(require('../config/feed-timeline').status(mergedAfterEstimate,elapsed),'past','A normal refresh after the nominal estimate cannot retire an unplayed match');assert.equal(require('../config/feed-controls').isLiveNow(mergedAfterEstimate,elapsed),false);
 const official={...baseline,startTimeUtc:'2026-10-14T10:00:00.000Z',timePrecision:'not-before',scheduleStatus:'confirmed',timeTbc:false};assert.strictEqual(planning.apply(official,wta.planningTimeEvidence,now),official);assert.match(timing.presentation(official,now).time,/NOT BEFORE 9:00 PM/);
 assert.strictEqual(planning.retainElapsed(official,refreshed,refreshed.publisherPlanningReceipt,elapsed),refreshed,'An official clock cannot become an elapsed publisher estimate');
 const differentSport={...baseline,id:'fixture:football:one',canonicalEventId:'fixture:football:one',eventId:'fixture:football:one',key:'football',sport:'Football'};
