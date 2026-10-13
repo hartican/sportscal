@@ -251,10 +251,17 @@
     if(!sportKey(event).startsWith('tennis')||participantIds(event).some(id=>id.startsWith('team:')))return true;
     return /500|1000|grand.?slam|major|masters|team|davis|billie|bjk|finals/i.test([event.tournamentLevel,event.level,event.category,event.competitionCategory].filter(Boolean).join(' '));
   }
+  function approvedHorseFeature(event){
+    if(event.horseFeature===false)return false;
+    const id=String(event.canonicalEventId||event.id||event.eventId||'');
+    const match=/^(?:event:horse-racing:|evt_horse_racing_)(.+?)(?::|_)(20\d{2})$/.exec(id);
+    return Boolean(match&&/^(?:caulfield-cup|the-everest|cox-plate|victoria-derby|melbourne-cup|vrc-oaks|champions-stakes|golden-slipper|australian-cup|doncaster-mile|queen-elizabeth-stakes|stradbroke-handicap)$/.test(match[1].replaceAll('_','-')));
+  }
   function eligibleForFollow(event,{competitionFollow=false,participantFollow=false,explicitSelection=false,explicitEventFollow=false,sportFollow=false,australiansOnly=false,australianDiscovery=false,muted=false}={}){
     if(event.universeOnly || !activeEligible(event) || !hasPublishedFixture(event) || aggregateEvent(event) && !multiDayMarker(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
+    if(sportKey(event)==='horse-racing')return approvedHorseFeature(event)&&Boolean(event.date)&&(sportFollow||competitionFollow||explicitEventFollow);
     if(['golf','golf-women','masters'].includes(sportKey(event))){
       if(event.cardType!=='golf_session'&&event.participantsConfirmed===true&&(participantFollow||competitionFollow&&australiansOnly&&hasAustralianParticipant(event)))return true;
       // Retain the tournament identity for pins and confirmed golfer entries.

@@ -87,7 +87,7 @@ globalThis.renderFollowSchedulePanel=function(container){
   const sortDate=f=>f.date||f.schedulingWindow?.startsOn||'9999-12-31';
   const eventGroup=f=>f.tournamentId||((f.dakarCalendar||f.lemansCalendar)?f.weekendId:null)||(f.circuitId?`${f.circuitId}:${String(f.date).slice(0,4)}`:null);
   const tournamentDates=new Map();for(const f of fixtures){const key=eventGroup(f);if(key&&f.date&&(!tournamentDates.has(key)||f.date<tournamentDates.get(key)))tournamentDates.set(key,f.date);}
-  const useRounds=code.groupingMode==='round'&&!['sport:golf','sport:f1','sport:cricket','sport:cricket-women','sport:skiing','competition:dakar','competition:le-mans'].includes(code.id);
+  const useRounds=code.groupingMode==='round'&&!['sport:horse-racing','sport:golf','sport:f1','sport:cricket','sport:cricket-women','sport:skiing','competition:dakar','competition:le-mans'].includes(code.id);
   const groupLabel=f=>{if(football)return footballPlan.key(f);if(rugby){const group=rugbyCalendarGroup(f);rugbyGroups.set(group.key,group);return group.key;}const round=useRounds?codeInspectorGroupLabel(f,'round'):null;return round&&round!=='Other fixtures'?round:`${NOTHINGSPORTS_AUSTRALIAN_DATES.date(tournamentDates.get(eventGroup(f))||f.date)} · ${f.tournamentName||(f.circuitId?f.venue:null)||f.competitionName||code.label}`;};
   fixtures.forEach(fixture => {
     const label = groupLabel(fixture);

@@ -480,7 +480,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
 function renderTeamsAndPlayersDirectoryLoaded(container){
   const session = readStandingsDirectorySession();
   const directorySportOptions = BASE_SPORT_SELECTOR_ENTITIES
-    .filter(entity => Number(entity.level) === 2)
+    .filter(entity => Number(entity.level) === 2 && entity.id !== 'sport:horse-racing')
     .map(entity => [entity.id.replace(/^sport:/, ""), entity.label]);
   const aflIndex = directorySportOptions.findIndex(([key]) => key === "afl");
   if (aflIndex >= 0) directorySportOptions.splice(aflIndex + 1, 0, ["aflw", "AFLW"]);
@@ -516,15 +516,17 @@ function renderFollowViewLoaded(){
   const retainedBar=container.querySelector(':scope > .follow-sport-bar');
   for(const child of [...container.children])if(child!==retainedBar)child.remove();
   container.className='follow-view';container.dataset.scrollList='follow';
-  const state=followBrowseState();
+  const state={...followBrowseState()};
+  const raceOnly=state.sportId==='sport:horse-racing';
+  if(raceOnly&&!['schedule','major-events'].includes(state.section))state.section='schedule';
   if(!userPreferences.followBrowse)saveFollowBrowse(state);
   const female=entity=>/-women$/.test(entity.id)||['sport:aflw','sport:nrlw','sport:fiba-women','sport:netball'].includes(entity.id);
   const gender=state.gender||(female({id:state.sportId})?'women':'men');
-  const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2||['sport:aflw','sport:nrlw'].includes(entity.id)).filter(entity=>female(entity)===(gender==='women')));
+  const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2||['sport:aflw','sport:nrlw'].includes(entity.id)).filter(entity=>entity.id==='sport:horse-racing'||female(entity)===(gender==='women')));
   const genderTabs=document.createElement('nav');genderTabs.className='follow-gender-tabs events-view-tabs';genderTabs.setAttribute('role','tablist');genderTabs.setAttribute('aria-label','Browse sports gender');
   for(const [value,label]of [['men','Men'],['women','Women']]){const button=document.createElement('button');button.type='button';button.className='btn ghost'+(value===gender?' active':'');button.textContent=label;button.setAttribute('role','tab');button.setAttribute('aria-selected',String(value===gender));button.onclick=()=>{if(value===gender)return;const sportId=value==='women'?'sport:tennis-women':rankedFollowGridSports(BASE_SPORT_SELECTOR_ENTITIES.filter(e=>Number(e.level)===2&&!female(e)))[0]?.id||'sport:afl';const genderRoutes={...(state.genderRoutes||{}),[gender]:{sportId:state.sportId,categoryId:state.categoryId,section:state.section}};saveFollowBrowse({sportId,categoryId:'',section:'teams-players',...(genderRoutes[value]||{}),gender:value,genderRoutes});activeInspectorCodeId=null;renderFollowView();};genderTabs.append(button);}
   for(const [index,button]of [...genderTabs.children].entries())button.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const target=event.key==='Home'?0:event.key==='End'?1:1-index;genderTabs.children[target].click();requestAnimationFrame(()=>container.querySelector('.follow-gender-tabs [aria-selected="true"]')?.focus({preventScroll:true}));});
-  container.insertBefore(genderTabs,retainedBar);
+  if(!raceOnly)container.insertBefore(genderTabs,retainedBar);
   const primarySports=rankedFollowGridSports(sports);
   if(gender==='women'&&!primarySports.length){const tennis=sports.find(e=>e.id==='sport:tennis-women');if(tennis)primarySports.push(tennis);}
   const primaryIds=primarySports.map(entity=>entity.id);
@@ -548,7 +550,7 @@ function renderFollowViewLoaded(){
     const sport={key:entity.preferenceKey||entity.sportKey||({ 'rugby-union':'rugby',basketball:'nba','afl-premiership':'afl','nrl-premiership':'nrl' })[entity.id.replace('sport:','')]||entity.id.replace('sport:','')};
     const mark=document.createElement('span');mark.className='follow-sport-mark';renderEventIdentityMark(mark,sport,{...sportMetaForEvent(sport),label:entity.label});
     const text=document.createElement('span');text.textContent=label;button.append(mark,text);
-    button.addEventListener('click',()=>{host.closest('dialog')?.close();NOTHINGSPORTS_FOLLOW_NAV.closeMenu();saveFollowBrowse({sportId:entity.id,categoryId:'',section:'teams-players',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();});host.appendChild(button);
+    button.addEventListener('click',()=>{host.closest('dialog')?.close();NOTHINGSPORTS_FOLLOW_NAV.closeMenu();saveFollowBrowse({sportId:entity.id,categoryId:'',section:entity.id==='sport:horse-racing'?'schedule':'teams-players',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();});host.appendChild(button);
     return button;
   };
   primarySports.forEach(entity=>addSportButton(entity,primaryLabels[entity.id]||entity.label));
@@ -594,7 +596,7 @@ function renderFollowViewLoaded(){
   }
   container.appendChild(commonControls);
   const tabs=document.createElement('nav');tabs.className='follow-section-tabs';tabs.setAttribute('aria-label',`${entity.label} sections`);
-  [['teams-players',directorySectionLabel(followDirectoryKey(entity))],['schedule','Schedule'],...(code?.slug === "wrc" ? [["results", "Results / Replays"]] : []),...(followHasStandings(code)?[['standings',followStandingsLabel(code)]]:[]),['major-events','Major Events']].forEach(([section,label])=>{
+  [...(raceOnly?[]:[['teams-players',directorySectionLabel(followDirectoryKey(entity))]]),['schedule','Schedule'],...(code?.slug === "wrc" ? [["results", "Results / Replays"]] : []),...(!raceOnly&&followHasStandings(code)?[['standings',followStandingsLabel(code)]]:[]),['major-events','Major Events']].forEach(([section,label])=>{
     const button=document.createElement('button');button.type='button';button.className=`follow-section-tab${state.section===section?' active':''}`;button.textContent=label;
     button.onclick=()=>{activeInspectorCodeId=null;saveFollowBrowse({section});renderFollowView();};tabs.appendChild(button);
   });container.appendChild(tabs);

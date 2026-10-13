@@ -275,6 +275,7 @@
     skateboard: "competition:extreme-world-events",
     rugby: "competition:rugby-union-tests",
     tennis: "sport:tennis",
+    "horse-racing": "sport:horse-racing",
     wimbledon: "event-series:wimbledon",
     fifa: "competition:fifa-world-cup",
     "premier-league": "competition:premier-league",

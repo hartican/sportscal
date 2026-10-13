@@ -143,7 +143,7 @@ function main(){
   const taxonomy = require(path.join(ROOT, "config/selector-taxonomy.js"));
   const catalogue = require(path.join(ROOT, "config/team-follow-catalogue.js"));
   const nationalTeamIdentities = require(path.join(ROOT, "config/national-team-identities.js"));
-  const exposedSports = taxonomy.exposedSportNodes.filter(entity => Number(entity.level) === 2 || entity.parentId === "sport:motorsport")
+  const exposedSports = taxonomy.exposedSportNodes.filter(entity => entity.id !== 'sport:horse-racing' && (Number(entity.level) === 2 || entity.parentId === "sport:motorsport"))
     .map(entity => ({ key:entity.id.replace(/^sport:/, ""), label:entity.label }));
   [
     { key:"aflw", label:"AFLW", after:"afl" },

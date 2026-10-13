@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Horse Racing uses existing Follow readers — 13 October 2026 Sydney
+
+The approved Follow navigation repair reuses the existing horse Schedule/Inspector, Events overview, preference graph and shared Feed policy. One explicit sport follow admits the already reviewed dated feature catalogue; no horse/jockey participant directory or inferred field identity is loaded. Date-pending overview rows remain visible without generated dates. The Follow checkbox stays visible when the sport menu collapses. No new endpoint, source read, per-user organiser request, database object/migration, refresh owner, polling timer, retry, scheduler or delivery-policy change. Preserve startup/cache budgets and exact cached module bindings; original source and unknown-clock evidence remains unchanged.
+
 ## EPL provider identity preparation — 13 October 2026 Sydney
 
 Later private preparation: the existing official card/live producers and publisher carry the same reviewed identities. Validate the complete 380 primary bindings before source persistence, retain dated secondary fixture receipts before collection freshness is applied, and reconcile retained calendars before fact protection can copy primary receipts onto them. The actual disposable publication/Inspector, complete four-page producer/backup/quick checks and original-field rerun checks pass. No extra provider request or database read budget is introduced. The separate twelve-check local SQL writer experiment is not an applied migration: real trigger effects, accepted world-parent/rule preparation, guarded application/undo, readiness and complete release proof remain open. See [dated preparation](quality/epl-provider-identity-preparation-2026-10-13.md).

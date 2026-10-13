@@ -55,6 +55,7 @@
   }
 
   const sportNodes = [
+    ["sport:horse-racing", "Horse Racing", "sport", null, ["horse-racing"], "sport:horse-racing", "sport:horse-racing", 131],
     ["sport:afl", "Aussie Rules Football", "parent", null, ["afl"], "sport:australian-football", "sport:australian-football", 10, ["sport:afl-premiership", "sport:aflw"]],
     ["sport:afl-premiership", "AFL", "child", "sport:afl", ["afl"], "competition:afl-premiership", "sport:australian-football", 11],
     ["sport:aflw", "AFLW", "child", "sport:afl", ["aflw"], "competition:aflw", "sport:australian-football", 12],
