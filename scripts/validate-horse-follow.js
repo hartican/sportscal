@@ -36,4 +36,22 @@ assert.equal(pending.length,3);
 for(const e of pending)assert(!e.date&&!e.startTimeUtc,'Pending editions retain unknown timing');
 assert.deepEqual(follow.migratePreferences(on),on,'Explicit preference survives offline normalization/retries');
 assert(!follow.migratePreferences({}).selectedSelectorEntityIds.includes('sport:horse-racing'),'No onboarding or existing-account automatic opt-in');
+const overviews=JSON.parse(fs.readFileSync('data/event-overviews.v1.json')).events.filter(e=>e.sportKey==='horse-racing');
+const australians={...on,followFirst:{...on.followFirst,australiansOnlySportIds:['sport:horse-racing']}};
+for(const race of races){
+ check(race,australians,false,'Australian-only cannot invent Australian field evidence: '+race.name);
+ const canonical=race.canonicalEventId||race.id;
+ const parent=overviews.find(e=>(e.fixtureIds||[]).includes(canonical));
+ assert(parent,'Published carnival membership exists: '+race.name);
+ assert.equal(policy.editionKey(race),parent.id,'Source-provided carnival identity matches its published overview');
+ const choices=state=>({eventEditionDecisions:{schemaVersion:'event-edition-decisions.v1',states:state}});
+ check(race,{...on,followFirst:choices({[parent.id]:'excluded'})},false,'Carnival exclusion overrides broad sport admission');
+ check(race,{followFirst:choices({[parent.id]:'followed'})},true,'Explicit carnival follow admits its published child');
+ assert.equal(reminders.automatic({...race,startTimeUtc:'2026-10-17T06:00:00Z',time:'17:00',timingPrecision:'exact'},{followFirst:choices({[parent.id]:'followed'})},{},+now),false,'Carnival following also grants no automatic-reminder consent');
+ check(race,{...on,followFirst:choices({[parent.id]:'followed',[canonical]:'excluded'})},false,'Retain an existing more-specific race exclusion');
+ check(race,{followFirst:choices({[parent.id]:'excluded',[canonical]:'followed'})},true,'Retain an independent existing race choice');
+ check({...race,date:null}, {followFirst:choices({[parent.id]:'followed'})},false,'Carnival follow cannot create a missing fixture date');
+ check({...race,id:'event:horse-racing:unapproved:2026',canonicalEventId:'event:horse-racing:unapproved:2026'}, {followFirst:choices({[parent.id]:'followed'})},false,'Carnival follow cannot expand the approved catalogue');
+}
+console.log('Horse Follow: Australian-only evidence and actual carnival child choices passed.');
 console.log('Horse Follow: actual nine-race browser/server parity, explicit consent/unfollow/exclusions, pending dates and no automatic reminders passed.');

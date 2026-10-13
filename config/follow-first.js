@@ -588,7 +588,10 @@
       }
     }
     if(followPolicy.eventExcluded(event,next))return null;
-    if(followPolicy.editionDecision(event,next)==='followed'&&!followPolicy.sportKey(event).startsWith('tennis')&&!golf)return {type:'event',entityKind:'event',id:followPolicy.editionKey(event),label:null,displayTag:false};
+    if(followPolicy.editionDecision(event,next)==='followed'&&!followPolicy.sportKey(event).startsWith('tennis')&&!golf){
+      if(followPolicy.sportKey(event)==='horse-racing'&&!followPolicy.eligibleForFollow(event,{explicitEventFollow:true}))return null;
+      return {type:'event',entityKind:'event',id:followPolicy.editionKey(event),label:null,displayTag:false};
+    }
     const sportAliases = {
       "rugby-union":"rugby", basketball:"nba", "multi-sport":"cwg",
       fifa:"football", "premier-league":"football", bundesliga:"football", "la-liga":"football", "serie-a":"football", "ligue-1":"football",

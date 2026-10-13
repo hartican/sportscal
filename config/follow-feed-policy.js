@@ -106,9 +106,14 @@
   // suppress the overview and event-wide coverage, never an independent follow.
   function editionKey(event){
     if(!event?.tournamentId && sportKey(event).startsWith('tennis')){const family=eventFamilyIds(event).find(id=>['australian-open','roland-garros','wimbledon','us-open'].includes(id)),year=String(event.date||event.startDate||'').slice(0,4);if(family&&/^20\d{2}$/.test(year))return 'tournament:tennis:grand-slam-'+family+'-'+year;}
+    // Race membership comes from the reviewed source, never its calendar date.
+    if(!event?.editionId&&sportKey(event)==='horse-racing'&&/^carnival:[a-z0-9-]+:20\d{2}$/.test(event.weekendId||''))return `overview:horse-racing:${event.weekendId}:${event.weekendId.split(':').at(-1)}`;
     return String(event?.editionId || event?.tournamentId || event?.tennisTournamentId || event?.majorEventId || event?.canonicalEventId || event?.id || "");
   }
-  function editionDecision(event, preferences){return preferences?.followFirst?.eventEditionDecisions?.states?.[editionKey(event)] || null;}
+  function editionDecision(event, preferences){
+    const states=preferences?.followFirst?.eventEditionDecisions?.states||{};
+    return (sportKey(event)==='horse-racing'&&states[event?.canonicalEventId||event?.id])||states[editionKey(event)]||null;
+  }
   function eventExcluded(event, preferences){
     const decision=editionDecision(event,preferences);
     return decision ? decision === "excluded" : (preferences?.followFirst?.excludedMajorEventIds || []).some(id=>eventFamilyIds(event).includes(id));
@@ -261,7 +266,7 @@
     if(event.universeOnly || !activeEligible(event) || !hasPublishedFixture(event) || aggregateEvent(event) && !multiDayMarker(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
-    if(sportKey(event)==='horse-racing')return approvedHorseFeature(event)&&Boolean(event.date)&&(sportFollow||competitionFollow||explicitEventFollow);
+    if(sportKey(event)==='horse-racing')return approvedHorseFeature(event)&&Boolean(event.date)&&(!australiansOnly||hasAustralianParticipant(event))&&(sportFollow||competitionFollow||explicitEventFollow);
     if(['golf','golf-women','masters'].includes(sportKey(event))){
       if(event.cardType!=='golf_session'&&event.participantsConfirmed===true&&(participantFollow||competitionFollow&&australiansOnly&&hasAustralianParticipant(event)))return true;
       // Retain the tournament identity for pins and confirmed golfer entries.
