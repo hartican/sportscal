@@ -40,6 +40,8 @@ assert.notEqual(fallbackUrl(fallback.replace('script.src = source.href;','script
 assert(!assets.includes("/data/events.json"), "duplicate JSON feed must not be precached");
 assert(!assets.includes("/data/marquee-candidates.v1.json"), "server owner candidate data must not be precached");
 assert(!assets.includes("/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"), "optional soundtrack must not be precached");
+assert(JSON.parse(fs.readFileSync('config/app-shell-modules.json','utf8')).includes('config/server-sync.js'), 'Required account sync remains inside the canonical runtime');
+assert(!assets.includes('/config/server-sync.js'), 'Account sync must not be downloaded twice in the installed shell; standalone owner use caches normally');
 assert(html.includes('id="soundtrackAudio"') && html.includes('preload="none"'), "soundtrack must defer network work until explicitly played");
 
 console.log(`Startup budget valid: ${assets.length} shell assets, ${(bytes / 1024 / 1024).toFixed(2)} MB precache, generated feed fallback deferred.`);

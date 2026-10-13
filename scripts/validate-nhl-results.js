@@ -14,9 +14,11 @@ const controls=require('../config/feed-controls');for(const competitionId of ['c
  assert.equal(controls.timingState({...pre,competitionId},new Date(Date.parse(pre.startTimeUtc)+5*3600000)).key,'awaiting-update','time passage cannot manufacture a hockey final');
  assert.equal(controls.timingState({...pre,competitionId,status:'live',statusCheckedAt:'2026-10-04T17:00:00Z'},new Date('2026-10-04T18:00:00Z')).key,'awaiting-update','controlled stale live observation');
 }
-// Controlled legacy copy of actual retained identities; source observations
+// Freeze the reviewed pre-refresh identities: later completed games must not
+// enter this dated 5 October replay. Current published projections are still
+// checked independently below. Controlled legacy source observations
 // are removed rather than manufactured from the unrelated table timestamp.
-const baseline=clone(current),byId=new Map(parsed.map(f=>[f.id,f]));baseline.fixtures=baseline.fixtures.map(f=>{
+const baseline=clone(require('./fixtures/nhl-retained-directory-before-20261014-refresh.json')),byId=new Map(parsed.map(f=>[f.id,f]));baseline.fixtures=baseline.fixtures.map(f=>{
  if(f.competitionId!=='competition:nhl')return f;const raw={...f,...(byId.get(f.id)||{})};for(const k of ['sourceCheckedAt','statusCheckedAt','resultSourceCheckedAt','scoreCheckedAt','statusSourceUrl','statusSourceName','statusSourceType','sourceName','sourceType','resultSourceUrl','resultLabels'])delete raw[k];return raw;
 });baseline.standings=baseline.standings.map(r=>r.participantId.startsWith('team:nhl:')?{participantId:r.participantId,conference:r.conference,division:r.division,gamesPlayed:r.gamesPlayed,wins:r.wins,losses:r.losses,otLosses:r.otLosses,points:r.points,goalDifferential:r.goalDifferential}:r);
 const merged=facts.mergeFixtures(baseline,parsed),rows=facts.parseStandings(sample.standings,{teams,fixtures:merged,checkedAt,now});assert.equal(rows.length,32);assert(!rows.some(r=>r.stale));assert.deepEqual(rows.map(r=>r.rank),Array.from({length:32},(_,i)=>i+1));

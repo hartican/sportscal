@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v531";
-const SHELL_VERSION = "531";
+const CACHE_NAME = "nothingsport-shell-v532";
+const SHELL_VERSION = "532";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -95,7 +95,8 @@ const APP_SHELL = [
   "/config/optimistic-mutation.js",
   "/config/preference-reset-ui.js?v=423",
   "/config/marquee-campaigns.js",
-  "/config/server-sync.js",
+  // Account sync is already in the required runtime; the owner console caches
+  // its separate source after first use.
   "/config/major-events.js?v=467",
   "/config/event-overviews-ui.js?v=527",
   "/config/surface-category-ui.js?v=403",
