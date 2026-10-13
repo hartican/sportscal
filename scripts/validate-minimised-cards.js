@@ -25,8 +25,11 @@ check(overview,'IN PROGRESS',{progress:'ATP · ROUND 3-4 OF 7 · WTA · ROUND 3-
 check({...overview,status:'completed'},'12 OCT–18 OCT · FINISHED',{progress:null});
 check({...overview,status:'upcoming'},'12 OCT–18 OCT',{progress:null});
 check({...overview,tournamentProgress:[{...overview.tournamentProgress[0],totalRounds:null,roundLabels:['Quarterfinal']}]},'IN PROGRESS',{progress:'ATP · QUARTERFINAL · WTA · ROUND UNCONFIRMED'});
-const published=require('../data/follow-schedule/cricket.json').fixtures.find(f=>f.sourceEventIds?.includes('fixture:cricket:CA:39990'));
-assert(published,'Published Australia/Proteas Test exists');const final=timing.minimised(published,now);assert.equal(final.progress,'DAY 4');assert.match(final.time,/STUMPS/);assert(!final.progress.includes('OF 5'));
+// Dated renderer replay must not import a later day/result from mutable live data.
+const currentPublished=require('../data/follow-schedule/cricket.json').fixtures.find(f=>f.sourceEventIds?.includes('fixture:cricket:CA:39990'));
+assert(currentPublished,'The actual current Test remains in the published schedule');
+const published=require('./fixtures/cricket-ca39990-minimised-20261013.json');
+assert(published,'Captured Australia/Proteas Test exists');const final=timing.minimised(published,now);assert.equal(final.progress,'DAY 4');assert.match(final.time,/STUMPS/);assert(!final.progress.includes('OF 5'));
 // Execute the actual shared DOM boundary, rather than constructing lookalike
 // test markup. Browser verification supplies the complete native DOM and CSS.
 class Element{
