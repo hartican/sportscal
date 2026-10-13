@@ -20,3 +20,18 @@ The focused regression passes: repeated output, actual source invalidation, miss
 **Business value:** reduces a demonstrated repeated part of verification while preserving its protections. **Effort:** small builder change and targeted regression; combined release remains pending. **Dependencies:** existing source assembler, installed compiler and exact-byte gate. **New cash:** A$0; no new package or subscription. **Owner time:** no new decision or routine. **Acceptance:** identical unchanged bytes, fresh changed output, intact failure/normal release checks, bounded measured benefit and exact eventual release. **Why now/defer:** the repeated work is measured; defer persistent/shared caches and broader test-harness rewrites until a whole-run profile justifies them.
 
 Receipts: `before.json`, `after.json`, `comparison.json`, `cache-regression-final.log`, `card-identities.log`, `card-timing.log` and `normal-byte-gate.log`. These are local tool checks; neither app launch speed nor billed token cost was measured. No app presentation, source facts, customer state, API, cache version or production service was changed by this tool repair.
+
+
+## Whole-release timing baseline
+
+Three existing GitHub job records were read without rerunning them. The two successful runs spent most of their time in the safety-contract block. That is the next profiling target; deployment itself is a smaller part of these samples.
+
+| Existing run | Outcome | Total wall seconds | Safety checks | Deployment step |
+| --- | --- | ---: | ---: | ---: |
+| 38156540135 | failure | 62 | 29 | 0 |
+| 38159425166 | success | 534 | 427 | 47 |
+| 38322796704 | success | 705 | 591 | 52 |
+
+The failed size-limit candidate stopped before deployment. The two successes are different historical snapshots, so their times cannot demonstrate a cache saving or regression. The current tool change has no full-run before/after measurement. Wall clock is not billed runner time or cash spend. Exact steps are in `release-timing.json` and the three raw job records.
+
+Recommended next operating step: after the approved card release, profile the safety commands within one normal validation pass, then remove demonstrated repeated setup while retaining every required assertion. Keep the existing one-release lane, frozen limits and targeted build-tool regression. Defer a persisted cache or wider test-harness rewrite until that profile justifies it. No separate recurring review or owner decision is added.
