@@ -289,6 +289,14 @@ function renderStartupMetadataSettings(body){
   });
 }
 
+globalThis.notificationDiagnosticsCommand = async function(action, extra = {}){
+  const credentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
+  if (!credentials?.installationId || !credentials?.secret) throw new Error("Enable system alerts on this device first.");
+  const authenticated = Boolean(serverSyncClient.getSession?.());
+  if (["status","test","milestone-test"].includes(action)) return serverSyncClient.notificationCommand({ action, ...credentials, ...extra }, { authenticated });
+  throw new Error("Unknown notification diagnostic action.");
+};
+
 function renderNotificationSettings(body){
   const preferences = draftPreferences.followFirst.notifications;
   const enabled = preferences.enabled !== false;
@@ -319,6 +327,8 @@ function renderNotificationSettings(body){
       <p class="preference-help" id="notificationDiagnosticsStatus">Checking device and scheduler status…</p>
     </section>
   </div>`;
+  const milestoneHost=document.createElement('div');body.querySelector('.preference-stack').append(milestoneHost);
+  void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=530').then(()=>NOTHINGSPORTS_MILESTONE_UI.settings(milestoneHost,draftPreferences)).catch(()=>{if(milestoneHost.isConnected)milestoneHost.textContent='Milestone settings unavailable. Try again.';});
   [["autoRemindersEnabled","autoRemindersEnabled"],["liveRatingsEnabled","liveRatingsEnabled"],["socialAlertsEnabled","socialAlertsEnabled"],["chatAlertsEnabled","chatAlertsEnabled"],["sportingRemindersEnabled","sportingRemindersEnabled"],["notificationSoundsEnabled","soundsEnabled"],["notificationBadgesEnabled","badgesEnabled"]].forEach(([id,key]) => {
     document.getElementById(id).addEventListener("change", event => {
       draftPreferences.followFirst.notifications[key] = event.target.checked;

@@ -71,6 +71,7 @@ async function main(){
   assert.match(read("lib/supabase-server.js"),/SUPABASE_MAINTENANCE_MODE/);
   assert.match(read("supabase/recover-disk-pressure.sql"),/limit 100/);
 
+  let milestoneReads=0;await require('../lib/milestone-alerts').dispatch({environment:{MILESTONE_ALERTS_MODE:'off'},request:async()=>{milestoneReads++;}});assert.equal(milestoneReads,0,'Disabled milestone delivery adds no persistence or dispatch reads');
   console.log("Backend efficiency: bounded fixture reads, fail-soft delivery, adaptive clients, batched jobs and single scheduler passed.");
 }
 

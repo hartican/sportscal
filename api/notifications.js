@@ -235,7 +235,10 @@ async function notificationsHandler(request, response){
       response.status(200).json({ received:true, testId });
       return;
     }
-    if (body.action === "test"){
+    if (body.action === "test" || body.action === "milestone-test"){
+      const milestoneTest=body.action === "milestone-test";
+      if(milestoneTest&&process.env.MATCH_CENTRE_ENABLED!=='true'){response.status(503).json({error:'Match Centre must be available before testing a milestone landing.',code:'match_centre_unavailable'});return;}
+      const testFixture=milestoneTest?await require('../lib/milestone-test').fixture({eventId:body.eventId,user,installation,request:supabaseServiceRequest}):null;
       const created = await supabaseServiceRequest("/rest/v1/nothingsports_notification_tests", {
         method:"POST",
         headers:{ Prefer:"return=representation" },
@@ -244,15 +247,18 @@ async function notificationsHandler(request, response){
       const testId = validUuid(created?.[0]?.test_id);
       if (!testId) throw new Error("The notification test could not be recorded.");
       try{
+        // This explicit test gives an installed-phone user time to close the app.
+        // It is a bounded request delay, not a sporting-data scheduler.
+        if(milestoneTest)await new Promise(resolve=>setTimeout(resolve,8000));
         webpush.setVapidDetails(String(process.env.VAPID_SUBJECT || "https://nothingsport.vercel.app/"), String(process.env.VAPID_PUBLIC_KEY), String(process.env.VAPID_PRIVATE_KEY));
-        await guardedSend({installationId,expectedUserId:installation.user_id||null,payload:JSON.stringify({
+        await guardedSend({installationId,expectedUserId:installation.user_id||null,payload:JSON.stringify(milestoneTest?require('../lib/milestone-test').payload(testFixture,testId):{
           kind:"test",
           testId,
           title:"Nothing Sport test",
           body:"System notifications are reaching this device.",
           tag:`nothingsport-test-${testId}`,
           url:"/?notificationTest=received",
-        }),options:{TTL:300,urgency:"high",timeout:3000}});
+        }),options:{TTL:milestoneTest?120:300,urgency:"high",timeout:3000}});
         const dispatchedAt = new Date().toISOString();
         await supabaseServiceRequest(`/rest/v1/nothingsports_notification_tests?test_id=eq.${encodeURIComponent(testId)}`, { method:"PATCH", headers:{ Prefer:"return=minimal" }, body:{ dispatched_at:dispatchedAt, last_error:null } });
         response.status(200).json({ sent:true, testId, dispatchedAt });

@@ -4,6 +4,9 @@
     "deploymentEnabled": false
   },
   "functions": {
+    "api/notifications.js": {
+      "maxDuration": 30
+    },
     "api/notification-dispatch.js": {
       "includeFiles": "data/{code-inspector/*.json,comms-sources.v1.json,marquee-candidates.v1.json}",
       "maxDuration": 30

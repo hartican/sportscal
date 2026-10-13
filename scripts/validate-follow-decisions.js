@@ -56,3 +56,12 @@ for(const [date,expected] of [['2026-09-01',true],['2026-08-31',false],['2027-09
 assert(timeline.retainedInActiveTimeline(fixture({date:'2026-08-20',endDate:'2026-09-10'}),now),'ongoing multi-day fixture');
 assert(timeline.retainedInActiveTimeline(fixture({date:'2026-09-28'}),new Date('2026-10-04T14:00:00Z')),'seven local days across daylight saving');
 require('./validate-horse-follow');
+
+// The new independent choices must survive the real state sanitizer and CAS patch.
+const milestonePrefs={followFirst:{notifications:{milestones:{enabled:false,sports:{cricket:{coverage:'off',families:{centuries:false}}}}}}};
+const milestoneState=require('../lib/supabase-server').normalizeUserState({preferences:milestonePrefs,eventUserState:{'fixture:cricket:CA:39990':{milestoneAlertsMuted:true,reminderChoice:'off'}}},'11111111-1111-4111-8111-111111111111');
+assert.equal(milestoneState.preferences.followFirst.notifications.milestones.enabled,false);
+assert.equal(milestoneState.event_user_state['fixture:cricket:CA:39990'].milestoneAlertsMuted,true);
+assert.equal(milestoneState.event_user_state['fixture:cricket:CA:39990'].reminderChoice,'off');
+const milestoneSync=require('../config/user-state-sync'),before={preferences:milestonePrefs},after={preferences:{followFirst:{notifications:{milestones:{...milestonePrefs.followFirst.notifications.milestones,sports:{cricket:{coverage:'high'}}}}}}};
+assert.equal(milestoneSync.applyPatch(before,milestoneSync.createPatch(before,after)).preferences.followFirst.notifications.milestones.enabled,false,'Changing advanced coverage cannot turn the category back on');

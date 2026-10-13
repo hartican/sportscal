@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v529";
-const SHELL_VERSION = "529";
+const CACHE_NAME = "nothingsport-shell-v530";
+const SHELL_VERSION = "530";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -21,7 +21,7 @@ const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=302",
-  "/assets/js/settings-optional-ui.js?v=527",
+  "/assets/js/settings-optional-ui.js?v=530",
   "/assets/js/follow-navigation.js?v=522",
   "/assets/js/tournament-fixture-ui.js?v=528",
   "/assets/styles/notifications-inbox.css?v=280",
@@ -63,9 +63,9 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=529",
+  "/assets/js/app-shell-runtime.js?v=530",
   "/assets/js/follow-schedule-panel.js?v=522",
-  "/assets/js/fixture-navigation.js?v=487",
+  "/assets/js/fixture-navigation.js?v=530",
   "/config/cricket-innings.js?v=486",
   "/config/score-details.js?v=527",
   "/assets/styles/score-details.css?v=486",
@@ -103,7 +103,8 @@ const APP_SHELL = [
   "/config/match-centre.js?v=528",
   // An upgrading page can receive this deferred module from its old worker.
   // Own it in the new cache before activation removes that old cache.
-  "/assets/js/match-centre-ui.js?v=528",
+  "/assets/js/match-centre-ui.js?v=530",
+  "/assets/js/milestone-alerts-ui.js?v=530",
   "/config/feed-live-scores.js?v=527",
   "/config/feed-live-score-loader.js?v=523",
   "/config/athletes.js?v=471",
@@ -425,10 +426,19 @@ self.addEventListener("notificationclick", event => {
   );
 });
 
+async function milestoneVisible(payload){
+ const clients=await self.clients.matchAll({type:'window',includeUncontrolled:true});
+ const answers=await Promise.all(clients.filter(client=>client.visibilityState==='visible').map(client=>new Promise(resolve=>{
+  const channel=new MessageChannel();let finished=false,timer;const done=value=>{if(finished)return;finished=true;clearTimeout(timer);channel.port1.close();resolve(value);};
+  channel.port1.onmessage=event=>done(event.data?.visible===true);timer=setTimeout(()=>done(false),400);
+  try{client.postMessage({type:'nothingsport-milestone-visible',eventId:payload.eventId,body:payload.body},[channel.port2]);}catch{done(false);}
+ })));
+ return answers.some(Boolean);
+}
 self.addEventListener("push", event => {
   let payload = {};
   try{ payload = event.data?.json?.() || {}; }catch(_error){ payload = { body:event.data?.text?.() || "" }; }
-  const show = self.registration.showNotification(payload.title || "Nothing Sport reminder", {
+  const display = () => self.registration.showNotification(payload.title || "Nothing Sport reminder", {
     body:payload.body || "Open Nothing Sport for the latest update.",
     icon:"/icons/nothingsport-app-192.png",
     badge:"/icons/nothingsport-app-192.png",
@@ -436,6 +446,9 @@ self.addEventListener("push", event => {
     renotify:true,
     data:{ url:payload.url || "/", kind:payload.kind || "sport" },
   });
+  const show=payload.kind==='milestone'
+    ? (async()=>{const end=Date.parse(payload.expiresAt||'');if(!Number.isFinite(end)||end<=Date.now()||await milestoneVisible(payload)||end<=Date.now())return;return display();})()
+    : display();
   const badge = payload.kind === "chat" && Number(payload.unreadCount) > 0
     ? self.navigator?.setAppBadge?.(Number(payload.unreadCount))
     : null;

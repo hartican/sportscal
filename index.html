@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="529">
+<meta name="app-shell-version" content="530">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=529" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=530" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7206,7 +7206,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=529"></script>
+<script src="assets/js/app-shell-runtime.js?v=530"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -13819,7 +13819,7 @@ let notificationFixtureLoading=false;
 let fixtureNavigationRevision=0;
 function routeFixture(method,...args){
   const revision=++fixtureNavigationRevision,owner=serverSyncClient?.sessionSubject(),href=location.href;
-  return loadDeferredScript('assets/js/fixture-navigation.js?v=487').then(()=>{if(revision===fixtureNavigationRevision&&owner===serverSyncClient?.sessionSubject()&&href===location.href)return NOTHINGSPORTS_FIXTURE_NAVIGATION[method](...args);});
+  return loadDeferredScript('assets/js/fixture-navigation.js?v=530').then(()=>{if(revision===fixtureNavigationRevision&&owner===serverSyncClient?.sessionSubject()&&href===location.href)return NOTHINGSPORTS_FIXTURE_NAVIGATION[method](...args);});
 }
 function openMatchCentreFeedFixture(...args){return routeFixture('feed',...args);}
 function openFixtureFromTimingCapsule(...args){return routeFixture('timing',...args);}
@@ -13830,6 +13830,7 @@ async function openFriendFixture(eventId){
 }
 function focusPendingNotificationEvent(){
   if (!pendingNotificationEventId) return false;
+  if(new URLSearchParams(location.search).get('surface')==='match-centre'){notificationFixtureLoading ||= routeFixture('milestone',pendingNotificationEventId).finally(()=>notificationFixtureLoading=false);return true;}
   const item = [...feedCardSlots.values()].find(item => String(item.event.eventId || item.event.id) === pendingNotificationEventId);
   if (item && !item.mounted){item.slot.replaceChildren(buildEventCard(item.event));item.slot.style.minHeight='';item.mounted=true;}
   const target = document.querySelector(`.event-card[data-event-id="${CSS.escape(pendingNotificationEventId)}"]`);
@@ -15338,14 +15339,6 @@ async function syncPermittedChatPushInstallation(){
   }
 }
 
-async function notificationDiagnosticsCommand(action, extra = {}){
-  const credentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
-  if (!credentials?.installationId || !credentials?.secret) throw new Error("Enable system alerts on this device first.");
-  const authenticated = Boolean(serverSyncClient.getSession?.());
-  if (action === "status") return serverSyncClient.notificationCommand({ action:"status", ...credentials, ...extra }, { authenticated });
-  if (action === "test") return serverSyncClient.notificationCommand({ action:"test", ...credentials, ...extra }, { authenticated });
-  throw new Error("Unknown notification diagnostic action.");
-}
 
 function notificationDiagnosticsCopy(payload){
   if (!payload) return "Notification diagnostics are unavailable.";
@@ -15970,7 +15963,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=527';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=530';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 function buildEventCard(ev, options = {}){
@@ -17788,7 +17781,7 @@ async function loadMatchCentre(){
   const panel=document.getElementById('listView');
   if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return;}
   panel.className='match-centre';panel.textContent='Loading Match Centre…';
-  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=528'),loadDeferredScript('config/score-details.js?v=527'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=528')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
+  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=528'),loadDeferredScript('config/score-details.js?v=527'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=530')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
 }
 function renderTeamsAndPlayersDirectory(container){
   if(typeof globalThis.renderTeamsAndPlayersDirectoryLoaded==='function')return globalThis.renderTeamsAndPlayersDirectoryLoaded(container);
@@ -23260,7 +23253,7 @@ async function ensureFeedSourceReadiness(preferences=userPreferences){
   rebuildDerivedCardCache(activeEvents);
 }
 function loadDeferredStartupContext(){
-  return loadDeferredScript('config/startup-view-cache.js?v=529').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
+  return loadDeferredScript('config/startup-view-cache.js?v=530').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
 }
 
 let startupPostLoadHandled = false;

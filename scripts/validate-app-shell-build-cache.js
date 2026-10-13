@@ -15,7 +15,7 @@ const copy = file => {
 try {
   const moduleRoot = path.dirname(path.dirname(require.resolve("terser/package.json")));
   fs.symlinkSync(moduleRoot, path.join(temporary, "node_modules"), "dir");
-  ["config", "scripts/lib", "data/canonical", "scripts/build-app-shell-runtime.js",
+  ["config", "scripts/lib", "data/canonical", "scripts/build-app-shell-runtime.js", "scripts/build-deferred-sports-ui.js", "assets/js/match-centre-ui.source.js", "assets/js/match-centre-ui.js", "assets/js/milestone-alerts-ui.source.js", "assets/js/milestone-alerts-ui.js",
     "data/events.json", "data/major-events.v1.json", "data/editorial-knowledge.v1.json",
     "assets/js/app-shell-runtime.js", "assets/js/calendar-sync-ui.js", "assets/js/calendar-sync-ui.source.js"]
     .forEach(copy);

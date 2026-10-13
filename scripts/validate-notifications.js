@@ -132,7 +132,7 @@ async function main(){
   assert.match(migration, /create table if not exists public\.nothingsports_notification_dispatch_health/i, "dispatcher health must be queryable from one server-only row");
   assert.match(migration, /create table if not exists public\.nothingsports_notification_tests/i, "test notifications must retain sent and received diagnostics");
   assert.match(worker, /nothingsport-notification-received[\s\S]{0,500}testId/, "the service worker must acknowledge a displayed test to an open client when possible");
-  assert.match(html, /action:"status"[\s\S]{0,800}action:"test"/, "Settings must expose live reminder status and a real system-notification test");
+  assert.match(html, /\["status","test","milestone-test"\]\.includes\(action\)/, "Settings must retain reminder diagnostics and expose the labelled milestone test");
   assert.match(html,/function eventReminderTiming[\s\S]{0,120}NOTHINGSPORTS_REMINDER_POLICY.manualTiming/,"Both manual surfaces use the shared verified or provisional fixture timing contract");
   [migration, installationMigration].forEach(source => {
     assert.match(source, /chat_alerts_enabled boolean not null default true/i, "chat alerts must default on per installation");

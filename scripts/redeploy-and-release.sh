@@ -6,6 +6,8 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 CARD_OUTPUT_FILES=(
   "assets/js/app-shell-runtime.js"
+  "assets/js/match-centre-ui.js"
+  "assets/js/milestone-alerts-ui.js"
   "data/chat-fixtures.v1.json"
   "data/coverage/schedule-feed-audit.json"
   "data/providers"

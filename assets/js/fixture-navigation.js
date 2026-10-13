@@ -93,5 +93,8 @@ async function schedule(codeId, { pushHistory = true, startingGroup = "", starti
   }
 }
 
-globalThis.NOTHINGSPORTS_FIXTURE_NAVIGATION={feed,timing,schedule};
+async function milestone(id){
+ try{await loadDeferredScript('assets/js/milestone-alerts-ui.js?v=530');const opened=await NOTHINGSPORTS_MILESTONE_UI.route(id);if(opened&&pendingNotificationEventId===id){pendingNotificationEventId='';const url=new URL(location.href);['event','surface','moment'].forEach(k=>url.searchParams.delete(k));history.replaceState(history.state,'',url);}}catch(error){showToast(error.message);}
+}
+globalThis.NOTHINGSPORTS_FIXTURE_NAVIGATION={feed,timing,schedule,milestone};
 })();

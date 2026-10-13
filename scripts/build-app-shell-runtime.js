@@ -69,13 +69,14 @@ function build(){
   // startup budget. This browser bundle has no CommonJS loader, so omit Node-only
   // exports and require fallbacks. Four ordinary passes reduce transferred bytes
   // within the fixed startup budget. No property mangling or unsafe transforms.
-  const output = require("terser").minify_sync(source,{compress:{passes:4,global_defs:{module:undefined,require:undefined,NOTHINGSPORTS_DEFER_SETTINGS_COPY:true,NOTHINGSPORTS_SETTINGS_COPY_ONLY:false}},mangle:true,keep_fnames:false,format:{comments:false}}).code + "\n";
+  const output = require("terser").minify_sync(source,{compress:{passes:4,global_defs:{module:undefined,require:undefined,NOTHINGSPORTS_DEFER_SETTINGS_COPY:true,NOTHINGSPORTS_SETTINGS_COPY_ONLY:false}},mangle:true,keep_fnames:false,format:{comments:false,ascii_only:true}}).code + "\n";
   previousSource = source;
   previousOutput = output;
   return output;
 }
 const target = path.join(root,"assets/js/app-shell-runtime.js");
 if (require.main === module){
+  require("./build-deferred-sports-ui").build({check:process.argv.includes("--check")});
   const optionalTarget=path.join(root,'assets/js/calendar-sync-ui.js');
   const optionalOutput=require('terser').minify_sync(['config/calendar-ics.js','assets/js/calendar-sync-ui.source.js'].map(file=>fs.readFileSync(path.join(root,file),'utf8')).join('\n;'),{compress:{passes:4},mangle:true}).code+'\n';
   if(process.argv.includes('--check')){if(!fs.existsSync(optionalTarget)||fs.readFileSync(optionalTarget,'utf8')!==optionalOutput)throw Error('Calendar UI bundle is stale');}

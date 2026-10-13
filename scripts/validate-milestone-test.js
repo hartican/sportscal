@@ -1,0 +1,9 @@
+'use strict';
+const assert=require('node:assert/strict'),test=require('../lib/milestone-test'),data=require('./lib/milestone-fixtures'),now=Date.now(),e=data.fixture(now),user={id:'account',is_anonymous:false},installation={user_id:'account',permission:'granted'};
+(async()=>{let reads=0;const request=async(path,options)=>{reads++;assert.equal(path,'/rest/v1/rpc/nothingsports_read_match_scores');assert.deepEqual(options.body.p_fixture_ids,[e.id]);return[{fixture:e}];};
+ const discovered=await test.fixture({user,installation,request:async path=>path.includes('fixture_current?')?[{fixture:e}]:[{fixture:e}]});assert.equal(discovered.id,e.id,'The explicit test can select a real retained fixture even outside personal Feed');
+ const selected=await test.fixture({eventId:e.id,user,installation,request});assert.equal(selected.id,e.id);const payload=test.payload(selected,'11111111-1111-4111-8111-111111111111',now);assert.equal(payload.kind,'milestone');assert.equal(payload.title,'Test milestone alert');assert.equal(Date.parse(payload.expiresAt)-now,120000);assert.match(payload.url,/surface=match-centre&moment=test-/);assert(!/84|century|wicket|record|likely/i.test(payload.body));
+ for(const args of [{user:null},{user:{...user,is_anonymous:true}},{installation:{...installation,user_id:'another'}},{installation:{...installation,permission:'denied'}}])await assert.rejects(()=>test.fixture({eventId:e.id,user,installation,request,...args}),/Sign in/);assert.equal(reads,1,'Invalid accounts/installations cannot query sporting details or send');
+ await assert.rejects(()=>test.fixture({eventId:'unknown',user,installation,request:async()=>[]}),/retained supported/);
+ console.log('Milestone phone test: registered installation ownership, source-known fixture, factual test label, exact link and two-minute TTL passed. No push sent.');
+})().catch(e=>{console.error(e);process.exitCode=1;});

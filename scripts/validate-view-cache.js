@@ -15,7 +15,7 @@ for(const module of ['config/match-centre.js','assets/js/match-centre-ui.js','co
  if(module==='config/event-overviews-ui.js')assert.equal(fs.readFileSync('assets/js/follow-presentation-ui.js','utf8').match(url)?.[0],html.match(url)?.[0],'Follow Major Events reuses the same cached overview owner');
 }
 const cssUrl=/assets\/styles\/match-centre\.css\?v=\d+/;
-const sharedCss=fs.readFileSync('assets/js/match-centre-ui.js','utf8').match(cssUrl)?.[0];
+const sharedCss=fs.readFileSync('assets/js/match-centre-ui.source.js','utf8').match(cssUrl)?.[0];
 assert.equal(fs.readFileSync('config/event-overviews-ui.js','utf8').match(cssUrl)?.[0],sharedCss,'Either first style owner installs the same current stylesheet');
 assert(worker.includes('/'+sharedCss),'The shared stylesheet is required under its current cache key');
 console.log('Interactive, idle and overview owners use one module instance and one installed stylesheet.');
