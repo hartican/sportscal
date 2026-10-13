@@ -76,6 +76,11 @@ loadMatchCentreStyles();
   button.onclick=()=>{const prior=getEventAction(e),next=updateEventAction(e,{addedToFixtures:true,addedToFixturesAt:new Date().toISOString(),addedFixture:{...e,manualPin:true},dismissed:false,archived:false,pinState:'added',pinRevision:(Number(prior.pinRevision)||0)+1,pinMutationId:crypto.randomUUID()});queueFixturePinCommand(eventActionKey(e),next);activeEvents=mergeCanonicalEventPages(activeEvents,[e]);button.textContent='In Feed';button.disabled=true;};return button;
  }
  const cards=new Map();let chrome=null,chromeKey='';
+ function buildCompactParticipant(identity,event){
+  const side=node('span',null,'compact-matchup-side'),frame=node('span',null,'compact-participant-frame'),mark=identity.mark||{},fallback=node('span',(identity.label||'?').split(/\s+/).map(s=>s[0]).join('').slice(0,2),'compact-participant-fallback');frame.append(fallback);side.append(frame);
+  if(mark.url||mark.logo?.primary){const image=node('img');image.className='compact-participant-mark';image.alt='';image.loading='lazy';image.decoding='async';image.onload=()=>fallback.remove();image.onerror=()=>image.remove();applyTeamLogoAsset(image,mark,'icon',themeUsesDarkAssets());frame.append(image);if(image.complete&&image.naturalWidth>0)fallback.remove();}
+  side.append(participantProfileLink(identity.participant?.id||mark.id,identity.label,event.key));return side;
+ }
  const patchText=(element,value)=>{const text=String(value??'');if(element.textContent!==text)element.textContent=text;};
  function scoreTable(container,title,columns,rows){
   if(!rows?.length)return;
