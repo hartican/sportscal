@@ -35,6 +35,8 @@ const descendants=n=>[n,...n.children.flatMap(descendants)];
 const routes = [];
 const markerContext = {
   document:{createElement:element},
+  cardStateForEvent:()=>"selected",
+  getEventAction:()=>({}),
   tennisFeedOpenParents:new Set(),
   NOTHINGSPORTS_CARD_TIMING:require("../config/card-timing"),
   NOTHINGSPORTS_FIXTURE_LABELS:require("../config/fixture-labels"),
@@ -45,6 +47,7 @@ const markerContext = {
   NOTHINGSPORTS_AUSTRALIAN_DATES:{date:value=>value},
   buildEventEditionToggle:()=>element("button"),
   buildEventCardControls:()=>element("div"),
+  buildCardDisclosureControl:()=>element("button"),
   openMajorEventInEvents:(id, options)=>routes.push({id,tournament:options.tournament}),
 };
 vm.createContext(markerContext);

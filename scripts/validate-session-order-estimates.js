@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),projection=require('../lib/session-order-estimates');
-const rows=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.filter(e=>e.sessionOrderEvidence),now=new Date('2026-10-10T23:00:00Z'),target=rows.find(e=>e.id.endsWith('184929')),first=rows.find(e=>e.id.endsWith('184942'));
+const rows=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.filter(e=>e.sessionOrderEvidence?.fixtureIds.includes('fixture:tennis:espn:atp:184929')),now=new Date('2026-10-10T23:00:00Z'),target=rows.find(e=>e.id.endsWith('184929')),first=rows.find(e=>e.id.endsWith('184942'));
 assert(target&&first&&rows.length===4,'Actual visually reviewed Grandstand 2 sequence is required');const before=JSON.stringify(rows),initial=projection.estimate(target,rows,now);assert.equal(initial.startsAt,'2026-10-11T05:40:00.000Z');assert.equal(projection.apply(rows,now).find(e=>e.id===target.id).startTimeUtc,null);assert.equal(JSON.stringify(rows),before,'The raw official schedule remains intact');
 assert.equal(projection.estimate({...target,sessionOrderEvidence:{...target.sessionOrderEvidence,court:'Stadium Court'}},rows,now),null,'Another court clock cannot time the match');
 assert.equal(projection.estimate({...target,sessionOrderEvidence:{...target.sessionOrderEvidence,fixtureIds:[target.id,first.id]}},rows,now),null,'First clockless row cannot borrow a session clock');
@@ -27,3 +27,5 @@ async function selectedRead(){
  console.log('Shared and selected source progress uses one existing bounded read; missing, old and failed inputs hold estimates.');
 }
 selectedRead().catch(e=>{console.error(e);process.exitCode=1;});
+
+const latest=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events,ruud=latest.find(e=>e.id.endsWith('184948')),plan=projection.estimate(ruud,latest,new Date('2026-10-13T14:00:00Z'));assert(plan);assert.equal(plan.startsAt,'2026-10-14T05:40:00.000Z');assert.equal(plan.earliestStartTimeUtc,'2026-10-14T05:10:00.000Z');assert.equal(plan.latestStartTimeUtc,'2026-10-14T06:10:00.000Z');assert.equal(require('../config/fixture-reminder-policy').timing(ruud,new Date('2026-10-13T14:00:00Z')),null);console.log('14 October Stadium morning: bound prior match, approximate window and automatic hold passed.');

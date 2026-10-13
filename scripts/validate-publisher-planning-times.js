@@ -1,0 +1,27 @@
+'use strict';
+const assert=require('node:assert/strict'),timing=require('../config/card-timing'),policy=require('../config/fixture-reminder-policy'),owner=require('../lib/tennis-scoreboard'),planning=require('../lib/publisher-start-estimates');
+const receipts=require('./fixtures/publisher-planning-tennis-20261014.json'),catalogue=require('../data/canonical/tennis-catalogue-2026.json');
+const parse=r=>owner.parse(r.payload,{tour:r.tour,checkedAt:r.checkedAt,now:new Date(r.checkedAt),requestUrl:r.sourceUrl,catalogue}).fixtures;
+const rows=receipts.flatMap(parse),wta=rows.find(e=>e.tennisProviderMatchId==='185357'),atp=rows.find(e=>e.tennisProviderMatchId==='184954'),now=new Date(receipts[0].checkedAt);
+assert(wta&&atp);assert.equal(wta.startTimeUtc,null);assert.equal(wta.timePrecision,'estimated');
+assert.equal(timing.presentation(wta,now).time,'APPROX. 10:00 PM');assert.equal(timing.minimised(wta,now).time,'APPROX. 22:00');
+assert.equal(timing.presentation(atp,now).time,'TIME TBC','A TBD provider timestamp cannot become a match estimate');
+const baseline={...wta,planningTimeEvidence:null,timePrecision:'unresolved',scheduleStatus:'unresolved',timeTbc:true,time:null};
+assert.equal(planning.apply(baseline,wta.planningTimeEvidence,now).timePrecision,'estimated');
+for(const changes of [{dateOnly:true},{tournamentParent:true},{majorEventMarker:true},{participantsConfirmed:false},{status:'completed'},{status:'live'},{status:'postponed'},{scheduleStatus:'withdrawn'},{manualEstimateHeld:true},{sessionOrderEvidence:{}},{estimatedStartTimeUtc:'2026-10-14T12:00:00.000Z'}]){const e={...baseline,...changes};assert.strictEqual(planning.apply(e,wta.planningTimeEvidence,now),e,JSON.stringify(changes));}
+for(const changes of [{fixtureId:atp.id},{participantIds:atp.participantIds},{sourceUrl:'javascript:alert(1)'},{sourceUrl:'https://a:b@example.com'},{checkedAt:'2026-10-15T00:00:00Z'},{checkedAt:'2026-02-30T00:00:00Z'},{startsAt:'2026-10-14T11:00:00'},{timeTbc:true}])assert.strictEqual(planning.apply(baseline,{...wta.planningTimeEvidence,...changes},now),baseline,JSON.stringify(changes));
+assert.strictEqual(planning.apply(baseline,wta.planningTimeEvidence,'2026-10-14T11:00:00Z'),baseline,'An elapsed estimate is not re-admitted');
+for(const invalid of ['2026-02-30T11:00Z','2026-10-14T25:00Z','2026-10-14T11:00','2026-10-14'])assert(Number.isNaN(planning.instant(invalid)));
+assert(planning.displayedClockAgrees('Wed, October 14th at 7:00 AM EDT','2026-10-14T11:00Z'));assert.equal(planning.displayedClockAgrees('Wed, October 13th at 7:00 AM EDT','2026-10-14T11:00Z'),false,'A conflicting display day cannot establish a planning clock');assert.equal(planning.displayedClockAgrees('TBD','2026-10-14T11:00Z'),false);
+const changedReceipt=structuredClone(receipts[0]);changedReceipt.payload.events[0].groupings[0].competitions[0].status.type.detail='TBD';changedReceipt.payload.events[0].groupings[0].competitions[0].status.type.shortDetail='TBD';
+const cleared=parse(changedReceipt)[0];assert.equal(cleared.timePrecision,'unresolved');assert.equal(cleared.timeTbc,true);
+const retracted=owner.merge([wta],[cleared],{now})[0];assert.equal(retracted.planningTimeEvidence,null);assert.equal(timing.presentation(retracted,now).time,'TIME TBC','A later explicit TBD retracts a displayed estimate');
+const later={...wta,planningTimeEvidence:{...wta.planningTimeEvidence,checkedAt:'2026-10-13T13:30:00.000Z'}};assert.equal(owner.merge([wta],[later],{now:new Date(later.planningTimeEvidence.checkedAt)})[0].planningTimeEvidence.checkedAt,wta.planningTimeEvidence.checkedAt,'Unchanged planning facts retain their original observation');
+assert.equal(policy.timing(wta,now),null);assert.equal(policy.manualTiming(wta,now),null,'Publisher planning does not expand reminder timing policy');
+const compact=require('../config/match-centre').compact(wta);assert.equal(timing.presentation(compact,now).time,'APPROX. 10:00 PM','Existing selected projection carries the estimate separately');
+assert.notEqual(require('../config/match-centre').liveState(wta,+new Date(wta.estimatedStartTimeUtc)+60000),'playing','An elapsed estimate cannot establish Live');
+const official={...baseline,startTimeUtc:'2026-10-14T10:00:00.000Z',timePrecision:'not-before',scheduleStatus:'confirmed',timeTbc:false};assert.strictEqual(planning.apply(official,wta.planningTimeEvidence,now),official);assert.match(timing.presentation(official,now).time,/NOT BEFORE 9:00 PM/);
+const differentSport={...baseline,id:'fixture:football:one',canonicalEventId:'fixture:football:one',eventId:'fixture:football:one',key:'football',sport:'Football'};
+assert.match(timing.presentation(planning.apply(differentSport,{...wta.planningTimeEvidence,fixtureId:'fixture:football:one'},now),now).time,/APPROX/,'One shared source rule supports other sporting fixtures');
+const prefs={followFirst:{notifications:{autoRemindersEnabled:false}}};assert.equal(policy.automatic(wta,prefs,{},now),false);assert.equal(policy.intent(wta,prefs,{[wta.id]:{reminderChoice:'off'}},{},now).enabled,false);
+console.log('Publisher planning: captured match-specific estimate, TBD retraction, official priority, source binding, date safety, all-sport reuse and unchanged reminder/OFF rules passed.');

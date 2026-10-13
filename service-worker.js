@@ -23,7 +23,7 @@ const APP_SHELL = [
   "/assets/js/notifications-inbox.js?v=302",
   "/assets/js/settings-optional-ui.js?v=527",
   "/assets/js/follow-navigation.js?v=522",
-  "/assets/js/tournament-fixture-ui.js?v=467",
+  "/assets/js/tournament-fixture-ui.js?v=528",
   "/assets/styles/notifications-inbox.css?v=280",
   "/assets/js/app-update.js?v=293",
   // Navigations already share /index.html below; do not download/cache its
@@ -100,14 +100,14 @@ const APP_SHELL = [
   "/config/event-overviews-ui.js?v=527",
   "/config/surface-category-ui.js?v=403",
   "/assets/styles/match-centre.css?v=507",
-  "/config/match-centre.js?v=527",
+  "/config/match-centre.js?v=528",
   // An upgrading page can receive this deferred module from its old worker.
   // Own it in the new cache before activation removes that old cache.
-  "/assets/js/match-centre-ui.js?v=527",
+  "/assets/js/match-centre-ui.js?v=528",
   "/config/feed-live-scores.js?v=527",
   "/config/feed-live-score-loader.js?v=523",
   "/config/athletes.js?v=471",
-  "/assets/js/athletes-ui.js?v=518",
+  "/assets/js/athletes-ui.js?v=528",
   // Profile UI caches after first use; optional detail stays out of shell budget.
   "/config/football-directory.js",
   "/config/joint-tennis-tournament.js",

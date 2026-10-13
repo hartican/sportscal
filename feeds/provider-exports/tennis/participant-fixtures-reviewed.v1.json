@@ -288,7 +288,7 @@
       "sourceCheckedAt": "2026-10-03T01:24:45.000Z",
       "statusCheckedAt": "2026-10-04T13:50:08.412Z",
       "timingEvidence": {
-        "matchRow": "Bottom-half rows 121–128: Round of 32 column pairs N. Bartunkova and A. Sabalenka; neither has a winner in the Round of 16 column",
+        "matchRow": "Bottom-half rows 121\u2013128: Round of 32 column pairs N. Bartunkova and A. Sabalenka; neither has a winner in the Round of 16 column",
         "clockAssociation": "No individual day, court or clock in the draw; absent from checked 3 October order of play",
         "publishedAtLocal": "2026-10-02T21:16:00+08:00",
         "reviewMethod": "Bracket columns and completed prior-round cells visually checked"
@@ -328,7 +328,7 @@
         "checkedAt": "2026-10-04T13:50:08.412Z",
         "sourceSha256": "1dc306a8fa932ed976bf1af8a56bbd13dd779b506fb78ba8f85f624024db7d09",
         "sourcePublishedAtLocal": "2026-10-04T14:47:00+08:00",
-        "matchRow": "Bottom-half rows 121–128: Round of 32 N. Bartunkova v A. Sabalenka; Round of 16 cell N. Bartunkova, 64 63",
+        "matchRow": "Bottom-half rows 121\u2013128: Round of 32 N. Bartunkova v A. Sabalenka; Round of 16 cell N. Bartunkova, 64 63",
         "winnerParticipantId": "competitor:tennis:wta:nikola-bartunkova",
         "participantIds": [
           "competitor:tennis:wta:aryna-sabalenka",
@@ -434,16 +434,16 @@
           "away": 1
         }
       ],
-      "score": "Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar",
-      "scoreDisplay": "Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar",
-      "result": "Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar",
+      "score": "Carlos Alcaraz 5\u20137, 6\u20133, 6\u20131 Jaume Munar",
+      "scoreDisplay": "Carlos Alcaraz 5\u20137, 6\u20133, 6\u20131 Jaume Munar",
+      "result": "Carlos Alcaraz 5\u20137, 6\u20133, 6\u20131 Jaume Munar",
       "winnerParticipantId": "competitor:tennis:atp:carlos-alcaraz",
       "scoreCheckedAt": "2026-10-06T02:10:02.846863+00:00",
       "resultSourceUrl": "https://www.protennislive.com/posting/2026/329/mds.pdf",
       "resultSourceCheckedAt": "2026-10-06T02:10:02.846863+00:00",
       "resultAvailabilityEvidence": null,
       "outcomeText": "Carlos Alcaraz defeated Jaume Munar.",
-      "recapText": "The official tournament draw publishes this result: Carlos Alcaraz 5–7, 6–3, 6–1 Jaume Munar.",
+      "recapText": "The official tournament draw publishes this result: Carlos Alcaraz 5\u20137, 6\u20133, 6\u20131 Jaume Munar.",
       "resultEvidence": {
         "kind": "official-draw-result",
         "fixtureId": "fixture:tennis:atp-tokyo-2026:sf:alcaraz-munar",
@@ -554,16 +554,16 @@
           "away": 2
         }
       ],
-      "score": "Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz",
-      "scoreDisplay": "Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz",
-      "result": "Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz",
+      "score": "Alex de Minaur 6\u20134, 3\u20132 RET Hubert Hurkacz",
+      "scoreDisplay": "Alex de Minaur 6\u20134, 3\u20132 RET Hubert Hurkacz",
+      "result": "Alex de Minaur 6\u20134, 3\u20132 RET Hubert Hurkacz",
       "winnerParticipantId": "athlete:tennis:alex-de-minaur",
       "scoreCheckedAt": "2026-10-06T02:10:03.842627+00:00",
       "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
       "resultSourceCheckedAt": "2026-10-06T02:10:03.842627+00:00",
       "resultAvailabilityEvidence": null,
       "outcomeText": "Alex de Minaur defeated Hubert Hurkacz by retirement.",
-      "recapText": "The official tournament draw publishes this result: Alex de Minaur 6–4, 3–2 RET Hubert Hurkacz.",
+      "recapText": "The official tournament draw publishes this result: Alex de Minaur 6\u20134, 3\u20132 RET Hubert Hurkacz.",
       "resultCode": "RET",
       "retiredParticipantId": "competitor:tennis:atp:hubert-hurkacz",
       "resultEvidence": {
@@ -683,16 +683,16 @@
           "away": 4
         }
       ],
-      "score": "Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev",
-      "scoreDisplay": "Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev",
-      "result": "Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev",
+      "score": "Novak Djokovic 4\u20136, 6\u20134, 6\u20134 Alexander Zverev",
+      "scoreDisplay": "Novak Djokovic 4\u20136, 6\u20134, 6\u20134 Alexander Zverev",
+      "result": "Novak Djokovic 4\u20136, 6\u20134, 6\u20134 Alexander Zverev",
       "winnerParticipantId": "athlete:tennis:novak-djokovic",
       "scoreCheckedAt": "2026-10-06T02:10:03.842627+00:00",
       "resultSourceUrl": "https://www.protennislive.com/posting/2026/747/mds.pdf",
       "resultSourceCheckedAt": "2026-10-06T02:10:03.842627+00:00",
       "resultAvailabilityEvidence": null,
       "outcomeText": "Novak Djokovic defeated Alexander Zverev.",
-      "recapText": "The official tournament draw publishes this result: Novak Djokovic 4–6, 6–4, 6–4 Alexander Zverev.",
+      "recapText": "The official tournament draw publishes this result: Novak Djokovic 4\u20136, 6\u20134, 6\u20134 Alexander Zverev.",
       "resultEvidence": {
         "kind": "official-draw-result",
         "fixtureId": "fixture:tennis:atp-beijing-2026:qf:djokovic-zverev",
@@ -984,7 +984,7 @@
       "canonicalSourceCheckedAt": "2026-10-06T10:03:54.489Z",
       "statusCheckedAt": "2026-10-06T09:57:18Z",
       "scoreCheckedAt": "2026-10-06T09:57:18Z",
-      "score": "7–5, 1–6, 6–6",
+      "score": "7\u20135, 1\u20136, 6\u20136",
       "sets": [
         {
           "home": 7,
@@ -1017,25 +1017,25 @@
           "competitor:tennis:wta:karolina-muchova",
           "competitor:tennis:wta:naomi-osaka"
         ],
-        "matchRow": "Karolina Muchova v Naomi Osaka · Round of 16 · 6 October 2026",
+        "matchRow": "Karolina Muchova v Naomi Osaka \u00b7 Round of 16 \u00b7 6 October 2026",
         "score": "7-5,1-6,6-6",
         "scoreState": "in-progress"
       },
       "timingEvidence": {
-        "matchRow": "Karolina Muchova v Naomi Osaka · Round of 16 · Tue 06 Oct 2026",
+        "matchRow": "Karolina Muchova v Naomi Osaka \u00b7 Round of 16 \u00b7 Tue 06 Oct 2026",
         "clockAssociation": "Official named match page publishes the date only; no exact or not-before match clock verified."
       },
       "liveWindow": 3,
       "createdAt": "2026-10-06T09:50:51.444Z",
-      "scoreDisplay": "7–5, 1–6, 6–6",
-      "selectedSentence": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status.",
-      "fullSpiel": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status.",
+      "scoreDisplay": "7\u20135, 1\u20136, 6\u20136",
+      "selectedSentence": "China Open \u00b7 Beijing \u00b7 WTA 1000 \u00b7 Round of 16. See the official WTA match centre for the latest status.",
+      "fullSpiel": "China Open \u00b7 Beijing \u00b7 WTA 1000 \u00b7 Round of 16. See the official WTA match centre for the latest status.",
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "preview",
-        "hookSpoilerOff": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status.",
-        "synopsisSpoilerOff": "China Open · Beijing · WTA 1000 · Round of 16. See the official WTA match centre for the latest status."
+        "hookSpoilerOff": "China Open \u00b7 Beijing \u00b7 WTA 1000 \u00b7 Round of 16. See the official WTA match centre for the latest status.",
+        "synopsisSpoilerOff": "China Open \u00b7 Beijing \u00b7 WTA 1000 \u00b7 Round of 16. See the official WTA match centre for the latest status."
       },
       "broadcaster": "Australian viewing unconfirmed",
       "viewingOptions": []
@@ -1070,7 +1070,7 @@
       "timePrecision": "followed-by",
       "timeTbc": true,
       "scheduleStatus": "unresolved",
-      "scheduleNote": "9 October Shanghai order of play: third match on Grandstand 2, after Hanfmann–Tiafoe. No official exact or not-before start.",
+      "scheduleNote": "9 October Shanghai order of play: third match on Grandstand 2, after Hanfmann\u2013Tiafoe. No official exact or not-before start.",
       "status": "scheduled",
       "participantsConfirmed": true,
       "participantIds": [
@@ -1104,7 +1104,7 @@
       "statusCheckedAt": "2026-10-07T22:39:38.478552+00:00",
       "timingEvidence": {
         "matchRow": "9 October, Grandstand 2, match 3: Alex DE MINAUR v Alex MOLCAN, Followed By",
-        "clockAssociation": "Followed By belongs to this named third match. The court Starts At 12:00 applies only to Mannarino–Cobolli; neither it nor the prior match provides this fixture a clock.",
+        "clockAssociation": "Followed By belongs to this named third match. The court Starts At 12:00 applies only to Mannarino\u2013Cobolli; neither it nor the prior match provides this fixture a clock.",
         "publishedAtLocal": "2026-10-08T22:24:14+08:00",
         "reviewMethod": "Complete official order-of-play court column visually checked with both complete draw pages and organiser HTML schedule.",
         "sourceSha256": "1ca5be883291f90172c7072b7068a2303ba8a0b5bb319b972e76dc4d2dc0e6e2",
@@ -1136,7 +1136,7 @@
       "liveWindow": 3,
       "broadcaster": "Australian viewing unconfirmed",
       "viewingOptions": [],
-      "displayDateLabel": "9 Oct · Shanghai schedule",
+      "displayDateLabel": "9 Oct \u00b7 Shanghai schedule",
       "timingVerified": false,
       "scheduleEvidence": {
         "kind": "official-order-of-play",
@@ -1159,7 +1159,7 @@
         "localTime": null,
         "startsAt": null,
         "matchRow": "9 October, Grandstand 2, match 3: Alex DE MINAUR v Alex MOLCAN, Followed By",
-        "clockAssociation": "Followed By belongs to this named third match. The court Starts At 12:00 applies only to Mannarino–Cobolli; neither it nor the prior match provides this fixture a clock."
+        "clockAssociation": "Followed By belongs to this named third match. The court Starts At 12:00 applies only to Mannarino\u2013Cobolli; neither it nor the prior match provides this fixture a clock."
       }
     },
     {
@@ -1276,7 +1276,7 @@
       "startTimeTbc": false,
       "dateOnly": false,
       "timingVerified": true,
-      "scheduleNote": "Not before 18:00 Shanghai (21:00 Sydney), 9 October; directly attached to Djokovic–Hurkacz in the official order of play.",
+      "scheduleNote": "Not before 18:00 Shanghai (21:00 Sydney), 9 October; directly attached to Djokovic\u2013Hurkacz in the official order of play.",
       "timingEvidence": {
         "matchRow": "9 October, Stadium Court, match 4: Novak DJOKOVIC v Hubert HURKACZ, Not Before 18:00",
         "clockAssociation": "Not Before 18:00 is attached directly to this named fourth match; the court session starts at 12:00 and the third row is empty. Neither supplies this match time.",
@@ -1299,7 +1299,7 @@
         "sourceSha256": "350e8294cc2676612408e8c07ddd9cb68a3110b770a2ab4c64d525b8fb81caa7",
         "sourcePublishedAtLocal": "2026-10-08T22:24:09+08:00",
         "roundLabel": "Round of 64",
-        "matchRow": "Top-half draw rows 49–52: N. Djokovic (10) v H. Hurkacz in Round of 64; next winner cell empty.",
+        "matchRow": "Top-half draw rows 49\u201352: N. Djokovic (10) v H. Hurkacz in Round of 64; next winner cell empty.",
         "winnerCell": "unpublished"
       },
       "scheduleEvidence": {
@@ -2002,7 +2002,7 @@
           "sportDomainId": "sport:tennis"
         }
       ],
-      "scheduleNote": "Not before 19:30 Beijing (22:30 Sydney), 11 October; directly attached to Zheng–Andreeva in the official order of play.",
+      "scheduleNote": "Not before 19:30 Beijing (22:30 Sydney), 11 October; directly attached to Zheng\u2013Andreeva in the official order of play.",
       "startTimeUtc": "2026-10-11T11:30:00.000Z",
       "tournamentId": "tournament:tennis:wta-beijing-2026",
       "competitionId": "competition:wta-tour",
@@ -2122,7 +2122,7 @@
       "timePrecision": "not-before",
       "scheduleStatus": "confirmed",
       "timeTbc": false,
-      "scheduleNote": "Not before 18:00 Shanghai (21:00 Sydney), 12 October; directly attached to Bergs–Alcaraz in the official order of play.",
+      "scheduleNote": "Not before 18:00 Shanghai (21:00 Sydney), 12 October; directly attached to Bergs\u2013Alcaraz in the official order of play.",
       "status": "completed",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -2259,7 +2259,7 @@
         "sourceSha256": "2e4a310578bd120d441574b4c5eda46463efcff906132023a613755d8bde7f06",
         "sourcePublishedAtLocal": "2026-10-11T16:21:36+08:00",
         "roundLabel": "Round of 32",
-        "matchRow": "Bottom-half draw rows 121–128: Z. Bergs and C. Alcaraz named in Round of 32; subsequent winner cell empty.",
+        "matchRow": "Bottom-half draw rows 121\u2013128: Z. Bergs and C. Alcaraz named in Round of 32; subsequent winner cell empty.",
         "winnerCell": "unpublished"
       },
       "resultStatus": "official",
@@ -2276,9 +2276,9 @@
           "awayTiebreak": 4
         }
       ],
-      "score": "7–5, 7–6(4)",
-      "scoreDisplay": "7–5, 7–6(4)",
-      "result": "7–5, 7–6(4)",
+      "score": "7\u20135, 7\u20136(4)",
+      "scoreDisplay": "7\u20135, 7\u20136(4)",
+      "result": "7\u20135, 7\u20136(4)",
       "resultSourceUrl": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
       "resultSourceCheckedAt": "2026-10-12T13:26:58.435307+00:00",
       "scoreCheckedAt": "2026-10-12T13:26:58.435307+00:00",
@@ -2293,7 +2293,7 @@
         "checkedAt": "2026-10-12T13:26:58.435307+00:00",
         "sourceSha256": "1524471eefafa62d42a1126fbea7dfdab0dbca0e7ac1fc56cf7b1d327927b85e",
         "sourcePublishedAtLocal": "2026-10-12T20:39:13+08:00",
-        "matchRow": "Reviewed Shanghai singles draw, Round of 32: Zizou BERGS advances over Carlos ALCARAZ, 7–5, 7–6(4).",
+        "matchRow": "Reviewed Shanghai singles draw, Round of 32: Zizou BERGS advances over Carlos ALCARAZ, 7\u20135, 7\u20136(4).",
         "winnerParticipantId": "competitor:tennis:atp:zizou-bergs",
         "sets": [
           {
@@ -2352,7 +2352,7 @@
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
       "timeTbc": false,
-      "scheduleNote": "Starts at 12:00 Shanghai (15:00 Sydney), 13 October; directly attached to de Minaur–Khachanov, the first Stadium Court match in the official order of play.",
+      "scheduleNote": "Starts at 12:00 Shanghai (15:00 Sydney), 13 October; directly attached to de Minaur\u2013Khachanov, the first Stadium Court match in the official order of play.",
       "status": "scheduled",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -2472,23 +2472,531 @@
         "matchRow": "13 October, Stadium Court, first named match: Alex DE MINAUR v Karen KHACHANOV; Starts At 12:00",
         "clockAssociation": "The Starts At12:00 band is immediately attached to this first named Stadium Court row. It is not copied to any Followed By row."
       }
+    },
+    {
+      "id": "fixture:tennis:espn:atp:184953",
+      "eventId": "fixture:tennis:espn:atp:184953",
+      "canonicalEventId": "fixture:tennis:espn:atp:184953",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184953"
+      ],
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:atp-tour",
+      "competitionName": "Rolex Shanghai Masters",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tournamentName": "Rolex Shanghai Masters",
+      "eventFamilyId": "shanghai-masters",
+      "tour": "ATP",
+      "gender": "men",
+      "discipline": "singles",
+      "eventType": "mens-singles",
+      "season": 2026,
+      "tennisProviderMatchId": "184953",
+      "tennisProviderEventId": "315-2026",
+      "tennisProviderTour": "atp",
+      "tournamentLevel": "1000",
+      "round": "knockout",
+      "roundLabel": "Round of 16",
+      "stage": "Round of 16",
+      "name": "Botic van de Zandschulp v Rafael Jodar",
+      "date": "2026-10-14",
+      "time": "15:00",
+      "startTimeUtc": "2026-10-14T04:00:00.000Z",
+      "estimatedStartTimeUtc": null,
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "timeTbc": false,
+      "scheduleNote": "14 October Stadium Court row 1: Botic van de Zandschulp v Rafael Jodar; Starts At 12:00",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "contestUnit": "match",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:atp:botic-van-de-zandschulp",
+        "competitor:tennis:atp:rafael-jodar"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:botic-van-de-zandschulp",
+          "name": "Botic van de Zandschulp",
+          "displayName": "Botic van de Zandschulp",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "NL"
+        },
+        {
+          "id": "competitor:tennis:atp:rafael-jodar",
+          "name": "Rafael Jodar",
+          "displayName": "Rafael Jodar",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "ES"
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:botic-van-de-zandschulp",
+      "awayParticipantId": "competitor:tennis:atp:rafael-jodar",
+      "venue": "Stadium Court",
+      "venueCity": "Shanghai",
+      "sourceName": "ATP Shanghai official order of play",
+      "sourceType": "official",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
+      "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184953",
+      "statusSourceName": "ESPN",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184953",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      ],
+      "broadcaster": "Australian viewing unconfirmed",
+      "viewingOptions": [],
+      "expected": null,
+      "liveWindow": 5,
+      "court": "Stadium Court",
+      "statusSourceType": "reputable",
+      "schedulePrecision": "exact",
+      "startTimeTbc": false,
+      "dateOnly": false,
+      "timingVerified": true,
+      "timingEvidence": {
+        "matchRow": "14 October Stadium Court row 1: Botic van de Zandschulp v Rafael Jodar; Starts At 12:00",
+        "clockAssociation": "Clock band directly attaches to this named row; no neighbouring row receives its clock.",
+        "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6"
+      },
+      "planningTimeEvidence": null,
+      "scheduleEvidence": {
+        "kind": "official-order-of-play",
+        "fixtureId": "fixture:tennis:espn:atp:184953",
+        "participantIds": [
+          "competitor:tennis:atp:botic-van-de-zandschulp",
+          "competitor:tennis:atp:rafael-jodar"
+        ],
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+        "checkedAt": "2026-10-13T13:29:55.629283+00:00",
+        "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6",
+        "sourcePublishedAtLocal": "2026-10-13T13:17:30+08:00",
+        "tournamentId": "tournament:tennis:atp-shanghai-2026",
+        "roundLabel": "Round of 16",
+        "matchDateLocal": "2026-10-14",
+        "timeZone": "Asia/Shanghai",
+        "court": "Stadium Court",
+        "playOrder": 1,
+        "timePrecision": "exact",
+        "localTime": "12:00",
+        "startsAt": "2026-10-14T04:00:00.000Z",
+        "matchRow": "14 October Stadium Court row 1: Botic van de Zandschulp v Rafael Jodar; Starts At 12:00",
+        "clockAssociation": "Clock band directly attaches to this named row; no neighbouring row receives its clock."
+      }
+    },
+    {
+      "id": "fixture:tennis:espn:atp:184948",
+      "eventId": "fixture:tennis:espn:atp:184948",
+      "canonicalEventId": "fixture:tennis:espn:atp:184948",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184948"
+      ],
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:atp-tour",
+      "competitionName": "Rolex Shanghai Masters",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tournamentName": "Rolex Shanghai Masters",
+      "eventFamilyId": "shanghai-masters",
+      "tour": "ATP",
+      "gender": "men",
+      "discipline": "singles",
+      "eventType": "mens-singles",
+      "season": 2026,
+      "tennisProviderMatchId": "184948",
+      "tennisProviderEventId": "315-2026",
+      "tennisProviderTour": "atp",
+      "tournamentLevel": "1000",
+      "round": "knockout",
+      "roundLabel": "Round of 16",
+      "stage": "Round of 16",
+      "name": "Casper Ruud v Felix Auger Aliassime",
+      "date": "2026-10-14",
+      "time": null,
+      "startTimeUtc": null,
+      "estimatedStartTimeUtc": null,
+      "timePrecision": "followed-by",
+      "scheduleStatus": "unresolved",
+      "timeTbc": true,
+      "scheduleNote": "14 October Stadium Court row 2: Casper Ruud v Felix Auger Aliassime; Followed By",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "contestUnit": "match",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:felix-auger-aliassime"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:casper-ruud",
+          "name": "Casper Ruud",
+          "displayName": "Casper Ruud",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "NO"
+        },
+        {
+          "id": "competitor:tennis:atp:felix-auger-aliassime",
+          "name": "Felix Auger Aliassime",
+          "displayName": "Felix Auger Aliassime",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "CA"
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:casper-ruud",
+      "awayParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
+      "venue": "Stadium Court",
+      "venueCity": "Shanghai",
+      "sourceName": "ATP Shanghai official order of play",
+      "sourceType": "official",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
+      "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
+      "statusSourceName": "ESPN",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184948",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      ],
+      "broadcaster": "Australian viewing unconfirmed",
+      "viewingOptions": [],
+      "expected": null,
+      "liveWindow": 5,
+      "court": "Stadium Court",
+      "statusSourceType": "reputable",
+      "schedulePrecision": "followed-by",
+      "startTimeTbc": true,
+      "dateOnly": false,
+      "timingVerified": false,
+      "timingEvidence": {
+        "matchRow": "14 October Stadium Court row 2: Casper Ruud v Felix Auger Aliassime; Followed By",
+        "clockAssociation": "Official Followed By row; no individual clock is published.",
+        "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6"
+      },
+      "planningTimeEvidence": null,
+      "scheduleEvidence": {
+        "kind": "official-order-of-play",
+        "fixtureId": "fixture:tennis:espn:atp:184948",
+        "participantIds": [
+          "competitor:tennis:atp:casper-ruud",
+          "competitor:tennis:atp:felix-auger-aliassime"
+        ],
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+        "checkedAt": "2026-10-13T13:29:55.629283+00:00",
+        "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6",
+        "sourcePublishedAtLocal": "2026-10-13T13:17:30+08:00",
+        "tournamentId": "tournament:tennis:atp-shanghai-2026",
+        "roundLabel": "Round of 16",
+        "matchDateLocal": "2026-10-14",
+        "timeZone": "Asia/Shanghai",
+        "court": "Stadium Court",
+        "playOrder": 2,
+        "timePrecision": "followed-by",
+        "localTime": null,
+        "startsAt": null,
+        "matchRow": "14 October Stadium Court row 2: Casper Ruud v Felix Auger Aliassime; Followed By",
+        "clockAssociation": "Official Followed By row; no individual clock is published."
+      },
+      "sessionOrderEvidence": {
+        "kind": "official-session-order",
+        "sessionId": "shanghai-20261014-stadium-morning",
+        "tournamentId": "tournament:tennis:atp-shanghai-2026",
+        "court": "Stadium Court",
+        "startsAt": "2026-10-14T04:00:00.000Z",
+        "fixtureIds": [
+          "fixture:tennis:espn:atp:184953",
+          "fixture:tennis:espn:atp:184948"
+        ],
+        "participantIdsByFixture": {
+          "fixture:tennis:espn:atp:184953": [
+            "competitor:tennis:atp:botic-van-de-zandschulp",
+            "competitor:tennis:atp:rafael-jodar"
+          ],
+          "fixture:tennis:espn:atp:184948": [
+            "competitor:tennis:atp:casper-ruud",
+            "competitor:tennis:atp:felix-auger-aliassime"
+          ]
+        },
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+        "checkedAt": "2026-10-13T13:29:55.629283+00:00",
+        "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6"
+      }
+    },
+    {
+      "id": "fixture:tennis:espn:atp:184949",
+      "eventId": "fixture:tennis:espn:atp:184949",
+      "canonicalEventId": "fixture:tennis:espn:atp:184949",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184949"
+      ],
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:atp-tour",
+      "competitionName": "Rolex Shanghai Masters",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tournamentName": "Rolex Shanghai Masters",
+      "eventFamilyId": "shanghai-masters",
+      "tour": "ATP",
+      "gender": "men",
+      "discipline": "singles",
+      "eventType": "mens-singles",
+      "season": 2026,
+      "tennisProviderMatchId": "184949",
+      "tennisProviderEventId": "315-2026",
+      "tennisProviderTour": "atp",
+      "tournamentLevel": "1000",
+      "round": "knockout",
+      "roundLabel": "Round of 16",
+      "stage": "Round of 16",
+      "name": "Daniil Medvedev v Stefanos Tsitsipas",
+      "date": "2026-10-14",
+      "time": "21:00",
+      "startTimeUtc": "2026-10-14T10:00:00.000Z",
+      "estimatedStartTimeUtc": null,
+      "timePrecision": "not-before",
+      "scheduleStatus": "confirmed",
+      "timeTbc": false,
+      "scheduleNote": "14 October Stadium Court row 4: Daniil Medvedev v Stefanos Tsitsipas; Not Before 18:00",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "contestUnit": "match",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:atp:daniil-medvedev",
+        "competitor:tennis:atp:stefanos-tsitsipas"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:daniil-medvedev",
+          "name": "Daniil Medvedev",
+          "displayName": "Daniil Medvedev",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "RU"
+        },
+        {
+          "id": "competitor:tennis:atp:stefanos-tsitsipas",
+          "name": "Stefanos Tsitsipas",
+          "displayName": "Stefanos Tsitsipas",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "GR"
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:daniil-medvedev",
+      "awayParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
+      "venue": "Stadium Court",
+      "venueCity": "Shanghai",
+      "sourceName": "ATP Shanghai official order of play",
+      "sourceType": "official",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
+      "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
+      "statusSourceName": "ESPN",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184949",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      ],
+      "broadcaster": "Australian viewing unconfirmed",
+      "viewingOptions": [],
+      "expected": null,
+      "liveWindow": 5,
+      "court": "Stadium Court",
+      "statusSourceType": "reputable",
+      "schedulePrecision": "not-before",
+      "startTimeTbc": false,
+      "dateOnly": false,
+      "timingVerified": true,
+      "timingEvidence": {
+        "matchRow": "14 October Stadium Court row 4: Daniil Medvedev v Stefanos Tsitsipas; Not Before 18:00",
+        "clockAssociation": "Clock band directly attaches to this named row; no neighbouring row receives its clock.",
+        "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6"
+      },
+      "planningTimeEvidence": null,
+      "scheduleEvidence": {
+        "kind": "official-order-of-play",
+        "fixtureId": "fixture:tennis:espn:atp:184949",
+        "participantIds": [
+          "competitor:tennis:atp:daniil-medvedev",
+          "competitor:tennis:atp:stefanos-tsitsipas"
+        ],
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+        "checkedAt": "2026-10-13T13:29:55.629283+00:00",
+        "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6",
+        "sourcePublishedAtLocal": "2026-10-13T13:17:30+08:00",
+        "tournamentId": "tournament:tennis:atp-shanghai-2026",
+        "roundLabel": "Round of 16",
+        "matchDateLocal": "2026-10-14",
+        "timeZone": "Asia/Shanghai",
+        "court": "Stadium Court",
+        "playOrder": 4,
+        "timePrecision": "not-before",
+        "localTime": "18:00",
+        "startsAt": "2026-10-14T10:00:00.000Z",
+        "matchRow": "14 October Stadium Court row 4: Daniil Medvedev v Stefanos Tsitsipas; Not Before 18:00",
+        "clockAssociation": "Clock band directly attaches to this named row; no neighbouring row receives its clock."
+      }
+    },
+    {
+      "id": "fixture:tennis:espn:atp:184958",
+      "eventId": "fixture:tennis:espn:atp:184958",
+      "canonicalEventId": "fixture:tennis:espn:atp:184958",
+      "sourceEventIds": [
+        "fixture:tennis:espn:atp:184958"
+      ],
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:atp-tour",
+      "competitionName": "Rolex Shanghai Masters",
+      "tournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tennisTournamentId": "tournament:tennis:atp-shanghai-2026",
+      "tournamentName": "Rolex Shanghai Masters",
+      "eventFamilyId": "shanghai-masters",
+      "tour": "ATP",
+      "gender": "men",
+      "discipline": "singles",
+      "eventType": "mens-singles",
+      "season": 2026,
+      "tennisProviderMatchId": "184958",
+      "tennisProviderEventId": "315-2026",
+      "tennisProviderTour": "atp",
+      "tournamentLevel": "1000",
+      "round": "knockout",
+      "roundLabel": "Round of 16",
+      "stage": "Round of 16",
+      "name": "Tommy Paul v Zizou Bergs",
+      "date": "2026-10-14",
+      "time": null,
+      "startTimeUtc": null,
+      "estimatedStartTimeUtc": null,
+      "timePrecision": "followed-by",
+      "scheduleStatus": "unresolved",
+      "timeTbc": true,
+      "scheduleNote": "14 October Stadium Court row 5: Tommy Paul v Zizou Bergs; Followed By",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "kind": "fixture",
+      "contestUnit": "match",
+      "participantsConfirmed": true,
+      "participantIds": [
+        "competitor:tennis:atp:tommy-paul",
+        "competitor:tennis:atp:zizou-bergs"
+      ],
+      "participants": [
+        {
+          "id": "competitor:tennis:atp:tommy-paul",
+          "name": "Tommy Paul",
+          "displayName": "Tommy Paul",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "US"
+        },
+        {
+          "id": "competitor:tennis:atp:zizou-bergs",
+          "name": "Zizou Bergs",
+          "displayName": "Zizou Bergs",
+          "type": "athlete",
+          "entityType": "athlete",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "BE"
+        }
+      ],
+      "homeParticipantId": "competitor:tennis:atp:tommy-paul",
+      "awayParticipantId": "competitor:tennis:atp:zizou-bergs",
+      "venue": "Stadium Court",
+      "venueCity": "Shanghai",
+      "sourceName": "ATP Shanghai official order of play",
+      "sourceType": "official",
+      "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+      "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
+      "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184958",
+      "statusSourceName": "ESPN",
+      "sourceRefs": [
+        "https://www.espn.com/tennis/matchstats?gameId=184958",
+        "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      ],
+      "broadcaster": "Australian viewing unconfirmed",
+      "viewingOptions": [],
+      "expected": null,
+      "liveWindow": 5,
+      "court": "Stadium Court",
+      "statusSourceType": "reputable",
+      "schedulePrecision": "followed-by",
+      "startTimeTbc": true,
+      "dateOnly": false,
+      "timingVerified": false,
+      "timingEvidence": {
+        "matchRow": "14 October Stadium Court row 5: Tommy Paul v Zizou Bergs; Followed By",
+        "clockAssociation": "Official Followed By row; no individual clock is published.",
+        "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6"
+      },
+      "planningTimeEvidence": null,
+      "scheduleEvidence": {
+        "kind": "official-order-of-play",
+        "fixtureId": "fixture:tennis:espn:atp:184958",
+        "participantIds": [
+          "competitor:tennis:atp:tommy-paul",
+          "competitor:tennis:atp:zizou-bergs"
+        ],
+        "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
+        "checkedAt": "2026-10-13T13:29:55.629283+00:00",
+        "sourceSha256": "d6ed7a3670bfc4b9d193dc59623150b3ebf76df865ccd7de403c3aea950435a6",
+        "sourcePublishedAtLocal": "2026-10-13T13:17:30+08:00",
+        "tournamentId": "tournament:tennis:atp-shanghai-2026",
+        "roundLabel": "Round of 16",
+        "matchDateLocal": "2026-10-14",
+        "timeZone": "Asia/Shanghai",
+        "court": "Stadium Court",
+        "playOrder": 5,
+        "timePrecision": "followed-by",
+        "localTime": null,
+        "startsAt": null,
+        "matchRow": "14 October Stadium Court row 5: Tommy Paul v Zizou Bergs; Followed By",
+        "clockAssociation": "Official Followed By row; no individual clock is published."
+      }
     }
   ],
   "reviews": [
     {
       "player": "Novak Djokovic",
-      "outcome": "Official draw and order of play confirm the existing Djokovic–Hurkacz Round of 64 match on 9 October, not before 18:00 Shanghai (21:00 Sydney). Existing fixture identity and reminder OFF controls remain.",
+      "outcome": "Official draw and order of play confirm the existing Djokovic\u2013Hurkacz Round of 64 match on 9 October, not before 18:00 Shanghai (21:00 Sydney). Existing fixture identity and reminder OFF controls remain.",
       "checkedAt": "2026-10-09T00:25:46.204783+00:00",
-      "summary": "Shanghai Masters v Hubert Hurkacz · not before 21:00 Sydney, 9 October",
+      "summary": "Shanghai Masters v Hubert Hurkacz \u00b7 not before 21:00 Sydney, 9 October",
       "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
       "sourceLabel": "Official order of play",
       "validUntil": "2026-10-09"
     },
     {
       "player": "Alex de Minaur",
-      "outcome": "Official 9 October order of play names de Minaur–Molcan as the third Grandstand 2 match, Followed By. The individual start remains unverified and cannot schedule a reminder.",
+      "outcome": "Official 9 October order of play names de Minaur\u2013Molcan as the third Grandstand 2 match, Followed By. The individual start remains unverified and cannot schedule a reminder.",
       "checkedAt": "2026-10-09T00:25:46.204783+00:00",
-      "summary": "Shanghai Masters v Alex Molcan · 9 October Shanghai order of play · followed by, start time unconfirmed",
+      "summary": "Shanghai Masters v Alex Molcan \u00b7 9 October Shanghai order of play \u00b7 followed by, start time unconfirmed",
       "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
       "sourceLabel": "Official order of play",
       "validUntil": "2026-10-09"
@@ -2497,7 +3005,7 @@
       "player": "Carlos Alcaraz",
       "outcome": "Verified named final and official not-before clock. ATP500 remains manual Feed/reminder only.",
       "checkedAt": "2026-10-06T02:10:03.364867+00:00",
-      "summary": "Japan Open final v Jiri Lehecka · not before 20:00 Sydney, 6 October",
+      "summary": "Japan Open final v Jiri Lehecka \u00b7 not before 20:00 Sydney, 6 October",
       "sourceUrl": "https://www.protennislive.com/posting/2026/329/op.pdf",
       "validUntil": "2026-10-06",
       "sourceLabel": "Official order of play"
@@ -2506,7 +3014,7 @@
       "player": "Jannik Sinner",
       "outcome": "The organiser confirmed Sinner withdrew from Shanghai. No individual Shanghai fixture or start time exists in this review.",
       "checkedAt": "2026-10-03T14:29:18.837Z",
-      "summary": "Withdrawn from Shanghai Masters · organiser confirmed 3 October",
+      "summary": "Withdrawn from Shanghai Masters \u00b7 organiser confirmed 3 October",
       "sourceUrl": "https://en.rolexshanghaimasters.com/en/media/news/sinner-shanghai-2026-withdrawal",
       "sourceLabel": "Official participation update",
       "validUntil": "2026-10-18"
@@ -2515,7 +3023,7 @@
       "player": "Novak Djokovic",
       "outcome": "Verified named final and official not-before clock. ATP500 remains manual Feed/reminder only.",
       "checkedAt": "2026-10-06T02:10:05.381842+00:00",
-      "summary": "China Open final v Alex de Minaur · not before 22:00 Sydney, 6 October",
+      "summary": "China Open final v Alex de Minaur \u00b7 not before 22:00 Sydney, 6 October",
       "sourceUrl": "https://www.protennislive.com/posting/2026/747/op.pdf",
       "validUntil": "2026-10-06",
       "sourceLabel": "Official order of play"
@@ -2524,7 +3032,7 @@
       "player": "Alex de Minaur",
       "outcome": "Verified named final and official not-before clock. ATP500 remains manual Feed/reminder only.",
       "checkedAt": "2026-10-06T02:10:05.381842+00:00",
-      "summary": "China Open final v Novak Djokovic · not before 22:00 Sydney, 6 October",
+      "summary": "China Open final v Novak Djokovic \u00b7 not before 22:00 Sydney, 6 October",
       "sourceUrl": "https://www.protennislive.com/posting/2026/747/op.pdf",
       "validUntil": "2026-10-06",
       "sourceLabel": "Official order of play"
@@ -2544,7 +3052,7 @@
       "player": "Alex de Minaur",
       "outcome": "Official draw confirms the Round of 64 match against Alex Molcan. No individual match day, court, official start clock or live status is established.",
       "checkedAt": "2026-10-07T22:39:38.478552+00:00",
-      "summary": "Shanghai Masters v Alex Molcan · Round of 64 · start time unconfirmed",
+      "summary": "Shanghai Masters v Alex Molcan \u00b7 Round of 64 \u00b7 start time unconfirmed",
       "sourceUrl": "https://www.protennislive.com/posting/2026/5014/mds.pdf",
       "sourceLabel": "Official singles draw",
       "validUntil": "2026-10-18"
