@@ -170,7 +170,16 @@ function eventMatchesCode(event, code){
   return (CODE_KEYS[code.id] || [code.slug]).some(key => values.some(value => value === key || value.includes(key)));
 }
 
-const clubCrests=new Map(require('../config/football-club-crests.json').clubs.map(c=>[c.participantId,c.logoUrl]));
+const clubCrestRecords=require('../config/football-club-crests.json').clubs;
+const clubCrests=new Map(clubCrestRecords.map(c=>[c.participantId,c.logoUrl]));
+const reviewedClubCrests=new Map(clubCrestRecords.filter(c=>c.logoReview).map(c=>[c.participantId,c]));
+function clubLogoForSlot(participantId,existing){
+  return reviewedClubCrests.get(participantId)?.logoUrl||existing||clubCrests.get(participantId)||null;
+}
+function reviewedArtworkForParticipant(participant){
+  const crest=reviewedClubCrests.get(participant?.id||participant?.participantId);
+  return crest?{...participant,logoUrl:crest.logoUrl,crestSourceUrl:crest.logoReview.sourceUrl}:participant;
+}
 function participantSlots(event){
   if (event?.participantDisplayMode === "field") return [];
   const nationalTeams = nationalTeamIdentities.identitiesForEvent(event);
@@ -179,7 +188,7 @@ function participantSlots(event){
       slot: slot.slot || index + 1,
       participantId: nationalTeamIdentities.canonicalId(slot.participantId) || nationalTeams[index]?.id || null,
       label: slot.label || canonicalParticipantNames.get(nationalTeamIdentities.canonicalId(slot.participantId)) || nationalTeams[index]?.displayName || null,
-      logoUrl:nationalTeamIdentities.teamForId(slot.participantId)?.assetPath || slot.logoUrl || clubCrests.get(slot.participantId) || null,
+      logoUrl:nationalTeamIdentities.teamForId(slot.participantId)?.assetPath || clubLogoForSlot(slot.participantId,slot.logoUrl),
       ...(slot.homeAway ? { homeAway:slot.homeAway } : {}),
       ...(slot.score != null ? { score:String(slot.score) } : {}),
     }));
@@ -189,7 +198,7 @@ function participantSlots(event){
       slot: index + 1,
       participantId,
       label: canonicalParticipantNames.get(participantId) || nationalTeamIdentities.teamForId(participantId)?.displayName || (event.participants || []).find(p=>p.id===participantId)?.name || null,
-      logoUrl:nationalTeamIdentities.teamForId(participantId)?.assetPath || (event.participants||[]).find(p=>p.id===participantId)?.logoUrl || clubCrests.get(participantId) || null,
+      logoUrl:nationalTeamIdentities.teamForId(participantId)?.assetPath || clubLogoForSlot(participantId,(event.participants||[]).find(p=>p.id===participantId)?.logoUrl),
     }));
   }
   if (nationalTeams.length === 2){
@@ -299,7 +308,7 @@ function normalizeFixture(event, codeId, extra = {}){
     scheduleStatus: timeTbc ? "tbc" : (event.scheduleStatus || (event.startTimeUtc && confirmedParticipants ? "confirmed" : "provisional")),
     participantSlots: slots,
     participantIds:Array.isArray(event.participantIds)?event.participantIds:slots.map(slot=>slot.participantId).filter(Boolean),
-    participants:event.participants.length?event.participants:(event.matchupSides||[]).flatMap(side=>side.players||[]),
+    participants:(event.participants.length?event.participants:(event.matchupSides||[]).flatMap(side=>side.players||[])).map(reviewedArtworkForParticipant),
     participantCountryCodes:[...new Set([...(event.participantCountryCodes||[]),...(event.matchupSides||[]).flatMap(side=>(side.players||[]).map(player=>player.nationalityCode))].filter(Boolean))],
     ...(event.participantsConfirmed===true?{participantsConfirmed:true}:{}),
     ...(event.excludedParticipantIds?.length?{excludedParticipantIds:event.excludedParticipantIds}:{}),

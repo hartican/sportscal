@@ -4,6 +4,8 @@
 
 All 84 clubs in the three Football pilots now resolve to a badge. The older 2 October inventory's 39 missing badges is historical; it should no longer drive a badge-completion task.
 
+**Later rendering check:** 45 retained fixtures cover all 84 pilot clubs through the actual hosted shared card constructor at 390px. Eighty-two distinct clubs load; Celje and Sabah have missing image files and retain their safe named fallbacks. Their scoped source correction passes locally in both native browser engines and awaits the combined checked release. See the [repair and acceptance record](football-badge-source-repair-2026-10-13.md). Commercial and physical-phone checks remain separate.
+
 | Competition | Fixtures | Clubs | Badge assigned | Missing assignment |
 | --- | ---: | ---: | ---: | ---: |
 | Premier League 2026/27 | 380 | 20 | 20 | 0 |

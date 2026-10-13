@@ -115,9 +115,15 @@
       "participantId": "team:football:club:celje",
       "displayName": "Celje",
       "providerId": "8885",
-      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/f/fc/NK_Celje.png",
+      "logoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/NK_Celje_logo.png/250px-NK_Celje_logo.png",
       "sourceUrl": "https://api.openligadb.de/getavailableteams/uel2026/2026",
-      "checkedAt": "2026-10-09T02:55:25.267Z"
+      "checkedAt": "2026-10-09T02:55:25.267Z",
+      "logoReview": {
+        "previousLogoUrl": "https://upload.wikimedia.org/wikipedia/en/f/fc/NK_Celje.png",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:NK_Celje_logo.png",
+        "observedAt": "2026-10-13T01:38:51.524Z",
+        "scope": "Image source and rendering only; separate sporting observations and commercial permission remain unchanged."
+      }
     },
     {
       "participantId": "team:football:club:celta-vigo",
@@ -382,9 +388,15 @@
       "participantId": "team:football:club:sabah",
       "displayName": "Sabah",
       "providerId": "8798",
-      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/a/a9/Sabah_FC_%28Azerbaijan%29.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+      "logoUrl": "https://sabahfc.az/static/uploads/638945_444141.webp",
       "sourceUrl": "https://api.openligadb.de/getavailableteams/ucl2026/2026",
-      "checkedAt": "2026-10-09T02:55:24.884Z"
+      "checkedAt": "2026-10-09T02:55:24.884Z",
+      "logoReview": {
+        "previousLogoUrl": "https://upload.wikimedia.org/wikipedia/en/a/a9/Sabah_FC_%28Azerbaijan%29.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+        "sourceUrl": "https://sabahfc.az/",
+        "observedAt": "2026-10-13T01:18:22.243Z",
+        "scope": "Image source and rendering only; separate sporting observations and commercial permission remain unchanged."
+      }
     },
     {
       "participantId": "team:football:club:salzburg",

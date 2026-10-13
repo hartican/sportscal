@@ -9,7 +9,7 @@ const clubCrests=new Map(require('../config/football-club-crests.json').clubs.ma
 function eventsForLeague(facts){
   return facts.fixtures.map(fixture=>{
     const id=`fixture:football:openligadb:${facts.competitionId.replace("competition:","")}:${fixture.providerFixtureId}`;
-    const participants=fixture.participants.map(p=>({id:p.participantId,participantId:p.participantId,name:p.name,role:p.role,type:'team',teamKind:'club',...(clubCrests.has(p.participantId)?{logoUrl:clubCrests.get(p.participantId).logoUrl,crestSourceUrl:clubCrests.get(p.participantId).sourceUrl}:{})}));
+    const participants=fixture.participants.map(p=>({id:p.participantId,participantId:p.participantId,name:p.name,role:p.role,type:'team',teamKind:'club',...(clubCrests.has(p.participantId)?{logoUrl:clubCrests.get(p.participantId).logoUrl,crestSourceUrl:clubCrests.get(p.participantId).logoReview?.sourceUrl||clubCrests.get(p.participantId).sourceUrl}:{})}));
     return identity.normalizeCore({id,eventId:id,canonicalEventId:id,key:'football',sport:'Football',sportDomainId:'sport:football',
       competitionId:facts.competitionId,competitionName:facts.competitionName,competitionScope:'international',season:facts.season,
       stage:'League phase',roundNumber:fixture.roundNumber,roundLabel:`${facts.competitionName.replace('UEFA ','')} Matchday ${fixture.roundNumber}`,

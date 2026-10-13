@@ -332,3 +332,19 @@ const fixtureIdentity=require("../config/fixture-identity");
 const scheduleCodes=require("../data/code-inspector/manifest.json").codes;
 assert.equal(fixtureIdentity.scheduleCode({id:"sport:fiba-women"},scheduleCodes)?.id,"competition:fiba-womens-world-cup","the exact FIBA Women alias must win over generic gender-suffix routing");
 for(const id of ["sport:tennis-women","sport:golf-women"]){assert.equal(fixtureIdentity.scheduleCode({id},scheduleCodes)?.id,id.replace(/-women$/, ""),"existing gender-scoped schedule fallback survives");}
+
+// An asset-only review must repair a carried ID without creating title aliases.
+const reviewedClubCrests=require('../config/football-club-crests.json').clubs.filter(club=>club.logoReview);
+const retainedFootballFixtures=require('../data/code-inspector/football.json').fixtures;
+for(const club of reviewedClubCrests){
+  const fixture=retainedFootballFixtures.find(event=>event.participantIds.includes(club.participantId));
+  assert(fixture,'reviewed artwork requires an existing carried fixture');
+  const sides=identities.matchupSidesForEvent(fixture,fixture.participants,fixture.name);
+  const side=sides.find(side=>side.participant?.id===club.participantId);
+  assert.equal(side?.mark.url,club.logoUrl,'the actual resolver must honour the reviewed source over retained artwork');
+  assert.equal(side.mark.sourceUrl,club.logoReview.sourceUrl,'image provenance follows its actual reviewed source');
+}
+for(const club of reviewedClubCrests){
+  const ambiguousClub={key:'football',name:`${club.displayName} v Unknown`,participantIds:[club.participantId+'-different-club','team:football:club:unresolved-opponent'],participants:[]};
+  assert(!identities.matchupSidesForEvent(ambiguousClub,[],ambiguousClub.name).some(side=>side.participant?.id===club.participantId),'a different or unknown club must not inherit reviewed artwork by name');
+}
