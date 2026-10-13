@@ -1002,7 +1002,7 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
     appendFixtureChatActions(actions, ev);
   }
   if(/^cricket(?:-women)?$/.test(ev.key||'')){
-    void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=1').then(()=>NOTHINGSPORTS_MILESTONE_UI.appendMute(actions,ev));
+    void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=530').then(()=>NOTHINGSPORTS_MILESTONE_UI.appendMute(actions,ev));
   }
   container.appendChild(actions);
   return actions;

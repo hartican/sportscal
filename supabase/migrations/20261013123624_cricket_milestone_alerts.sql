@@ -31,12 +31,15 @@ create table public.nothingsports_milestone_receipts(
  group_id uuid references public.nothingsports_milestone_groups(group_id) on delete cascade,disposition text not null,created_at timestamptz not null,
  primary key(user_id,moment_id)
 );
+create index nothingsports_milestone_receipts_moment on public.nothingsports_milestone_receipts(moment_id);
+create index nothingsports_milestone_receipts_group on public.nothingsports_milestone_receipts(group_id);
 create table public.nothingsports_milestone_installations(
  group_id uuid not null references public.nothingsports_milestone_groups(group_id) on delete cascade,
  installation_id uuid not null references public.nothingsports_push_installations(installation_id) on delete cascade,
  status text not null check(status in('sending','sent','pending','uncertain','failed','suppressed')),attempts integer not null default 1,
  started_at timestamptz not null,primary key(group_id,installation_id)
 );
+create index nothingsports_milestone_installations_device on public.nothingsports_milestone_installations(installation_id);
 do $$ declare t text;begin
  foreach t in array array['milestone_rollout','milestone_states','milestone_shadow_runs','moments','milestone_groups','milestone_receipts','milestone_installations'] loop
   execute format('alter table public.nothingsports_%I enable row level security',t);
@@ -121,22 +124,22 @@ grant execute on function public.nothingsports_discard_milestone_moments(uuid,te
 
 -- A cron has no account JWT. Only this private, tightly scoped reader checks
 -- registered-account eligibility; service_role is not granted Auth table access.
-create function private.nothingsports_milestone_accounts()
+create function private.nothingsports_milestone_accounts(p_moment_ids text[])
 returns table(user_id uuid,preferences jsonb,actions jsonb,spoilers jsonb,updated_at timestamptz)
 language sql security definer set search_path='' set statement_timeout='3s' as $$
  select s.user_id,s.preferences,s.event_user_state,s.event_spoiler_state,s.updated_at
  from public.nothingsports_user_state s join auth.users u on u.id=s.user_id
- where u.is_anonymous=false and not exists(select 1 from public.nothingsports_account_erasure_blocks b where b.user_id=s.user_id)
+ where cardinality(p_moment_ids) between 1 and 20 and u.is_anonymous=false and not exists(select 1 from public.nothingsports_account_erasure_blocks b where b.user_id=s.user_id)
  and exists(select 1 from public.nothingsports_push_installations i where i.user_id=s.user_id and i.permission='granted')
- and exists(select 1 from public.nothingsports_moments m where m.expires_at>clock_timestamp() and not exists(select 1 from public.nothingsports_milestone_receipts r where r.user_id=s.user_id and r.moment_id=m.moment_id))
+ and exists(select 1 from public.nothingsports_moments m where m.moment_id=any(p_moment_ids) and m.expires_at>clock_timestamp() and not exists(select 1 from public.nothingsports_milestone_receipts r where r.user_id=s.user_id and r.moment_id=m.moment_id))
  order by s.user_id limit 100
 $$;
-revoke all on function private.nothingsports_milestone_accounts() from public,anon,authenticated;
+revoke all on function private.nothingsports_milestone_accounts(text[]) from public,anon,authenticated;
 grant usage on schema private to service_role;
-grant execute on function private.nothingsports_milestone_accounts() to service_role;
-create function public.nothingsports_milestone_accounts()
+grant execute on function private.nothingsports_milestone_accounts(text[]) to service_role;
+create function public.nothingsports_milestone_accounts(p_moment_ids text[])
 returns table(user_id uuid,preferences jsonb,actions jsonb,spoilers jsonb,updated_at timestamptz)
-language sql security invoker set search_path='' as $$ select * from private.nothingsports_milestone_accounts() $$;
+language sql security invoker set search_path='' as $$ select * from private.nothingsports_milestone_accounts(p_moment_ids) $$;
 
 create function public.nothingsports_claim_milestone_group(target_user uuid,expected_updated timestamptz,target_fixture text,moment_ids text[],expected_score_hash text,coverage text,claim_at timestamptz)
 returns uuid language plpgsql security invoker set search_path='' set statement_timeout='3s' as $$
@@ -174,5 +177,5 @@ declare attempts integer;begin
  where nothingsports_milestone_installations.status='pending' and nothingsports_milestone_installations.attempts<3 returning nothingsports_milestone_installations.attempts into attempts;
  return coalesce(attempts,0);
 end $$;
-revoke all on function public.nothingsports_milestone_observations(text,text[]),public.nothingsports_commit_milestone_observations(text,jsonb),public.nothingsports_milestone_accounts(),public.nothingsports_claim_milestone_group(uuid,timestamptz,text,text[],text,text,timestamptz),public.nothingsports_claim_milestone_installation(uuid,uuid,timestamptz,timestamptz) from public,anon,authenticated;
-grant execute on function public.nothingsports_milestone_observations(text,text[]),public.nothingsports_commit_milestone_observations(text,jsonb),public.nothingsports_milestone_accounts(),public.nothingsports_claim_milestone_group(uuid,timestamptz,text,text[],text,text,timestamptz),public.nothingsports_claim_milestone_installation(uuid,uuid,timestamptz,timestamptz) to service_role;
+revoke all on function public.nothingsports_milestone_observations(text,text[]),public.nothingsports_commit_milestone_observations(text,jsonb),public.nothingsports_milestone_accounts(text[]),public.nothingsports_claim_milestone_group(uuid,timestamptz,text,text[],text,text,timestamptz),public.nothingsports_claim_milestone_installation(uuid,uuid,timestamptz,timestamptz) from public,anon,authenticated;
+grant execute on function public.nothingsports_milestone_observations(text,text[]),public.nothingsports_commit_milestone_observations(text,jsonb),public.nothingsports_milestone_accounts(text[]),public.nothingsports_claim_milestone_group(uuid,timestamptz,text,text[],text,text,timestamptz),public.nothingsports_claim_milestone_installation(uuid,uuid,timestamptz,timestamptz) to service_role;

@@ -7,7 +7,7 @@ async function scenario({mode='live',gate=true,matchCentre=true,latest=e,current
   if(route==='nothingsports_moments')return moments.map(payload=>({payload}));
   if(route==='nothingsports_read_match_scores')return [{fixture:latest}];
   if(route==='nothingsports_milestone_observations')return [{fixture:latest,score_hash:'source-current'}];
-  if(route==='nothingsports_milestone_accounts')return [account];
+  if(route==='nothingsports_milestone_accounts'){assert.deepEqual(options.body,{p_moment_ids:moments.map(m=>m.momentId)},'Account selection uses only the selected dispatcher batch');return [account];}
   if(route==='nothingsports_milestone_rollout')return [{enabled:gate,shadow_verified_at:gate&&now.toISOString(),device_verified_at:gate&&now.toISOString(),shadow_evidence:gate&&'controlled-only',device_evidence:gate&&'controlled-only'}];
   if(route==='nothingsports_record_milestone_shadow'||route==='nothingsports_discard_milestone_moments'||route==='nothingsports_milestone_maintenance')return null;
   if(route==='nothingsports_claim_milestone_group'){if(groupClaimed)return null;groupClaimed=true;return 'group';}

@@ -9,6 +9,14 @@ for(const src of scripts){const url=new URL(src,'https://example.test/');assert(
 const follow=fs.readFileSync('assets/js/follow-presentation-ui.js','utf8');
 const navigation=follow.match(/loadDeferredScript\('([^']*follow-navigation\.js\?v=\d+)'\)/)?.[1];
 assert(navigation&&cached.has('/'+navigation),'First Follow open must use the exact cached navigation dependency: '+navigation);
+let milestoneLoaders=0;
+for(const directory of ['config','assets/js'])for(const file of fs.readdirSync(directory,{recursive:true}).filter(file=>file.endsWith('.js'))){
+ const source=fs.readFileSync(directory+'/'+file,'utf8');
+ for(const match of source.matchAll(/loadDeferredScript\(['"](assets\/js\/milestone-alerts-ui\.js\?v=\d+)['"]\)/g)){
+  milestoneLoaders++;assert(cached.has('/'+match[1]),'Milestone loader must use the exact cached dependency in '+directory+'/'+file+': '+match[1]);
+ }
+}
+assert(milestoneLoaders>=3,'Card, Settings and notification landing milestone loaders are checked');
 const styles=[...index.matchAll(/<link\b(?=[^>]*\brel="stylesheet")[^>]*\bhref="([^"]+)"/g)].map(m=>m[1]).filter(s=>!/^https?:/.test(s));
 for(const src of styles){const url=new URL(src,'https://example.test/');assert(cached.has(url.pathname+url.search),'Required page stylesheet is not pre-cached at its exact version: '+src);}
 console.log('Worker install manifest matches all '+scripts.length+' critical scripts and '+styles.length+' stylesheets including version queries.');

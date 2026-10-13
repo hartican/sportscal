@@ -17,11 +17,13 @@ const user='11111111-1111-4111-8111-111111111111',guest='22222222-2222-4222-8222
  for(const name of ['nothingsports_fixture_observation_time','nothingsports_project_fixture_observations']){const start=observationMigration.indexOf('create or replace function public.'+name+'('),end=observationMigration.indexOf('$$;',start)+3;assert(start>=0&&end>start);await db.exec(observationMigration.slice(start,end));}
  await db.exec('grant execute on function public.nothingsports_fixture_observation_time(text),public.nothingsports_project_fixture_observations(jsonb,jsonb,jsonb,timestamptz) to service_role');
  await db.exec(fs.readFileSync(migration,'utf8'));
+ const unindexed=(await db.query(`select c.conname from pg_constraint c where c.contype='f' and c.conrelid in('public.nothingsports_milestone_groups'::regclass,'public.nothingsports_milestone_receipts'::regclass,'public.nothingsports_milestone_installations'::regclass) and cardinality(c.conkey)=1 and not exists(select 1 from pg_index i where i.indrelid=c.conrelid and i.indisvalid and i.indkey[0]=c.conkey[1])`)).rows;
+ assert.deepEqual(unindexed,[],'Every child foreign key has an index with its reference as the first key for bounded retention and account/device erasure');
  await db.query('insert into auth.users values($1,false),($2,true)',[user,guest]);
  await db.query('insert into nothingsports_user_state(user_id) values($1),($2)',[user,guest]);
  await db.query('insert into nothingsports_push_installations values($1,$2,\'granted\'),($3,$2,\'granted\')',[device,user,device2]);
  const guestDevice='55555555-5555-4555-8555-555555555555';await db.query('insert into nothingsports_push_installations values($1,$2,\'granted\')',[guestDevice,guest]);
- await db.exec('set role anon');await assert.rejects(()=>db.exec('select * from public.nothingsports_moments'),/permission denied/);await assert.rejects(()=>db.exec('select * from public.nothingsports_milestone_accounts()'),/permission denied/);
+ await db.exec('set role anon');await assert.rejects(()=>db.exec('select * from public.nothingsports_moments'),/permission denied/);await assert.rejects(()=>db.exec("select * from public.nothingsports_milestone_accounts(array[]::text[])"),/permission denied/);
  await db.exec('set role service_role');await assert.rejects(()=>db.exec('select * from auth.users'),/permission denied/);
 
  const stamp=(await db.query('select updated_at from public.nothingsports_user_state where user_id=$1',[user])).rows[0].updated_at;
@@ -33,7 +35,19 @@ const user='11111111-1111-4111-8111-111111111111',guest='22222222-2222-4222-8222
  assert.equal((await db.query('select public.nothingsports_commit_milestone_observations($1,$2) n',[source,[packet]])).rows[0].n,2);
  assert.equal((await db.query('select public.nothingsports_commit_milestone_observations($1,$2) n',[source,[packet]])).rows[0].n,0,'A concurrent/replayed previous-state revision cannot publish moments twice');
  assert.equal((await db.query('select count(*)::int n from public.nothingsports_moments')).rows[0].n,2);
- assert.deepEqual((await db.query('select user_id from public.nothingsports_milestone_accounts()')).rows.map(r=>r.user_id),[user],'Private eligibility excludes guest accounts without granting Auth reads');
+ const selectedIds=packet.moments.map(m=>m.momentId);
+ assert.deepEqual((await db.query('select user_id from public.nothingsports_milestone_accounts($1)',[selectedIds])).rows.map(r=>r.user_id),[user],'Private eligibility excludes guest accounts without granting Auth reads');
+ for(const ids of [[],Array(21).fill(moment(1).momentId)])assert.deepEqual((await db.query('select user_id from public.nothingsports_milestone_accounts($1)',[ids])).rows,[],'The reader accepts only a bounded selected batch');
+ // Older, excluded moments must not keep the first 100 accounts at the head of every selected dispatch batch.
+ await db.exec('reset role;begin');
+ await db.exec(`insert into auth.users select ('00000000-0000-4000-8000-'||lpad(n::text,12,'0'))::uuid,false from generate_series(1,101) n;
+ insert into public.nothingsports_user_state(user_id) select id from auth.users where id::text like '00000000-%';
+ insert into public.nothingsports_push_installations(installation_id,user_id) select id,id from auth.users where id::text like '00000000-%';`);
+ await db.query("insert into public.nothingsports_moments values($1,$2,'cricket',$3,now()+interval '4 minutes',now()-interval '1 minute')",[moment(4).momentId,fixture,moment(4)]);
+ await db.query("insert into public.nothingsports_milestone_receipts(user_id,moment_id,disposition,created_at) select u.id,m.moment_id,'choice',now() from auth.users u cross join public.nothingsports_moments m where u.id::text like '00000000-%' and u.id<>'00000000-0000-4000-8000-000000000101'::uuid and m.moment_id=any($1)",[selectedIds]);
+ await db.exec('set local role service_role');
+ assert.deepEqual((await db.query('select user_id from public.nothingsports_milestone_accounts($1)',[selectedIds])).rows.map(r=>r.user_id),['00000000-0000-4000-8000-000000000101',user],'Handled accounts do not starve a later eligible account when older moments fall outside the selected batch');
+ await db.exec('rollback;set role service_role');
  const row=(await db.query('select * from public.nothingsports_milestone_observations($1,$2)',[source,[fixture]])).rows[0];assert.equal(row.fixture.status,'live');assert.equal(row.previous.id,fixture);
  const claim=async ids=>(await db.query('select public.nothingsports_claim_milestone_group($1,$2,$3,$4,\'score-one\',\'medium\',clock_timestamp()) g',[user,stamp,fixture,ids])).rows[0].g;
  assert.equal(await claim([moment(1).momentId]),null,'Production delivery is gated by default');
