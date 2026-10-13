@@ -30,6 +30,7 @@ const id=n=>'00000000-0000-4000-8000-'+String(n).padStart(12,'0');
  // Actual existing patch owner: unrelated offline sport edit merges the rollout.
  const offline={...p,selectedSelectorEntityIds:[...p.selectedSelectorEntityIds,'sport:nba'],followedSports:[...p.followedSports,'nba']};
  const patch=sync.createPatch({preferences:p},{preferences:offline});
+ const Ajv=require('ajv/dist/2020'),ajv=new Ajv({strict:false});require('ajv-formats')(ajv);const validate=ajv.compile(JSON.parse(fs.readFileSync('schemas/user-state-patch.schema.json')));assert(validate(patch),JSON.stringify(validate.errors));
  const merged=sync.applyPatch({preferences:migrated},patch).preferences;
  assert(merged.selectedSelectorEntityIds.includes('sport:horse-racing'));assert(merged.selectedSelectorEntityIds.includes('sport:nba'));assert.equal(merged.theme,'night');
  const unfollow={...migrated,selectedSelectorEntityIds:['sport:tennis'],followedSports:['tennis']};
