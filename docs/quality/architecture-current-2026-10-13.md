@@ -1,6 +1,6 @@
 # Nothing Sport — current architecture and next step
 
-**13 October 2026 · Verified live app ff8f53b9 / version 527**
+**13 October 2026 · Verified live app be0c35e2 / version 527**
 
 Keep the present stack. The important work is making its boundaries clearer and proving the remaining launch checks. A rewrite is not supported by the current evidence.
 
@@ -64,4 +64,6 @@ Evidence inspected: `.github/workflows/canonical-card-refresh.yml`, `.github/wor
 
 Latest release: [38365280599](https://github.com/hartican/sportscal/actions/runs/38365280599), exact app 7a614317, READY dpl_D7wbtpUgpPZVHPwU3M2fa68Gdh2c. Separate guarded account application: 13 October 08:08:56 UTC, eleven verified accounts. No provider refresh is attributed to this app release.
 
-The later Tennis repair shares one reviewed identity/result qualification across retained and current-data publication; the ordinary source owner recovered without another scheduler. The racing fields release uses one bounded sanitizer across collection, public/API and cached rendering, retains source clocks, and reuses the existing shared About Charter. Its canonical retained route also builds that optional About asset. Required racing assets join shell527 within unchanged startup limits. [Tennis proof](wuhan-pairing-repair-2026-10-13.md) and [racing proof](horse-fields-editorial-2026-10-13.md) keep current-data, controlled/browser and release evidence separate. Latest exact app ff8f53b9fa2d95996e7c14b67bb3d3636f8373a7, workflow38394700521, READY dpl_7gCy9fdXUMYRPByfLKYU2ChgdPDs. No provider, schema migration, new timer or recurring owner task is added.
+The later Tennis repair shares one reviewed identity/result qualification across retained and current-data publication; the ordinary source owner recovered without another scheduler. The racing fields release uses one bounded sanitizer across collection, public/API and cached rendering, retains source clocks, and reuses the existing shared About Charter. Its canonical retained route also builds that optional About asset. Required racing assets join shell 527 within unchanged startup limits. [Tennis proof](wuhan-pairing-repair-2026-10-13.md) and [racing proof](horse-fields-editorial-2026-10-13.md) keep current-data, controlled/browser and release evidence separate. Latest exact app ff8f53b9fa2d95996e7c14b67bb3d3636f8373a7, workflow38394700521, READY dpl_7gCy9fdXUMYRPByfLKYU2ChgdPDs. No provider, schema migration, new timer or recurring owner task is added.
+
+The 14 October operational repair stays inside the existing two sport adapters. Golf appearances cannot own tournament reads; a complete reviewed Bathurst final stops obsolete timetable collection. The normal fenced publisher and source owner recover with unchanged sporting facts/revisions. No new platform boundary, API, migration, scheduler or browser asset. Exact live app `be0c35e25290af12bc98c0fa9b5999ed49e5ac42`, normal release 38410348994, READY `dpl_31DAdXCR7dq8xxYgWrL4fGWCnuiE`; [scope, natural recovery and review limits](completed-source-recovery-2026-10-14.md).
