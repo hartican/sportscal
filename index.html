@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="523">
+<meta name="app-shell-version" content="524">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=523" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=524" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7176,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=523"></script>
+<script src="assets/js/app-shell-runtime.js?v=524"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -17710,7 +17710,7 @@ function followHasStandings(code){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=523';
+  const url='assets/js/follow-presentation-ui.js?v=524';
   return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -18452,7 +18452,7 @@ function buildDismissedEventStub(record){
 
 async function renderEventOverviews(container){
  const host=document.createElement('div');host.className='event-overviews-host';container.append(host);
- try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=523');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=524');
  if(!host.isConnected)return;
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(host);
  }catch{if(!host.isConnected)return;const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';host.append(notice);}
