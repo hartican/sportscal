@@ -40,6 +40,24 @@ const id=n=>'00000000-0000-4000-8000-'+String(n).padStart(12,'0');
  assert(!stale.selectedSelectorEntityIds.includes('sport:horse-racing'),'A stale ON device cannot restore a subsequent unfollow');
  const legacy=sync.applyPatch({preferences:migrated},{schemaVersion:sync.PATCH_SCHEMA_VERSION,changes:[{path:['preferences','selectedSelectorEntityIds'],value:['sport:nba']}]}).preferences;
  assert(legacy.selectedSelectorEntityIds.includes('sport:horse-racing'),'A legacy replacement without explicit intent retains rollout choice');
+ // An unrelated offline graph edit is not a new Horse decision.
+ for(const currentChoice of [true,false])for(const currentRow of [true,false])for(const oldDomainId of ['sport:horse-racing','horse-racing']){
+  const horse={sportDomainId:'sport:horse-racing',enabled:currentChoice};
+  const graph=currentRow?[horse]:[];
+  const current={...migrated,selectedSelectorEntityIds:['sport:tennis',...(currentChoice?['sport:horse-racing']:[])],followedSports:['tennis',...(currentChoice?['horse-racing']:[])],preferenceGraph:{domainPreferences:graph},followFirst:{...migrated.followFirst,horseRacingRollout:{version:1,enabled:currentChoice,source:'settings'}}};
+  const oldChoice=!currentChoice;
+  const oldDevice={...current,selectedSelectorEntityIds:['sport:tennis',...(oldChoice?['sport:horse-racing']:[])],followedSports:['tennis',...(oldChoice?['horse-racing']:[])],preferenceGraph:{domainPreferences:[{sportDomainId:oldDomainId,enabled:oldChoice}]}};
+  const edited={...oldDevice,selectedSelectorEntityIds:[...oldDevice.selectedSelectorEntityIds,'sport:nba'],followedSports:[...oldDevice.followedSports,'nba'],preferenceGraph:{domainPreferences:[...oldDevice.preferenceGraph.domainPreferences,{sportDomainId:'sport:nba',enabled:true}]}};
+  const accepted=sync.applyPatch({preferences:current},sync.createPatch({preferences:oldDevice},{preferences:edited})).preferences;
+  assert.equal(accepted.followFirst.horseRacingRollout.enabled,currentChoice,'Unchanged old graph must not undo newer Horse choice');
+  assert.equal(accepted.selectedSelectorEntityIds.includes('sport:horse-racing'),currentChoice);
+  assert.deepEqual(accepted.preferenceGraph.domainPreferences.filter(p=>['sport:horse-racing','horse-racing'].includes(p.sportDomainId)),graph,'Retain the current Horse graph row, including its absence');
+  assert(accepted.preferenceGraph.domainPreferences.some(p=>p.sportDomainId==='sport:nba'&&p.enabled),'Accept the unrelated NBA edit');
+  const explicit={...current,selectedSelectorEntityIds:['sport:tennis',...(!currentChoice?['sport:horse-racing']:[])],followedSports:['tennis',...(!currentChoice?['horse-racing']:[])]};
+  const changed=sync.applyPatch({preferences:current},sync.createPatch({preferences:current},{preferences:explicit})).preferences;
+  assert.equal(changed.followFirst.horseRacingRollout.enabled,!currentChoice,'A genuine later Horse switch wins');
+  assert(changed.preferenceGraph.domainPreferences.filter(p=>['sport:horse-racing','horse-racing'].includes(p.sportDomainId)).every(p=>p.enabled===!currentChoice),'The graph cannot contradict the genuine switch');
+ }
  await db.query('update public.nothingsports_user_state set preferences=$2,updated_at=clock_timestamp() where user_id=$1',[id(1),later]);
  await db.query('insert into auth.users values($1,false)',[id(6)]);await db.exec(sql);
  assert.deepEqual((await db.query('select preferences from public.nothingsports_user_state where user_id=$1',[id(1)])).rows[0].preferences,later);
