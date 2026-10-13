@@ -35,9 +35,13 @@ async function prepare(page,base){
  await page.addStyleTag({content:'*{animation:none!important;transition:none!important}'});
  await page.clock.pauseAt(new Date(Date.parse(reference)+60_000));
  await page.evaluate(({fixtures,reference})=>{
-  window.ratingsQa={fixtures,reference,reads:[],writes:[],mode:'empty',held:[],saved:4};
+  window.ratingsQa={fixtures,reference,reads:[],writes:[],mode:'empty',held:[],saved:4,failureAt:{}};
   serverSyncClient.clearSession();localStorage.setItem(NOTHINGSPORTS_SERVER_SYNC.PERSISTENT_SESSION_STORAGE_KEY,JSON.stringify({accessToken:'qa.'+btoa(JSON.stringify({sub:'qa-local-ratings-owner'}))+'.test',refreshToken:'local-only',expiresAt:Date.now()+86400000}));serverPersistence.user={id:'qa-local-ratings-owner'};
   window.ratingsSnapshot=(id,count=7)=>({eventId:id,phase:'pulse',ratingRequired:false,peerResults:{phase:'pulse',count,average:count?4.2:null,rawAverage:count?4.2:null},currentUser:{contribution:{rating:ratingsQa.saved},submissions:{pulse:{rating:ratingsQa.saved,submitted:true}}}});
+  // The wait begins when the read fails, after its HTTP response settles.
+  // Request start can precede that by a browser clock tick under load.
+  const failure=nothingscoreReadRecovery.failure;
+  nothingscoreReadRecovery.failure=function(id){ratingsQa.failureAt[id]=Date.now();return failure.call(this,id);};
   nowAEST=()=>new Date(reference);
  },{fixtures,reference});
  return {async releaseHeld(count=null){for(const item of held.splice(0)){const snapshots=count===null?[]:await page.evaluate(({ids,count})=>ids.map(id=>ratingsSnapshot(id,count)),{ids:item.ids,count});await item.route.fulfill({json:{snapshots}}).catch(()=>{});}await page.evaluate(()=>{ratingsQa.held=[];});}};
@@ -46,7 +50,7 @@ async function mount(page,{theme='day',retained=true}={}){
  await page.evaluate(({theme,retained})=>{
   window.clearTimeout(nothingscoreBatchTimer);nothingscoreBatchTimer=null;window.clearTimeout(nothingscorePollTimer);nothingscorePollTimer=null;
   ++nothingscoreReadGeneration;nothingscoreReadRecovery.reset();nothingscoreLoadErrors.clear();nothingscoreLoadedAt.clear();nothingscorePendingIds.clear();nothingscoreBatchInFlight.clear();nothingscoreSnapshots.clear();
-  ratingsQa.reads=[];ratingsQa.writes=[];ratingsQa.held=[];ratingsQa.mode='empty';ratingsQa.saved=4;applyThemePreference(theme);userPreferences.feedCompact=false;userPreferences.showSpoilers=false;activeTab='feed';activeView='list';activeInspectorCodeId=null;
+  ratingsQa.reads=[];ratingsQa.writes=[];ratingsQa.held=[];ratingsQa.failureAt={};ratingsQa.mode='empty';ratingsQa.saved=4;applyThemePreference(theme);userPreferences.feedCompact=false;userPreferences.showSpoilers=false;activeTab='feed';activeView='list';activeInspectorCodeId=null;
   activeEvents=ratingsQa.fixtures;feedCardSlots.clear();previousFeedClockKey=feedClockKey();
   const list=document.getElementById('listView');list.style.display='block';list.replaceChildren();document.querySelectorAll('main>section').forEach(n=>{if(n!==list)n.style.display='none';});
   ratingsQa.fixtures.forEach((event,i)=>{const id=nothingscoreEventId(event);if(i===1&&retained)nothingscoreSnapshots.set(id,ratingsSnapshot(id));setCardState(event,'selected');const card=buildEventCard(event);card.dataset.ratingsQa=String(i);list.append(card);});
@@ -61,8 +65,9 @@ async function observed(page){return page.locator('[data-ratings-qa]').evaluateA
  return{case:card.dataset.ratingsQa,buttons:buttons.length,button:a,host:b,centreOffset:a&&b?Math.abs(a.x+a.width/2-b.x-b.width/2):null,text:card.querySelector('.nsc-peer-summary')?.textContent,filled:card.querySelectorAll('.nsc-rating-block.is-filled').length,selected:card.querySelectorAll('.nsc-rating-block.is-selected').length,disabled:button?.disabled};
 }));}
 async function due(page,expectedReads,wait){
- const info=await page.evaluate(()=>({now:Date.now(),next:Math.min(...ratingsQa.fixtures.map(e=>nothingscoreReadRecoveryState(e).nextRetryAt)),last:ratingsQa.reads.at(-1).at}));
- assert.equal(info.next-info.last,wait,'successive delay from the failed read');
+ const info=await page.evaluate(()=>({now:Date.now(),next:Math.min(...ratingsQa.fixtures.map(e=>nothingscoreReadRecoveryState(e).nextRetryAt)),failedAt:ratingsQa.failureAt[nothingscoreEventId(ratingsQa.fixtures[0])]}));
+ assert(Number.isFinite(info.failedAt),'actual failure callback timestamp is observed');
+ assert.equal(info.next-info.failedAt,wait,'successive delay from the failed read');
  await page.clock.runFor(info.next-info.now-1);assert.equal(await page.evaluate(()=>ratingsQa.reads.length),expectedReads-1,'no retry before its deadline');
  await page.clock.runFor(1);await page.waitForFunction(n=>ratingsQa.reads.length===n,expectedReads);await page.clock.runFor(50);await page.waitForFunction(()=>nothingscoreBatchInFlight.size===0);
 }
