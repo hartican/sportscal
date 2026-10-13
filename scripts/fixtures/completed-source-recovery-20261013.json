@@ -1,0 +1,3884 @@
+{
+  "observedAt": "2026-10-13T12:41:00Z",
+  "meaning": "Read-only capture of public sports facts, no account data. Two previously completed source collections and their independent stored score facts.",
+  "sources": [
+    {
+      "source_id": "live-golf-current",
+      "checked_at": "2026-10-11 11:50:01.34939+00",
+      "fixtures": [
+        {
+          "id": "fixture:golf:pga:R2026527",
+          "key": "golf",
+          "date": "2026-10-08",
+          "name": "Baycurrent Classic",
+          "time": null,
+          "sport": "Golf",
+          "stage": "PGA TOUR",
+          "venue": "Yokohama Country Club",
+          "codeId": "sport:golf",
+          "season": 2026,
+          "status": "completed",
+          "endDate": "2026-10-11",
+          "entries": [
+            {
+              "id": "competitor:golf:wyndham-clark",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Wyndham Clark",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "51766"
+            },
+            {
+              "id": "competitor:golf:min-woo-lee",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "AU",
+              "displayName": "Min Woo Lee",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "37378"
+            },
+            {
+              "id": "competitor:golf:xander-schauffele",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Xander Schauffele",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "48081"
+            },
+            {
+              "id": "competitor:golf:adam-scott",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "AU",
+              "displayName": "Adam Scott",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "24502"
+            }
+          ],
+          "eventId": "fixture:golf:pga:R2026527",
+          "isMajor": false,
+          "cardType": "golf_tournament",
+          "dateOnly": true,
+          "expected": 0,
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+          "ticketUrl": null,
+          "venueCity": "Yokohama",
+          "broadcasts": [],
+          "groupOrder": 5000,
+          "roundLabel": null,
+          "sourceName": "PGA TOUR official leaderboard",
+          "sourceType": "official",
+          "statusText": "Official result",
+          "appearances": [],
+          "broadcaster": "",
+          "roundNumber": null,
+          "participants": [
+            {
+              "id": "competitor:golf:wyndham-clark",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Wyndham Clark",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "51766"
+            },
+            {
+              "id": "competitor:golf:min-woo-lee",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "AU",
+              "displayName": "Min Woo Lee",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "37378"
+            },
+            {
+              "id": "competitor:golf:xander-schauffele",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Xander Schauffele",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "48081"
+            },
+            {
+              "id": "competitor:golf:adam-scott",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "AU",
+              "displayName": "Adam Scott",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "24502"
+            }
+          ],
+          "startTimeUtc": null,
+          "tournamentId": "R2026527",
+          "competitionId": "competition:pga-tour",
+          "consensusTags": [],
+          "golfFieldSize": 72,
+          "timePrecision": "date-only",
+          "broadcasterIds": [],
+          "leaderboardUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+          "participantIds": [
+            "competitor:golf:wyndham-clark",
+            "competitor:golf:min-woo-lee",
+            "competitor:golf:xander-schauffele",
+            "competitor:golf:adam-scott"
+          ],
+          "scheduleStatus": "tbc",
+          "scoreCheckedAt": "2026-10-11T11:50:01.000Z",
+          "sourceCoverage": "official-canonical",
+          "sourceEventIds": [
+            "fixture:golf:pga:R2026527"
+          ],
+          "tournamentName": "Baycurrent Classic",
+          "viewingOptions": [],
+          "competitionName": "PGA TOUR",
+          "isInternational": false,
+          "sourceCheckedAt": "2026-10-11T11:50:01.000Z",
+          "statusCheckedAt": "2026-10-11T11:50:01.000Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:golf:pga:R2026527",
+          "competitionScope": null,
+          "participantSlots": [
+            {
+              "slot": 1,
+              "label": null,
+              "logoUrl": null,
+              "participantId": "competitor:golf:wyndham-clark"
+            },
+            {
+              "slot": 2,
+              "label": null,
+              "logoUrl": null,
+              "participantId": "competitor:golf:min-woo-lee"
+            }
+          ],
+          "schedulingWindow": null,
+          "statusSourceType": "official",
+          "venueCountryCode": "JPN",
+          "detailsExpectedAt": null,
+          "participationScope": "ranked-and-explicit-follows",
+          "displayTitleCompact": "Baycurrent Classic",
+          "participantsConfirmed": true,
+          "excludedParticipantIds": [],
+          "participationCheckedAt": "2026-10-10T19:13:55.658Z",
+          "participantCountryCodes": [],
+          "representativeCountryCodes": [],
+          "participationScopeCheckedOn": "2026-10-06"
+        },
+        {
+          "id": "fixture:golf:pga:R2026527:round:4:group:6",
+          "key": "golf",
+          "date": "2026-10-11",
+          "name": "Christiaan Bezuidenhout / Min Woo Lee / Ben Kohles",
+          "time": "11:15",
+          "sport": "Golf",
+          "stage": "Round 4",
+          "venue": "Yokohama Country Club",
+          "codeId": "sport:golf",
+          "status": "upcoming",
+          "eventId": "fixture:golf:pga:R2026527:round:4:group:6",
+          "cardType": "golf_appearance",
+          "expected": 0,
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+          "ticketUrl": null,
+          "venueCity": "Yokohama",
+          "broadcasts": [],
+          "groupOrder": 4,
+          "roundLabel": "Round 4",
+          "sourceName": "PGA TOUR official tee times",
+          "sourceType": "official",
+          "broadcaster": "",
+          "roundNumber": null,
+          "participants": [
+            {
+              "id": "competitor:golf:christiaan-bezuidenhout",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "ZA",
+              "displayName": "Christiaan Bezuidenhout",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "45522"
+            },
+            {
+              "id": "competitor:golf:min-woo-lee",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "AU",
+              "displayName": "Min Woo Lee",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "37378"
+            },
+            {
+              "id": "competitor:golf:ben-kohles",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Ben Kohles",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "36884"
+            }
+          ],
+          "startTimeUtc": "2026-10-11T00:15:00.000Z",
+          "tournamentId": "R2026527",
+          "competitionId": "competition:pga-tour",
+          "consensusTags": [],
+          "parentEventId": "fixture:golf:pga:R2026527",
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "genderCategory": "male",
+          "participantIds": [
+            "competitor:golf:christiaan-bezuidenhout",
+            "competitor:golf:min-woo-lee",
+            "competitor:golf:ben-kohles"
+          ],
+          "scheduleStatus": "confirmed",
+          "sourceCoverage": "official-canonical",
+          "sourceEventIds": [
+            "fixture:golf:pga:R2026527:round:4:group:6"
+          ],
+          "tournamentName": "Baycurrent Classic",
+          "viewingOptions": [],
+          "competitionName": "PGA TOUR",
+          "isInternational": false,
+          "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:golf:pga:R2026527:round:4:group:6",
+          "competitionScope": null,
+          "participantSlots": [
+            {
+              "slot": 1,
+              "label": null,
+              "logoUrl": null,
+              "participantId": "competitor:golf:christiaan-bezuidenhout"
+            },
+            {
+              "slot": 2,
+              "label": null,
+              "logoUrl": null,
+              "participantId": "competitor:golf:min-woo-lee"
+            }
+          ],
+          "schedulingWindow": null,
+          "venueCountryCode": "JPN",
+          "detailsExpectedAt": null,
+          "displayTitleCompact": "Christiaan Bezuidenhout / Min Woo Lee / Ben Kohles",
+          "participantsConfirmed": true,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "fixture:golf:pga:R2026527:round:4:group:21",
+          "key": "golf",
+          "date": "2026-10-11",
+          "name": "Maverick McNealy / Wyndham Clark / Alex Smalley",
+          "time": "11:48",
+          "sport": "Golf",
+          "stage": "Round 4",
+          "venue": "Yokohama Country Club",
+          "codeId": "sport:golf",
+          "status": "upcoming",
+          "eventId": "fixture:golf:pga:R2026527:round:4:group:21",
+          "cardType": "golf_appearance",
+          "expected": 0,
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+          "ticketUrl": null,
+          "venueCity": "Yokohama",
+          "broadcasts": [],
+          "groupOrder": 4,
+          "roundLabel": "Round 4",
+          "sourceName": "PGA TOUR official tee times",
+          "sourceType": "official",
+          "broadcaster": "",
+          "roundNumber": null,
+          "participants": [
+            {
+              "id": "competitor:golf:maverick-mcnealy",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Maverick McNealy",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "46442"
+            },
+            {
+              "id": "competitor:golf:wyndham-clark",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Wyndham Clark",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "51766"
+            },
+            {
+              "id": "competitor:golf:alex-smalley",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Alex Smalley",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "46340"
+            }
+          ],
+          "startTimeUtc": "2026-10-11T00:48:00.000Z",
+          "tournamentId": "R2026527",
+          "competitionId": "competition:pga-tour",
+          "consensusTags": [],
+          "parentEventId": "fixture:golf:pga:R2026527",
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "genderCategory": "male",
+          "participantIds": [
+            "competitor:golf:maverick-mcnealy",
+            "competitor:golf:wyndham-clark",
+            "competitor:golf:alex-smalley"
+          ],
+          "scheduleStatus": "confirmed",
+          "sourceCoverage": "official-canonical",
+          "sourceEventIds": [
+            "fixture:golf:pga:R2026527:round:4:group:21"
+          ],
+          "tournamentName": "Baycurrent Classic",
+          "viewingOptions": [],
+          "competitionName": "PGA TOUR",
+          "isInternational": false,
+          "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:golf:pga:R2026527:round:4:group:21",
+          "competitionScope": null,
+          "participantSlots": [
+            {
+              "slot": 1,
+              "label": null,
+              "logoUrl": null,
+              "participantId": "competitor:golf:maverick-mcnealy"
+            },
+            {
+              "slot": 2,
+              "label": null,
+              "logoUrl": null,
+              "participantId": "competitor:golf:wyndham-clark"
+            }
+          ],
+          "schedulingWindow": null,
+          "venueCountryCode": "JPN",
+          "detailsExpectedAt": null,
+          "displayTitleCompact": "Maverick McNealy / Wyndham Clark / Alex Smalley",
+          "participantsConfirmed": true,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "fixture:golf:pga:R2026527:round:4:group:9",
+          "key": "golf",
+          "date": "2026-10-11",
+          "name": "Mac Meissner / Max Homa / Xander Schauffele",
+          "time": "11:48",
+          "sport": "Golf",
+          "stage": "Round 4",
+          "venue": "Yokohama Country Club",
+          "codeId": "sport:golf",
+          "status": "upcoming",
+          "eventId": "fixture:golf:pga:R2026527:round:4:group:9",
+          "cardType": "golf_appearance",
+          "expected": 0,
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+          "ticketUrl": null,
+          "venueCity": "Yokohama",
+          "broadcasts": [],
+          "groupOrder": 4,
+          "roundLabel": "Round 4",
+          "sourceName": "PGA TOUR official tee times",
+          "sourceType": "official",
+          "broadcaster": "",
+          "roundNumber": null,
+          "participants": [
+            {
+              "id": "competitor:golf:mac-meissner",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Mac Meissner",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "59143"
+            },
+            {
+              "id": "competitor:golf:max-homa",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Max Homa",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "39977"
+            },
+            {
+              "id": "competitor:golf:xander-schauffele",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Xander Schauffele",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "48081"
+            }
+          ],
+          "startTimeUtc": "2026-10-11T00:48:00.000Z",
+          "tournamentId": "R2026527",
+          "competitionId": "competition:pga-tour",
+          "consensusTags": [],
+          "parentEventId": "fixture:golf:pga:R2026527",
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "genderCategory": "male",
+          "participantIds": [
+            "competitor:golf:mac-meissner",
+            "competitor:golf:max-homa",
+            "competitor:golf:xander-schauffele"
+          ],
+          "scheduleStatus": "confirmed",
+          "sourceCoverage": "official-canonical",
+          "sourceEventIds": [
+            "fixture:golf:pga:R2026527:round:4:group:9"
+          ],
+          "tournamentName": "Baycurrent Classic",
+          "viewingOptions": [],
+          "competitionName": "PGA TOUR",
+          "isInternational": false,
+          "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:golf:pga:R2026527:round:4:group:9",
+          "competitionScope": null,
+          "participantSlots": [
+            {
+              "slot": 1,
+              "label": null,
+              "logoUrl": null,
+              "participantId": "competitor:golf:mac-meissner"
+            },
+            {
+              "slot": 2,
+              "label": null,
+              "logoUrl": null,
+              "participantId": "competitor:golf:max-homa"
+            }
+          ],
+          "schedulingWindow": null,
+          "venueCountryCode": "JPN",
+          "detailsExpectedAt": null,
+          "displayTitleCompact": "Mac Meissner / Max Homa / Xander Schauffele",
+          "participantsConfirmed": true,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "fixture:golf:pga:R2026527:round:4:group:11",
+          "key": "golf",
+          "date": "2026-10-11",
+          "name": "Adam Scott / Jordan Smith / Justin Thomas",
+          "time": "12:10",
+          "sport": "Golf",
+          "stage": "Round 4",
+          "venue": "Yokohama Country Club",
+          "codeId": "sport:golf",
+          "status": "upcoming",
+          "eventId": "fixture:golf:pga:R2026527:round:4:group:11",
+          "cardType": "golf_appearance",
+          "expected": 0,
+          "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+          "ticketUrl": null,
+          "venueCity": "Yokohama",
+          "broadcasts": [],
+          "groupOrder": 4,
+          "roundLabel": "Round 4",
+          "sourceName": "PGA TOUR official tee times",
+          "sourceType": "official",
+          "broadcaster": "",
+          "roundNumber": null,
+          "participants": [
+            {
+              "id": "competitor:golf:adam-scott",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "AU",
+              "displayName": "Adam Scott",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "24502"
+            },
+            {
+              "id": "competitor:golf:jordan-smith",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "GB",
+              "displayName": "Jordan Smith",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "46464"
+            },
+            {
+              "id": "competitor:golf:justin-thomas",
+              "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+              "countryCode": "US",
+              "displayName": "Justin Thomas",
+              "entryStatus": "confirmed",
+              "genderCategory": "male",
+              "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+              "sourceParticipantId": "33448"
+            }
+          ],
+          "startTimeUtc": "2026-10-11T01:10:00.000Z",
+          "tournamentId": "R2026527",
+          "competitionId": "competition:pga-tour",
+          "consensusTags": [],
+          "parentEventId": "fixture:golf:pga:R2026527",
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "genderCategory": "male",
+          "participantIds": [
+            "competitor:golf:adam-scott",
+            "competitor:golf:jordan-smith",
+            "competitor:golf:justin-thomas"
+          ],
+          "scheduleStatus": "confirmed",
+          "sourceCoverage": "official-canonical",
+          "sourceEventIds": [
+            "fixture:golf:pga:R2026527:round:4:group:11"
+          ],
+          "tournamentName": "Baycurrent Classic",
+          "viewingOptions": [],
+          "competitionName": "PGA TOUR",
+          "isInternational": false,
+          "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:golf:pga:R2026527:round:4:group:11",
+          "competitionScope": null,
+          "participantSlots": [
+            {
+              "slot": 1,
+              "label": null,
+              "logoUrl": null,
+              "participantId": "competitor:golf:adam-scott"
+            },
+            {
+              "slot": 2,
+              "label": null,
+              "logoUrl": null,
+              "participantId": "competitor:golf:jordan-smith"
+            }
+          ],
+          "schedulingWindow": null,
+          "venueCountryCode": "JPN",
+          "detailsExpectedAt": null,
+          "displayTitleCompact": "Adam Scott / Jordan Smith / Justin Thomas",
+          "participantsConfirmed": true,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        }
+      ]
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "checked_at": "2026-10-11 06:32:05.743617+00",
+      "fixtures": [
+        {
+          "id": "fixture:supercars:bathurst:2026:P7",
+          "key": "supercars",
+          "date": "2026-10-08",
+          "kind": "fixture",
+          "name": "Bathurst 1000 \u00b7 Practice 1 (All Drivers)",
+          "time": "13:30",
+          "sport": "Motorsport",
+          "venue": null,
+          "status": "upcoming",
+          "eventId": "fixture:supercars:bathurst:2026:P7",
+          "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+          "weekendId": "supercars-bathurst-1000-2026",
+          "broadcasts": [],
+          "endTimeUtc": "2026-10-08T03:35:00.000Z",
+          "sourceName": "Supercars official timetable",
+          "sourceType": "official",
+          "broadcaster": "",
+          "sessionType": "practice",
+          "participants": [],
+          "startTimeUtc": "2026-10-08T02:30:00.000Z",
+          "universeOnly": true,
+          "competitionId": "competition:supercars",
+          "consensusTags": [],
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "participantIds": [],
+          "sourceEventIds": [
+            "fixture:supercars:bathurst:2026:P7"
+          ],
+          "viewingOptions": [],
+          "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+          "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:supercars:bathurst:2026:P7",
+          "participantSlots": [],
+          "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 1 (All Drivers)",
+          "participantsConfirmed": false,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "fixture:supercars:bathurst:2026:P9",
+          "key": "supercars",
+          "date": "2026-10-08",
+          "kind": "fixture",
+          "name": "Bathurst 1000 \u00b7 Practice 2 (Additional Drivers)",
+          "time": "15:45",
+          "sport": "Motorsport",
+          "venue": null,
+          "status": "upcoming",
+          "eventId": "fixture:supercars:bathurst:2026:P9",
+          "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+          "weekendId": "supercars-bathurst-1000-2026",
+          "broadcasts": [],
+          "endTimeUtc": "2026-10-08T05:50:00.000Z",
+          "sourceName": "Supercars official timetable",
+          "sourceType": "official",
+          "broadcaster": "",
+          "sessionType": "practice",
+          "participants": [],
+          "startTimeUtc": "2026-10-08T04:45:00.000Z",
+          "universeOnly": true,
+          "competitionId": "competition:supercars",
+          "consensusTags": [],
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "participantIds": [],
+          "sourceEventIds": [
+            "fixture:supercars:bathurst:2026:P9"
+          ],
+          "viewingOptions": [],
+          "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+          "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:supercars:bathurst:2026:P9",
+          "participantSlots": [],
+          "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 2 (Additional Drivers)",
+          "participantsConfirmed": false,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "fixture:supercars:bathurst:2026:P10",
+          "key": "supercars",
+          "date": "2026-10-09",
+          "kind": "fixture",
+          "name": "Bathurst 1000 \u00b7 Practice 3 (All Drivers)",
+          "time": "10:05",
+          "sport": "Motorsport",
+          "venue": null,
+          "status": "upcoming",
+          "eventId": "fixture:supercars:bathurst:2026:P10",
+          "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+          "weekendId": "supercars-bathurst-1000-2026",
+          "broadcasts": [],
+          "endTimeUtc": "2026-10-09T00:10:00.000Z",
+          "sourceName": "Supercars official timetable",
+          "sourceType": "official",
+          "broadcaster": "",
+          "sessionType": "practice",
+          "participants": [],
+          "startTimeUtc": "2026-10-08T23:05:00.000Z",
+          "universeOnly": true,
+          "competitionId": "competition:supercars",
+          "consensusTags": [],
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "participantIds": [],
+          "sourceEventIds": [
+            "fixture:supercars:bathurst:2026:P10"
+          ],
+          "viewingOptions": [],
+          "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+          "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:supercars:bathurst:2026:P10",
+          "participantSlots": [],
+          "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 3 (All Drivers)",
+          "participantsConfirmed": false,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "fixture:supercars:bathurst:2026:P11",
+          "key": "supercars",
+          "date": "2026-10-09",
+          "kind": "fixture",
+          "name": "Bathurst 1000 \u00b7 Practice 4 (All Drivers)",
+          "time": "13:15",
+          "sport": "Motorsport",
+          "venue": null,
+          "status": "upcoming",
+          "eventId": "fixture:supercars:bathurst:2026:P11",
+          "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+          "weekendId": "supercars-bathurst-1000-2026",
+          "broadcasts": [],
+          "endTimeUtc": "2026-10-09T03:20:00.000Z",
+          "sourceName": "Supercars official timetable",
+          "sourceType": "official",
+          "broadcaster": "",
+          "sessionType": "practice",
+          "participants": [],
+          "startTimeUtc": "2026-10-09T02:15:00.000Z",
+          "universeOnly": true,
+          "competitionId": "competition:supercars",
+          "consensusTags": [],
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "participantIds": [],
+          "sourceEventIds": [
+            "fixture:supercars:bathurst:2026:P11"
+          ],
+          "viewingOptions": [],
+          "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+          "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:supercars:bathurst:2026:P11",
+          "participantSlots": [],
+          "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 4 (All Drivers)",
+          "participantsConfirmed": false,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "fixture:supercars:bathurst:2026:Q7",
+          "key": "supercars",
+          "date": "2026-10-09",
+          "kind": "fixture",
+          "name": "Bathurst 1000 \u00b7 Boost Mobile Qualifying (Race 30)",
+          "time": "16:10",
+          "sport": "Motorsport",
+          "venue": null,
+          "status": "upcoming",
+          "eventId": "fixture:supercars:bathurst:2026:Q7",
+          "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+          "weekendId": "supercars-bathurst-1000-2026",
+          "broadcasts": [],
+          "endTimeUtc": "2026-10-09T05:50:00.000Z",
+          "sourceName": "Supercars official timetable",
+          "sourceType": "official",
+          "broadcaster": "",
+          "sessionType": "qualifying",
+          "participants": [],
+          "startTimeUtc": "2026-10-09T05:10:00.000Z",
+          "universeOnly": true,
+          "competitionId": "competition:supercars",
+          "consensusTags": [],
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "participantIds": [],
+          "sourceEventIds": [
+            "fixture:supercars:bathurst:2026:Q7"
+          ],
+          "viewingOptions": [],
+          "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+          "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:supercars:bathurst:2026:Q7",
+          "participantSlots": [],
+          "displayTitleCompact": "Bathurst 1000 \u00b7 Boost Mobile Qualifying (Race 30)",
+          "participantsConfirmed": false,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "fixture:supercars:bathurst:2026:P12",
+          "key": "supercars",
+          "date": "2026-10-10",
+          "kind": "fixture",
+          "name": "Bathurst 1000 \u00b7 Practice 5 (Additional Drivers)",
+          "time": "10:05",
+          "sport": "Motorsport",
+          "venue": null,
+          "status": "upcoming",
+          "eventId": "fixture:supercars:bathurst:2026:P12",
+          "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+          "weekendId": "supercars-bathurst-1000-2026",
+          "broadcasts": [],
+          "endTimeUtc": "2026-10-10T00:10:00.000Z",
+          "sourceName": "Supercars official timetable",
+          "sourceType": "official",
+          "broadcaster": "",
+          "sessionType": "practice",
+          "participants": [],
+          "startTimeUtc": "2026-10-09T23:05:00.000Z",
+          "universeOnly": true,
+          "competitionId": "competition:supercars",
+          "consensusTags": [],
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "participantIds": [],
+          "sourceEventIds": [
+            "fixture:supercars:bathurst:2026:P12"
+          ],
+          "viewingOptions": [],
+          "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+          "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:supercars:bathurst:2026:P12",
+          "participantSlots": [],
+          "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 5 (Additional Drivers)",
+          "participantsConfirmed": false,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "fixture:supercars:bathurst:2026:P13",
+          "key": "supercars",
+          "date": "2026-10-10",
+          "kind": "fixture",
+          "name": "Bathurst 1000 \u00b7 Practice 6 (All Drivers)",
+          "time": "13:10",
+          "sport": "Motorsport",
+          "venue": null,
+          "status": "upcoming",
+          "eventId": "fixture:supercars:bathurst:2026:P13",
+          "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+          "weekendId": "supercars-bathurst-1000-2026",
+          "broadcasts": [],
+          "endTimeUtc": "2026-10-10T03:15:00.000Z",
+          "sourceName": "Supercars official timetable",
+          "sourceType": "official",
+          "broadcaster": "",
+          "sessionType": "practice",
+          "participants": [],
+          "startTimeUtc": "2026-10-10T02:10:00.000Z",
+          "universeOnly": true,
+          "competitionId": "competition:supercars",
+          "consensusTags": [],
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "participantIds": [],
+          "sourceEventIds": [
+            "fixture:supercars:bathurst:2026:P13"
+          ],
+          "viewingOptions": [],
+          "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+          "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:supercars:bathurst:2026:P13",
+          "participantSlots": [],
+          "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 6 (All Drivers)",
+          "participantsConfirmed": false,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "fixture:supercars:bathurst:2026:Q9",
+          "key": "supercars",
+          "date": "2026-10-10",
+          "kind": "fixture",
+          "name": "Bathurst 1000 \u00b7 Boost Mobile TTSO (Race 30)",
+          "time": "17:05",
+          "sport": "Motorsport",
+          "venue": null,
+          "status": "upcoming",
+          "eventId": "fixture:supercars:bathurst:2026:Q9",
+          "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+          "weekendId": "supercars-bathurst-1000-2026",
+          "broadcasts": [],
+          "endTimeUtc": "2026-10-10T06:55:00.000Z",
+          "sourceName": "Supercars official timetable",
+          "sourceType": "official",
+          "broadcaster": "",
+          "sessionType": "qualifying",
+          "participants": [],
+          "startTimeUtc": "2026-10-10T06:05:00.000Z",
+          "universeOnly": true,
+          "competitionId": "competition:supercars",
+          "consensusTags": [],
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "participantIds": [],
+          "sourceEventIds": [
+            "fixture:supercars:bathurst:2026:Q9"
+          ],
+          "viewingOptions": [],
+          "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+          "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:supercars:bathurst:2026:Q9",
+          "participantSlots": [],
+          "displayTitleCompact": "Bathurst 1000 \u00b7 Boost Mobile TTSO (Race 30)",
+          "participantsConfirmed": false,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "fixture:supercars:bathurst:2026:W1",
+          "key": "supercars",
+          "date": "2026-10-11",
+          "kind": "fixture",
+          "name": "Bathurst 1000 \u00b7 Warm Up",
+          "time": "08:30",
+          "sport": "Motorsport",
+          "venue": null,
+          "status": "upcoming",
+          "eventId": "fixture:supercars:bathurst:2026:W1",
+          "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+          "weekendId": "supercars-bathurst-1000-2026",
+          "broadcasts": [],
+          "endTimeUtc": "2026-10-10T21:50:00.000Z",
+          "sourceName": "Supercars official timetable",
+          "sourceType": "official",
+          "broadcaster": "",
+          "sessionType": "practice",
+          "participants": [],
+          "startTimeUtc": "2026-10-10T21:30:00.000Z",
+          "universeOnly": true,
+          "competitionId": "competition:supercars",
+          "consensusTags": [],
+          "timePrecision": "exact",
+          "broadcasterIds": [],
+          "participantIds": [],
+          "sourceEventIds": [
+            "fixture:supercars:bathurst:2026:W1"
+          ],
+          "viewingOptions": [],
+          "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+          "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+          "broadcastOptions": [],
+          "canonicalEventId": "fixture:supercars:bathurst:2026:W1",
+          "participantSlots": [],
+          "displayTitleCompact": "Bathurst 1000 \u00b7 Warm Up",
+          "participantsConfirmed": false,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        },
+        {
+          "id": "supercars-bathurst-1000-2026",
+          "key": "supercars",
+          "date": "2026-10-11",
+          "kind": "fixture",
+          "name": "Bathurst 1000",
+          "time": "11:30",
+          "round": "all",
+          "sport": "Motorsport",
+          "stage": "Race",
+          "venue": "Mount Panorama",
+          "status": "completed",
+          "eventId": "supercars-bathurst-1000-2026",
+          "timeTbc": false,
+          "cardKind": "fixture",
+          "dateOnly": false,
+          "expected": 10,
+          "eventType": "race",
+          "fullSpiel": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed.",
+          "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+          "storyline": {
+            "stakes": 5,
+            "arcStage": "preview",
+            "intensity": 5,
+            "hookSpoilerOn": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
+            "researchDepth": 5,
+            "hookSpoilerOff": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
+            "lastReviewedAt": "2026-10-10T09:56:08Z",
+            "intensitySource": "computed",
+            "expectedSpectacle": 10,
+            "synopsisSpoilerOn": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed.",
+            "synopsisSpoilerOff": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed."
+          },
+          "venueCity": "Bathurst",
+          "venueName": "Mount Panorama",
+          "weekendId": "supercars-bathurst-1000-2026",
+          "broadcasts": [],
+          "endTimeUtc": "2026-10-11T07:30:00.000Z",
+          "liveWindow": 7,
+          "roundLabel": "Bathurst 1000",
+          "sourceName": "Natsoft / Supercars",
+          "sourceRefs": [
+            "https://www.supercars.com/events/2026-bathurst-1000"
+          ],
+          "sourceType": "official",
+          "statusText": "Chequered flag \u00b7 provisional classification",
+          "broadcaster": "Seven / 7mate / 7plus / Foxtel / Kayo",
+          "sessionType": "race",
+          "sourceTrust": "verified",
+          "stakesScore": 5,
+          "participants": [],
+          "startTimeTbc": false,
+          "startTimeUtc": "2026-10-11T00:30:00.000Z",
+          "universeOnly": false,
+          "competitionId": "competition:supercars",
+          "consensusTags": [],
+          "localTimezone": "Australia/Sydney",
+          "narrativeType": "all",
+          "sportDomainId": "sport:motorsport",
+          "timePrecision": "exact",
+          "broadcasterIds": [
+            "seven",
+            "foxtel",
+            "kayo"
+          ],
+          "lastReviewedAt": "2026-10-10T09:56:08Z",
+          "participantIds": [],
+          "replayEligible": true,
+          "scheduleStatus": "confirmed",
+          "scoreCheckedAt": "2026-10-11T06:32:02.035Z",
+          "sourceEventIds": [
+            "supercars-bathurst-1000-2026",
+            "fixture:supercars:bathurst:2026:R17"
+          ],
+          "viewingOptions": [
+            {
+              "sourceUrl": "https://www.supercars.com/tv-schedule",
+              "territory": "AU",
+              "accessType": "free",
+              "providerId": "seven",
+              "verifiedAt": "2026-09-24T01:50:44.155Z",
+              "rightsScope": "fixture",
+              "liveOrReplay": "live"
+            },
+            {
+              "sourceUrl": "https://www.supercars.com/tv-schedule",
+              "territory": "AU",
+              "accessType": "subscription",
+              "providerId": "foxtel",
+              "verifiedAt": "2026-09-24T01:50:44.155Z",
+              "rightsScope": "fixture",
+              "liveOrReplay": "live"
+            },
+            {
+              "sourceUrl": "https://www.supercars.com/tv-schedule",
+              "territory": "AU",
+              "accessType": "subscription",
+              "providerId": "kayo",
+              "verifiedAt": "2026-09-24T01:50:44.155Z",
+              "rightsScope": "fixture",
+              "liveOrReplay": "live"
+            }
+          ],
+          "catchupEligible": true,
+          "competitionName": "Repco Supercars Championship",
+          "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+          "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+          "briefingEligible": true,
+          "broadcastOptions": [
+            "Seven",
+            "7mate",
+            "7plus",
+            "Foxtel",
+            "Kayo"
+          ],
+          "canonicalEventId": "supercars-bathurst-1000-2026",
+          "discoverySportId": "sport:supercars",
+          "editorialPreview": {
+            "angle": "Bathurst 1000",
+            "status": "journalistic",
+            "sourceUrl": "https://www.supercars.com/news/supercars-news-2026-bathurst-1000-top-10-shootout-report-zach-bates-pole-shock-fairytale-matt-stone-racing-results",
+            "sourceName": "Bathurst 1000 \u2014 official research 1",
+            "contextSignals": [
+              "event-specific",
+              "narrative:form",
+              "narrative:history",
+              "narrative:matchup",
+              "narrative:path"
+            ],
+            "sourceCheckedAt": "2026-10-10T09:56:08Z",
+            "needsPreviewRefresh": false
+          },
+          "participantSlots": [],
+          "selectedSentence": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
+          "statusSourceType": "official",
+          "venueCountryCode": "AU",
+          "highlightEligible": true,
+          "officialTimingUrl": "http://server.natsoft.com.au:8080/LiveMeeting/v8super",
+          "editorialNarrative": {
+            "hook": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
+            "phase": "preview",
+            "factIds": [
+              "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+              "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
+              "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
+              "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+              "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
+              "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5"
+            ],
+            "formCopy": "Bates backed up Friday's record Gen3 qualifying lap by beating Brodie Kostecki in Saturday's Shootout. It is the first Bathurst pole for both the rookie and Matt Stone Racing. Kostecki starts alongside him; Anton De Pasquale is third. Broc Feeney, Cam Waters and Chaz Mostert missed the top ten, so several familiar contenders must build their challenge from further back.",
+            "synopsis": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed.",
+            "sourceIds": [
+              "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+              "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
+              "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
+              "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+              "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
+              "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5",
+              "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:6"
+            ],
+            "threadIds": [
+              "thread:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
+            ],
+            "dimensions": [
+              "form",
+              "history",
+              "matchup",
+              "path"
+            ],
+            "closingCopy": "For Matt Stone Racing, the front row makes an underdog story tangible without making Sunday a fairytale already won. Kostecki remains the immediate benchmark beside Bates. Toyota's Bend 500 breakthrough still offers a reason for its supporters to believe, but Mostert's grid position asks the team to earn that belief over the distance. One exceptional lap and a complete endurance performance are different achievements.",
+            "projectionId": "projection:fixture-research:supercars-bathurst-1000-2026",
+            "refreshAfter": "2026-10-11T00:30:00.000Z",
+            "researchTier": "marquee",
+            "researchedAt": "2026-10-10T09:56:08Z",
+            "schemaVersion": "editorial-narrative.v2",
+            "generationMode": "researched"
+          },
+          "preferenceDomainId": "sport:supercars",
+          "displayTitleCompact": "Bathurst 1000",
+          "marqueeClassification": {
+            "reason": "Bathurst 1000 and Enduro Cup finale",
+            "isMarquee": true,
+            "sourceUrls": [
+              "https://www.supercars.com/events/2026-bathurst-1000"
+            ]
+          },
+          "participantsConfirmed": false,
+          "participantCountryCodes": [],
+          "representativeCountryCodes": []
+        }
+      ]
+    }
+  ],
+  "scores": [
+    {
+      "source_id": "live-golf-current",
+      "fixture_id": "fixture:golf:pga:R2026527",
+      "score": {
+        "id": "fixture:golf:pga:R2026527",
+        "score": {
+          "golf": {
+            "rows": [
+              {
+                "name": "Xander Schauffele",
+                "thru": "F",
+                "total": "-13",
+                "rounds": [
+                  "70",
+                  "69",
+                  "65",
+                  "67"
+                ],
+                "position": "T4",
+                "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+                "roundScore": "-4",
+                "roundStatus": "R4 Completed",
+                "currentRound": 4,
+                "participantId": "competitor:golf:xander-schauffele",
+                "sourceCheckedAt": "2026-10-11T11:50:01.000Z"
+              },
+              {
+                "name": "Min Woo Lee",
+                "thru": "F",
+                "total": "-12",
+                "rounds": [
+                  "67",
+                  "67",
+                  "72",
+                  "66"
+                ],
+                "position": "T9",
+                "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+                "roundScore": "-5",
+                "roundStatus": "R4 Completed",
+                "currentRound": 4,
+                "participantId": "competitor:golf:min-woo-lee",
+                "sourceCheckedAt": "2026-10-11T11:50:01.000Z"
+              },
+              {
+                "name": "Adam Scott",
+                "thru": "F",
+                "total": "-11",
+                "rounds": [
+                  "69",
+                  "67",
+                  "65",
+                  "72"
+                ],
+                "position": "T13",
+                "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+                "roundScore": "+1",
+                "roundStatus": "R4 Completed",
+                "currentRound": 4,
+                "participantId": "competitor:golf:adam-scott",
+                "sourceCheckedAt": "2026-10-11T11:50:01.000Z"
+              },
+              {
+                "name": "Wyndham Clark",
+                "thru": "F*",
+                "total": "+1",
+                "rounds": [
+                  "70",
+                  "72",
+                  "74",
+                  "69"
+                ],
+                "position": "T63",
+                "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+                "roundScore": "-2",
+                "roundStatus": "R4 Completed",
+                "currentRound": 4,
+                "participantId": "competitor:golf:wyndham-clark",
+                "sourceCheckedAt": "2026-10-11T11:50:01.000Z"
+              }
+            ],
+            "phase": "tournament-completed",
+            "round": 4,
+            "fieldCount": 72,
+            "statusText": "Official result",
+            "officialUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard"
+          }
+        },
+        "status": "completed",
+        "scoreCheckedAt": "2026-10-11T11:50:01+00:00",
+        "statusCheckedAt": "2026-10-11T11:50:01+00:00"
+      },
+      "content_hash": "f1b78314520f9519aab90df1b15ea38f",
+      "first_completed_at": "2026-10-11 11:50:01.358277+00"
+    },
+    {
+      "source_id": "live-golf-current",
+      "fixture_id": "fixture:golf:pga:R2026527:round:4:group:11",
+      "score": {
+        "id": "fixture:golf:pga:R2026527:round:4:group:11",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-10T19:13:55.658+00:00"
+      },
+      "content_hash": "6bd17da5cb6c3ac2dce4961dc7750257",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-golf-current",
+      "fixture_id": "fixture:golf:pga:R2026527:round:4:group:21",
+      "score": {
+        "id": "fixture:golf:pga:R2026527:round:4:group:21",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-10T19:13:55.658+00:00"
+      },
+      "content_hash": "d785c9cac97ade38329d05f921bbbf74",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-golf-current",
+      "fixture_id": "fixture:golf:pga:R2026527:round:4:group:6",
+      "score": {
+        "id": "fixture:golf:pga:R2026527:round:4:group:6",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-10T19:13:55.658+00:00"
+      },
+      "content_hash": "5de10da35292f7a6c4bfbb257fc7a129",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-golf-current",
+      "fixture_id": "fixture:golf:pga:R2026527:round:4:group:9",
+      "score": {
+        "id": "fixture:golf:pga:R2026527:round:4:group:9",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-10T19:13:55.658+00:00"
+      },
+      "content_hash": "a2835c62e15d90d0a3b636af4eda00db",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P10",
+      "score": {
+        "id": "fixture:supercars:bathurst:2026:P10",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-09T04:08:04.796+00:00"
+      },
+      "content_hash": "daa642518c9c72cc68f783186c13584e",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P11",
+      "score": {
+        "id": "fixture:supercars:bathurst:2026:P11",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-09T04:08:04.796+00:00"
+      },
+      "content_hash": "ac991dfd42f78059a61cb1b63af8597f",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P12",
+      "score": {
+        "id": "fixture:supercars:bathurst:2026:P12",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-09T04:08:04.796+00:00"
+      },
+      "content_hash": "6de4e4006cb20ede105480f829cdc7bc",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P13",
+      "score": {
+        "id": "fixture:supercars:bathurst:2026:P13",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-09T04:08:04.796+00:00"
+      },
+      "content_hash": "18e4b923a095d0b19439474ac6c38b72",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P7",
+      "score": {
+        "id": "fixture:supercars:bathurst:2026:P7",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-09T04:08:04.796+00:00"
+      },
+      "content_hash": "4135fb3b799232d9607b5acf66384a04",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P9",
+      "score": {
+        "id": "fixture:supercars:bathurst:2026:P9",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-09T04:08:04.796+00:00"
+      },
+      "content_hash": "b12504d887423554ebed8e743e2e9d99",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:Q7",
+      "score": {
+        "id": "fixture:supercars:bathurst:2026:Q7",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-09T04:08:04.796+00:00"
+      },
+      "content_hash": "3084969e1c55e1e96fa92891fadcb542",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:Q9",
+      "score": {
+        "id": "fixture:supercars:bathurst:2026:Q9",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-09T04:08:04.796+00:00"
+      },
+      "content_hash": "382b0c0155a09ebfc84a2b24d98cc5dc",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:R17",
+      "score": {
+        "id": "fixture:supercars:bathurst:2026:R17",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-09T04:08:04.796+00:00"
+      },
+      "content_hash": "8c7ca27122907127c7c6adfd089edfe0",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:W1",
+      "score": {
+        "id": "fixture:supercars:bathurst:2026:W1",
+        "status": "upcoming",
+        "statusCheckedAt": "2026-10-09T04:08:04.796+00:00"
+      },
+      "content_hash": "908e5345c989764745af0db10845a87b",
+      "first_completed_at": null
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "supercars-bathurst-1000-2026",
+      "score": {
+        "id": "supercars-bathurst-1000-2026",
+        "score": {
+          "racing": {
+            "kind": "circuit",
+            "phase": "provisional-result",
+            "schema": "racing.v1",
+            "status": "completed",
+            "entries": [
+              {
+                "id": "car:17",
+                "gap": null,
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "17",
+                "bestLap": 126.4952,
+                "drivers": [
+                  "Brodie Kostecki",
+                  "Todd Hazelwood"
+                ],
+                "lastLap": 128.1993,
+                "sectors": [
+                  52.3713,
+                  34.2013,
+                  41.6267
+                ],
+                "vehicle": "Ford Mustang GT",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 1,
+                "currentDriver": "Brodie Kostecki"
+              },
+              {
+                "id": "car:888",
+                "gap": "1.1844",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "888",
+                "bestLap": 127.3426,
+                "drivers": [
+                  "William Brown",
+                  "Scott Pye"
+                ],
+                "lastLap": 128.4822,
+                "sectors": [
+                  52.6493,
+                  34.0837,
+                  41.7492
+                ],
+                "vehicle": "Ford Mustang GT",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 2,
+                "currentDriver": "William Brown"
+              },
+              {
+                "id": "car:10",
+                "gap": "1.9265",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "10",
+                "bestLap": 127.4388,
+                "drivers": [
+                  "Zach Bates",
+                  "Aaron Seton"
+                ],
+                "lastLap": 128.7586,
+                "sectors": [
+                  52.723,
+                  34.4246,
+                  41.611
+                ],
+                "vehicle": "Chev Camaro ZL1",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 3,
+                "currentDriver": "Zach Bates"
+              },
+              {
+                "id": "car:4",
+                "gap": "3.0218",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "4",
+                "bestLap": 127.4849,
+                "drivers": [
+                  "Jack Le Brocq",
+                  "Harri Jones"
+                ],
+                "lastLap": 129.0046,
+                "sectors": [
+                  52.6145,
+                  34.6893,
+                  41.7008
+                ],
+                "vehicle": "Chev Camaro ZL1",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 4,
+                "currentDriver": "Jack Le Brocq"
+              },
+              {
+                "id": "car:19",
+                "gap": "3.5276",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "19",
+                "bestLap": 127.5162,
+                "drivers": [
+                  "Matthew Payne",
+                  "Will Davison"
+                ],
+                "lastLap": 128.8838,
+                "sectors": [
+                  52.7119,
+                  34.4586,
+                  41.7133
+                ],
+                "vehicle": "Ford Mustang GT",
+                "pitState": "N",
+                "pitStops": 7,
+                "position": 5,
+                "currentDriver": "Matthew Payne"
+              },
+              {
+                "id": "car:99",
+                "gap": "3.9568",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "99",
+                "bestLap": 127.607,
+                "drivers": [
+                  "Cooper Murray",
+                  "Lochie Dalton"
+                ],
+                "lastLap": 129.0276,
+                "sectors": [
+                  52.7507,
+                  34.6297,
+                  41.6472
+                ],
+                "vehicle": "Chev Camaro ZL1",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 6,
+                "currentDriver": "Cooper Murray"
+              },
+              {
+                "id": "car:8",
+                "gap": "4.2623",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "8",
+                "bestLap": 127.0679,
+                "drivers": [
+                  "Andre Heimgartner",
+                  "Bryce Fullwood"
+                ],
+                "lastLap": 129.0361,
+                "sectors": [
+                  52.9874,
+                  34.4796,
+                  41.5691
+                ],
+                "vehicle": "Toyota GR Supra A90",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 7,
+                "currentDriver": "Andre Heimgartner"
+              },
+              {
+                "id": "car:7",
+                "gap": "4.7341",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "7",
+                "bestLap": 127.5363,
+                "drivers": [
+                  "James Golding",
+                  "Richie Stanaway"
+                ],
+                "lastLap": 129.1919,
+                "sectors": [
+                  52.9319,
+                  34.6471,
+                  41.6129
+                ],
+                "vehicle": "Ford Mustang GT",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 8,
+                "currentDriver": "James Golding"
+              },
+              {
+                "id": "car:55",
+                "gap": "6.9564",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "55",
+                "bestLap": 127.7755,
+                "drivers": [
+                  "Thomas Randle",
+                  "Reuben Goodall"
+                ],
+                "lastLap": 130.6162,
+                "sectors": [
+                  52.9394,
+                  34.856,
+                  42.8208
+                ],
+                "vehicle": "Ford Mustang GT",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 9,
+                "currentDriver": "Thomas Randle"
+              },
+              {
+                "id": "car:15",
+                "gap": "7.3646",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "15",
+                "bestLap": 127.7805,
+                "drivers": [
+                  "Craig Lowndes",
+                  "Bayley Hall"
+                ],
+                "lastLap": 130.7021,
+                "sectors": [
+                  53.1362,
+                  34.5567,
+                  43.0092
+                ],
+                "vehicle": "Chev Camaro ZL1",
+                "pitState": "N",
+                "pitStops": 5,
+                "position": 10,
+                "currentDriver": "Bayley Hall"
+              },
+              {
+                "id": "car:88",
+                "gap": "7.4962",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "88",
+                "bestLap": 127.972,
+                "drivers": [
+                  "Broc Feeney",
+                  "Nick Percat"
+                ],
+                "lastLap": 130.5453,
+                "sectors": [
+                  53.2937,
+                  34.4523,
+                  42.7993
+                ],
+                "vehicle": "Ford Mustang GT",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 11,
+                "currentDriver": "Broc Feeney"
+              },
+              {
+                "id": "car:31",
+                "gap": "7.7502",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "31",
+                "bestLap": 127.7893,
+                "drivers": [
+                  "Jayden Ojeda",
+                  "David Russell"
+                ],
+                "lastLap": 130.4247,
+                "sectors": [
+                  53.1464,
+                  34.7684,
+                  42.5099
+                ],
+                "vehicle": "Chev Camaro ZL1",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 12,
+                "currentDriver": "Jayden Ojeda"
+              },
+              {
+                "id": "car:3",
+                "gap": "7.8944",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "3",
+                "bestLap": 127.0717,
+                "drivers": [
+                  "Aaron Cameron",
+                  "Zak Best"
+                ],
+                "lastLap": 129.7257,
+                "sectors": [
+                  53.0397,
+                  34.5647,
+                  42.1213
+                ],
+                "vehicle": "Ford Mustang GT",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 13,
+                "currentDriver": "Aaron Cameron"
+              },
+              {
+                "id": "car:14",
+                "gap": "10.3056",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "14",
+                "bestLap": 128.1877,
+                "drivers": [
+                  "Cameron Hill",
+                  "Brad Vaughan"
+                ],
+                "lastLap": 131.5814,
+                "sectors": [
+                  53.2206,
+                  36.0972,
+                  42.2636
+                ],
+                "vehicle": "Toyota GR Supra A90",
+                "pitState": "N",
+                "pitStops": 5,
+                "position": 14,
+                "currentDriver": "Cameron Hill"
+              },
+              {
+                "id": "car:6",
+                "gap": "13.7625",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "6",
+                "bestLap": 127.6801,
+                "drivers": [
+                  "Cameron Waters",
+                  "Mark Winterbottom"
+                ],
+                "lastLap": 129.9925,
+                "sectors": [
+                  52.9913,
+                  35.1424,
+                  41.8588
+                ],
+                "vehicle": "Ford Mustang GT",
+                "pitState": "N",
+                "pitStops": 7,
+                "position": 15,
+                "currentDriver": "Cameron Waters"
+              },
+              {
+                "id": "car:9",
+                "gap": "18.5334",
+                "laps": 161,
+                "team": null,
+                "tyre": "S",
+                "number": "9",
+                "bestLap": 127.6567,
+                "drivers": [
+                  "Jobe Stewart",
+                  "Jarrod Hughes"
+                ],
+                "lastLap": null,
+                "sectors": [
+                  54.0399,
+                  null,
+                  null
+                ],
+                "vehicle": "Chev Camaro ZL1",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 16,
+                "currentDriver": "Jobe Stewart"
+              },
+              {
+                "id": "car:18",
+                "gap": "112.1219",
+                "laps": 160,
+                "team": null,
+                "tyre": "S",
+                "number": "18",
+                "bestLap": 127.5618,
+                "drivers": [
+                  "Anton De Pasquale",
+                  "Lee Holdsworth"
+                ],
+                "lastLap": 128.8354,
+                "sectors": [
+                  75.3936,
+                  null,
+                  null
+                ],
+                "vehicle": "Chev Camaro ZL1",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 17,
+                "currentDriver": "Anton De Pasquale"
+              },
+              {
+                "id": "car:48",
+                "gap": "1 lap",
+                "laps": 160,
+                "team": null,
+                "tyre": "S",
+                "number": "48",
+                "bestLap": 127.4056,
+                "drivers": [
+                  "David Reynolds",
+                  "James Courtney"
+                ],
+                "lastLap": 131.4021,
+                "sectors": [
+                  52.6081,
+                  36.965,
+                  41.829
+                ],
+                "vehicle": "Chev Camaro ZL1",
+                "pitState": "N",
+                "pitStops": 8,
+                "position": 18,
+                "currentDriver": "David Reynolds"
+              },
+              {
+                "id": "car:777",
+                "gap": "1 lap",
+                "laps": 160,
+                "team": null,
+                "tyre": "S",
+                "number": "777",
+                "bestLap": 128.2222,
+                "drivers": [
+                  "Declan Fraser",
+                  "Nash Morris"
+                ],
+                "lastLap": 129.2707,
+                "sectors": [
+                  52.3341,
+                  35.123,
+                  41.8136
+                ],
+                "vehicle": "Chev Camaro ZL1",
+                "pitState": "N",
+                "pitStops": 7,
+                "position": 19,
+                "currentDriver": "Declan Fraser"
+              },
+              {
+                "id": "car:34",
+                "gap": "2 laps",
+                "laps": 159,
+                "team": null,
+                "tyre": "S",
+                "number": "34",
+                "bestLap": 127.8878,
+                "drivers": [
+                  "James Moffat",
+                  "Nathan Herne"
+                ],
+                "lastLap": 128.7123,
+                "sectors": [
+                  52.3996,
+                  34.571,
+                  41.7417
+                ],
+                "vehicle": "Chev Camaro ZL1",
+                "pitState": "N",
+                "pitStops": 8,
+                "position": 20,
+                "currentDriver": "Nathan Herne"
+              },
+              {
+                "id": "car:26",
+                "gap": "2 laps",
+                "laps": 159,
+                "team": null,
+                "tyre": "S",
+                "number": "26",
+                "bestLap": 126.8888,
+                "drivers": [
+                  "Kai Allen",
+                  "Tim Slade"
+                ],
+                "lastLap": 128.2198,
+                "sectors": [
+                  51.9753,
+                  34.5272,
+                  41.7173
+                ],
+                "vehicle": "Ford Mustang GT",
+                "pitState": "N",
+                "pitStops": 9,
+                "position": 21,
+                "currentDriver": "Kai Allen"
+              },
+              {
+                "id": "car:96",
+                "gap": "2 laps",
+                "laps": 159,
+                "team": null,
+                "tyre": "S",
+                "number": "96",
+                "bestLap": 128.1729,
+                "drivers": [
+                  "Macauley Jones",
+                  "Jordan Boys"
+                ],
+                "lastLap": 130.926,
+                "sectors": [
+                  53.0207,
+                  34.9576,
+                  42.9477
+                ],
+                "vehicle": "Toyota GR Supra A90",
+                "pitState": "N",
+                "pitStops": 7,
+                "position": 22,
+                "currentDriver": "Macauley Jones"
+              },
+              {
+                "id": "car:38",
+                "gap": "4 laps",
+                "laps": 157,
+                "team": null,
+                "tyre": "S",
+                "number": "38",
+                "bestLap": 127.7597,
+                "drivers": [
+                  "Rylan Gray",
+                  "Tony D'Alberto"
+                ],
+                "lastLap": 129.3533,
+                "sectors": [
+                  52.5474,
+                  34.948,
+                  41.8579
+                ],
+                "vehicle": "Ford Mustang GT",
+                "pitState": "N",
+                "pitStops": 8,
+                "position": 23,
+                "currentDriver": "Rylan Gray"
+              },
+              {
+                "id": "car:1",
+                "gap": null,
+                "laps": 155,
+                "team": null,
+                "tyre": "S",
+                "number": "1",
+                "bestLap": 127.3713,
+                "drivers": [
+                  "Chaz Mostert",
+                  "Fabian Coulthard"
+                ],
+                "lastLap": 129.1991,
+                "sectors": [
+                  52.8204,
+                  41.1574,
+                  null
+                ],
+                "vehicle": "Toyota GR Supra A90",
+                "pitState": "N",
+                "pitStops": 6,
+                "position": 24,
+                "currentDriver": "Chaz Mostert"
+              },
+              {
+                "id": "car:11",
+                "gap": "15 laps",
+                "laps": 146,
+                "team": null,
+                "tyre": "S",
+                "number": "11",
+                "bestLap": 128.0457,
+                "drivers": [
+                  "Jackson Walls",
+                  "Jack Perkins"
+                ],
+                "lastLap": 130.9621,
+                "sectors": [
+                  52.8095,
+                  34.7719,
+                  43.3807
+                ],
+                "vehicle": "Ford Mustang GT",
+                "pitState": "N",
+                "pitStops": 7,
+                "position": 25,
+                "currentDriver": "Jackson Walls"
+              },
+              {
+                "id": "car:2",
+                "gap": "16 laps",
+                "laps": 145,
+                "team": null,
+                "tyre": "S",
+                "number": "2",
+                "bestLap": 127.7032,
+                "drivers": [
+                  "Ryan Wood",
+                  "Jaxon Evans"
+                ],
+                "lastLap": 132.3701,
+                "sectors": [
+                  54.0147,
+                  35.8781,
+                  42.4773
+                ],
+                "vehicle": "Toyota GR Supra A90",
+                "pitState": "N",
+                "pitStops": 8,
+                "position": 26,
+                "currentDriver": "Ryan Wood"
+              }
+            ],
+            "eventId": "bathurst:2026",
+            "provider": "Natsoft",
+            "checkedAt": "2026-10-11T06:32:05.366Z",
+            "sessionId": "R17",
+            "totalLaps": 161,
+            "providerAt": null,
+            "statusText": "Chequered flag \u00b7 provisional classification",
+            "officialUrl": "http://server.natsoft.com.au:8080/LiveMeeting/v8super",
+            "sessionName": "2026 Repco Supercars Championship - Race 30",
+            "providerClock": "1791739925.4687",
+            "elapsedSeconds": 21446
+          }
+        },
+        "status": "completed",
+        "scoreCheckedAt": "2026-10-11T06:32:02.035+00:00",
+        "statusCheckedAt": "2026-10-11T06:32:02.035+00:00"
+      },
+      "content_hash": "cf9d866cdea5dc3092446b1bbe1df3a1",
+      "first_completed_at": "2026-10-11 06:32:05.755533+00"
+    }
+  ],
+  "reviewedBathurst": {
+    "id": "supercars-bathurst-1000-2026",
+    "canonicalId": "supercars-bathurst-1000-2026",
+    "eventId": "supercars-bathurst-1000-2026",
+    "name": "Bathurst 1000",
+    "displayTitleCompact": "Bathurst 1000",
+    "sport": "V8 Supercars",
+    "key": "supercars",
+    "sportDomainId": "sport:motorsport",
+    "preferenceDomainId": "sport:supercars",
+    "discoverySportId": "sport:supercars",
+    "competitionId": "competition:supercars",
+    "competitionName": "Repco Supercars Championship",
+    "date": "2026-10-11",
+    "time": "11:30",
+    "startTimeUtc": "2026-10-11T00:30:00.000Z",
+    "localTimezone": "Australia/Sydney",
+    "venue": "Mount Panorama",
+    "venueName": "Mount Panorama",
+    "venueCity": "Bathurst",
+    "venueCountryCode": "AU",
+    "cardKind": "fixture",
+    "eventType": "race",
+    "sessionType": "race",
+    "round": "all",
+    "roundLabel": "Bathurst 1000",
+    "stage": "Race",
+    "liveWindow": 7,
+    "status": "completed",
+    "expected": 10,
+    "participantIds": [],
+    "participants": [],
+    "broadcaster": "Seven / 7mate / 7plus / Foxtel / Kayo",
+    "broadcasterIds": [
+      "seven",
+      "foxtel",
+      "kayo"
+    ],
+    "broadcastOptions": [
+      "Seven",
+      "7mate",
+      "7plus",
+      "Foxtel",
+      "Kayo"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "seven",
+        "territory": "AU",
+        "accessType": "free",
+        "liveOrReplay": "live",
+        "rightsScope": "fixture",
+        "sourceUrl": "https://www.supercars.com/tv-schedule",
+        "verifiedAt": "2026-09-24T01:50:44.155Z"
+      },
+      {
+        "providerId": "foxtel",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "fixture",
+        "sourceUrl": "https://www.supercars.com/tv-schedule",
+        "verifiedAt": "2026-09-24T01:50:44.155Z"
+      },
+      {
+        "providerId": "kayo",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "fixture",
+        "sourceUrl": "https://www.supercars.com/tv-schedule",
+        "verifiedAt": "2026-09-24T01:50:44.155Z"
+      }
+    ],
+    "sourceName": "Supercars",
+    "sourceUrl": "https://www.supercars.com/results/2026/2026-bathurst-1000/R17",
+    "sourceRefs": [
+      "https://www.supercars.com/events/2026-bathurst-1000",
+      "https://www.supercars.com/tv-schedule",
+      "https://www.supercars.com/news/supercars-2026-calendar-announcement-release-date-rounds-printable-ticket-information-news"
+    ],
+    "sourceCheckedAt": "2026-10-11T07:45:02.471Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "marqueeClassification": {
+      "isMarquee": true,
+      "sourceUrls": [
+        "https://www.supercars.com/events/2026-bathurst-1000"
+      ],
+      "reason": "Bathurst 1000 and Enduro Cup finale"
+    },
+    "selectedSentence": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+    "fullSpiel": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:supercars-bathurst-1000-2026",
+      "researchTier": "marquee",
+      "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+      "synopsis": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+      "threadIds": [
+        "thread:bathurst2026:enduro"
+      ],
+      "factIds": [
+        "fact:bathurst2026:0",
+        "fact:bathurst2026:1",
+        "fact:bathurst2026:2",
+        "fact:bathurst2026:3"
+      ],
+      "sourceIds": [
+        "source:bathurst2026:0",
+        "source:bathurst2026:1",
+        "source:bathurst2026:2"
+      ],
+      "dimensions": [
+        "format",
+        "consequence",
+        "venue"
+      ],
+      "researchedAt": "2026-09-24T01:50:44.155Z",
+      "refreshAfter": "2026-10-11T00:30:00.000Z",
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Enduro Cup finale at Mount Panorama",
+      "contextSignals": [
+        "event-specific",
+        "narrative:consequence",
+        "narrative:format"
+      ],
+      "sourceName": "Supercars",
+      "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
+      "sourceCheckedAt": "2026-09-24T01:50:44.155Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "arcStage": "preview",
+      "hookSpoilerOff": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+      "hookSpoilerOn": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+      "synopsisSpoilerOff": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+      "synopsisSpoilerOn": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds."
+    },
+    "replayEligible": true,
+    "highlightEligible": true,
+    "catchupEligible": true,
+    "score": "1. Brodie Kostecki / Todd Hazelwood \u00b7 2. Will Brown / Scott Pye \u00b7 3. Zach Bates / Aaron Seton",
+    "outcomeText": "Brodie Kostecki and Todd Hazelwood won the Bathurst 1000 for Shell V-Power Racing Team.",
+    "recapText": "The official Race 30 classification records Kostecki and Hazelwood completing 161 laps in 5:54:04.749. Will Brown and Scott Pye finished second; Zach Bates and Aaron Seton finished third.",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.supercars.com/results/2026/2026-bathurst-1000/R17",
+    "resultSourceCheckedAt": "2026-10-11T07:45:02.471Z",
+    "scoreCheckedAt": "2026-10-11T07:45:02.471Z",
+    "statusCheckedAt": "2026-10-11T07:45:02.471Z",
+    "scoreFactObservedAt": "2026-10-11T07:45:02.471Z",
+    "statusFactObservedAt": "2026-10-11T06:32:02.035+00:00",
+    "endTimeUtc": null,
+    "resultPublishedAt": null,
+    "fixtureResults": {
+      "schemaVersion": "fixture-results.v1",
+      "columns": [
+        "Finish",
+        "No",
+        "Drivers",
+        "Team",
+        "Race time",
+        "Laps",
+        "Points"
+      ],
+      "rows": [
+        [
+          "1",
+          "17",
+          "Brodie Kostecki / Todd Hazelwood",
+          "Shell V-Power Racing Team",
+          "5:54:04.749",
+          "161",
+          "+300"
+        ],
+        [
+          "2",
+          "888",
+          "Will Brown / Scott Pye",
+          "Red Bull Ampol Racing",
+          "5:54:05.933",
+          "161",
+          "+276"
+        ],
+        [
+          "3",
+          "10",
+          "Zach Bates / Aaron Seton",
+          "Bendix Racing",
+          "5:54:06.676",
+          "161",
+          "+254"
+        ],
+        [
+          "4",
+          "04",
+          "Jack Le Brocq / Harri Jones",
+          "Sherrin Rentals Racing",
+          "5:54:07.771",
+          "161",
+          "+234"
+        ],
+        [
+          "5",
+          "19",
+          "Matthew Payne / Will Davison",
+          "Penrite Racing",
+          "5:54:08.277",
+          "161",
+          "+215"
+        ],
+        [
+          "6",
+          "99",
+          "Cooper Murray / Lochie Dalton",
+          "Erebus Motorsport",
+          "5:54:08.706",
+          "161",
+          "+198"
+        ],
+        [
+          "7",
+          "08",
+          "Andre Heimgartner / Bryce Fullwood",
+          "R&J Batteries Racing",
+          "5:54:09.011",
+          "161",
+          "+172"
+        ],
+        [
+          "8",
+          "07",
+          "James Golding / Richie Stanaway",
+          "CoolDrive Racing",
+          "5:54:09.483",
+          "161",
+          "+167"
+        ],
+        [
+          "9",
+          "55",
+          "Thomas Randle / Reuben Goodall",
+          "Monster Castrol Racing",
+          "5:54:11.705",
+          "161",
+          "+154"
+        ],
+        [
+          "10",
+          "15",
+          "Craig Lowndes / Bayley Hall",
+          "Supercheap Auto Racing",
+          "5:54:12.114",
+          "161",
+          "+142"
+        ],
+        [
+          "11",
+          "88",
+          "Broc Feeney / Nick Percat",
+          "Red Bull Ampol Racing",
+          "5:54:12.245",
+          "161",
+          "+130"
+        ],
+        [
+          "12",
+          "31",
+          "Jayden Ojeda / David Russell",
+          "PremiAir Racing",
+          "5:54:12.499",
+          "161",
+          "+120"
+        ],
+        [
+          "13",
+          "03",
+          "Aaron Cameron / Zak Best",
+          "LIQUI MOLY BLAHST Racing",
+          "5:54:12.643",
+          "161",
+          "+110"
+        ],
+        [
+          "14",
+          "14",
+          "Cameron Hill / Brad Vaughan",
+          "Brad Jones Racing",
+          "5:54:15.055",
+          "161",
+          "+101"
+        ],
+        [
+          "15",
+          "06",
+          "Cam Waters / Mark Winterbottom",
+          "Monster Castrol Racing",
+          "5:54:18.512",
+          "161",
+          "+93"
+        ],
+        [
+          "16",
+          "09",
+          "Jobe Stewart / Jarrod Hughes",
+          "Erebus Motorsport",
+          "5:54:23.282",
+          "161",
+          "+86"
+        ],
+        [
+          "17",
+          "48",
+          "David Reynolds / James Courtney",
+          "Snowy River Caravans Racing",
+          "5:54:36.083",
+          "160",
+          "+79"
+        ],
+        [
+          "18",
+          "777",
+          "Declan Fraser / Nash Morris",
+          "PremiAir Racing",
+          "5:54:37.047",
+          "160",
+          "+73"
+        ],
+        [
+          "19",
+          "34",
+          "James Moffat / Nathan Herne",
+          "Garry Rogers Motorsport",
+          "5:54:37.260",
+          "159",
+          "+67"
+        ],
+        [
+          "20",
+          "26",
+          "Kai Allen / Tim Slade",
+          "Penrite Racing",
+          "5:54:37.445",
+          "159",
+          "+62"
+        ],
+        [
+          "21",
+          "96",
+          "Macauley Jones / Jordan Boys",
+          "Brad Jones Racing",
+          "5:54:40.746",
+          "159",
+          "+57"
+        ],
+        [
+          "22",
+          "38",
+          "Rylan Gray / Tony D'Alberto",
+          "Shell V-Power Racing Team",
+          "5:54:40.032",
+          "157",
+          "+52"
+        ],
+        [
+          "23",
+          "11",
+          "Jackson Walls / Jack Perkins",
+          "Objective Racing",
+          "5:54:43.215",
+          "146",
+          "+48"
+        ],
+        [
+          "24",
+          "02",
+          "Ryan Wood / Jaxon Evans",
+          "Mobil1 Truck Assist Racing",
+          "5:54:50.373",
+          "145",
+          "+44"
+        ],
+        [
+          "NC",
+          "18",
+          "Anton De Pasquale / Lee Holdsworth",
+          "DEWALT Racing",
+          "5:51:54.854",
+          "160",
+          "+0"
+        ],
+        [
+          "NC",
+          "01",
+          "Chaz Mostert / Fabian Coulthard",
+          "Mobil1 Optus Racing",
+          "5:39:52.884",
+          "155",
+          "+0"
+        ]
+      ],
+      "sourceUrl": "https://www.supercars.com/results/2026/2026-bathurst-1000/R17",
+      "checkedAt": "2026-10-11T07:45:02.471Z"
+    },
+    "firstConfirmedCompleteAt": "2026-10-11T06:32:05.755533+00:00"
+  },
+  "current": [
+    {
+      "source_id": "live-golf-current",
+      "fixture_id": "fixture:golf:pga:R2026527",
+      "identity_keys": [
+        "fixture:golf:pga:R2026527"
+      ],
+      "fixture": {
+        "id": "fixture:golf:pga:R2026527",
+        "key": "golf",
+        "date": "2026-10-08",
+        "name": "Baycurrent Classic",
+        "time": null,
+        "sport": "Golf",
+        "stage": "PGA TOUR",
+        "venue": "Yokohama Country Club",
+        "codeId": "sport:golf",
+        "season": 2026,
+        "status": "completed",
+        "endDate": "2026-10-11",
+        "entries": [
+          {
+            "id": "competitor:golf:wyndham-clark",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Wyndham Clark",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "51766"
+          },
+          {
+            "id": "competitor:golf:min-woo-lee",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "AU",
+            "displayName": "Min Woo Lee",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "37378"
+          },
+          {
+            "id": "competitor:golf:xander-schauffele",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Xander Schauffele",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "48081"
+          },
+          {
+            "id": "competitor:golf:adam-scott",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "AU",
+            "displayName": "Adam Scott",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "24502"
+          }
+        ],
+        "eventId": "fixture:golf:pga:R2026527",
+        "isMajor": false,
+        "cardType": "golf_tournament",
+        "dateOnly": true,
+        "expected": 0,
+        "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+        "ticketUrl": null,
+        "venueCity": "Yokohama",
+        "broadcasts": [],
+        "groupOrder": 5000,
+        "roundLabel": null,
+        "sourceName": "PGA TOUR official leaderboard",
+        "sourceType": "official",
+        "statusText": "Official result",
+        "appearances": [],
+        "broadcaster": "",
+        "roundNumber": null,
+        "participants": [
+          {
+            "id": "competitor:golf:wyndham-clark",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Wyndham Clark",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "51766"
+          },
+          {
+            "id": "competitor:golf:min-woo-lee",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "AU",
+            "displayName": "Min Woo Lee",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "37378"
+          },
+          {
+            "id": "competitor:golf:xander-schauffele",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Xander Schauffele",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "48081"
+          },
+          {
+            "id": "competitor:golf:adam-scott",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "AU",
+            "displayName": "Adam Scott",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "24502"
+          }
+        ],
+        "startTimeUtc": null,
+        "tournamentId": "R2026527",
+        "competitionId": "competition:pga-tour",
+        "consensusTags": [],
+        "golfFieldSize": 72,
+        "timePrecision": "date-only",
+        "broadcasterIds": [],
+        "leaderboardUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/leaderboard",
+        "participantIds": [
+          "competitor:golf:wyndham-clark",
+          "competitor:golf:min-woo-lee",
+          "competitor:golf:xander-schauffele",
+          "competitor:golf:adam-scott"
+        ],
+        "scheduleStatus": "tbc",
+        "scoreCheckedAt": "2026-10-11T11:50:01.000Z",
+        "sourceCoverage": "official-canonical",
+        "sourceEventIds": [
+          "fixture:golf:pga:R2026527"
+        ],
+        "tournamentName": "Baycurrent Classic",
+        "viewingOptions": [],
+        "competitionName": "PGA TOUR",
+        "isInternational": false,
+        "sourceCheckedAt": "2026-10-11T11:50:01.000Z",
+        "statusCheckedAt": "2026-10-11T11:50:01.000Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:golf:pga:R2026527",
+        "competitionScope": null,
+        "participantSlots": [
+          {
+            "slot": 1,
+            "label": null,
+            "logoUrl": null,
+            "participantId": "competitor:golf:wyndham-clark"
+          },
+          {
+            "slot": 2,
+            "label": null,
+            "logoUrl": null,
+            "participantId": "competitor:golf:min-woo-lee"
+          }
+        ],
+        "schedulingWindow": null,
+        "statusSourceType": "official",
+        "venueCountryCode": "JPN",
+        "detailsExpectedAt": null,
+        "participationScope": "ranked-and-explicit-follows",
+        "displayTitleCompact": "Baycurrent Classic",
+        "participantsConfirmed": true,
+        "excludedParticipantIds": [],
+        "participationCheckedAt": "2026-10-10T19:13:55.658Z",
+        "participantCountryCodes": [],
+        "representativeCountryCodes": [],
+        "participationScopeCheckedOn": "2026-10-06"
+      },
+      "content_hash": "c12f0f97478151f7bfbc249117a63e13",
+      "updated_at": "2026-10-11 11:50:01.331656+00"
+    },
+    {
+      "source_id": "live-golf-current",
+      "fixture_id": "fixture:golf:pga:R2026527:round:4:group:11",
+      "identity_keys": [
+        "fixture:golf:pga:R2026527:round:4:group:11"
+      ],
+      "fixture": {
+        "id": "fixture:golf:pga:R2026527:round:4:group:11",
+        "key": "golf",
+        "date": "2026-10-11",
+        "name": "Adam Scott / Jordan Smith / Justin Thomas",
+        "time": "12:10",
+        "sport": "Golf",
+        "stage": "Round 4",
+        "venue": "Yokohama Country Club",
+        "codeId": "sport:golf",
+        "status": "upcoming",
+        "eventId": "fixture:golf:pga:R2026527:round:4:group:11",
+        "cardType": "golf_appearance",
+        "expected": 0,
+        "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+        "ticketUrl": null,
+        "venueCity": "Yokohama",
+        "broadcasts": [],
+        "groupOrder": 4,
+        "roundLabel": "Round 4",
+        "sourceName": "PGA TOUR official tee times",
+        "sourceType": "official",
+        "broadcaster": "",
+        "roundNumber": null,
+        "participants": [
+          {
+            "id": "competitor:golf:adam-scott",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "AU",
+            "displayName": "Adam Scott",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "24502"
+          },
+          {
+            "id": "competitor:golf:jordan-smith",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "GB",
+            "displayName": "Jordan Smith",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "46464"
+          },
+          {
+            "id": "competitor:golf:justin-thomas",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Justin Thomas",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "33448"
+          }
+        ],
+        "startTimeUtc": "2026-10-11T01:10:00.000Z",
+        "tournamentId": "R2026527",
+        "competitionId": "competition:pga-tour",
+        "consensusTags": [],
+        "parentEventId": "fixture:golf:pga:R2026527",
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "genderCategory": "male",
+        "participantIds": [
+          "competitor:golf:adam-scott",
+          "competitor:golf:jordan-smith",
+          "competitor:golf:justin-thomas"
+        ],
+        "scheduleStatus": "confirmed",
+        "sourceCoverage": "official-canonical",
+        "sourceEventIds": [
+          "fixture:golf:pga:R2026527:round:4:group:11"
+        ],
+        "tournamentName": "Baycurrent Classic",
+        "viewingOptions": [],
+        "competitionName": "PGA TOUR",
+        "isInternational": false,
+        "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:golf:pga:R2026527:round:4:group:11",
+        "competitionScope": null,
+        "participantSlots": [
+          {
+            "slot": 1,
+            "label": null,
+            "logoUrl": null,
+            "participantId": "competitor:golf:adam-scott"
+          },
+          {
+            "slot": 2,
+            "label": null,
+            "logoUrl": null,
+            "participantId": "competitor:golf:jordan-smith"
+          }
+        ],
+        "schedulingWindow": null,
+        "venueCountryCode": "JPN",
+        "detailsExpectedAt": null,
+        "displayTitleCompact": "Adam Scott / Jordan Smith / Justin Thomas",
+        "participantsConfirmed": true,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "1784b40c646807e263c921e11e8238dc",
+      "updated_at": "2026-10-11 11:50:01.340602+00"
+    },
+    {
+      "source_id": "live-golf-current",
+      "fixture_id": "fixture:golf:pga:R2026527:round:4:group:21",
+      "identity_keys": [
+        "fixture:golf:pga:R2026527:round:4:group:21"
+      ],
+      "fixture": {
+        "id": "fixture:golf:pga:R2026527:round:4:group:21",
+        "key": "golf",
+        "date": "2026-10-11",
+        "name": "Maverick McNealy / Wyndham Clark / Alex Smalley",
+        "time": "11:48",
+        "sport": "Golf",
+        "stage": "Round 4",
+        "venue": "Yokohama Country Club",
+        "codeId": "sport:golf",
+        "status": "upcoming",
+        "eventId": "fixture:golf:pga:R2026527:round:4:group:21",
+        "cardType": "golf_appearance",
+        "expected": 0,
+        "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+        "ticketUrl": null,
+        "venueCity": "Yokohama",
+        "broadcasts": [],
+        "groupOrder": 4,
+        "roundLabel": "Round 4",
+        "sourceName": "PGA TOUR official tee times",
+        "sourceType": "official",
+        "broadcaster": "",
+        "roundNumber": null,
+        "participants": [
+          {
+            "id": "competitor:golf:maverick-mcnealy",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Maverick McNealy",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "46442"
+          },
+          {
+            "id": "competitor:golf:wyndham-clark",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Wyndham Clark",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "51766"
+          },
+          {
+            "id": "competitor:golf:alex-smalley",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Alex Smalley",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "46340"
+          }
+        ],
+        "startTimeUtc": "2026-10-11T00:48:00.000Z",
+        "tournamentId": "R2026527",
+        "competitionId": "competition:pga-tour",
+        "consensusTags": [],
+        "parentEventId": "fixture:golf:pga:R2026527",
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "genderCategory": "male",
+        "participantIds": [
+          "competitor:golf:maverick-mcnealy",
+          "competitor:golf:wyndham-clark",
+          "competitor:golf:alex-smalley"
+        ],
+        "scheduleStatus": "confirmed",
+        "sourceCoverage": "official-canonical",
+        "sourceEventIds": [
+          "fixture:golf:pga:R2026527:round:4:group:21"
+        ],
+        "tournamentName": "Baycurrent Classic",
+        "viewingOptions": [],
+        "competitionName": "PGA TOUR",
+        "isInternational": false,
+        "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:golf:pga:R2026527:round:4:group:21",
+        "competitionScope": null,
+        "participantSlots": [
+          {
+            "slot": 1,
+            "label": null,
+            "logoUrl": null,
+            "participantId": "competitor:golf:maverick-mcnealy"
+          },
+          {
+            "slot": 2,
+            "label": null,
+            "logoUrl": null,
+            "participantId": "competitor:golf:wyndham-clark"
+          }
+        ],
+        "schedulingWindow": null,
+        "venueCountryCode": "JPN",
+        "detailsExpectedAt": null,
+        "displayTitleCompact": "Maverick McNealy / Wyndham Clark / Alex Smalley",
+        "participantsConfirmed": true,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "c2cbe7d5cc63ad46de2b034f79217f87",
+      "updated_at": "2026-10-11 11:50:01.340259+00"
+    },
+    {
+      "source_id": "live-golf-current",
+      "fixture_id": "fixture:golf:pga:R2026527:round:4:group:6",
+      "identity_keys": [
+        "fixture:golf:pga:R2026527:round:4:group:6"
+      ],
+      "fixture": {
+        "id": "fixture:golf:pga:R2026527:round:4:group:6",
+        "key": "golf",
+        "date": "2026-10-11",
+        "name": "Christiaan Bezuidenhout / Min Woo Lee / Ben Kohles",
+        "time": "11:15",
+        "sport": "Golf",
+        "stage": "Round 4",
+        "venue": "Yokohama Country Club",
+        "codeId": "sport:golf",
+        "status": "upcoming",
+        "eventId": "fixture:golf:pga:R2026527:round:4:group:6",
+        "cardType": "golf_appearance",
+        "expected": 0,
+        "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+        "ticketUrl": null,
+        "venueCity": "Yokohama",
+        "broadcasts": [],
+        "groupOrder": 4,
+        "roundLabel": "Round 4",
+        "sourceName": "PGA TOUR official tee times",
+        "sourceType": "official",
+        "broadcaster": "",
+        "roundNumber": null,
+        "participants": [
+          {
+            "id": "competitor:golf:christiaan-bezuidenhout",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "ZA",
+            "displayName": "Christiaan Bezuidenhout",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "45522"
+          },
+          {
+            "id": "competitor:golf:min-woo-lee",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "AU",
+            "displayName": "Min Woo Lee",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "37378"
+          },
+          {
+            "id": "competitor:golf:ben-kohles",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Ben Kohles",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "36884"
+          }
+        ],
+        "startTimeUtc": "2026-10-11T00:15:00.000Z",
+        "tournamentId": "R2026527",
+        "competitionId": "competition:pga-tour",
+        "consensusTags": [],
+        "parentEventId": "fixture:golf:pga:R2026527",
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "genderCategory": "male",
+        "participantIds": [
+          "competitor:golf:christiaan-bezuidenhout",
+          "competitor:golf:min-woo-lee",
+          "competitor:golf:ben-kohles"
+        ],
+        "scheduleStatus": "confirmed",
+        "sourceCoverage": "official-canonical",
+        "sourceEventIds": [
+          "fixture:golf:pga:R2026527:round:4:group:6"
+        ],
+        "tournamentName": "Baycurrent Classic",
+        "viewingOptions": [],
+        "competitionName": "PGA TOUR",
+        "isInternational": false,
+        "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:golf:pga:R2026527:round:4:group:6",
+        "competitionScope": null,
+        "participantSlots": [
+          {
+            "slot": 1,
+            "label": null,
+            "logoUrl": null,
+            "participantId": "competitor:golf:christiaan-bezuidenhout"
+          },
+          {
+            "slot": 2,
+            "label": null,
+            "logoUrl": null,
+            "participantId": "competitor:golf:min-woo-lee"
+          }
+        ],
+        "schedulingWindow": null,
+        "venueCountryCode": "JPN",
+        "detailsExpectedAt": null,
+        "displayTitleCompact": "Christiaan Bezuidenhout / Min Woo Lee / Ben Kohles",
+        "participantsConfirmed": true,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "5961f455cad5f0c03ac488a6d363e43c",
+      "updated_at": "2026-10-11 11:50:01.338814+00"
+    },
+    {
+      "source_id": "live-golf-current",
+      "fixture_id": "fixture:golf:pga:R2026527:round:4:group:9",
+      "identity_keys": [
+        "fixture:golf:pga:R2026527:round:4:group:9"
+      ],
+      "fixture": {
+        "id": "fixture:golf:pga:R2026527:round:4:group:9",
+        "key": "golf",
+        "date": "2026-10-11",
+        "name": "Mac Meissner / Max Homa / Xander Schauffele",
+        "time": "11:48",
+        "sport": "Golf",
+        "stage": "Round 4",
+        "venue": "Yokohama Country Club",
+        "codeId": "sport:golf",
+        "status": "upcoming",
+        "eventId": "fixture:golf:pga:R2026527:round:4:group:9",
+        "cardType": "golf_appearance",
+        "expected": 0,
+        "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+        "ticketUrl": null,
+        "venueCity": "Yokohama",
+        "broadcasts": [],
+        "groupOrder": 4,
+        "roundLabel": "Round 4",
+        "sourceName": "PGA TOUR official tee times",
+        "sourceType": "official",
+        "broadcaster": "",
+        "roundNumber": null,
+        "participants": [
+          {
+            "id": "competitor:golf:mac-meissner",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Mac Meissner",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "59143"
+          },
+          {
+            "id": "competitor:golf:max-homa",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Max Homa",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "39977"
+          },
+          {
+            "id": "competitor:golf:xander-schauffele",
+            "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527/tee-times",
+            "countryCode": "US",
+            "displayName": "Xander Schauffele",
+            "entryStatus": "confirmed",
+            "genderCategory": "male",
+            "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+            "sourceParticipantId": "48081"
+          }
+        ],
+        "startTimeUtc": "2026-10-11T00:48:00.000Z",
+        "tournamentId": "R2026527",
+        "competitionId": "competition:pga-tour",
+        "consensusTags": [],
+        "parentEventId": "fixture:golf:pga:R2026527",
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "genderCategory": "male",
+        "participantIds": [
+          "competitor:golf:mac-meissner",
+          "competitor:golf:max-homa",
+          "competitor:golf:xander-schauffele"
+        ],
+        "scheduleStatus": "confirmed",
+        "sourceCoverage": "official-canonical",
+        "sourceEventIds": [
+          "fixture:golf:pga:R2026527:round:4:group:9"
+        ],
+        "tournamentName": "Baycurrent Classic",
+        "viewingOptions": [],
+        "competitionName": "PGA TOUR",
+        "isInternational": false,
+        "sourceCheckedAt": "2026-10-10T19:13:55.658Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:golf:pga:R2026527:round:4:group:9",
+        "competitionScope": null,
+        "participantSlots": [
+          {
+            "slot": 1,
+            "label": null,
+            "logoUrl": null,
+            "participantId": "competitor:golf:mac-meissner"
+          },
+          {
+            "slot": 2,
+            "label": null,
+            "logoUrl": null,
+            "participantId": "competitor:golf:max-homa"
+          }
+        ],
+        "schedulingWindow": null,
+        "venueCountryCode": "JPN",
+        "detailsExpectedAt": null,
+        "displayTitleCompact": "Mac Meissner / Max Homa / Xander Schauffele",
+        "participantsConfirmed": true,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "a028fea217fc3f14ac4ff245c15272e6",
+      "updated_at": "2026-10-11 11:50:01.340397+00"
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P10",
+      "identity_keys": [
+        "fixture:supercars:bathurst:2026:P10"
+      ],
+      "fixture": {
+        "id": "fixture:supercars:bathurst:2026:P10",
+        "key": "supercars",
+        "date": "2026-10-09",
+        "kind": "fixture",
+        "name": "Bathurst 1000 \u00b7 Practice 3 (All Drivers)",
+        "time": "10:05",
+        "sport": "Motorsport",
+        "venue": null,
+        "status": "upcoming",
+        "eventId": "fixture:supercars:bathurst:2026:P10",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+        "weekendId": "supercars-bathurst-1000-2026",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-09T00:10:00.000Z",
+        "sourceName": "Supercars official timetable",
+        "sourceType": "official",
+        "broadcaster": "",
+        "sessionType": "practice",
+        "participants": [],
+        "startTimeUtc": "2026-10-08T23:05:00.000Z",
+        "universeOnly": true,
+        "competitionId": "competition:supercars",
+        "consensusTags": [],
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [],
+        "sourceEventIds": [
+          "fixture:supercars:bathurst:2026:P10"
+        ],
+        "viewingOptions": [],
+        "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+        "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:supercars:bathurst:2026:P10",
+        "participantSlots": [],
+        "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 3 (All Drivers)",
+        "participantsConfirmed": false,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "5feef4949c815186090c4d39b9770b0c",
+      "updated_at": "2026-10-11 06:32:05.72784+00"
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P11",
+      "identity_keys": [
+        "fixture:supercars:bathurst:2026:P11"
+      ],
+      "fixture": {
+        "id": "fixture:supercars:bathurst:2026:P11",
+        "key": "supercars",
+        "date": "2026-10-09",
+        "kind": "fixture",
+        "name": "Bathurst 1000 \u00b7 Practice 4 (All Drivers)",
+        "time": "13:15",
+        "sport": "Motorsport",
+        "venue": null,
+        "status": "upcoming",
+        "eventId": "fixture:supercars:bathurst:2026:P11",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+        "weekendId": "supercars-bathurst-1000-2026",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-09T03:20:00.000Z",
+        "sourceName": "Supercars official timetable",
+        "sourceType": "official",
+        "broadcaster": "",
+        "sessionType": "practice",
+        "participants": [],
+        "startTimeUtc": "2026-10-09T02:15:00.000Z",
+        "universeOnly": true,
+        "competitionId": "competition:supercars",
+        "consensusTags": [],
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [],
+        "sourceEventIds": [
+          "fixture:supercars:bathurst:2026:P11"
+        ],
+        "viewingOptions": [],
+        "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+        "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:supercars:bathurst:2026:P11",
+        "participantSlots": [],
+        "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 4 (All Drivers)",
+        "participantsConfirmed": false,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "e1a1abdf05e8bd1ee6d61a179446fd5a",
+      "updated_at": "2026-10-11 06:32:05.7304+00"
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P12",
+      "identity_keys": [
+        "fixture:supercars:bathurst:2026:P12"
+      ],
+      "fixture": {
+        "id": "fixture:supercars:bathurst:2026:P12",
+        "key": "supercars",
+        "date": "2026-10-10",
+        "kind": "fixture",
+        "name": "Bathurst 1000 \u00b7 Practice 5 (Additional Drivers)",
+        "time": "10:05",
+        "sport": "Motorsport",
+        "venue": null,
+        "status": "upcoming",
+        "eventId": "fixture:supercars:bathurst:2026:P12",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+        "weekendId": "supercars-bathurst-1000-2026",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-10T00:10:00.000Z",
+        "sourceName": "Supercars official timetable",
+        "sourceType": "official",
+        "broadcaster": "",
+        "sessionType": "practice",
+        "participants": [],
+        "startTimeUtc": "2026-10-09T23:05:00.000Z",
+        "universeOnly": true,
+        "competitionId": "competition:supercars",
+        "consensusTags": [],
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [],
+        "sourceEventIds": [
+          "fixture:supercars:bathurst:2026:P12"
+        ],
+        "viewingOptions": [],
+        "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+        "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:supercars:bathurst:2026:P12",
+        "participantSlots": [],
+        "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 5 (Additional Drivers)",
+        "participantsConfirmed": false,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "14576bbc3bfc016112e398c953db4d57",
+      "updated_at": "2026-10-11 06:32:05.73048+00"
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P13",
+      "identity_keys": [
+        "fixture:supercars:bathurst:2026:P13"
+      ],
+      "fixture": {
+        "id": "fixture:supercars:bathurst:2026:P13",
+        "key": "supercars",
+        "date": "2026-10-10",
+        "kind": "fixture",
+        "name": "Bathurst 1000 \u00b7 Practice 6 (All Drivers)",
+        "time": "13:10",
+        "sport": "Motorsport",
+        "venue": null,
+        "status": "upcoming",
+        "eventId": "fixture:supercars:bathurst:2026:P13",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+        "weekendId": "supercars-bathurst-1000-2026",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-10T03:15:00.000Z",
+        "sourceName": "Supercars official timetable",
+        "sourceType": "official",
+        "broadcaster": "",
+        "sessionType": "practice",
+        "participants": [],
+        "startTimeUtc": "2026-10-10T02:10:00.000Z",
+        "universeOnly": true,
+        "competitionId": "competition:supercars",
+        "consensusTags": [],
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [],
+        "sourceEventIds": [
+          "fixture:supercars:bathurst:2026:P13"
+        ],
+        "viewingOptions": [],
+        "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+        "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:supercars:bathurst:2026:P13",
+        "participantSlots": [],
+        "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 6 (All Drivers)",
+        "participantsConfirmed": false,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "66e147bb836cfc2fe924ccd06a762844",
+      "updated_at": "2026-10-11 06:32:05.731422+00"
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P7",
+      "identity_keys": [
+        "fixture:supercars:bathurst:2026:P7"
+      ],
+      "fixture": {
+        "id": "fixture:supercars:bathurst:2026:P7",
+        "key": "supercars",
+        "date": "2026-10-08",
+        "kind": "fixture",
+        "name": "Bathurst 1000 \u00b7 Practice 1 (All Drivers)",
+        "time": "13:30",
+        "sport": "Motorsport",
+        "venue": null,
+        "status": "upcoming",
+        "eventId": "fixture:supercars:bathurst:2026:P7",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+        "weekendId": "supercars-bathurst-1000-2026",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-08T03:35:00.000Z",
+        "sourceName": "Supercars official timetable",
+        "sourceType": "official",
+        "broadcaster": "",
+        "sessionType": "practice",
+        "participants": [],
+        "startTimeUtc": "2026-10-08T02:30:00.000Z",
+        "universeOnly": true,
+        "competitionId": "competition:supercars",
+        "consensusTags": [],
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [],
+        "sourceEventIds": [
+          "fixture:supercars:bathurst:2026:P7"
+        ],
+        "viewingOptions": [],
+        "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+        "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:supercars:bathurst:2026:P7",
+        "participantSlots": [],
+        "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 1 (All Drivers)",
+        "participantsConfirmed": false,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "a2f02fe573c7569dff30e9de14df918f",
+      "updated_at": "2026-10-11 06:32:05.714744+00"
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:P9",
+      "identity_keys": [
+        "fixture:supercars:bathurst:2026:P9"
+      ],
+      "fixture": {
+        "id": "fixture:supercars:bathurst:2026:P9",
+        "key": "supercars",
+        "date": "2026-10-08",
+        "kind": "fixture",
+        "name": "Bathurst 1000 \u00b7 Practice 2 (Additional Drivers)",
+        "time": "15:45",
+        "sport": "Motorsport",
+        "venue": null,
+        "status": "upcoming",
+        "eventId": "fixture:supercars:bathurst:2026:P9",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+        "weekendId": "supercars-bathurst-1000-2026",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-08T05:50:00.000Z",
+        "sourceName": "Supercars official timetable",
+        "sourceType": "official",
+        "broadcaster": "",
+        "sessionType": "practice",
+        "participants": [],
+        "startTimeUtc": "2026-10-08T04:45:00.000Z",
+        "universeOnly": true,
+        "competitionId": "competition:supercars",
+        "consensusTags": [],
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [],
+        "sourceEventIds": [
+          "fixture:supercars:bathurst:2026:P9"
+        ],
+        "viewingOptions": [],
+        "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+        "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:supercars:bathurst:2026:P9",
+        "participantSlots": [],
+        "displayTitleCompact": "Bathurst 1000 \u00b7 Practice 2 (Additional Drivers)",
+        "participantsConfirmed": false,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "4392915c1215f2377eba90c84b436de7",
+      "updated_at": "2026-10-11 06:32:05.72523+00"
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:Q7",
+      "identity_keys": [
+        "fixture:supercars:bathurst:2026:Q7"
+      ],
+      "fixture": {
+        "id": "fixture:supercars:bathurst:2026:Q7",
+        "key": "supercars",
+        "date": "2026-10-09",
+        "kind": "fixture",
+        "name": "Bathurst 1000 \u00b7 Boost Mobile Qualifying (Race 30)",
+        "time": "16:10",
+        "sport": "Motorsport",
+        "venue": null,
+        "status": "upcoming",
+        "eventId": "fixture:supercars:bathurst:2026:Q7",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+        "weekendId": "supercars-bathurst-1000-2026",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-09T05:50:00.000Z",
+        "sourceName": "Supercars official timetable",
+        "sourceType": "official",
+        "broadcaster": "",
+        "sessionType": "qualifying",
+        "participants": [],
+        "startTimeUtc": "2026-10-09T05:10:00.000Z",
+        "universeOnly": true,
+        "competitionId": "competition:supercars",
+        "consensusTags": [],
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [],
+        "sourceEventIds": [
+          "fixture:supercars:bathurst:2026:Q7"
+        ],
+        "viewingOptions": [],
+        "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+        "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:supercars:bathurst:2026:Q7",
+        "participantSlots": [],
+        "displayTitleCompact": "Bathurst 1000 \u00b7 Boost Mobile Qualifying (Race 30)",
+        "participantsConfirmed": false,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "9eb6e50dcbc3135826b064c1447096ed",
+      "updated_at": "2026-10-11 06:32:05.730443+00"
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:Q9",
+      "identity_keys": [
+        "fixture:supercars:bathurst:2026:Q9"
+      ],
+      "fixture": {
+        "id": "fixture:supercars:bathurst:2026:Q9",
+        "key": "supercars",
+        "date": "2026-10-10",
+        "kind": "fixture",
+        "name": "Bathurst 1000 \u00b7 Boost Mobile TTSO (Race 30)",
+        "time": "17:05",
+        "sport": "Motorsport",
+        "venue": null,
+        "status": "upcoming",
+        "eventId": "fixture:supercars:bathurst:2026:Q9",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+        "weekendId": "supercars-bathurst-1000-2026",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-10T06:55:00.000Z",
+        "sourceName": "Supercars official timetable",
+        "sourceType": "official",
+        "broadcaster": "",
+        "sessionType": "qualifying",
+        "participants": [],
+        "startTimeUtc": "2026-10-10T06:05:00.000Z",
+        "universeOnly": true,
+        "competitionId": "competition:supercars",
+        "consensusTags": [],
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [],
+        "sourceEventIds": [
+          "fixture:supercars:bathurst:2026:Q9"
+        ],
+        "viewingOptions": [],
+        "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+        "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:supercars:bathurst:2026:Q9",
+        "participantSlots": [],
+        "displayTitleCompact": "Bathurst 1000 \u00b7 Boost Mobile TTSO (Race 30)",
+        "participantsConfirmed": false,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "40aba2da198d59cf0795581d5e2d7291",
+      "updated_at": "2026-10-11 06:32:05.731568+00"
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:R17",
+      "identity_keys": [
+        "fixture:supercars:bathurst:2026:R17"
+      ],
+      "fixture": {
+        "id": "fixture:supercars:bathurst:2026:R17",
+        "key": "supercars",
+        "date": "2026-10-11",
+        "kind": "fixture",
+        "name": "Bathurst 1000 \u00b7 Race 30",
+        "time": "11:30",
+        "sport": "Motorsport",
+        "venue": null,
+        "status": "upcoming",
+        "eventId": "fixture:supercars:bathurst:2026:R17",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+        "weekendId": "supercars-bathurst-1000-2026",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-11T07:30:00.000Z",
+        "sourceName": "Supercars official timetable",
+        "sourceType": "official",
+        "broadcaster": "",
+        "sessionType": "race",
+        "participants": [],
+        "startTimeUtc": "2026-10-11T00:30:00.000Z",
+        "universeOnly": true,
+        "competitionId": "competition:supercars",
+        "consensusTags": [],
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [],
+        "sourceEventIds": [
+          "fixture:supercars:bathurst:2026:R17"
+        ],
+        "viewingOptions": [],
+        "sourceCheckedAt": "2026-10-10T07:28:02.367Z",
+        "statusCheckedAt": "2026-10-10T07:28:02.367Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:supercars:bathurst:2026:R17",
+        "participantSlots": [],
+        "displayTitleCompact": "Bathurst 1000 \u00b7 Race 30",
+        "participantsConfirmed": false,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "b6080388be459df61509d298ccbaed9e",
+      "updated_at": "2026-10-10 07:28:03.77222+00"
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "fixture:supercars:bathurst:2026:W1",
+      "identity_keys": [
+        "fixture:supercars:bathurst:2026:W1"
+      ],
+      "fixture": {
+        "id": "fixture:supercars:bathurst:2026:W1",
+        "key": "supercars",
+        "date": "2026-10-11",
+        "kind": "fixture",
+        "name": "Bathurst 1000 \u00b7 Warm Up",
+        "time": "08:30",
+        "sport": "Motorsport",
+        "venue": null,
+        "status": "upcoming",
+        "eventId": "fixture:supercars:bathurst:2026:W1",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+        "weekendId": "supercars-bathurst-1000-2026",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-10T21:50:00.000Z",
+        "sourceName": "Supercars official timetable",
+        "sourceType": "official",
+        "broadcaster": "",
+        "sessionType": "practice",
+        "participants": [],
+        "startTimeUtc": "2026-10-10T21:30:00.000Z",
+        "universeOnly": true,
+        "competitionId": "competition:supercars",
+        "consensusTags": [],
+        "timePrecision": "exact",
+        "broadcasterIds": [],
+        "participantIds": [],
+        "sourceEventIds": [
+          "fixture:supercars:bathurst:2026:W1"
+        ],
+        "viewingOptions": [],
+        "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+        "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+        "broadcastOptions": [],
+        "canonicalEventId": "fixture:supercars:bathurst:2026:W1",
+        "participantSlots": [],
+        "displayTitleCompact": "Bathurst 1000 \u00b7 Warm Up",
+        "participantsConfirmed": false,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "f7ddeebd11b40d9014a71beaba4b2d04",
+      "updated_at": "2026-10-11 06:32:05.732295+00"
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "fixture_id": "supercars-bathurst-1000-2026",
+      "identity_keys": [
+        "fixture:supercars:bathurst:2026:R17",
+        "supercars-bathurst-1000-2026"
+      ],
+      "fixture": {
+        "id": "supercars-bathurst-1000-2026",
+        "key": "supercars",
+        "date": "2026-10-11",
+        "kind": "fixture",
+        "name": "Bathurst 1000",
+        "time": "11:30",
+        "round": "all",
+        "sport": "Motorsport",
+        "stage": "Race",
+        "venue": "Mount Panorama",
+        "status": "completed",
+        "eventId": "supercars-bathurst-1000-2026",
+        "timeTbc": false,
+        "cardKind": "fixture",
+        "dateOnly": false,
+        "expected": 10,
+        "eventType": "race",
+        "fullSpiel": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed.",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000/schedule",
+        "storyline": {
+          "stakes": 5,
+          "arcStage": "preview",
+          "intensity": 5,
+          "hookSpoilerOn": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
+          "researchDepth": 5,
+          "hookSpoilerOff": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
+          "lastReviewedAt": "2026-10-10T09:56:08Z",
+          "intensitySource": "computed",
+          "expectedSpectacle": 10,
+          "synopsisSpoilerOn": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed.",
+          "synopsisSpoilerOff": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed."
+        },
+        "venueCity": "Bathurst",
+        "venueName": "Mount Panorama",
+        "weekendId": "supercars-bathurst-1000-2026",
+        "broadcasts": [],
+        "endTimeUtc": "2026-10-11T07:30:00.000Z",
+        "liveWindow": 7,
+        "roundLabel": "Bathurst 1000",
+        "sourceName": "Natsoft / Supercars",
+        "sourceRefs": [
+          "https://www.supercars.com/events/2026-bathurst-1000"
+        ],
+        "sourceType": "official",
+        "statusText": "Chequered flag \u00b7 provisional classification",
+        "broadcaster": "Seven / 7mate / 7plus / Foxtel / Kayo",
+        "sessionType": "race",
+        "sourceTrust": "verified",
+        "stakesScore": 5,
+        "participants": [],
+        "startTimeTbc": false,
+        "startTimeUtc": "2026-10-11T00:30:00.000Z",
+        "universeOnly": false,
+        "competitionId": "competition:supercars",
+        "consensusTags": [],
+        "localTimezone": "Australia/Sydney",
+        "narrativeType": "all",
+        "sportDomainId": "sport:motorsport",
+        "timePrecision": "exact",
+        "broadcasterIds": [
+          "seven",
+          "foxtel",
+          "kayo"
+        ],
+        "lastReviewedAt": "2026-10-10T09:56:08Z",
+        "participantIds": [],
+        "replayEligible": true,
+        "scheduleStatus": "confirmed",
+        "scoreCheckedAt": "2026-10-11T06:32:02.035Z",
+        "sourceEventIds": [
+          "supercars-bathurst-1000-2026",
+          "fixture:supercars:bathurst:2026:R17"
+        ],
+        "viewingOptions": [
+          {
+            "sourceUrl": "https://www.supercars.com/tv-schedule",
+            "territory": "AU",
+            "accessType": "free",
+            "providerId": "seven",
+            "verifiedAt": "2026-09-24T01:50:44.155Z",
+            "rightsScope": "fixture",
+            "liveOrReplay": "live"
+          },
+          {
+            "sourceUrl": "https://www.supercars.com/tv-schedule",
+            "territory": "AU",
+            "accessType": "subscription",
+            "providerId": "foxtel",
+            "verifiedAt": "2026-09-24T01:50:44.155Z",
+            "rightsScope": "fixture",
+            "liveOrReplay": "live"
+          },
+          {
+            "sourceUrl": "https://www.supercars.com/tv-schedule",
+            "territory": "AU",
+            "accessType": "subscription",
+            "providerId": "kayo",
+            "verifiedAt": "2026-09-24T01:50:44.155Z",
+            "rightsScope": "fixture",
+            "liveOrReplay": "live"
+          }
+        ],
+        "catchupEligible": true,
+        "competitionName": "Repco Supercars Championship",
+        "sourceCheckedAt": "2026-10-11T06:32:02.035Z",
+        "statusCheckedAt": "2026-10-11T06:32:02.035Z",
+        "briefingEligible": true,
+        "broadcastOptions": [
+          "Seven",
+          "7mate",
+          "7plus",
+          "Foxtel",
+          "Kayo"
+        ],
+        "canonicalEventId": "supercars-bathurst-1000-2026",
+        "discoverySportId": "sport:supercars",
+        "editorialPreview": {
+          "angle": "Bathurst 1000",
+          "status": "journalistic",
+          "sourceUrl": "https://www.supercars.com/news/supercars-news-2026-bathurst-1000-top-10-shootout-report-zach-bates-pole-shock-fairytale-matt-stone-racing-results",
+          "sourceName": "Bathurst 1000 \u2014 official research 1",
+          "contextSignals": [
+            "event-specific",
+            "narrative:form",
+            "narrative:history",
+            "narrative:matchup",
+            "narrative:path"
+          ],
+          "sourceCheckedAt": "2026-10-10T09:56:08Z",
+          "needsPreviewRefresh": false
+        },
+        "participantSlots": [],
+        "selectedSentence": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
+        "statusSourceType": "official",
+        "venueCountryCode": "AU",
+        "highlightEligible": true,
+        "officialTimingUrl": "http://server.natsoft.com.au:8080/LiveMeeting/v8super",
+        "editorialNarrative": {
+          "hook": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
+          "phase": "preview",
+          "factIds": [
+            "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+            "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
+            "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
+            "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+            "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
+            "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5"
+          ],
+          "formCopy": "Bates backed up Friday's record Gen3 qualifying lap by beating Brodie Kostecki in Saturday's Shootout. It is the first Bathurst pole for both the rookie and Matt Stone Racing. Kostecki starts alongside him; Anton De Pasquale is third. Broc Feeney, Cam Waters and Chaz Mostert missed the top ten, so several familiar contenders must build their challenge from further back.",
+          "synopsis": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed.",
+          "sourceIds": [
+            "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+            "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
+            "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
+            "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+            "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
+            "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5",
+            "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:6"
+          ],
+          "threadIds": [
+            "thread:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
+          ],
+          "dimensions": [
+            "form",
+            "history",
+            "matchup",
+            "path"
+          ],
+          "closingCopy": "For Matt Stone Racing, the front row makes an underdog story tangible without making Sunday a fairytale already won. Kostecki remains the immediate benchmark beside Bates. Toyota's Bend 500 breakthrough still offers a reason for its supporters to believe, but Mostert's grid position asks the team to earn that belief over the distance. One exceptional lap and a complete endurance performance are different achievements.",
+          "projectionId": "projection:fixture-research:supercars-bathurst-1000-2026",
+          "refreshAfter": "2026-10-11T00:30:00.000Z",
+          "researchTier": "marquee",
+          "researchedAt": "2026-10-10T09:56:08Z",
+          "schemaVersion": "editorial-narrative.v2",
+          "generationMode": "researched"
+        },
+        "preferenceDomainId": "sport:supercars",
+        "displayTitleCompact": "Bathurst 1000",
+        "marqueeClassification": {
+          "reason": "Bathurst 1000 and Enduro Cup finale",
+          "isMarquee": true,
+          "sourceUrls": [
+            "https://www.supercars.com/events/2026-bathurst-1000"
+          ]
+        },
+        "participantsConfirmed": false,
+        "participantCountryCodes": [],
+        "representativeCountryCodes": []
+      },
+      "content_hash": "b9fa72dbcb76af3b460cf3c39447c878",
+      "updated_at": "2026-10-11 06:32:05.732468+00"
+    }
+  ],
+  "sourceMetadata": [
+    {
+      "source_id": "live-golf-current",
+      "revision": 8666,
+      "content_hash": "658caecd1a58012e284eb3af6e42a5352b0ce683a1b9f6a683f7dc7d25979cd5",
+      "checked_at": "2026-10-11 11:50:01.34939+00",
+      "discovery_report": {
+        "_fixtureObservations": {
+          "fixture:golf:pga:R2026527": {
+            "s": "2026-10-11T11:50:01+00:00",
+            "t": "2026-10-11T11:50:01+00:00"
+          },
+          "fixture:golf:pga:R2026527:round:4:group:6": {
+            "t": "2026-10-10T19:13:55.658+00:00"
+          },
+          "fixture:golf:pga:R2026527:round:4:group:9": {
+            "t": "2026-10-10T19:13:55.658+00:00"
+          },
+          "fixture:golf:pga:R2026527:round:4:group:11": {
+            "t": "2026-10-10T19:13:55.658+00:00"
+          },
+          "fixture:golf:pga:R2026527:round:4:group:21": {
+            "t": "2026-10-10T19:13:55.658+00:00"
+          }
+        }
+      }
+    },
+    {
+      "source_id": "live-supercars-bathurst",
+      "revision": 8502,
+      "content_hash": "245a00667468dff3e1e1269308bc8efa3a8ea98e7eb2b4c99eaec91e16627956",
+      "checked_at": "2026-10-11 06:32:05.743617+00",
+      "discovery_report": {
+        "_fixtureObservations": {
+          "supercars-bathurst-1000-2026": {
+            "s": "2026-10-11T06:32:02.035+00:00",
+            "t": "2026-10-11T06:32:02.035+00:00"
+          },
+          "fixture:supercars:bathurst:2026:P7": {
+            "t": "2026-10-11T06:32:02.035+00:00"
+          },
+          "fixture:supercars:bathurst:2026:P9": {
+            "t": "2026-10-11T06:32:02.035+00:00"
+          },
+          "fixture:supercars:bathurst:2026:Q7": {
+            "t": "2026-10-11T06:32:02.035+00:00"
+          },
+          "fixture:supercars:bathurst:2026:Q9": {
+            "t": "2026-10-11T06:32:02.035+00:00"
+          },
+          "fixture:supercars:bathurst:2026:W1": {
+            "t": "2026-10-11T06:32:02.035+00:00"
+          },
+          "fixture:supercars:bathurst:2026:P10": {
+            "t": "2026-10-11T06:32:02.035+00:00"
+          },
+          "fixture:supercars:bathurst:2026:P11": {
+            "t": "2026-10-11T06:32:02.035+00:00"
+          },
+          "fixture:supercars:bathurst:2026:P12": {
+            "t": "2026-10-11T06:32:02.035+00:00"
+          },
+          "fixture:supercars:bathurst:2026:P13": {
+            "t": "2026-10-11T06:32:02.035+00:00"
+          }
+        }
+      }
+    }
+  ]
+}

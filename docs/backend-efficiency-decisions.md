@@ -1,5 +1,13 @@
 # Backend efficiency decisions
 
+## Completed Golf and Bathurst checks retain their final evidence — 14 October 2026 Sydney
+
+The existing live Golf adapter treats tee-time appearances as child records, never as tournament leaderboard owners. Keep its known-parent source scope and one four-second read, with two-minute playing and thirty-minute quiet intervals. Previously retained appearance IDs, states and observations remain; no elapsed group is inferred completed or deleted. Both initial seed and subsequent selection/cadence use the same parent qualification.
+
+The existing Bathurst adapter stops timetable/tower requests only when the published complete official classification passes the shared reviewed result validation and its actual observation is no later than this pass. Exclude raw tower score fields from that qualification. Provisional, incomplete, wrong-source, wrong-edition, future and unconfirmed records retain the ordinary request/failure path. Return the previous collection unchanged; do not re-date sporting facts.
+
+The regression replays the captured public source/current/score graph, including a retained race alias, through the real fenced claim/publisher and compact SQL. Scores, original dates, completion markers, core facts, aliases, revisions and score row identities survive two quiet passes; the existing successful publisher clears failures normally. Active Golf still makes its one bounded request. The new check runs inside the existing canonical QA list and normal production gate. No shared writer change, migration, source request replay, scheduler, notification/account change, purchase or recurring owner task. Natural production recovery is a separate acceptance step. [Evidence and limits](quality/completed-source-recovery-2026-10-14.md).
+
 ## Horse presentation reuses retained sources — 13 October 2026 Sydney
 
 The approved phase2 uses the existing deferred racing/score modules and selected details=racing interface. A shared neutral-field allowlist removes historical form, odds and analysis from new collections, retained public/compact detail and legacy cached rendering; invalid over-budget/duplicate entry bodies fail rather than truncate. Optional sourced countryCode does not require a new endpoint. Entry outcomes are separate from neutral fields under Results OFF. Preserve the existing four-minute cache/coalescing, five-second selected UI read, field/source limits, hidden-view ownership, canonical IDs and original observations.

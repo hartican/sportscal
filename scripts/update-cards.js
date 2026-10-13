@@ -462,6 +462,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-discovery-transport.js"],
   ["scripts/validate-autonomous-discovery.js"],
   ["scripts/validate-live-fixtures.js"],
+  ["scripts/validate-completed-source-recovery.js"],
   ["scripts/validate-profile-fixture-scope.js"],
   ["scripts/validate-fixture-history-retention.js"],
   ["scripts/validate-snapshot-read-diagnostics.js"],
