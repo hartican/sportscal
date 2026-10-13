@@ -172,6 +172,7 @@ function renderAboutSettings(body){
   }
   const charter = document.createElement("details");
   charter.className = "asset-attribution product-charter";
+  charter.id = "product-charter";
   charter.dataset.aboutSection = "product-charter";
   const charterSummary = document.createElement("summary");
   charterSummary.textContent = brand.productCharter.title;

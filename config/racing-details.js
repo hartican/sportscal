@@ -44,7 +44,9 @@ function horseNotice(){
  styles();
  const p=node('p');p.className='horse-gambling-free';
  p.append('NS is deliberately a gambling-free space. Do not rely on NS information to assess bets or make financial decisions. ');
- // The separately approved shared Charter link is added only after publication.
+ const charter=node('a','Product Charter');charter.href='#product-charter';
+ charter.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();const dialog=charter.closest('dialog');if(dialog?.open)dialog.close();openSettings({section:'about'});void ensureFantasyUi().then(()=>{if(settingsSection!=='about')return;const section=document.querySelector('[data-about-section="product-charter"]');if(section){section.open=true;section.scrollIntoView({block:'nearest'});section.querySelector('summary')?.focus({preventScroll:true});}}).catch(()=>{});});
+ p.append('Read our ',charter,'. ');
  p.append('If gambling is causing harm to you or someone you care about, free, confidential support is available through ');
  const link=node('a','Gambling Help Online');link.href='https://www.gamblinghelponline.org.au/';link.target='_blank';link.rel='noopener noreferrer';
  const phone=node('a','1800 858 858');phone.href='tel:1800858858';p.append(link,' or by calling ',phone,', 24/7.');return p;
