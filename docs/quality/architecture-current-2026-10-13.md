@@ -1,6 +1,6 @@
 # Nothing Sport — current architecture and next step
 
-**13 October 2026 · Verified live app be0c35e2 / version 527**
+**14 October 2026 · Verified live app 4ca05c6a / version 529**
 
 Keep the present stack. The important work is making its boundaries clearer and proving the remaining launch checks. A rewrite is not supported by the current evidence.
 
@@ -67,3 +67,6 @@ Latest release: [38365280599](https://github.com/hartican/sportscal/actions/runs
 The later Tennis repair shares one reviewed identity/result qualification across retained and current-data publication; the ordinary source owner recovered without another scheduler. The racing fields release uses one bounded sanitizer across collection, public/API and cached rendering, retains source clocks, and reuses the existing shared About Charter. Its canonical retained route also builds that optional About asset. Required racing assets join shell 527 within unchanged startup limits. [Tennis proof](wuhan-pairing-repair-2026-10-13.md) and [racing proof](horse-fields-editorial-2026-10-13.md) keep current-data, controlled/browser and release evidence separate. Latest exact app ff8f53b9fa2d95996e7c14b67bb3d3636f8373a7, workflow38394700521, READY dpl_7gCy9fdXUMYRPByfLKYU2ChgdPDs. No provider, schema migration, new timer or recurring owner task is added.
 
 The 14 October operational repair stays inside the existing two sport adapters. Golf appearances cannot own tournament reads; a complete reviewed Bathurst final stops obsolete timetable collection. The normal fenced publisher and source owner recover with unchanged sporting facts/revisions. No new platform boundary, API, migration, scheduler or browser asset. Exact live app `be0c35e25290af12bc98c0fa9b5999ed49e5ac42`, normal release 38410348994, READY `dpl_31DAdXCR7dq8xxYgWrL4fGWCnuiE`; [scope, natural recovery and review limits](completed-source-recovery-2026-10-14.md).
+
+
+The 14 October planning module separates official appointments, genuine publisher estimates and unresolved clocks across the existing server/client contract. An unchanged source check cannot freshen old evidence, and elapsed estimates cannot imply Live, completion or reminder consent. The subsequent profile repair separates viewing lifetime from one-shot scroll focus, reuses the already-loaded genuine fixture and ends the view on navigation/account changes. Both stay inside existing owners; no source request, database migration, API, scheduler or service is added. [Timing/source evidence](tennis-planning-current-2026-10-14.md); [actual navigation recovery](profile-match-retention-2026-10-14.md).

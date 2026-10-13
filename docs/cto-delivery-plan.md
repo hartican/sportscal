@@ -1,8 +1,10 @@
 # CTO delivery programme — authoritative current queue
 
-**Current delivery — 14 October 2026:** The finished Golf and Bathurst events no longer produce repeated update failures. Both usual automatic updates have recovered. Confirmed scores, saved event links and original source dates are unchanged. The checked app is live; no subscription, source replay, reminder change or extra owner routine was added. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/completed-source-recovery-2026-10-14.md).
+**Current delivery — 14 October 2026:** Match planning is clearer on the live site: confirmed times, not-before times, estimates and unknown times remain distinct. Match Centre shows both players again. A match opened from a player's page now stays visible through normal Feed updates; Back and existing hidden/dismissed choices still work. Opening it adds no follow or saved action. No subscription or new routine is added. [Timing evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/tennis-planning-current-2026-10-14.md); [opened-match evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/profile-match-retention-2026-10-14.md).
 
-**Immediate next release:** Publish the requested reliable Tennis times and clearly labelled estimates, plus the small Match Centre display repair. De Minaur’s next start remains unconfirmed; a placeholder is not accepted as a time. Source preparation has passing checks; a final elapsed-estimate case is being corrected. Combined integration, installed-update and live proof remain pending. Existing reminder choices stay intact.
+**Previous reliability delivery:** Finished Golf and Bathurst events no longer produce repeated update failures. Their normal automatic updates recovered with confirmed scores, saved links and source dates unchanged. [Evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/completed-source-recovery-2026-10-14.md).
+
+**Next prepared modules:** Cricket milestone alerts, personal/curated EPIC archives and official Tennis highlights remain source-prepared, not deployed. Keep the sole release owner, adapt shared files to current main and respect default-off rollout and physical-phone proof. Highlights use the prepared free route; no new key or subscription is required. These approved modules do not replace Football's outstanding launch checks.
 
 **Earlier racing delivery — 13 October 2026:** The checked racing fields and stories are live. Gates, weights and missing information are clearer. Twelve major races have short sporting stories; nine have confirmed dates and three remain date-pending. Expanded cards open the existing gambling-free Product Charter. Form, odds and betting tips are removed. Results stay hidden when chosen, and follows survive an offline restart. No source request, account update, subscription or extra owner routine was added. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/horse-fields-editorial-2026-10-13.md).
 
@@ -34,10 +36,10 @@
 
 **Next five actions, in order:**
 
-- Complete the requested Tennis planning-time and Match Centre display release through the existing checked lane. Keep confirmed times, estimates and unknown times distinct.
-- Finish Football's remaining launch checks: Australian viewing, standings, mobile presentation and commercial permission. Its delivered fixes do not certify the whole sport.
-- Investigate the retained NHL timestamp and WRC timeout without relaxing date checks, adding retries or losing reliable facts.
-- Lift the most useful carried-sport gaps against the verified NRL/AFL reference; complete real-phone and invited-user return-use checks when available. Independent iCloud/Passwords recovery remains parked.
+- Integrate the already approved Cricket, EPIC and highlights handoffs in the existing checked lane. Keep alerts off until their rollout evidence passes; do not combine unrelated release claims.
+- Finish Football's remaining launch checks: Australian viewing, standings, mobile presentation and commercial permission. Delivered fixes do not certify the whole sport.
+- Investigate the retained NHL timestamp and WRC timeout while preserving reliable facts and existing update limits.
+- Lift useful carried-sport gaps against the verified NRL/AFL reference, then finish real-phone and invited-user return-use evidence. Independent iCloud/Passwords recovery stays parked.
 - Keep the small sponsor experiment prepared until quality, permission and audience evidence support launch. No outreach, purchase or subscription now.
 
 
@@ -56,3 +58,6 @@
 
 
 **Latest source-repair proof:** [Normal release 38410348994](https://github.com/hartican/sportscal/actions/runs/38410348994) passed. Exact app `be0c35e25290af12bc98c0fa9b5999ed49e5ac42` / shell 527 is READY; served files and existing names agree. Natural Golf/Bathurst checks recovered without a forced refresh or reset, preserving all 16 current/result rows, original sporting dates and source revisions. Source-hunk Standards review and full Spec review found no issue; the remaining Standards test-body review was unavailable at service capacity. No complete eight-file Standards or whole-sport certificate is claimed. Detailed limits are linked above.
+
+
+**Latest planning and navigation proof:** Timing app `29d85e8a` / shell 528 passed normal release 38434736346 and ordinary source adoption. Opened-match repair `4ca05c6aca63e38a92d7895b4d884dc43b346a0d` / shell 529 passed [normal release 38451089280](https://github.com/hartican/sportscal/actions/runs/38451089280), all 197 commands, both independent reviews and exact READY/served/alias proof. Native live guest Open match → normal redraw now keeps one genuine card without changing saved choices. Installed-browser rehearsals, controlled account changes, natural source-state comparisons and physical-device limits are recorded separately in the linked evidence.
