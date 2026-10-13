@@ -6,6 +6,8 @@
 
 **Verified:** All 47 history-protection checks pass. Both browser checks and both installed-app update rehearsals pass. The exact published version passed the normal release checks, and the live Arsenal calendar passed in both browsers. The live calendar works; confirmation that the normal source update stores every reviewed link remains open. No extra refresh was forced.
 
+**Latest viewing check — 13 October:** The next 46 Football matches agree with current Stan public listings in both NS calendar views. Kickoffs are compared using an explicitly inferred Sydney timezone. Paid playback, full-match replays and wider coverage remain open. [Dated viewing evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/football-viewing-current-2026-10-13.md).
+
 **Next five actions, in order:**
 
 - Finish the remaining Football quality checks: working Australian viewing links, dependable standings, permitted commercial use and mobile presentation. The 380-fixture comparison and duplicate fix do not certify the whole sport.
