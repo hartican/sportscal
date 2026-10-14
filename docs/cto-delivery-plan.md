@@ -1,6 +1,6 @@
 # CTO delivery programme — authoritative current queue
 
-**Archive progress —14 October:** Favourite-match archive checks pass locally; live storage, approved roles and75 historical personal references are recovered. All 17 recoverable missing match details are restored; publish and verify the app next. Nineteen older shared records lack accepted detail and stay explicit. Year review uses the existing dispatcher; no new subscription or recurring owner task. [Dated evidence](quality/epic-current-2026-10-14.md).
+**Archive delivery — 14 October:** The private Hall of Fame is live. All 75 historical five-star personal entries are recovered, all 17 recoverable missing match details are restored, and available earlier writing is preserved. Ordinary finished cards leave the Feed after seven days. Personal year reviews and sharing are available; removed favourites and hidden results retain their rules. Four shared records still lack names, and lost historical writing stays explicit. Existing routines include the work with no added subscription or owner task. [Dated evidence](quality/epic-current-2026-10-14.md).
 
 **Current delivery — 14 October 2026:** Notification opening, current-match test selection and the selected-feed Tennis highlights repair are live. Ongoing multi-day cards show once under Today, then their final day when complete. Saved choices and match facts stay protected. One phone usability repeat remains open; the first ordinary discovery pass failed on a slow database read and is being repaired; automatic Cricket alerts stay OFF. No subscription or regular owner task. [Delivery evidence](quality/navigation-highlights-current-2026-10-14.md).
 
@@ -12,7 +12,7 @@
 
 **Previous reliability delivery:** Finished Golf and Bathurst events no longer produce repeated update failures. Their normal automatic updates recovered with confirmed scores, saved links and source dates unchanged. [Evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/completed-source-recovery-2026-10-14.md).
 
-**Next prepared modules:** The notification-heading and live highlights repairs are released. Finish the one phone usability check and repair the measured slow discovery read; automatic Cricket alerts stay OFF. EPIC archives follow with approved roles, history and existing automation changes. Football and wider card-quality launch checks remain open. No optional key or subscription is required for the free highlights fallback.
+**Next prepared module:** Expand Tennis highlights to completed matches followed in the last seven days, including men, women and earlier rounds. Prioritise known world rankings, keep discovery within its existing limits, and show the approved Search highlights link when no verified direct video exists. A truthful last-published-input fallback is being prepared; the slow database read and six unsuccessful query proposals remain recorded, with no rewrite applied. Finish the separate real-phone opening check; automatic Cricket alerts stay OFF. Football and wider card-quality launch checks remain open.
 
 **Earlier racing delivery — 13 October 2026:** The checked racing fields and stories are live. Gates, weights and missing information are clearer. Twelve major races have short sporting stories; nine have confirmed dates and three remain date-pending. Expanded cards open the existing gambling-free Product Charter. Form, odds and betting tips are removed. Results stay hidden when chosen, and follows survive an offline restart. No source request, account update, subscription or extra owner routine was added. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/horse-fields-editorial-2026-10-13.md).
 
@@ -44,8 +44,8 @@
 
 **Next five actions, in order:**
 
-- Finish the one real-phone opening check and repair the slow highlights-discovery read, then confirm its normal run. Keep automatic Cricket alerts off until their separate live-match evidence passes.
-- Complete EPIC archives with the approved roles, retained history and changes to existing automation.
+- Complete and verify the approved seven-day followed-Tennis highlights expansion, with honest search fallback and strict discovery limits; observe its normal automatic run.
+- Finish the one real-phone opening check. Keep automatic Cricket alerts off until their separate live-match evidence passes; archive phone/export and actual year-end delivery evidence remain separate.
 - Close Football’s remaining viewing, table, mobile and commercial-permission checks before calling the pilot ready.
 - Apply the same measured card-quality checks to the next most valuable carried sports; avoid expanding breadth before the current coverage is dependable.
 - Run the invited-cohort return-use pilot once its quality gates pass. Use short exception reports and one prioritised queue.
