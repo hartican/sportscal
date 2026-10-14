@@ -84,39 +84,8 @@ function server(){return http.createServer((req,res)=>{const file=path.resolve(r
     observations.push({engine:name,width,theme,scenario:'clean-feed-about-preferences-failed-logos',guideInAbout:true,emptySpace:0,storedSubscriptions:true});
    }
    assert.deepEqual(errors,[]);await page.close();
-   for(const [device,userAgent] of [
-    ['iphone','Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'],
-    ['android','Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 Chrome/134.0 Mobile Safari/537.36']
-   ]){
-    const mobile=await browser.newPage({viewport:{width:390,height:1000},userAgent,serviceWorkers:'block'}),popups=[],mobileErrors=[];
-    mobile.on('popup',p=>popups.push(p));mobile.on('pageerror',e=>mobileErrors.push(e.message));
-    await mobile.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
-    await mobile.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,showSpoilers:false,version:27,selectedSelectorEntityIds:['sport:football']})));
-    await mobile.goto(process.env.QA_BASE_URL||`http://127.0.0.1:${local.address().port}`,{waitUntil:'domcontentloaded',timeout:45000});
-    await mobile.waitForFunction(()=>typeof buildEventCard==='function'&&startupFunnelFinished&&!startupCoordinator.isHydrating(),null,{timeout:30000});
-    for(const theme of ['day','night'])for(const mode of ['feed','events','schedule'])for(const state of ['selected','opened']){
-     const result=await mobile.evaluate(async({theme,mode,state})=>{
-      const fixtures=(await(await fetch('/data/code-inspector/football.json')).json()).fixtures;
-      const f=fixtures.find(e=>e.id==='fixture:football:openligadb:uefa-champions-league:87418');if(!f)throw Error('Reported published City–PSG fixture missing');
-      const before=JSON.stringify([f,userPreferences.followFirst,userPreferences.showSpoilers,eventActions]);
-      applyThemePreference(theme);activeTab=mode==='schedule'?'follow':mode;setCardState(f,state);
-      document.getElementById('qa-stan-launch')?.remove();const host=document.createElement('section');host.id='qa-stan-launch';host.style.cssText='position:relative;z-index:50;margin:160px auto 24px;padding:12px;max-width:800px';
-      const card=mode==='schedule'?buildCodeInspectorFixture(f):buildEventCard(f);host.append(card);document.body.append(host);
-      const link=card.querySelector('a.provider-link .provider-action-mark[data-provider-id=stan]')?.closest('a');if(!link)throw Error('No Stan action on reported card');
-      return {id:f.id,href:link.href,target:link.target,rel:link.rel,unmodified:JSON.stringify([f,userPreferences.followFirst,userPreferences.showSpoilers,eventActions])===before};
-     },{theme,mode,state});
-     assert.equal(result.href,'https://play.stan.com.au/sport');assert.equal(result.target,'_self');assert(result.rel.includes('noopener')&&result.rel.includes('noreferrer'));assert(result.unmodified,'Launch presentation does not alter source or saved choices');
-     const anchor=mobile.locator('#qa-stan-launch a.provider-link').filter({has:mobile.locator('[data-provider-id=stan]')});await anchor.scrollIntoViewIfNeeded();assert(await anchor.isVisible(),'Test a visible card action');
-     observations.push({engine:name,device,theme,mode,state,scenario:'reported-stan-card-mobile-handoff',...result});
-    }
-    if(out){fs.mkdirSync(out,{recursive:true});await mobile.locator('#qa-stan-launch').screenshot({path:path.join(out,`stan-${name}-${device}.png`)});}
-    await mobile.route('https://play.stan.com.au/**',r=>r.fulfill({status:200,contentType:'text/html',body:'<title>Controlled Stan web fallback</title>'}));
-    const anchor=mobile.locator('#qa-stan-launch a.provider-link').filter({has:mobile.locator('[data-provider-id=stan]')});await anchor.click();await mobile.waitForURL('https://play.stan.com.au/sport');
-    assert.equal(popups.length,0,'One direct tap does not force a browser popup');assert.deepEqual(mobileErrors,[]);
-    observations.push({engine:name,device,scenario:'stan-direct-tap-controlled-web-fallback',url:mobile.url(),popups:popups.length,nativeInstalledAppProven:false});await mobile.close();
-   }
   }finally{await browser.close();}
  }}finally{if(local){local.closeAllConnections();await new Promise(resolve=>local.close(resolve));}}
- if(out){fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,'browser-report.json'),JSON.stringify({checkedAt:new Date().toISOString(),cases:observations.length,observations,scope:'Actual published NFL/Football/Cricket records, controlled NFL live/access cases, and reported City–PSG visible shared-renderer Feed/Events/Schedule cards with iPhone/Android user agents. Direct mobile taps reach a controlled Stan web fallback without popups. API requests fail closed; no physical installed-app launch, sporting-live accuracy or authenticated playback claim.'},null,2)+'\n');}
- console.log('Viewing action browser: '+observations.length+' both-engine/width/theme/Feed/Events/Schedule cases, mobile Stan routing and unknown replay round trips passed.');
+ if(out){fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,'browser-report.json'),JSON.stringify({checkedAt:new Date().toISOString(),cases:observations.length,observations,scope:'Actual published upcoming NFL and completed Football cards, explicitly controlled NFL placeholder/live status/access cases and repeated real metadata. API requests fail closed; no current sporting-live, source-backed controlled cost or authenticated playback claim.'},null,2)+'\n');}
+ console.log('Viewing action browser: '+observations.length+' both-engine/width/theme/Feed/Schedule cases and unknown replay round trips passed.');
 })().catch(e=>{console.error(e.stack||e.message);process.exitCode=1;});

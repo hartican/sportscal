@@ -945,18 +945,9 @@ function buildFeedScheduleLink(ev){
 }
 
 function configureProviderLaunch(link, viewing){
-  let target = viewing.webUrl || viewing.universalUrl || viewing.url, appHandoff = false;
-  // Stan associates its player host with the installed apps. Its /watch/sport
-  // marketing pages have no iOS association; do not invent a match permalink.
-  if(viewing.providerId==='stan'&&typeof navigator!=='undefined'&&(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent||'')||/Macintosh/i.test(navigator.userAgent||'')&&navigator.maxTouchPoints>1)){
-    try{
-      const url=new URL(target);
-      if(/^https:\/\/(www\.)?stan\.com\.au$/.test(url.origin)&&/^\/watch\/sport(?:\/|$)/.test(url.pathname)){target='https://play.stan.com.au/sport';appHandoff=true;}
-      else if(url.origin==='https://play.stan.com.au')appHandoff=true;
-    }catch(_error){}
-  }
+  const target = viewing.webUrl || viewing.universalUrl || viewing.url;
   link.href = /^https:\/\//i.test(String(target || "")) || viewing.highlightsTopResult&&/^\/api\/fixtures\?mode=highlight&ids=[-a-z0-9_%]+$/i.test(target||'') ? target : "#";
-  link.target = appHandoff ? "_self" : "_blank";
+  link.target = "_blank";
   link.rel = "noopener noreferrer external";
 }
 

@@ -45,5 +45,4 @@ for(const [items,count] of [[[],0],[[{...follow.VIEWING_PROVIDERS.stan,liveOrRep
 const cardSource=fs.readFileSync('config/venue-panel-ui.js','utf8'),about=fs.readFileSync('config/fantasy-deadline-ui.js','utf8');assert(!cardSource.includes('nsc-rating-help'));assert(!cardSource.includes('Start time unconfirmed'));assert(!cardSource.includes('Australian viewing unconfirmed'));assert(about.includes('About Anticipation/Electricity/Impact ratings'));assert(about.includes('8× weight'));assert(about.includes('EPIC Hall of Fame'));
 assert(catalogue.reviewedWindows.some(r=>r.id==='wta-tour-2026-au'));
 assert(fs.readFileSync('.github/workflows/sportscal-production.yml','utf8').includes('          node scripts/validate-clean-feed-viewing.js\n'),'The ordinary production workflow runs this contract');
-require('./validate-stan-app-handoff');
 console.log('Clean Feed/viewing: account ordering, AU evidence, dated edition/tour/qualifying boundaries, expiry, idempotency, sporting preservation and real renderer empty/replay actions passed.');
