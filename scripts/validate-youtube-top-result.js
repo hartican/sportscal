@@ -13,6 +13,7 @@ async function main(){
   }
   const direct=require('../data/canonical/fixture-highlights.v1.json').events.find(e=>e.highlights).highlights;
   assert.equal(contract.viewing({...fixture,highlights:direct},now).webUrl,direct.url);
+  const diagnostics=[];
   let reserve=0,grants=0,provider=0,cache=null,fail=false,granted=true,allowCache=true;
   const request=async(path,options={})=>{
     assert.equal(options.timeoutMs<=3000,true,'existing database deadline retained');
@@ -20,8 +21,8 @@ async function main(){
     if(options.method==='POST'){cache=options.body;return null;}
     return allowCache&&cache?[cache]:[];
   };
-  const resolver=createTopResultResolver({request,environment:{YOUTUBE_DATA_API_KEY:'controlled-test-key'},fetchImpl:async(url,{signal})=>{
-    provider++;const u=new URL(url);assert.equal(u.hostname,'www.googleapis.com');assert.equal(u.searchParams.get('q'),query);assert.equal(u.searchParams.get('maxResults'),'1');assert.equal(u.searchParams.get('type'),'video');assert.equal(u.searchParams.get('order'),'relevance');assert.equal(u.searchParams.get('regionCode'),'AU');assert(!u.searchParams.has('channelId'),'unofficial uploads are allowed by the human approval');assert(signal);assert.equal(grants,provider,'each dispatch has a prior durable reservation');
+  const resolver=createTopResultResolver({request,diagnose:entry=>diagnostics.push(entry),environment:{YOUTUBE_DATA_API_KEY:' \ncontrolled-test-key\t '},fetchImpl:async(url,{signal})=>{
+    provider++;const u=new URL(url);assert.equal(u.hostname,'www.googleapis.com');assert.equal(u.searchParams.get('q'),query);assert.equal(u.searchParams.get('key'),'controlled-test-key','server credentials are trimmed without changing the query');assert.equal(u.searchParams.get('maxResults'),'1');assert.equal(u.searchParams.get('type'),'video');assert.equal(u.searchParams.get('order'),'relevance');assert.equal(u.searchParams.get('regionCode'),'AU');assert(!u.searchParams.has('channelId'),'unofficial uploads are allowed by the human approval');assert(signal);assert.equal(grants,provider,'each dispatch has a prior durable reservation');
     if(fail)return new Response('private provider diagnostic',{status:503});
     return new Response(JSON.stringify({items:[{id:{videoId:'UNOFFICIAL1'},snippet:{channelId:'unreviewed',title:'top entry'}},{id:{videoId:'RPmOiRHHgX8'}}]}));
   }});
@@ -31,7 +32,13 @@ async function main(){
   const reused=await resolver.resolve(fixture,now);assert(reused.cached);assert.equal(provider,1);assert.equal(reserve,1,'cached clicks consume no API quota');
   allowCache=false;granted=false;await assert.rejects(resolver.resolve(fixture,now));assert.equal(provider,1,'quota denial fails closed before dispatch');
   granted=true;fail=true;await assert.rejects(resolver.resolve(fixture,now));assert.equal(reserve,3);assert.equal(provider,2,'failed requests remain reserved');
+  assert.deepEqual(diagnostics.at(-1),{stage:'provider-response',code:'provider_http',providerStatus:503},'provider failures have a bounded operator category');
+  const empty=createTopResultResolver({request:async(_path,o)=>o.method==='POST'?{granted:true}:[],environment:{YOUTUBE_DATA_API_KEY:'private-empty-key'},fetchImpl:async()=>new Response('{"items":[]}'),diagnose:entry=>diagnostics.push(entry)});
+  await assert.rejects(empty.resolve(fixture,now));assert.deepEqual(diagnostics.at(-1),{stage:'provider-response',code:'no_results',providerStatus:null},'no result is distinct from a service rejection');
+  assert(!JSON.stringify(diagnostics).includes(query));assert(!JSON.stringify(diagnostics).includes('private-empty-key'));assert(!JSON.stringify(diagnostics).includes(fixture.id));
+  const brokenDiagnostic=createTopResultResolver({request:async()=>[],environment:{},diagnose:()=>{throw Error('observer failed');}});await assert.rejects(brokenDiagnostic.resolve(fixture,now),/highlights_unavailable/,'diagnostic failure cannot replace the original availability outcome');
   const missingKey=createTopResultResolver({request,environment:{},fetchImpl:()=>assert.fail('no-key path cannot issue an API request')});await assert.rejects(missingKey.resolve(fixture,now));
+  const blankKey=createTopResultResolver({request:async path=>{assert(!path.includes('/rpc/'),'blank keys cannot reserve provider quota');return [];},environment:{YOUTUBE_DATA_API_KEY:' \n\t '},fetchImpl:()=>assert.fail('blank key cannot dispatch'),diagnose:entry=>diagnostics.push(entry)});await assert.rejects(blankKey.resolve(fixture,now));assert.deepEqual(diagnostics.at(-1),{stage:'cache-read',code:'missing_key',providerStatus:null});
   const stale=createTopResultResolver({request:async(_p,o)=>o.method==='POST'?{granted:false}:[{video_id:'RPmOiRHHgX8',selected_at:new Date(+now-contract.MAX_CACHE_AGE_MS).toISOString()}],environment:{},fetchImpl:()=>assert.fail('expired metadata cannot become a keyless video')});await assert.rejects(stale.resolve(fixture,now));
   const dayOld={video_id:'RPmOiRHHgX8',selected_at:new Date(+now-86400000).toISOString()};let reselected=0;
   const refreshSelection=createTopResultResolver({environment:{YOUTUBE_DATA_API_KEY:'controlled-key'},request:async(_p,o)=>o.method==='POST'?{granted:true}:[dayOld],fetchImpl:async()=>{reselected++;return new Response('{"items":[{"id":{"videoId":"UNOFFICIAL1"}}]}');}});
