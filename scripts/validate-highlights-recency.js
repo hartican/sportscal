@@ -52,6 +52,9 @@ async function main() {
   const official={...require('../data/canonical/fixture-highlights.v1.json').events.find(e=>e.highlights).highlights,publishedAt:'2022-10-14T15:00:00Z',verifiedAt:now.toISOString(),checkedAt:now.toISOString(),sourceCheckedAt:now.toISOString()};
   assert(!contract.valid(official,now));assert(contract.viewing({...match,highlights:official},now).webUrl.startsWith('/api/fixtures?'),'old direct official records fall back to fresh discovery');
   assert.equal(media.applyCached([{...match,highlights:official}],[],now)[0].highlights,null);
+  const archived={...match,date:'2026-09-01',startTimeUtc:null,actualStartTimeUtc:null,completedAt:null,firstConfirmedCompleteAt:null,highlights:official};
+  assert.equal(contract.viewing(archived,now),null,'archived direct links have no exemption from the actual-upload seven-day limit');
+  assert.equal(contract.viewing({...archived,highlights:{...official,publishedAt:snippet.publishedAt}},now).webUrl,official.url,'a genuinely recent upload may enrich historical fixtures without reviving Feed admission');
   // One official day reel can bind several explicitly named matches. A later
   // standalone upload replaces the reel without a second chooser or new cron.
   const pool=[reel],feed=c=>'<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015"><author><uri>https://www.youtube.com/channel/'+c.id+'</uri></author>'+(c.id===channel.id?pool.map(v=>'<entry><yt:videoId>'+v.id+'</yt:videoId><yt:channelId>'+c.id+'</yt:channelId><title><![CDATA['+v.snippet.title+']]></title><link rel="alternate" href="https://www.youtube.com/watch?v='+v.id+'"/><published>'+v.snippet.publishedAt+'</published><media:description>'+v.snippet.description+'</media:description></entry>').join(''):'')+'</feed>';
