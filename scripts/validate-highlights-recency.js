@@ -19,6 +19,11 @@ async function main() {
   const video=(id,patch={},details={})=>({id,snippet:{...snippet,...patch},contentDetails:{duration:'PT5M',...details},status:{privacyStatus:'public',uploadStatus:'processed'}});
   const dedicated=video('B8EO9eKy-mY');
   const reel=video('BPI3JafcKns',{title:'Tsitsipas Faces Medvedev, Botic Plays Jodar; Ruud & Paul Feature | Shanghai 2026 Highlights Day 8',description:'Botic van de Zandschulp v Rafael Jodar. Daniil Medvedev v Stefanos Tsitsipas.'},{duration:'PT12M6S'});
+  for(const suffix of ['Compilation','All Matches','and More']){
+    const generic={...reel.snippet,title:'Medvedev v Tsitsipas | Shanghai 2026 Highlights '+suffix,videoId:reel.id,url:'https://www.youtube.com/watch?v='+reel.id};
+    assert(!media.suitable(generic,match,now),'ordinary '+suffix+' is not source evidence of a tournament-day highlights reel');
+    assert(!selection.contextMatches(generic,match,now),'general fallback cannot reclassify an excluded ordinary compilation');
+  }
   function controlled(items,{cache=null,granted=true,environment={YOUTUBE_DATA_API_KEY:'controlled-key'},searched=items,official=[]}={}){
     const grants=[],calls=[],saved=[];
     return {grants,calls,saved,resolver:createTopResultResolver({discoverOfficial:async()=>official,environment,diagnose:()=>{},request:async(path,options={})=>{
