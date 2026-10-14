@@ -64,6 +64,9 @@ async function main(){
   assert(!media.suitable({...v,title:v.title.replace('Round 2','Round 1')},qualifying),'A generic main-draw video cannot prove a qualifying match');
   assert(media.suitable(qualifyingVideo,qualifying),'Explicit qualifying phase and matching round are accepted');
   assert(!media.suitable(qualifyingVideo,{...early,roundLabel:'Round 1'}),'A main-draw match cannot accept a qualifying video');
+  const legacyQualifying={...qualifying,isQualifying:undefined,qualifying:true,eventType:'mens-singles'};
+  assert(!media.suitable({...v,title:v.title.replace('Round 2','Round 1')},legacyQualifying),'The existing qualifying boolean alias cannot accept a generic main-draw video');
+  assert(media.suitable(qualifyingVideo,legacyQualifying),'Explicit phase evidence works for the existing qualifying alias');
   assert(!media.suitable({...qualifyingVideo,title:qualifyingVideo.title.replace('Round 1','R2')},qualifying),'A qualifying round alias conflict is rejected');
   assert(media.suitable({...qualifyingVideo,title:qualifyingVideo.title.replace('Qualifying ','').replace('Round 1','R1'),description:'Official qualification match highlights'},qualifying),'Explicit source description may establish qualification');
   const requests=[];
