@@ -1,6 +1,6 @@
 # Nothing Sport — current architecture and next step
 
-**14 October 2026 · Verified live app b64524b6 / version 532**
+**14 October 2026 · Verified live app c5285157 / version533**
 
 Keep the present stack. The important work is making its boundaries clearer and proving the remaining launch checks. A rewrite is not supported by the current evidence.
 
@@ -73,3 +73,6 @@ The 14 October planning module separates official appointments, genuine publishe
 
 
 Cricket milestones read accepted current source observations after publication. Service-only state, scoped account eligibility, grouped device budgets and30-day retention stay under the existing owners. Deferred controls use the canonical build and exact-fixture Match Centre. Shadow mode observes; a disabled delivery gate requires actual match/phone evidence. No replacement stack, provider service or scheduler. [Dated stage evidence](cricket-milestone-current-2026-10-14.md).
+
+
+Sourced estimate reminders reuse the existing policy, service-only reconciliation and notification owner. Feed final-day sorting is a presentation key, separate from original sporting and reminder clocks. The existing compiler owns two formatted startup leaves with readable source and executable equivalence checks. No replacement stack, source service, scheduler or client credential is added. [Dated delivery](estimated-reminders-multiday-current-2026-10-14.md).
