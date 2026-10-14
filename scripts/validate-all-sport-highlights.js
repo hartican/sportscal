@@ -19,6 +19,7 @@ function clickAuthority(now,events){
   context.activeTab='events';
   const eventsHost=element();context.appendEventQuickActions(eventsHost,search,{reminder:false,chat:false,highlightsOnly:true});assert.equal(eventsHost.children.length,0,'new cross-sport searches stay within the approved Feed');
   const directHost=element();context.appendEventQuickActions(directHost,direct,{reminder:false,chat:false,highlightsOnly:true});assert.equal(directHost.children.length,1,'existing verified direct actions retain their Events presentation');
+  const agingEventsHost=element();context.appendEventQuickActions(agingEventsHost,aging,{reminder:false,chat:false,highlightsOnly:true});clock=new Date(+now+2*86400000);let blocked=false;agingEventsHost.children[0].children[0].children.find(n=>n.listeners.click).listeners.click({stopPropagation(){},preventDefault(){blocked=true;}});assert(blocked,'expired direct actions cannot create a new general highlights search on Events');clock=now;
   context.activeTab='feed';
   context.FOLLOW_FIRST.viewingOptions=()=>[{label:'Existing provider',webUrl:'https://example.com/watch',accessType:'free'}];
   const host=element();context.appendEventQuickActions(host,{...search,status:'upcoming'},{reminder:false,chat:false});host.children[0].children[0].children[0].listeners.click({stopPropagation(){}});assert.equal(calls.length,1,'ordinary provider clicks retain existing affinity behaviour');

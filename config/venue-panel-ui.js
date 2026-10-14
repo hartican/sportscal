@@ -976,9 +976,9 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
       configureProviderLaunch(link,viewingLink);
       const verb=viewingLink.highlights?viewingLink.highlightsLabel:viewingLink.liveOrReplay==='replay'?'Replay':'Watch';
       const access=viewingAccessLabel(viewingLink);
-      link.title=`${verb} on ${viewingLink.label}${viewingLink.highlightsTopResult?' · Top YouTube result; match not verified':viewingLink.highlightsSearch?' · Opens a fixture search':` · ${access}`}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
+      link.title=`${verb} on ${viewingLink.label}${viewingLink.highlightsTopResult?' · Selected highlights; match not verified':viewingLink.highlightsSearch?' · Opens a fixture search':` · ${access}`}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
       const cost=document.createElement('span');if(!viewingLink.highlights)cost.className='provider-access';cost.textContent=viewingLink.highlights?verb:access;link.appendChild(cost);
-      link.addEventListener('click',event=>{event.stopPropagation();if(viewingLink.highlights){const current=globalThis.NOTHINGSPORTS_FIXTURE_HIGHLIGHTS?.viewing(ev);if(!current){event.preventDefault();return;}configureProviderLaunch(link,current);}else recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
+      link.addEventListener('click',event=>{event.stopPropagation();if(viewingLink.highlights){const current=globalThis.NOTHINGSPORTS_FIXTURE_HIGHLIGHTS?.viewing(ev);if(!current||current.highlightsFeedOnly&&activeTab!=='feed'){event.preventDefault();return;}configureProviderLaunch(link,current);}else recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
     }
     actions.append(row);
   }
