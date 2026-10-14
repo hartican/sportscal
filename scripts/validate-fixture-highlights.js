@@ -16,7 +16,7 @@ async function fetchImpl(url){
  if(url.includes('/youtube/v3/search')){apiCount++;return new Response('{"items":[]}');}
  throw Error('Unexpected request');
 }
-async function main(){
+async function run(){
  const realNow=Date.now;Date.now=()=>+now;
  try{
  for(const roundLabel of ['Round of 16','Last 16','Quarterfinal','QF','Semifinal','SF','Final'])assert(contract.tennisEligible({...fixture,roundLabel}),roundLabel);
@@ -28,7 +28,7 @@ async function main(){
  assert(media.suitable(video,fixture));assert.equal(media.parseFeed(feed(channel,[video]),channel,now)[0].videoId,video.videoId);
  for(const roundLabel of ['Last 16','R16'])assert(media.suitable(video,{...fixture,roundLabel}));
  for(const round of ['Quarterfinal','Semifinal','SF'])assert(!media.suitable({...video,title:video.title.replace('Round 4',round)},fixture));
- for(const patch of [{channelId:'UCaaaaaaaaaaaaaaaaaaaaaa'},{short:true},{title:video.title.replace('2026','2025')},{title:video.title.replace('Shanghai','Paris')},{title:video.title.replace('Khachanov','Sinner')},{title:video.title+' Day 8'},{title:video.title.replace('Highlights','Interview')},{title:video.title.replace('Round 4','Quarter Final')}])assert(!media.suitable({...video,...patch},fixture),JSON.stringify(patch));
+ for(const patch of [{channelId:'UCaaaaaaaaaaaaaaaaaaaaaa'},{short:true},{title:video.title.replace('2026','2025')},{title:video.title.replace('Shanghai','Paris')},{title:video.title.replace('Khachanov','Sinner')},{title:video.title.replace('Highlights','Interview')},{title:video.title.replace('Round 4','Quarter Final')}])assert(!media.suitable({...video,...patch},fixture),JSON.stringify(patch));
  assert(!media.suitable({...video,publishedAt:'2026-10-12T07:00:00Z'},fixture),'an earlier encounter cannot supply this match');
  assert.throws(()=>media.parseFeed('<!DOCTYPE feed>'+feed(channel,[video]),channel,now));assert.equal(media.parseFeed(feed(channel,[{...video,channelId:media.channels[1].id}]),channel,now).length,0);
  const doubles={...fixture,eventType:'mixed-doubles',participants:[{name:'Alex de Minaur'},{name:'Maya Joint'},{name:'Karen Khachanov'},{name:'Aryna Sabalenka'}]};
@@ -114,8 +114,11 @@ async function main(){
  await require('./validate-tennis-highlights-seven-days').main();
   require('./validate-all-sport-highlights').main();
   await require('./validate-youtube-top-result').main();
+  await require('./validate-highlights-recency').main();
   await require('./validate-youtube-top-result-database').main();
  console.log('Highlights: sourced rounds, draw/publisher/edition matching, public feeds, key fallback, removal/outage, safe persisted overlays, cadence, schemas and canonical owners passed.');
  }finally{Date.now=realNow;}
 }
+
+async function main(){const original=Date.now;Date.now=()=>+now;try{return await run();}finally{Date.now=original;}}
 main().catch(error=>{console.error(error);process.exitCode=1;});

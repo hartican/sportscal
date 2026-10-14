@@ -61,7 +61,10 @@
       ]
     },
     "standalone": {
-      "const": true
+      "type": "boolean"
+    },
+    "videoScope": {
+      "enum": ["match", "tournament-day"]
     },
     "matchTitle": {
       "type": "string",
@@ -77,5 +80,6 @@
       "type": "string",
       "format": "date-time"
     }
-  }
+  },
+  "allOf": [{"if": {"type": "object", "properties": {"standalone": {"const": false}}, "required": ["standalone"]}, "then": {"required": ["videoScope"], "properties": {"videoScope": {"const": "tournament-day"}}}}]
 }

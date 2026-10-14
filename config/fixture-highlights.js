@@ -2,8 +2,10 @@
   'use strict';
   const SCHEMA_VERSION='fixture-highlights.v1';
   const MAX_CACHE_AGE_MS=30*86400000;
+  const MAX_UPLOAD_AGE_MS=7*86400000;
   const youtube={providerId:'youtube',label:'YouTube',actionLabel:'YouTube',logoPath:'assets/providers/youtube.png',highlights:true,highlightsLabel:'Watch highlights'};
   const fresh=(stamp,now=Date.now())=>{const age=+now-Date.parse(stamp);return age>=-300000&&age<MAX_CACHE_AGE_MS;};
+  const recentUpload=(stamp,now=Date.now())=>{const age=+now-Date.parse(stamp);return age>=0&&age<=MAX_UPLOAD_AGE_MS;};
   const completed=event=>/^(completed|finished|final|past)$/i.test(event?.status||'');
   const epic=()=>typeof require==='function'?require('./epic-classics'):globalThis.NOTHINGSPORTS_EPIC;
   function recent(event,now=Date.now()){
@@ -22,7 +24,7 @@
     return !/junior|boys|girls|wheelchair|\btie\b/i.test(format);
   }
   function valid(record,now=Date.now()){
-    return Boolean(record&&record.schemaVersion===SCHEMA_VERSION&&record.provider==='youtube'&&/^[\w-]{11}$/.test(record.videoId||'')&&record.url==='https://www.youtube.com/watch?v='+record.videoId&&/^UC[\w-]{22}$/.test(record.channelId||'')&&record.availability==='public'&&record.regionStatus!=='blocked'&&record.standalone===true&&Number.isFinite(Date.parse(record.publishedAt))&&Number.isFinite(Date.parse(record.verifiedAt))&&fresh(record.checkedAt||record.verifiedAt,now)&&fresh(record.sourceCheckedAt||record.verifiedAt,now));
+    return Boolean(record&&record.schemaVersion===SCHEMA_VERSION&&record.provider==='youtube'&&/^[\w-]{11}$/.test(record.videoId||'')&&record.url==='https://www.youtube.com/watch?v='+record.videoId&&/^UC[\w-]{22}$/.test(record.channelId||'')&&record.availability==='public'&&record.regionStatus!=='blocked'&&(record.standalone===true||record.standalone===false&&record.videoScope==='tournament-day')&&recentUpload(record.publishedAt,now)&&Number.isFinite(Date.parse(record.verifiedAt))&&fresh(record.checkedAt||record.verifiedAt,now)&&fresh(record.sourceCheckedAt||record.verifiedAt,now));
   }
   function searchCandidate(event,now=Date.now()){
     if(!completed(event)||!recent(event,now))return null;
@@ -40,5 +42,5 @@
     const id=event.canonicalEventId||event.eventId||event.id;if(!/^[-a-z0-9_:]{1,200}$/i.test(id||''))return null;
     return {...youtube,webUrl:'/api/fixtures?mode=highlight&ids='+encodeURIComponent(id),highlightsSearch:true,highlightsTopResult:true,highlightsFeedOnly:!selection.namedTennis};
   }
-  return Object.freeze({SCHEMA_VERSION,MAX_CACHE_AGE_MS,fresh,completed,recent,playerNames,tennisEligible,valid,searchCandidate,searchQuery,viewing});
+  return Object.freeze({SCHEMA_VERSION,MAX_CACHE_AGE_MS,MAX_UPLOAD_AGE_MS,fresh,recentUpload,completed,recent,playerNames,tennisEligible,valid,searchCandidate,searchQuery,viewing});
 });

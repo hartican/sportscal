@@ -5,13 +5,13 @@ const fixture={...require('./fixtures/shanghai-highlights-184950.json'),status:'
 delete fixture.highlights;
 const now=new Date('2026-10-14T08:00:00Z');
 const feed=c=>'<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015"><author><uri>https://www.youtube.com/channel/'+c.id+'</uri></author></feed>';
-async function main(){
+async function run(){
   for(const eventType of ['mens-singles','womens-singles'])for(const roundLabel of ['Round of 128','Round of 64','Round of 32','Round 1','Round unconfirmed']){
     const event={...fixture,eventType,roundLabel,key:eventType.startsWith('womens')?'tennis-women':'tennis'};
     const action=contract.viewing(event,now);assert.equal(action.highlightsLabel,'Watch highlights');
     const url=new URL(action.webUrl,'https://nothingsport.local');assert.equal(url.pathname,'/api/fixtures');assert.equal(url.searchParams.get('mode'),'highlight');assert.equal(action.highlightsTopResult,true);
     const query=contract.searchQuery(event,now);for(const name of media.names(event))assert(query.toLowerCase().includes(name));assert(query.includes('2026'));
-    assert(query.includes(eventType.startsWith('womens')?'WTA':'ATP Tour'));
+    assert(query.includes(eventType.startsWith('womens')?'WTA':'ATP'));
   }
   assert(contract.tennisEligible({...fixture,isQualifying:true,eventType:'qualifying-singles'}));
   assert(contract.recent({...fixture,date:'2026-10-07'},now));assert(!contract.recent({...fixture,date:'2026-10-06'},now));
@@ -141,5 +141,7 @@ async function main(){
   }finally{process.chdir(cwd);if(oldKey===undefined)delete process.env.YOUTUBE_DATA_API_KEY;else process.env.YOUTUBE_DATA_API_KEY=oldKey;fs.rmSync(temp,{recursive:true,force:true});}
   console.log('Seven-day Tennis highlights: all rounds/genders, automatic top-result routes, receipt/calendar bounds, verified-rank ordering, cooldowns, Pacific/DST caps, failed-call reservations and truthful input fallback passed.');
 }
+
+async function main(){const original=Date.now;Date.now=()=>+now;try{return await run();}finally{Date.now=original;}}
 if(require.main===module)main().catch(error=>{console.error(error);process.exitCode=1;});
 module.exports={main};

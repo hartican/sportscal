@@ -20,13 +20,13 @@ async function main(){
     throw Error('Unexpected lifecycle request');
   };
   const first=await media.refresh({events:[fixture],now,fetchImpl});
-  const record=first[0].highlights,expiry=new Date(+now+30*day);
+  const record=first[0].highlights,expiry=new Date(Date.parse(video.publishedAt)+7*day+1),transportTime=new Date(+now+3*day);
   assert(contract.valid(record,new Date(+expiry-1)));
-  assert(!contract.valid(record,expiry),'the exact thirty-day boundary expires availability and metadata');
+  assert(!contract.valid(record,expiry),'the seven-day upload boundary expires even freshly checked availability and metadata');
   assert(!contract.valid({...record,checkedAt:expiry.toISOString()},expiry),'availability-only rechecks cannot renew stale publication metadata');
   assert(!contract.valid({...record,checkedAt:new Date(+now+day).toISOString()},now),'future receipts are rejected');
   outage=true;
-  const within=await media.refresh({events:[],archiveFixtures:[fixture],previous:first,coverage:first.coverage,now:new Date(+now+29*day),fetchImpl});
+  const within=await media.refresh({events:[],archiveFixtures:[fixture],previous:first,coverage:first.coverage,now:new Date(+now+6*day),fetchImpl});
   assert.deepEqual(within[0].highlights,record,'last-good survives an outage only within its original bound');
   const expired=await media.refresh({events:[],previous:first,coverage:{...first.coverage,checkedAt:expiry.toISOString()},now:expiry,fetchImpl});
   assert.equal(expired[0].highlights,null,'inactive retained matches receive an explicit withdrawal');
@@ -42,8 +42,10 @@ async function main(){
   assert.deepEqual(noCheck[0].highlights,renewed[0].highlights,'a due source pass alone does not renew verification');
   const classic={...fixture,date:'2026-09-01',startTimeUtc:null,actualStartTimeUtc:null};
   video.publishedAt='2026-09-02T07:16:25Z';
+  assert.equal((await media.refresh({events:[],archiveFixtures:[classic],now,fetchImpl})).length,0,'recent checks cannot revive an old classic upload');
+  video.publishedAt='2026-10-13T07:16:25Z';
   const historical=await media.refresh({events:[],archiveFixtures:[classic],now,fetchImpl});
-  assert(contract.valid(historical[0].highlights,now),'newly checked classic metadata is fresh even when publication is old');
+  assert(contract.valid(historical[0].highlights,now),'an old fixture can use a genuinely recent highlight upload');
   listing=false;
   const partial=await media.refresh({events:[],archiveFixtures:[classic],previous:historical,coverage:historical.coverage,now:new Date(+now+2*day),fetchImpl});
   assert.equal(partial[0].highlights.checkedAt,new Date(+now+2*day).toISOString());
@@ -54,7 +56,7 @@ async function main(){
   assert.deepEqual({...cleaned,highlights:undefined},{...fixture,highlights:undefined},'sporting clocks, participants and results are untouched');
   const negative={videoId:video.videoId,channelId:channel.id,title:'stale metadata',publishedAt:video.publishedAt,metadataCheckedAt:'2026-09-01T00:00:00Z',unavailability:'api-restricted',availabilityCheckedAt:now.toISOString()};
   assert.deepEqual(media.pruneVideos([negative],{},[],now),[{videoId:video.videoId,unavailability:'api-restricted',availabilityCheckedAt:now.toISOString()}],'a recent restriction retains no expired title or publication metadata');
-  assert.deepEqual(media.pruneVideos([negative],{},[],expiry),[],'negative availability also expires at thirty days');
+  assert.deepEqual(media.pruneVideos([negative],{},[],new Date(+now+30*day)),[],'negative availability also expires at thirty days');
   // Model the actual SQL contract: an unchanged fact hash keeps the original
   // fixture row while the owner persists its newer private provider receipts.
   let report=first.coverage,dbFailure=false,reads=0;
@@ -68,11 +70,11 @@ async function main(){
   }});
   const initialSnapshot=await live.readLiveSnapshots({store,ids:[fixture.canonicalEventId],now:+now,maxAgeMs:0});
   report=renewed.coverage;
-  const renewedSnapshot=await live.readLiveSnapshots({store,ids:[fixture.canonicalEventId],now:+expiry,maxAgeMs:0});
+  const renewedSnapshot=await live.readLiveSnapshots({store,ids:[fixture.canonicalEventId],now:+transportTime,maxAgeMs:0});
   const transported=renewedSnapshot.sources[0].fixtures[0];
   assert.equal(transported.highlights.checkedAt,renewed[0].highlights.checkedAt,'unchanged stored rows receive their actual persisted renewal receipt');
   assert.equal(transported.highlights.verifiedAt,record.verifiedAt);
-  assert(contract.valid(transported.highlights,expiry));
+  assert(contract.valid(transported.highlights,transportTime));
   assert.equal(renewedSnapshot.sources[0].revision,7,'the stored sporting revision is unchanged');
   assert.notEqual(renewedSnapshot.revision,initialSnapshot.revision,'the transport validator delivers renewed receipts to cached clients');
   assert.equal(reads,4,'each read uses only the existing health and selected-fixture reads');
@@ -98,7 +100,7 @@ async function main(){
     assert.equal(JSON.parse(fs.readFileSync('data/events.json')).events[0].highlights,null);
     assert.equal(requests,beforeRequests,'offline expiry makes no provider request');
   }finally{process.chdir(originalCwd);fs.rmSync(temp,{recursive:true,force:true});}
-  console.log('Highlights cache: exact expiry, bounded outages, real renewal, unchanged-row persistence/transport, stable sporting revisions, old classics, partial checks and offline purge passed.');
+  console.log('Highlights cache: upload expiry, bounded outages, real renewal, unchanged-row persistence/transport, stable sporting revisions, old classics, partial checks and offline purge passed.');
 }
 module.exports={main};
 if(require.main===module)main().catch(error=>{console.error(error);process.exitCode=1;});

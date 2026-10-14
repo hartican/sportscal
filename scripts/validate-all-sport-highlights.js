@@ -5,7 +5,8 @@ function clickAuthority(now,events){
   const source=fs.readFileSync(require.resolve('../config/venue-panel-ui.js'),'utf8');
   const owner=source.slice(source.indexOf('function configureProviderLaunch('),source.indexOf('function renderEventIdentityMark('));
   const element=()=>({children:[],dataset:{},listeners:{},append(...nodes){this.children.push(...nodes);},appendChild(node){this.children.push(node);},setAttribute(){},addEventListener(name,fn){this.listeners[name]=fn;}});
-  const calls=[],context={document:{createElement:element},activeTab:'feed',userPreferences:{followFirst:{}},FOLLOW_FIRST:{viewingOptions:()=>[],VIEWING_PROVIDERS:{youtube:{label:'YouTube'}}},NOTHINGSPORTS_FIXTURE_HIGHLIGHTS:{...contract,viewing:e=>contract.viewing(e,now)},buildViewingProviderMark:element,recordCodeAffinity:(...args)=>calls.push(args),codeIdForEvent:e=>e.codeId||e.key};
+  let clock=now;
+  const calls=[],context={document:{createElement:element},activeTab:'feed',userPreferences:{followFirst:{}},FOLLOW_FIRST:{viewingOptions:()=>[],VIEWING_PROVIDERS:{youtube:{label:'YouTube'}}},NOTHINGSPORTS_FIXTURE_HIGHLIGHTS:{...contract,viewing:e=>contract.viewing(e,clock)},buildViewingProviderMark:element,recordCodeAffinity:(...args)=>calls.push(args),codeIdForEvent:e=>e.codeId||e.key};
   vm.createContext(context);vm.runInContext(owner,context);
   const search={...events.find(e=>e.key==='f1'),highlights:null};
   const direct={...search,highlights:{schemaVersion:contract.SCHEMA_VERSION,provider:'youtube',videoId:'RPmOiRHHgX8',url:'https://www.youtube.com/watch?v=RPmOiRHHgX8',channelId:'UCaaaaaaaaaaaaaaaaaaaaaa',availability:'public',regionStatus:'unknown',standalone:true,publishedAt:now.toISOString(),verifiedAt:now.toISOString()}};
@@ -14,6 +15,7 @@ function clickAuthority(now,events){
     const link=host.children[0].children[0].children.find(n=>n.listeners.click);assert(link,'actual quick-action owner mounted highlights');
     let stopped=false;link.listeners.click({stopPropagation(){stopped=true;}});assert(stopped);assert.equal(calls.length,0,'both direct and search clicks leave saved preferences alone');assert.match(link.href,event===direct?/^https:\/\/www\.youtube\.com\/watch/:/^\/api\/fixtures\?mode=highlight&ids=/);
   }
+  const aging={...direct,highlights:{...direct.highlights,publishedAt:new Date(+now-6*86400000).toISOString()}},agedHost=element();context.appendEventQuickActions(agedHost,aging,{reminder:false,chat:false});const agedLink=agedHost.children[0].children[0].children.find(n=>n.listeners.click);assert.match(agedLink.href,/youtube/);clock=new Date(+now+2*86400000);agedLink.listeners.click({stopPropagation(){},preventDefault(){assert.fail('the fixture still has a recent-search fallback');}});assert.match(agedLink.href,/^\/api\/fixtures/,'an already mounted link rechecks upload age at the moment of the tap');clock=now;
   context.activeTab='events';
   const eventsHost=element();context.appendEventQuickActions(eventsHost,search,{reminder:false,chat:false,highlightsOnly:true});assert.equal(eventsHost.children.length,0,'new cross-sport searches stay within the approved Feed');
   const directHost=element();context.appendEventQuickActions(directHost,direct,{reminder:false,chat:false,highlightsOnly:true});assert.equal(directHost.children.length,1,'existing verified direct actions retain their Events presentation');
@@ -30,8 +32,8 @@ function main(){
     assert.equal(action.highlightsLabel,'Watch highlights');sports.add(event.key);
     const url=new URL(action.webUrl,'https://nothingsport.local');
     if(action.highlightsSearch){
-      assert.equal(url.pathname,'/api/fixtures');assert.equal(url.searchParams.get('mode'),'highlight');assert.equal(url.searchParams.get('ids'),event.canonicalEventId||event.eventId||event.id);assert.equal(action.highlightsTopResult,true);const query=contract.searchQuery(event,now);assert(query.endsWith('highlights'));
-      if(!contract.tennisEligible(event)){assert(query.includes(event.name));assert(query.includes(event.date));}
+      assert.equal(url.pathname,'/api/fixtures');assert.equal(url.searchParams.get('mode'),'highlight');assert.equal(url.searchParams.get('ids'),event.canonicalEventId||event.eventId||event.id);assert.equal(action.highlightsTopResult,true);const query=contract.searchQuery(event,now);assert(/highlights(?:\|moments)?$/.test(query));
+      if(!contract.tennisEligible(event)&&event.key!=='motogp'){assert(query.includes(event.name));assert(query.includes(event.date));}
       if(event.key==='f1'){assert(query.includes(event.stage));assert(!query.includes('George Russell vs'),'race session uses its identity rather than the entire field');}
       if(event.codeId==='sport:nbl')assert(query.includes('nbl'),'a shared legacy key cannot mislabel the competition as NBA');
     }else{assert.equal(url.origin,'https://www.youtube.com');assert.equal(url.pathname,'/watch');assert.equal(action.webUrl,event.highlights.url);}

@@ -595,6 +595,10 @@ Any signed-in account may create an eligible upcoming/live fixture chat. A fixtu
 
 The room creator or an app admin may permanently delete the complete chat. A message author or an app admin may permanently delete an individual message. Before relational deletion, transient attachment objects are removed through the private Storage API; explicitly saved account-owned copies remain separate. Direct browser table access remains denied and all authorization stays at the authenticated server API plus database-trigger boundary. Personal archive remains a reversible “Remove from list” action and is not presented as deletion. These ownership changes do not alter the established polling intervals or scheduler budgets.
 
+## Highlights upload and lookup correction — 15 October 2026
+
+Highlights links require a source upload within seven elapsed days. Fresh cache selections or metadata checks cannot renew an older upload. Prefer relevant recent official uploads, including shared tournament-day reels when their covered matches are explicit; a dedicated match upload takes precedence. Deliberate Feed taps can check official public channel feeds before a bounded API fallback. All API search and video-metadata requests reserve from the existing service-only ninety-search/five-hundred-ordinary Pacific-day ledger before dispatch. The fifty-search scheduled sublimit, two-search/pass source limit, thirty-minute discovery cadence, existing readers and twenty-second route budget remain unchanged. Hourly tap-driven reselection creates no polling or scheduler. Cached upload/duration evidence is service-only and policy-versioned; missing evidence fails closed. Regression: validate-highlights-recency.js and the existing highlights/database gates.
+
 ## Lite weekend editorial - 18 September 2026
 
 Friday 09:00 Australia/Sydney editorial maintenance covers existing 4-5/5 stakes

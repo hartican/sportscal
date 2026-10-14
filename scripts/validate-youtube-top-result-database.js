@@ -4,8 +4,13 @@ async function main(){
   const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite'),db=new PGlite();
   try{
     await db.exec('create role anon;create role authenticated;create role service_role bypassrls;grant usage on schema public to anon,authenticated,service_role;');
-    for(const name of ['20260908093906_live_fixture_snapshots.sql','20260908110529_discovery_source_health.sql','20260914061506_right_size_fixture_runtime.sql','20260924104317_compact_live_scores.sql','20261002171936_preserve_compact_fixture_observations.sql','20261010140633_align_live_source_refresh_cadence.sql','20261010233101_hydrate_cricket_refresh_claim.sql','20261014130245_shared_youtube_top_result_budget.sql'])await db.exec(fs.readFileSync('supabase/migrations/'+name,'utf8').split('-- One write replaces')[0]);
+    for(const name of ['20260908093906_live_fixture_snapshots.sql','20260908110529_discovery_source_health.sql','20260914061506_right_size_fixture_runtime.sql','20260924104317_compact_live_scores.sql','20261002171936_preserve_compact_fixture_observations.sql','20261010140633_align_live_source_refresh_cadence.sql','20261010233101_hydrate_cricket_refresh_claim.sql','20261014130245_shared_youtube_top_result_budget.sql','20261014203039_youtube_highlight_upload_metadata.sql'])await db.exec(fs.readFileSync('supabase/migrations/'+name,'utf8').split('-- One write replaces')[0]);
     const day=(await db.query("select (clock_timestamp() at time zone 'America/Los_Angeles')::date::text as day")).rows[0].day;
+    await db.query("insert into public.nothingsports_youtube_selections(fixture_id,query_hash,video_id) values('fixture:test:legacy',$1,'OLDVIDEO123')",['a'.repeat(64)]);
+    assert.deepEqual((await db.query("select published_at,duration_seconds from public.nothingsports_youtube_selections where fixture_id='fixture:test:legacy'")).rows,[{published_at:null,duration_seconds:null}],'rolling-release legacy rows cannot acquire invented video metadata');
+    await assert.rejects(db.query("update public.nothingsports_youtube_selections set duration_seconds=10800 where fixture_id='fixture:test:legacy'"),/check constraint/);
+    await db.query("update public.nothingsports_youtube_selections set published_at=clock_timestamp(),duration_seconds=300 where fixture_id='fixture:test:legacy'");
+    await db.query("delete from public.nothingsports_youtube_selections where fixture_id='fixture:test:legacy'");
     await db.query("insert into public.nothingsports_fixture_sources(source_id,discovery_report) values('discovery-tennis-highlights',$1)",[{_highlightQuota:{day,search:89,ordinary:499}}]);
     for(const role of ['anon','authenticated']){
       await db.exec('set role '+role);
