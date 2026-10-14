@@ -48,7 +48,7 @@ assert.equal(t.presentation({...fixture,status:'live'},now).status,'LIVE');
 console.log('Source-backed tournament phase: shared Feed/Follow label, terminal precedence, no clock inference or Live Now admission passed.');
 for(const id of ['major-match:nrl-finals-2026:preliminary-final-2','major-match-nrl-finals-2026-preliminary-final-1'])assert.deepEqual(f.viewingOptions({id,key:'nrl'}).map(x=>x.providerId),['nine-tv','nine','kayo','foxtel']);
 assert(!f.viewingOptions({id:'unrelated',key:'nrl'}).some(x=>x.providerId==='nine-tv'));
-assert.deepEqual(f.viewingOptions({id:'major-match:nrl-finals-2026:preliminary-final-2',key:'nrl'},['foxtel']).map(x=>x.providerId),['nine-tv','nine','kayo','foxtel']);
+assert.deepEqual(f.viewingOptions({id:'major-match:nrl-finals-2026:preliminary-final-2',key:'nrl'},['foxtel']).map(x=>x.providerId),['foxtel','nine-tv','nine','kayo'],'Subscribed paid services precede verified free access while preserving every supported provider');
 console.log('Feed presentation: dates, timing, source-backed rankings, historical cutoff, full venues and fixture-specific providers passed.');
 for(const [id,label] of [['team:afl:cd_t60','Dockers'],['participant:team:afl:cd_t20','Lions'],['team:football:socceroos','Socceroos'],['team:football:matildas','Matildas'],['team:cricket:south-africa-women','Proteas Women']])assert.equal(p.displayLabel(id,'Canonical name'),label);
 assert.equal(p.displayLabel('team:unknown','Unknown club'),'Unknown club');

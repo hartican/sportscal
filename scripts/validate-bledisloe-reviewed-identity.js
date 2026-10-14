@@ -12,7 +12,10 @@ for(const rows of [[curated,worldRugby],[worldRugby,curated]]){
  assert([curated.sourceCheckedAt,worldRugby.sourceCheckedAt].includes(f.sourceCheckedAt));if(worldRugby.statusCheckedAt)assert.equal(f.statusCheckedAt,worldRugby.statusCheckedAt);
  for(const alias of aliases){assert(f.sourceEventIds.includes(alias));assert.equal(actions.resolveAction(f,{[alias]:{reminderRequested:true}}).action.reminderRequested,true);}
  assert(follow.reasonForEvent(f,{preferenceGraph:{entityFollows:[{participantId:'team:rugby:wallabies',followLevel:'follow'}]}}));assert(!follow.reasonForEvent(f,{preferenceGraph:{entityFollows:[{participantId:'team:rugby:wallabies',followLevel:'mute'}]}}));
- assert.deepEqual(follow.viewingOptions(f).map(o=>o.providerId),['nine-tv','nine','stan']);
+ assert.deepEqual(follow.viewingOptions(f),[],'Archived unbound reviewed metadata cannot restore viewing claims');
+ const viewing=require('../lib/reviewed-au-viewing').reviewedAuViewing(f);
+ assert.deepEqual(follow.viewingOptions(viewing).map(o=>o.providerId),['nine-tv','nine','stan'],'Current post-identity review retains the exact supported destinations');
+ assert.deepEqual(viewing.viewingOptions.map(o=>o.verifiedAt),f.viewingOptions.map(o=>o.verifiedAt),'Rebinding context preserves original rights observation dates');
  const other={...worldRugby,id:'another-rugby-match',eventId:'another-rugby-match',canonicalEventId:'another-rugby-match',sourceEventIds:[],startTimeUtc:'2026-11-17T05:45:00.000Z'};assert.equal(identity.mergeOverlays([f],[other]).length,2);
  const confirmed=identity.normalizeCore({...worldRugby,status:'completed',homeScore:0,awayScore:10,endTimeUtc:'2026-10-17T06:45:00.000Z',endTimeBasis:'confirmed',actualEndTimeUtc:'2026-10-17T06:45:00.000Z'});assert.equal(confirmed.endTimeUtc,'2026-10-17T06:45:00.000Z');assert.equal(confirmed.homeScore,0);
 }

@@ -328,7 +328,7 @@ assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not 
 assert(require("./offline-shell-module")("config/major-events.js") && require("./offline-shell-module")("config/follow-feed-policy.js") && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
 assert(html.includes('const row=buildEventCard({...fixture,eventName:record.name'), 'Events schedule shares the Feed card, editorial and ratings');
-assert(html.includes('watch.appendChild(buildInlineCrowdRating(ev,snapshot))'), 'shared cards include user-generated flame ratings');
+assert.match(html, /const rating=buildInlineCrowdRating\(ev,snapshot\);if\(!rating\.hidden\)watch\.appendChild\(rating\)/, 'shared cards mount the actual rating controls when visible, without an empty row');
 assert.match(html, /function majorEventFixtureSnapshot\(subEvent, parent\)\{\s+return MAJOR_EVENTS\?\.editorialFixtureFromSubEvent\?\.\(subEvent, parent, majorEventFeedCandidates\(\)\) \|\| null;/, "Events fixtures added to Feed must be persisted with resolved editorial rather than structural copy");
 assert(html.includes('majorEventsCatalogue: "ns_major_events_catalogue_v1"'), "the validated Events catalogue needs a first-visit offline fallback");
 assert(html.includes("payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null)") && html.includes("if (!loadedFromStorage && !quarantinedIds.length) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload)"), "Events offline replay must reuse only a previously validated lazy-loaded catalogue");
