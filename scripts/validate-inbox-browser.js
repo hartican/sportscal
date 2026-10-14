@@ -6,7 +6,7 @@ async function main(){
   const page=await browser.newPage({viewport:{width,height:844},serviceWorkers:'block'}),errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.text().includes('Inbox refresh'))console.log(m.text());});
   const account='11111111-1111-4111-8111-111111111111',token='x.'+Buffer.from(JSON.stringify({sub:account})).toString('base64url')+'.x';
   const seen=[],items=Array.from({length:25},(_,i)=>({id:`22222222-2222-4222-8222-${String(i).padStart(12,'0')}`,kind:i===0?'chat':'points',points:1,version:1,read:false,at:new Date(Date.now()-i*60000).toISOString(),messageCount:3,roomName:'Australia v India',sender:'Amy',preview:'Australia won by 8 wickets',detail:'heat_rating'}));
-  await page.addInitScript(({token})=>{localStorage.setItem('ns_auth_persistent_session_v1',JSON.stringify({accessToken:token,refreshToken:'test',expiresAt:Date.now()+3600000}));},{token});
+  await page.addInitScript(({token})=>{localStorage.setItem('ns_preferences_v1',JSON.stringify({version:27,onboardingComplete:true}));localStorage.setItem('ns_auth_persistent_session_v1',JSON.stringify({accessToken:token,refreshToken:'test',expiresAt:Date.now()+3600000}));},{token});
   await page.route('**/api/**',async route=>{
    if(route.request().url().includes('/api/inbox')){
     if(route.request().method()==='POST'){seen.push(...route.request().postDataJSON().seen);return route.fulfill({json:{ok:true}});}
@@ -16,12 +16,14 @@ async function main(){
    if(route.request().url().includes('/api/nothingscore'))return route.fulfill({json:{points:25,settlements:[],entries:[],privileges:[]}});
    return route.fulfill({status:503,json:{error:'Test fixture: service offline'}});
   });
-  await page.goto(process.env.INBOX_QA_URL||'http://127.0.0.1:33966');await page.waitForFunction(()=>typeof notificationsInbox!=='undefined');
+  await page.goto(process.env.INBOX_QA_URL||'http://127.0.0.1:33966');await page.waitForFunction(()=>typeof notificationsInbox!=='undefined'&&startupFunnelFinished&&!startupCoordinator.isHydrating());
   await page.evaluate(()=>{document.getElementById('startupLaunch')?.remove();document.querySelectorAll('.modal-backdrop').forEach(x=>x.classList.remove('show'));});
   const geometry=await page.evaluate(()=>Object.fromEntries(['settingsBtn','calendarSyncBtn','shareAppBtn','notificationsBtn'].map(id=>{const r=document.getElementById(id).getBoundingClientRect();return [id,{x:r.x,y:r.y,width:r.width,height:r.height}];})));
   assert(Math.abs(geometry.settingsBtn.y-geometry.shareAppBtn.y)<5);assert(geometry.settingsBtn.x<geometry.calendarSyncBtn.x&&geometry.calendarSyncBtn.x<geometry.shareAppBtn.x);
   assert(geometry.notificationsBtn.width>=44);assert(geometry.settingsBtn.height>=44);
   await page.evaluate(({token})=>serverSyncClient.signIn('test@example.test','test'),{token});
+  // The controlled account has no saved profile; finish its setup screen before testing the inbox.
+  if(await page.locator('#settingsModal.show').count())await page.getByRole('button',{name:'Close Settings',exact:true}).click();
   await page.evaluate(()=>history.replaceState({appRoute:'notifications',inbox:true},''));
   await page.locator('#notificationsBtn').click();try{await page.waitForSelector('.notification-row',{timeout:5000});}catch(e){console.log(await page.evaluate(()=>({owner:serverSyncClient.sessionSubject(),method:typeof serverSyncClient.inboxRequest,html:document.getElementById('notificationsInbox').outerHTML})),errors);throw e;}await page.waitForTimeout(450);
   const rect=await page.locator('#notificationsInbox').boundingBox();assert.equal(rect.height,844);assert.equal(Math.round(rect.width),width<=640?width:480);

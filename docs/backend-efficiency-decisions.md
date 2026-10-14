@@ -1209,6 +1209,9 @@ Deferred controls and Match Centre compile through the existing canonical shell 
 
 Regressions: validate-milestone-source-budget, validate-milestone-alerts, validate-milestone-database (actual projection and new SQL), validate-milestone-dispatch, validate-milestone-worker, validate-milestone-test, existing notifications/erasure/live-owner/cache gates and Chromium/WebKit journeys.
 
+The 14 October tap repair adds a short-lived, device-local routing handoff, separate from server-owned moments and delivery receipts. It contains only the clicked same-origin fixture URL, a nonce and a two-minute handoff expiry; it is scoped to the opened WindowClient ID. The application requests it on startup, focus, controller change or return to visibility, then acknowledges acceptance. No timer polls presence or any backend. Serial worker operations keep acknowledgement from deleting a newer click; acknowledged and expired entries cannot replay. The handoff consumer loads outside the startup barrier and is included in the installed shell. This does not alter push expiry, detection, dispatch, source checks, recipient budgets, consent or account-erasure admission. Corrected iPhone evidence establishes delivery only; automatic alerts remain held. [Repair tests and limitations](quality/notification-landing-repair-2026-10-14.md).
+
+An explicit newer tap invalidates the older landing across all asynchronous boundaries and can begin its own bounded selected-fixture read. The older result or retained-cache hydration cannot mount or receipt after supersession. Promise identity preserves the newer loading state, including compatibility with a request begun before the deferred handoff consumer loads. These are user-driven reads using the existing deadlines; no automatic retry, poll, scheduler, dispatch or source-owner changes are added. The focused regression delta belongs to the same sole release lane.
 
 ## Sourced approximate automatic reminders — 14 October 2026 Sydney
 
@@ -1220,3 +1223,30 @@ The owner replaces official-only automatic timing with server-validated publishe
 Reuse the existing shared Feed timeline and lifecycle for one published multi-day card on its final date. Ordinary personalised Feed uses that display day before its existing bounded pagination. Profile and Match Centre ordering are unchanged. Original sporting instants and source observations remain intact; final-day midnight is only a local sort key, never a fixture or notification clock. The native Feed score updater preserves the same central full range on expansion/refresh.
 
 Source completedAt/firstConfirmedCompleteAt may supply an explicit validated sporting end for existing retention; an inferred endTimeUtc cannot shorten a valid published multi-day window. Preserve the seven-day Feed rule and existing saved/history constants. No new provider read, endpoint, schema, database/account change, source refresh, scheduler, retry, browser polling or dispatcher. Audit retains sole generated-output/publication ownership and strict performance/installed-update gates.
+
+
+
+## Ongoing multi-day Feed display — 14 October 2026 Sydney
+
+The owner's clarified display rule uses the existing shared timeline with the caller's Sydney reference date: ongoing published windows are grouped/paged with Today, completed ones with their original final day. The full-range timing presentation and original sporting/source clocks remain intact. No new read, provider, endpoint, database/account mutation, timer, polling, retry, scheduler, refresh or dispatcher. Profile/Match Centre and retention remain unchanged. Audit owns serialized normal required gates and exact-SHA publication.
+
+
+## 14 October 2026 — bounded official highlights discovery
+
+The existing protected refresh owns discovery-tennis-highlights with a thirty-minute due/minimum/retry interval, two bounded publisher requests at a time, a twenty-second source deadline, 256 KiB response caps, 256 retained candidate videos and at most 24 availability checks per pass. Current score work retains priority and the existing two workers, leases, backoff and forty-five-second owner deadline. Canonical full/quick updates include the same source/projection under update-cards.js; the scoped --highlights route is part of that owner. No additional cron, browser polling, customer enrichment routine or paid service is introduced.
+
+Public Atom/oEmbed is the no-key default. An optional server-only key enables upload fallback, batched availability/region checks and at most two historical searches per due pass. Persist known restrictions and the private cache across source failure; omit private candidate/check/cursor fields from public reports. Recheck stable links daily without replacing their first verification date or creating timestamp-only fixture revisions. Archived references page through the archive owner's service-only RPC without account identity; only changed media is written. Viewer archive hydration is a pure static fallback, with stored media and explicit null withdrawals authoritative.
+
+Source metadata cannot create fixtures or replace clocks, completion observations, scores, participants, source provenance or editorial. Existing sixty-ID readers, three-second database deadline, startup request/compression budgets, Follow consent and sole reminder dispatcher remain. Contract: docs/fixture-highlights.md. Regression: validate-fixture-highlights.js, validate-live-fixtures.js, validate-backend-efficiency.js, existing startup/performance gates and Chromium/WebKit installed/offline checks.
+
+
+## 14 October 2026 — separate reported played starts
+
+The existing canonical and live tennis scoreboard owner may preserve a publisher-reported post-match start only for a completed contest with played sets, explicit timeValid, a strict timezone-bearing startDate agreeing with that contest's date, bound identities and no walkover. Store raw actualStartTimeUtc and actualStartEvidence separately from scheduled/reminder clocks. Evidence identifies the publisher post-match field and the exact public JSON source; do not claim independent first serve. Keep first verification on unchanged facts. Source timestamps, parent calendars, durations and video publication cannot manufacture an actual start.
+
+Display rounding is five minutes only; it never changes raw facts, admission, scoring, reminders or delivery receipts. There is no new provider request, source adapter, scheduler or client polling owner. The existing startup budget remains fixed. The unchanged app-update and notification-inbox programs retain byte-identical source copies and use the existing formatter with full executable AST parity; required worker and browser checks cover their compact outputs. Critical request count remains eight.
+
+
+## 14 October 2026 — bounded highlights metadata lifetime
+
+The existing media refresh owner expires availability and full publisher metadata after thirty days unless the relevant provider check succeeds. Keep first verified provenance separate from successful availability and full metadata receipts. Failed passes, overall coverage health and partial oEmbed-only checks cannot renew full metadata. Withdraw expired retained links, prune candidate/negative metadata and apply the same bound during offline canonical projection and read-only presentation. Renewals must survive the unchanged-hash persistence path without altering original sporting clocks or revisions; transport may project only bound source-owned per-video receipts. No additional scheduler, browser write, polling or database migration. Canonical refresh performs no historical searches; the existing due owner caps its two-per-pass search at 96/day within the official separate 100-call daily bucket. See [source contract and policy limits](fixture-highlights.md).

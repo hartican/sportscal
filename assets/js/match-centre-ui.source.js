@@ -197,8 +197,8 @@ loadMatchCentreStyles();
   requestAnimationFrame(()=>{const card=cards.get(m().id(e))?.card;if(card){card.tabIndex=-1;card.scrollIntoView({block:'center'});card.focus({preventScroll:true});}});
   saveMembership(ticket());
  };
- globalThis.openRetainedMilestoneMatchCentreFixture=async id=>{
-  const t=ticket(),cached=await disposableStore?.hydrate?.(cacheKey(t),null);if(!valid(t))return false;
+ globalThis.openRetainedMilestoneMatchCentreFixture=async(id,current=()=>true)=>{
+  const t=ticket(),cached=await disposableStore?.hydrate?.(cacheKey(t),null);if(!valid(t)||!current())return false;
   const e=[notificationTarget,...membership,...(cached?.events||[]),...activeEvents,...liveFixtureEvents].filter(Boolean).find(e=>[e.id,e.eventId,e.canonicalEventId,...(e.sourceEventIds||[])].includes(id));
   if(!e)return false;globalThis.openMilestoneMatchCentreFixture(e,{...m().compact(e),stale:true});notificationRetained=true;render();return true;
  };

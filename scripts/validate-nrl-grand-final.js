@@ -14,7 +14,9 @@ function check(events,label){
 }
 check(programme,'resolver');
 const identity=require('../config/fixture-identity'),timing=require('../config/card-timing');
-const confirmed=programme.find(e=>alias(e).includes('evt_84'));
+// Replay the published appointment before play; current completed coverage is
+// checked separately above and must not be reused as a scheduled test state.
+const confirmed={...programme.find(e=>alias(e).includes('evt_84')),status:'scheduled'};
 const retained={...confirmed,startTimeUtc:null,time:null,timeTbc:true,startTimeTbc:true,dateOnly:true,timePrecision:'date-only'};
 const observation={...confirmed};for(const field of ['timeTbc','startTimeTbc','dateOnly'])delete observation[field];
 const reconciled=identity.mergeOverlays([retained],[observation])[0];

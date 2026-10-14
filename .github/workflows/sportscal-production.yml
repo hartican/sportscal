@@ -229,6 +229,7 @@ jobs:
           node scripts/validate-milestone-database.js
           node scripts/validate-milestone-dispatch.js
           node scripts/validate-milestone-worker.js
+          node scripts/validate-notification-landing.js
           node scripts/validate-milestone-test.js
           node scripts/validate-milestone-routing.js
           node scripts/validate-reminder-schedules.js
@@ -238,6 +239,7 @@ jobs:
           node scripts/validate-pilot-readout.js
           node scripts/validate-pilot-readout-sql.js
           node scripts/validate-live-fixtures.js
+          node scripts/validate-fixture-highlights.js
           node scripts/validate-snapshot-read-diagnostics.js
           node scripts/validate-live-afl-adapter.js
           node scripts/validate-asia-cup-source.js --published

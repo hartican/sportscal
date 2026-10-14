@@ -279,6 +279,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/lib/f1-source-provenance.js"],
   ["scripts/lib/skiing-calendar-review.js"],
   ["scripts/lib/reviewed-calendar-notes.js"],
+  ["scripts/refresh-fixture-highlights.js"],
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"],
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
@@ -336,6 +337,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-bahrain-relocation.js"],
   ["scripts/validate-current-card-evidence-provenance.js"],
   ["scripts/validate-tennis-context.js"],
+  ["scripts/validate-fixture-highlights.js"],
   ["scripts/validate-nba-context.js"],
   ["scripts/validate-cycling-context.js"],
   ["scripts/validate-competition-classification.js"],
@@ -590,6 +592,18 @@ async function runMain() {
       ['scripts/validate-canonical-sports.js'],
     ])runStep(args);
     console.log('Existing AFLW final date projected through the canonical owner; no clock, finalist or provider refresh added.');return;
+  }
+  if(process.argv.includes('--highlights')){
+    const allowed=new Set(['--highlights','--local-only','-p']);
+    if(process.argv.slice(2).some(arg=>!allowed.has(arg)))throw Error('Highlights refresh cannot be combined with another route');
+    const result=await require('./refresh-fixture-highlights').refresh();console.log(JSON.stringify(result));
+    if(!result.changed){runStep(['scripts/build-app-shell-runtime.js']);runStep(['scripts/version-generated-shell.js']);runStep(['scripts/validate-fixture-highlights.js']);if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);return;}
+    for(const step of [
+      ['scripts/build-code-inspector.js','--codes=tennis'],['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-tennis-feed-parents.js'],['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-fixture-highlights.js'],['scripts/validate-feed.js','data/events.json']
+    ])runStep(step);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);return;
   }
   if(process.argv.includes('--shallow-directories')){
     runStep(['scripts/prune-retained-player-background.js']);

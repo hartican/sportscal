@@ -32,6 +32,35 @@ const {createMatchCentreHandler}=require('../lib/match-centre-handler');
   const read=async(id='match')=>(await request('/rpc/nothingsports_read_match_scores',{body:{p_fixture_ids:[id]}}))[0].fixture;
   const rows=async source=>(await db.query("select fixture_id,ctid::text,score,first_completed_at from public.nothingsports_live_scores where source_id=$1 order by fixture_id",[source])).rows;
   try{
+   // Actual unchanged-hash publisher preserves rows while its health document
+   // carries newer successful YouTube receipts for the existing read path.
+   const media=require('../lib/fixture-highlights'),sample=require('../data/canonical/fixture-highlights.v1.json').events.find(e=>e.highlights).highlights;
+   const firstMediaAt=new Date(Date.now()-7200000).toISOString(),nextMediaAt=new Date(Date.now()-3600000).toISOString();
+   const mediaFixture={id:'fixture:tennis:ttl:stored-row',enrichmentOnly:true,highlightsOnly:true,highlights:{...sample,verifiedAt:firstMediaAt,checkedAt:firstMediaAt,sourceCheckedAt:firstMediaAt}};
+   const mediaReport=stamp=>({checkedAt:stamp,_highlightChecks:{[sample.videoId]:stamp},_highlightVideos:[{videoId:sample.videoId,channelId:sample.channelId,url:sample.url,publishedAt:sample.publishedAt,title:sample.matchTitle,metadataCheckedAt:stamp}]});
+   const publishMedia=async record=>{await lease(media.SOURCE_ID);return db.query('select public.nothingsports_publish_fixture_source_report($1,$2,$3,$4,$5,$6)',[media.SOURCE_ID,token,JSON.stringify([record]),contentHash([record]),1800000,JSON.stringify(mediaReport(record.highlights.checkedAt))]);};
+   await publishMedia(mediaFixture);
+   const originalMedia=(await db.query('select revision,fixtures from public.nothingsports_fixture_sources where source_id=$1',[media.SOURCE_ID])).rows[0];
+   const originalMediaCtid=(await db.query('select ctid::text from public.nothingsports_fixture_current where source_id=$1',[media.SOURCE_ID])).rows[0].ctid;
+   const refreshedMedia={...mediaFixture,highlights:{...mediaFixture.highlights,checkedAt:nextMediaAt,sourceCheckedAt:nextMediaAt}};
+   assert.equal(contentHash([mediaFixture]),contentHash([refreshedMedia]));
+   await publishMedia(refreshedMedia);
+   const persistedMedia=(await db.query('select revision,fixtures,discovery_report from public.nothingsports_fixture_sources where source_id=$1',[media.SOURCE_ID])).rows[0];
+   assert.deepEqual(persistedMedia.fixtures,originalMedia.fixtures,'actual equal-hash publication retains its stored fixture/provenance');
+   assert.equal(persistedMedia.revision,originalMedia.revision);
+   assert.equal((await db.query('select ctid::text from public.nothingsports_fixture_current where source_id=$1',[media.SOURCE_ID])).rows[0].ctid,originalMediaCtid);
+   assert.equal(persistedMedia.discovery_report._highlightChecks[sample.videoId],nextMediaAt,'actual publisher persists the successful renewal separately');
+   let mediaReads=0;
+   const mediaStore=createSnapshotStore({request:async(...args)=>{mediaReads++;return request(...args);}});
+   const servedMedia=(await mediaStore.read({ids:[mediaFixture.id]})).find(s=>s.source_id===media.SOURCE_ID);
+   assert.equal(mediaReads,2,'renewal uses only the existing health and selected-fixture reads');
+   assert.equal(servedMedia.fixtures[0].highlights.checkedAt,nextMediaAt);
+   assert.equal(servedMedia.fixtures[0].highlights.sourceCheckedAt,nextMediaAt);
+   assert.equal(servedMedia.fixtures[0].highlights.verifiedAt,firstMediaAt);
+   assert.equal(servedMedia.revision,originalMedia.revision);
+   assert(!JSON.stringify(servedMedia).includes('_highlight'),'private matching state is removed before transport');
+   assert.equal((await db.query('select count(*) n from public.nothingsports_fixture_snapshots where source_id=$1',[media.SOURCE_ID])).rows[0].n,1,'real renewal creates no sporting history');
+   evidence.scenarios.push('actual equal-hash publish_fixture_source_report twice: original row/revision, refreshed private health and renewed two-read public metadata');
    // Real refresh owner, leased claim, deployed compact SQL and selected reader.
    // Lunch/Tea and Rain/Bad light deliberately keep the same status enum.
    const pauseId='fixture:nrl:pause-reason',pauseAt=n=>new Date(Date.parse('2026-10-11T01:00:00Z')+n*60000).toISOString();

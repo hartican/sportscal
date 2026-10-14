@@ -93,8 +93,10 @@ async function schedule(codeId, { pushHistory = true, startingGroup = "", starti
   }
 }
 
-async function milestone(id){
- try{await loadDeferredScript('assets/js/milestone-alerts-ui.js?v=530');const opened=await NOTHINGSPORTS_MILESTONE_UI.route(id);if(opened&&pendingNotificationEventId===id){pendingNotificationEventId='';const url=new URL(location.href);['event','surface','moment'].forEach(k=>url.searchParams.delete(k));history.replaceState(history.state,'',url);}}catch(error){showToast(error.message);}
+async function milestone(id,{current:callerCurrent=()=>true}={}){
+ const revision=fixtureNavigationRevision,owner=serverSyncClient?.sessionSubject(),moment=new URLSearchParams(location.search).get('moment');
+ const current=()=>{const query=new URLSearchParams(location.search);return callerCurrent()&&revision===fixtureNavigationRevision&&owner===serverSyncClient?.sessionSubject()&&query.get('event')===id&&query.get('moment')===moment&&query.get('surface')==='match-centre';};
+ try{await loadDeferredScript('assets/js/milestone-alerts-ui.js?v=534');if(!current())return;const opened=await NOTHINGSPORTS_MILESTONE_UI.route(id,{current});if(opened&&current()&&pendingNotificationEventId===id){pendingNotificationEventId='';const url=new URL(location.href);['event','surface','moment'].forEach(k=>url.searchParams.delete(k));history.replaceState(history.state,'',url);}}catch(error){if(current())showToast(error.message);}
 }
 globalThis.NOTHINGSPORTS_FIXTURE_NAVIGATION={feed,timing,schedule,milestone};
 })();

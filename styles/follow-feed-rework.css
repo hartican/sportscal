@@ -451,6 +451,16 @@ header.top .vector-glyph{width:20px;height:20px;}
 .is-minimised-row :is(.minimised-card-format,.minimised-card-progress,.minimised-card-time){display:block;flex:0 0 auto;min-width:0;margin:0;font-size:.7rem;line-height:1.2;white-space:nowrap;text-align:center;}
 .is-minimised-row :is(.minimised-card-format,.minimised-card-progress):empty{display:none;}
 .is-minimised-row .minimised-card-summary:focus-visible{outline:2px solid var(--accent);outline-offset:-3px;border-radius:6px;}
+.event-card.is-minimised-row:has(.fixture-highlights-link),#listView .event-card.is-minimised-row:has(.fixture-highlights-link){display:flex;gap:6px;}
+.is-minimised-row:has(.fixture-highlights-link) .minimised-card-summary{display:grid;grid-template-columns:minmax(0,1fr) auto;align-content:center;row-gap:2px;flex:1;min-width:0;}
+.is-minimised-row:has(.fixture-highlights-link) .minimised-card-name{grid-column:1/-1;min-width:0;width:100%;}
+.is-minimised-row:has(.fixture-highlights-link) .minimised-card-format{display:none;}
+.is-minimised-row:has(.fixture-highlights-link) .minimised-card-progress{grid-column:1;grid-row:2;}
+.is-minimised-row:has(.fixture-highlights-link) .minimised-card-time{grid-column:2;grid-row:2;}
+.is-minimised-row .event-quick-actions{flex:0 0 78px;margin:0;}
+.is-minimised-row .fixture-providers{margin:0;gap:0;}
+.is-minimised-row .fixture-highlights-link{display:flex;flex-direction:column;justify-content:center;align-items:center;flex:0 0 78px;min-width:78px;width:78px;max-width:78px;min-height:44px;padding:0;font-size:.6rem;line-height:1.2;white-space:normal;text-align:center;}
+.is-minimised-row .provider-action-mark{flex:0 0 16px;width:24px;min-width:24px;height:16px;}
 .is-minimised-row:has(.calendar-select-label){display:flex;padding-left:8px;}
 .is-minimised-row .calendar-select-label{flex:0 0 44px;margin:0;}
 @container minimised-row (max-width:520px){.is-minimised-row .minimised-card-format{display:none;}}

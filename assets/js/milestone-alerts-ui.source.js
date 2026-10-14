@@ -36,15 +36,17 @@
  function toggleMatch(event,button){const muted=getEventAction(event).milestoneAlertsMuted!==true;updateEventAction(event,{milestoneAlertsMuted:muted});button.textContent=muted?'Unmute milestone alerts for this match':'Mute milestone alerts for this match';button.setAttribute('aria-pressed',String(muted));showToast(muted?'Milestone alerts muted for this match.':'Milestone alerts available for this match.');}
  function appendMute(actions,event){if(!actions.isConnected||actions.querySelector('.milestone-mute'))return;const button=node('button',getEventAction(event).milestoneAlertsMuted?'Unmute milestone alerts for this match':'Mute milestone alerts for this match');button.type='button';button.className='event-quick-action milestone-mute';button.setAttribute('aria-pressed',String(getEventAction(event).milestoneAlertsMuted===true));button.onclick=e=>{e.stopPropagation();toggleMatch(event,button);};actions.append(button);}
  function landingReceipt(moment){const testId=String(moment||'').match(/^test-([a-f0-9-]{36})$/)?.[1],credentials=readStorage(PUSH_INSTALLATION_STORAGE_KEY,null);if(testId&&credentials?.installationId&&credentials?.secret)void serverSyncClient.notificationCommand({action:'receipt',...credentials,testId},{authenticated:Boolean(serverSyncClient.getSession?.())}).catch(()=>{});}
- async function route(eventId){
+ async function route(eventId,{current=()=>true}={}){
   const moment=new URLSearchParams(location.search).get('moment');
   const owner=serverSyncClient?.sessionSubject()||'public';
-  activateTopLevelTab('match-centre',{resetViewport:false});await loadMatchCentre();if(owner!==(serverSyncClient?.sessionSubject()||'public'))return false;
-  let data;try{const r=await fetch('/api/match-centre?ids='+encodeURIComponent(eventId)+'&context=milestone',{signal:AbortSignal.timeout(5000)});if(!r.ok)throw Error();data=await r.json();}catch{if(owner===(serverSyncClient?.sessionSubject()||'public')&&await globalThis.openRetainedMilestoneMatchCentreFixture(eventId)){landingReceipt(moment);return true;}throw Error('Match details could not load. Retry when connected.');}
-  if(owner!==(serverSyncClient?.sessionSubject()||'public'))return false;
+  if(!current())return false;
+  const valid=()=>current()&&owner===(serverSyncClient?.sessionSubject()||'public')&&activeTab==='match-centre';
+  activateTopLevelTab('match-centre',{resetViewport:false});await loadMatchCentre();if(!valid())return false;
+  let data;try{const r=await fetch('/api/match-centre?ids='+encodeURIComponent(eventId)+'&context=milestone',{signal:AbortSignal.timeout(5000)});if(!r.ok)throw Error();data=await r.json();}catch{if(!valid())return false;if(await globalThis.openRetainedMilestoneMatchCentreFixture(eventId,valid)){if(!valid())return false;landingReceipt(moment);return true;}if(!valid())return false;throw Error('Match details could not load. Retry when connected.');}
+  if(!valid())return false;
   const event=data.events?.find(e=>[e.id,e.eventId,e.canonicalEventId,...(e.sourceEventIds||[])].includes(eventId));
   if(!event)throw Error('This match is no longer available.');
-  globalThis.openMilestoneMatchCentreFixture(event,data.fixtures?.find(s=>s.id===event.id));landingReceipt(moment);return true;
+  globalThis.openMilestoneMatchCentreFixture(event,data.fixtures?.find(s=>s.id===event.id));if(!valid())return false;landingReceipt(moment);return true;
  }
  globalThis.NOTHINGSPORTS_MILESTONE_UI={settings,toggleMatch,appendMute,route};
 })();

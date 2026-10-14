@@ -985,6 +985,9 @@ A milestone link opens and expands the exact current or retained Cricket fixture
 
 Regression coverage: validate-milestone-alerts, validate-milestone-database, validate-milestone-dispatch, validate-milestone-worker, validate-milestone-browser and validate-milestone-offline-browser. The labelled phone test is not evidence that automatic delivery is enabled. Audit Sportscal architecture remains the sole release owner; live delivery requires actual live-innings shadow evidence, natural dispatcher passes and a closed installed-phone receipt with exact Match Centre landing. Jack selected his existing iPhone Home Screen app for that gate.
 
+The corrected 14 October phone report confirms closed-app delivery but says the tap opened the main Feed. Exact landing remains failed. A clicked milestone destination now has a device-local handoff to the exact Match Centre route if native navigation fails or opens a root window. Acceptance acknowledges the navigation intent, not completed rendering or physical device success. Results, existing account guards and Feed choices remain authoritative. A newer tap supersedes an older still-loading destination. Regressions: `validate-notification-landing.js` and `validate-notification-landing-browser.js`; [repair evidence and limits](quality/notification-landing-repair-2026-10-14.md).
+
+The newer-tap rule also applies after the older selected-fixture fetch or retained-cache hydration has begun. Only the current intent may mount a fixture, report a landing or consume its URL. A stale request cannot delay the new request or clear its loading state. The two landing regressions exercise these paths with the real retained helper and both native browser renderers, preserving the original account guard, Results OFF and no automatic Feed addition.
 
 ## Automatic reminders with approximate times — 14 October 2026 Sydney
 
@@ -1009,3 +1012,27 @@ Jack chose “One full card displayed on the final day only, but with the full d
 The reported First South Africa–Australia Test retains its 9–13 October range and canonical1525659 identity, appearing under13October. Ordinary server Feed ordering uses the same final-day position before bounded pagination; profile and Match Centre ordering retain their existing rules. A completed multi-day card's seven-day Feed visibility uses a valid source completion receipt, falling back to its published last day rather than a derived opening-day duration. Invalid/backwards windows keep their original day. Preserve admission, follows, exclusions, dismissals, Results OFF, original source dates and reminder OFF; repositioning never creates a start, result, live state or reminder.
 
 Regression: validate-multiday-feed.js through the current-score-placement gate; existing multi-day retention, server Feed and tennis-normalisation checks; actual native Chromium/WebKit final-day heading, centred range, expansion, source-score refresh, hidden results and dismissal redraw at390/1280px. Exact publication, served bytes and hosted/installed-update evidence are separate release gates.
+
+
+
+## Ongoing multi-day cards under Today — 14 October 2026 Sydney
+
+Jack clarified the preceding final-day rule: “Yes: Today while ongoing, final day when completed.” During a valid published multi-day window, one non-terminal canonical card appears under Today on each day. This is calendar placement only; a scheduled/paused/stale card retains its real status and cannot gain live play from the date. On source-confirmed completion, retain one card on the original published final day, including early finishes. Cancelled/withdrawn/postponed cards do not acquire ongoing Today placement. Before/after the published window use its final day, except fresh directly observed individual live play stays under Today even after the planned final day. This preserves the existing confirmed Live Now rule without extending the source range; stale play and parent participation cannot supply that exception. Invalid windows and ordinary single-day rules are unchanged. The complete original date range remains centred through pause/restart, score refresh and More/Less. No daily copies or source dates/clocks are rewritten.
+
+Use one shared reference date for native Feed headings and server ordering before bounded pagination. Profile/Match Centre rules, results privacy, retention, admission, exclusions, dismissal and reminder choices remain unchanged. Supersedes only the preceding throughout-final-day placement, preserving the c5285157/shell533 release as dated history. Regression covers every window day, outside-window/terminal/paused states, early completion, server pagination and actual native Chromium/WebKit Today→completed placement with unchanged range, identity, expansion and dismissal.
+
+
+## 14 October 2026 — official tennis highlights
+
+Jack approved free official YouTube match highlights for source-confirmed completed senior singles and doubles from the last 16 onward. Reviewed Tour, Tennis TV and Grand Slam publishers supply standalone match videos, bound to the exact edition, draw, round and all named players. A YouTube mark and generic Watch highlights action appear on fully minimised, summary and expanded Feed and Events cards, including Results OFF; no video title or thumbnail is shown. Unknown, unavailable, short-form, compilation and known Australian-blocked videos have no action.
+
+Media changes only optional fixture.highlights. It grants no Feed admission, follow, reminder, retention, live state, clock, score or rating. Archive retention and frozen editorial stay with the archive owner. The field and action support later sports adapters, but this approval adds tennis ingestion only. Public channel feeds and oEmbed work without a key; a server-only YouTube API key is optional fallback. Ownership and limits: docs/fixture-highlights.md. Regression: validate-fixture-highlights.js, validate-fixture-highlights-browser.js and installed-PWA upgrade/offline checks in both engines.
+
+
+## 14 October 2026 — played-match clocks and compact highlights
+
+Jack reports no highlights action on Feed and requires deployment of the repair. Verified match highlights must remain visible in fully minimised rows as well as summary and expanded cards. Preserve the existing 56-pixel row, a 44-pixel action target, native card expansion and saved choices. Tournament overviews are excluded from match-video discovery and cannot compete with their actual fixture for a video binding.
+
+After source-confirmed individual play, remove the obsolete Not before, Follows and approximate planning qualifiers from the displayed start. Keep the original scheduled/reminder clock unchanged. A separately sourced post-match clock displays to the nearest five minutes; preserve its original UTC precision. Unknown played starts say START TBD. A valid final-state ESPN startDate is labelled REPORTED START, with its exact public source, players, fixture and original check recorded. This is a publisher-reported clock, not independently certified first-serve evidence. Official Shanghai stats returned an unusable year-0001 MatchDate, so neither that field nor match duration supplies a start.
+
+Regression: validate-played-starts.js inside the existing card-timing gate, current-root native Feed and 24 Chromium/WebKit width/theme/Feed/Events cases including compact/summary/expanded rows, original clock preservation and invalid evidence; existing installed upgrade/offline checks remain required.

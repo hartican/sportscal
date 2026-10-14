@@ -328,7 +328,7 @@ function renderNotificationSettings(body){
     </section>
   </div>`;
   const milestoneHost=document.createElement('div');body.querySelector('.preference-stack').append(milestoneHost);
-  void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=530').then(()=>NOTHINGSPORTS_MILESTONE_UI.settings(milestoneHost,draftPreferences)).catch(()=>{if(milestoneHost.isConnected)milestoneHost.textContent='Milestone settings unavailable. Try again.';});
+  void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=534').then(()=>NOTHINGSPORTS_MILESTONE_UI.settings(milestoneHost,draftPreferences)).catch(()=>{if(milestoneHost.isConnected)milestoneHost.textContent='Milestone settings unavailable. Try again.';});
   [["autoRemindersEnabled","autoRemindersEnabled"],["liveRatingsEnabled","liveRatingsEnabled"],["socialAlertsEnabled","socialAlertsEnabled"],["chatAlertsEnabled","chatAlertsEnabled"],["sportingRemindersEnabled","sportingRemindersEnabled"],["notificationSoundsEnabled","soundsEnabled"],["notificationBadgesEnabled","badgesEnabled"]].forEach(([id,key]) => {
     document.getElementById(id).addEventListener("change", event => {
       draftPreferences.followFirst.notifications[key] = event.target.checked;

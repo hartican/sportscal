@@ -260,7 +260,7 @@
       const ids=aliases(event);if(!ids.length)continue;
       const key=semanticKey(event),match=ids.map(id=>indexes.get(id)).find(index=>index!==undefined)??(key?semanticIndexes.get(key):undefined),index=match??result.length;
       const base=result[index];
-      if(event.fantasyOnly && !base)continue;
+      if((event.fantasyOnly||event.highlightsOnly) && !base)continue;
       // A confirmed sporting start supersedes an older date-only placeholder.
       // Missing optional flags must not inherit TBC from the retained record.
       // Explicitly uncertain new observations keep their uncertainty.
@@ -320,6 +320,11 @@
 
   function applyEnrichment(existing,overlay){
     const base=existing||overlay.fixtureFallback||{id:overlay.id};
+    if(overlay.highlightsOnly){
+      const h=overlay.highlights;
+      const valid=h===null||(typeof require==='function'?require('./fixture-highlights').valid(h):h?.availability==='public'&&h.url==='https://www.youtube.com/watch?v='+h.videoId);
+      return existing&&valid ? {...existing,highlights:h} : base;
+    }
     if(overlay.fantasyOnly){
       const games=new Set((overlay.fantasyDeadlines||[]).map(record=>record.gameId));
       return {...base,fantasyDeadlines:[...(base.fantasyDeadlines||[]).filter(record=>!games.has(record.gameId)),...(overlay.fantasyDeadlines||[])]};

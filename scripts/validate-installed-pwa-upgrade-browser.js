@@ -40,6 +40,18 @@ const footballStatusFixture=require('../data/code-inspector/football.json').fixt
 async function assertCachedFonts(page){
   for(const file of ['assets/fonts/dm-sans-latin.woff2','assets/fonts/dm-sans-latin-ext.woff2']){const digest=await page.evaluate(async file=>{const response=await caches.match('/'+file);if(!response)throw Error('Missing cached font: '+file);const bytes=await response.arrayBuffer();return [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(b=>b.toString(16).padStart(2,'0')).join('');},file);assert.equal(digest,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),'Bundled font survives upgrade/offline exactly');}
 }
+async function assertCachedFixtureHighlights(page){
+  const fixtures=require('../data/events.json').events.filter(e=>e.highlights?.provider==='youtube');
+  if(!fixtures.length)return;
+  const results=await page.evaluate(fixtures=>{
+    const tab=activeTab,states=cardViewStates,choices=JSON.stringify([userPreferences,eventActions]);
+    try{activeTab='feed';const host=document.getElementById('listView');return fixtures.map(fixture=>{
+      const stored=JSON.parse(JSON.stringify(fixture));setCardState(stored,'selected');host.replaceChildren(buildEventCard(stored));
+      const link=host.querySelector('.fixture-highlights-link');return {id:stored.id,url:link?.href,label:link?.textContent,external:link?.target==='_blank',noVideoTitle:!host.textContent.includes(stored.highlights.matchTitle),metadataPreserved:JSON.stringify(stored.highlights)===JSON.stringify(fixture.highlights)};
+    });}finally{activeTab=tab;cardViewStates=states;}
+  },fixtures);
+  for(let i=0;i<fixtures.length;i++){assert.equal(results[i].url,fixtures[i].highlights.url);assert.match(results[i].label,/Watch highlights/);assert(results[i].external&&results[i].noVideoTitle&&results[i].metadataPreserved);}
+}
 async function assertCachedParticipantCalendar(page){
   const html=fs.readFileSync(path.join(root,'index.html'),'utf8'),modelPath=html.match(/config\/athletes\.js\?v=\d+/)?.[0],uiPath=html.match(/assets\/js\/athletes-ui\.js\?v=\d+/)?.[0];
   const fixtureRoutingPath=html.match(/assets\/js\/fixture-navigation\.js\?v=\d+/)?.[0];
@@ -561,7 +573,7 @@ const server=http.createServer((req,res)=>{
       }
       profileCacheVerified=true;
       await assertCachedFootballStatus(upgraded);
-      await assertCachedCanonicalResults(upgraded);
+      await assertCachedCanonicalResults(upgraded);await assertCachedFixtureHighlights(upgraded);
       await assertCachedMinimisedRows(upgraded);
       await assertCachedMultidayRetention(upgraded);
     await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);await assertCachedStageCalendarPolicy(upgraded);await assertCachedAflwFinalDate(upgraded);
@@ -617,7 +629,7 @@ const server=http.createServer((req,res)=>{
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
     await assertOwnerSourcesClosed();
     await assertCachedFootballStatus(upgraded);
-    await assertCachedCanonicalResults(upgraded);
+    await assertCachedCanonicalResults(upgraded);await assertCachedFixtureHighlights(upgraded);
     await assertCachedMinimisedRows(upgraded);
     await assertCachedMultidayRetention(upgraded);
     await assertCachedFonts(upgraded);await assertCachedParticipantCalendar(upgraded);await assertCachedStageCalendarPolicy(upgraded);await assertCachedAflwFinalDate(upgraded);

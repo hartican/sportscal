@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v533";
-const SHELL_VERSION = "533";
+const CACHE_NAME = "nothingsport-shell-v534";
+const SHELL_VERSION = "534";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -21,7 +21,7 @@ const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=533",
-  "/assets/js/settings-optional-ui.js?v=530",
+  "/assets/js/settings-optional-ui.js?v=534",
   "/assets/js/follow-navigation.js?v=522",
   "/assets/js/tournament-fixture-ui.js?v=533",
   "/assets/styles/notifications-inbox.css?v=280",
@@ -63,9 +63,10 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=533",
+  "/assets/js/app-shell-runtime.js?v=534",
   "/assets/js/follow-schedule-panel.js?v=533",
-  "/assets/js/fixture-navigation.js?v=530",
+  "/assets/js/fixture-navigation.js?v=534",
+  "/assets/js/notification-navigation.js?v=534",
   "/config/cricket-innings.js?v=486",
   "/config/score-details.js?v=527",
   "/assets/styles/score-details.css?v=486",
@@ -85,7 +86,7 @@ const APP_SHELL = [
   "/config/follow-summary.js?v=397",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=523",
+  "/styles/follow-feed-rework.css?v=534",
   "/config/marquee-live-renderer.js?v=358",
   "/styles/comms-live.css?v=358",
   "/styles/owner-content.css?v=358",
@@ -104,8 +105,8 @@ const APP_SHELL = [
   "/config/match-centre.js?v=528",
   // An upgrading page can receive this deferred module from its old worker.
   // Own it in the new cache before activation removes that old cache.
-  "/assets/js/match-centre-ui.js?v=530",
-  "/assets/js/milestone-alerts-ui.js?v=530",
+  "/assets/js/match-centre-ui.js?v=534",
+  "/assets/js/milestone-alerts-ui.js?v=534",
   "/config/feed-live-scores.js?v=533",
   "/config/feed-live-score-loader.js?v=523",
   "/config/athletes.js?v=471",
@@ -405,6 +406,55 @@ self.addEventListener("fetch", event => {
   event.respondWith(staleWhileRevalidate(event.request, event, cacheKey));
 });
 
+// A Home Screen launch may revive a root window before navigation is available.
+// Keep only this clicked window's destination until its application acknowledges it.
+const NOTIFICATION_NAVIGATION_CACHE = 'nothingsport-notification-navigation-v1';
+const NOTIFICATION_NAVIGATION_TTL = 120000;
+let notificationNavigationOperation=Promise.resolve();
+function notificationNavigationTask(run){
+  const operation=notificationNavigationOperation.then(run);
+  notificationNavigationOperation=operation.catch(()=>{});
+  return operation;
+}
+function milestoneNotificationTarget(value){
+  try{
+    const url=new URL(value,self.location.origin),id=url.searchParams.get('event');
+    if(url.origin!==self.location.origin||!['/','/index.html'].includes(url.pathname)||url.searchParams.get('surface')!=='match-centre'||!id||id.length>180)return null;
+    const target=new URL('/',self.location.origin);target.searchParams.set('event',id);target.searchParams.set('surface','match-centre');
+    const moment=url.searchParams.get('moment');if(moment&&moment.length<=200)target.searchParams.set('moment',moment);
+    return target;
+  }catch{return null;}
+}
+function notificationNavigationKey(clientId){return new Request(self.location.origin+'/__notification_navigation__/'+encodeURIComponent(clientId));}
+async function readNotificationNavigation(cache,key){
+  const response=await cache.match(key);if(!response)return null;
+  let data;try{data=await response.json();}catch{}
+  if(!data||typeof data.token!=='string'||data.token.length>80||!Number.isFinite(data.expiresAt)||data.expiresAt<=Date.now()||data.expiresAt>Date.now()+NOTIFICATION_NAVIGATION_TTL||!milestoneNotificationTarget(data.url)){await cache.delete(key);return null;}
+  return data;
+}
+function handoffNotificationNavigation(client,target){
+  if(!client?.id)return;
+  return notificationNavigationTask(async()=>{
+  const data={type:'nothingsport-notification-navigation',url:target.href,token:crypto.randomUUID(),expiresAt:Date.now()+NOTIFICATION_NAVIGATION_TTL};
+  try{
+    const cache=await caches.open(NOTIFICATION_NAVIGATION_CACHE);
+    await Promise.all((await cache.keys()).map(key=>readNotificationNavigation(cache,key)));
+    await cache.put(notificationNavigationKey(client.id),new Response(JSON.stringify(data)));
+  }catch{ /* A ready application can still receive the direct handoff. */ }
+  try{client.postMessage(data);}catch{ /* Cold startup reads its saved destination. */ }
+  });
+}
+self.addEventListener('message',event=>{
+  const type=event.data?.type;
+  if(!['nothingsport-notification-navigation-request','nothingsport-notification-navigation-accepted'].includes(type)||event.source?.type!=='window'||!event.source.id)return;
+  event.waitUntil(notificationNavigationTask(async()=>{
+    try{
+      const cache=await caches.open(NOTIFICATION_NAVIGATION_CACHE),key=notificationNavigationKey(event.source.id),data=await readNotificationNavigation(cache,key);
+      if(type==='nothingsport-notification-navigation-request')event.ports?.[0]?.postMessage(data);
+      else if(data&&data.token===event.data.token)await cache.delete(key);
+    }catch{event.ports?.[0]?.postMessage(null);}
+  }));
+});
 self.addEventListener("notificationclick", event => {
   event.notification.close();
   const targetUrl = event.notification.data?.url || "/";
@@ -415,14 +465,24 @@ self.addEventListener("notificationclick", event => {
   }catch(_error){
     target = new URL("/", self.location.origin);
   }
+  const milestoneTarget=event.notification.data?.kind==='milestone'?milestoneNotificationTarget(target.href):null;
   event.waitUntil(
-    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(clients => {
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(async clients => {
       const existing = clients.find(client => "focus" in client);
       if (existing){
-        const navigation = existing.navigate ? existing.navigate(target.href) : Promise.resolve(existing);
-        return Promise.resolve(navigation).then(client => (client || existing).focus());
+        if(!milestoneTarget){
+          const navigation=existing.navigate?existing.navigate(target.href):Promise.resolve(existing);
+          return Promise.resolve(navigation).then(client=>(client||existing).focus());
+        }
+        let client=existing;
+        try{client=existing.navigate?await existing.navigate(target.href)||existing:existing;}catch{}
+        try{await client.focus();}catch{}
+        if(milestoneTarget)await handoffNotificationNavigation(client,milestoneTarget);
+        return client;
       }
-      return self.clients.openWindow ? self.clients.openWindow(target.href) : undefined;
+      const client=self.clients.openWindow?await self.clients.openWindow(target.href):null;
+      if(milestoneTarget)await handoffNotificationNavigation(client,milestoneTarget);
+      return client;
     })
   );
 });

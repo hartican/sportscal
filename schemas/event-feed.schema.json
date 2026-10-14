@@ -987,6 +987,84 @@
               "format": "date-time"
             }
           }
+        },
+        "highlights": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "required": [
+            "schemaVersion",
+            "provider",
+            "videoId",
+            "url",
+            "channelId",
+            "publishedAt",
+            "verifiedAt",
+            "availability",
+            "regionStatus",
+            "standalone"
+          ],
+          "properties": {
+            "schemaVersion": {
+              "const": "fixture-highlights.v1"
+            },
+            "provider": {
+              "const": "youtube"
+            },
+            "videoId": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_-]{11}$"
+            },
+            "url": {
+              "type": "string",
+              "pattern": "^https://www\\.youtube\\.com/watch\\?v=[A-Za-z0-9_-]{11}$"
+            },
+            "channelId": {
+              "type": "string",
+              "pattern": "^UC[A-Za-z0-9_-]{22}$"
+            },
+            "publishedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "verifiedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "checkedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "availability": {
+              "const": "public"
+            },
+            "regionStatus": {
+              "enum": [
+                "allowed",
+                "unknown",
+                "blocked"
+              ]
+            },
+            "standalone": {
+              "const": true
+            },
+            "matchTitle": {
+              "type": "string",
+              "maxLength": 500
+            },
+            "verificationMethod": {
+              "enum": [
+                "official-channel-feed-and-oembed",
+                "youtube-api-and-oembed"
+              ]
+            },
+            "sourceCheckedAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
         }
       },
       "allOf": [

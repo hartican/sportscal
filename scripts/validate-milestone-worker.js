@@ -1,12 +1,12 @@
 'use strict';
 const assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs');
-const code=fs.readFileSync('service-worker.js','utf8').split('self.addEventListener("notificationclick",')[1];assert(code);
+const worker=fs.readFileSync('service-worker.js','utf8'),code=worker.slice(worker.indexOf('const NOTIFICATION_NAVIGATION_CACHE'));assert(code);
 async function run(payload,{visible=false,ack=false,closed=false,delay=0}={}){
  const listeners={},shown=[],messages=[],opens=[];
  class Channel{constructor(){this.port1={close(){}};this.port2={postMessage:data=>queueMicrotask(()=>this.port1.onmessage?.({data}))};}}
  const client={visibilityState:visible?'visible':'hidden',postMessage(data,ports){if(closed)throw Error('closed client');messages.push(data);if(delay)setTimeout(()=>ports?.[0].postMessage({visible:ack}),delay);else ports?.[0].postMessage({visible:ack});},focus(){return this;},navigate(url){opens.push(url);return this;}};
  const self={location:{origin:'https://nothingsport.example'},clients:{matchAll:async()=>[client],openWindow:async url=>opens.push(url)},registration:{showNotification:async(...args)=>shown.push(args)},navigator:{},addEventListener:(type,fn)=>listeners[type]=fn};
- vm.runInNewContext('self.addEventListener("notificationclick",'+code,{self,MessageChannel:Channel,setTimeout,clearTimeout,Date,URL,Promise});
+ vm.runInNewContext(code,{self,MessageChannel:Channel,setTimeout,clearTimeout,Date,URL,Promise});
  let pending;listeners.push({data:{json:()=>payload},waitUntil:p=>pending=p});await pending;
  if(shown.length){listeners.notificationclick({notification:{data:shown[0][1].data,close(){}},waitUntil:p=>pending=p});await pending;}
  return {shown,messages,opens};

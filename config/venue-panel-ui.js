@@ -169,7 +169,7 @@ function buildMinimisedParticipant(identity,ev){
 function buildCompactCardSummary(ev){
   const summary=document.createElement('button');summary.type='button';summary.className='compact-card-summary minimised-card-summary';summary.dataset.cardArea='essentials';
   const value=NOTHINGSPORTS_CARD_TIMING.minimised(ev,nowAEST());
-  if(ev.timePrecision==='not-before')summary.dataset.timePrecision='not-before';
+  if(ev.timePrecision==='not-before'&&!NOTHINGSPORTS_CARD_TIMING.played(ev))summary.dataset.timePrecision='not-before';
   const overview=ev.tournamentParent||ev.isEditionOverview||ev.majorEventMarker||['tennis_parent','golf_tournament','tournament_overview'].includes(ev.cardType);
   let identities=overview?[]:matchupIdentityMatches(ev,compactFixtureName(ev));
   const tennis=['tennis','wimbledon'].includes(ev.key);
@@ -206,7 +206,9 @@ function mountMinimisedCard(card,ev,activate){
   for(const child of [...card.children])if(!child.classList.contains('calendar-select-label'))child.remove();
   const summary=buildCompactCardSummary(ev);
   summary.onclick=event=>{event.stopPropagation();const mounted=summary.closest('.event-card')||card,choice=mounted.querySelector('[data-calendar-id]');if(calendarChoice.active&&activeTab==='feed'&&choice){if(!choice.disabled)choice.click();return;}activate('selected',{restoreFocus:event.detail===0,focusTarget:mounted});};
-  card.append(summary);return card;
+  card.append(summary);
+  if(ev.highlights&&!calendarChoice.active)appendEventQuickActions(card,ev,{reminder:false,chat:false,highlightsOnly:true});
+  return card;
 }
 function refreshMinimisedCard(card,ev){
   const row=card.querySelector('.minimised-card-summary');if(!row)return;
@@ -764,7 +766,7 @@ function buildInlineCrowdRating(ev,snapshot){
     status.textContent=failed?'Ratings are temporarily unavailable. Retry to check your saved rating.':'Checking your rating…';
   }
   paint(chosen);root.append(group,prompt);
-  if(phase==='heat'&&!exactTiming&&!ev.dateOnly&&ev.timePrecision!=='date-only'){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent=ev.startTimeUtc&&['not-before','not_before'].includes(ev.timePrecision)?'Not-before start; exact start may be later':'Rating window TBD';root.appendChild(timing);}
+  if(phase==='heat'&&!NOTHINGSPORTS_CARD_TIMING.played(ev)&&!exactTiming&&!ev.dateOnly&&ev.timePrecision!=='date-only'){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent=ev.startTimeUtc&&['not-before','not_before'].includes(ev.timePrecision)?'Not-before start; exact start may be later':'Rating window TBD';root.appendChild(timing);}
   root.appendChild(status);return root;
 }
 
@@ -957,20 +959,23 @@ function viewingAccessLabel(viewing){
   }
 }
 
-function appendEventQuickActions(container, ev, { reminder = true, chat = true, viewing = true } = {}){
+function appendEventQuickActions(container, ev, { reminder = true, chat = true, viewing = true, highlightsOnly = false } = {}){
   if(globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev))viewing=false;
   const actions = document.createElement("div");
   actions.className = "event-quick-actions";
-  const viewingLinks = viewing ? FOLLOW_FIRST.viewingOptions(ev,userPreferences.followFirst?.subscriptions||[]).filter(p=>!p.territory||['AU','GLOBAL'].includes(p.territory)) : [];
+  const viewingLinks = viewing&&!highlightsOnly ? FOLLOW_FIRST.viewingOptions(ev,userPreferences.followFirst?.subscriptions||[]).filter(p=>!p.territory||['AU','GLOBAL'].includes(p.territory)) : [];
+  const h=ev.highlights;
+  if(viewing&&/^(completed|finished|final|past)$/i.test(ev.status||'')&&h?.availability==='public'&&h.standalone&&h.verifiedAt&&h.regionStatus!=='blocked'&&h.url==='https://www.youtube.com/watch?v='+h.videoId)viewingLinks.unshift({...FOLLOW_FIRST.VIEWING_PROVIDERS.youtube,providerId:'youtube',webUrl:h.url,highlights:true});
+  if(highlightsOnly&&!viewingLinks.length)return;
   if(viewing){
     const row=document.createElement('div');row.className='fixture-providers';row.setAttribute('aria-label','Viewing providers');
     for(const viewingLink of viewingLinks){
-      const link=document.createElement('a');link.className='event-quick-action provider-link';
+      const link=document.createElement('a');link.className='event-quick-action provider-link'+(viewingLink.highlights?' fixture-highlights-link':'');
       configureProviderLaunch(link,viewingLink);
-      const verb=viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';
+      const verb=viewingLink.highlights?'Watch highlights':viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';
       const access=viewingAccessLabel(viewingLink);
       link.title=`${verb} on ${viewingLink.label} · ${access}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
-      const cost=document.createElement('span');cost.className='provider-access';cost.textContent=access;link.appendChild(cost);
+      const cost=document.createElement('span');if(!viewingLink.highlights)cost.className='provider-access';cost.textContent=viewingLink.highlights?'Watch highlights':access;link.appendChild(cost);
       link.addEventListener('click',event=>{event.stopPropagation();recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
     }
     const viewingNote=!viewingLinks.length?'Australian viewing unconfirmed':null;
@@ -1003,7 +1008,7 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
     appendFixtureChatActions(actions, ev);
   }
   if(/^cricket(?:-women)?$/.test(ev.key||'')){
-    void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=530').then(()=>NOTHINGSPORTS_MILESTONE_UI.appendMute(actions,ev));
+    void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=534').then(()=>NOTHINGSPORTS_MILESTONE_UI.appendMute(actions,ev));
   }
   container.appendChild(actions);
   return actions;

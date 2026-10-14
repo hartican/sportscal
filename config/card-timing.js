@@ -61,14 +61,23 @@
     if(tours.size>1)for(const tour of tours)if(!records.some(p=>p.tour===tour))labels.push(tour+' · ROUND UNCONFIRMED');
     return [...new Set(labels)].join(' · ')||'ROUND UNCONFIRMED';
   }
+  function played(event){
+    return !event.tournamentParent&&!event.majorEventMarker&&!event.isEditionOverview&&!['tennis_parent','golf_tournament','tournament_overview'].includes(event.cardType)&&/^(live|in_progress|in-progress|break|stumps|rain-delay|suspended|interrupted|completed|finished|final|past)$/i.test(event.status||'');
+  }
+  function actualStart(event, reference=new Date()){
+    const proof=event.actualStartEvidence,raw=event.actualStartTimeUtc,start=Date.parse(raw||''),checked=Date.parse(proof?.checkedAt||'');
+    if(!played(event)||!proof||proof.kind!=='publisher-reported-match-start'||proof.verified!==true||proof.startsAt!==raw||!Number.isFinite(start)||!Number.isFinite(checked)||start>checked||checked>+new Date(reference)||!/^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(raw||'')||new Date(raw.slice(0,10)+'T00:00Z').toISOString().slice(0,10)!==raw.slice(0,10)||!/^https:\/\/[^/@\s]+(?:\/|$)/.test(proof.sourceUrl||'')||![event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(proof.fixtureId)||!Array.isArray(proof.participantIds)||!event.participantIds?.length||JSON.stringify([...proof.participantIds].sort())!==JSON.stringify([...event.participantIds].sort()))return null;
+    return new Date(start);
+  }
   function presentation(event, reference = new Date(), {fullRange=false} = {}){
     const now = new Date(reference);
-    const precision = event.timePrecision;
+    const started=played(event),actual=actualStart(event,reference);
+    const precision = actual?'actual':started&&['not-before','not_before','estimated','follows'].includes(event.timePrecision)?'unresolved':event.timePrecision;
     const uncertain = event.timeTbc || event.startTimeTbc;
     const pausedRestart=/^(stumps|rain-delay|break|suspended|interrupted)$/.test(event.status||'')&&Number.isFinite(Date.parse(event.restartTimeUtc||''))?event.restartTimeUtc:null;
-    const raw = pausedRestart || (precision === "estimated" ? event.estimatedStartTimeUtc || event.startTimeUtc : event.startTimeUtc);
+    const raw = pausedRestart || (actual?new Date(Math.round(+actual/300000)*300000).toISOString():precision === "estimated" ? event.estimatedStartTimeUtc || event.startTimeUtc : event.startTimeUtc);
     const parsed = new Date(raw || "");
-    const hasTime = !event.dateOnly && !uncertain && (!precision || ["exact","session-start","estimated","not-before"].includes(precision)) && Number.isFinite(+parsed);
+    const hasTime = (actual||!event.dateOnly&&!uncertain) && (!precision || ["actual","exact","session-start","estimated","not-before"].includes(precision)) && Number.isFinite(+parsed);
     const first = calendarDate(event.date || event.startDate), end = calendarDate(event.endDate);
     const date = fullRange && first && end > first ? first : hasTime ? parsed : first;
     const currentDay = dayKey(now);
@@ -87,7 +96,7 @@
     const windowLabel=precision==='estimated'&&Number.isFinite(+windowStart)&&Number.isFinite(+windowEnd)?'APPROX. '+format(windowStart,{hour:'numeric',minute:'2-digit',hour12:true})+' – '+format(windowEnd,{hour:'numeric',minute:'2-digit',hour12:true}):null;
     const progressLabel=progress(event,reference);
     const originalDate=progressLabel&&first;if(originalDate)fullDate=dated(originalDate)+(end>originalDate?' – '+dated(end):'');
-    const time = progressLabel&&event.dateOnly?'':windowLabel || (overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? "TIME TBD" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`);
+    const time = actual&&!pausedRestart?'REPORTED START '+clock:started&&!pausedRestart&&!overview&&!progressLabel?'START TBD':progressLabel&&event.dateOnly?'':windowLabel || (overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? started?'START TBD':"TIME TBD" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`);
     const schedule = [day,time].filter(Boolean).join(delta !== null && delta >= 0 && (delta < 7 || precision==='not-before' && delta===7) && !range ? " " : " · ");
     // Venue calendar dates cannot establish Sydney dates without a race start.
     const venueCalendar = !hasTime && event.timingProvenance?.precision === 'venue-calendar' && event.displayDateLabel;
@@ -116,13 +125,14 @@
     const observed=controls?.timingState(event,reference);
     if(observed?.key==='half-time')status='HALF-TIME';
     if(observed?.key==='awaiting-update')status=observed.label;
-    return Object.freeze({day:fullRange&&range?day:progressLabel|| (precision==='not-before'?day:venueCalendar?day:date?(range?day:dated(date)):'DATE TBD'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
+    return Object.freeze({day:fullRange&&range?day:progressLabel|| (precision==='not-before'?day:venueCalendar?day:date?(range?day:dated(date)):'DATE TBD'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. ${started?'':'Scheduled '}${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
   }
   function minimised(event, reference = new Date()){
     const value=presentation(event,reference),pause=pausePresentation(event,reference);
     const clock=raw=>new Intl.DateTimeFormat('en-AU',{timeZone,hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw));
     const restart=Date.parse(event.restartTimeUtc||'');
-    let time=value.status;
+    const actual=actualStart(event,reference);
+    let time=actual&&!pause?'REPORTED START '+clock(new Date(Math.round(+actual/300000)*300000))+(value.status?' · '+value.status:''):value.status;
     if(pause&&!/^(FINISHED|CANCELLED|POSTPONED|ABANDONED)$/.test(time)){
       const suffix=Number.isFinite(restart)&&restart>+new Date(reference)?clock(restart):Number.isFinite(restart)||/awaiting/i.test(value.status)?'AWAITING UPDATE':'TIME TBD';
       time=pause.label.toUpperCase()+' · '+suffix;
@@ -145,5 +155,5 @@
     if(['completed','finished','final'].includes(event.status))return 'Completed';
     return event.eventType==='match'||event.timingProvenance?.precision==='venue-calendar'?'Time TBD':String(event.displayTime||'Session times vary').replace(/\bTBC\b/gi,'TBD');
   }
-  return Object.freeze({presentation,minimised,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason,progress});
+  return Object.freeze({presentation,minimised,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason,progress,played,actualStart});
 });
