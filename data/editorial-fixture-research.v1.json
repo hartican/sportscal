@@ -2697,69 +2697,6 @@
       "researchDepth": 5
     },
     {
-      "id": "rugby-australia-new-zealand-2026-10-17",
-      "title": "Australia v New Zealand - Sydney Bledisloe Test",
-      "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
-      "formCopy": "The first Test's lineups paired Harry Wilson's Wallabies against Codie Taylor's All Blacks; Sydney selection is still to come. Taylor's captaincy covers Ardie Savea's shoulder-surgery absence, while Scott Barrett's return adds experience to New Zealand's pack. Both coaches now have direct evidence from Auckland rather than just South African form to assess. The question for this week is which combinations can sustain their work when territory and fatigue begin to change the game.",
-      "closingCopy": "For Australian supporters, the last home Test of the year is a chance to see Les Kiss's project hold its shape against the closest rival, not merely to applaud promising passages. Dave Rennie knows the gold jersey from his own time coaching Australia; facing his former players adds a personal edge to New Zealand's preparation. The crowd can supply belief, but it cannot make the tackles or organise the next phase. This stadium hosts the countries' first World Cup pool meeting next year, so the emotional memory of Sydney will outlast this fortnight.",
-      "synopsis": "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
-      "sources": [
-        "https://www.allblacks.com/team/all-blacks/bledisloe-cup",
-        "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
-        "https://www.rugby.com.au/news/codie-taylor-confirmed-as-captain-as-all-blacks-confirm-34man-squad-for-bledisloe-cup-series-2026929",
-        "https://www.rugby.com.au/news/wallabies-2027-rugby-world-cup-pool-fixtures-new-zealand-chile-hong-kong-china-202622",
-        "https://www.rugby.com.au/wallabies/news/brute-force-all-blacks-deliver-second-half-masterclass-to-extend-winning-run-over-wallabies-at-eden-park-20261010"
-      ],
-      "facts": [
-        {
-          "dimension": "path",
-          "statement": "The second Test is scheduled at Accor Stadium on 17 October, after the completed Auckland Test.",
-          "sourceIndexes": [
-            0,
-            1
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Wilson and Taylor captained the Auckland teams; that selection does not announce the Sydney XV.",
-          "sourceIndexes": [
-            2,
-            4
-          ]
-        },
-        {
-          "dimension": "matchup",
-          "statement": "Taylor leads the series squad in Savea's absence following shoulder surgery; Scott Barrett returned after back surgery.",
-          "sourceIndexes": [
-            2
-          ]
-        },
-        {
-          "dimension": "history",
-          "statement": "Rennie previously coached the Wallabies and now coaches New Zealand.",
-          "sourceIndexes": [
-            2
-          ]
-        },
-        {
-          "dimension": "consequence",
-          "statement": "Sydney closes Australia's home Test programme before the northern tour.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "The countries meet at the same stadium in their first World Cup pool encounter on 9 October 2027.",
-          "sourceIndexes": [
-            3
-          ]
-        }
-      ],
-      "researchedAt": "2026-10-10T22:41:26.276Z",
-      "researchDepth": 5
-    },
-    {
       "id": "fixture:tennis:espn:wta:184356",
       "title": "Qinwen Zheng v Mirra Andreeva — China Open final",
       "hook": "Zheng's home milestone meets Andreeva's fifth final of 2026 in Beijing.",
@@ -2837,69 +2774,6 @@
       "researchedAt": "2026-10-11T03:06:32.411Z"
     },
     {
-      "id": "fixture:cricket:espn:1525660",
-      "title": "South Africa v Australia - Second Test",
-      "hook": "Inglis is returning to the squad, not yet the XI: Australia's Gqeberha puzzle combines batting places with a possible second spinner.",
-      "formCopy": "Inglis will rejoin the tour after positive news about his fractured finger, but officials still need to assess whether he can play in Gqeberha or Cape Town. Green is also hopeful of returning from an abdominal strain. Renshaw has said he is willing to move between opening and the middle order. Kuhnemann remains an option alongside Lyon at a ground where Cricket Australia's squad analysis records more spin wickets than pace since the pandemic. South Africa's Maharaj-Harmer combination in Durban does not announce its second-Test XI.",
-      "closingCopy": "For Australian supporters, the selection debate is now about belonging as well as balance: returning players cannot be promised a place while fitness remains unresolved. Renshaw's willingness to change roles offers flexibility, but a second specialist spinner could reshape the batting too. South Africa face their own choice between familiarity and the combination this ground demands. Neither loyalty to an established name nor excitement about a comeback answers the harder question of which eleven can sustain pressure for five days.",
-      "synopsis": "The middle Test leaves both sides one match still to come at Newlands, so this combination must fit a short three-Test tour rather than a single afternoon. Durban is still in progress at this check; no series lead, clincher or comeback is asserted. Gqeberha's spin history makes patience against slow bowling and the allocation of batting depth central questions, not a prediction of the pitch. Announced teams and verified fitness updates must resolve the options; an arrival at training is not a selection or medical clearance.",
-      "sources": [
-        "https://www.cricket.com.au/news/4590116/josh-inglis-fractured-finger-update-second-test-gqeberha-australia-south-africa-green-renshaw-maddinson-selection",
-        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
-        "https://www.cricket.com.au/news/4588660/south-africa-xi-team-line-up-side-temba-bavuma-kagiso-rabada-hamstring-injury-anrich-nortje?tags=9037",
-        "https://www.cricket.com.au/matches/series/CA%3A4568/south-africa-v-australia-tests-2026-men",
-        "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg"
-      ],
-      "facts": [
-        {
-          "dimension": "form",
-          "statement": "Inglis will rejoin the squad in Gqeberha following positive news about a fractured finger; officials must still assess second- or third-Test availability.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "matchup",
-          "statement": "Green is recovering from an abdominal strain, and Renshaw says he is willing to move between batting roles.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "history",
-          "statement": "Cricket Australia's squad analysis identifies St George's Park as South Africa's only venue with more spin wickets than pace since the pandemic.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "matchup",
-          "statement": "Australia's touring squad includes Lyon and Kuhnemann; South Africa selected Maharaj and Harmer for the opening Test, which does not establish the second-Test XI.",
-          "sourceIndexes": [
-            1,
-            2
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "The second Test is scheduled for 18-22 October at St George's Park, before the Newlands finale; the official series page still marks the Durban Test in progress at this research check.",
-          "sourceIndexes": [
-            3,
-            4
-          ]
-        },
-        {
-          "dimension": "consequence",
-          "statement": "Inglis's squad return creates another batting-selection option without confirming his fitness or place in the XI.",
-          "sourceIndexes": [
-            0
-          ]
-        }
-      ],
-      "researchedAt": "2026-10-11T22:08:34.441Z",
-      "researchDepth": 5
-    },
-    {
       "id": "fixture-tennis-espn-atp-184950",
       "title": "Alex de Minaur v Karen Khachanov - Shanghai round of 16",
       "hook": "De Minaur's Turin chase meets Khachanov's big-stage pedigree, with recovery and rally depth both under examination.",
@@ -2944,76 +2818,6 @@
       ],
       "researchDepth": 5,
       "researchedAt": "2026-10-12T22:50:31.088Z"
-    },
-    {
-      "id": "rlwc-australia-new-zealand-2026",
-      "title": "Australia v New Zealand - World Cup opener",
-      "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
-      "formCopy": "Australia's preparation now points towards Munster at five-eighth, with Moses reported as the leading halfback contender; those reports are not a final team sheet. Yeo has confirmed he is deferring pectoral surgery to captain the squad. New Zealand bring Hughes back after an injury-enforced international absence, with Fisher-Harris leading a squad that adds Ponga and Gagai. The opening contest must turn those assembled strengths into a working spine and forward platform.",
-      "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
-      "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
-      "sources": [
-        "https://www.nrl.com/news/2026/10/13/unpredictability-key-as-munster-prepares-for-new-halves-pairing/",
-        "https://www.nrl.com/news/2026/10/12/green-light-the-bus-ride-that-set-yeo-on-world-cup-path/",
-        "https://www.nrl.com/news/2026/10/12/take-a-lot-of-blame-the-defeat-driving-hughes-world-cup-bid/",
-        "https://www.nrl.com/news/2026/10/05/kangaroos-squad-for-2026-rugby-league-world-cup/",
-        "https://www.nrl.com/news/2026/10/06/ponga-gagai-among-new-faces-in-kiwis-squad/",
-        "https://nzrl.co.nz/news/kiwis-kiwi-ferns-2026-rugby-league-world-cup-draws-announced"
-      ],
-      "facts": [
-        {
-          "dimension": "form",
-          "statement": "NRL's 13 October report has Munster set for five-eighth and Moses the leading halfback contender; predictions are not final match-day selection.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "history",
-          "statement": "Munster and Hughes play together at Melbourne and discuss the unusual challenge of facing one another internationally.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Yeo reports playing with a ruptured pectoral, deferring surgery until his 2026 playing commitments finish with Penrith's support.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "consequence",
-          "statement": "Hughes recalls the influence of New Zealand's 2008 title on him and wants a World Cup success to connect with children and supporters.",
-          "sourceIndexes": [
-            2
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Yeo captains Australia's announced squad; New Zealand's announced squad includes returning Hughes and potential debutants Ponga and Gagai.",
-          "sourceIndexes": [
-            3,
-            4
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "Australia and New Zealand open Pool A at Allianz on 15 October; Fiji and Cook Islands are the other pool teams.",
-          "sourceIndexes": [
-            5
-          ]
-        },
-        {
-          "dimension": "consequence",
-          "statement": "NRL confirms Australian World Cup broadcasts on Seven and 7plus.",
-          "sourceIndexes": [
-            3
-          ]
-        }
-      ],
-      "researchDepth": 5,
-      "researchedAt": "2026-10-12T22:50:31.092Z"
     },
     {
       "id": "epl-2026-27-128984",
@@ -3706,6 +3510,215 @@
           ]
         }
       ]
+    },
+    {
+      "id": "rlwc-australia-new-zealand-2026",
+      "title": "Australia v New Zealand",
+      "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+      "formCopy": "Australia have named Moses and Munster in the halves, Walsh at fullback and Yeo as captain. Bostock and Preston are named for their Kangaroos debuts. New Zealand have paired Hughes with Nikorima, with Ponga at fullback and Gagai at centre for their first Kiwis appearances. Fisher-Harris leads a forward group featuring Leota and Tapine. These are announced match-day roles, not simply squad selections; the new combinations still have to work under pressure.",
+      "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
+      "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
+      "sources": [
+        "https://www.nrl.com/news/2026/10/13/kangaroos-team-to-face-new-zealand-in-rlwc-2026-opener/",
+        "https://www.nrl.com/news/2026/10/13/ponga-and-gagai-to-debut-in-kiwis-world-cup-opener/",
+        "https://www.nrl.com/news/2026/10/12/green-light-the-bus-ride-that-set-yeo-on-world-cup-path/",
+        "https://www.nrl.com/news/2026/10/12/take-a-lot-of-blame-the-defeat-driving-hughes-world-cup-bid/",
+        "https://nzrl.co.nz/news/kiwis-kiwi-ferns-2026-rugby-league-world-cup-draws-announced"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Australia named Moses and Munster in the halves with Walsh at fullback and Yeo captain.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "New Zealand named Hughes and Nikorima in the halves, Ponga at fullback and Gagai at centre.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Yeo is postponing pectoral surgery to captain Australia with his club's support.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Hughes connects his World Cup ambition to the childhood impact of New Zealand's 2008 title.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Australia and New Zealand share Pool A with Fiji and Cook Islands.",
+          "sourceIndexes": [
+            4
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-13T23:57:53.941Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "rugby-australia-new-zealand-2026-10-17",
+      "title": "Australia v New Zealand",
+      "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
+      "formCopy": "Ikitau and Petaia are ruled out, with Paisami suspended. Toole and Pritchard have joined the Wallabies squad, but call-ups are not an announced Sydney XV. Suaalii has been learning the wing role while covering centre when injuries intervene; his position for this Test remains unconfirmed. Australia are working on their response to New Zealand's pressure around the high ball. The All Blacks have also brought in injury cover, so neither side's final combination should be assumed.",
+      "closingCopy": "Suaalii describes playing for Australia as a childhood dream, but the privilege comes with unfamiliar work: learning a new position while being ready to move again. For supporters, versatility is reassuring only if it produces a settled connection with the players around him. Sydney gives the Wallabies a home crowd, not an answer to that problem. A clean catch, an organised chase and a centre pairing that understands each other are small acts through which belief becomes something more dependable.",
+      "synopsis": "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
+      "sources": [
+        "https://www.rugby.com.au/news/we-know-wallabies-tweaking-game-plan-for-all-blacks-high-ball-battle-20261013",
+        "https://www.rugby.com.au/news/winging-it-suaalii-looks-for-stability-as-superstar-wallaby-reflects-on-position-switch-20261013",
+        "https://www.rugby.com.au/news/brumbies-duo-called-up-as-wallabies-confirm-ikitau-loss-for-second-bledisloe-cup-20261010",
+        "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "The Wallabies are adjusting their response to New Zealand's pressure around the high ball.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Suaalii is learning wing while covering centre, and his Sydney position remains unannounced.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Ikitau and Petaia are ruled out, Paisami is suspended, and Toole and Pritchard are squad additions rather than confirmed Sydney starters.",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The 17 October Accor Stadium Test is Australia's last home Test before the northern tour.",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-13T23:57:53.941Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture:cricket:espn:1525660",
+      "title": "South Africa v Australia - Second Test",
+      "hook": "Renshaw's place is more than a vacancy to fill: Australia's returning batters make Gqeberha a test of selection trust as well as balance.",
+      "formCopy": "Inglis is back with the squad and has trained, but that is not confirmation of fitness or selection. Green may return as a batter only rather than a bowling option. Cummins favours retaining Renshaw at No.5 unless conditions make a compelling case for a move. Smith's further concussion assessment was pending in the 12 October report; no later clearance is asserted here. Kuhnemann remains a possible second spinner alongside Lyon, not an announced selection. Neither second-Test XI is confirmed.",
+      "closingCopy": "For Australian supporters, a returning name and a player making a role his own create different kinds of hope. Cummins' preference for Renshaw at No.5 gives that debate a captain's backing, without making the team sheet unconditional. Inglis and Green cannot be promised places before their availability is resolved. South Africa must weigh familiarity against the combination this ground demands. The emotional pull of loyalty matters, but five days ask whether the chosen eleven can turn that trust into sustained pressure.",
+      "synopsis": "The middle Test at St George's Park leaves one match still to come at Newlands. Gqeberha's recent spin history makes patience against slow bowling and the allocation of batting depth central questions, not a prediction of this pitch. A batter-only return for Green would not supply Australia with another seam-bowling option; a second specialist spinner would change the balance again. Fitness updates and announced teams must settle those choices. No earlier match outcome or series position is disclosed.",
+      "sources": [
+        "https://www.cricket.com.au/news/4591880/matthew-renshaw-first-test-south-africa-190-82-australia-kingsmead-positional-switch-number-five-opener-maddinson-cummins-green-cricketplus",
+        "https://www.cricket.com.au/news/4591082/steve-smith-anrich-nortje-head-concussion-check-protocol-south-africa-australia-first-test-kingsmead-durban-match-report-day-four-news-scores-video-highlights-toss",
+        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+        "https://www.cricket.com.au/matches/series/CA%3A4568/south-africa-v-australia-tests-2026-men"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Inglis has returned and trained; Green may return as a batter only, with fitness and selection not confirmed.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Cummins favours Renshaw at No.5 unless conditions give a compelling reason to move him.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Kuhnemann is a second-spin option and Gqeberha's recent spin record informs the selection balance rather than predicting the pitch.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The second Test is at St George's Park on 18-22 October, followed by the third Test at Newlands.",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Smith's further concussion assessment was pending in the 12 October report, without a later clearance established in this research.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-13T23:57:53.941Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture-tennis-espn-atp-184954",
+      "title": "Alexander Zverev v Alex de Minaur",
+      "hook": "Zverev brings the bigger serve; de Minaur brings the harder-earned rallies. Shanghai asks whose way of controlling pressure can survive the other.",
+      "formCopy": "Zverev has reported an ankle issue, making movement a question to watch rather than a reason to presume withdrawal. De Minaur remains in the ATP Finals qualification contest as the Asian swing closes. The useful contrast is tactical: Zverev wants his serve to shorten exchanges, while de Minaur needs returns and repeated changes of direction to make the court feel larger. Neither a seed number nor an earlier score tells us how that physical contest will unfold.",
+      "closingCopy": "For Australian supporters, de Minaur's appeal is not that he makes elite tennis look effortless. It is the sense that another return and another sprint can make a more imposing opponent uncomfortable. Zverev faces a different expectation as Shanghai's top seed: authority must become control, especially when his body is demanding attention. The emotional hinge is who keeps choosing his own game under stress, rather than allowing the other man's strengths to dictate every point.",
+      "synopsis": "This is a Shanghai Masters quarter-final, with a semi-final place at stake rather than the trophy itself. Zverev is a former Shanghai finalist still seeking his first title here; de Minaur's ATP Finals ambitions give the late-season points another consequence. Shanghai is the season's penultimate Masters 1000, so opportunities at this level are narrowing. The exact start remains unconfirmed on the card; no earlier match outcome is disclosed.",
+      "sources": [
+        "https://en.rolexshanghaimasters.com/en/media/news/zverev-bublik-shanghai-2026-tuesday",
+        "https://en.rolexshanghaimasters.com/en/media/news/shanghai-2026-scouting-report",
+        "https://www.atptour.com/en/tournaments/shanghai/5014/overview"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Zverev has reported an ankle issue, without a verified withdrawal.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "De Minaur remains in contention for ATP Finals qualification.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Zverev is a former Shanghai finalist seeking a first title at the event.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Zverev will face de Minaur in the Shanghai quarter-final; Shanghai is the penultimate Masters 1000 of the season.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The official ATP tournament overview lists Shanghai from 7 to 18 October 2026.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-14T00:01:15.885Z",
+      "researchDepth": 5
     }
   ]
 }

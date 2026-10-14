@@ -1,7 +1,7 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc",
-  "generatedAt": "2026-10-12T23:00:39.651Z",
+  "sourceRevision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c",
+  "generatedAt": "2026-10-14T00:01:32.798Z",
   "shadowMode": true,
   "summary": {
     "stakesFiveFuture": 56,
@@ -16,7 +16,7 @@
       "campaignId": "marquee_4b6a6fbfdd6ce674",
       "campaignRevision": 1,
       "eventId": "rugby-australia-new-zealand-2026-10-17",
-      "contentHash": "e5e8cc2d81b4de80bdf15a6443e2359d3bb0c551685946d06dc2733b88cc0a76",
+      "contentHash": "3823ef511c3446cae12a73315d9b4748aeec144cfb35e303cd754d43931ec066",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -64,7 +64,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -127,11 +127,11 @@
       },
       "live": {
         "headline": "Bledisloe Cup — Sydney Test",
-        "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
+        "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
         "kicker": "5.0/5 editorial stakes · Rugby Union",
         "hero": {
-          "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
+          "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -151,16 +151,16 @@
         "animationPreset": "subtle"
       },
       "drafts": {
-        "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
+        "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
         "email": {
           "subject": "Coming up: Bledisloe Cup — Sydney Test",
-          "preheader": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
+          "preheader": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
           "headline": "Bledisloe Cup — Sydney Test",
           "bodyParagraphs": [
-            "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
-            "The first Test's lineups paired Harry Wilson's Wallabies against Codie Taylor's All Blacks; Sydney selection is still to come. Taylor's captaincy covers Ardie Savea's shoulder-surgery absence, while Scott Barrett's return adds experience to New Zealand's pack. Both coaches now have direct evidence from Auckland rather than just South African form to assess. The question for this week is which combinations can sustain their work when territory and fatigue begin to change the game.",
-            "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
-            "For Australian supporters, the last home Test of the year is a chance to see Les Kiss's project hold its shape against the closest rival, not merely to applaud promising passages. Dave Rennie knows the gold jersey from his own time coaching Australia; facing his former players adds a personal edge to New Zealand's preparation. The crowd can supply belief, but it cannot make the tackles or organise the next phase. This stadium hosts the countries' first World Cup pool meeting next year, so the emotional memory of Sydney will outlast this fortnight.",
+            "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
+            "Ikitau and Petaia are ruled out, with Paisami suspended. Toole and Pritchard have joined the Wallabies squad, but call-ups are not an announced Sydney XV. Suaalii has been learning the wing role while covering centre when injuries intervene; his position for this Test remains unconfirmed. Australia are working on their response to New Zealand's pressure around the high ball. The All Blacks have also brought in injury cover, so neither side's final combination should be assumed.",
+            "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
+            "Suaalii describes playing for Australia as a childhood dream, but the privilege comes with unfamiliar work: learning a new position while being ready to move again. For supporters, versatility is reassuring only if it produces a settled connection with the players around him. Sydney gives the Wallabies a home crowd, not an answer to that problem. A clean catch, an organised chase and a centre pairing that understands each other are small acts through which belief becomes something more dependable.",
             "Bledisloe Cup is Sat 17 Oct 2026 at 4:00 pm AEDT at Accor Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Bledisloe Cup — Sydney Test: Sat 17 Oct 2026 at 4:00 pm AEDT.",
@@ -174,8 +174,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_4b6a6fbfdd6ce674"
           },
           "image": {
-            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
+            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -196,10 +196,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=rugby-australia-new-zealand-2026-10-17"
         },
         "instagram": {
-          "caption": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.\n\nBledisloe Cup is Sat 17 Oct 2026 at 4:00 pm AEDT at Accor Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.\n\nBledisloe Cup is Sat 17 Oct 2026 at 4:00 pm AEDT at Accor Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
+            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -224,11 +224,11 @@
         },
         "live": {
           "headline": "Bledisloe Cup — Sydney Test",
-          "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
+          "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
           "kicker": "5.0/5 editorial stakes · Rugby Union",
           "hero": {
-            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
+            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -249,26 +249,25 @@
         }
       },
       "editorial": {
-        "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
+        "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
         "body": [
-          "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
-          "The first Test's lineups paired Harry Wilson's Wallabies against Codie Taylor's All Blacks; Sydney selection is still to come. Taylor's captaincy covers Ardie Savea's shoulder-surgery absence, while Scott Barrett's return adds experience to New Zealand's pack. Both coaches now have direct evidence from Auckland rather than just South African form to assess. The question for this week is which combinations can sustain their work when territory and fatigue begin to change the game.",
-          "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
-          "For Australian supporters, the last home Test of the year is a chance to see Les Kiss's project hold its shape against the closest rival, not merely to applaud promising passages. Dave Rennie knows the gold jersey from his own time coaching Australia; facing his former players adds a personal edge to New Zealand's preparation. The crowd can supply belief, but it cannot make the tackles or organise the next phase. This stadium hosts the countries' first World Cup pool meeting next year, so the emotional memory of Sydney will outlast this fortnight."
+          "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
+          "Ikitau and Petaia are ruled out, with Paisami suspended. Toole and Pritchard have joined the Wallabies squad, but call-ups are not an announced Sydney XV. Suaalii has been learning the wing role while covering centre when injuries intervene; his position for this Test remains unconfirmed. Australia are working on their response to New Zealand's pressure around the high ball. The All Blacks have also brought in injury cover, so neither side's final combination should be assumed.",
+          "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
+          "Suaalii describes playing for Australia as a childhood dream, but the privilege comes with unfamiliar work: learning a new position while being ready to move again. For supporters, versatility is reassuring only if it produces a settled connection with the players around him. Sydney gives the Wallabies a home crowd, not an answer to that problem. A clean catch, an organised chase and a centre pairing that understands each other are small acts through which belief becomes something more dependable."
         ],
         "sourceIds": [
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4"
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0",
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2",
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3"
         ],
-        "researchedAt": "2026-10-10T22:41:26.276Z"
+        "researchedAt": "2026-10-13T23:57:53.941Z"
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
+          "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -277,8 +276,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-e5e8cc2d81b4.jpg",
+            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-3823ef511c34.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -362,7 +361,7 @@
         "name": "Rugby League World Cup 2026",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Rugby League World Cup 2026",
@@ -580,7 +579,7 @@
       "campaignId": "marquee_9c129ce400d1fda4",
       "campaignRevision": 1,
       "eventId": "rlwc-australia-new-zealand-2026",
-      "contentHash": "318e7ebcd1d0569d6ed29e6e12c4645d811c6c71358873655619cd4884cf2da2",
+      "contentHash": "e0e54af86d63614e2841ea479a6616dfa2686f42fba037671290b2a216b81e4d",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -629,7 +628,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Rugby League World Cup opener",
@@ -695,8 +694,8 @@
         "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
         "kicker": "5.0/5 editorial stakes · Rugby League",
         "hero": {
-          "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+          "path": "/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -723,8 +722,8 @@
           "headline": "Rugby League World Cup opener",
           "bodyParagraphs": [
             "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
-            "Australia's preparation now points towards Munster at five-eighth, with Moses reported as the leading halfback contender; those reports are not a final team sheet. Yeo has confirmed he is deferring pectoral surgery to captain the squad. New Zealand bring Hughes back after an injury-enforced international absence, with Fisher-Harris leading a squad that adds Ponga and Gagai. The opening contest must turn those assembled strengths into a working spine and forward platform.",
-            "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
+            "Australia have named Moses and Munster in the halves, Walsh at fullback and Yeo as captain. Bostock and Preston are named for their Kangaroos debuts. New Zealand have paired Hughes with Nikorima, with Ponga at fullback and Gagai at centre for their first Kiwis appearances. Fisher-Harris leads a forward group featuring Leota and Tapine. These are announced match-day roles, not simply squad selections; the new combinations still have to work under pressure.",
+            "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
             "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
             "World Cup opener is Thu 15 Oct 2026 at 8:05 pm AEDT at Allianz Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
@@ -739,8 +738,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_9c129ce400d1fda4"
           },
           "image": {
-            "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+            "path": "/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -763,8 +762,8 @@
         "instagram": {
           "caption": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.\n\nWorld Cup opener is Thu 15 Oct 2026 at 8:05 pm AEDT at Allianz Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+            "path": "/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -792,8 +791,8 @@
           "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
           "kicker": "5.0/5 editorial stakes · Rugby League",
           "hero": {
-            "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+            "path": "/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -817,24 +816,23 @@
         "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
         "body": [
           "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
-          "Australia's preparation now points towards Munster at five-eighth, with Moses reported as the leading halfback contender; those reports are not a final team sheet. Yeo has confirmed he is deferring pectoral surgery to captain the squad. New Zealand bring Hughes back after an injury-enforced international absence, with Fisher-Harris leading a squad that adds Ponga and Gagai. The opening contest must turn those assembled strengths into a working spine and forward platform.",
-          "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
+          "Australia have named Moses and Munster in the halves, Walsh at fullback and Yeo as captain. Bostock and Preston are named for their Kangaroos debuts. New Zealand have paired Hughes with Nikorima, with Ponga at fullback and Gagai at centre for their first Kiwis appearances. Fisher-Harris leads a forward group featuring Leota and Tapine. These are announced match-day roles, not simply squad selections; the new combinations still have to work under pressure.",
+          "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
           "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear."
         ],
         "sourceIds": [
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:0",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:1",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:2",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:3",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:4",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:5"
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4"
         ],
-        "researchedAt": "2026-10-12T22:50:31.092Z"
+        "researchedAt": "2026-10-13T23:57:53.941Z"
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+          "path": "/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -843,8 +841,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-318e7ebcd1d0.jpg",
+            "path": "/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_9c129ce400d1fda4-e0e54af86d63.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -877,7 +875,7 @@
       "campaignId": "marquee_61b9cd9028c1c9f4",
       "campaignRevision": 1,
       "eventId": "rugby-australia-new-zealand-2026-10-17",
-      "contentHash": "cadfc1b3eca347e00d9c161d370a194f66e5534f46f19af6d337b20f5ba2ae21",
+      "contentHash": "8cc726a8b0594c5f5e992cc4bd784a6711e896be35d6859dbda3ece117295939",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -926,7 +924,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Bledisloe Cup — Sydney Test",
@@ -989,11 +987,11 @@
       },
       "live": {
         "headline": "Bledisloe Cup — Sydney Test",
-        "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
+        "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
         "kicker": "5.0/5 editorial stakes · Rugby Union",
         "hero": {
-          "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
+          "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1013,16 +1011,16 @@
         "animationPreset": "subtle"
       },
       "drafts": {
-        "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
+        "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
         "email": {
           "subject": "Today: Bledisloe Cup — Sydney Test",
-          "preheader": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
+          "preheader": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
           "headline": "Bledisloe Cup — Sydney Test",
           "bodyParagraphs": [
-            "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
-            "The first Test's lineups paired Harry Wilson's Wallabies against Codie Taylor's All Blacks; Sydney selection is still to come. Taylor's captaincy covers Ardie Savea's shoulder-surgery absence, while Scott Barrett's return adds experience to New Zealand's pack. Both coaches now have direct evidence from Auckland rather than just South African form to assess. The question for this week is which combinations can sustain their work when territory and fatigue begin to change the game.",
-            "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
-            "For Australian supporters, the last home Test of the year is a chance to see Les Kiss's project hold its shape against the closest rival, not merely to applaud promising passages. Dave Rennie knows the gold jersey from his own time coaching Australia; facing his former players adds a personal edge to New Zealand's preparation. The crowd can supply belief, but it cannot make the tackles or organise the next phase. This stadium hosts the countries' first World Cup pool meeting next year, so the emotional memory of Sydney will outlast this fortnight.",
+            "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
+            "Ikitau and Petaia are ruled out, with Paisami suspended. Toole and Pritchard have joined the Wallabies squad, but call-ups are not an announced Sydney XV. Suaalii has been learning the wing role while covering centre when injuries intervene; his position for this Test remains unconfirmed. Australia are working on their response to New Zealand's pressure around the high ball. The All Blacks have also brought in injury cover, so neither side's final combination should be assumed.",
+            "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
+            "Suaalii describes playing for Australia as a childhood dream, but the privilege comes with unfamiliar work: learning a new position while being ready to move again. For supporters, versatility is reassuring only if it produces a settled connection with the players around him. Sydney gives the Wallabies a home crowd, not an answer to that problem. A clean catch, an organised chase and a centre pairing that understands each other are small acts through which belief becomes something more dependable.",
             "Bledisloe Cup is Sat 17 Oct 2026 at 4:00 pm AEDT at Accor Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Bledisloe Cup — Sydney Test: Sat 17 Oct 2026 at 4:00 pm AEDT.",
@@ -1036,8 +1034,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_61b9cd9028c1c9f4"
           },
           "image": {
-            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
+            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1058,10 +1056,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=rugby-australia-new-zealand-2026-10-17"
         },
         "instagram": {
-          "caption": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.\n\nBledisloe Cup is Sat 17 Oct 2026 at 4:00 pm AEDT at Accor Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.\n\nBledisloe Cup is Sat 17 Oct 2026 at 4:00 pm AEDT at Accor Stadium, Sydney. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
+            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1086,11 +1084,11 @@
         },
         "live": {
           "headline": "Bledisloe Cup — Sydney Test",
-          "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
+          "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
           "kicker": "5.0/5 editorial stakes · Rugby Union",
           "hero": {
-            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
+            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1111,26 +1109,25 @@
         }
       },
       "editorial": {
-        "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
+        "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
         "body": [
-          "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
-          "The first Test's lineups paired Harry Wilson's Wallabies against Codie Taylor's All Blacks; Sydney selection is still to come. Taylor's captaincy covers Ardie Savea's shoulder-surgery absence, while Scott Barrett's return adds experience to New Zealand's pack. Both coaches now have direct evidence from Auckland rather than just South African form to assess. The question for this week is which combinations can sustain their work when territory and fatigue begin to change the game.",
-          "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
-          "For Australian supporters, the last home Test of the year is a chance to see Les Kiss's project hold its shape against the closest rival, not merely to applaud promising passages. Dave Rennie knows the gold jersey from his own time coaching Australia; facing his former players adds a personal edge to New Zealand's preparation. The crowd can supply belief, but it cannot make the tackles or organise the next phase. This stadium hosts the countries' first World Cup pool meeting next year, so the emotional memory of Sydney will outlast this fortnight."
+          "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
+          "Ikitau and Petaia are ruled out, with Paisami suspended. Toole and Pritchard have joined the Wallabies squad, but call-ups are not an announced Sydney XV. Suaalii has been learning the wing role while covering centre when injuries intervene; his position for this Test remains unconfirmed. Australia are working on their response to New Zealand's pressure around the high ball. The All Blacks have also brought in injury cover, so neither side's final combination should be assumed.",
+          "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
+          "Suaalii describes playing for Australia as a childhood dream, but the privilege comes with unfamiliar work: learning a new position while being ready to move again. For supporters, versatility is reassuring only if it produces a settled connection with the players around him. Sydney gives the Wallabies a home crowd, not an answer to that problem. A clean catch, an organised chase and a centre pairing that understands each other are small acts through which belief becomes something more dependable."
         ],
         "sourceIds": [
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4"
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0",
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2",
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3"
         ],
-        "researchedAt": "2026-10-10T22:41:26.276Z"
+        "researchedAt": "2026-10-13T23:57:53.941Z"
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
+          "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1139,8 +1136,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-cadfc1b3eca3.jpg",
+            "path": "/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_61b9cd9028c1c9f4-8cc726a8b059.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1221,7 +1218,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Australia Grand Prix",
@@ -1486,7 +1483,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Australia Grand Prix",
@@ -1750,7 +1747,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Malaysia Grand Prix",
@@ -1966,7 +1963,7 @@
       "campaignId": "marquee_6ea62c6c5e838569",
       "campaignRevision": 1,
       "eventId": "event:horse-racing:melbourne-cup:2026",
-      "contentHash": "de4b589380600a747e397a4edb7bf2c5b0990f9471e90078a1803f67e73b8edb",
+      "contentHash": "1bfe974af383f7066551f6b25a9967c5c6720bb0be2cb7d24935ab1b06c9cf52",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -2016,7 +2013,7 @@
         "name": "Official race organiser calendar",
         "url": "https://www.vrc.com.au/racing/race-programs-and-conditions/",
         "checkedAt": "2026-10-11T12:37:29.370Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Melbourne Cup",
@@ -2054,11 +2051,11 @@
       },
       "live": {
         "headline": "Melbourne Cup",
-        "hook": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
+        "hook": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
         "kicker": "5.0/5 editorial stakes · Horse Racing",
         "hero": {
-          "path": "/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
+          "path": "/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2078,15 +2075,15 @@
         "animationPreset": "subtle"
       },
       "drafts": {
-        "hook": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
+        "hook": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
         "email": {
           "subject": "Coming up: Melbourne Cup",
-          "preheader": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
+          "preheader": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
           "headline": "Melbourne Cup",
           "bodyParagraphs": [
-            "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
-            "The Group 1 Melbourne Cup is scheduled for 3 November at Flemington over 3200 metres. Its history began in 1861. Eleven Golden Ticket winners receive ballot exemption for the 2026 edition, giving the lead-up races a direct connection to Cup day. The VRC announced 101 nominations on 1 September. That was an early entry-stage snapshot, not a prediction of the final runners. Later acceptances and scratchings can change the field; use the latest published entry details on the card.",
-            "The long-distance race and its qualifying paths give the build-up its shape. Golden Ticket exemption and an early acceptance list do not decide the race. The confirmed race time, final line-up and result remain separate from this background.",
+            "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
+            "At Flemington, 3,200 metres separate a field of horses and jockeys from a place in racing history. Storied, celebrated and sometimes controversial, it is Australia’s defining horse race.",
+            "The Cup matters because it turns an extraordinary test of endurance and riding skill into a national occasion, bringing generations of stories and rivalries together for a few unforgettable minutes.",
             "Melbourne Cup is Tue 3 Nov 2026; exact start time to be confirmed at Flemington. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Melbourne Cup: Tue 3 Nov 2026; exact start time to be confirmed.",
@@ -2100,8 +2097,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_6ea62c6c5e838569"
           },
           "image": {
-            "path": "/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
+            "path": "/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2122,10 +2119,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=evt_horse_racing_melbourne_cup_2026"
         },
         "instagram": {
-          "caption": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.\n\nMelbourne Cup is Tue 3 Nov 2026; exact start time to be confirmed at Flemington. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.\n\nMelbourne Cup is Tue 3 Nov 2026; exact start time to be confirmed at Flemington. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
+            "path": "/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2150,11 +2147,11 @@
         },
         "live": {
           "headline": "Melbourne Cup",
-          "hook": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
+          "hook": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
           "kicker": "5.0/5 editorial stakes · Horse Racing",
           "hero": {
-            "path": "/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
+            "path": "/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2175,23 +2172,23 @@
         }
       },
       "editorial": {
-        "hook": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
+        "hook": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
         "body": [
-          "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
-          "The Group 1 Melbourne Cup is scheduled for 3 November at Flemington over 3200 metres. Its history began in 1861. Eleven Golden Ticket winners receive ballot exemption for the 2026 edition, giving the lead-up races a direct connection to Cup day. The VRC announced 101 nominations on 1 September. That was an early entry-stage snapshot, not a prediction of the final runners. Later acceptances and scratchings can change the field; use the latest published entry details on the card.",
-          "The long-distance race and its qualifying paths give the build-up its shape. Golden Ticket exemption and an early acceptance list do not decide the race. The confirmed race time, final line-up and result remain separate from this background."
+          "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
+          "At Flemington, 3,200 metres separate a field of horses and jockeys from a place in racing history. Storied, celebrated and sometimes controversial, it is Australia’s defining horse race.",
+          "The Cup matters because it turns an extraordinary test of endurance and riding skill into a national occasion, bringing generations of stories and rivalries together for a few unforgettable minutes."
         ],
         "sourceIds": [
-          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:0",
-          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:1",
-          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:2"
+          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:0",
+          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:1",
+          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:2"
         ],
-        "researchedAt": "2026-10-11T03:45:38.506Z"
+        "researchedAt": "2026-10-13T08:14:23.253Z"
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
+          "path": "/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2200,8 +2197,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-de4b58938060.jpg",
+            "path": "/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6ea62c6c5e838569-1bfe974af383.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2283,7 +2280,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Malaysia Grand Prix",
@@ -2499,7 +2496,7 @@
       "campaignId": "marquee_7a704ec609d1b34e",
       "campaignRevision": 1,
       "eventId": "event:horse-racing:melbourne-cup:2026",
-      "contentHash": "772833b7efae651cb046689d11225e2b550186704095da1bb80c5a24aabb6438",
+      "contentHash": "cf488f7f7a349d41f296092e962873abda1f0c24865528d9316aaa93b99fcca1",
       "state": "draft",
       "actionable": true,
       "late": false,
@@ -2550,7 +2547,7 @@
         "name": "Official race organiser calendar",
         "url": "https://www.vrc.com.au/racing/race-programs-and-conditions/",
         "checkedAt": "2026-10-11T12:37:29.370Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Melbourne Cup",
@@ -2588,11 +2585,11 @@
       },
       "live": {
         "headline": "Melbourne Cup",
-        "hook": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
+        "hook": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
         "kicker": "5.0/5 editorial stakes · Horse Racing",
         "hero": {
-          "path": "/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
+          "path": "/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2612,15 +2609,15 @@
         "animationPreset": "subtle"
       },
       "drafts": {
-        "hook": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
+        "hook": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
         "email": {
           "subject": "Today: Melbourne Cup",
-          "preheader": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
+          "preheader": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
           "headline": "Melbourne Cup",
           "bodyParagraphs": [
-            "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
-            "The Group 1 Melbourne Cup is scheduled for 3 November at Flemington over 3200 metres. Its history began in 1861. Eleven Golden Ticket winners receive ballot exemption for the 2026 edition, giving the lead-up races a direct connection to Cup day. The VRC announced 101 nominations on 1 September. That was an early entry-stage snapshot, not a prediction of the final runners. Later acceptances and scratchings can change the field; use the latest published entry details on the card.",
-            "The long-distance race and its qualifying paths give the build-up its shape. Golden Ticket exemption and an early acceptance list do not decide the race. The confirmed race time, final line-up and result remain separate from this background.",
+            "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
+            "At Flemington, 3,200 metres separate a field of horses and jockeys from a place in racing history. Storied, celebrated and sometimes controversial, it is Australia’s defining horse race.",
+            "The Cup matters because it turns an extraordinary test of endurance and riding skill into a national occasion, bringing generations of stories and rivalries together for a few unforgettable minutes.",
             "Melbourne Cup is Tue 3 Nov 2026; exact start time to be confirmed at Flemington. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport."
           ],
           "timingLine": "Melbourne Cup: Tue 3 Nov 2026; exact start time to be confirmed.",
@@ -2634,8 +2631,8 @@
             "url": "https://nothingsport.vercel.app/live?campaign=marquee_7a704ec609d1b34e"
           },
           "image": {
-            "path": "/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
+            "path": "/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2656,10 +2653,10 @@
           "ratingUrl": "https://nothingsport.vercel.app/?event=evt_horse_racing_melbourne_cup_2026"
         },
         "instagram": {
-          "caption": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.\n\nMelbourne Cup is Tue 3 Nov 2026; exact start time to be confirmed at Flemington. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
+          "caption": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.\n\nMelbourne Cup is Tue 3 Nov 2026; exact start time to be confirmed at Flemington. Set a reminder, rate your expectations, or join or set up a watch party on Nothing Sport.",
           "image": {
-            "path": "/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
+            "path": "/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2684,11 +2681,11 @@
         },
         "live": {
           "headline": "Melbourne Cup",
-          "hook": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
+          "hook": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
           "kicker": "5.0/5 editorial stakes · Horse Racing",
           "hero": {
-            "path": "/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
+            "path": "/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2709,23 +2706,23 @@
         }
       },
       "editorial": {
-        "hook": "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
+        "hook": "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
         "body": [
-          "Melbourne Cup brings a 3200-metre Flemington test, a history from 1861 and eleven Golden Ticket qualifiers.",
-          "The Group 1 Melbourne Cup is scheduled for 3 November at Flemington over 3200 metres. Its history began in 1861. Eleven Golden Ticket winners receive ballot exemption for the 2026 edition, giving the lead-up races a direct connection to Cup day. The VRC announced 101 nominations on 1 September. That was an early entry-stage snapshot, not a prediction of the final runners. Later acceptances and scratchings can change the field; use the latest published entry details on the card.",
-          "The long-distance race and its qualifying paths give the build-up its shape. Golden Ticket exemption and an early acceptance list do not decide the race. The confirmed race time, final line-up and result remain separate from this background."
+          "Few sporting moments bring Australia to a halt quite like the Melbourne Cup.",
+          "At Flemington, 3,200 metres separate a field of horses and jockeys from a place in racing history. Storied, celebrated and sometimes controversial, it is Australia’s defining horse race.",
+          "The Cup matters because it turns an extraordinary test of endurance and riding skill into a national occasion, bringing generations of stories and rivalries together for a few unforgettable minutes."
         ],
         "sourceIds": [
-          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:0",
-          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:1",
-          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-adb87370c0da30120453545e4a76579b8e9f624f8747da4880c63625052ca8f6:2"
+          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:0",
+          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:1",
+          "source:fixture-research:event:horse-racing:melbourne-cup:2026:revision-b48ca6c6417ea29dcf330c3a2b6ee9298e777f4d8712b99e7005e91e72862729:2"
         ],
-        "researchedAt": "2026-10-11T03:45:38.506Z"
+        "researchedAt": "2026-10-13T08:14:23.253Z"
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
+          "path": "/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -2734,8 +2731,8 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-772833b7efae.jpg",
+            "path": "/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_7a704ec609d1b34e-cf488f7f7a34.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -2816,7 +2813,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -3081,7 +3078,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -3347,7 +3344,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -3613,7 +3610,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -3877,7 +3874,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -4144,7 +4141,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -4411,7 +4408,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -4676,7 +4673,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -4942,7 +4939,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -5210,7 +5207,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -5476,7 +5473,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -5740,7 +5737,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -6004,7 +6001,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-11T12:37:25.437Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -6268,7 +6265,7 @@
         "name": "2026 Nations Championship Finals Weekend",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2026 Nations Championship Finals Weekend",
@@ -6537,7 +6534,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -6804,7 +6801,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-10-01T17:37:45.716Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -7069,7 +7066,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -7334,7 +7331,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-10-11T12:37:25.437Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -7597,7 +7594,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -7866,7 +7863,7 @@
         "name": "Australian Open 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Australian Open 2027",
@@ -8134,7 +8131,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/thailand/8ab8c4e8-5069-499c-a330-42176595b117",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Thailand Grand Prix",
@@ -8396,7 +8393,7 @@
         "name": "FIS official 2026/27 competition calendar",
         "url": "https://www.fis-ski.com/DB/general/event-details.html?sectorcode=FS&eventid=62878&seasoncode=2027",
         "checkedAt": "2026-10-03T21:36:12.000Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Shahdag — Freestyle World Cup Finals",
@@ -8664,7 +8661,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/thailand/8ab8c4e8-5069-499c-a330-42176595b117",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Thailand Grand Prix",
@@ -8927,7 +8924,7 @@
         "name": "FIS official 2026/27 competition calendar",
         "url": "https://www.fis-ski.com/DB/general/event-details.html?sectorcode=FS&eventid=62878&seasoncode=2027",
         "checkedAt": "2026-10-03T21:36:12.000Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Shahdag — Freestyle World Cup Finals",
@@ -9194,7 +9191,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/qatar/e1d60873-b02b-4f4b-bb8c-a7a6c5636d46",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -9457,7 +9454,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/qatar/e1d60873-b02b-4f4b-bb8c-a7a6c5636d46",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -9719,7 +9716,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/brasil/bf5f3555-1a6a-4f3c-9855-eaaeaae5dec0",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Brazil Grand Prix",
@@ -9982,7 +9979,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/brasil/bf5f3555-1a6a-4f3c-9855-eaaeaae5dec0",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Brazil Grand Prix",
@@ -10244,7 +10241,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -10507,7 +10504,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 1",
@@ -10770,7 +10767,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 2",
@@ -11033,7 +11030,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/argentina/c10a7ebf-311d-4ad4-9e70-5cdedb820d0e",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Argentina Grand Prix",
@@ -11295,7 +11292,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 3",
@@ -11559,7 +11556,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -11823,7 +11820,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 1",
@@ -12086,7 +12083,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 4",
@@ -12350,7 +12347,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 2",
@@ -12614,7 +12611,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/argentina/c10a7ebf-311d-4ad4-9e70-5cdedb820d0e",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Argentina Grand Prix",
@@ -12877,7 +12874,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 3",
@@ -13141,7 +13138,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgatour.com/article/news/golfbet/major-qualifiers",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 Masters Tournament — Round 4",
@@ -13404,7 +13401,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/americas/40e6cf1f-72ea-4d93-8e47-3bfbdbcb7482",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Americas Grand Prix",
@@ -13667,7 +13664,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/americas/40e6cf1f-72ea-4d93-8e47-3bfbdbcb7482",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Americas Grand Prix",
@@ -13929,7 +13926,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/espa-a/a86a970e-bcb1-4f61-a401-6a1d440537a3",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Spain Grand Prix",
@@ -14192,7 +14189,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/espa-a/a86a970e-bcb1-4f61-a401-6a1d440537a3",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Spain Grand Prix",
@@ -14454,7 +14451,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/france/4a935298-8a46-4435-9bdb-2a6e0dfac50b",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP France Grand Prix",
@@ -14717,7 +14714,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/france/4a935298-8a46-4435-9bdb-2a6e0dfac50b",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP France Grand Prix",
@@ -14979,7 +14976,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -15242,7 +15239,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 PGA Championship — Round 1",
@@ -15505,7 +15502,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 PGA Championship — Round 2",
@@ -15768,7 +15765,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 PGA Championship — Round 3",
@@ -16032,7 +16029,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -16296,7 +16293,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 PGA Championship — Round 1",
@@ -16559,7 +16556,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 PGA Championship — Round 4",
@@ -16823,7 +16820,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 PGA Championship — Round 2",
@@ -17087,7 +17084,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 PGA Championship — Round 3",
@@ -17351,7 +17348,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pgachampionship.com/tickets",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 PGA Championship — Round 4",
@@ -17614,7 +17611,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/italy/2dc1370c-ddde-46ad-aae0-556f6660b015",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Italy Grand Prix",
@@ -17877,7 +17874,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/italy/2dc1370c-ddde-46ad-aae0-556f6660b015",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Italy Grand Prix",
@@ -18139,7 +18136,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/catalonia/87010858-4f81-4546-9cfb-2bc0684cc849",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Catalunya Grand Prix",
@@ -18402,7 +18399,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/catalonia/87010858-4f81-4546-9cfb-2bc0684cc849",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Catalunya Grand Prix",
@@ -18664,7 +18661,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -18927,7 +18924,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 U.S. Open — Round 1",
@@ -19190,7 +19187,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 U.S. Open — Round 2",
@@ -19453,7 +19450,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 U.S. Open — Round 3",
@@ -19717,7 +19714,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -19981,7 +19978,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 U.S. Open — Round 1",
@@ -20244,7 +20241,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 U.S. Open — Round 4",
@@ -20508,7 +20505,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 U.S. Open — Round 2",
@@ -20772,7 +20769,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 U.S. Open — Round 3",
@@ -21036,7 +21033,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.pebblebeach.com/press-releases/2027-us-open-championship-logo/",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 U.S. Open — Round 4",
@@ -21299,7 +21296,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/netherlands/42712efa-4a99-4af3-8869-66197fc5248c",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Netherlands Grand Prix",
@@ -21562,7 +21559,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/netherlands/42712efa-4a99-4af3-8869-66197fc5248c",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Netherlands Grand Prix",
@@ -21824,7 +21821,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/germany/5c4fc7f1-eeca-4f47-b6ef-9187d17da865",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Germany Grand Prix",
@@ -22087,7 +22084,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/germany/5c4fc7f1-eeca-4f47-b6ef-9187d17da865",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Germany Grand Prix",
@@ -22349,7 +22346,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "The 155th Open",
@@ -22612,7 +22609,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 The Open Championship — Round 1",
@@ -22875,7 +22872,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 The Open Championship — Round 2",
@@ -23138,7 +23135,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/czeck-republiky/519574ff-f733-4630-bbc8-5c8ae7040d16",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Czechia Grand Prix",
@@ -23400,7 +23397,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 The Open Championship — Round 3",
@@ -23664,7 +23661,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "The 155th Open",
@@ -23928,7 +23925,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 The Open Championship — Round 1",
@@ -24191,7 +24188,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 The Open Championship — Round 4",
@@ -24455,7 +24452,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 The Open Championship — Round 2",
@@ -24719,7 +24716,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/czeck-republiky/519574ff-f733-4630-bbc8-5c8ae7040d16",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Czechia Grand Prix",
@@ -24982,7 +24979,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 The Open Championship — Round 3",
@@ -25246,7 +25243,7 @@
         "name": "Official major championship calendar",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-10-02T21:57:46.955Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "2027 The Open Championship — Round 4",
@@ -25509,7 +25506,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/great-britain/adb67418-cf62-4369-b074-e998c2e0d951",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Great Britain Grand Prix",
@@ -25772,7 +25769,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/great-britain/adb67418-cf62-4369-b074-e998c2e0d951",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Great Britain Grand Prix",
@@ -26034,7 +26031,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/austria/4cbd9219-9732-4f03-9a45-e3dac1d669f4",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Austria Grand Prix",
@@ -26297,7 +26294,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/austria/4cbd9219-9732-4f03-9a45-e3dac1d669f4",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Austria Grand Prix",
@@ -26559,7 +26556,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/san-marino/4e69f9e9-fb52-4549-ac1e-1177500d33f8",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP San Marino Grand Prix",
@@ -26822,7 +26819,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/san-marino/4e69f9e9-fb52-4549-ac1e-1177500d33f8",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP San Marino Grand Prix",
@@ -27084,7 +27081,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/spain/f119aae5-3e39-4cf3-9801-9fdec5b5c651",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Aragon Grand Prix",
@@ -27347,7 +27344,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/spain/f119aae5-3e39-4cf3-9801-9fdec5b5c651",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Aragon Grand Prix",
@@ -27609,7 +27606,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/portugal/211e69f0-b521-4df4-95c8-7f890b878a2b",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -27872,7 +27869,7 @@
         "name": "MotoGP official calendar and premier-class timetable",
         "url": "https://www.motogp.com/en/calendar/2027/event/portugal/211e69f0-b521-4df4-95c8-7f890b878a2b",
         "checkedAt": "2026-10-11T13:40:40.662Z",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "MotoGP Portugal Grand Prix",
@@ -28132,7 +28129,7 @@
         "name": "Formula 1 Australian Grand Prix 2027",
         "url": "",
         "checkedAt": "",
-        "revision": "weekend-editorial-20261012225957817@2026-10-12T22:59:57.817Z:1cf193021acc"
+        "revision": "weekend-editorial-20261014000127081@2026-10-14T00:01:27.081Z:ab418dc69f6c"
       },
       "material": {
         "title": "Formula 1 Australian Grand Prix 2027",

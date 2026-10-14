@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-official-results-2026-09-15-v1",
-  "publishedAt": "2026-10-13T21:00:21.731Z",
+  "version": "weekend-editorial-20261014000127081",
+  "publishedAt": "2026-10-14T00:01:27.081Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -155135,7 +155135,7 @@
       "round": "all",
       "narrativeType": "match",
       "selectedSentence": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
-      "fullSpiel": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
+      "fullSpiel": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
       "sourceName": "RLWC 2026 — competition rules",
       "sourceUrl": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
       "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
@@ -155161,26 +155161,27 @@
         "expectedSpectacle": 10,
         "hookSpoilerOff": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
         "hookSpoilerOn": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
-        "synopsisSpoilerOff": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
-        "synopsisSpoilerOn": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
+        "synopsisSpoilerOff": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
+        "synopsisSpoilerOn": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
         "intensitySource": "computed",
-        "lastReviewedAt": "2026-10-12T22:50:31.092Z",
+        "lastReviewedAt": "2026-10-13T23:57:53.941Z",
         "researchDepth": 5
       },
-      "lastReviewedAt": "2026-10-12T22:50:31.092Z",
+      "lastReviewedAt": "2026-10-13T23:57:53.941Z",
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Australia v New Zealand - World Cup opener",
+        "angle": "Australia v New Zealand",
         "contextSignals": [
           "event-specific",
           "narrative:form",
-          "narrative:history",
+          "narrative:matchup",
           "narrative:consequence",
+          "narrative:history",
           "narrative:path"
         ],
-        "sourceName": "Australia v New Zealand - World Cup opener — official research 1",
-        "sourceUrl": "https://www.nrl.com/news/2026/10/13/unpredictability-key-as-munster-prepares-for-new-halves-pairing/",
-        "sourceCheckedAt": "2026-10-12T22:50:31.092Z",
+        "sourceName": "Australia v New Zealand — official research 1",
+        "sourceUrl": "https://www.nrl.com/news/2026/10/13/kangaroos-team-to-face-new-zealand-in-rlwc-2026-opener/",
+        "sourceCheckedAt": "2026-10-13T23:57:53.941Z",
         "needsPreviewRefresh": false
       },
       "sourceTrust": "unverified",
@@ -155200,36 +155201,34 @@
         "projectionId": "projection:feed:rlwc-australia-new-zealand-2026",
         "researchTier": "marquee",
         "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
-        "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
-        "formCopy": "Australia's preparation now points towards Munster at five-eighth, with Moses reported as the leading halfback contender; those reports are not a final team sheet. Yeo has confirmed he is deferring pectoral surgery to captain the squad. New Zealand bring Hughes back after an injury-enforced international absence, with Fisher-Harris leading a squad that adds Ponga and Gagai. The opening contest must turn those assembled strengths into a working spine and forward platform.",
+        "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
+        "formCopy": "Australia have named Moses and Munster in the halves, Walsh at fullback and Yeo as captain. Bostock and Preston are named for their Kangaroos debuts. New Zealand have paired Hughes with Nikorima, with Ponga at fullback and Gagai at centre for their first Kiwis appearances. Fisher-Harris leads a forward group featuring Leota and Tapine. These are announced match-day roles, not simply squad selections; the new combinations still have to work under pressure.",
         "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
         "threadIds": [
-          "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1"
+          "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162"
         ],
         "factIds": [
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:0",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:1",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:2",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:3",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:4",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:5",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:6"
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4"
         ],
         "sourceIds": [
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:0",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:1",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:2",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:3",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:4",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:5"
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4"
         ],
         "dimensions": [
           "form",
-          "history",
+          "matchup",
           "consequence",
+          "history",
           "path"
         ],
-        "researchedAt": "2026-10-12T22:50:31.092Z",
+        "researchedAt": "2026-10-13T23:57:53.941Z",
         "refreshAfter": "2026-10-15T09:05:00.000Z",
         "generationMode": "researched",
         "phase": "preview"
@@ -156741,8 +156740,8 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "test",
-      "selectedSentence": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
-      "fullSpiel": "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
+      "selectedSentence": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
+      "fullSpiel": "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
       "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
       "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
       "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
@@ -156768,29 +156767,28 @@
         "intensity": 5,
         "arcStage": "preview",
         "expectedSpectacle": 10,
-        "hookSpoilerOff": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
-        "hookSpoilerOn": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
-        "synopsisSpoilerOff": "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
-        "synopsisSpoilerOn": "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
+        "hookSpoilerOff": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
+        "hookSpoilerOn": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
+        "synopsisSpoilerOff": "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
+        "synopsisSpoilerOn": "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
         "intensitySource": "computed",
-        "lastReviewedAt": "2026-10-10T22:41:26.276Z",
+        "lastReviewedAt": "2026-10-13T23:57:53.941Z",
         "researchDepth": 5
       },
-      "lastReviewedAt": "2026-10-10T22:41:26.276Z",
+      "lastReviewedAt": "2026-10-13T23:57:53.941Z",
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "Australia v New Zealand - Sydney Bledisloe Test",
+        "angle": "Australia v New Zealand",
         "contextSignals": [
           "event-specific",
-          "narrative:path",
-          "narrative:form",
           "narrative:matchup",
-          "narrative:history",
-          "narrative:consequence"
+          "narrative:form",
+          "narrative:consequence",
+          "narrative:path"
         ],
-        "sourceName": "Australia v New Zealand - Sydney Bledisloe Test — official research 1",
-        "sourceUrl": "https://www.allblacks.com/team/all-blacks/bledisloe-cup",
-        "sourceCheckedAt": "2026-10-10T22:41:26.276Z",
+        "sourceName": "Australia v New Zealand — official research 1",
+        "sourceUrl": "https://www.rugby.com.au/news/we-know-wallabies-tweaking-game-plan-for-all-blacks-high-ball-battle-20261013",
+        "sourceCheckedAt": "2026-10-13T23:57:53.941Z",
         "needsPreviewRefresh": false
       },
       "sourceTrust": "unverified",
@@ -156809,36 +156807,32 @@
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:feed:bledisloe-sydney-2026",
         "researchTier": "marquee",
-        "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
-        "synopsis": "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
-        "formCopy": "The first Test's lineups paired Harry Wilson's Wallabies against Codie Taylor's All Blacks; Sydney selection is still to come. Taylor's captaincy covers Ardie Savea's shoulder-surgery absence, while Scott Barrett's return adds experience to New Zealand's pack. Both coaches now have direct evidence from Auckland rather than just South African form to assess. The question for this week is which combinations can sustain their work when territory and fatigue begin to change the game.",
-        "closingCopy": "For Australian supporters, the last home Test of the year is a chance to see Les Kiss's project hold its shape against the closest rival, not merely to applaud promising passages. Dave Rennie knows the gold jersey from his own time coaching Australia; facing his former players adds a personal edge to New Zealand's preparation. The crowd can supply belief, but it cannot make the tackles or organise the next phase. This stadium hosts the countries' first World Cup pool meeting next year, so the emotional memory of Sydney will outlast this fortnight.",
+        "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
+        "synopsis": "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
+        "formCopy": "Ikitau and Petaia are ruled out, with Paisami suspended. Toole and Pritchard have joined the Wallabies squad, but call-ups are not an announced Sydney XV. Suaalii has been learning the wing role while covering centre when injuries intervene; his position for this Test remains unconfirmed. Australia are working on their response to New Zealand's pressure around the high ball. The All Blacks have also brought in injury cover, so neither side's final combination should be assumed.",
+        "closingCopy": "Suaalii describes playing for Australia as a childhood dream, but the privilege comes with unfamiliar work: learning a new position while being ready to move again. For supporters, versatility is reassuring only if it produces a settled connection with the players around him. Sydney gives the Wallabies a home crowd, not an answer to that problem. A clean catch, an organised chase and a centre pairing that understands each other are small acts through which belief becomes something more dependable.",
         "threadIds": [
-          "thread:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb"
+          "thread:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224"
         ],
         "factIds": [
-          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
-          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1",
-          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
-          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3",
-          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4",
-          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:5"
+          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0",
+          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
+          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2",
+          "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3"
         ],
         "sourceIds": [
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3",
-          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4"
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0",
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2",
+          "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3"
         ],
         "dimensions": [
-          "path",
-          "form",
           "matchup",
-          "history",
-          "consequence"
+          "form",
+          "consequence",
+          "path"
         ],
-        "researchedAt": "2026-10-10T22:41:26.276Z",
+        "researchedAt": "2026-10-13T23:57:53.941Z",
         "refreshAfter": "2026-10-17T05:00:00.000Z",
         "generationMode": "researched",
         "phase": "preview"

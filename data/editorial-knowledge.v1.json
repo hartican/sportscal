@@ -1506,6 +1506,26 @@
       "id": "subject:fixture-research:event:horse-racing:australian-cup:2027:revision-002024530db7b52357259496da55f1b2e7869a59be31693bf24e979b49815a32",
       "kind": "event",
       "name": "Australian Cup — sporting tradition and why it matters"
+    },
+    {
+      "id": "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162",
+      "kind": "event",
+      "name": "Australia v New Zealand"
+    },
+    {
+      "id": "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224",
+      "kind": "event",
+      "name": "Australia v New Zealand"
+    },
+    {
+      "id": "subject:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee",
+      "kind": "event",
+      "name": "South Africa v Australia - Second Test"
+    },
+    {
+      "id": "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538",
+      "kind": "event",
+      "name": "Alexander Zverev v Alex de Minaur"
     }
   ],
   "sources": [
@@ -7703,6 +7723,118 @@
       "url": "https://www.vrc.com.au/latest-news/it-all-began-with-dulcify/",
       "sourceType": "official",
       "checkedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
+      "name": "Australia v New Zealand — official research 1",
+      "url": "https://www.nrl.com/news/2026/10/13/kangaroos-team-to-face-new-zealand-in-rlwc-2026-opener/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
+      "name": "Australia v New Zealand — official research 2",
+      "url": "https://www.nrl.com/news/2026/10/13/ponga-and-gagai-to-debut-in-kiwis-world-cup-opener/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
+      "name": "Australia v New Zealand — official research 3",
+      "url": "https://www.nrl.com/news/2026/10/12/green-light-the-bus-ride-that-set-yeo-on-world-cup-path/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
+      "name": "Australia v New Zealand — official research 4",
+      "url": "https://www.nrl.com/news/2026/10/12/take-a-lot-of-blame-the-defeat-driving-hughes-world-cup-bid/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4",
+      "name": "Australia v New Zealand — official research 5",
+      "url": "https://nzrl.co.nz/news/kiwis-kiwi-ferns-2026-rugby-league-world-cup-draws-announced",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0",
+      "name": "Australia v New Zealand — official research 1",
+      "url": "https://www.rugby.com.au/news/we-know-wallabies-tweaking-game-plan-for-all-blacks-high-ball-battle-20261013",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
+      "name": "Australia v New Zealand — official research 2",
+      "url": "https://www.rugby.com.au/news/winging-it-suaalii-looks-for-stability-as-superstar-wallaby-reflects-on-position-switch-20261013",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2",
+      "name": "Australia v New Zealand — official research 3",
+      "url": "https://www.rugby.com.au/news/brumbies-duo-called-up-as-wallabies-confirm-ikitau-loss-for-second-bledisloe-cup-20261010",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3",
+      "name": "Australia v New Zealand — official research 4",
+      "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:0",
+      "name": "South Africa v Australia - Second Test — official research 1",
+      "url": "https://www.cricket.com.au/news/4591880/matthew-renshaw-first-test-south-africa-190-82-australia-kingsmead-positional-switch-number-five-opener-maddinson-cummins-green-cricketplus",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:1",
+      "name": "South Africa v Australia - Second Test — official research 2",
+      "url": "https://www.cricket.com.au/news/4591082/steve-smith-anrich-nortje-head-concussion-check-protocol-south-africa-australia-first-test-kingsmead-durban-match-report-day-four-news-scores-video-highlights-toss",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:2",
+      "name": "South Africa v Australia - Second Test — official research 3",
+      "url": "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:3",
+      "name": "South Africa v Australia - Second Test — official research 4",
+      "url": "https://www.cricket.com.au/matches/series/CA%3A4568/south-africa-v-australia-tests-2026-men",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:0",
+      "name": "Alexander Zverev v Alex de Minaur — official research 1",
+      "url": "https://en.rolexshanghaimasters.com/en/media/news/zverev-bublik-shanghai-2026-tuesday",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T00:01:15.885Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:1",
+      "name": "Alexander Zverev v Alex de Minaur — official research 2",
+      "url": "https://en.rolexshanghaimasters.com/en/media/news/shanghai-2026-scouting-report",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T00:01:15.885Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:2",
+      "name": "Alexander Zverev v Alex de Minaur — official research 3",
+      "url": "https://www.atptour.com/en/tournaments/shanghai/5014/overview",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T00:01:15.885Z"
     }
   ],
   "narrativeFacts": [
@@ -37783,6 +37915,257 @@
       ],
       "observedAt": "2026-10-13T08:14:23.253Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162"
+      ],
+      "statement": "Australia named Moses and Munster in the halves with Walsh at fullback and Yeo captain.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162"
+      ],
+      "statement": "New Zealand named Hughes and Nikorima in the halves, Ponga at fullback and Gagai at centre.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162"
+      ],
+      "statement": "Yeo is postponing pectoral surgery to captain Australia with his club's support.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162"
+      ],
+      "statement": "Hughes connects his World Cup ambition to the childhood impact of New Zealand's 2008 title.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162"
+      ],
+      "statement": "Australia and New Zealand share Pool A with Fiji and Cook Islands.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224"
+      ],
+      "statement": "The Wallabies are adjusting their response to New Zealand's pressure around the high ball.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224"
+      ],
+      "statement": "Suaalii is learning wing while covering centre, and his Sydney position remains unannounced.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224"
+      ],
+      "statement": "Ikitau and Petaia are ruled out, Paisami is suspended, and Toole and Pritchard are squad additions rather than confirmed Sydney starters.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224"
+      ],
+      "statement": "The 17 October Accor Stadium Test is Australia's last home Test before the northern tour.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee"
+      ],
+      "statement": "Inglis has returned and trained; Green may return as a batter only, with fitness and selection not confirmed.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:0",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:1"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee"
+      ],
+      "statement": "Cummins favours Renshaw at No.5 unless conditions give a compelling reason to move him.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:0"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee"
+      ],
+      "statement": "Kuhnemann is a second-spin option and Gqeberha's recent spin record informs the selection balance rather than predicting the pitch.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:2"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee"
+      ],
+      "statement": "The second Test is at St George's Park on 18-22 October, followed by the third Test at Newlands.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:3"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:4",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee"
+      ],
+      "statement": "Smith's further concussion assessment was pending in the 12 October report, without a later clearance established in this research.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:1"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538"
+      ],
+      "statement": "Zverev has reported an ankle issue, without a verified withdrawal.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:0"
+      ],
+      "observedAt": "2026-10-14T00:01:15.885Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538"
+      ],
+      "statement": "De Minaur remains in contention for ATP Finals qualification.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:0",
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:1"
+      ],
+      "observedAt": "2026-10-14T00:01:15.885Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538"
+      ],
+      "statement": "Zverev is a former Shanghai finalist seeking a first title at the event.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:1"
+      ],
+      "observedAt": "2026-10-14T00:01:15.885Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538"
+      ],
+      "statement": "Zverev will face de Minaur in the Shanghai quarter-final; Shanghai is the penultimate Masters 1000 of the season.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:0",
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:1"
+      ],
+      "observedAt": "2026-10-14T00:01:15.885Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:4",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538"
+      ],
+      "statement": "The official ATP tournament overview lists Shanghai from 7 to 18 October 2026.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:2"
+      ],
+      "observedAt": "2026-10-14T00:01:15.885Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -42193,6 +42576,73 @@
       ],
       "status": "active",
       "updatedAt": "2026-10-13T08:14:23.253Z"
+    },
+    {
+      "id": "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162"
+      ],
+      "title": "Australia v New Zealand",
+      "summary": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
+      "factIds": [
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "thread:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224"
+      ],
+      "title": "Australia v New Zealand",
+      "summary": "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
+      "factIds": [
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee"
+      ],
+      "title": "South Africa v Australia - Second Test",
+      "summary": "The middle Test at St George's Park leaves one match still to come at Newlands. Gqeberha's recent spin history makes patience against slow bowling and the allocation of batting depth central questions, not a prediction of this pitch. A batter-only return for Green would not supply Australia with another seam-bowling option; a second specialist spinner would change the balance again. Fitness updates and announced teams must settle those choices. No earlier match outcome or series position is disclosed.",
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:0",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:1",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:2",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:3",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538"
+      ],
+      "title": "Alexander Zverev v Alex de Minaur",
+      "summary": "This is a Shanghai Masters quarter-final, with a semi-final place at stake rather than the trophy itself. Zverev is a former Shanghai finalist still seeking his first title here; de Minaur's ATP Finals ambitions give the late-season points another consequence. Shanghai is the season's penultimate Masters 1000, so opportunities at this level are narrowing. The exact start remains unconfirmed on the card; no earlier match outcome is disclosed.",
+      "factIds": [
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:0",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:1",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:2",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:3",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-14T00:01:15.885Z"
     }
   ],
   "audienceMemories": [],
@@ -55770,48 +56220,6 @@
       }
     },
     {
-      "id": "projection:feed:bledisloe-sydney-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "rugby-australia-new-zealand-2026-10-17",
-        "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
-        "fixture-rugby-wr-e3cbae12-66b3-4835-b1ce-4014b63055c8",
-        "fixture:rugby:ra:949627",
-        "fixture-rugby-ra-949627"
-      ],
-      "researchDepth": 5,
-      "hook": "Same rivals, different ground: Sydney asks the Wallabies to turn home support into eighty minutes of control.",
-      "synopsis": "Australia and New Zealand meet at Accor Stadium on Saturday 17 October, a week after their Eden Park Test. This closes the Wallabies' home programme before their northern tour. The immediate contest is over territory, sustained pressure and the bench's ability to keep combinations working late in the match. The 2027 World Cup reunion here is confirmed for 9 October; this year's Sydney starting XV is not assumed. No prior-match outcome or future result is revealed in this preview.",
-      "formCopy": "The first Test's lineups paired Harry Wilson's Wallabies against Codie Taylor's All Blacks; Sydney selection is still to come. Taylor's captaincy covers Ardie Savea's shoulder-surgery absence, while Scott Barrett's return adds experience to New Zealand's pack. Both coaches now have direct evidence from Auckland rather than just South African form to assess. The question for this week is which combinations can sustain their work when territory and fatigue begin to change the game.",
-      "closingCopy": "For Australian supporters, the last home Test of the year is a chance to see Les Kiss's project hold its shape against the closest rival, not merely to applaud promising passages. Dave Rennie knows the gold jersey from his own time coaching Australia; facing his former players adds a personal edge to New Zealand's preparation. The crowd can supply belief, but it cannot make the tackles or organise the next phase. This stadium hosts the countries' first World Cup pool meeting next year, so the emotional memory of Sydney will outlast this fortnight.",
-      "threadIds": [
-        "thread:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb"
-      ],
-      "factIds": [
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:5"
-      ],
-      "sourceIds": [
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:0",
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:1",
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:2",
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:3",
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ef64f54ab3b507e4d499ec1cad63373bd2436937e2b3c15b89ba50d141938edb:4"
-      ],
-      "researchedAt": "2026-10-10T22:41:26.276Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-17T05:00:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-10T22:41:26.276Z"
-      }
-    },
-    {
       "id": "projection:fixture-research:fixture:tennis:espn:wta:184356",
       "targetType": "feed-event",
       "targetIds": [
@@ -59334,46 +59742,6 @@
       "researchedAt": "2026-10-11T12:38:02.024Z"
     },
     {
-      "id": "projection:sport-depth:fixture-cricket-espn-1525660",
-      "targetType": "feed-event",
-      "targetIds": [
-        "fixture:cricket:espn:1525660",
-        "evt_88",
-        "fixture-cricket-espn-1525660"
-      ],
-      "researchDepth": 5,
-      "hook": "Inglis is returning to the squad, not yet the XI: Australia's Gqeberha puzzle combines batting places with a possible second spinner.",
-      "synopsis": "The middle Test leaves both sides one match still to come at Newlands, so this combination must fit a short three-Test tour rather than a single afternoon. Durban is still in progress at this check; no series lead, clincher or comeback is asserted. Gqeberha's spin history makes patience against slow bowling and the allocation of batting depth central questions, not a prediction of the pitch. Announced teams and verified fitness updates must resolve the options; an arrival at training is not a selection or medical clearance.",
-      "formCopy": "Inglis will rejoin the tour after positive news about his fractured finger, but officials still need to assess whether he can play in Gqeberha or Cape Town. Green is also hopeful of returning from an abdominal strain. Renshaw has said he is willing to move between opening and the middle order. Kuhnemann remains an option alongside Lyon at a ground where Cricket Australia's squad analysis records more spin wickets than pace since the pandemic. South Africa's Maharaj-Harmer combination in Durban does not announce its second-Test XI.",
-      "closingCopy": "For Australian supporters, the selection debate is now about belonging as well as balance: returning players cannot be promised a place while fitness remains unresolved. Renshaw's willingness to change roles offers flexibility, but a second specialist spinner could reshape the batting too. South Africa face their own choice between familiarity and the combination this ground demands. Neither loyalty to an established name nor excitement about a comeback answers the harder question of which eleven can sustain pressure for five days.",
-      "threadIds": [
-        "thread:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc"
-      ],
-      "factIds": [
-        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:0",
-        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:1",
-        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:2",
-        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:3",
-        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:4",
-        "fact:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:5"
-      ],
-      "sourceIds": [
-        "source:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:0",
-        "source:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:1",
-        "source:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:2",
-        "source:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:3",
-        "source:fixture-research:fixture:cricket:espn:1525660:revision-7f56d570c56fd5492bd927cd93118ec06c8d4be6ebb6547013889ee3efc03bcc:4"
-      ],
-      "researchedAt": "2026-10-11T22:08:34.441Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-18T08:00:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-11T22:08:34.441Z"
-      }
-    },
-    {
       "id": "projection:fixture-research:fixture-tennis-espn-atp-184950",
       "targetType": "feed-event",
       "targetIds": [
@@ -59406,46 +59774,6 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-12T22:50:31.088Z"
-      }
-    },
-    {
-      "id": "projection:feed:rlwc-australia-new-zealand-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "rlwc-australia-new-zealand-2026"
-      ],
-      "researchDepth": 5,
-      "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
-      "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Australia need a new attacking combination to function under pressure, while New Zealand's forwards must give their playmakers room to choose rather than merely react. Confirmed squad membership is separate from an announced match-day role. Australian coverage is on Seven and 7plus, and no recent match outcome is disclosed in this preview.",
-      "formCopy": "Australia's preparation now points towards Munster at five-eighth, with Moses reported as the leading halfback contender; those reports are not a final team sheet. Yeo has confirmed he is deferring pectoral surgery to captain the squad. New Zealand bring Hughes back after an injury-enforced international absence, with Fisher-Harris leading a squad that adds Ponga and Gagai. The opening contest must turn those assembled strengths into a working spine and forward platform.",
-      "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
-      "threadIds": [
-        "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1"
-      ],
-      "factIds": [
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:0",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:1",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:2",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:3",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:4",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:5",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:6"
-      ],
-      "sourceIds": [
-        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:0",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:1",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:2",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:3",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:4",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0bec2251810b935f541c0a67d01ceb533e609bc2d9a1f9b250b2bf9efd4739e1:5"
-      ],
-      "researchedAt": "2026-10-12T22:50:31.092Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-15T09:05:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-12T22:50:31.092Z"
       }
     },
     {
@@ -59775,6 +60103,156 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-13T08:14:23.253Z"
+      }
+    },
+    {
+      "id": "projection:feed:rlwc-australia-new-zealand-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rlwc-australia-new-zealand-2026"
+      ],
+      "researchDepth": 5,
+      "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+      "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
+      "formCopy": "Australia have named Moses and Munster in the halves, Walsh at fullback and Yeo as captain. Bostock and Preston are named for their Kangaroos debuts. New Zealand have paired Hughes with Nikorima, with Ponga at fullback and Gagai at centre for their first Kiwis appearances. Fisher-Harris leads a forward group featuring Leota and Tapine. These are announced match-day roles, not simply squad selections; the new combinations still have to work under pressure.",
+      "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
+      "threadIds": [
+        "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162"
+      ],
+      "factIds": [
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4"
+      ],
+      "researchedAt": "2026-10-13T23:57:53.941Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-15T09:05:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T23:57:53.941Z"
+      }
+    },
+    {
+      "id": "projection:feed:bledisloe-sydney-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rugby-australia-new-zealand-2026-10-17",
+        "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "fixture-rugby-wr-e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "fixture:rugby:ra:949627",
+        "fixture-rugby-ra-949627"
+      ],
+      "researchDepth": 5,
+      "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
+      "synopsis": "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
+      "formCopy": "Ikitau and Petaia are ruled out, with Paisami suspended. Toole and Pritchard have joined the Wallabies squad, but call-ups are not an announced Sydney XV. Suaalii has been learning the wing role while covering centre when injuries intervene; his position for this Test remains unconfirmed. Australia are working on their response to New Zealand's pressure around the high ball. The All Blacks have also brought in injury cover, so neither side's final combination should be assumed.",
+      "closingCopy": "Suaalii describes playing for Australia as a childhood dream, but the privilege comes with unfamiliar work: learning a new position while being ready to move again. For supporters, versatility is reassuring only if it produces a settled connection with the players around him. Sydney gives the Wallabies a home crowd, not an answer to that problem. A clean catch, an organised chase and a centre pairing that understands each other are small acts through which belief becomes something more dependable.",
+      "threadIds": [
+        "thread:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224"
+      ],
+      "factIds": [
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3"
+      ],
+      "researchedAt": "2026-10-13T23:57:53.941Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-17T05:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T23:57:53.941Z"
+      }
+    },
+    {
+      "id": "projection:sport-depth:fixture-cricket-espn-1525660",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture:cricket:espn:1525660",
+        "evt_88",
+        "fixture-cricket-espn-1525660"
+      ],
+      "researchDepth": 5,
+      "hook": "Renshaw's place is more than a vacancy to fill: Australia's returning batters make Gqeberha a test of selection trust as well as balance.",
+      "synopsis": "The middle Test at St George's Park leaves one match still to come at Newlands. Gqeberha's recent spin history makes patience against slow bowling and the allocation of batting depth central questions, not a prediction of this pitch. A batter-only return for Green would not supply Australia with another seam-bowling option; a second specialist spinner would change the balance again. Fitness updates and announced teams must settle those choices. No earlier match outcome or series position is disclosed.",
+      "formCopy": "Inglis is back with the squad and has trained, but that is not confirmation of fitness or selection. Green may return as a batter only rather than a bowling option. Cummins favours retaining Renshaw at No.5 unless conditions make a compelling case for a move. Smith's further concussion assessment was pending in the 12 October report; no later clearance is asserted here. Kuhnemann remains a possible second spinner alongside Lyon, not an announced selection. Neither second-Test XI is confirmed.",
+      "closingCopy": "For Australian supporters, a returning name and a player making a role his own create different kinds of hope. Cummins' preference for Renshaw at No.5 gives that debate a captain's backing, without making the team sheet unconditional. Inglis and Green cannot be promised places before their availability is resolved. South Africa must weigh familiarity against the combination this ground demands. The emotional pull of loyalty matters, but five days ask whether the chosen eleven can turn that trust into sustained pressure.",
+      "threadIds": [
+        "thread:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:0",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:1",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:2",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:3",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:0",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:1",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:2",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:3"
+      ],
+      "researchedAt": "2026-10-13T23:57:53.941Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-18T08:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-13T23:57:53.941Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:fixture-tennis-espn-atp-184954",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture-tennis-espn-atp-184954",
+        "fixture:tennis:espn:atp:184954"
+      ],
+      "researchDepth": 5,
+      "hook": "Zverev brings the bigger serve; de Minaur brings the harder-earned rallies. Shanghai asks whose way of controlling pressure can survive the other.",
+      "synopsis": "This is a Shanghai Masters quarter-final, with a semi-final place at stake rather than the trophy itself. Zverev is a former Shanghai finalist still seeking his first title here; de Minaur's ATP Finals ambitions give the late-season points another consequence. Shanghai is the season's penultimate Masters 1000, so opportunities at this level are narrowing. The exact start remains unconfirmed on the card; no earlier match outcome is disclosed.",
+      "formCopy": "Zverev has reported an ankle issue, making movement a question to watch rather than a reason to presume withdrawal. De Minaur remains in the ATP Finals qualification contest as the Asian swing closes. The useful contrast is tactical: Zverev wants his serve to shorten exchanges, while de Minaur needs returns and repeated changes of direction to make the court feel larger. Neither a seed number nor an earlier score tells us how that physical contest will unfold.",
+      "closingCopy": "For Australian supporters, de Minaur's appeal is not that he makes elite tennis look effortless. It is the sense that another return and another sprint can make a more imposing opponent uncomfortable. Zverev faces a different expectation as Shanghai's top seed: authority must become control, especially when his body is demanding attention. The emotional hinge is who keeps choosing his own game under stress, rather than allowing the other man's strengths to dictate every point.",
+      "threadIds": [
+        "thread:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:0",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:1",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:2",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:3",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:0",
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:1",
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:2"
+      ],
+      "researchedAt": "2026-10-14T00:01:15.885Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-14T00:01:15.885Z"
       }
     }
   ]
