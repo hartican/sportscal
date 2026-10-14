@@ -1,5 +1,7 @@
 # CTO delivery programme — authoritative current queue
 
+**Cleaner cards and viewing delivery — 15 October:** Rating explanations now live in a collapsed About section; cards keep useful match details with less repeated help and empty space. Viewing choices favour your subscriptions, then confirmed free services, with exact match links preserved and unconfirmed replays hidden. Both browser and installed/offline checks pass. No subscription or owner routine. [Dated evidence](quality/clean-feed-viewing-2026-10-15.md).
+
 **Cross-sport catch-up delivery — 14 October:** Watch highlights is live on recent completed cards already in your Feed. It opens a checked video or a clearly described search, without changing saved choices or adding a subscription or owner routine. Phone-sized/desktop live checks and installed/offline rehearsals pass. [Dated evidence](quality/all-sport-highlights-current-2026-10-14.md).
 
 **Tennis catch-up delivery — 14 October:** Recent followed men's/women's matches and earlier rounds now offer a checked video or a clearly labelled search. The first normal lookup saved seven verified links within existing limits, using published match information while the slow database read remains visibly degraded. No subscription or owner routine. [Dated evidence](quality/tennis-highlights-seven-day-2026-10-14.md).
@@ -16,7 +18,7 @@
 
 **Previous reliability delivery:** Finished Golf and Bathurst events no longer produce repeated update failures. Their normal automatic updates recovered with confirmed scores, saved links and source dates unchanged. [Evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/completed-source-recovery-2026-10-14.md).
 
-**Next module:** Repair the complete current-data read through a measured passing solution while preserving the existing source owner and deadlines; all six rejected rewrites stay unapplied. Finish remaining phone checks, then Football viewing/table/mobile/commercial gates and the next most useful sport quality passes. The cross-sport shortcut is delivered; it does not certify full sports or Australian playback. Automatic Cricket alerts remain OFF.
+**Next module:** Adapt the prepared direct first-YouTube-result shortcut to current main, prove its shared free-budget/migration guards and publish through the same release owner. Then repair the complete current-data read through one measured passing solution; rejected rewrites stay unapplied and deadlines remain. Finish phone checks and Football quality/permission gates. Cleaner viewing is a scoped delivery, not whole-sport or Australian playback certification. Automatic Cricket alerts remain OFF.
 
 **Earlier racing delivery — 13 October 2026:** The checked racing fields and stories are live. Gates, weights and missing information are clearer. Twelve major races have short sporting stories; nine have confirmed dates and three remain date-pending. Expanded cards open the existing gambling-free Product Charter. Form, odds and betting tips are removed. Results stay hidden when chosen, and follows survive an offline restart. No source request, account update, subscription or extra owner routine was added. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/horse-fields-editorial-2026-10-13.md).
 
