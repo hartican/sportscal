@@ -42,7 +42,14 @@
  function install(card,event,options){
   if(card.classList?.contains('is-minimised-row'))return;
   card.querySelector('.cricket-test-day')?.remove();
-  const timing=globalThis.NOTHINGSPORTS_CARD_TIMING?.presentation(event);
+  const timing=globalThis.NOTHINGSPORTS_CARD_TIMING?.presentation(event,undefined,{fullRange:card.classList?.contains('feed-fixture')===true});
+  for(const badge of card.querySelectorAll('.fixture-timing-badge')){
+   let progress=badge.querySelector('.fixture-source-progress');
+   if(card.classList.contains('feed-fixture')&&globalThis.NOTHINGSPORTS_FEED_TIMELINE?.finalDay(event)&&timing?.progress){
+    if(!progress){progress=document.createElement('small');progress.className='fixture-source-progress';badge.append(progress);}
+    progress.textContent=timing.progress;
+   }else progress?.remove();
+  }
   if(timing?.progress){for(const day of card.querySelectorAll('.fixture-timing-day'))day.textContent=timing.day;const pause=globalThis.NOTHINGSPORTS_CARD_TIMING.pausePresentation(event);if(event.key==='cricket'){for(const badge of card.querySelectorAll('.fixture-timing-badge')){let clock=badge.querySelector('.fixture-timing-clock');if(!clock){clock=document.createElement('span');clock.className='fixture-timing-clock';badge.append(clock);}clock.textContent=pause?[timing.status,pause.restart].filter(Boolean).join(' • '):timing.time;badge.querySelector('.fixture-timing-status')?.remove();if(timing.status&&!pause){const status=document.createElement('small');status.className='fixture-timing-status';status.textContent=timing.status;badge.append(status);}}}for(const badge of card.querySelectorAll('.fixture-timing-badge')){badge.title=timing.fullSchedule;badge.setAttribute('aria-label',timing.ariaLabel+'. Open fixture');}const compact=card.querySelector('.compact-card-time');if(compact)compact.textContent=[timing.progress,timing.status,globalThis.NOTHINGSPORTS_CARD_TIMING.pausePresentation(event)?.restart].filter(Boolean).join(' · ');}
   const golfSlot=card.querySelector('.fixture-golf-details');if(golfSlot&&globalThis.NOTHINGSPORTS_GOLF_SCORES)globalThis.NOTHINGSPORTS_GOLF_SCORES.mount(golfSlot,event,{visible:options.resultsOn,followed:id=>cachedParticipantFollow(id).followed});
   const racingSlot=card.querySelector('.fixture-racing-details');if(racingSlot&&globalThis.NOTHINGSPORTS_RACING_DETAILS)globalThis.NOTHINGSPORTS_RACING_DETAILS.mount(racingSlot,event,{visible:()=>event.key==='horse-racing'||(typeof isSpoilerVisible==='function'?isSpoilerVisible(event):options.resultsOn),resultsVisible:()=>typeof isSpoilerVisible==='function'?isSpoilerVisible(event):options.resultsOn,followed:entry=>cardIdentityParticipants().some(p=>entry.drivers?.includes(p.displayName||p.name)&&cachedParticipantFollow(p.id).followed)});

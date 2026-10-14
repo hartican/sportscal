@@ -1,10 +1,12 @@
 # CTO delivery programme — authoritative current queue
 
-**Current delivery — 14 October 2026:** Match planning is clearer on the live site: confirmed times, not-before times, estimates and unknown times remain distinct. Match Centre shows both players again. A match opened from a player's page now stays visible through normal Feed updates; Back and existing hidden/dismissed choices still work. Opening it adds no follow or saved action. No subscription or new routine is added. [Timing evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/tennis-planning-current-2026-10-14.md); [opened-match evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/profile-match-retention-2026-10-14.md).
+**Current delivery — 14 October 2026:** Cricket alert controls are live. Choose coverage, match mutes and quiet hours; saved OFF choices stay intact. Automatic alerts remain off while the checker observes without sending. Real match and closed-iPhone proof are required. No subscription or routine owner task. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/cricket-milestone-current-2026-10-14.md).
+
+**Previous delivery — 14 October 2026:** Match planning is clearer on the live site: confirmed times, not-before times, estimates and unknown times remain distinct. Match Centre shows both players again. A match opened from a player's page now stays visible through normal Feed updates; Back and existing hidden/dismissed choices still work. Opening it adds no follow or saved action. No subscription or new routine is added. [Timing evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/tennis-planning-current-2026-10-14.md); [opened-match evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/profile-match-retention-2026-10-14.md).
 
 **Previous reliability delivery:** Finished Golf and Bathurst events no longer produce repeated update failures. Their normal automatic updates recovered with confirmed scores, saved links and source dates unchanged. [Evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/completed-source-recovery-2026-10-14.md).
 
-**Next prepared modules:** Cricket milestone alerts, personal/curated EPIC archives and official Tennis highlights remain source-prepared, not deployed. Keep the sole release owner, adapt shared files to current main and respect default-off rollout and physical-phone proof. Highlights use the prepared free route; no new key or subscription is required. These approved modules do not replace Football's outstanding launch checks.
+**Next prepared modules:** The approved approximate-reminder wording/policy comes next. EPIC archives and official Tennis highlights remain frozen handoffs awaiting separate integration and production proof. EPIC also needs its approved roles, recoverable history and existing automation updates. Cricket controls are delivered; automatic alerts remain gated. These modules do not certify Football or the wider MVP.
 
 **Earlier racing delivery — 13 October 2026:** The checked racing fields and stories are live. Gates, weights and missing information are clearer. Twelve major races have short sporting stories; nine have confirmed dates and three remain date-pending. Expanded cards open the existing gambling-free Product Charter. Form, odds and betting tips are removed. Results stay hidden when chosen, and follows survive an offline restart. No source request, account update, subscription or extra owner routine was added. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/horse-fields-editorial-2026-10-13.md).
 
@@ -36,10 +38,10 @@
 
 **Next five actions, in order:**
 
-- Integrate the already approved Cricket, EPIC and highlights handoffs in the existing checked lane. Keep alerts off until their rollout evidence passes; do not combine unrelated release claims.
-- Finish Football's remaining launch checks: Australian viewing, standings, mobile presentation and commercial permission. Delivered fixes do not certify the whole sport.
-- Investigate the retained NHL timestamp and WRC timeout while preserving reliable facts and existing update limits.
-- Lift useful carried-sport gaps against the verified NRL/AFL reference, then finish real-phone and invited-user return-use evidence. Independent iCloud/Passwords recovery stays parked.
+- Finish the approved approximate-reminder update through the checked release lane. Keep Cricket automatic delivery gated until actual match/phone proof; integrate EPIC and highlights separately.
+- Finish Football’s remaining launch checks: Australian viewing, standings, mobile presentation and commercial permission.
+- Resolve the retained NHL timestamp and WRC timeout without changing reliable facts or update limits.
+- Lift useful carried-sport gaps against the checked NRL/AFL reference, then verify real-phone and invited-user return use. Independent recovery remains parked.
 - Keep the small sponsor experiment prepared until quality, permission and audience evidence support launch. No outreach, purchase or subscription now.
 
 
@@ -61,3 +63,6 @@
 
 
 **Latest planning and navigation proof:** Timing app `29d85e8a` / shell 528 passed normal release 38434736346 and ordinary source adoption. Opened-match repair `4ca05c6aca63e38a92d7895b4d884dc43b346a0d` / shell 529 passed [normal release 38451089280](https://github.com/hartican/sportscal/actions/runs/38451089280), all 197 commands, both independent reviews and exact READY/served/alias proof. Native live guest Open match → normal redraw now keeps one genuine card without changing saved choices. Installed-browser rehearsals, controlled account changes, natural source-state comparisons and physical-device limits are recorded separately in the linked evidence.
+
+
+**Latest Cricket stage proof:** b64524b625a5b8c6fed5089f302d28a168180062, shell532 passed [normal release 38475213191](https://github.com/hartican/sportscal/actions/runs/38475213191), all 204 commands, exact READY/aliases/served evidence, actual public controls and both installed rehearsals. The service-only schema preserves all 11 user states and the existing maintenance body. Production mode is shadow and the delivery gate remains disabled. Review sampling and live/phone limitations are linked above.

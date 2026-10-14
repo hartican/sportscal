@@ -5,8 +5,8 @@ const excluded={id:'fixture:cricket:scope',key:'cricket',name:'Ghani v Pakistan 
 assert.equal(model.supported(excluded),false,'Everything cannot admit cricket outside the approved Follow catalogue');
 const test={...excluded,id:'fixture:cricket:aus-sa',name:'South Africa v Australia',format:'Test',competitionName:'Australia tour of South Africa',participantIds:['team:cricket:south-africa','team:cricket:australia'],homeParticipantId:'team:cricket:south-africa',awayParticipantId:'team:cricket:australia'};
 assert.equal(model.supported(test),true,'Approved international Test remains supported');
-const parent={id:'overview:china-open',key:'tennis',cardType:'tennis_parent',tournamentParent:true,date:'2026-10-06',endDate:'2026-10-12',status:'ongoing'};
-assert(timeline.groups([parent],now).today.includes(parent),'An ongoing overview is anchored to Today across its published window');
+const parent={id:'overview:china-open',key:'tennis',cardType:'tennis_parent',tournamentParent:true,date:'2026-10-06',endDate:'2026-10-10',status:'ongoing'};
+assert(timeline.groups([parent],now).today.includes(parent),'One multi-day overview is anchored to its final published day');
 const match={id:'small-followed-match',key:'nrl',date:'2026-10-09',status:'live',statusCheckedAt:stamp,startTimeUtc:'2026-10-09T22:00:00Z',sourceUrl:'https://www.nrl.com/draw/'};
 assert.equal(timeline.confirmedLive(match,now),true,'Every fresh source-confirmed contest can sit at Live Now');
 assert.equal(timeline.confirmedLive({...match,statusCheckedAt:new Date(+now-40*60000).toISOString()},now),false,'Stale play does not sit at Live Now');
@@ -21,3 +21,5 @@ assert(!/practice|qualifying|sprint|race/i.test(weekend[0].name),'Parent title d
 assert.deepEqual(new Set(weekend[0].fixtureIds),new Set(f1.map(f=>f.id)),'All published Practice, Qualifying, Sprint and Race identities survive');
 console.log('Current score placement: approved cricket scope, Today overview anchor, confirmed Live Now and one full GP weekend passed.');
 require('./validate-paused-match-status');
+
+require("./validate-multiday-feed");

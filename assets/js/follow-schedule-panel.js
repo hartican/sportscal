@@ -11,7 +11,7 @@ function footballRoundPlan(fixtures,today){
 function rugbyCalendarGroup(f){
  const competition=f.competitionId||f.competitionName||null;
  const family=/^competition:([a-z][a-z0-9-]*):\d{4}$/.exec(f.competitionId||'')?.[1];
- const name=f.competitionName||CANONICAL_TAXONOMY.competitions.find(c=>c.id===f.competitionId)?.name||FOLLOW_FIRST.MAJOR_EVENT_FAMILIES.find(c=>c.id===family)?.label||'Competition TBC';
+ const name=f.competitionName||CANONICAL_TAXONOMY.competitions.find(c=>c.id===f.competitionId)?.name||FOLLOW_FIRST.MAJOR_EVENT_FAMILIES.find(c=>c.id===family)?.label||'Competition TBD';
  const edition=f.season||f.seasonLabel||null;
  const round=codeInspectorGroupLabel(f,'round');
  const day=f.date||f.schedulingWindow?.startsOn||null;

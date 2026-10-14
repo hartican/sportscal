@@ -8,7 +8,7 @@ function installFeedLiveScore(card,event){
   const render=()=>{const target=card._mountedCard||card,raw=profileFixtureEvents.get(String(event.eventId||event.id))||event,current={...raw,key:NOTHINGSPORTS_FIXTURE_IDENTITY.sportKey(raw)||raw.key};globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES?.install(target,current,{resultsOn:isSpoilerVisible(current),label:id=>cardIdentityParticipants().find(p=>p.id===id)?.displayName||null,displayLabel:(id,fallback)=>NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(id,fallback),participant:id=>cardIdentityParticipants().find(p=>p.id===id)});};
   if(globalThis.NOTHINGSPORTS_FEED_LIVE_SCORES){render();return;}
   const owner=serverSyncClient?.sessionSubject()||'public';
-  feedLiveScoreLoading ||= loadDeferredScript('config/match-centre.js?v=527').then(()=>loadDeferredScript('config/feed-live-scores.js?v=527')).catch(error=>{feedLiveScoreLoading=null;throw error;});
+  feedLiveScoreLoading ||= loadDeferredScript('config/match-centre.js?v=527').then(()=>loadDeferredScript('config/feed-live-scores.js?v=533')).catch(error=>{feedLiveScoreLoading=null;throw error;});
   void feedLiveScoreLoading.then(()=>{if((card._mountedCard||card).isConnected&&activeTab===tab&&owner===(serverSyncClient?.sessionSubject()||'public'))render();}).catch(()=>{});
 };
 

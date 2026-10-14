@@ -1,9 +1,9 @@
 (function(root,factory){const api=factory();root.NOTHINGSPORTS_REMINDER_POLICY=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;})(typeof globalThis!=='undefined'?globalThis:window,function(){
  'use strict';
  const deps=()=>({follow:globalThis.NOTHINGSPORTS_FOLLOW_FIRST||(typeof require==='function'?require('./follow-first'):null),feed:globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY||(typeof require==='function'?require('./follow-feed-policy'):null),identity:globalThis.NOTHINGSPORTS_EVENT_ACTION_IDENTITY||(typeof require==='function'?require('./event-action-identity'):null)});
- const STOP=/^(completed|finished|past|live|cancelled|canceled|withdrawn|postponed|suspended|abandoned|walkover)$/i;
+ const STOP=/^(completed|finished|past|live|cancelled|canceled|withdrawn|postponed|suspended|interrupted|abandoned|walkover|final)$/i;
  function fixtureId(f){return deps().identity.stableKey(f);}
- function timing(f,now=Date.now()){
+ function exactTiming(f,now=Date.now()){
   if(!f||STOP.test(f.status||'')||STOP.test(f.scheduleStatus||'')||!['upcoming','scheduled'].includes(f.status)||f.scheduleStatus!=='confirmed'||f.timingVerified===false)return null;
   const precision=f.timePrecision;
   if(!['exact','not-before','not_before'].includes(precision))return null;
@@ -13,17 +13,30 @@
   if(!Number.isFinite(start)||start<=+now||!Number.isFinite(verified)||verified>+now||!/^https:\/\//.test(f.sourceUrl||f.scheduleSourceUrl||''))return null;
   return {startsAt:new Date(start).toISOString(),remindAt:new Date(start-900000).toISOString(),deliveryMode:'match-15',precision:precision==='exact'?'exact':'not-before',late:start-900000<+now};
  }
- function manualTiming(f,now=Date.now()){
-  const exact=timing(f,now);if(exact)return exact;
+ function orderTiming(f,now=Date.now()){
   const p=f?.manualStartEstimate,o=f?.sessionOrderEvidence,checked=Date.parse(p?.sourceCheckedAt||'');
   if(!p||p.kind!=='official-session-order-estimate'||p.verified!==true||f.timePrecision!=='estimated'||f.manualEstimateHeld||f.sourceStale||f.stale||f.participantsConfirmed!==true||p.fixtureId!==fixtureId(f)||p.startsAt!==f.estimatedStartTimeUtc||!o||p.sessionId!==o.sessionId||p.sourceSha256!==o.sourceSha256||p.sourceUrl!==o.sourceUrl||p.sourceCheckedAt!==o.checkedAt||!Number.isFinite(checked)||checked>+now||+now-checked>172800000)return null;
   const earliest=Date.parse(p.earliestStartTimeUtc||p.startsAt),latest=Date.parse(p.latestStartTimeUtc||p.startsAt),middle=Date.parse(p.startsAt);
   if(!Number.isFinite(earliest)||!Number.isFinite(latest)||earliest>middle||latest<middle||latest-earliest>3600000)return null;
-  const at=value=>timing({...f,startTimeUtc:value,timePrecision:'exact',scheduleStatus:'confirmed',timingVerified:true,sourceCheckedAt:p.sourceCheckedAt},now);
+  const at=value=>exactTiming({...f,startTimeUtc:value,timePrecision:'exact',scheduleStatus:'confirmed',timingVerified:true,sourceCheckedAt:p.sourceCheckedAt},now);
   if(!at(p.startsAt)||!at(p.latestStartTimeUtc||p.startsAt))return null;
   const t=at(p.earliestStartTimeUtc||p.startsAt);
   return t?{...t,precision:'estimated',latestStartTimeUtc:p.latestStartTimeUtc||p.startsAt}:null;
  }
+ function publisherTiming(f,now=Date.now()){
+  const p=f?.planningTimeEvidence,checked=Date.parse(p?.checkedAt||'');
+  if(!p||p.kind!=='publisher-start-estimate'||p.fixtureId!==fixtureId(f)||p.startsAt!==f.estimatedStartTimeUtc||p.timeTbc!==false||f.timePrecision!=='estimated'||f.timeTbc!==false||f.startTimeTbc===true||f.startTimeUtc||f.sessionOrderEvidence||f.manualEstimateHeld||f.sourceStale||f.stale||f.dateOnly||f.tournamentParent||f.majorEventMarker||f.cardKind==='event'||f.participantsConfirmed===false||!Number.isFinite(checked)||checked>+now||+now-checked>172800000)return null;
+  const ids=deps().feed.participantIds(f);
+  if(!ids.length||!Array.isArray(p.participantIds)||JSON.stringify([...ids].sort())!==JSON.stringify([...p.participantIds].sort())||!p.sourceName)return null;
+  try{const u=new URL(p.sourceUrl);if(u.protocol!=='https:'||u.username||u.password)return null;}catch{return null;}
+  const t=exactTiming({...f,startTimeUtc:p.startsAt,timePrecision:'exact',scheduleStatus:'confirmed',timingVerified:true,sourceUrl:p.sourceUrl,sourceCheckedAt:p.checkedAt},now);
+  return t?{...t,precision:'estimated'}:null;
+ }
+ function timing(f,now=Date.now()){
+  if(!f||STOP.test(f.status||'')||STOP.test(f.scheduleStatus||''))return null;
+  return exactTiming(f,now)||orderTiming(f,now)||publisherTiming(f,now);
+ }
+ const manualTiming=timing;
  function knockout(f){
   // Names of competitions, parent dates and golf final rounds cannot establish a round.
   const stage=[f.stage,f.round,f.roundLabel,f.stageType,f.drawStage].filter(Boolean).join(' ').toLowerCase().replace(/_/g,' ');

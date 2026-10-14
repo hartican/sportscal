@@ -5,6 +5,7 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 const cp = require("node:child_process");
+const acorn = require("acorn");
 const root = path.resolve(__dirname, "..");
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "ns-build-cache-"));
 const copy = file => {
@@ -13,11 +14,28 @@ const copy = file => {
   fs.cpSync(path.join(root, file), target, { recursive: true });
 };
 try {
+  // The two startup leaves use formatting only. Literal spelling, source
+  // positions and shorthand notation may change; executable structure may not.
+  function executable(node) {
+    if (Array.isArray(node)) return node.map(executable);
+    if (node && typeof node === "object") {
+      assert.notEqual(node.type, "TaggedTemplateExpression", "Raw tagged templates require separate formatter evidence");
+      return Object.fromEntries(Object.entries(node)
+        .filter(([key]) => !["start", "end", "loc", "raw"].includes(key) && !(node.type === "Property" && key === "shorthand"))
+        .map(([key, value]) => [key, executable(value)]));
+    }
+    return node;
+  }
+  for (const name of ["app-update", "notifications-inbox"]) {
+    const parse = suffix => executable(acorn.parse(fs.readFileSync(path.join(root, "assets/js/" + name + suffix + ".js"), "utf8"), {ecmaVersion:"latest"}));
+    assert.deepEqual(parse(""), parse(".source"), name + " formatting preserves the complete executable tree");
+  }
   const moduleRoot = path.dirname(path.dirname(require.resolve("terser/package.json")));
   fs.symlinkSync(moduleRoot, path.join(temporary, "node_modules"), "dir");
   ["config", "scripts/lib", "data/canonical", "scripts/build-app-shell-runtime.js", "scripts/build-deferred-sports-ui.js", "assets/js/match-centre-ui.source.js", "assets/js/match-centre-ui.js", "assets/js/milestone-alerts-ui.source.js", "assets/js/milestone-alerts-ui.js",
     "data/events.json", "data/major-events.v1.json", "data/editorial-knowledge.v1.json",
     "assets/js/app-shell-runtime.js", "assets/js/calendar-sync-ui.js", "assets/js/calendar-sync-ui.source.js"]
+    .concat(["assets/js/app-update.js", "assets/js/app-update.source.js", "assets/js/notifications-inbox.js", "assets/js/notifications-inbox.source.js"])
     .forEach(copy);
   require("../config/app-shell-modules.json").filter(file => !file.startsWith("config/")).forEach(copy);
   const builder = require(path.join(temporary, "scripts/build-app-shell-runtime.js"));
@@ -44,6 +62,13 @@ try {
   fs.writeFileSync(path.join(temporary, "assets/js/app-shell-runtime.js"), original);
   const valid = cp.spawnSync(process.execPath, ["scripts/build-app-shell-runtime.js", "--check"], { cwd: temporary, encoding: "utf8" });
   assert.equal(valid.status, 0, valid.stderr);
+  const leaf = path.join(temporary, "assets/js/app-update.source.js");
+  const originalLeaf = fs.readFileSync(leaf, "utf8");
+  fs.writeFileSync(leaf, originalLeaf + "\nglobalThis.NOTHINGSPORTS_STARTUP_LEAF_PROBE=1;\n");
+  const staleLeaf = cp.spawnSync(process.execPath, ["scripts/build-app-shell-runtime.js", "--check"], {cwd:temporary, encoding:"utf8"});
+  assert.notEqual(staleLeaf.status, 0, "a changed startup leaf must fail its exact source-to-output gate");
+  assert.match(staleLeaf.stderr, /Deferred sports UI is stale: assets\/js\/app-update\.js/);
+  fs.writeFileSync(leaf, originalLeaf);
   const manifest = path.join(temporary, "config/app-shell-modules.json");
   const originalManifest = fs.readFileSync(manifest, "utf8");
   const addedModule = "config/build-cache-manifest-probe.js";

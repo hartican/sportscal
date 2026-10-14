@@ -9,9 +9,9 @@ const long=new Date('2026-10-11T06:00:00Z');assert.equal(projection.estimate(tar
 for(const status of ['rain-delay','suspended','cancelled'])assert.equal(projection.estimate(target,rows.map(e=>e.id===first.id?{...playing,status}:e),progressed),null);
 assert.equal(projection.estimate(target,rows.map(e=>e.id===first.id?{...playing,stale:true}:e),progressed),null);
 const ended={...first,status:'completed',statusCheckedAt:progressed.toISOString(),actualEndTimeUtc:progressed.toISOString()};assert.equal(projection.estimate(target,rows.map(e=>e.id===first.id?ended:e),progressed).startsAt,'2026-10-11T05:10:00.000Z','Source-confirmed completion can advance an unsent estimate');
-const provisional=projection.apply(rows,now).find(e=>e.id===target.id);assert.equal(require('../config/fixture-reminder-policy').timing(provisional,+now),null,'The derived clock cannot grant automatic timing');
+const provisional=projection.apply(rows,now).find(e=>e.id===target.id);assert.equal(require('../config/fixture-reminder-policy').timing(provisional,+now).precision,'estimated','A verified fresh bound order can grant approximate timing');
 assert.equal(projection.estimate(target,rows,new Date('2026-10-13T06:00:00Z')),null,'Old order-of-play inputs cannot schedule a reminder');
-console.log('Actual court-bound provisional times: immutable official inputs, prior play/completion, interruption/failure holds and automatic exclusion passed.');
+console.log('Actual court-bound provisional times: immutable official inputs, prior play/completion, interruption/failure holds and verified automatic timing passed.');
 assert.equal(projection.estimate({...target,discipline:'doubles'},rows,now),null,'A singles duration model cannot schedule doubles');
 assert.equal(projection.estimate(target,rows,new Date('2026-10-11T04:01:00Z')),null,'A stale scheduled predecessor cannot stand in for current play');
 assert.equal(projection.contextIds([target.id],rows).length,4,'Selected timing reads include the bound preceding fixtures in their existing batch');
@@ -28,4 +28,4 @@ async function selectedRead(){
 }
 selectedRead().catch(e=>{console.error(e);process.exitCode=1;});
 
-const latest=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events,ruud=latest.find(e=>e.id.endsWith('184948')),plan=projection.estimate(ruud,latest,new Date('2026-10-13T14:00:00Z'));assert(plan);assert.equal(plan.startsAt,'2026-10-14T05:40:00.000Z');assert.equal(plan.earliestStartTimeUtc,'2026-10-14T05:10:00.000Z');assert.equal(plan.latestStartTimeUtc,'2026-10-14T06:10:00.000Z');assert.equal(require('../config/fixture-reminder-policy').timing(ruud,new Date('2026-10-13T14:00:00Z')),null);console.log('14 October Stadium morning: bound prior match, approximate window and automatic hold passed.');
+const latest=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events,ruud=latest.find(e=>e.id.endsWith('184948')),plan=projection.estimate(ruud,latest,new Date('2026-10-13T14:00:00Z'));assert(plan);assert.equal(plan.startsAt,'2026-10-14T05:40:00.000Z');assert.equal(plan.earliestStartTimeUtc,'2026-10-14T05:10:00.000Z');assert.equal(plan.latestStartTimeUtc,'2026-10-14T06:10:00.000Z');assert.equal(require('../config/fixture-reminder-policy').timing(ruud,new Date('2026-10-13T14:00:00Z')),null);console.log('14 October Stadium morning: bound prior match, approximate window and unprojected-row hold passed.');

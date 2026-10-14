@@ -32,7 +32,7 @@ function notificationPayload(reminder, startLabel){
   const sessionStart = reminder.delivery_mode === "session-start";
   return {
     title:reminder.title,
-    body:reminder.timing_precision === "not-before" ? `Not before ${startLabel}. Tap to open Nothing Sport.` : sessionStart
+    body:reminder.timing_precision === "estimated" ? `Approx. ${startLabel}. Actual start time may vary, but we’ve done our best. Tap to open Nothing Sport.` : reminder.timing_precision === "not-before" ? `Not before ${startLabel}. Tap to open Nothing Sport.` : sessionStart
       ? `Broadcast starts at ${startLabel}; this match follows. Tap to open Nothing Sport.`
       : `Starts at ${startLabel}. Tap to open Nothing Sport.`,
     tag:`nothingsport-${reminder.event_id}`,
