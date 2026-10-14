@@ -220,6 +220,11 @@ jobs:
           node scripts/validate-canonical-source-readout.js
           node scripts/validate-f1-session-results.js
           node scripts/validate-crowd-foresight.js
+          node scripts/build-epic-ui.js --check
+          node scripts/validate-epic-classics.js
+          node scripts/validate-epic-api.js
+          node scripts/validate-year-review-alerts.js
+          node scripts/validate-card-lifecycle.js
           node scripts/validate-nothingscore-submissions.js
           node scripts/validate-live-rating-alerts.js
           node scripts/validate-backend-efficiency.js

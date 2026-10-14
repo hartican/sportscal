@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v535";
-const SHELL_VERSION = "535";
+const CACHE_NAME = "nothingsport-shell-v536";
+const SHELL_VERSION = "536";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -21,7 +21,7 @@ const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=533",
-  "/assets/js/settings-optional-ui.js?v=535",
+  "/assets/js/settings-optional-ui.js?v=536",
   "/assets/js/follow-navigation.js?v=522",
   "/assets/js/tournament-fixture-ui.js?v=533",
   "/assets/styles/notifications-inbox.css?v=280",
@@ -63,7 +63,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=535",
+  "/assets/js/app-shell-runtime.js?v=536",
   "/assets/js/follow-schedule-panel.js?v=533",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
@@ -75,9 +75,9 @@ const APP_SHELL = [
   "/config/tournament-schedule.js?v=452",
   "/assets/js/tennis-schedule-ui.js?v=467",
   "/config/tennis-journeys.js?v=467",
-  "/assets/js/nsc-rankings-ui.js?v=293",
+  "/assets/js/nsc-rankings-ui.js?v=536",
   "/assets/styles/nsc-ladder.css?v=293",
-  "/assets/styles/card-clarity.css?v=424",
+  "/assets/styles/card-clarity.css?v=536",
   "/config/follow-directory-worker.js?v=512",
   "/config/calendar-selection.js",
   "/config/sport-hierarchy.js",
@@ -346,7 +346,7 @@ self.addEventListener("fetch", event => {
   if (requestUrl.origin !== self.location.origin) return;
   let decodedPath=requestUrl.pathname;
   try{decodedPath=decodeURIComponent(decodedPath);}catch(_error){ /* Invalid encodings remain a server error, never a source fallback. */ }
-  if (["/data/marquee-candidates.v1.json", "/data/comms-sources.v1.json", "/data/editorial-maintenance-sources.v1.json"].includes(decodedPath)){
+  if (["/data/marquee-candidates.v1.json", "/data/comms-sources.v1.json", "/data/editorial-maintenance-sources.v1.json", "/data/editorial-post-match.v1.json"].includes(decodedPath)){
     event.respondWith(new Response('This source file is not a public resource.', {status:404,headers:{'Cache-Control':'private, no-store, max-age=0','Content-Type':'text/plain'}}));
     return;
   }

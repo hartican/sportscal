@@ -263,6 +263,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/update-editorial-audience-memory.js", "--write"],
   ["scripts/apply-editorial-narratives.js", "--write"],
   ["scripts/prepare-result-editorial.js"],
+  ["scripts/epic-editorial.js", "--apply"],
+  ["scripts/build-epic-ui.js"],
   // The existing cold pin bootstrap depends on the just-published projection.
   // Refresh its owning bundle before offline/readiness validators consume it.
   ["scripts/build-app-shell-runtime.js"],
@@ -280,6 +282,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/lib/skiing-calendar-review.js"],
   ["scripts/lib/reviewed-calendar-notes.js"],
   ["scripts/refresh-fixture-highlights.js"],
+  ["scripts/epic-editorial.js", "--apply"],
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"],
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
@@ -430,6 +433,10 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-follow-first.js"],
   ["scripts/validate-follow-policy-parity.js"],
   ["scripts/validate-follow-decisions.js"],
+  ["scripts/validate-epic-classics.js"],
+  ["scripts/validate-epic-api.js"],
+  ["scripts/validate-year-review-alerts.js"],
+  ["scripts/build-epic-ui.js", "--check"],
   ["scripts/validate-follow-with-confidence.js"],
   ["scripts/validate-ratings-recovery.js"],
   ["scripts/validate-cricket-coverage.js"],
@@ -838,6 +845,9 @@ async function runMain() {
     if(!options.localOnly) runStep(['scripts/redeploy-and-release.sh']);
     console.log('Reviewed fixture publication complete; no unrelated source refresh performed.');
     return;
+  }
+  if(process.argv.includes('--epic-editorial')){
+    await require('./epic-editorial').main(process.argv.slice(2));return;
   }
   if(process.argv.includes('--adaptive-editorial')){
     await require('./adaptive-editorial').main(process.argv.slice(2));

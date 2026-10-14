@@ -48,6 +48,7 @@
   "config/rating-system.js",
   "config/storyline-overrides.js",
   "config/enrichment-engine.js",
+  "config/epic-classics.js",
   "config/card-lifecycle.js",
   "config/reminder-engine.js",
   "config/soundtrack.js",

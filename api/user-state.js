@@ -107,6 +107,7 @@ async function preferenceRecoveryCommand(user, body){
 }
 
 module.exports = async function userStateHandler(request, response){
+  if(new URL(request.url||'/api/user-state','https://nothingsport.local').searchParams.get('route')==='classics'||request.query?.route==='classics')return require('../lib/classics-api')(request,response);
   if (isCalendarRequest(request)){
     await calendarHandler(request, response);
     return;

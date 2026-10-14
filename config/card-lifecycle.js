@@ -4,10 +4,11 @@
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildCardLifecycle(calendar){
   "use strict";
+  const epic=typeof module!=='undefined'&&module.exports?require('./epic-classics'):globalThis.NOTHINGSPORTS_EPIC;
 
-  const SCHEMA_VERSION = "derived-card-cache.v1";
+  const SCHEMA_VERSION = "derived-card-cache.v2";
   const ARCHIVE_DAYS = 7;
-  const RETENTION_DAYS = 14;
+  const RETENTION_DAYS = 7;
   const ARCHIVE_MS = ARCHIVE_DAYS * 24 * 60 * 60 * 1000;
   const RETENTION_MS = RETENTION_DAYS * 24 * 60 * 60 * 1000;
   const SURFACES = new Set(["homeMustWatch", "topStorylines", "sportFeed", "teamFeed", "saved", "recent"]);
@@ -21,22 +22,6 @@
     return String(event?.canonicalEventId || event?.eventId || event?.id || "");
   }
 
-  function eventStart(event){
-    if(event?.timePrecision && !["exact","session-start"].includes(event.timePrecision))return null;
-    const parsed = new Date(event?.startTimeUtc || "");
-    return Number.isNaN(parsed.getTime()) ? null : parsed;
-  }
-
-  function inferredDurationHours(event){
-    const explicit=Number(event?.publishedDurationHours || event?.liveWindow || event?.calendarTemplate?.durationHours);
-    if(Number.isFinite(explicit)&&explicit>0)return explicit;
-    const identity=`${event?.competitionId || ""} ${event?.key || ""} ${event?.sportId || ""} ${event?.name || ""}`.toLowerCase();
-    if(/le mans|endurance|fia wec/.test(identity))return 24;
-    if(/tennis|us open|wimbledon|roland garros|australian open/.test(identity))return 5;
-    if(/formula 1|\bf1\b|motorsport/.test(identity))return 4;
-    return 3;
-  }
-
   const validDay = value => calendar.knownDate({date:value});
 
   function sydneyEndOfDay(dateKey){
@@ -45,36 +30,6 @@
     nextDay.setUTCDate(nextDay.getUTCDate() + 1);
     const start = calendar.eventStart({ date:nextDay.toISOString().slice(0, 10), time:"00:00" });
     return start ? new Date(+start - 1) : null;
-  }
-
-  function retentionEnd(event){
-    const start = eventStart(event);
-    let end = new Date(event?.endTimeUtc || "");
-    if (Number.isNaN(+end)) end = start ? new Date(+start + inferredDurationHours(event) * 3600000) : null;
-    if (!end && (event?.dateOnly === true || event?.timePrecision === "date-only") && validDay(event?.endDate)) end = new Date(`${event.endDate}T23:59:59.999Z`);
-    const timeline = new Date(event?.timelineSortTimeUtc || event?.sessionStartTimeUtc || "");
-    if (!end && !Number.isNaN(+timeline)) end = new Date(+timeline + inferredDurationHours(event) * 3600000);
-    if (!end) end = sydneyEndOfDay(event?.date);
-    const firstDay = event?.date || event?.startDate;
-    if (event?.endDate > firstDay && validDay(firstDay) && validDay(event.endDate)){
-      // A supplied calendar window is a retention floor, never an observed finish.
-      const actual = verifiedEnd(event);
-      if (actual) return actual;
-      const windowEnd = sydneyEndOfDay(event.endDate);
-      if (!end || +end < +windowEnd) end = windowEnd;
-    }
-    return end;
-  }
-
-  function verifiedEnd(event){
-    if(!/^(completed|finished|final)$/.test(String(event.status||'').toLowerCase()))return null;
-    const start=eventStart(event)||calendar.eventStart({date:event.date||event.startDate,time:'00:00'});
-    if(!start)return null;
-    for(const value of [event.actualEndTimeUtc,event.completedAt,event.firstConfirmedCompleteAt]){
-      const end=new Date(value||'');
-      if(/T.*(?:Z|[+-]\d{2}:\d{2})$/.test(value||'')&&Number.isFinite(+end)&&+end>=+start)return end;
-    }
-    return null;
   }
 
   // This independent source receipt is a bounded ongoing-play exception for
@@ -87,27 +42,21 @@
 
   // Feed visibility is independent of saved/history retention.
   function withinFeedWindow(event, reference = new Date()){
-    const now = new Date(reference), today = calendar.sydneyDay(now);
-    const terminal = /^(completed|finished|final|cancelled|canceled|abandoned)$/.test(event.status || '');
-    const first = event.date || event.startDate, end = event.endDate || first;
-    if(!terminal && validDay(end) && end >= today)return true;
-    if(currentPlayUntil(event,now))return true;
-    const multiDay=validDay(first)&&validDay(end)&&end>first;
-    const instant = verifiedEnd(event)||new Date(!multiDay?event.endTimeUtc||'':'');
-    const day = terminal && Number.isFinite(+instant) && +instant <= +now && (!validDay(first)||calendar.sydneyDay(instant)>=first) ? calendar.sydneyDay(instant) : end;
-    if(!validDay(day))return true;
-    const cutoff = new Date(today+'T12:00:00Z');cutoff.setUTCDate(cutoff.getUTCDate()-7);
-    return day >= cutoff.toISOString().slice(0,10);
+    return !epic.retired(event,reference);
   }
 
-  function expiresAtForEvent(event){
-    const end = retentionEnd(event);
-    return end ? new Date(+end + RETENTION_MS) : null;
+  function expiresAtForEvent(event,reference=new Date()){
+    if (/^(suspended|postponed)$/.test(event?.status||'')) return null;
+    const ongoing=currentPlayUntil(event,reference);
+    const final = epic.finalDay(event,reference);
+    if (!final) return null;
+    const day = new Date(final+'T12:00:00Z');day.setUTCDate(day.getUTCDate()+7);
+    const end = sydneyEndOfDay(day.toISOString().slice(0,10));
+    return end ? new Date(Math.max(+end+1,ongoing||0)) : null;
   }
 
-  function archivesAtForEvent(event){
-    const end = retentionEnd(event);
-    return end ? new Date(+end + ARCHIVE_MS) : null;
+  function archivesAtForEvent(event,reference=new Date()){
+    const expiry=expiresAtForEvent(event,reference);return expiry?new Date(+expiry-1):null;
   }
 
   function isSavedAction(action = {}){
@@ -124,19 +73,13 @@
     feed = false,
     now = new Date(),
   } = {}){
-    const end = retentionEnd(event);
     const reference = now instanceof Date ? now : new Date(now);
-    const ongoingUntil=feed?currentPlayUntil(event,reference):null;
-    const ageMs = ongoingUntil?0:reference - (end || NaN);
-    const state = !Number.isFinite(ageMs) ? "active"
-      : saved ? "saved"
-      : ageMs > RETENTION_MS ? "expired"
-      : ageMs > ARCHIVE_MS ? "archived" : "active";
+    const state = action.isPurged || epic.retired(event,reference) ? "expired" : saved ? "saved" : "active";
     return {
       state,
       saved: Boolean(saved),
-      archivesAt: end ? new Date(+end + ARCHIVE_MS).toISOString() : null,
-      expiresAt: ongoingUntil?new Date(Math.max(ongoingUntil,end?+end+RETENTION_MS:0)).toISOString():end ? new Date(+end + RETENTION_MS).toISOString() : null,
+      archivesAt: expiresAtForEvent(event,reference)?new Date(+expiresAtForEvent(event,reference)-1).toISOString():null,
+      expiresAt: expiresAtForEvent(event,reference)?.toISOString() || null,
     };
   }
 
@@ -215,7 +158,7 @@
     if (!profileId) throw new Error("Derived cards require a stable profile id");
     if (!SURFACES.has(surface)) throw new Error(`Unknown derived-card surface: ${surface}`);
     const generated = generatedAt instanceof Date ? generatedAt : new Date(generatedAt);
-    const expiry = expiresAt?new Date(expiresAt):expiresAtForEvent(event) || new Date(generated.getTime() + RETENTION_MS);
+    const expiry = expiresAt?new Date(expiresAt):expiresAtForEvent(event,generated);
     return {
       id: `card:${profileId}:${surface}:${canonicalEventId}`,
       canonicalEventId,
@@ -242,8 +185,8 @@
           : { scoreReasons: [] },
       },
       generatedAt: generated.toISOString(),
-      expiresAt: expiry.toISOString(),
-      retentionExempt: Boolean(retentionExempt),
+      expiresAt: expiry?.toISOString() || null,
+      retentionExempt: false,
       isArchived: false,
     };
   }
@@ -304,7 +247,7 @@
     const reference = now instanceof Date ? now : new Date(now);
     const normalized = normalizeCache(cache, reference);
     const derivedCards = normalized.derivedCards.filter(card => {
-      if (card.retentionExempt) return true;
+      if (card.expiresAt === null) return true;
       const expires = new Date(card.expiresAt);
       return !Number.isNaN(expires.getTime()) && expires > reference;
     });

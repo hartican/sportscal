@@ -118,6 +118,15 @@
       }else target[finalSegment] = clone(change.value);
     });
     preserveFantasyDecision(baseState, patch, next);
+    preservePurges(baseState,next);
+    return next;
+  }
+
+  function preservePurges(previous,next){
+    for(const [key,action] of Object.entries(previous?.eventUserState||{}))if(action?.isPurged){
+      next.eventUserState ||= {};
+      next.eventUserState[key]={...clone(action),...(next.eventUserState[key]||{}),...Object.fromEntries(['actionKey','canonicalEventId','eventId','id','sourceEventId','sourceEventIds'].filter(field=>Object.hasOwn(action,field)).map(field=>[field,clone(action[field])])),isPurged:true,purgedAt:action.purgedAt,saved:false,watchLater:false,archived:false,addedToFixtures:false};delete next.eventUserState[key].addedFixture;delete next.eventUserState[key].snapshot;
+    }
     return next;
   }
 
@@ -196,5 +205,6 @@
     hasChanges,
     normalizePatch,
     reconcileEventFamilyDecisions,
+    preservePurges,
   });
 });

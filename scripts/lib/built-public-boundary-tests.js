@@ -20,7 +20,7 @@ function validateBuiltPublicBoundary(){
     return {sourceRoot,output};
   }
   try{
-    const good=fixture('good'),r=seal(good);assert.equal(r.staticFilesBefore,4);assert.equal(r.staticFilesAfter,1);assert.equal(r.functionSources.length,6);assert.equal(fs.readFileSync(path.join(good.output,'static/index.html'),'utf8'),'public shell');
+    const good=fixture('good'),r=seal(good);assert.equal(r.staticFilesBefore,5);assert.equal(r.staticFilesAfter,1);assert.equal(r.functionSources.length,7);assert.equal(fs.readFileSync(path.join(good.output,'static/index.html'),'utf8'),'public shell');
     for(const [name,needed] of Object.entries(consumers))for(const file of needed)assert(fs.existsSync(path.join(good.output,'functions/api',name+'.func',file)),'Unlinking static sources cannot remove server symlink targets');
     for(const mode of ['missing-function-source','wrong-static-source','wrong-function-source','environment-static']){
       const bad=fixture(mode),first=internalSources[0];

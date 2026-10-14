@@ -1,8 +1,10 @@
-(function(root,factory){const api=factory();root.NOTHINGSPORTS_EDITORIAL_LIFECYCLE=api;if(typeof module!=='undefined')module.exports=api;})(globalThis,function(){
+(function(root,factory){const api=factory(typeof module!=='undefined'&&module.exports?require('./epic-classics'):root.NOTHINGSPORTS_EPIC);root.NOTHINGSPORTS_EDITORIAL_LIFECYCLE=api;if(typeof module!=='undefined')module.exports=api;})(globalThis,function(epic){
  'use strict';
  const completed=e=>['completed','finished','final','past'].includes(String(e?.status).toLowerCase());
  const signature=e=>JSON.stringify([completed(e)?'completed':e?.status||'',e?.outcomeText||'',e?.scoreDisplay||e?.score||'',e?.recapText||'']);
  function copy(event,narrative={},spoilers=false){
+  const ongoing=epic.liveContext(event);if(ongoing&&spoilers)return {hook:ongoing.hook,synopsis:ongoing.body};
+  if(epic.completed(event)&&event.postMatchEditorial?.body&&event.postMatchEditorial.factsSignature===epic.factsSignature(event))return spoilers?{hook:event.postMatchEditorial.hook,synopsis:event.postMatchEditorial.body}:{hook:`${event.displayTitleCompact||event.name||'This fixture'} is complete. Reveal results for the outcome.`,synopsis:''};
   if(!completed(event)||event.key==='horse-racing'||event.sportKey==='horse-racing')return {hook:narrative.hook||'',synopsis:narrative.synopsis||''};
   const safe=`${event.displayTitleCompact||event.name||'This fixture'} is complete. Reveal results for the outcome.`;
   const current=narrative.resultSignature===signature(event);

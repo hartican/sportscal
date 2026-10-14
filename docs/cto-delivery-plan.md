@@ -1,6 +1,8 @@
 # CTO delivery programme — authoritative current queue
 
-**Current delivery — 14 October 2026:** Notification opening, current-match test selection and the selected-feed Tennis highlights repair are live. Ongoing multi-day cards show once under Today, then their final day when complete. Saved choices and match facts stay protected. One phone usability repeat and a healthy ordinary discovery pass remain open; automatic Cricket alerts stay OFF. No subscription or regular owner task. [Delivery evidence](quality/navigation-highlights-current-2026-10-14.md).
+**Archive progress —14 October:** Favourite-match archive checks pass locally; live storage, approved roles and75 historical personal references are recovered. All 17 recoverable missing match details are restored; publish and verify the app next. Nineteen older shared records lack accepted detail and stay explicit. Year review uses the existing dispatcher; no new subscription or recurring owner task. [Dated evidence](quality/epic-current-2026-10-14.md).
+
+**Current delivery — 14 October 2026:** Notification opening, current-match test selection and the selected-feed Tennis highlights repair are live. Ongoing multi-day cards show once under Today, then their final day when complete. Saved choices and match facts stay protected. One phone usability repeat remains open; the first ordinary discovery pass failed on a slow database read and is being repaired; automatic Cricket alerts stay OFF. No subscription or regular owner task. [Delivery evidence](quality/navigation-highlights-current-2026-10-14.md).
 
 **Earlier reminder delivery — 14 October 2026:** Sourced estimate reminders and final-day Feed cards are live. Uncertain times have a clear warning; true TBD stays blocked and OFF choices remain. Multi-day cards show once on their final day with the full range; source progress updates correctly. No subscription or regular admin task. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/estimated-reminders-multiday-current-2026-10-14.md).
 
@@ -10,7 +12,7 @@
 
 **Previous reliability delivery:** Finished Golf and Bathurst events no longer produce repeated update failures. Their normal automatic updates recovered with confirmed scores, saved links and source dates unchanged. [Evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/completed-source-recovery-2026-10-14.md).
 
-**Next prepared modules:** The notification-heading and live highlights repairs are released. Finish the one phone usability check and observe the ordinary discovery pass; automatic Cricket alerts stay OFF. EPIC archives follow with approved roles, history and existing automation changes. Football and wider card-quality launch checks remain open. No optional key or subscription is required for the free highlights fallback.
+**Next prepared modules:** The notification-heading and live highlights repairs are released. Finish the one phone usability check and repair the measured slow discovery read; automatic Cricket alerts stay OFF. EPIC archives follow with approved roles, history and existing automation changes. Football and wider card-quality launch checks remain open. No optional key or subscription is required for the free highlights fallback.
 
 **Earlier racing delivery — 13 October 2026:** The checked racing fields and stories are live. Gates, weights and missing information are clearer. Twelve major races have short sporting stories; nine have confirmed dates and three remain date-pending. Expanded cards open the existing gambling-free Product Charter. Form, odds and betting tips are removed. Results stay hidden when chosen, and follows survive an offline restart. No source request, account update, subscription or extra owner routine was added. [Delivery evidence](https://github.com/hartican/sportscal/blob/main/docs/quality/horse-fields-editorial-2026-10-13.md).
 
@@ -42,7 +44,7 @@
 
 **Next five actions, in order:**
 
-- Finish the one real-phone opening check and observe the next normal highlights discovery pass. Keep automatic Cricket alerts off until their separate live-match evidence passes.
+- Finish the one real-phone opening check and repair the slow highlights-discovery read, then confirm its normal run. Keep automatic Cricket alerts off until their separate live-match evidence passes.
 - Complete EPIC archives with the approved roles, retained history and changes to existing automation.
 - Close Football’s remaining viewing, table, mobile and commercial-permission checks before calling the pilot ready.
 - Apply the same measured card-quality checks to the next most valuable carried sports; avoid expanding breadth before the current coverage is dependable.
@@ -73,4 +75,4 @@
 
 **Latest reminder/Feed proof:** c52851572ede7c80b3d41fb1d7eed8674b3f1982, shell533 passed [normal release 38485454700](https://github.com/hartican/sportscal/actions/runs/38485454700), all204 commands, both live-read preflights, exact READY/alias/served proof, actual public native checks and both final installed-browser upgrades. The existing source owners, function permissions and70 account barriers remain. Three bounded-review findings were reproduced and closed. No whole-sport or real-phone landing approval is implied.
 
-**Notification and highlights follow-up — 14 October:** f8702425fc972cb19fa632a9b6aeff61e8cccfea / shell 535 passed [normal release 38506505068](https://github.com/hartican/sportscal/actions/runs/38506505068). Root verified READY, aliases, 12 sealed server sources and 27 served files, all 206 required checks, both existing live-read preflights and 70 account guards. Both 534-to-535 installed rehearsals and ten native-worker navigation cases pass. All five sporting snapshots are unchanged. The actual iPhone usability repeat and healthy natural discovery remain open; automatic Cricket delivery stays OFF. [Detailed evidence](quality/navigation-highlights-current-2026-10-14.md).
+**Notification and highlights follow-up — 14 October:** f8702425fc972cb19fa632a9b6aeff61e8cccfea / shell 535 passed [normal release 38506505068](https://github.com/hartican/sportscal/actions/runs/38506505068). Root verified READY, aliases, 12 sealed server sources and 27 served files, all 206 required checks, both existing live-read preflights and 70 account guards. Both 534-to-535 installed rehearsals and ten native-worker navigation cases pass. All five sporting snapshots are unchanged. The actual iPhone usability repeat remains open; the first natural535 discovery failed on a three-second database timeout; automatic Cricket delivery stays OFF. [Detailed evidence](quality/navigation-highlights-current-2026-10-14.md).

@@ -7,10 +7,10 @@
 
   const SCHEMA_VERSION = "nothingscore.v1";
   const PHASES = Object.freeze(["heat", "pulse", "impact"]);
-  const PERSONA_WEIGHTS = Object.freeze({ general:1, pundit:1, rising:2, influencer:4, curator:8, editorial:8, admin:8 });
-  const HEAT_LABELS = Object.freeze(["Routine", "Interesting", "Notable", "Major", "Essential"]);
-  const PULSE_LABELS = Object.freeze(["Flat", "Solid", "Strong", "Exceptional", "Unforgettable"]);
-  const IMPACT_LABELS = PULSE_LABELS;
+  const PERSONA_WEIGHTS = Object.freeze({ general:1, pundit:1, rising:1, influencer:1, curator:8, editorial:8, admin:8 });
+  const HEAT_LABELS = Object.freeze(["Low stakes", "Mid stakes", "High stakes", "Huge stakes", "Epic stakes"]);
+  const PULSE_LABELS = Object.freeze(["Flat", "A spark", "Buzzing", "Electric", "EPIC electricity"]);
+  const IMPACT_LABELS = Object.freeze(["A ripple", "A tremor", "A shock", "An aftershock", "EPIC magnitude"]);
   const HEAT_TAGS = Object.freeze(["Box office", "Big stakes", "Rivalry", "Star power", "National interest", "Great storyline"]);
   const IMPACT_TAGS = Object.freeze(["Thrilling", "Eye-popping", "Mind-blowing", "Emotional", "Electric atmosphere", "Pure chaos"]);
   const HEAT_LOW_TAGS = Object.freeze(["Rising storyline", "Emerging talent", "Low expectations", "Bog standard", "Too one-sided", "Hard to care"]);
@@ -31,6 +31,7 @@
   }
   function round1(value){ return Math.round(Number(value) * 10) / 10; }
   function personaWeight(persona){ return PERSONA_WEIGHTS[String(persona || "general").toLowerCase()] || 1; }
+  const rowWeight = row => Object.hasOwn(row||{},"ratingWeight") ? (row.ratingWeight===8?8:1) : personaWeight(row?.persona);
   function likeLift(activeLikes){ return Math.min(0.35, 0.05 * Math.sqrt(Math.max(0, Number(activeLikes) || 0))); }
   function ratingContribution(row){
     const rating = Number(row?.rating);
@@ -41,24 +42,24 @@
     (Array.isArray(rows) ? rows : []).forEach(row => {
       const rating = ratingContribution(row);
       if (rating === null) return;
-      const rowWeight = personaWeight(row.persona);
-      weighted += rating * rowWeight;
-      weight += rowWeight;
+      const contributionWeight = rowWeight(row);
+      weighted += rating * contributionWeight;
+      weight += contributionWeight;
     });
     return weight ? weighted / weight : null;
   }
   function effectiveSupport(rows, activeLikes){
-    const ratingWeight = (Array.isArray(rows) ? rows : []).reduce((total, row) => total + (ratingContribution(row) === null ? 0 : personaWeight(row.persona)), 0);
+    const ratingWeight = (Array.isArray(rows) ? rows : []).reduce((total, row) => total + (ratingContribution(row) === null ? 0 : rowWeight(row)), 0);
     return round1(ratingWeight + Math.min(7, Math.max(0, Number(activeLikes) || 0) * 0.25));
   }
   function leadingTags(rows, limit = 3){
     const counts = new Map();
-    (Array.isArray(rows) ? rows : []).forEach(row => (Array.isArray(row.tags) ? row.tags : []).forEach(tag => counts.set(tag, (counts.get(tag) || 0) + personaWeight(row.persona))));
+    (Array.isArray(rows) ? rows : []).forEach(row => (Array.isArray(row.tags) ? row.tags : []).forEach(tag => counts.set(tag, (counts.get(tag) || 0) + rowWeight(row))));
     return [...counts.entries()].sort((a,b)=>b[1]-a[1] || a[0].localeCompare(b[0])).slice(0, limit).map(([tag,count])=>({ tag, support:count }));
   }
   function aggregateRatings(rows, activeLikes = 0, { seed = null } = {}){
     const valid = (Array.isArray(rows) ? rows : []).filter(row => ratingContribution(row) !== null);
-    let rating = weightedMean(valid), weight = valid.reduce((total,row)=>total+personaWeight(row.persona),0), seedWeight = 0;
+    let rating = weightedMean(valid), weight = valid.reduce((total,row)=>total+rowWeight(row),0), seedWeight = 0;
     if (seed && Number.isFinite(Number(seed.rating)) && Number(seed.weight) > 0){
       seedWeight = Number(seed.weight);
       rating = rating === null ? Number(seed.rating) : ((rating * weight) + Number(seed.rating) * seedWeight) / (weight + seedWeight);
@@ -91,9 +92,10 @@
       const userId = String(row.userId || row.user_id || "");
       if (!userId || rating === null || !Number.isFinite(updated) || updated > now + 60000) return;
       const record = byUser.get(userId) || { userId, persona:row.persona, ratings:[], lastUpdated:0 };
+      if(Object.hasOwn(row,"ratingWeight"))record.ratingWeight=row.ratingWeight;
       record.ratings.push(rating); record.persona=row.persona || record.persona; record.lastUpdated=Math.max(record.lastUpdated,updated); byUser.set(userId,record);
     });
-    const users = [...byUser.values()].filter(record=>now-record.lastUpdated<=PULSE_FRESH_MS).map(record => ({ userId:record.userId, persona:record.persona, rating:record.ratings.reduce((sum,value)=>sum+value,0)/record.ratings.length }));
+    const users = [...byUser.values()].filter(record=>now-record.lastUpdated<=PULSE_FRESH_MS).map(record => ({ userId:record.userId, persona:record.persona, ...(Object.hasOwn(record,"ratingWeight")?{ratingWeight:record.ratingWeight}:{}), rating:record.ratings.reduce((sum,value)=>sum+value,0)/record.ratings.length }));
     return { ...aggregateRatings(users, 0), uniqueContributors:users.length, bucketContributions:(Array.isArray(rows)?rows:[]).length };
   }
   function activePresence(rows, nowValue = Date.now()){

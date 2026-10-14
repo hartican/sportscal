@@ -607,6 +607,7 @@ function buildEventWhyItMatters(ev){
 
 function eventMeetsDerivedRetention(ev, reference = nowAEST()){
   if(!reference||typeof reference.getTime!=='function'||!Number.isFinite(+reference))reference=nowAEST();
+  if(getEventAction(ev).isPurged||globalThis.NOTHINGSPORTS_EPIC.retired(ev,reference))return false;
   if(CARD_LIFECYCLE.currentPlayUntil(ev,reference))return true;
   if(!NOTHINGSPORTS_FIXTURE_IDENTITY.retainedInActiveTimeline(ev,reference)||!CARD_LIFECYCLE.withinFeedWindow(ev,reference))return false;
   if((ev.date || ev.startDate)===NOTHINGSPORTS_CALENDAR.sydneyDay(reference))return true;
@@ -690,9 +691,7 @@ function buildViewingProviderMark(viewing){
 }
 
 function nothingscorePhaseCopy(phase){
-  if (phase === "pulse") return { name:"Pulse", detail:"Live feeling", labels:NOTHINGSCORE.PULSE_LABELS };
-  if (phase === "impact") return { name:"Impact", detail:"How it landed", labels:NOTHINGSCORE.IMPACT_LABELS };
-  return { name:"How do you think it'll go?", detail:"Before it starts", submissionLabel:"Pre-fixture", labels:NOTHINGSCORE.HEAT_LABELS };
+  return globalThis.NOTHINGSPORTS_EPIC.phaseCopy(phase);
 }
 
 function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=true}={}){
@@ -706,7 +705,8 @@ function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=
     const singular=peers?.count===1;
     const verb=phase==='heat'?(singular?'expects':'expect'):phase==='pulse'?(singular?'is rating this':'are rating this'):(singular?'has rated this':'have rated this');
     const failed=nothingscoreLoadErrors.has(nothingscoreEventId(ev));
-    summary.textContent=!peers?(failed?'Community ratings unavailable':snapshot?.ratingRequired?'Rate to reveal community ratings':snapshot?'Ratings unavailable':'Ratings loading…'):!peers.count?(failed?'Community ratings unavailable':'Be the first to rate'):`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${fixtureStakesLabel(peers.rawAverage??peers.average)} · ${Number(peers.average).toFixed(1)}/5${failed?' · Saved ratings; update unavailable':''}`;
+    summary.textContent=!peers?(failed?'Community ratings unavailable':snapshot?.ratingRequired?'Rate to reveal community ratings':snapshot?'Ratings unavailable':'Ratings loading…'):!peers.count?(failed?'Community ratings unavailable':'Be the first to rate'):`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${nothingscorePhaseCopy(phase).labels[Math.round(peers.rawAverage??peers.average)-1]} · ${Number(peers.average).toFixed(1)}/5${failed?' · Saved ratings; update unavailable':''}`;
+    summary.title='NS curators carry 8× weight in this score. The count is the number of real people.';
     root.appendChild(summary);
     const tags=document.createElement('div');tags.className='fixture-tags';
     const labels=[];const homeTag=followedHomeTag(ev);if(homeTag)labels.push(homeTag);if(NOTHINGSPORTS_PROMOTED_REPLAY.recommendation(ev,snapshot,phase))labels.push('Promoted replay');
@@ -722,21 +722,24 @@ function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=
 
 function buildInlineCrowdRating(ev,snapshot){
   const root=document.createElement('div');root.className='nsc-inline-rating';
-  const phase=snapshot?.phase || ({upcoming:'heat',live:'pulse',past:'impact'})[getEventStatus(ev)];
-  if(!phase)return root;
+  const phase=snapshot?snapshot.phase:globalThis.NOTHINGSPORTS_EPIC.confirmedOngoing(ev)?'pulse':/^(completed|finished|final)$/.test(ev.status||'')?'impact':getEventStatus(ev)==='upcoming'?'heat':null;
+  if(!phase){root.textContent='Rating awaits a confirmed fixture status.';return root;}
   const awaitingViewer=Boolean(serverSyncClient?.sessionSubject())&&!snapshot;
-  const group=document.createElement('div');group.className='nsc-rating-blocks';group.setAttribute('role','group');group.setAttribute('aria-label','Your stakes rating out of five');
+  const copy=nothingscorePhaseCopy(phase);
+  root.dataset.ratingPhase=phase;
+  const heading=document.createElement('span');heading.className='nsc-rating-phase';heading.textContent=copy.name+' · '+copy.detail;heading.title=copy.tip;root.appendChild(heading);
+  const group=document.createElement('div');group.className='nsc-rating-blocks';group.setAttribute('role','group');group.setAttribute('aria-label','Your '+copy.name+' rating out of five');
   const exactTiming=Boolean(ev?.startTimeUtc)&&(!ev?.timePrecision||ev.timePrecision==='exact');
-  const tip=phase==='pulse'?"How’s it going? Rate stakes":"Tap to rate stakes";
+  const tip=phase?copy.tip:'Rating awaits a confirmed fixture status.';
   const prompt=document.createElement('span');prompt.className='nsc-rating-prompt';
   const status=document.createElement('span');status.className='nsc-rating-status';status.setAttribute('role','status');
   const id=nothingscoreEventId(ev),owner=serverPersistence.user?.id;
   let chosen=Number(snapshot?.currentUser?.contribution?.rating || snapshot?.currentUser?.submissions?.[phase]?.rating)||0;
   const sealed=false;
-  const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?fixtureStakesLabel(value):tip;prompt.dataset.rating=String(value||0);};
+  const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?copy.labels[value-1]:tip;prompt.dataset.rating=String(value||0);};
   for(let value=1;value<=5;value++){
-    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${fixtureStakesLabel(value)}`);b.disabled=sealed||awaitingViewer;
-    b.innerHTML=glyphMarkup('ui:steak');
+    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${copy.labels[value-1]}`);b.title=copy.tip;b.disabled=sealed||awaitingViewer||!phase;
+    b.innerHTML=glyphMarkup(copy.glyph);
     b.onclick=async()=>{
       if(!serverSyncClient?.sessionSubject()){status.textContent='Sign in to rate this fixture.';openSettings({section:'account'});return;}
       if(inlineRatingRequests.has(id))return;
@@ -766,8 +769,9 @@ function buildInlineCrowdRating(ev,snapshot){
     status.textContent=failed?'Ratings are temporarily unavailable. Retry to check your saved rating.':'Checking your rating…';
   }
   paint(chosen);root.append(group,prompt);
-  if(phase==='heat'&&!NOTHINGSPORTS_CARD_TIMING.played(ev)&&!exactTiming&&!ev.dateOnly&&ev.timePrecision!=='date-only'){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent=ev.startTimeUtc&&['not-before','not_before'].includes(ev.timePrecision)?'Not-before start; exact start may be later':'Rating window TBD';root.appendChild(timing);}
-  root.appendChild(status);return root;
+  if(phase==='heat'&&!NOTHINGSPORTS_CARD_TIMING.played(ev)&&!exactTiming&&!ev.dateOnly&&ev.timePrecision!=='date-only'){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent=ev.startTimeUtc&&['not-before','not_before'].includes(ev.timePrecision)?'Not-before start; exact start may be later':'Start time unconfirmed';root.appendChild(timing);}
+  const guide=document.createElement('details');guide.className='nsc-rating-help';const guideTitle=document.createElement('summary');guideTitle.textContent='About '+copy.name+' ratings';guide.append(guideTitle);const explanation=document.createElement('p');explanation.textContent=copy.tip+' NS fixture curators carry 8× weight in community scores. Contributor counts are real people; points and rewards stay the same. Your own genuine 5/5 in any phase preserves the fixture in your EPIC Hall of Fame.';guide.append(explanation);
+  root.append(status,guide);return root;
 }
 
 function buildNothingscoreReceipt(receipt, phaseName){

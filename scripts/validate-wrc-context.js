@@ -211,8 +211,8 @@ const liveServerFeed = serverFeed.buildServerFeed({
   participants:context.participants, now:new Date("2026-09-11T02:00:00.000Z"),
 });
 assert.equal(liveServerFeed.events[0]?.status, chileServerCard.status, "published rally status remains separate from the calendar phase tested below");
-assert.equal(cardLifecycle.lifecycleState(chileServerCard, { now:new Date("2026-09-27T12:00:00.000Z") }).state, "archived", "WRC retention must start at the end of the multi-day rally rather than its first day");
-assert.equal(cardLifecycle.lifecycleState(chileServerCard, { now:new Date("2026-09-28T12:00:00.000Z") }).state, "expired", "WRC retention must expire fourteen days after the rally end date");
+assert.equal(cardLifecycle.lifecycleState(chileServerCard, { now:new Date("2026-09-20T12:00:00.000Z") }).state, "active", "WRC retention must start at the end of the multi-day rally rather than its first day");
+assert.equal(cardLifecycle.lifecycleState(chileServerCard, { now:new Date("2026-09-21T12:00:00.000Z") }).state, "expired", "WRC ordinary cards retire more than seven local calendar days after the rally final date");
 assert(!feed.events.some(event => event.key === "rally"));
 assert(!feed.events.some(event => /Paris-Dakar Rally 2026 Stage 11|WRC Safari Rally 2027/.test(event.name)));
 const resynced = syncWrcToFeed(feed, context);

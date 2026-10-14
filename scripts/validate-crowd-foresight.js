@@ -3,8 +3,8 @@ const assert=require('node:assert/strict'),c=require('../lib/nsc-crowd');
 const now=new Date('2026-09-06T02:00:00Z'),vote=(user,rating,minutes=0,phase='pulse')=>({user_id:user,rating,phase,updated_at:new Date(+now-minutes*60000).toISOString()});
 assert.equal(c.summary([vote('a',1,10),vote('a',5),vote('b',3)],{phase:'pulse',now}).average,4);
 assert.equal(c.latestVotes([vote('a',5,15)],{phase:'pulse',now}).length,0,'short-window analytics remain available separately');
-assert.equal(c.summary([vote('a',5,16),vote('b',3)],{phase:'pulse',now}).average,4,'the card uses each real user latest phase vote');
-assert.equal(c.summary([vote('a',4)],{phase:'pulse',now}).label,'Cooking');
+assert.equal(c.summary([vote('a',5,16),vote('b',3)],{phase:'pulse',now}).average,3,'Ongoing summaries use fresh real users once');
+assert.equal(c.summary([vote('a',4)],{phase:'pulse',now}).label,'Electric');
 assert.equal(c.summary([vote('a',4)],{phase:'pulse',now}).ranked,true,'one real rating is enough; no low-feedback label');
 assert.equal(c.summary([vote('a',5),{...vote('model',5),modelled:true}],{phase:'pulse',now}).count,1);
 assert.equal(c.summary(Array.from({length:5},(_,i)=>vote(String(i),4)),{phase:'pulse',now}).ranked,true);
@@ -12,7 +12,7 @@ assert.equal(c.foresight({prediction:5,userId:'a',ratings:[vote('a',5)]}).total,
 assert.equal(c.foresight({prediction:5,userId:'a',ratings:[vote('b',5)]}).total,20);
 assert.equal(c.foresight({prediction:4,userId:'a',ratings:[vote('b',5)]}).total,1);
 assert.equal(c.foresight({prediction:5,userId:'a',ratings:[{...vote('b',5),modelled:true}]}).total,1);
-assert.equal(c.phaseFor({startTimeUtc:'2026-09-06T01:00:00Z',endTimeUtc:'2026-09-06T05:00:00Z'},now),'pulse');
+assert.equal(c.phaseFor({startTimeUtc:'2026-09-06T01:00:00Z',endTimeUtc:'2026-09-06T05:00:00Z'},now),null);
 assert.equal(c.phaseFor({status:'completed',startTimeUtc:'2026-09-06T01:00:00Z',endTimeUtc:'2026-09-06T05:00:00Z'},now),'impact');
 assert.equal(c.phaseFor({status:'cancelled'},now),null);
 console.log('Crowd window, distinct voters, phases and symmetric foresight rules passed.');
@@ -35,5 +35,5 @@ assert(calendar.buildIcs([follows]).includes('DTSTART;VALUE=DATE:20260906'),'ses
  for(const time of ['2026-09-06T01:00:00Z','2026-09-07T01:00:00Z'])assert.equal(c.phaseFor(event,new Date(time)),null,'daily-source unknown cannot become Pulse or Impact by clock');
  assert.equal(c.phaseFor(event,new Date('2026-09-06T00:00:00Z')),'heat');
  assert.equal(c.phaseFor({...event,status:'completed'},now),'impact');
- assert.equal(c.phaseFor({...event,status:'live',statusCheckedAt:now.toISOString()},now),'pulse');
+ assert.equal(c.phaseFor({...event,status:'live',statusCheckedAt:now.toISOString(),statusSourceUrl:'https://official.example/live'},now),'pulse');
 }

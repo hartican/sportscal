@@ -60,7 +60,7 @@ assert.deepEqual(final.participants.map(p=>p.countryCode),['CN','RU'],'Both actu
 const score=require('../config/feed-live-scores'),cricket=require('../data/follow-schedule/cricket.json').fixtures.find(f=>f.sourceEventIds?.includes('fixture:cricket:CA:39990'));
 const ongoing={...cricket,id:'fixture:cricket:controlled-overrun',eventId:'fixture:cricket:controlled-overrun',canonicalEventId:'fixture:cricket:controlled-overrun',sourceEventIds:[],date:'2026-09-24',endDate:'2026-09-24',endTimeUtc:'2026-09-24T06:00Z',actualEndTimeUtc:null,startTimeUtc:'2026-09-24T01:00Z',status:'live',statusCheckedAt:now.toISOString(),statusSourceUrl:'https://www.cricket.com.au/',sourceStale:false,stale:false};
 const cricketPrefs={preferenceGraph:{entityFollows:[{participantId:ongoing.participantIds[0],followLevel:'follow'}]}};
-assert.equal(life.lifecycleState(ongoing,{now}).state,'expired','History lifecycle stays unchanged');
+assert.equal(life.lifecycleState(ongoing,{now}).state,'active','Every ordinary surface protects source-confirmed ongoing play');
 for(const status of ['live','stumps','rain-delay']){
  const result=buildServerFeed({events:[{...ongoing,status}],userId:'controlled',userState:{preferences:cricketPrefs,eventUserState:{}},now,limit:1000});
  assert(result.events.some(e=>e.id===ongoing.id),'Source-confirmed extended play reaches server Feed');

@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="535">
+<meta name="app-shell-version" content="536">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=535" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=536" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -1713,7 +1713,7 @@ header.top, #calendarControls, #mainContent, .app-footer, #jumpTodayBtn{ animati
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=463">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=534">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=424">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=536">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
 <body>
@@ -2009,7 +2009,7 @@ header.top, #calendarControls, #mainContent, .app-footer, #jumpTodayBtn{ animati
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=535"></script>
+<script src="assets/js/app-shell-runtime.js?v=536"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -4274,6 +4274,7 @@ function serverAuthoritativeFixturePins(serverState, localState){
   const serverActions = serverState.eventUserState && typeof serverState.eventUserState === "object" ? serverState.eventUserState : {};
   const localActions = next.eventUserState && typeof next.eventUserState === "object" ? next.eventUserState : {};
   next.eventUserState = localActions;
+  USER_STATE_SYNC?.preservePurges?.(serverState,next);
   const keys = new Set([...Object.keys(serverActions), ...Object.keys(localActions)]);
   keys.forEach(key => {
     if (fixturePinQueue[key]) return;
@@ -4788,6 +4789,7 @@ function setServerPersistence(patch){
   serverPersistence = { ...serverPersistence, ...(patch || {}) };
   const nextOwnerId = serverPersistence.user?.id || null;
   if (previousOwnerId !== nextOwnerId || productEventOwnerId !== nextOwnerId){
+    if(previousOwnerId!==nextOwnerId)globalThis.NOTHINGSPORTS_EPIC_UI?.reset?.();
     if (previousOwnerId && previousOwnerId !== nextOwnerId) void clearCachedPersonalisedFeed(previousOwnerId);
     productEventsQueue?.clear();
     productExposureKeys.clear();
@@ -4898,6 +4900,7 @@ function queueServerStateSync(){
 }
 
 function invalidateServerStateSyncScope(){
+  globalThis.NOTHINGSPORTS_EPIC_UI?.reset();
   clearTimeout(serverSyncTimer);
   serverSyncTimer = null;
   return ++serverStateSyncGeneration;
@@ -5126,6 +5129,7 @@ function applyServerState(state){
     applyThemePreference(userPreferences.theme);
     rebuildDerivedCardCache(activeEvents);
     renderAll({ preserveViewport: true });
+    setTimeout(maybeInviteClassicReview,0);
     void backfillWebPushReminders({ force:true }).catch(error => console.warn("Reminder backfill failed", error));
     return true;
   }finally{
@@ -10771,8 +10775,20 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=535';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=536';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
+}
+let epicUiLoading;
+function ensureEpicUi(){
+  if(globalThis.NOTHINGSPORTS_EPIC_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_EPIC_UI);
+  epicUiLoading ||= loadDeferredScript('assets/js/epic-classics-ui.js?v=536').then(()=>globalThis.NOTHINGSPORTS_EPIC_UI).catch(error=>{epicUiLoading=null;throw error;});
+  return epicUiLoading;
+}
+function maybeInviteClassicReview(){
+  const url=new URL(location.href),year=Number(url.searchParams.get('classicReview'));
+  if(serverSyncClient?.sessionSubject()&&url.searchParams.has('classicReview')&&year>=1900&&year<=2200){url.searchParams.delete('classicReview');history.replaceState(history.state,'',url);void ensureEpicUi().then(ui=>ui.openReview(year));return;}
+  if(!serverPersistence.user||NOTHINGSPORTS_EPIC.reviewYear()<2026)return;
+  void ensureEpicUi().then(ui=>ui.invite()).catch(()=>{});
 }
 function buildEventCard(ev, options = {}){
   if(NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS.cachedCalendarNote(ev))ev=NOTHINGSPORTS_FIXTURE_IDENTITY.normalizeCore(ev);
@@ -13376,6 +13392,8 @@ function renderEventsView(){
   }
   const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, majorEventVisibilityPreferences(), nowAEST());
   if(pendingMajorEventFocusId&&!visible.events.some(e=>e.id===pendingMajorEventFocusId)){const target=majorEventsDocument.events.find(e=>e.id===pendingMajorEventFocusId);if(target)visible.events.push(target);}
+  visible.events=visible.events.filter(record=>!getEventAction(majorEventActionEvent(record)).isPurged&&!NOTHINGSPORTS_EPIC.retired(majorEventActionEvent(record)));
+  visible.alerts=visible.alerts.filter(record=>!getEventAction(majorEventActionEvent(record)).isPurged&&!NOTHINGSPORTS_EPIC.retired(majorEventActionEvent(record)));
   const activeMajorRecords = visible.events.filter(record => !getEventAction(majorEventActionEvent(record)).isDismissed);
   const dismissedMajorRecords = visible.events
     .filter(record => getEventAction(majorEventActionEvent(record)).isDismissed)
@@ -14697,63 +14715,7 @@ function renderPilotSettings(body){
   });
 }
 
-function renderSettingsMenu(body){
-  const hiddenCount = dismissedEventEntries().length;
-  body.innerHTML = `<div class="settings-menu">
-    ${settingsMenuItem("account", "ui:radio", "Account", accountSettingsSummary())}
-    ${settingsMenuItem("all-followed", "ui:list", "All Followed", "Sports, events, teams, athletes and collections")}
-    ${settingsMenuItem("about", "ui:info", "About", "Nothing Sport, editorial standards and legal information")}
-    ${settingsMenuItem("fantasy", "ui:settings", "Fantasy deadlines", fantasySettingsSummary())}
-    ${settingsMenuItem("appearance", "ui:sun", "Appearance", "Day, night or system theme")}
-    ${settingsMenuItem("subscriptions", "ui:watch", "Subscriptions", `${draftPreferences.followFirst.subscriptions.length} preferred viewing service${draftPreferences.followFirst.subscriptions.length === 1 ? "" : "s"}`)}
-    ${settingsMenuItem("notifications", "ui:bell", "Notifications", draftPreferences.followFirst.notifications.enabled ? "15 minutes before kickoff or race start" : "Off")}
-    ${settingsMenuItem("location", "ui:map-pin", "Set location", draftPreferences.followFirst.location.label || "Not set")}
-    ${settingsMenuItem("hidden", "ui:archive", "Hidden events", `${hiddenCount} dismissed card${hiddenCount === 1 ? "" : "s"}`)}
-    ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send feedback to Nothing Sport")}
-  </div><div class="filter-panel"><h3>Feed refresh and recovery</h3><p class="preference-help">The published feed refreshes automatically when the app opens. Use this recovery action if cards appear stale or incomplete.</p><p class="preference-help" id="derivedFeedCacheSummary">${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Completed cards stay active for 7 days, remain recoverable through day 14, then disappear unless you archived or saved them.</p><button class="btn ghost" type="button" id="refreshAndRebuildFeedBtn" aria-describedby="refreshAndRebuildFeedStatus">Refresh and rebuild feed</button><p class="preference-help" id="refreshAndRebuildFeedStatus" role="status" aria-live="polite"></p></div>`;
-  const updates = globalThis.NOTHINGSPORTS_APP_UPDATE;
-  if (updates){
-    const section = document.createElement("section");
-    section.className = "filter-panel";
-    section.innerHTML = '<h3>App updates</h3><p class="preference-help" id="appVersionStatus" role="status" aria-live="polite"></p><button class="btn ghost" type="button" id="checkAppUpdateBtn">Check for updates</button>';
-    body.appendChild(section);
-    const status = section.querySelector("#appVersionStatus");
-    const button = section.querySelector("button");
-    const render = state => {
-      const messages = { idle:"", checking:"Checking for updates…", current:"Up to date.", updating:"Update available. Applying when your current action is saved…", offline:"Offline. Your saved app is available; reconnect to check for updates.", error:"Couldn’t confirm the latest version. Try again when connected." };
-      status.textContent = "Version " + state.version + " · " + (messages[state.phase] || "");
-      button.disabled = state.phase === "checking";
-    };
-    render(updates.snapshot());
-    const unsubscribe = updates.subscribe(state => { if (section.isConnected) render(state); });
-    const observer = new MutationObserver(() => { if (!section.isConnected){ unsubscribe(); observer.disconnect(); } });
-    observer.observe(body, { childList:true });
-    button.addEventListener("click", () => void updates.check({ force:true }));
-  }
-  bindSettingsMenuNavigation(body);
-  document.getElementById("refreshAndRebuildFeedBtn").addEventListener("click", async () => {
-    const button = document.getElementById("refreshAndRebuildFeedBtn");
-    const status = document.getElementById("refreshAndRebuildFeedStatus");
-    button.disabled = true;
-    button.textContent = "Refreshing…";
-    status.textContent = "Checking the latest published feed and rebuilding this device’s disposable card cache…";
-    if (CARD_LIFECYCLE) saveDerivedCardCache(CARD_LIFECYCLE.emptyCache(nowAEST()));
-    const result = await refreshRemoteFeed({ quiet: true });
-    const sourceCopy = result.source === "server"
-      ? "The synced feed and cache were rebuilt centrally."
-      : result.source === "fallback"
-        ? "The published feed could not be reached, so the bundled feed and local cache were rebuilt safely."
-        : "The latest published feed and local cache were rebuilt.";
-    const changeCopy = result.rendered
-      ? " Visible cards were updated."
-      : " The visible feed was already current, so it was left in place.";
-    status.textContent = `${sourceCopy}${changeCopy}`;
-    document.getElementById("derivedFeedCacheSummary").textContent = `${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Completed cards stay active for 7 days, remain recoverable through day 14, then disappear unless you archived or saved them.`;
-    button.textContent = "Refresh and rebuild feed";
-    button.disabled = false;
-    showToast(status.textContent);
-  });
-}
+function renderSettingsMenu(body){body.textContent='Loading settings…';void ensureFantasyUi().then(()=>{if(settingsSection==='main'&&body.isConnected)NOTHINGSPORTS_ARCHIVE_SETTINGS_UI.renderSettingsMenu(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});}
 
 function renderSubscriptionSettings(body){
   void ensureFantasyUi().then(ui=>{if(settingsSection==='subscriptions')ui.renderSubscriptionSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});
@@ -14767,81 +14729,10 @@ function renderLocationSettings(body){
   void ensureFantasyUi().then(ui=>{if(settingsSection==='location')ui.renderLocationSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});
 }
 
-function renderArchiveSettings(body){
-  const events = archivedEvents();
-  body.innerHTML = `<div class="preference-stack"><p class="preference-help">Completed cards move here automatically after seven days and disappear after fourteen. Choosing Archive or Save on a card keeps it here until you reinstate it.</p><div id="settingsArchiveList"></div></div>`;
-  const list = document.getElementById("settingsArchiveList");
-  if (!events.length){
-    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">No archived events.</div>`;
-    return;
-  }
-  const grouped = groupEventsByDate(calendarTimelineEvents(events));
-  Object.keys(grouped).sort().forEach(dateStr => {
-    const section = document.createElement("section");
-    section.className = "queue-section";
-    const heading = document.createElement("h3");
-    heading.textContent = fmtDateHeading(dateStr);
-    section.appendChild(heading);
-    const grid = document.createElement("div");
-    grid.className = "cards-grid";
-    grouped[dateStr].forEach(ev => grid.appendChild(buildEventCard(ev, {
-      mode: "archived",
-      archived: true,
-      autoArchived: eventIsAutoArchived(ev) && !getEventAction(ev).archived,
-    })));
-    section.appendChild(grid);
-    list.appendChild(section);
-  });
-}
+function renderArchiveSettings(body){body.textContent='Loading settings…';void ensureFantasyUi().then(()=>{if(settingsSection==='archive'&&body.isConnected)NOTHINGSPORTS_ARCHIVE_SETTINGS_UI.renderArchiveSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});}
 
-function dismissedEventEntries(){
-  const byId = new Map();
-  activeEvents.forEach(event => {
-    if (!getEventAction(event).dismissed) return;
-    byId.set(String(event.eventId || event.id), { event, label:spoilerSafeDisplayTitle(event), kind:"Feed event" });
-  });
-  (majorEventsDocument?.events || []).forEach(record => {
-    const event = majorEventActionEvent(record);
-    if (!getEventAction(event).dismissed) return;
-    byId.set(String(event.eventId || event.id), { event, label:record.name, kind:"Major event" });
-  });
-  return [...byId.values()].sort((first, second) => {
-    const firstAt = Date.parse(getEventAction(first.event).dismissedAt || "") || 0;
-    const secondAt = Date.parse(getEventAction(second.event).dismissedAt || "") || 0;
-    return secondAt - firstAt || first.label.localeCompare(second.label);
-  });
-}
 
-function renderHiddenEventsSettings(body){
-  const entries = dismissedEventEntries();
-  body.innerHTML = `<div class="preference-stack"><p class="preference-help">Dismissed cards stay out of Feed and Events. Restoring a card makes that exact edition eligible again; future editions were never blocked.</p><div class="hidden-event-list" id="settingsHiddenEventList"></div></div>`;
-  const list = document.getElementById("settingsHiddenEventList");
-  if (!entries.length){
-    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">No hidden events.</div>`;
-    return;
-  }
-  entries.forEach(entry => {
-    const row = document.createElement("article");
-    row.className = "hidden-event-row";
-    const identity = document.createElement("div");
-    identity.className = "event-icon";
-    renderEventIdentityMark(identity, entry.event, sportMetaForEvent(entry.event));
-    const copy = document.createElement("div");
-    copy.className = "hidden-event-copy";
-    const title = document.createElement("strong");
-    title.textContent = entry.label;
-    const detail = document.createElement("span");
-    detail.textContent = `${entry.kind} · hidden ${new Date(getEventAction(entry.event).dismissedAt || Date.now()).toLocaleDateString("en-AU", { day:"numeric", month:"short", year:"numeric" })}`;
-    copy.append(title, detail);
-    const restore = document.createElement("button");
-    restore.type = "button";
-    restore.className = "btn ghost";
-    restore.textContent = "Restore";
-    restore.addEventListener("click", () => restoreDismissedEvent(entry.event));
-    row.append(identity, copy, restore);
-    list.appendChild(row);
-  });
-}
+function renderHiddenEventsSettings(body){body.textContent='Loading settings…';void ensureFantasyUi().then(()=>{if(settingsSection==='hidden'&&body.isConnected)NOTHINGSPORTS_ARCHIVE_SETTINGS_UI.renderHiddenEventsSettings(body);}).catch(()=>{body.textContent='Settings temporarily unavailable. Try again.';});}
 
 function coverageModeFor(preference){
   if (preference?.includeAllFixtures) return "all";
@@ -15098,7 +14989,7 @@ function renderSettingsScreen(){
   back.hidden = settingsFirstRun ? settingsWizardStep === 0 : settingsSection === "main";
   back.setAttribute("aria-label", settingsNavigationStack.length ? "Back to previous Settings screen" : "Back to Settings");
   brandIcon.hidden = settingsFirstRun ? settingsWizardStep > 0 : settingsSection !== "main";
-  document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && ["all-followed", "archive", "hidden", "about", "privacy", "terms"].includes(settingsSection)
+  document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && ["all-followed", "archive", "hidden", "classics", "about", "privacy", "terms"].includes(settingsSection)
     ? "Close"
     : settingsFirstRun && settingsWizardStep < ONBOARDING_SECTIONS.length - 1
     ? "Next"
@@ -15119,7 +15010,8 @@ function renderSettingsScreen(){
     notifications: ["Notifications", "System reminders for the sporting start, defaulting to 15 minutes before."],
     location: ["Set location", "Choose a home area or temporary travel location and radius."],
     startup: ["Set up your Feed", "Three lightweight groups: what you follow, coarse location and optional offer interests."],
-    hidden: ["Hidden events", "Restore exact event editions you previously dismissed."],
+    hidden: ["Hidden events", "Restore dismissed editions or empty the bin permanently."],
+    classics: ["EPIC Hall of Fame", "Keep your memorable fixtures. Review and share your year of NS."],
     feedback: ["Feedback", "Send feedback to Nothing Sport."],
     pilot: ["Trust pulse", "Five fixed choices about how well the feed is earning your trust."],
   };
@@ -15136,6 +15028,7 @@ function renderSettingsScreen(){
   else if (settingsSection === "notifications") renderNotificationSettings(body);
   else if (settingsSection === "location") renderLocationSettings(body);
   else if (settingsSection === "hidden") renderHiddenEventsSettings(body);
+  else if (settingsSection === "classics"){body.textContent='Loading your classics…';void ensureEpicUi().then(ui=>{if(settingsSection==='classics')return ui.mount(body);}).catch(()=>{body.textContent='Classics are temporarily unavailable. Try again.';});}
   else if (settingsSection === "feedback") renderFeedbackSettings(body);
   else if (settingsSection === "pilot") renderPilotSettings(body);
   else renderSettingsMenu(body);
@@ -17672,7 +17565,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=293");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=536");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -18265,6 +18158,8 @@ function scheduleSydneyMidnight(){
 scheduleSydneyMidnight();
 window.addEventListener('focus',scheduleSydneyMidnight);
 window.addEventListener('focus',refreshFeedClock);
+window.addEventListener('focus',maybeInviteClassicReview);
+setTimeout(maybeInviteClassicReview,5000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFeedClock();});
 </script>
 <script src="assets/js/notifications-inbox.js?v=533"></script>
@@ -18276,6 +18171,7 @@ function closeNotificationDestination(){
   const closing=notificationDestinationDialog;notificationDestinationDialog=null;if(closing){closing.dataset.closingFromRoute="true";closing.close();closing.remove();}
 }
 async function openNotificationDestination(item){
+  if(item.yearReview){const ui=await ensureEpicUi();notificationDestinationDialog=ui.openReview(item.yearReview);return;}
   if(['chat','added'].includes(item.kind)){setChatDrawerOpen(true);await openChatRoom(item.roomId);return;}
   if(item.kind==='invitation'){
     if(item.invitationState==='accepted'){setChatDrawerOpen(true);await openChatRoom(item.roomId);return;}
@@ -18287,7 +18183,7 @@ async function openNotificationDestination(item){
   }
   if(['profile_followed','follows_copied'].includes(item.kind)){
     if(!item.profileId)throw new Error('This profile is no longer public.');
-    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=293');
+    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=536');
     await window.NOTHINGSPORTS_CROWD_RANKINGS.openProfile({profileId:item.profileId,name:item.actor});
     notificationDestinationDialog=document.querySelector('.nsc-picks-dialog[open]');
   }else if(['rating','reminder'].includes(item.kind)){

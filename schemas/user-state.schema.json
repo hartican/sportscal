@@ -91,6 +91,8 @@
         "archived": { "type": "boolean" },
         "dismissed": { "type": "boolean" },
         "isDismissed": { "type": "boolean" },
+        "isPurged": { "type": "boolean" },
+        "purgedAt": { "type": ["string", "null"], "format": "date-time" },
         "isMinimised": { "type": "boolean" },
         "dismissedAt": { "type": ["string", "null"], "format": "date-time" },
         "eventsDismissedAt": { "type": ["string", "null"], "format": "date-time" },

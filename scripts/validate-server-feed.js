@@ -350,18 +350,18 @@ async function run(){
   assert.equal(feed.sourcePublishedAt, "2026-07-27T08:00:00.000Z", "server feeds must retain the canonical publication time separately from per-user generation");
   assert.equal(feed.derivedCardCache.buildOrigin, "server");
   assert.equal(feed.retention.archiveDays, 7);
-  assert.equal(feed.retention.retentionDays, 14);
+  assert.equal(feed.retention.retentionDays, 7);
   assert.deepEqual(feed.retention, {
     archiveDays: 7,
-    retentionDays: 14,
+    retentionDays: 7,
     inputEvents: 6,
-    retainedEvents: 5,
+    retainedEvents: 2,
     enrichedEvents: 1,
     derivedCards: 1,
     active: 2,
-    archived: 1,
-    saved: 2,
-    expired: 1,
+    archived: 0,
+    saved: 0,
+    expired: 4,
   });
   assert(!feed.events.some(item => item.eventId === "expired"), "expired unsaved facts must not return to the client");
   assert(!feed.events.some(item => item.eventId === "archived"), "older source facts must not leak into the seven-day Feed");
@@ -505,7 +505,7 @@ async function run(){
     global.fetch = originalFetch;
   }
 
-  console.log("Server feed valid: authenticated central rebuild, selective enrichment, explicit archive exemptions, and 7/14-day retention passed.");
+  console.log("Server feed valid: authenticated central rebuild, selective enrichment, permanent shared source records and seven-calendar-day ordinary-card retirement passed.");
 }
 
 run().catch(error => {

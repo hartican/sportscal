@@ -1,9 +1,9 @@
 'use strict';
 const assert=require('node:assert/strict'),crypto=require('node:crypto');
 const sourcePath='data/editorial-maintenance-sources.v1.json';
-function verifySourceInventory(sha,inventory,source){
+function verifySourceInventory(sha,inventory,source,sourceFile=sourcePath){
   assert.equal(inventory.revision,sha,'Wrong published deployment inventory revision.');
-  const entries=inventory.files.filter(file=>file.path===sourcePath);
+  const entries=inventory.files.filter(file=>file.path===sourceFile);
   assert.equal(entries.length,1,'Deployment inventory must contain exactly one editorial server source.');
   const entry=entries[0],bytes=Buffer.from(source);
   const blob=crypto.createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');

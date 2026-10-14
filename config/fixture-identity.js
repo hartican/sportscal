@@ -272,7 +272,7 @@
         const reviewedAt = record => Date.parse(record?.editorialNarrative?.researchedAt || record?.lastReviewedAt || '') || 0;
         // A score snapshot's fetch timestamp is not an editorial review.
         if(reviewedAt(base) > reviewedAt(event)){
-          for(const field of ['editorialNarrative','editorialPreview','selectedSentence','fullSpiel','summary','storyline','lastReviewedAt','resultEditorialBranches']){
+          for(const field of ['postMatchEditorial','editorialPhases','editorialNarrative','editorialPreview','selectedSentence','fullSpiel','summary','storyline','lastReviewedAt','resultEditorialBranches']){
             if(base[field] !== undefined) event[field] = base[field];
           }
         }

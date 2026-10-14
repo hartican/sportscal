@@ -22,9 +22,9 @@ const sync = read("config/server-sync.js");
 const worker = read("service-worker.js");
 
 assert.equal(nsc.SCHEMA_VERSION, "nothingscore.v1");
-assert.deepEqual(nsc.PERSONA_WEIGHTS, { general:1, pundit:1, rising:2, influencer:4, curator:8, editorial:8, admin:8 });
-assert.deepEqual(nsc.HEAT_LABELS, ["Routine","Interesting","Notable","Major","Essential"]);
-assert.deepEqual(nsc.PULSE_LABELS, ["Flat","Solid","Strong","Exceptional","Unforgettable"]);
+assert.deepEqual(nsc.PERSONA_WEIGHTS, { general:1, pundit:1, rising:1, influencer:1, curator:8, editorial:8, admin:8 });
+assert.deepEqual(nsc.HEAT_LABELS, ["Low stakes","Mid stakes","High stakes","Huge stakes","Epic stakes"]);
+assert.deepEqual(nsc.PULSE_LABELS, ["Flat","A spark","Buzzing","Electric","EPIC electricity"]);
 assert.deepEqual(nsc.HEAT_TAGS, ["Box office","Big stakes","Rivalry","Star power","National interest","Great storyline"]);
 assert.deepEqual(nsc.IMPACT_TAGS, ["Thrilling","Eye-popping","Mind-blowing","Emotional","Electric atmosphere","Pure chaos"]);
 assert.equal(nsc.PULSE_BUCKET_MS, 5 * 60 * 1000);
@@ -35,13 +35,13 @@ const twoPilotRows = [
   { userId:"pilot-one", persona:"general", rating:5, tags:["Rivalry"] },
   { userId:"pilot-two", persona:"influencer", rating:2, tags:["Big stakes"] },
 ];
-assert.equal(nsc.weightedMean(twoPilotRows), 2.6, "persona weights must apply to at least two independent pilot users");
+assert.equal(nsc.weightedMean(twoPilotRows), 3.5, "persona weights must apply to at least two independent pilot users");
 assert.equal(nsc.likeLift(49), .35, "like lift must cap at 0.35");
 assert.equal(nsc.aggregateRatings([], 4).building, true, "likes alone must remain visibly low-confidence and building");
 assert.equal(nsc.aggregateRatings([], 4).internalScore, 3.1, "likes alone use the neutral internal prior plus lift");
-assert.equal(nsc.aggregateRatings(twoPilotRows, 8).score, 2.7);
-assert.equal(nsc.aggregateRatings(twoPilotRows, 8).support, 7, "support combines role weights with 0.25 per like");
-assert.equal(nsc.aggregateRatings(twoPilotRows, 100).support, 12, "like support must cap at seven while rating weight remains intact");
+assert.equal(nsc.aggregateRatings(twoPilotRows, 8).score, 3.6);
+assert.equal(nsc.aggregateRatings(twoPilotRows, 8).support, 4, "support combines role weights with 0.25 per like");
+assert.equal(nsc.aggregateRatings(twoPilotRows, 100).support, 9, "like support must cap at seven while rating weight remains intact");
 assert.deepEqual(nsc.validTags("heat", 3, ["Rivalry","Bog standard"]), ["Bog standard"]);
 assert.deepEqual(nsc.validTags("heat", 5, ["Rivalry","Rivalry","Big stakes","Star power","Box office"]), ["Rivalry","Big stakes","Star power"]);
 assert.equal(nsc.blendBand(2.99), 0);
@@ -67,7 +67,7 @@ const pulse = nsc.pulseAggregate([
   { userId:"stale", persona:"admin", rating:5, updatedAt:"2026-08-29T09:40:00.000Z" },
 ], pulseNow);
 assert.equal(pulse.uniqueContributors, 2, "only users fresh in the last ten minutes may shape live Pulse");
-assert.equal(pulse.score, 3.7, "a fresh user's live value is their event-wide mean across buckets");
+assert.equal(pulse.score, 3.5, "a fresh user's live value is their event-wide mean across buckets");
 assert.equal(nsc.pulseBucket("2026-08-29T10:12:59.000Z"), "2026-08-29T10:10:00.000Z");
 assert.equal(nsc.activePresence([{lastHeartbeatAt:"2026-08-29T10:00:01.000Z"},{lastHeartbeatAt:"2026-08-29T09:59:59.000Z"}], pulseNow).length, 1);
 

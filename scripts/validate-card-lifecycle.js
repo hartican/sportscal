@@ -29,19 +29,19 @@ const enrich = event => ({
 });
 
 assert.equal(lifecycle.ARCHIVE_DAYS, 7);
-assert.equal(lifecycle.RETENTION_DAYS, 14);
+assert.equal(lifecycle.RETENTION_DAYS, 7);
 assert.equal(lifecycle.sydneyEndOfDay("2026-07-10").toISOString(), "2026-07-10T13:59:59.999Z", "winter date-only retention must end at Sydney midnight");
 assert.equal(lifecycle.sydneyEndOfDay("2026-12-10").toISOString(), "2026-12-10T12:59:59.999Z", "summer date-only retention must follow Sydney daylight saving");
 assert.equal(lifecycle.isWithinRetention(recent, now), true);
 assert.equal(lifecycle.lifecycleState(recent, { now }).state, "active");
-assert.equal(lifecycle.lifecycleState(archived, { now }).state, "archived");
+assert.equal(lifecycle.lifecycleState(archived, { now }).state, "expired");
 assert.equal(lifecycle.isWithinRetention(expired, now), false);
 assert.equal(lifecycle.isWithinRetention(future, now), true);
-assert.equal(lifecycle.lifecycleState(expired, { action: { watchLater: true }, now }).state, "saved");
-assert.equal(lifecycle.lifecycleState(expired, { action: { archived: true }, now }).state, "saved", "a manual Archive action must remain retention-exempt indefinitely");
-assert.equal(lifecycle.lifecycleState(expired, { action: { addedToFixtures: true }, now }).state, "saved", "a manually pinned past fixture must remain in Feed until it is removed");
-assert.equal(lifecycle.isWithinRetention(expired, now, { action: { archived: true } }), true, "a manual archive must survive beyond day fourteen");
-assert.equal(lifecycle.shouldAutoArchive(archived, now), true);
+assert.equal(lifecycle.lifecycleState(expired, { action: { watchLater: true }, now }).state, "expired");
+assert.equal(lifecycle.lifecycleState(expired, { action: { archived: true }, now }).state, "expired", "ordinary manually archived cards retire after seven local days");
+assert.equal(lifecycle.lifecycleState(expired, { action: { addedToFixtures: true }, now }).state, "expired", "ordinary manually pinned cards retire after seven local days");
+assert.equal(lifecycle.isWithinRetention(expired, now, { action: { archived: true } }), false, "manual archive history does not exempt an ordinary card");
+assert.equal(lifecycle.shouldAutoArchive(archived, now), false);
 assert.equal(lifecycle.shouldAutoArchive(expired, now, { archived: true }), false, "a manual archive must not be mistaken for automatic expiry");
 assert.equal(lifecycle.shouldAutoArchive(expired, now, { addedToFixtures: true }), false, "a manual Feed pin must not be auto-archived");
 
@@ -51,7 +51,7 @@ const cache = lifecycle.materialize([expired, archived, recent, future], {
   actionFor: event => event.id === "expired" ? { archived: true } : {},
   now,
 });
-assert.deepEqual(cache.derivedCards.map(card => card.canonicalEventId), ["future", "expired", "recent"], "only active and saved canonical events may materialise cards");
+assert.deepEqual(cache.derivedCards.map(card => card.canonicalEventId), ["future", "recent"], "only active and saved canonical events may materialise cards");
 assert.equal(cache.derivedCards[0].surface, "homeMustWatch");
 assert.deepEqual(cache.derivedCards[0].renderPayload.followContext, [{
   participantId: "team:test",
@@ -59,8 +59,8 @@ assert.deepEqual(cache.derivedCards[0].renderPayload.followContext, [{
   displayName: "Test Team",
   followLevel: "priority",
 }], "disposable card payloads must carry rebuildable follow context");
-assert.equal(cache.derivedCards[1].retentionExempt, true);
-assert.equal(cache.derivedCards[2].surface, "recent");
+assert.equal(cache.derivedCards[1].retentionExempt, false);
+assert.equal(cache.derivedCards[1].surface, "recent");
 assert(cache.derivedCards.every(card => card.isArchived === false), "cache records must not absorb archive state");
 
 const staleCache = {
@@ -73,13 +73,14 @@ const staleCache = {
 const purged = lifecycle.purgeExpired(staleCache, now);
 assert.equal(purged.removedCount, 1);
 assert(!purged.cache.derivedCards.some(card => card.canonicalEventId === "stale"));
-assert(purged.cache.derivedCards.some(card => card.canonicalEventId === "expired"), "saved cards must survive cache expiry");
+assert(!purged.cache.derivedCards.some(card => card.canonicalEventId === "expired"), "expired ordinary saved cards cannot survive cache expiry");
+assert.equal(lifecycle.normalizeCache({...cache,schemaVersion:"derived-card-cache.v1"}).derivedCards.length,0,"old saved-exemption caches rebuild on upgrade");
 
 let archives = lifecycle.archiveReference([], archived, { profileId: "profile:test", archivedFromCardId: "card:old", now });
 assert.equal(archives.length, 1);
 assert.equal(archives[0].canonicalEventId, "archived");
 assert.deepEqual(lifecycle.rebuildArchive(archives, [archived]).events.map(event => event.id), ["archived"], "archive view must rebuild from canonical truth after cache purge");
-assert.equal(lifecycle.isWithinRetention(expired, now, { action: { archived: true } }), true, "existing manual archive records must migrate without data loss");
+assert.equal(lifecycle.isWithinRetention(expired, now, { action: { archived: true } }), false, "archive references are retained, while ordinary cards retire");
 archives = lifecycle.removeArchiveReference(archives, "archived");
 assert.equal(archives.length, 0);
 assert.equal(lifecycle.isWithinRetention(expired, now), false, "reinstate/remove must restore the normal expiry boundary");

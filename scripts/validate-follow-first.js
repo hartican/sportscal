@@ -134,10 +134,10 @@ const navLabels = Array.from(html.matchAll(/<span class="tab-label">([^<]+)<\/sp
 assert.deepEqual(navLabels, ["Feed", "Events", "Match Centre", "Follow"]);
 assert(html.includes('window.scrollTo({ top: 0, behavior: "auto" })'), "tab and inspector navigation must reset the viewport");
 
-const settingsMenu = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
+const settingsMenu = fs.readFileSync("config/archive-settings-ui.js","utf8").match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert.deepEqual(
   Array.from(settingsMenu.matchAll(/settingsMenuItem\("[^"]+",\s*"[^"]+",\s*"([^"]+)"/g), match => match[1]),
-  ["Account", "All Followed", "About", "Fantasy deadlines", "Appearance", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
+  ["Account", "EPIC Hall of Fame", "All Followed", "About", "Fantasy deadlines", "Appearance", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
 );
 assert(!settingsMenu.includes("Froth") && !settingsMenu.includes("Tune") && !settingsMenu.includes("Local venues"));
 assert(html.includes('id="calendarSyncBtn"') && html.includes("function showCalendarDialog"));

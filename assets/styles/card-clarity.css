@@ -20,3 +20,6 @@
 .fixture-source-attribution p{margin:0}.fixture-source-context{font-weight:600}.fixture-source-freshness{font-size:11px}
 .fixture-source-links a{display:inline-flex;align-items:center;min-height:24px;text-decoration:underline;text-underline-offset:2px;padding:0 2px}
 .fixture-source-links a:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:2px}
+
+.nsc-rating-phase{display:block;font-size:.65rem;font-weight:800;color:var(--text-dim)}.nsc-rating-help{max-width:30rem;font-size:.7rem;color:var(--text-dim)}.nsc-rating-help summary{cursor:pointer;padding:7px;min-height:32px}.nsc-rating-help p{line-height:1.5;margin:4px 0}
+.nsc-inline-rating[data-rating-phase="pulse"] .nsc-rating-block svg,.nsc-inline-rating[data-rating-phase="impact"] .nsc-rating-block svg{opacity:.35}.nsc-inline-rating[data-rating-phase="pulse"] .nsc-rating-block.is-filled svg,.nsc-inline-rating[data-rating-phase="impact"] .nsc-rating-block.is-filled svg{opacity:1}

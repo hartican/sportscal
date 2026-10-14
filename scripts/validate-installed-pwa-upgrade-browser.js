@@ -82,12 +82,14 @@ async function assertCachedMultidayRetention(page){
     const before=JSON.stringify(userPreferences),actions=JSON.stringify(eventActions),now=new Date('2027-01-14T01:00Z');
     const states=[raw,normalized].map(f=>NOTHINGSPORTS_CARD_LIFECYCLE.lifecycleState(f,{now}));
     const cache=NOTHINGSPORTS_CARD_LIFECYCLE.materialize([normalized],{profileId:'cached-multiday-replay',now,enrich:()=>({cardVariant:'plain',intensity:1}),actionFor:()=>({reminderChoice:'off'})});
-    return {publishedUnchanged:JSON.stringify(published)===JSON.stringify(raw),states,cards:cache.derivedCards.length,expiry:cache.derivedCards[0]?.expiresAt,choicesPreserved:JSON.stringify(userPreferences)===before&&JSON.stringify(eventActions)===actions};
+    const invalidFinishDays=['actualEndTimeUtc','completedAt','firstConfirmedCompleteAt'].map(field=>NOTHINGSPORTS_EPIC.finalDay({status:'completed',date:'2026-02-25',endDate:'2026-03-01',[field]:'2026-02-30T02:03:04Z'},new Date('2026-03-10T00:00Z')));
+    return {publishedUnchanged:JSON.stringify(published)===JSON.stringify(raw),states,cards:cache.derivedCards.length,expiry:cache.derivedCards[0]?.expiresAt,invalidFinishDays,choicesPreserved:JSON.stringify(userPreferences)===before&&JSON.stringify(eventActions)===actions};
   },{raw,normalized});
   assert(result.publishedUnchanged&&result.choicesPreserved,'Cached retention cannot mutate source observations or saved choices');
-  assert(result.states.every(s=>s.state==='active'&&s.archivesAt==='2027-01-15T12:59:59.999Z'&&s.expiresAt==='2027-01-22T12:59:59.999Z'),'Upgraded/offline runtime honours the actual five-day calendar window on raw and server-normalized fixtures');
+  assert(result.states.every(s=>s.state==='active'&&s.archivesAt==='2027-01-15T12:59:59.999Z'&&s.expiresAt==='2027-01-15T13:00:00.000Z'),'Upgraded/offline runtime honours the actual five-day calendar window on raw and server-normalized fixtures');
   assert.equal(result.cards,1,'The cached materializer retains the actual fourth Test within its end-window week');
-  assert.equal(result.expiry,'2027-01-22T12:59:59.999Z');
+  assert.equal(result.expiry,'2027-01-15T13:00:00.000Z');
+  assert.deepEqual(result.invalidFinishDays,['2026-03-01','2026-03-01','2026-03-01'],'The actual upgraded/offline compiled policy rejects nonexistent finish dates');
 }
 async function assertCachedReviewedCalendarNotes(page){
   const panel=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/loadDeferredScript\('([^']*follow-schedule-panel\.js\?v=\d+)'\)/)[1];
@@ -498,7 +500,7 @@ const server=http.createServer((req,res)=>{
   let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '')||'index.html';
   if(name==='app-version.json')versionRequests++;
   if(name.includes('..')){res.writeHead(400);res.end();return;}
-  if(phase==='candidate' && ['data/marquee-candidates.v1.json','data/comms-sources.v1.json','data/editorial-maintenance-sources.v1.json'].includes(name)){res.writeHead(404,{'cache-control':'private, no-store'});res.end('Not a public resource');return;}
+  if(phase==='candidate' && ['data/marquee-candidates.v1.json','data/comms-sources.v1.json','data/editorial-maintenance-sources.v1.json','data/editorial-post-match.v1.json'].includes(name)){res.writeHead(404,{'cache-control':'private, no-store'});res.end('Not a public resource');return;}
   if(phase==='candidate' && ((optionalFailure && name==='assets/identities/events/le-mans-24-hours.png') || (coreFailure && name===(process.env.PWA_REQUIRED_FAILURE_ASSET||'assets/js/app-shell-runtime.js')))){res.writeHead(503);res.end();return;}
   const bytes=phase==='baseline'?baselineFile(name):candidateFile(name);
   if(!bytes){res.writeHead(404);res.end();return;}
@@ -602,8 +604,8 @@ const server=http.createServer((req,res)=>{
     await upgraded.evaluate(()=>{for(let i=0;i<100;i++)window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));});
     await upgraded.waitForTimeout(200);assert(versionRequests-before<=1,'Resume events must coalesce');
     const assertOwnerSourcesClosed=async()=>{
-      const values=await upgraded.evaluate(async()=>Promise.all(['/data/marquee-candidates.v1.json','/data/comms-sources.v1.json','/data/editorial-maintenance-sources.v1.json','/data/%6darquee-candidates.v1.json','/data%2fmarquee-candidates.v1.json'].map(async url=>{const r=await fetch(url);return {status:r.status,cached:Boolean(await caches.match(url))};})));
-      assert.deepEqual(values,Array.from({length:5},()=>({status:404,cached:false})),'upgraded worker must deny plain/encoded source downloads and discard seeded legacy draft caches');
+      const values=await upgraded.evaluate(async()=>Promise.all(['/data/marquee-candidates.v1.json','/data/comms-sources.v1.json','/data/editorial-maintenance-sources.v1.json','/data/editorial-post-match.v1.json','/data/%6darquee-candidates.v1.json','/data%2fmarquee-candidates.v1.json'].map(async url=>{const r=await fetch(url);return {status:r.status,cached:Boolean(await caches.match(url))};})));
+      assert.deepEqual(values,Array.from({length:6},()=>({status:404,cached:false})),'upgraded worker must deny plain/encoded source downloads and discard seeded legacy draft caches');
     };
     await assertOwnerSourcesClosed();
     await upgraded.evaluate(async()=>{const r=await fetch('/participate.html');if(!r.ok)throw Error('Public fixture page unavailable');await r.text();});

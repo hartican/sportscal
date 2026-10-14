@@ -21,7 +21,7 @@
     const figure = document.createElement("figure");
     figure.className = "nsc-visual";
     const caption = document.createElement("figcaption");
-    caption.textContent = phase === "pulse" ? "Five-minute Pulse" : `${phaseName} rating distribution`;
+    caption.textContent = phase === "pulse" ? "Five-minute Ongoing" : `${phaseName} rating distribution`;
     const legend = document.createElement("div");
     legend.className = "nsc-legend";
     [["real","Community responses"],["modelled","Modelled responses"]].forEach(([kind,label]) => {

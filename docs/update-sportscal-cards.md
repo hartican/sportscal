@@ -1,5 +1,13 @@
 # Update Sportscal cards
 
+## EPIC archive and post-match handoff — 14 October 2026
+
+Every card update preserves available Anticipation (heat), Ongoing (pulse) and Impact writing for genuine historical user fives or explicit NS fives. User-owned genuine fives latch personal classics; ordinary cards retire after seven Sydney calendar days while shared source facts, ratings, points and editorial backlog remain. See [the approved contract](plans/epic-fixture-archives-2026-10-14.md) and [adaptive owner extension](adaptive-editorial.md).
+
+Include sourced post-match OP ED for NS-rated 3+ and genuine user-rated 4+ fixtures across phases, including recoverable history. Use the existing adaptive owner and twelve-unit daily budget, prioritising fives then fours then threes and oldest first within a tier. Reuse verified research, preserve holds/protected original copy and defer evidence gaps with a next action. Ongoing is brief verified developments; complete original summaries explain what happened, decisive developments and why it matters after verified completion. No generic filler or moralising. Apply the canonical EPIC source before normal Feed/Events projections, validate it, and record publication only after the same exact-SHA production proof as the main update.
+
+Audit Sportscal architecture remains the sole shared-file integration, account/bootstrap/backfill, automation mutation and production release lane. The approved refresh and adaptive prompts retain their existing schedules and paused/active states. The annual review producer shares the existing notification dispatcher and delivery budget; no extra scheduler or service is authorised.
+
 ## Immutable research evidence and authorised connector recovery - 9 October 2026
 
 Research source, fact and thread IDs are content-revisioned. Preserve older evidence

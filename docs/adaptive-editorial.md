@@ -1,5 +1,27 @@
 # Adaptive 5/5 editorial - owner decisions, 2 October 2026
 
+## EPIC preservation and post-match owner extension — 14 October 2026
+
+This dated decision extends the earlier pre-kickoff preview rules. Both explicit NS curators count as NS picks; post-match work qualifies at NS 3+ or any registered, non-suspended genuine historical user 4+ across heat/pulse/impact and canonical aliases. Queue all recoverable qualifying history. Preserve shared editorial for any genuine historical user five or explicit NS five, with account-owned personal references for users' own fives. Retire ordinary cards after seven local calendar days without dropping this backlog or archived writing.
+
+The existing daily owner also runs the canonical EPIC route:
+
+```sh
+node scripts/update-cards.js --epic-editorial --list
+node scripts/update-cards.js --epic-editorial --prepare-registration /absolute/path/registration.json
+node scripts/update-cards.js --epic-editorial --claim
+node scripts/update-cards.js --epic-editorial --research /absolute/path/research.json
+node scripts/update-cards.js --epic-editorial --record-release FULL_SHA --release-proof /absolute/path/production-verification.json
+```
+
+Use a fresh private mode-600 `NS_EPIC_CONTROL_SNAPSHOT` plus `NS_EPIC_CHECK_REPORT` when only the authorised connector can access controls. The snapshot must be complete, source-revision matched and no older than fifteen minutes. `scripts/epic-control-sql.js` prepares revision/hold-checked SQL for the release owner, never applies it. A prepared report is not an acknowledged database write. Claim research effort before researching: a twelve-unit Sydney-day cap, 3/4/5 costing 1/2/4, highest tier then oldest outstanding fixture. Same-day claims resume without new spending; deferred work survives retirement. Recover staged unpublished copy before new research and reuse unchanged verified work.
+
+Each owner inventory registers newly published NS 3+ identities as metadata only, so unrated new cards also enter the queue. For connector-only runs, prepare/apply the private registration report before exporting fresh controls. Use --all-known for the initial alias registration before historical backfill; routine registration remains NS 3+ only. Inventory never replaces final archive writing with unpublished local copy; publication receipts capture final milestones after production proof.
+
+Research JSON binds sourceRevision, current Sydney day and each exact resultSignature. Entries contain eventId, hook, whatHappened, decisiveDevelopments, whyItMatters, sourceUrls, sourced facts and fresh researchedAt. Write original fixture-specific OP ED in the About/Product Charter voice from config/brand-copy.js and existing editorial standards: sporting skill, tactics, rivalry, suspense and consequence; clear fact versus opinion, no generic filler, invented emotions or moralising. Target 100–180/200–300/350–500 words at tiers 3/4/5 where evidence supports it. Defer insufficient evidence with reason and nextAction rather than pad. Brief sourced Ongoing observations use the already accepted refresh; full OP ED waits for confirmed completion. Preserve holds, protected original NRL copy, provenance and Results OFF.
+
+Store post-match research in the private server source data/editorial-post-match.v1.json. The normal canonical projection applies a matching verified result only; the deployed raw source stays closed. After the existing combined release passes exact SHA, READY, server-source transform/inventory and served-card proof, record shared final phases/corrections and the transactionally checked publication receipt. Retired cards can publish through the verified private archive source; an ordinary served card must contain its matching Impact copy. Update the existing adaptive and refresh automation prompts through Audit without changing their cadence, active/paused status or notification policy. No additional scheduler or paid service.
+
 ## Standing execution authority - 10 October 2026
 
 An editorial update must synchronise the researched Feed projection into Events children and regenerate the cold-pin app-shell bootstrap before validation. Use the existing major-events-only projection builder; do not re-ingest sporting providers or rewrite unrelated Feed facts. The offline quick-pipeline regression uses an isolated clock independent of editorial publication time, while explicit before/at-deadline and confirmed-completion checks retain fail-closed result verification. Production result checks keep their real clock.

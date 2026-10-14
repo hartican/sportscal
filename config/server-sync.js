@@ -522,6 +522,7 @@
     }
 
     return Object.freeze({
+      classicsRequest(query={},command=null){const search=new URLSearchParams(query),accountId=sessionSubject(session||restoreStoredSession());return authenticatedRequest('/api/classics'+(search.size?'?'+search:''),{accountId,...(command?{method:'POST',body:JSON.stringify(command)}:{})});},
       calendarRequest(options = {}){ return authenticatedRequest("/api/calendar", options); },
       async status(){
         return jsonRequest("/api/auth");
