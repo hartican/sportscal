@@ -9,7 +9,9 @@ async function main(){
     await db.query("insert into public.nothingsports_youtube_selections(fixture_id,query_hash,video_id) values('fixture:test:legacy',$1,'OLDVIDEO123')",['a'.repeat(64)]);
     assert.deepEqual((await db.query("select published_at,duration_seconds from public.nothingsports_youtube_selections where fixture_id='fixture:test:legacy'")).rows,[{published_at:null,duration_seconds:null}],'rolling-release legacy rows cannot acquire invented video metadata');
     await assert.rejects(db.query("update public.nothingsports_youtube_selections set duration_seconds=10800 where fixture_id='fixture:test:legacy'"),/check constraint/);
-    await db.query("update public.nothingsports_youtube_selections set published_at=clock_timestamp(),duration_seconds=300 where fixture_id='fixture:test:legacy'");
+    await assert.rejects(db.query("update public.nothingsports_youtube_selections set duration_seconds=0 where fixture_id='fixture:test:legacy'"),/check constraint/);
+    await db.query("update public.nothingsports_youtube_selections set published_at=clock_timestamp(),duration_seconds=45 where fixture_id='fixture:test:legacy'");
+    assert.equal((await db.query("select duration_seconds from public.nothingsports_youtube_selections where fixture_id='fixture:test:legacy'")).rows[0].duration_seconds,45,'legitimate brief highlights remain cacheable');
     await db.query("delete from public.nothingsports_youtube_selections where fixture_id='fixture:test:legacy'");
     await db.query("insert into public.nothingsports_fixture_sources(source_id,discovery_report) values('discovery-tennis-highlights',$1)",[{_highlightQuota:{day,search:89,ordinary:499}}]);
     for(const role of ['anon','authenticated']){
