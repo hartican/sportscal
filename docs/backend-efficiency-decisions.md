@@ -1283,6 +1283,8 @@ The later human approval extends recent Feed search generation across sports and
 
 ## 15 October 2026 — Feed guidance and Australian viewing repair
 
+Later Stan launch repair reuses the existing shared provider anchor and its immediate user gesture. Supported phone/tablet Stan marketing links resolve locally to its app-associated player; no installation probe, redirect API, timer, source request, provider discovery, backend state or scheduler is added. Preserve the ordinary fallback, existing rights/replay checks and exact player links. Native installed-app launch requires physical evidence; Audit retains the sole generated-output and exact-SHA release lane.
+
 Use the existing Subscriptions state and shared viewing resolver. About guidance stays in the deferred Settings bundle; source-provenance and the whole-catalogue rights audit stay outside the critical shell. Existing canonical update-cards --viewing-reconciliation owns retained-source projection across published codes. No new scheduler, paid service, source polling, browser timer, API, database schema, private state writer or notification routine. Preserve existing sporting/source observations and fixture identities. Audit alone integrates generated outputs and releases the exact validated main SHA; concurrent highlights changes retain their original owner. Functional viewing, About, preference reload, cache-upgrade and startup-budget regressions travel with the decision.
 
 ## 15 October 2026 Sydney — deliberate automatic YouTube selection
