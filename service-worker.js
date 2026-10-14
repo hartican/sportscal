@@ -1,11 +1,11 @@
-const CACHE_NAME = "nothingsport-shell-v538";
-const SHELL_VERSION = "538";
+const CACHE_NAME = "nothingsport-shell-v539";
+const SHELL_VERSION = "539";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
 const APP_SHELL = [
   "/assets/styles/racing-details.css?v=527",
-  "/config/racing-details.js?v=527",
+  "/config/racing-details.js?v=539",
   "/config/participant-directory.js?v=512",
   "/assets/js/football-card-context.js?v=511",
   "/assets/js/tennis-parent-ui.js?v=523",
@@ -21,7 +21,7 @@ const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=533",
-  "/assets/js/settings-optional-ui.js?v=536",
+  "/assets/js/settings-optional-ui.js?v=539",
   "/assets/js/follow-navigation.js?v=522",
   "/assets/js/tournament-fixture-ui.js?v=533",
   "/assets/styles/notifications-inbox.css?v=280",
@@ -63,7 +63,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=538",
+  "/assets/js/app-shell-runtime.js?v=539",
   "/assets/js/follow-schedule-panel.js?v=533",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
@@ -86,7 +86,7 @@ const APP_SHELL = [
   "/config/follow-summary.js?v=397",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=534",
+  "/styles/follow-feed-rework.css?v=539",
   "/config/marquee-live-renderer.js?v=358",
   "/styles/comms-live.css?v=358",
   "/styles/owner-content.css?v=358",
@@ -105,7 +105,7 @@ const APP_SHELL = [
   "/config/match-centre.js?v=528",
   // An upgrading page can receive this deferred module from its old worker.
   // Own it in the new cache before activation removes that old cache.
-  "/assets/js/match-centre-ui.js?v=535",
+  "/assets/js/match-centre-ui.js?v=539",
   "/assets/js/milestone-alerts-ui.js?v=535",
   "/config/feed-live-scores.js?v=533",
   "/config/feed-live-score-loader.js?v=523",

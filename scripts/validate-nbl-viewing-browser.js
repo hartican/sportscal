@@ -13,11 +13,11 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
  for(const f of cases)for(const mode of ['feed','schedule']){
   await page.evaluate(({f,mode})=>{activeTab=mode==='feed'?'feed':'follow';userPreferences.showSpoilers=false;setCardState(f,'opened');document.getElementById('listView').replaceChildren(mode==='feed'?buildEventCard({...f,eventId:f.id}):buildCodeInspectorFixture(f));},{f,mode});
   const links=page.locator('#listView a.provider-link');
-  assert.equal(await links.count(),free(f)?4:3,`${mode}: exact provider count`);
+  assert.equal(await links.count(),f.status==='completed'?0:free(f)?4:3,`${mode}: exact provider count`);
   const nine=page.locator('#listView a.provider-link[href="https://www.9now.com.au/"]');
-  assert.equal(await nine.count(),free(f)?1:0,`${mode}: free only with fixture evidence`);
-  assert.equal(await page.locator('#listView a.provider-link[href="https://www.disneyplus.com/en-au"]').count(),1,'Disney has a usable destination');
-  if(f.status==='completed')assert((await links.first().getAttribute('aria-label')).includes('Check replay availability'),'live right is not replay proof');
+  assert.equal(await nine.count(),f.status==='completed'?0:free(f)?1:0,`${mode}: free only with fixture evidence`);
+  assert.equal(await page.locator('#listView a.provider-link[href="https://www.disneyplus.com/en-au"]').count(),f.status==='completed'?0:1,'Disney has a usable destination');
+  if(f.status==='completed')assert.equal(await page.locator('#listView .fixture-providers').count(),0,'Unconfirmed replay has no row');
   for(const width of [320,390,768,1280])for(const theme of ['day','night']){
    await page.setViewportSize({width,height:844});await page.evaluate(theme=>applyThemePreference(theme),theme);
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${mode} ${width} ${theme}: no overflow`);

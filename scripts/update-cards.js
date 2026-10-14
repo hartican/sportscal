@@ -426,6 +426,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-header-loader-overlay.js"],
   ["scripts/validate-australian-viewing-rights.js"],
   ["scripts/validate-reviewed-au-viewing.js", "--published"],
+  ["scripts/validate-clean-feed-viewing.js"],
   ["scripts/validate-reviewed-au-viewing-api.js"],
   ["scripts/validate-seeded-surf-correction.js"],
   ["scripts/validate-cricket-viewing.js"],
@@ -961,7 +962,7 @@ async function runMain() {
     for(const step of [
       ['scripts/apply-current-card-evidence.js','--ids=calendar-nothingsport-manual-seed-wsl-margaret-river-pro-2026'],
       ['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
-      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],['scripts/build-code-inspector.js','--codes=rugby-union,cricket'],
+      ['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],['scripts/build-code-inspector.js'],['scripts/build-tournament-horizon.js'],['scripts/build-tennis-feed-parents.js'],
       ['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
       ['scripts/validate-reviewed-au-viewing.js','--published'],['scripts/validate-australian-viewing-rights.js'],['scripts/validate-cricket-viewing.js'],
       ['scripts/validate-seeded-surf-correction.js'],

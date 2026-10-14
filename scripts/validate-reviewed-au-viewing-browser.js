@@ -26,12 +26,12 @@ const aflwOnly=process.argv.includes('--aflw');
    const f={...fixture,eventId:fixture.id};setCardState(f,'opened');const card=mode==='feed'?buildEventCard(f):buildCodeInspectorFixture(fixture);card.style.contentVisibility='visible';document.getElementById('listView').replaceChildren(card);scrollTo(0,0);
    return {marker:card.classList.contains('tournament-start-marker'),options:FOLLOW_FIRST.viewingOptions(f).map(o=>({id:o.providerId,url:o.url,label:o.label,paid:o.paid,accessType:o.accessType,replay:o.liveOrReplay==='replay',rightsScope:o.rightsScope,replayVerified:o.replayVerified}))};
   },{fixture,mode,show});
-  const expected=rendered.options,presented=rendered.marker?[]:expected;
+  const expected=rendered.options,presented=rendered.marker?[]:expected.filter(o=>!o.replay||o.replayVerified);
   const card=page.locator('#listView .event-card');await card.scrollIntoViewIfNeeded();
   const links=await card.locator('.fixture-providers a').evaluateAll(links=>links.map(a=>({href:a.getAttribute('href'),label:a.getAttribute('aria-label')})));
   assert.equal(links.length,presented.length,`${fixture.id}/${mode}: actual visible provider actions`);
-  for(let i=0;i<links.length;i++){assert.equal(links[i].href,presented[i].url);const access={free:'Free',subscription:'Subscription',ppv:'Pay-per-view',included:'Included in plan'}[presented[i].accessType]||'Check cost';assert.equal(links[i].label,`${presented[i].replay?'Check replay availability':'Watch'} on ${presented[i].label} · ${access}`);}
-  const text=await card.innerText();if(!expected.length&&!rendered.marker)assert(text.includes('Australian viewing unconfirmed'),'degraded state visible');
+  for(let i=0;i<links.length;i++){assert.equal(links[i].href,presented[i].url);const access={free:'Free',subscription:'Subscription',ppv:'Pay-per-view',included:'Included in plan'}[presented[i].accessType]||'Check cost';assert.equal(links[i].label,`${presented[i].replay?'Replay':'Watch'} on ${presented[i].label} · ${access}`);}
+  const text=await card.innerText();assert(!text.includes('Australian viewing unconfirmed'),'Unavailable viewing never adds card copy');
   if(rendered.marker){assert.equal(mode,'feed');assert.equal(await card.getByRole('button',{name:'Open in Events',exact:true}).count(),1,'Published multi-day Feed marker retains its genuine Events handoff');assert.equal(await card.locator('.provider-access').count(),0,'A calendar marker cannot invent a direct viewing action');}
   for(const caption of await card.locator('.provider-access').evaluateAll(nodes=>nodes.map(n=>({text:n.textContent,width:n.clientWidth,scroll:n.scrollWidth,height:n.clientHeight}))))assert(caption.width>0&&caption.height>0&&caption.scroll<=caption.width+1,'Provider cost caption is readable without clipping: '+caption.text);
   if(fixture.id==='event:aflw:cd_m20262641601'){

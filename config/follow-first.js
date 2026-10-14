@@ -71,6 +71,7 @@
 
   const VIEWING_PROVIDERS = Object.freeze({
     bein:{ label:"beIN SPORTS", actionLabel:"beIN SPORTS", webUrl:"https://connect-au.beinsports.com/en", paid:true, territory:"AU", accessType:"subscription", aliases:["bein", "be-in"], logoPath:"assets/providers/bein-sports-connect.svg", logoBackground:"#ffffff" },
+    "cricket-australia":{label:"Cricket.com.au",actionLabel:"Cricket.com.au",webUrl:"https://www.cricket.com.au/matches",paid:false,territory:"AU",accessType:"free",aliases:["cricket.com.au", "ca live"]},
     "tennis-tv":{label:"Tennis TV",actionLabel:"Tennis TV",webUrl:"https://www.tennistv.com/",paid:true,territory:"AU",accessType:"subscription",aliases:["tennis tv", "tennistv"]},
     kayo:{ label:"Kayo Sports", actionLabel:"Kayo", webUrl:"https://kayosports.com.au/en-AU/schedule", universalUrl:"https://kayosports.com.au/en-AU/schedule", paid:true, territory:"AU", accessType:"subscription", aliases:["kayo"], logoPath:"assets/providers/kayo-nrl.svg", logoBackground:"#111111" },
     foxtel:{ label:"Foxtel", actionLabel:"Foxtel", webUrl:"https://www.foxtel.com.au/watch/sport.html", paid:true, territory:"AU", accessType:"subscription", aliases:["foxtel", "fox sports"], logoPath:"assets/providers/foxtel-nrl.svg", logoBackground:"#151820" },
@@ -114,24 +115,24 @@
     "competition:uefa-champions-league":viewingRights(["competition:uefa-champions-league"], ["stan"], "https://www.stan.com.au/watch/sport/football/uefa-champions-league", { sourceIsProvider:true }),
     "competition:uefa-europa-league":viewingRights(["competition:uefa-europa-league"], ["stan"], "https://www.stan.com.au/watch/sport/football/uefa-europa-league", {sourceIsProvider:true, liveOrReplay:"live", verifiedAt:"2026-09-27T00:00:00.000Z"}),
     "competition:tennis:us-open":viewingRights(["competition:tennis:us-open", "us-open"], ["stan"], "https://www.stan.com.au/watch/sport/tennis/us-open", { sourceIsProvider:true }),
-    "competition:afl":viewingRights(["competition:afl"], ["kayo", "foxtel", "seven", "watch-afl"], "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights", { liveOrReplay:"live", grandFinalProviderIds:Object.freeze(["seven"]) }),
-    "competition:nrl":viewingRights(["competition:nrl"], ["kayo", "foxtel"], null, { grandFinalProviderIds:Object.freeze(["nine"]) }),
+    "competition:afl":viewingRights(["competition:afl"], ["kayo", "foxtel", "watch-afl"], "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights", { liveOrReplay:"live", grandFinalProviderIds:Object.freeze(["seven"]) }),
+    "competition:nrl":viewingRights(["competition:nrl"], ["kayo", "foxtel"], "https://www.foxtel.com.au/watch/nrl.html/", { grandFinalProviderIds:Object.freeze(["nine"]) }),
     "competition:nrlw-premiership":viewingRights(["competition:nrlw-premiership", "competition:nrlw-premiership-2026", "nrlw"], ["nine", "kayo", "foxtel"], "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z", matchPriority:2 }),
-    "competition:rugby-league-world-cup":viewingRights(["competition:rugby-league-world-cup", "rlwc2026"], ["seven"], null, { matchPriority:1 }),
-    "sport:rugby-union":viewingRights(["sport:rugby-union", "rugby"], [], null, { rightsScope:"sport", coverageStatus:"unverified" }),
-    "competition:formula-one":viewingRights(["competition:formula-one", "f1"], ["kayo", "foxtel"], null),
+    "competition:rugby-league-world-cup":viewingRights(["competition:rugby-league-world-cup", "rlwc2026"], ["seven"], "https://sevenwestmedia.com.au/wp-content/uploads/2025/10/Live-free-and-exclusive-%E2%80%93-Rugby-League-World-Cup.pdf", { matchPriority:1 }),
+    "sport:rugby-union":viewingRights(["sport:rugby-union", "rugby"], [], "https://www.rugby.com.au/watch", { rightsScope:"sport", coverageStatus:"unverified" }),
+    "competition:formula-one":viewingRights(["competition:formula-one", "f1"], ["kayo", "foxtel"], "https://www.foxtel.com.au/watch/f1.html"),
     "competition:motogp":viewingRights(["competition:motogp", "competition:motogp-2026", "motogp"], ["kayo", "foxtel"], "https://www.motogp.com.au/fan-zone/how-to-watch-motogp-live-on-tv-and-stream-in-australia", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
     "competition:sailgp":viewingRights(["competition:sailgp", "competition:sailgp-2026", "sailgp"], ["kayo", "foxtel"], "https://sailgp.com/news/26/sailgp-confirms-global-broadcast-lineup-2026-season/", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z", notBefore:"2026-01-01", notAfter:"2026-12-31T23:59:59.999Z" }),
-    "competition:fiba-womens-world-cup":viewingRights(["competition:fiba-womens-world-cup", "competition:fiba-womens-world-cup-2026", "fiba-women"], ["kayo", "foxtel"], "https://www.techradar.com/how-to-watch/basketball/fiba-womens-basketball-world-cup-2026-free", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
-    "competition:cricket-australia":viewingRights(["competition:cricket-australia", "boxing-day-test", "new-year-s-test", "the-ashes"], ["kayo", "foxtel", "seven"], null),
+    "competition:fiba-womens-world-cup":viewingRights(["competition:fiba-womens-world-cup", "competition:fiba-womens-world-cup-2026", "fiba-women"], ["kayo", "foxtel"], "https://about.fiba.basketball/en/news/fiba-agrees-extended-and-expanded-espn-deal-for-australia-new-zealand-and", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z", notBefore:"2026-09-01", notAfter:"2026-09-16T00:00:00.000Z" }),
+    "competition:cricket-australia":viewingRights(["competition:cricket-australia", "boxing-day-test", "new-year-s-test", "the-ashes"], ["kayo", "foxtel", "seven"], "https://www.cricket.com.au/our-partners/our-broadcast-partners"),
     // Reviewed series rights, not a blanket rule for overseas cricket.
     "competition:cricket:4567":viewingRights(["competition:cricket:4567", "competition:cricket:espn:24203", "south-africa-v-australia-odis-2026"], ["kayo", "foxtel"], "https://www.cricket.com.au/news/4578082/south-africa-australia-odis-one-day-internationals-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times-durban-johannesburg-potchefstroom", {completeProviderList:true, verifiedAt:"2026-09-24T14:15:53Z", eventKeys:Object.freeze(["cricket"]), notBefore:"2026-09-01", notAfter:"2026-10-01", matchPriority:3}),
-    "competition:icc-cricket":viewingRights(["competition:icc", "icc-world-cup", "icc-champions-trophy"], ["prime-video"], null),
-    "competition:nba":viewingRights(["competition:nba"], ["nba-pass"], null),
-    "competition:nbl":viewingRights(["competition:nbl"], ["kayo", "foxtel"], null),
-    "competition:golf-majors":viewingRights(["competition:masters", "competition:pga-tour", "competition:dp-world-tour", "the-open"], ["kayo", "foxtel"], null, { eventKeys:Object.freeze(["golf", "masters"]), tokenBoundaries:true }),
-    "competition:liv-golf":viewingRights(["competition:liv-golf"], ["seven"], null),
-    "competition:nfl":viewingRights(["competition:nfl", "american-football"], ["dazn"], null),
+    "competition:icc-cricket":viewingRights(["competition:icc", "icc-world-cup", "icc-champions-trophy"], ["prime-video"], "https://www.cricket.com.au/news/4029663"),
+    "competition:nba":viewingRights(["competition:nba"], ["nba-pass"], "https://support.watch.nba.com/hc/en-us/articles/115002481154-League-Pass-Blackouts"),
+    "competition:nbl":viewingRights(["competition:nbl"], ["kayo", "foxtel"], "https://www.basketball.com.au/news/nbl-and-espn-extend-media-rights-deal"),
+    "competition:golf-majors":viewingRights(["competition:masters", "competition:pga-tour", "competition:dp-world-tour", "the-open"], ["kayo", "foxtel"], "https://www.foxtel.com.au/watch/golf.html", { eventKeys:Object.freeze(["golf", "masters"]), tokenBoundaries:true }),
+    "competition:liv-golf":viewingRights(["competition:liv-golf"], ["seven"], "https://support.7plus.com.au/hc/en-au/articles/43185579048077-2026-LIV-Golf-on-7plus"),
+    "competition:nfl":viewingRights(["competition:nfl", "american-football"], ["dazn"], "https://www.nfl.com/international/ways-to-watch/australia"),
     "competition:nhl:2026-27":viewingRights(["competition:nhl"], ["disney"], "https://www.disneyplus.com/en-au/welcome/espn-sports", {sourceIsProvider:true,
       fixtureIdPattern:"^fixture-nhl-202602[0-9]{4}$", roundLabel:"Regular season",
       notBefore:"2026-09-28T14:00:00.000Z", notAfter:"2027-04-11T13:59:59.999Z", matchPriority:3,
@@ -139,26 +140,26 @@
     }),
     "competition:nhl":viewingRights(["competition:nhl", "nhl"], [], "https://www.nhl.com/info/how-to-watch-and-stream-nhl-games", { coverageStatus:"unverified", rightsScope:"competition" }),
     "competition:chl":viewingRights(["competition:chl", "champions-hockey-league"], ["iihf-tv"], "https://www.chl.hockey/en/fans/where-to-watch", { sourceIsProvider:false, providerUrls:Object.freeze({ "iihf-tv":"https://iihf.tv/" }) }),
-    "competition:netball-2026":viewingRights(["competition:netball"], ["kayo", "foxtel"], null, { notAfter:"2026-12-31T23:59:59.999Z" }),
-    "competition:netball-2027":viewingRights(["competition:netball"], ["stan", "nine"], null, { notBefore:"2027-01-01T00:00:00.000Z", matchPriority:1 }),
-    "competition:a-leagues":viewingRights(["competition:a-league"], ["paramount"], null),
-    "competition:australian-national-football":viewingRights(["competition:afc-womens-asian-cup", "competition:afc-asian-cup", "competition:australia-cup", "socceroos", "matildas", "australia-cup"], ["paramount"], null),
-    "competition:fifa-world-cup-2026":viewingRights(["competition:fifa-world-cup-2026"], ["sbs"], null),
-    "competition:tennis-major":viewingRights(["competition:tennis:australian-open", "competition:tennis:roland-garros", "competition:tennis:wimbledon", "australian-open", "roland-garros", "french-open", "wimbledon"], ["stan"], null),
-    "competition:stan-motorsport":viewingRights(["competition:formula-e", "competition:indycar", "competition:asbk", "competition:mxgp"], ["stan"], null),
-    "competition:wec":viewingRights(["competition:wec", "le-mans"], ["stan"], null),
+    "competition:netball-2026":viewingRights(["competition:netball"], ["kayo", "foxtel"], "https://netball.com.au/supernetball/broadcast", { notAfter:"2026-12-31T23:59:59.999Z" }),
+    "competition:netball-2027":viewingRights(["competition:netball"], ["stan", "nine"], "https://netball.com.au/news/new-broadcast-deal-delivers-fans", { notBefore:"2027-01-01T00:00:00.000Z", matchPriority:1 }),
+    "competition:a-leagues":viewingRights(["competition:a-league"], ["paramount"], "https://www.paramountanz.com.au/news/paramount-remains-the-home-of-australian-football/"),
+    "competition:australian-national-football":viewingRights(["competition:afc-womens-asian-cup", "competition:afc-asian-cup", "competition:australia-cup", "socceroos", "matildas", "australia-cup"], ["paramount"], "https://footballaustralia.com.au/news/football-australia-and-paramount-australia-agree-historic-multi-year-multi-platform-media"),
+    "competition:fifa-world-cup-2026":viewingRights(["competition:fifa-world-cup-2026"], ["sbs"], "https://www.sbs.com.au/sport/fifa-world-cup-2026/how-to-watch/"),
+    "competition:tennis-major":viewingRights(["competition:tennis:australian-open", "competition:tennis:roland-garros", "competition:tennis:wimbledon", "australian-open", "roland-garros", "french-open", "wimbledon"], ["stan"], "https://www.stan.com.au/watch/sport/tennis"),
+    "competition:stan-motorsport":viewingRights(["competition:formula-e", "competition:indycar", "competition:asbk", "competition:mxgp"], ["stan"], "https://www.stan.com.au/watch/sport/motorsport"),
+    "competition:wec":viewingRights(["competition:wec", "le-mans"], ["stan"], "https://www.fiawec.com/en/page/ou-regarder-1/36"),
     "competition:wrc":viewingRights(["competition:wrc", "wrc"], ["stan"], "https://www.stan.com.au/watch/sport/motorsport/wrc", { sourceIsProvider:true }),
-    "competition:dakar":viewingRights(["competition:dakar", "paris-dakar"], ["sbs"], null),
-    "competition:goodwood":viewingRights(["competition:goodwood"], ["goodwood"], null, { territory:"GLOBAL" }),
-    "competition:road-cycling":viewingRights(["competition:tour-de-france", "competition:giro-ditalia", "competition:vuelta-a-espana"], ["sbs"], null),
+    "competition:dakar":viewingRights(["competition:dakar", "paris-dakar"], ["sbs"], "https://www.sbs.com.au/sport/"),
+    "competition:goodwood":viewingRights(["competition:goodwood"], ["goodwood"], "https://api.goodwood.com/grr/event-coverage/festival-of-speed/how-to-watch-festival-of-speed/", { territory:"GLOBAL" }),
+    "competition:road-cycling":viewingRights(["competition:tour-de-france", "competition:giro-ditalia", "competition:vuelta-a-espana"], ["sbs"], "https://www.sbs.com.au/aboutus/2026/03/20/feast-for-cycling-fans-as-sbs-extends-road-cycling-broadcasts-to-include-all-grand-tours-and-monuments/"),
     "competition:x-games":viewingRights(["competition:x-games"], ["youtube"], "https://www.youtube.com/@XGames", { territory:"GLOBAL", sourceIsProvider:true }),
-    "competition:olympic-games":viewingRights(["competition:olympic-games", "olympics"], ["stan", "nine"], null),
-    "competition:commonwealth-games":viewingRights(["competition:commonwealth-games", "cwg"], ["seven"], null),
-    "competition:australian-hockey":viewingRights(["competition:hockey-one", "competition:hockeyroos", "competition:kookaburras"], ["seven"], null),
-    "competition:swimming-australia":viewingRights(["competition:swimming-australia", "pan-pacs"], ["nine"], null),
-    "competition:world-gymnastics":viewingRights(["competition:world-gymnastics", "competition:fig-gymnastics"], ["sbs"], null),
-    "competition:australian-athletics":viewingRights(["competition:australian-athletics", "world-u20-athletics"], ["seven"], null),
-    "competition:sydney-marathon":viewingRights(["competition:sydney-marathon"], ["sbs"], null),
+    "competition:olympic-games":viewingRights(["competition:olympic-games", "olympics"], ["stan", "nine"], "https://www.nineforbrands.com.au/announcements/pdf/1781635"),
+    "competition:commonwealth-games":viewingRights(["competition:commonwealth-games", "cwg"], ["seven"], "https://sevenwestmedia.com.au/assets/pdfs/Seven-the-home-of-the-Glasgow-2026-Commonwealth-Games-FINAL.pdf"),
+    "competition:australian-hockey":viewingRights(["competition:hockey-one", "competition:hockeyroos", "competition:kookaburras"], ["seven"], "https://www.hockey.org.au/news/seven-to-remain-the-home-of-hockey-with-extended-three-year-partnership"),
+    "competition:swimming-australia":viewingRights(["competition:swimming-australia", "pan-pacs"], ["nine"], "https://www.swimming.org.au/articles/swimming-australia-and-nine-ink-multi-year-multi-platform-media-rights-and-sponsorship-deal-beyond-brisbane-games"),
+    "competition:world-gymnastics":viewingRights(["competition:world-gymnastics", "competition:fig-gymnastics"], ["sbs"], "https://www.sbs.com.au/ondemand/hi/collection/fig-gymnastics/"),
+    "competition:australian-athletics":viewingRights(["competition:australian-athletics", "world-u20-athletics"], ["seven"], "https://www.athletics.com.au/fan-hub/how-to-watch-athletics/"),
+    "competition:sydney-marathon":viewingRights(["competition:sydney-marathon"], ["sbs"], "https://www.sbs.com.au/sport/article/how-to-watch-sydney-marathon-live-on-sbs/462b0ddki"),
   });
 
   function uniqueAllowed(values, records){
@@ -832,20 +833,37 @@
     return Object.entries(VIEWING_PROVIDERS).find(([, provider]) => provider.aliases.some(alias => text.includes(alias)))?.[0] || null;
   }
 
+  const viewingDay = new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'});
+  function viewingIdentity(event){return [event.season,event.sportId,event.sportDomainId,event.taxonomySportId].map(value=>value==null?null:String(value));}
+  function reviewedWindowAllows(event,option){
+    if(option.reviewId!=='au-viewing-20261002')return true;
+    const scope=option.coverageWindow;
+    const nullableString=value=>value===null||typeof value==='string';
+    const strings=value=>Array.isArray(value)&&value.every(item=>typeof item==='string');
+    if(!Array.isArray(scope)||scope.length!==12||!/^\d{4}-\d{2}-\d{2}$/.test(scope[0])||!/^\d{4}-\d{2}-\d{2}$/.test(scope[1])
+      ||!nullableString(scope[2])||typeof scope[3]!=='string'||!nullableString(scope[4])||!nullableString(scope[5])||!nullableString(scope[6])
+      ||typeof scope[7]!=='string'||!(scope[8]===null||strings(scope[8]))||!nullableString(scope[9])||!strings(scope[10])||!Array.isArray(scope[11])||scope[11].length!==4||!scope[11].every(nullableString)||JSON.stringify(scope[11])!==JSON.stringify(viewingIdentity(event))
+      ||event.representedTours!=null&&!Array.isArray(event.representedTours)||scope[8]&&!strings(event.participantIds||[]))return false;
+    let excludedDraw;try{excludedDraw=scope[5]?new RegExp(scope[5],'i'):null;}catch{return false;}
+    const at=Date.parse(event.startTimeUtc||event.startsAt||event.date||''),date=Number.isFinite(at)?(event.startTimeUtc||event.startsAt?viewingDay.format(new Date(at)):event.date):null;
+    if(!date||!/^\d{4}-\d{2}-\d{2}$/.test(date)||new Date(date+'T00:00:00Z').toISOString().slice(0,10)!==date||date<scope[0]||date>=scope[1]||(event.competitionId||null)!==scope[2]||(event.key||null)!==scope[4])return false;
+    const tours=[event.tour,event.tennisTour,...(event.representedTours||[])].filter(Boolean).map(t=>String(t).toUpperCase()).sort().join(',');
+    if(tours!==scope[3]||excludedDraw&&excludedDraw.test([event.drawId,event.drawType,event.stage,event.roundLabel,event.id].filter(Boolean).join(' '))||scope[6]&&String(event.format||event.matchFormat||'').toLowerCase()!==scope[6])return false;
+    return String(event.canonicalEventId||event.id||event.eventId||'').replace(/:/g,'-')===scope[7]&&(!scope[8]||JSON.stringify([...(event.participantIds||[])].sort())===JSON.stringify([...scope[8]].sort()))&&(event.roundLabel||null)===scope[9]&&JSON.stringify([...new Set([event.tournamentId,event.tennisTournamentId,...(Array.isArray(event.tournamentIds)?event.tournamentIds:[])].filter(Boolean))])===JSON.stringify(scope[10]);
+  }
+
   function trustedProviderIdForOption(event, option){
     const providerId = providerIdForOption(option);
-    if (!providerId || (option && typeof option === "object" && option.sourceUrl && option.verifiedAt)) return providerId;
-    const text = typeof option === "string" ? option : [option?.broadcasterName, option?.serviceLabel, option?.platform, option?.channelBrand].filter(Boolean).join(" ");
-    if (/\b(?:supersport|eurosport|sky sports|watchespn|watch nrl)\b/i.test(text)) return null;
-    const key = String(event?.key || "").toLowerCase();
-    if (key === "wsl" && providerId === "paramount") return null;
-    if (["ski", "telemark"].includes(key) && /\bfis broadcast\b/i.test(text)) return null;
-    return providerId;
+    if (!providerId || !option || typeof option !== 'object' || !reviewedWindowAllows(event,option)) return null;
+    const at = Date.parse(option.verifiedAt || '');
+    const territory = option.territory || VIEWING_PROVIDERS[providerId].territory || 'AU';
+    return /^https:\/\//.test(option.sourceUrl || '') && Number.isFinite(at) && at <= Date.now()
+      && ['AU','GLOBAL'].includes(territory) ? providerId : null;
   }
 
   function viewingOptions(event, selectedProviderIds = []){
     if((event?.grandTourCalendar===true||event?.golfMajorCalendar===true||event?.dakarCalendar===true||event?.lemansCalendar===true)&&event.resultCoverage==='calendar-only'&&event.broadcaster==='Broadcast TBC')return [];
-    const broadcasterIds = new Set((event?.broadcasterIds || []).map(id => String(id || "").trim().toLowerCase()).filter(Boolean));
+    const broadcasterIds = new Set();
     // Official draw lists these as separate broadcast and streaming services.
     // Match stable fixture identities, never every match in the competition.
     const fixtureKey=String(event?.canonicalEventId||event?.eventId||event?.id||'').replace(/:/g,'-');
@@ -856,7 +874,7 @@
     const rights = competitionRightsForEvent(event);
     const isGrandFinal = /\bgrand\s+final\b/i.test([event?.stage, event?.roundLabel, event?.round, event?.name].filter(Boolean).join(" "));
     const fixtureProviderIds = Array.from(new Set(explicitOptions
-      .filter(option => option && typeof option === "object" && option.rightsScope === "fixture")
+      .filter(option => option && typeof option === "object" && (option.rightsScope === "fixture" || option.rightsScope === "competition" && option.reviewId === 'au-viewing-20261002'))
       .map(option => trustedProviderIdForOption(event, option))
       .filter(Boolean)));
     const rightsProviderIds = rights?.completeProviderList ? [...rights.providerIds] : fixtureProviderIds.length
@@ -873,15 +891,15 @@
     const sourceStatus = String(event?.status || event?.scheduleStatus || "").trim().toLowerCase();
     const completed = ["completed", "past", "finished", "final"].includes(sourceStatus)
       || (!sourceStatus && Boolean(event?.scoreDisplay || event?.score || event?.canonicalResultScoreline));
+    const accessFor=id=>{const explicit=explicitOptions.find(option=>option&&typeof option==='object'&&trustedProviderIdForOption(event,option)===id);return explicit?.accessType||VIEWING_PROVIDERS[id].accessType||(VIEWING_PROVIDERS[id].paid?'subscription':'free');};
+    const paidAccess=id=>['subscription','ppv','included'].includes(accessFor(id));
     return providerOrder
       .filter(id => broadcasterIds.has(id) && VIEWING_PROVIDERS[id]?.active !== false)
       .sort((left, right) => {
-        if (rightsProviderIds.includes(left) && rightsProviderIds.includes(right)) return rightsProviderIds.indexOf(left) - rightsProviderIds.indexOf(right);
-        const paidDelta = Number(VIEWING_PROVIDERS[right].paid) - Number(VIEWING_PROVIDERS[left].paid);
-        if (paidDelta) return paidDelta;
-        const leftSelected = selectedOrder.has(left) ? selectedOrder.get(left) : Number.MAX_SAFE_INTEGER;
-        const rightSelected = selectedOrder.has(right) ? selectedOrder.get(right) : Number.MAX_SAFE_INTEGER;
-        if (leftSelected !== rightSelected) return leftSelected - rightSelected;
+        const group = id => paidAccess(id) ? (selectedOrder.has(id) ? 0 : 2) : accessFor(id)==='free' ? 1 : 3;
+        const groupDelta = group(left) - group(right);
+        if (groupDelta) return groupDelta;
+        if (paidAccess(left) && paidAccess(right) && (left === 'stan' || right === 'stan')) return left === 'stan' ? -1 : 1;
         return providerOrder.indexOf(left) - providerOrder.indexOf(right);
       })
       .map(providerId => {
@@ -961,6 +979,7 @@
     normalizeDirectoryRank,
     directoryEntityLabel,
     competitionRightsForEvent,
+    viewingIdentity,
     viewingOptions,
     viewingLink,
   });

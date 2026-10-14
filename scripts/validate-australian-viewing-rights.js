@@ -53,13 +53,13 @@ const scenarios = [
   ["SailGP 2026", { key:"sailgp", competitionId:"competition:sailgp", name:"Australia Sail Grand Prix", date:"2026-01-17" }, ["kayo", "foxtel"]],
   ["SailGP 2027", { key:"sailgp", competitionId:"competition:sailgp", name:"Hong Kong Sail Grand Prix", date:"2027-01-23" }, []],
   ["SailGP without an edition date", { key:"sailgp", competitionId:"competition:sailgp", name:"Australia Sail Grand Prix" }, []],
-  ["FIBA Women", { key:"fiba-women", competitionId:"competition:fiba-womens-world-cup", name:"Australia v Belgium" }, ["kayo", "foxtel"]],
+  ["FIBA Women", { key:"fiba-women", competitionId:"competition:fiba-womens-world-cup", date:"2026-09-06", name:"Australia v Belgium" }, ["kayo", "foxtel"]],
   ["Premier League", { sportDomainId:"sport:football", competitionId:"competition:premier-league-2026-27", key:"premier-league" }, ["stan"]],
   ["Champions League", { sportDomainId:"sport:football", competitionId:"competition:uefa-champions-league-2026-27" }, ["stan"]],
   ["Europa League", {sportDomainId:"sport:football",competitionId:"competition:uefa-europa-league",key:"football"}, ["stan"]],
   ["FIFA World Cup", { competitionId:"competition:fifa-world-cup-2026" }, ["sbs"]],
   ["Australian football", { competitionId:"competition:afc-womens-asian-cup-2026", name:"Matildas v Japan" }, ["paramount"]],
-  ["Cricket Australia", { key:"cricket", competitionId:"competition:cricket-australia", name:"Australia v England" }, ["kayo", "foxtel", "seven"]],
+  ["Cricket Australia", { key:"cricket", competitionId:"competition:cricket-australia", name:"Australia v England" }, ["seven", "kayo", "foxtel"]],
   ["ICC cricket", { key:"cricket", competitionId:"competition:icc-world-cup", name:"Australia v India" }, ["prime-video"]],
   ["NBA", { key:"nba", competitionId:"competition:nba", name:"NBA Finals" }, ["nba-pass"]],
   ["NBL", { key:"basketball", competitionId:"competition:nbl-2026", name:"Sydney Kings v Perth Wildcats" }, ["kayo", "foxtel"]],
@@ -69,13 +69,13 @@ const scenarios = [
   ["Golf majors", { key:"masters", competitionId:"competition:masters", name:"Masters final round" }, ["kayo", "foxtel"]],
   ["LIV Golf", { key:"golf", competitionId:"competition:liv-golf", name:"LIV Golf Adelaide" }, ["seven"]],
   ["Netball 2026", { key:"netball", competitionId:"competition:netball", startsAt:"2026-09-01T00:00:00.000Z" }, ["kayo", "foxtel"]],
-  ["Netball 2027", { key:"netball", competitionId:"competition:netball", startsAt:"2027-09-01T00:00:00.000Z" }, ["stan", "nine"]],
+  ["Netball 2027", { key:"netball", competitionId:"competition:netball", startsAt:"2027-09-01T00:00:00.000Z" }, ["nine", "stan"]],
   ["WRC", { key:"wrc", competitionId:"competition:wrc-2026", name:"WRC Safari Rally Kenya" }, ["stan"]],
   ["Dakar", { key:"motorsport", competitionId:"competition:dakar", name:"Dakar Rally" }, ["sbs"]],
   ["Goodwood", { key:"goodwood", name:"Goodwood Festival of Speed" }, ["goodwood"]],
   ["X Games", { key:"skateboard", name:"X Games Skateboarding Finals" }, ["youtube"]],
   ["Commonwealth Games", { key:"cwg", competitionId:"competition:commonwealth-games-2026" }, ["seven"]],
-  ["Olympic Games", { competitionId:"competition:olympic-games-2028" }, ["stan", "nine"]],
+  ["Olympic Games", { competitionId:"competition:olympic-games-2028" }, ["nine", "stan"]],
   ["Swimming Australia", { competitionId:"competition:swimming-australia-2026" }, ["nine"]],
 ];
 
@@ -149,7 +149,7 @@ if(resultWithSchedule){
   assert(!unconfirmedParticipantRights({...resultWithSchedule,participantIds:['another-player','wrong-player']}),'a different match cannot reuse reviewed unknown-viewing provenance');
 }
 const chinaOpen=events.find(e=>e.name==="China Open — WTA 1000");
-if(chinaOpen)assert(/TBC|unconfirmed/i.test(chinaOpen.broadcaster||""),"China Open without verified Australian viewing must say TBC");
+if(chinaOpen){const options=followFirst.viewingOptions(chinaOpen);assert(options.length?options.every(o=>o.sourceUrl&&o.verifiedAt&&!['tennis-tv'].includes(o.providerId)):/TBC|unconfirmed/i.test(chinaOpen.broadcaster||''),'WTA China Open requires dated WTA carriage or internal unknown state');}
 // A reviewed source may resolve a formerly missing provider; do not require gaps to persist.
 for (const event of unresolvedPublishedCards) assert(followFirst.viewingOptions(event).length === 0, `${event.name} must not inherit a foreign or ambiguous provider`);
 

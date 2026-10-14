@@ -170,6 +170,29 @@ function renderAboutSettings(body){
     paragraph.textContent = text;
     introduction.append(paragraph);
   }
+  const ratings = document.createElement('details');
+  ratings.className = 'asset-attribution';ratings.dataset.aboutSection = 'ratings';
+  const ratingsTitle = document.createElement('summary');
+  ratingsTitle.textContent = 'About Anticipation/Electricity/Impact ratings';ratings.append(ratingsTitle);
+  for (const phase of ['heat','pulse','impact']){
+    const copy = globalThis.NOTHINGSPORTS_EPIC.phaseCopy(phase), paragraph = document.createElement('p');
+    const icon = document.createElement('span');icon.className = 'about-rating-icon';icon.setAttribute('aria-hidden','true');icon.innerHTML = glyphMarkup(copy.glyph);
+    const label = document.createElement('strong');label.textContent = copy.name + ' · ' + copy.detail + ': ';
+    paragraph.append(icon,label,document.createTextNode(copy.tip));ratings.append(paragraph);
+  }
+  for (const text of [
+    'NS fixture curators carry 8× weight in community scores. Contributor counts remain real people; points and rewards stay the same.',
+    'Anticipation earns one point. A matching rating from another registered Nothinger during play or afterwards earns another 19 under the existing reward rules.',
+    'Your own genuine 5/5 in any phase permanently saves the fixture to your EPIC Hall of Fame. Lowering that rating later does not remove it; you can remove or deliberately save a classic in Settings.'
+  ]){const paragraph = document.createElement('p');paragraph.textContent = text;ratings.append(paragraph);}
+  introduction.after(ratings);
+  const support = document.createElement('details');support.className = 'asset-attribution';support.dataset.aboutSection = 'gambling-free';
+  const supportTitle = document.createElement('summary');supportTitle.textContent = 'Gambling-free sport and support';
+  const supportCopy = document.createElement('p');supportCopy.textContent = 'NS is deliberately a gambling-free space. Do not rely on NS information to assess bets or make financial decisions. Free, confidential support is available 24/7 through ';
+  const supportLink = document.createElement('a');supportLink.textContent = 'Gambling Help Online';supportLink.href = 'https://www.gamblinghelponline.org.au/';supportLink.target = '_blank';supportLink.rel = 'noopener noreferrer';
+  const supportPhone = document.createElement('a');supportPhone.textContent = '1800 858 858';supportPhone.href = 'tel:1800858858';
+  supportCopy.append(supportLink,document.createTextNode(' or '),supportPhone);support.append(supportTitle,supportCopy);ratings.after(support);
+
   const charter = document.createElement("details");
   charter.className = "asset-attribution product-charter";
   charter.id = "product-charter";

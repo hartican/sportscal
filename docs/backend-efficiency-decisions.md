@@ -1275,3 +1275,8 @@ The private existing health report reserves API usage before issuing requests, i
 ## 14 October 2026 — zero-request all-sport Feed highlights searches
 
 The later human approval extends recent Feed search generation across sports and uses the visible Watch highlights label with an explicit search tooltip. Generate the URL entirely from the existing card; no viewer-specific request, source adapter, database read/write, polling, scheduler, customer change or paid service is added. The Tennis direct-video adapter and sole shared Pacific-day API ledger retain the 90-search/500-ordinary daily caps, ranking priority, two-search/pass limit, deadlines and truthful published-fallback partial health. Direct verification remains distinct from a search URL. Regression joins the existing fixture-highlights gate and preserves startup/performance release limits.
+
+
+## 15 October 2026 — Feed guidance and Australian viewing repair
+
+Use the existing Subscriptions state and shared viewing resolver. About guidance stays in the deferred Settings bundle; source-provenance and the whole-catalogue rights audit stay outside the critical shell. Existing canonical update-cards --viewing-reconciliation owns retained-source projection across published codes. No new scheduler, paid service, source polling, browser timer, API, database schema, private state writer or notification routine. Preserve existing sporting/source observations and fixture identities. Audit alone integrates generated outputs and releases the exact validated main SHA; concurrent highlights changes retain their original owner. Functional viewing, About, preference reload, cache-upgrade and startup-budget regressions travel with the decision.

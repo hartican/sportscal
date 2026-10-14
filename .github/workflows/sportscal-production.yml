@@ -183,6 +183,7 @@ jobs:
           node scripts/validate-reviewed-au-viewing-api.js
           node scripts/validate-seeded-surf-correction.js
           node scripts/validate-australian-viewing-rights.js
+          node scripts/validate-clean-feed-viewing.js
           node scripts/validate-cricket-viewing.js
           node scripts/validate-editorial-provenance.js
           node scripts/validate-ucl-qualifier-results.js

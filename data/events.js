@@ -87884,6 +87884,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-27",
+          "2026-09-28",
+          null,
+          "",
+          "rugby",
+          null,
+          null,
+          "rugby-australia-south-africa-2026-09-27",
+          [
+            "team:rugby:wallabies",
+            "team:rugby:springboks"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -87895,6 +87917,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-27",
+          "2026-09-28",
+          null,
+          "",
+          "rugby",
+          null,
+          null,
+          "rugby-australia-south-africa-2026-09-27",
+          [
+            "team:rugby:wallabies",
+            "team:rugby:springboks"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -87906,6 +87950,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-27",
+          "2026-09-28",
+          null,
+          "",
+          "rugby",
+          null,
+          null,
+          "rugby-australia-south-africa-2026-09-27",
+          [
+            "team:rugby:wallabies",
+            "team:rugby:springboks"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -88442,7 +88508,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "09:00",
     "timeTbc": true,
     "displayTimeLabel": "Daily order of play",
-    "broadcaster": "Broadcast TBC",
+    "broadcaster": "Stan Sport / beIN SPORTS",
     "broadcastOptions": [],
     "expected": 8,
     "venue": "Beijing, CHN",
@@ -88499,7 +88565,72 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA,WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "tennis-tournament-wta-beijing-2026-2026-09-30",
+          null,
+          null,
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            null,
+            "tennis",
+            null,
+            "sport:tennis"
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA,WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "tennis-tournament-wta-beijing-2026-2026-09-30",
+          null,
+          null,
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            null,
+            "tennis",
+            null,
+            "sport:tennis"
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "tennis-tournament-wta-beijing-2026-2026-09-30",
     "sourceEventIds": [
       "tennis-tournament-wta-beijing-2026-2026-09-30"
@@ -89344,8 +89475,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183447",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183447",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183447",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -89376,9 +89572,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Karen Khachanov won. 6–3, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Karen Khachanov v Felix Auger Aliassime",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -89494,8 +89688,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183449",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183449",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183449",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -89526,9 +89785,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Arthur Gea won. 4–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Zhang Zhizhen v Arthur Gea",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -89646,8 +89903,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183455",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183455",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183455",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -89680,9 +90002,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Novak Djokovic won. 3–6, 6–7",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Nuno Borges v Novak Djokovic",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -89798,8 +90118,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183456",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183456",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183456",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -89834,9 +90219,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Bu Yunchaokete won. 2–6, 7–5, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Juan Manuel Cerundolo v Bu Yunchaokete",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -89952,8 +90335,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183461",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183461",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183461",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -89984,9 +90432,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Jan-Lennard Struff won. 6–1, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jan-Lennard Struff v Thiago Agustin Tirante",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -90104,8 +90550,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183488",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183488",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183488",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -90136,9 +90647,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Alejandro Tabilo won. 6–1, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alejandro Tabilo v Tommy Paul",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -90256,8 +90765,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183489",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183489",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183489",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -90288,9 +90862,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Arthur Fils won. 6–3, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Arthur Fils v Luca Van Assche",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -90407,8 +90979,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183495",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183495",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183495",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -90443,9 +91080,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Matteo Arnaldi won. 2–6, 6–4, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Matteo Arnaldi v Rei Sakamoto",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -90563,8 +91198,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183496",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183496",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183496",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -90599,9 +91299,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Valentin Vacherot won. 7–6, 7–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Valentin Vacherot v Alexander Blockx",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -90717,8 +91415,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184233",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184233",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184233",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -90749,9 +91512,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Linda Fruhvirtova won. 2–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Bai Zhuoxuan v Linda Fruhvirtova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -90867,8 +91628,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184235",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184235",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184235",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -90899,9 +91725,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Katie Boulter won. 3–6, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Mai Hontama v Katie Boulter",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -91017,8 +91841,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184239",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184239",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184239",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -91049,9 +91938,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Maria Timofeeva won. 3–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Darja Vidmanova v Maria Timofeeva",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -91168,8 +92055,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184240",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184240",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184240",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -91200,9 +92152,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Maddison Inglis won. 6–4, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Maddison Inglis v Zeynep Sonmez",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -91319,8 +92269,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184242",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184242",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184242",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -91355,9 +92370,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Sinja Kraus won. 3–6, 6–3, 5–7",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Maya Joint v Sinja Kraus",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -91473,8 +92486,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184249",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184249",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184249",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -91505,9 +92583,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Dayana Yastremska won. 3–6, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Catherine McNally v Dayana Yastremska",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -91625,8 +92701,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184258",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184258",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184258",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -91661,9 +92802,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Janice Tjen won. 2–6, 7–5, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Janice Tjen v Anhelina Kalinina",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -91780,8 +92919,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184262",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184262",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184262",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -91814,9 +93018,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Taylah Preston won. 6–2, 7–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Taylah Preston v Tamara Korpatsch",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -91933,8 +93135,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184263",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184263",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184263",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -91969,9 +93236,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Daria Snigur won. 3–6, 6–4, 7–5",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Daria Snigur v Katarzyna Kawa",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -92088,8 +93353,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184265",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184265",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184265",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -92120,9 +93450,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Yuan Yue won. 2–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Oleksandra Oliynykova v Yuan Yue",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -92238,8 +93566,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184266",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184266",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184266",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -92276,9 +93669,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Polina Kudermetova won. 7–6, 3–6, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ma YeXin v Polina Kudermetova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -92394,8 +93785,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184276",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184276",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184276",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -92426,9 +93882,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Elena-Gabriela Ruse won. 6–4, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Elena-Gabriela Ruse v Lilli Tagger",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -92545,8 +93999,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184280",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184280",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184280",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -92577,9 +94096,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Aliaksandra Sasnovich won. 6–1, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Aliaksandra Sasnovich v Talia Gibson",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -92695,8 +94212,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184283",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184283",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184283",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -92727,9 +94309,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Viktorija Golubic won. 6–3, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Viktorija Golubic v Elvina Kalieva",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -92845,8 +94425,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184288",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184288",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184288",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -92879,9 +94524,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Renata Zarazua won. 6–7, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Anna Bondar v Renata Zarazua",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -92998,8 +94641,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184289",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184289",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184289",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -93034,9 +94742,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Magdalena Frech won. 5–7, 6–3, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Elsa Jacquemot v Magdalena Frech",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -94770,8 +96476,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183438",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183438",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183438",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -94806,9 +96577,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Hubert Hurkacz won. 7–5, 3–6, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Learner Tien v Hubert Hurkacz",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -94926,8 +96695,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183440",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183440",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183440",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -94960,9 +96794,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Alexander Zverev won. 7–6, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alexander Zverev v Cameron Norrie",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -95079,8 +96911,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183441",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183441",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183441",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -95111,9 +97008,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Roman Safiullin won. 6–3, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Roman Safiullin v Flavio Cobolli",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -95230,8 +97125,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183443",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183443",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183443",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -95268,9 +97228,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Andrey Rublev won. 4–6, 7–5, 6–7",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Tallon Griekspoor v Andrey Rublev",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -95388,8 +97346,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183445",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183445",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183445",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -95422,9 +97445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Quentin Halys won. 1–6, 6–7",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ignacio Buse v Quentin Halys",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -95540,8 +97561,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183448",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183448",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183448",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -95572,9 +97658,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Alex Molcan won. 6–3, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alex Molcan v Tomas Machac",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -95690,8 +97774,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183457",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183457",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183457",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -95726,9 +97875,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Shang Juncheng won. 5–7, 6–3, 7–5",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Shang Juncheng v Sebastian Baez",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -95846,8 +97993,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183458",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183458",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183458",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -95880,9 +98092,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Alex De Minaur won. 7–6, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alex De Minaur v Mariano Navone",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -96000,8 +98210,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183459",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183459",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183459",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -96034,9 +98309,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Jakub Mensik won. 4–6, 6–7",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alexander Bublik v Jakub Mensik",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -96154,8 +98427,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183460",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183460",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183460",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -96190,9 +98528,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Francisco Cerundolo won. 7–5, 4–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Botic van de Zandschulp v Francisco Cerundolo",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -96308,8 +98644,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183484",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183484",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183484",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -96340,9 +98741,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Kyrian Jacquet won. 3–6, 1–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Holger Rune v Kyrian Jacquet",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -96459,8 +98858,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183485",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183485",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183485",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -96495,9 +98959,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Jaime Faria won. 6–4, 3–6, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jaime Faria v Arthur Fery",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -96614,8 +99076,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183486",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183486",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183486",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -96652,9 +99179,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Jaume Munar won. 7–6, 4–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Taylor Fritz v Jaume Munar",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -96771,8 +99296,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183487",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183487",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183487",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -96803,9 +99393,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Frances Tiafoe won. 4–6, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Kei Nishikori v Frances Tiafoe",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -96923,8 +99511,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183490",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183490",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183490",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -96961,9 +99614,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Jiri Lehecka won. 6–3, 6–7, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jiri Lehecka v Zizou Bergs",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -97081,8 +99732,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183491",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183491",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183491",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -97113,9 +99829,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Ugo Humbert won. 3–6, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Brandon Nakashima v Ugo Humbert",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -97233,8 +99947,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183492",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183492",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183492",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -97267,9 +100046,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Luciano Darderi won. 7–6, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Luciano Darderi v Casper Ruud",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -97386,8 +100163,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183493",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183493",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183493",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -97418,9 +100260,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Denis Shapovalov won. 7–5, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Denis Shapovalov v Sho Shimabukuro",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -97538,8 +100378,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183494",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183494",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183494",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -97574,9 +100479,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Stefanos Tsitsipas won. 6–4, 3–6, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Tomas Martin Etcheverry v Stefanos Tsitsipas",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -97694,8 +100597,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183497",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183497",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183497",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -97732,9 +100700,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Carlos Alcaraz won. 7–6, 4–6, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Carlos Alcaraz v Alex Michelsen",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -97851,8 +100817,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183498",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183498",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183498",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -97883,9 +100914,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Adolfo Daniel Vallejo won. 6–1, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Adolfo Daniel Vallejo v Rafael Jodar",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -98003,8 +101032,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183499",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183499",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183499",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -98041,9 +101135,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Matteo Berrettini won. 6–1, 6–7, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alejandro Davidovich Fokina v Matteo Berrettini",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -98159,8 +101251,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184232",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184232",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184232",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -98191,9 +101348,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Camila Osorio won. 3–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Lanlana Tararudee v Camila Osorio",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -98310,8 +101465,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184244",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184244",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184244",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -98348,9 +101568,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Paula Badosa won. 4–6, 7–6, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Paula Badosa v Daria Kasatkina",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -98466,8 +101684,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184247",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184247",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184247",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -98498,9 +101781,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Xinran Sun won. 1–6, 0–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Eva Lys v Xinran Sun",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -98616,8 +101897,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184248",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184248",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184248",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -98654,9 +102000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Harriet Dart won. 6–2, 6–7, 7–5",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Harriet Dart v Qu Yihan",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -98772,8 +102116,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184252",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184252",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184252",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -98804,9 +102213,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Katie Volynets won. 7–5, 7–5",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Katie Volynets v Robin Montgomery",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -98922,8 +102329,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184255",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184255",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184255",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -98960,9 +102432,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Zheng Qinwen won. 7–6, 4–6, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Zheng Qinwen v Shi Han",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -99079,8 +102549,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184257",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184257",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184257",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -99111,9 +102646,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Kimberly Birrell won. 1–6, 1–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Aoi Ito v Kimberly Birrell",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -99229,8 +102762,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184267",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184267",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184267",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -99261,9 +102859,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Ashlyn Krueger won. 3–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Sofia Kenin v Ashlyn Krueger",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -99379,8 +102975,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184268",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184268",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184268",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -99411,9 +103072,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Anastasia Zakharova won. 0–6, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Shao Yushan v Anastasia Zakharova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -99529,8 +103188,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184270",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184270",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184270",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -99561,9 +103285,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Katerina Siniakova won. 4–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Magda Linette v Katerina Siniakova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -99680,8 +103402,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184271",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184271",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184271",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -99712,9 +103499,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Storm Hunter won. 2–6, 1–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Yu Jun Lin v Storm Hunter",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -99830,8 +103615,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184274",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184274",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184274",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -99862,9 +103712,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Zhu Lin won. 4–6, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alycia Parks v Zhu Lin",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -99980,8 +103828,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184279",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184279",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184279",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -100012,9 +103925,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Gao Xinyu won. 6–2, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Gao Xinyu v Panna Udvardy",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -100130,8 +104041,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184285",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184285",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184285",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -100162,9 +104138,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Sonay Kartal won. 6–2, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Sonay Kartal v Andrea Lazaro Garcia",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -100281,8 +104255,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184286",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184286",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184286",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -100317,9 +104356,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Alina Charaeva won. 7–5, 5–7, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Yuliia Starodubtseva v Alina Charaeva",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -100435,8 +104472,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184292",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184292",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184292",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -100469,9 +104571,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Kamilla Rakhimova won. 4–6, 6–7",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Marina Bassols Ribera v Kamilla Rakhimova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -100531,7 +104631,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "09:00",
     "timeTbc": true,
     "displayTimeLabel": "Daily order of play",
-    "broadcaster": "Broadcast TBC",
+    "broadcaster": "Stan Sport / beIN SPORTS",
     "broadcastOptions": [],
     "expected": 8,
     "venue": "Beijing, CHN",
@@ -100588,7 +104688,72 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA,WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "tennis-tournament-wta-beijing-2026-2026-10-02",
+          null,
+          null,
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            null,
+            "tennis",
+            null,
+            "sport:tennis"
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA,WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "tennis-tournament-wta-beijing-2026-2026-10-02",
+          null,
+          null,
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            null,
+            "tennis",
+            null,
+            "sport:tennis"
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "tennis-tournament-wta-beijing-2026-2026-10-02",
     "sourceEventIds": [
       "tennis-tournament-wta-beijing-2026-2026-10-02"
@@ -102621,8 +106786,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183439",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183439",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183439",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -102653,9 +106883,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Karen Khachanov won. 5–7, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alex Molcan v Karen Khachanov",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -102772,8 +107000,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183442",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183442",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183442",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -102812,9 +107105,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Hubert Hurkacz won. 7–6, 6–7, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Hubert Hurkacz v Arthur Gea",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -102931,8 +107222,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183453",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183453",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183453",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -102969,9 +107325,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Novak Djokovic won. 6–4, 6–7, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Bu Yunchaokete v Novak Djokovic",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -103088,8 +107442,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183454",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183454",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183454",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -103120,9 +107539,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Daniil Medvedev won. 6–4, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Daniil Medvedev v Pablo Carreno Busta",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -103239,8 +107656,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183502",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183502",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183502",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -103273,9 +107755,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Kyrian Jacquet won. 6–3, 7–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Kyrian Jacquet v Luciano Darderi",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -103391,8 +107871,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183503",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183503",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183503",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -103423,9 +107968,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Jaume Munar won. 6–1, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jaume Munar v Jaime Faria",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -103543,8 +108086,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183505",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183505",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183505",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -103575,9 +108183,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Arthur Fils won. 6–3, 7–5",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Arthur Fils v Frances Tiafoe",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -103695,8 +108301,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183506",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183506",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183506",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -103733,9 +108404,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Valentin Vacherot won. 4–6, 7–6, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Valentin Vacherot v Stefanos Tsitsipas",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -103852,8 +108521,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184295",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184295",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184295",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -103884,9 +108618,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Aryna Sabalenka won. 1–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Renata Zarazua v Aryna Sabalenka",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -104004,8 +108736,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184296",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184296",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184296",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -104036,9 +108833,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Nikola Bartunkova won. 6–2, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Nikola Bartunkova v Magdalena Frech",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -104155,8 +108950,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184297",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184297",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184297",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -104187,9 +109047,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Dayana Yastremska won. 6–3, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Dayana Yastremska v Maja Chwalinska",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -104306,8 +109164,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184298",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184298",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184298",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -104334,9 +109257,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Sinja Kraus won. 1–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Anastasia Potapova v Sinja Kraus",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -104454,8 +109375,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184299",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184299",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184299",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -104492,9 +109478,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Daria Snigur won. 6–3, 6–7, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jasmine Paolini v Daria Snigur",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -104612,8 +109596,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184300",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184300",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184300",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -104644,9 +109693,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Diana Shnaider won. 0–6, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Janice Tjen v Diana Shnaider",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -104763,8 +109810,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184301",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184301",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184301",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -104795,9 +109907,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Ekaterina Alexandrova won. 6–1, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ekaterina Alexandrova v Aliaksandra Sasnovich",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -104914,8 +110024,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184302",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184302",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184302",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -104950,9 +110125,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Viktorija Golubic won. 6–4, 3–6, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Viktorija Golubic v Peyton Stearns",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -105069,8 +110242,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184303",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184303",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184303",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -105105,9 +110343,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Mirra Andreeva won. 6–3, 0–6, 0–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Yuan Yue v Mirra Andreeva",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -105224,8 +110460,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184304",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184304",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184304",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -105260,9 +110561,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Polina Kudermetova won. 4–6, 6–4, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Clara Tauson v Polina Kudermetova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -105380,8 +110679,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184305",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184305",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184305",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -105414,9 +110778,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Taylah Preston won. 7–6, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Taylah Preston v Diane Parry",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -105533,8 +110895,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184306",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184306",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184306",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -105569,9 +110996,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Naomi Osaka won. 3–6, 6–3, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Maria Timofeeva v Naomi Osaka",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -105689,8 +111114,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184307",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184307",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184307",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -105721,9 +111211,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Sara Bejlek won. 6–3, 7–5",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Sara Bejlek v Maddison Inglis",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -105840,8 +111328,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184308",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184308",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184308",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -105876,9 +111429,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Liudmila Samsonova won. 2–6, 6–3, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Linda Fruhvirtova v Liudmila Samsonova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -105995,8 +111546,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184309",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184309",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184309",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -106029,9 +111645,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Karolina Muchova won. 7–6, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Karolina Muchova v Katie Boulter",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -106148,8 +111762,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184318",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184318",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184318",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -106180,9 +111859,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Linda Noskova won. 6–4, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Linda Noskova v Elena-Gabriela Ruse",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -108644,8 +114321,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183444",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183444",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183444",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -108680,9 +114422,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Andrey Rublev won. 6–2, 3–6, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Andrey Rublev v Roman Safiullin",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -108799,8 +114539,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183446",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183446",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183446",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -108831,9 +114636,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Alexander Zverev won. 6–0, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alexander Zverev v Shang Juncheng",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -108951,8 +114754,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183451",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183451",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183451",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -108983,9 +114851,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Francisco Cerundolo won. 6–3, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Francisco Cerundolo v Jakub Mensik",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -109102,8 +114968,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183452",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183452",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183452",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -109134,9 +115065,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Daniil Medvedev won. 6–4, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Daniil Medvedev v Jan-Lennard Struff",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -109254,8 +115183,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183500",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183500",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183500",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -109290,9 +115284,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Denis Shapovalov won. 7–5, 3–6, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Denis Shapovalov v Alejandro Tabilo",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -109410,8 +115402,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183504",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183504",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183504",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -109446,9 +115503,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Jiri Lehecka won. 7–5, 4–6, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ugo Humbert v Jiri Lehecka",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -109565,8 +115620,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183507",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183507",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183507",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -109599,9 +115719,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Adolfo Daniel Vallejo won. 6–7, 1–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Matteo Berrettini v Adolfo Daniel Vallejo",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -109718,8 +115836,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184310",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184310",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184310",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -109750,9 +115933,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Xinran Sun won. 6–4, 7–5",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Xinran Sun v Cristina Bucsa",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -109869,8 +116050,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184311",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184311",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184311",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -109907,9 +116153,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Coco Gauff won. 7–6, 4–6, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Coco Gauff v Camila Osorio",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -110026,8 +116270,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184312",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184312",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184312",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -110062,9 +116371,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Elina Svitolina won. 6–1, 4–6, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Katerina Siniakova v Elina Svitolina",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -110182,8 +116489,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184313",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184313",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184313",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -110214,9 +116586,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Maria Sakkari won. 6–2, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Maria Sakkari v Storm Hunter",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -110333,8 +116703,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184314",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184314",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184314",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -110369,9 +116804,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Kamilla Rakhimova won. 6–2, 4–6, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Kamilla Rakhimova v Leylah Fernandez",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -110488,8 +116921,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184315",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184315",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184315",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -110524,9 +117022,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Iva Jovic won. 2–6, 6–3, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Iva Jovic v Harriet Dart",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -110643,8 +117139,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184316",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184316",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184316",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -110679,9 +117240,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Elise Mertens won. 0–6, 6–4, 5–7",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Katie Volynets v Elise Mertens",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -110798,8 +117357,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184317",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184317",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184317",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -110832,9 +117456,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Jelena Ostapenko won. 7–6, 7–5",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jelena Ostapenko v Paula Badosa",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -110951,8 +117573,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184319",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184319",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184319",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -110983,9 +117670,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Iga Swiatek won. 2–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Gao Xinyu v Iga Swiatek",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -111102,8 +117787,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184320",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184320",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184320",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -111138,9 +117888,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Donna Vekic won. 6–1, 4–6, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Donna Vekic v Zhu Lin",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -111258,8 +118006,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184321",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184321",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184321",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -111290,9 +118103,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Marie Bouzkova won. 6–4, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Marie Bouzkova v Kimberly Birrell",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -111408,8 +118219,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184322",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184322",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184322",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -111440,9 +118316,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Sonay Kartal won. 6–3, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Sonay Kartal v Wang Xinyu",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -111559,8 +118433,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184323",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184323",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184323",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -111595,9 +118534,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Alina Charaeva won. 6–3, 4–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Elena Rybakina v Alina Charaeva",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -111714,8 +118651,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184324",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184324",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184324",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -111752,9 +118754,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Zheng Qinwen won. 6–7, 6–4, 3–0",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Zheng Qinwen v Anna Kalinskaya",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -111871,8 +118871,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184325",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184325",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184325",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -111903,9 +118968,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Ann Li won. 4–6, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ashlyn Krueger v Ann Li",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -112022,8 +119085,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184326",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184326",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184326",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -112056,9 +119184,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Belinda Bencic won. 6–1, 7–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Belinda Bencic v Anastasia Zakharova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -112376,7 +119502,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "09:00",
     "timeTbc": true,
     "displayTimeLabel": "Daily order of play",
-    "broadcaster": "Broadcast TBC",
+    "broadcaster": "Stan Sport / beIN SPORTS",
     "broadcastOptions": [],
     "expected": 8,
     "venue": "Beijing, CHN",
@@ -112464,7 +119590,72 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA,WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "tennis-tournament-wta-beijing-2026-2026-10-04",
+          null,
+          null,
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            null,
+            "tennis",
+            null,
+            "sport:tennis"
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA,WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "tennis-tournament-wta-beijing-2026-2026-10-04",
+          null,
+          null,
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            null,
+            "tennis",
+            null,
+            "sport:tennis"
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "tennis-tournament-wta-beijing-2026-2026-10-04",
     "sourceEventIds": [
       "tennis-tournament-wta-beijing-2026-2026-10-04"
@@ -114820,8 +122011,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183462",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183462",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183462",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -114854,9 +122110,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Hubert Hurkacz won. 7–6, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Hubert Hurkacz v Karen Khachanov",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -114974,8 +122228,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183463",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183463",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183463",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -115010,9 +122329,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Alex De Minaur won. 1–6, 6–2, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alex De Minaur v Andrey Rublev",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -115130,8 +122447,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183464",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183464",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183464",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -115164,9 +122546,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Daniil Medvedev won. 7–6, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Daniil Medvedev v Francisco Cerundolo",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -115284,8 +122664,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183508",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183508",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183508",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -115320,9 +122765,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Valentin Vacherot won. 7–5, 4–6, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Valentin Vacherot v Arthur Fils",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -115439,8 +122882,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183509",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183509",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183509",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -115471,9 +122979,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Jiri Lehecka won. 6–1, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jiri Lehecka v Adolfo Daniel Vallejo",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -115589,8 +123095,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183510",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183510",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183510",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -115621,9 +123192,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Jaume Munar won. 6–4, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jaume Munar v Kyrian Jacquet",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -115741,8 +123310,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183511",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183511",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183511",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -115775,9 +123409,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Carlos Alcaraz won. 7–6, 2–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Carlos Alcaraz v Denis Shapovalov",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -115895,8 +123527,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184334",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184334",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184334",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -115927,9 +123624,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Daria Snigur won. 6–1, 6–0",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Daria Snigur v Taylah Preston",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -116047,8 +123742,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184335",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184335",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184335",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -116083,9 +123843,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Ekaterina Alexandrova won. 3–6, 6–4, 6–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ekaterina Alexandrova v Diana Shnaider",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -116202,8 +123960,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184336",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184336",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184336",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -116234,9 +124057,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Linda Noskova won. 6–2, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Linda Noskova v Viktorija Golubic",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -116353,8 +124174,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184338",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184338",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184338",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -116385,9 +124271,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Mirra Andreeva won. 4–6, 1–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Polina Kudermetova v Mirra Andreeva",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -116505,8 +124389,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184339",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184339",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184339",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -116539,9 +124488,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Naomi Osaka won. 6–7, 4–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Sara Bejlek v Naomi Osaka",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -116657,8 +124604,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184342",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184342",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184342",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -116689,9 +124701,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Sinja Kraus won. 6–1, 6–4",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Sinja Kraus v Dayana Yastremska",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -117067,8 +125077,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183467",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183467",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183467",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -117099,9 +125174,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Novak Djokovic won. 7–5, 5–3",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Novak Djokovic v Daniil Medvedev",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -117219,8 +125292,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=183513",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183513",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-183513",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -117251,9 +125389,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Jiri Lehecka won. 6–4, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jiri Lehecka v Valentin Vacherot",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -117370,8 +125506,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184327",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184327",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184327",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -117408,9 +125609,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Zheng Qinwen won. 6–7, 6–4, 5–7",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Marie Bouzkova v Zheng Qinwen",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -117526,8 +125725,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184328",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184328",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184328",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -117558,9 +125822,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Alina Charaeva won. 6–4, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alina Charaeva v Sonay Kartal",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -117678,8 +125940,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184329",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184329",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184329",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -117710,9 +126037,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Ann Li won. 4–6, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Belinda Bencic v Ann Li",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -117829,8 +126154,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184330",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184330",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184330",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -117861,9 +126251,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Iva Jovic won. 6–1, 7–5",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Iva Jovic v Kamilla Rakhimova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -117981,8 +126369,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184331",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184331",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184331",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -118017,9 +126470,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Elise Mertens won. 2–6, 6–3, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jelena Ostapenko v Elise Mertens",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -118137,8 +126588,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184333",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184333",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184333",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -118169,9 +126685,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Elina Svitolina won. 4–6, 5–7",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Maria Sakkari v Elina Svitolina",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -118289,8 +126803,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184337",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184337",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184337",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -118327,9 +126906,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Iga Swiatek won. 6–4, 6–7, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Donna Vekic v Iga Swiatek",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -118447,8 +127024,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184340",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184340",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184340",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -118483,9 +127125,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Karolina Muchova won. 4–6, 6–4, 6–2",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Karolina Muchova v Liudmila Samsonova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -118775,6 +127415,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-06T04:00:00Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-06",
+          "2026-10-07",
+          "competition:mlb",
+          "",
+          "baseball",
+          null,
+          null,
+          "fixture-mlb-849839",
+          null,
+          "ALDS 'A' Game 2",
+          [],
+          [
+            "2026",
+            null,
+            "sport:baseball",
+            null
+          ]
+        ],
         "channelBrand": "ESPN2",
         "reviewId": "au-viewing-20261002"
       },
@@ -118787,6 +127446,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-06T04:00:00Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-06",
+          "2026-10-07",
+          "competition:mlb",
+          "",
+          "baseball",
+          null,
+          null,
+          "fixture-mlb-849839",
+          null,
+          "ALDS 'A' Game 2",
+          [],
+          [
+            "2026",
+            null,
+            "sport:baseball",
+            null
+          ]
+        ],
         "channelBrand": "ESPN2",
         "reviewId": "au-viewing-20261002"
       }
@@ -118883,8 +127561,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184332",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184332",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184332",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -118915,9 +127658,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Coco Gauff won. 7–5, 6–1",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Coco Gauff v Xinran Sun",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -119035,8 +127776,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184343",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184343",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184343",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -119067,9 +127873,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Mirra Andreeva won. 2–6, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Daria Snigur v Mirra Andreeva",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -119187,8 +127991,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184344",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184344",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184344",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -119219,9 +128088,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Ekaterina Alexandrova won. 2–6, 2–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Linda Noskova v Ekaterina Alexandrova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -119338,8 +128205,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184348",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261006"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184348",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184348",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sets": [
@@ -119374,9 +128306,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "outcomeText": "Nikola Bartunkova won. 0–6, 6–4, 3–6",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Sinja Kraus v Nikola Bartunkova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -119994,6 +128924,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184839",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -120166,6 +129117,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184840",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -120337,6 +129309,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184842",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -120503,6 +129496,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184847",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -120671,6 +129685,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184849",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -120838,6 +129873,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184854",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -121007,6 +130063,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184862",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -121174,6 +130251,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184870",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -121345,6 +130443,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184878",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -121520,6 +130639,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184880",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -121691,6 +130831,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184881",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -121857,6 +131018,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184888",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -122022,6 +131204,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184889",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -122178,15 +131381,78 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184345",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184345",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184345",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sourceTrust": "unverified",
     "displayTitleCompact": "Iva Jovic v Iga Swiatek",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -122332,15 +131598,78 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184346",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184346",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184346",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sourceTrust": "unverified",
     "displayTitleCompact": "Coco Gauff v Elise Mertens",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -122484,15 +131813,78 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184355",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184355",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184355",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alina Charaeva v Zheng Qinwen",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -123400,6 +132792,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184841",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -123567,6 +132980,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184843",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -123732,6 +133166,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184850",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -123898,6 +133353,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184851",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -124068,6 +133544,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184855",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -124233,6 +133730,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184857",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -124400,6 +133918,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184858",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -124566,6 +134105,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184863",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -124735,6 +134295,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184864",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -124904,6 +134485,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184867",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -125072,6 +134674,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184868",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -125241,6 +134864,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184869",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -125408,6 +135052,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184874",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -125577,6 +135242,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184875",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -125747,6 +135433,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184877",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -125912,6 +135619,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184882",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -126081,6 +135809,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184885",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -126253,6 +136002,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184892",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -126418,6 +136188,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184893",
+          null,
+          "Round of 128",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -126574,15 +136365,78 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184351",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184351",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184351",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sourceTrust": "unverified",
     "displayTitleCompact": "Karolina Muchova v Nikola Bartunkova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -126728,15 +136582,78 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184352",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184352",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184352",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ekaterina Alexandrova v Mirra Andreeva",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -126886,15 +136803,78 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184354",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261008"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184354",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184354",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ann Li v Elina Svitolina",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -127218,6 +137198,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-09",
+          "2026-11-01",
+          "competition:cricket:espn:24203",
+          "",
+          "cricket",
+          null,
+          "test",
+          "fixture-cricket-espn-1525659",
+          [
+            "team:cricket:south-africa",
+            "team:cricket:australia"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -127229,6 +137231,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-09",
+          "2026-11-01",
+          "competition:cricket:espn:24203",
+          "",
+          "cricket",
+          null,
+          "test",
+          "fixture-cricket-espn-1525659",
+          [
+            "team:cricket:south-africa",
+            "team:cricket:australia"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -128922,6 +138946,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184904",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -129088,6 +139133,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184914",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -129255,6 +139321,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184915",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -129431,6 +139518,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184916",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -129601,6 +139709,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184918",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -129775,6 +139904,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184919",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -129941,6 +140091,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184920",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -130109,6 +140280,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184921",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -130279,6 +140471,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184922",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -130447,6 +140660,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184923",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -130614,6 +140848,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184924",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -130786,6 +141041,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184925",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -130955,6 +141231,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184926",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -131123,6 +141420,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184928",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -131280,17 +141598,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184347",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261010"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184347",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184347",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Capital Group Diamond",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Zheng Qinwen v Elina Svitolina",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -131436,17 +141817,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184353",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261010"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184353",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184353",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Capital Group Diamond",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Elise Mertens v Iga Swiatek",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -132274,6 +142718,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-01",
+          "2026-11-01",
+          null,
+          "",
+          "rugby",
+          null,
+          null,
+          "rugby-new-zealand-australia-2026-10-10",
+          [
+            "team:rugby:wallabies",
+            "team:rugby:all-blacks"
+          ],
+          "First Test",
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -132285,6 +142751,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-01",
+          "2026-11-01",
+          null,
+          "",
+          "rugby",
+          null,
+          null,
+          "rugby-new-zealand-australia-2026-10-10",
+          [
+            "team:rugby:wallabies",
+            "team:rugby:all-blacks"
+          ],
+          "First Test",
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -132296,6 +142784,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-01",
+          "2026-11-01",
+          null,
+          "",
+          "rugby",
+          null,
+          null,
+          "rugby-new-zealand-australia-2026-10-10",
+          [
+            "team:rugby:wallabies",
+            "team:rugby:all-blacks"
+          ],
+          "First Test",
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -134070,6 +144580,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184897",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -134237,6 +144768,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184898",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -134403,6 +144955,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184899",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -134569,6 +145142,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184900",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -134737,6 +145331,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184901",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -134908,6 +145523,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184902",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -135074,6 +145710,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184903",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -135240,6 +145897,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184905",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -135407,6 +146085,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184906",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -135573,6 +146272,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184907",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -135743,6 +146463,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184908",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -135915,6 +146656,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184909",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -136085,6 +146847,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184910",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -136255,6 +147038,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184911",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -136421,6 +147225,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184912",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -136589,6 +147414,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184913",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -136750,8 +147596,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184350",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261011"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184350",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184350",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Capital Group Diamond",
@@ -136773,9 +147684,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-11T19:55:36.000Z",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Zheng Qinwen v Elise Mertens",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -136904,17 +147813,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=184357",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261010"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184357",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184357",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Capital Group Diamond",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Mirra Andreeva v Nikola Bartunkova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -141087,6 +152059,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184930",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -141259,6 +152252,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184935",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -141430,6 +152444,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184936",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -141604,6 +152639,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184943",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -142671,6 +153727,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184932",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -142839,6 +153916,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184933",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -143009,6 +154107,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184934",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -143176,6 +154295,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184937",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -143343,6 +154483,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184938",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -143516,6 +154677,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184939",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -143687,6 +154869,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184940",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -143842,17 +155045,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185314",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185314",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185314",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Anhelina Kalinina v Sonay Kartal",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -143998,17 +155264,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185318",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185318",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185318",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Catherine McNally v Yuliia Starodubtseva",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -144161,17 +155490,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185321",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185321",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185321",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jasmine Paolini v Sara Bejlek",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -144318,17 +155710,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185327",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185327",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185327",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Maria Sakkari v Donna Vekic",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -144475,17 +155930,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185331",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185331",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185331",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Clara Tauson v Marie Bouzkova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -144635,8 +156153,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261018",
       "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185333",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185333",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
@@ -144645,9 +156228,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Anna Bondar v Mia Pohankova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Anna Bondar v Mia Pohankova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -144920,17 +156501,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185334",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185334",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185334",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Wang Xiyu v Wang Xinyu",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -145077,17 +156721,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185336",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185336",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185336",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ekaterina Alexandrova v Leylah Fernandez",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -145246,8 +156953,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261017",
       "https://www.wtatennis.com/tournaments/1075/dongfeng-voyah-wuhan-open-wuhan-chn/2026/draws"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185341",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185341",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "",
@@ -145256,9 +157028,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Diane Parry v Lanlana Tararudee is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Diane Parry v Lanlana Tararudee",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -145544,17 +157314,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185342",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185342",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185342",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 2",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Mananchaya Sawangkaew v Magdalena Frech",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -145702,17 +157535,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185344",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185344",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185344",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 2",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Janice Tjen v Aoi Ito",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -146488,6 +158384,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184951",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -146659,17 +158576,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185320",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185320",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185320",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Guo Hanyu v Sorana Cirstea",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -146821,17 +158801,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185322",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185322",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185322",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 3",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Lilli Tagger v Nikola Bartunkova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -146982,17 +159025,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185323",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185323",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185323",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Yulia Putintseva v Zeynep Sonmez",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -147144,17 +159250,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185324",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185324",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185324",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 2",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Katie Boulter v Diana Shnaider",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -147300,17 +159469,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185325",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185325",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185325",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Alexandra Eala v Shi Han",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -147460,17 +159692,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185326",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185326",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185326",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Dayana Yastremska v Cristina Bucsa",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -147620,17 +159915,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185330",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185330",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185330",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Katerina Siniakova v Liudmila Samsonova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -147780,17 +160138,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185332",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185332",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185332",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 3",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Mayar Sherif v Maja Chwalinska",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -147936,17 +160357,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185335",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185335",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185335",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 2",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Kimberly Birrell v Katie Volynets",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -148101,17 +160585,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185337",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185337",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185337",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Daria Kasatkina v Jelena Ostapenko",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -148258,17 +160805,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185339",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185339",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185339",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 2",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Daria Snigur v Elise Mertens",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -148413,17 +161023,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185340",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185340",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185340",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ashlyn Krueger v Zhang Shuai",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -148638,17 +161311,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185343",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185343",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185343",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ann Li v Camila Osorio",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -151087,6 +163823,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-01",
+          "2026-11-01",
+          null,
+          "",
+          "rugby",
+          null,
+          null,
+          "rugby-australia-new-zealand-2026-10-17",
+          [
+            "team:rugby:wallabies",
+            "team:rugby:all-blacks"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -151098,6 +163856,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-01",
+          "2026-11-01",
+          null,
+          "",
+          "rugby",
+          null,
+          null,
+          "rugby-australia-new-zealand-2026-10-17",
+          [
+            "team:rugby:wallabies",
+            "team:rugby:all-blacks"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -151109,6 +163889,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-01",
+          "2026-11-01",
+          null,
+          "",
+          "rugby",
+          null,
+          null,
+          "rugby-australia-new-zealand-2026-10-17",
+          [
+            "team:rugby:wallabies",
+            "team:rugby:all-blacks"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -153945,6 +166747,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-09",
+          "2026-11-01",
+          "competition:cricket:espn:24203",
+          "",
+          "cricket",
+          null,
+          "test",
+          "fixture-cricket-espn-1525660",
+          [
+            "team:cricket:south-africa",
+            "team:cricket:australia"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -153956,6 +166780,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-09",
+          "2026-11-01",
+          "competition:cricket:espn:24203",
+          "",
+          "cricket",
+          null,
+          "test",
+          "fixture-cricket-espn-1525660",
+          [
+            "team:cricket:south-africa",
+            "team:cricket:australia"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -160936,6 +173782,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-09",
+          "2026-11-01",
+          "competition:cricket:espn:24203",
+          "",
+          "cricket",
+          null,
+          "test",
+          "fixture-cricket-espn-1525661",
+          [
+            "team:cricket:south-africa",
+            "team:cricket:australia"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -160947,6 +173815,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-02T05:17:58.761Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-09",
+          "2026-11-01",
+          "competition:cricket:espn:24203",
+          "",
+          "cricket",
+          null,
+          "test",
+          "fixture-cricket-espn-1525661",
+          [
+            "team:cricket:south-africa",
+            "team:cricket:australia"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -171688,13 +184578,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-11-13",
     "time": "14:30",
     "startTimeUtc": "2026-11-13T03:30:00.000Z",
-    "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-    "broadcastOptions": [
-      "Seven",
-      "7plus",
-      "Foxtel",
-      "Kayo Sports"
-    ],
+    "broadcaster": "Kayo Sports / Foxtel",
+    "broadcastOptions": [],
     "expected": 6,
     "venue": "Perth Stadium",
     "liveWindow": 8,
@@ -171783,7 +184668,68 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-first-odi-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-first-odi-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "cricket-australia-england-first-odi-2026",
     "sourceEventIds": [
       "cricket-australia-england-first-odi-2026"
@@ -172648,13 +185594,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-11-15",
     "time": "14:30",
     "startTimeUtc": "2026-11-15T03:30:00.000Z",
-    "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-    "broadcastOptions": [
-      "Seven",
-      "7plus",
-      "Foxtel",
-      "Kayo Sports"
-    ],
+    "broadcaster": "Kayo Sports / Foxtel",
+    "broadcastOptions": [],
     "expected": 7,
     "venue": "Adelaide Oval",
     "liveWindow": 8,
@@ -172745,7 +185686,68 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-second-odi-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-second-odi-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "cricket-australia-england-second-odi-2026",
     "sourceEventIds": [
       "cricket-australia-england-second-odi-2026"
@@ -173262,13 +186264,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-11-18",
     "time": "14:30",
     "startTimeUtc": "2026-11-18T03:30:00.000Z",
-    "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-    "broadcastOptions": [
-      "Seven",
-      "7plus",
-      "Foxtel",
-      "Kayo Sports"
-    ],
+    "broadcaster": "Kayo Sports / Foxtel",
+    "broadcastOptions": [],
     "expected": 7,
     "venue": "Bellerive Oval, Hobart",
     "liveWindow": 8,
@@ -173357,7 +186354,68 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-third-odi-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-third-odi-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "cricket-australia-england-third-odi-2026",
     "sourceEventIds": [
       "cricket-australia-england-third-odi-2026"
@@ -174767,13 +187825,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-11-21",
     "time": "19:15",
     "startTimeUtc": "2026-11-21T08:15:00.000Z",
-    "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-    "broadcastOptions": [
-      "Seven",
-      "7plus",
-      "Foxtel",
-      "Kayo Sports"
-    ],
+    "broadcaster": "Kayo Sports / Foxtel",
+    "broadcastOptions": [],
     "expected": 7,
     "venue": "Melbourne Cricket Ground",
     "liveWindow": 4,
@@ -174862,7 +187915,68 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-first-t20-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-first-t20-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "cricket-australia-england-first-t20-2026",
     "sourceEventIds": [
       "cricket-australia-england-first-t20-2026"
@@ -176954,13 +190068,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-11-24",
     "time": "19:15",
     "startTimeUtc": "2026-11-24T08:15:00.000Z",
-    "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-    "broadcastOptions": [
-      "Seven",
-      "7plus",
-      "Foxtel",
-      "Kayo Sports"
-    ],
+    "broadcaster": "Kayo Sports / Foxtel",
+    "broadcastOptions": [],
     "expected": 6,
     "venue": "Gold Coast Stadium",
     "liveWindow": 4,
@@ -177049,7 +190158,68 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-second-t20-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-second-t20-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "cricket-australia-england-second-t20-2026",
     "sourceEventIds": [
       "cricket-australia-england-second-t20-2026"
@@ -177073,13 +190243,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-11-27",
     "time": "19:15",
     "startTimeUtc": "2026-11-27T08:15:00.000Z",
-    "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-    "broadcastOptions": [
-      "Seven",
-      "7plus",
-      "Foxtel",
-      "Kayo Sports"
-    ],
+    "broadcaster": "Kayo Sports / Foxtel",
+    "broadcastOptions": [],
     "expected": 7,
     "venue": "Brisbane Cricket Ground",
     "liveWindow": 4,
@@ -177168,7 +190333,68 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-third-t20-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-third-t20-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "cricket-australia-england-third-t20-2026",
     "sourceEventIds": [
       "cricket-australia-england-third-t20-2026"
@@ -178491,13 +191717,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-11-29",
     "time": "19:15",
     "startTimeUtc": "2026-11-29T08:15:00.000Z",
-    "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-    "broadcastOptions": [
-      "Seven",
-      "7plus",
-      "Foxtel",
-      "Kayo Sports"
-    ],
+    "broadcaster": "Kayo Sports / Foxtel",
+    "broadcastOptions": [],
     "expected": 8,
     "venue": "Sydney Cricket Ground",
     "liveWindow": 4,
@@ -178601,7 +191822,68 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-fourth-t20-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-fourth-t20-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "cricket-australia-england-fourth-t20-2026",
     "sourceEventIds": [
       "cricket-australia-england-fourth-t20-2026"
@@ -179382,13 +192664,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-12-02",
     "time": "19:15",
     "startTimeUtc": "2026-12-02T08:15:00.000Z",
-    "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-    "broadcastOptions": [
-      "Seven",
-      "7plus",
-      "Foxtel",
-      "Kayo Sports"
-    ],
+    "broadcaster": "Kayo Sports / Foxtel",
+    "broadcastOptions": [],
     "expected": 8,
     "venue": "Manuka Oval, Canberra",
     "liveWindow": 4,
@@ -179492,7 +192769,68 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-fifth-t20-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24273",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-england-fifth-t20-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "cricket-australia-england-fifth-t20-2026",
     "sourceEventIds": [
       "cricket-australia-england-fifth-t20-2026"
@@ -183843,13 +197181,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "date": "2026-12-09",
     "time": "13:20",
     "startTimeUtc": "2026-12-09T02:20:00.000Z",
-    "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-    "broadcastOptions": [
-      "Seven",
-      "7plus",
-      "Foxtel",
-      "Kayo Sports"
-    ],
+    "broadcaster": "Kayo Sports / Foxtel",
+    "broadcastOptions": [],
     "expected": 8,
     "venue": "Perth Stadium",
     "liveWindow": 8,
@@ -183954,7 +197287,68 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24270",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-new-zealand-test-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24270",
+          "",
+          "cricket",
+          null,
+          null,
+          "cricket-australia-new-zealand-test-2026",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "cricket-australia-new-zealand-test-2026",
     "sourceEventIds": [
       "cricket-australia-new-zealand-test-2026"
@@ -190011,7 +203405,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "name": "Australia v New Zealand — Boxing Day Test",
     "date": "2026-12-26",
     "time": "10:30",
-    "broadcaster": "Kayo / Foxtel",
+    "broadcaster": "Kayo Sports / Foxtel",
     "expected": 9,
     "venue": "Melbourne Cricket Ground",
     "liveWindow": 8,
@@ -190023,9 +203417,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "Cricket Australia 2026/27 official series schedule",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
-    "broadcastOptions": [
-      "Kayo / Foxtel"
-    ],
+    "broadcastOptions": [],
     "round": "all",
     "narrativeType": "all",
     "replayEligible": true,
@@ -190125,7 +203517,68 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24270",
+          "",
+          "cricket",
+          null,
+          null,
+          "evt_90",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24270",
+          "",
+          "cricket",
+          null,
+          null,
+          "evt_90",
+          null,
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "evt_90",
     "sourceEventIds": [
       "evt_90"
@@ -196085,7 +209538,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "name": "Australia v New Zealand — New Year's Test",
     "date": "2027-01-04",
     "time": "10:30",
-    "broadcaster": "Kayo / Foxtel",
+    "broadcaster": "Kayo Sports / Foxtel / 7plus",
     "expected": 8,
     "venue": "Sydney Cricket Ground",
     "liveWindow": 8,
@@ -196097,9 +209550,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "Cricket Australia 2026/27 official series schedule",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
     "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
-    "broadcastOptions": [
-      "Kayo / Foxtel"
-    ],
+    "broadcastOptions": [],
     "round": "all",
     "narrativeType": "all",
     "replayEligible": true,
@@ -196199,7 +209650,98 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24270",
+          "",
+          "cricket",
+          null,
+          "test",
+          "evt_91",
+          null,
+          "4th Test",
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24270",
+          "",
+          "cricket",
+          null,
+          "test",
+          "evt_91",
+          null,
+          "4th Test",
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "seven",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://7plus.com.au/cricket",
+        "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-01",
+          "2027-03-01",
+          "competition:cricket:espn:24270",
+          "",
+          "cricket",
+          null,
+          "test",
+          "evt_91",
+          null,
+          "4th Test",
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "evt_91",
     "sourceEventIds": [
       "evt_91",
@@ -234601,6 +248143,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP,ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "tennis-tournament-atp-shanghai-2026-2026-10-11",
+          null,
+          null,
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            null,
+            "tennis",
+            null,
+            "sport:tennis"
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -234634,7 +248197,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "09:00",
     "timeTbc": true,
     "displayTimeLabel": "Daily order of play",
-    "broadcaster": "Broadcast TBC",
+    "broadcaster": "Stan Sport / beIN SPORTS",
     "broadcastOptions": [],
     "expected": 8,
     "venue": "Beijing, CHN",
@@ -234722,7 +248285,72 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA,WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "tennis-tournament-wta-beijing-2026-2026-10-11",
+          null,
+          null,
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            null,
+            "tennis",
+            null,
+            "sport:tennis"
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA,WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "tennis-tournament-wta-beijing-2026-2026-10-11",
+          null,
+          null,
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            null,
+            "tennis",
+            null,
+            "sport:tennis"
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "canonicalEventId": "tennis-tournament-wta-beijing-2026-2026-10-11",
     "sourceEventIds": [
       "tennis-tournament-wta-beijing-2026-2026-10-11"
@@ -263250,6 +276878,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184952",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -263437,6 +277086,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184959",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -263615,8 +277285,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185360",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185360",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185360",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
@@ -263642,9 +277377,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-10-14T01:09:46.000Z",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Maria Sakkari v Marta Kostyuk",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -263774,17 +277507,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185359",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185359",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185359",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Mia Pohankova v Wang Xiyu",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -263939,17 +277735,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185349",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185349",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185349",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Elina Svitolina v Liudmila Samsonova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -264068,17 +277927,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185352",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185352",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185352",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 2",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Sonay Kartal v Belinda Bencic",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -264198,17 +278120,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185355",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185355",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185355",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Magdalena Frech v Iga Swiatek",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -264328,17 +278313,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185358",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185358",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185358",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 3",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Marie Bouzkova v Maja Chwalinska",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -264457,17 +278505,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185345",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185345",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185345",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Karolina Muchova v Catherine McNally",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -264573,17 +278684,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185346",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185346",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185346",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 3",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Yulia Putintseva v Diana Shnaider",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -264690,17 +278864,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185351",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185351",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185351",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jasmine Paolini v Nikola Bartunkova",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -264806,17 +279043,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185356",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185356",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185356",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 2",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Iva Jovic v Dayana Yastremska",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -264921,17 +279221,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185350",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185350",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185350",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Court 1",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Katie Volynets v Guo Hanyu",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -265037,17 +279400,80 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185347",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185347",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185347",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "court": "Dongfeng Voyah Center Court",
     "statusSourceType": "reputable",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Shi Han v Leylah Fernandez",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -266047,7 +280473,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timeTbc": true,
     "timePrecision": "date-only",
     "scheduleStatus": "tbc",
-    "broadcaster": "Broadcast TBC",
+    "broadcaster": "9Now",
     "broadcastOptions": [],
     "broadcasterIds": [],
     "expected": 10,
@@ -266123,7 +280549,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantSlots": [],
     "participantCountryCodes": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "nine",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.9now.com.au/melbourne-cup-carnival",
+        "sourceUrl": "https://www.nineforbrands.com.au/media-release/victoria-racing-club-tabcorp-and-nine-enter-landmark-deal-for-melbourne-cup-carnival/",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-31",
+          "2026-11-08",
+          "competition:australian-thoroughbred",
+          "",
+          "horse-racing",
+          null,
+          null,
+          "event-horse-racing-melbourne-cup-2026",
+          null,
+          null,
+          [],
+          [
+            "2026",
+            null,
+            "sport:horse-racing",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "sourceEventIds": [
       "evt_horse_racing_melbourne_cup_2026"
     ],
@@ -266643,7 +281100,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timeTbc": true,
     "timePrecision": "date-only",
     "scheduleStatus": "tbc",
-    "broadcaster": "Broadcast TBC",
+    "broadcaster": "7plus",
     "broadcastOptions": [],
     "broadcasterIds": [],
     "expected": 8,
@@ -266719,7 +281176,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantSlots": [],
     "participantCountryCodes": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "seven",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://7plus.com.au/sevens-horse-racing",
+        "sourceUrl": "https://7news.com.au/sport/horse-racing/spring-racing-carnival-blasts-off-on-seven-and-7plus-c-22955200",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-17",
+          "2026-10-25",
+          "competition:australian-thoroughbred",
+          "",
+          "horse-racing",
+          null,
+          null,
+          "event-horse-racing-caulfield-cup-2026",
+          null,
+          null,
+          [],
+          [
+            "2026",
+            null,
+            "sport:horse-racing",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "sourceEventIds": [
       "evt_horse_racing_caulfield_cup_2026"
     ],
@@ -267090,7 +281578,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timeTbc": true,
     "timePrecision": "date-only",
     "scheduleStatus": "tbc",
-    "broadcaster": "Broadcast TBC",
+    "broadcaster": "7plus",
     "broadcastOptions": [],
     "broadcasterIds": [],
     "expected": 8,
@@ -267166,7 +281654,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantSlots": [],
     "participantCountryCodes": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "seven",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://7plus.com.au/sevens-horse-racing",
+        "sourceUrl": "https://7news.com.au/sport/horse-racing/spring-racing-carnival-blasts-off-on-seven-and-7plus-c-22955200",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-17",
+          "2026-10-25",
+          "competition:australian-thoroughbred",
+          "",
+          "horse-racing",
+          null,
+          null,
+          "event-horse-racing-cox-plate-2026",
+          null,
+          null,
+          [],
+          [
+            "2026",
+            null,
+            "sport:horse-racing",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "sourceEventIds": [
       "evt_horse_racing_cox_plate_2026"
     ],
@@ -267226,7 +281745,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timeTbc": true,
     "timePrecision": "date-only",
     "scheduleStatus": "tbc",
-    "broadcaster": "Broadcast TBC",
+    "broadcaster": "7plus",
     "broadcastOptions": [],
     "broadcasterIds": [],
     "expected": 8,
@@ -267302,7 +281821,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantSlots": [],
     "participantCountryCodes": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "seven",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://7plus.com.au/sevens-horse-racing",
+        "sourceUrl": "https://7news.com.au/sport/horse-racing/spring-racing-carnival-blasts-off-on-seven-and-7plus-c-22955200",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-17",
+          "2026-10-25",
+          "competition:australian-thoroughbred",
+          "",
+          "horse-racing",
+          null,
+          null,
+          "event-horse-racing-the-everest-2026",
+          null,
+          null,
+          [],
+          [
+            "2026",
+            null,
+            "sport:horse-racing",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "sourceEventIds": [
       "evt_horse_racing_the_everest_2026"
     ],
@@ -267362,7 +281912,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timeTbc": true,
     "timePrecision": "date-only",
     "scheduleStatus": "tbc",
-    "broadcaster": "Broadcast TBC",
+    "broadcaster": "9Now",
     "broadcastOptions": [],
     "broadcasterIds": [],
     "expected": 8,
@@ -267438,7 +281988,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantSlots": [],
     "participantCountryCodes": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "nine",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.9now.com.au/melbourne-cup-carnival",
+        "sourceUrl": "https://www.nineforbrands.com.au/media-release/victoria-racing-club-tabcorp-and-nine-enter-landmark-deal-for-melbourne-cup-carnival/",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-31",
+          "2026-11-08",
+          "competition:australian-thoroughbred",
+          "",
+          "horse-racing",
+          null,
+          null,
+          "event-horse-racing-victoria-derby-2026",
+          null,
+          null,
+          [],
+          [
+            "2026",
+            null,
+            "sport:horse-racing",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "sourceEventIds": [
       "evt_horse_racing_victoria_derby_2026"
     ],
@@ -267498,7 +282079,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timeTbc": true,
     "timePrecision": "date-only",
     "scheduleStatus": "tbc",
-    "broadcaster": "Broadcast TBC",
+    "broadcaster": "9Now",
     "broadcastOptions": [],
     "broadcasterIds": [],
     "expected": 8,
@@ -267574,7 +282155,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantSlots": [],
     "participantCountryCodes": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "nine",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.9now.com.au/melbourne-cup-carnival",
+        "sourceUrl": "https://www.nineforbrands.com.au/media-release/victoria-racing-club-tabcorp-and-nine-enter-landmark-deal-for-melbourne-cup-carnival/",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-31",
+          "2026-11-08",
+          "competition:australian-thoroughbred",
+          "",
+          "horse-racing",
+          null,
+          null,
+          "event-horse-racing-vrc-oaks-2026",
+          null,
+          null,
+          [],
+          [
+            "2026",
+            null,
+            "sport:horse-racing",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "sourceEventIds": [
       "evt_horse_racing_vrc_oaks_2026"
     ],
@@ -267634,7 +282246,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timeTbc": true,
     "timePrecision": "date-only",
     "scheduleStatus": "tbc",
-    "broadcaster": "Broadcast TBC",
+    "broadcaster": "9Now",
     "broadcastOptions": [],
     "broadcasterIds": [],
     "expected": 8,
@@ -267710,7 +282322,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantSlots": [],
     "participantCountryCodes": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "nine",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.9now.com.au/melbourne-cup-carnival",
+        "sourceUrl": "https://www.nineforbrands.com.au/media-release/victoria-racing-club-tabcorp-and-nine-enter-landmark-deal-for-melbourne-cup-carnival/",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-31",
+          "2026-11-08",
+          "competition:australian-thoroughbred",
+          "",
+          "horse-racing",
+          null,
+          null,
+          "event-horse-racing-champions-stakes-2026",
+          null,
+          null,
+          [],
+          [
+            "2026",
+            null,
+            "sport:horse-racing",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "sourceEventIds": [
       "evt_horse_racing_champions_stakes_2026"
     ],
@@ -268110,6 +282753,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184954",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -268295,6 +282959,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184955",
+          null,
+          "Quarterfinal",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -268411,8 +283096,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185348",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185348",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185348",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "planningTimeEvidence": null,
@@ -268422,9 +283172,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Jelena Ostapenko v Jessica Pegula",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -268528,8 +283276,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185353",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185353",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185353",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "planningTimeEvidence": null,
@@ -268539,9 +283352,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Janice Tjen v Daria Snigur",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -268643,8 +283454,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185354",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185354",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185354",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "planningTimeEvidence": {
@@ -268667,9 +283543,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Ashlyn Krueger v Lanlana Tararudee",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -268773,8 +283647,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185357",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185357",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185357",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "planningTimeEvidence": {
@@ -268797,9 +283736,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Aryna Sabalenka v Ann Li",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -268902,8 +283839,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.espn.com/tennis/matchstats?gameId=185365",
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
     ],
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "Stan Sport / beIN SPORTS",
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185365",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-185365",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-wuhan-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "expected": null,
     "liveWindow": 5,
     "planningTimeEvidence": null,
@@ -268913,9 +283915,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "",
     "sourceTrust": "unverified",
     "displayTitleCompact": "Mia Pohankova v Maria Sakkari",
-    "broadcastOptions": [
-      "Australian viewing unconfirmed"
-    ],
+    "broadcastOptions": [],
     "narrativeType": "knockout",
     "replayEligible": false,
     "highlightEligible": false,
@@ -269030,6 +284030,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184950",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -269257,13 +284278,78 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": false,
     "briefingEligible": false,
     "catchupEligible": false,
-    "broadcaster": "Australian viewing unconfirmed",
+    "broadcaster": "beIN SPORTS / Tennis TV",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:tennis:atp-beijing-2026",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            null,
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:tennis:atp-beijing-2026",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            null,
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "sourceEventIds": [
       "fixture:tennis:atp-beijing-2026:r16:de-minaur-halys",
       "fixture-tennis-atp-beijing-2026-r16-de-minaur-halys",
@@ -269439,6 +284525,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-06T10:08:38.000Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:tennis:atp-tokyo-2026",
+          "ATP",
+          "tennis",
+          null,
+          null,
+          "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            null,
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -269450,6 +284557,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-06T10:08:38.000Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:tennis:atp-tokyo-2026",
+          "ATP",
+          "tennis",
+          null,
+          null,
+          "fixture-tennis-atp-tokyo-2026-r16-alcaraz-arnaldi",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            null,
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -269604,8 +284732,73 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "drawSourceSha256": "46c1f3b13f26d01c56d0e9dfdbdc88c8d65008a4f373050d7785878c017e4c24"
     },
     "liveWindow": 3,
-    "broadcaster": "Australian viewing unconfirmed",
-    "viewingOptions": [],
+    "broadcaster": "beIN SPORTS / Tennis TV",
+    "viewingOptions": [
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:tennis:atp-beijing-2026",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-atp-beijing-2026-sf-de-minaur-hurkacz",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            null,
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "tennis-tv",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.tennistv.com/live-schedule",
+        "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-23",
+          "2026-10-07",
+          "competition:tennis:atp-beijing-2026",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-atp-beijing-2026-sf-de-minaur-hurkacz",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            null,
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "timingVerified": true,
     "scheduleStatus": "confirmed",
     "displayTitleCompact": "Alex de Minaur v Hubert Hurkacz",
@@ -269782,6 +284975,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-06T10:08:38.000Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:tennis:atp-tokyo-2026",
+          "ATP",
+          "tennis",
+          null,
+          null,
+          "fixture-tennis-atp-tokyo-2026-sf-alcaraz-munar",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            null,
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -269793,6 +285007,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-06T10:08:38.000Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-09-30",
+          "2026-10-07",
+          "competition:tennis:atp-tokyo-2026",
+          "ATP",
+          "tennis",
+          null,
+          null,
+          "fixture-tennis-atp-tokyo-2026-sf-alcaraz-munar",
+          null,
+          "Semifinal",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            null,
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -269976,6 +285211,30 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-06T10:08:38.000Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-06",
+          "2026-10-07",
+          "competition:tennis:atp-tokyo-2026",
+          "ATP",
+          "tennis",
+          null,
+          null,
+          "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+          [
+            "competitor:tennis:atp:carlos-alcaraz",
+            "competitor:tennis:atp:jiri-lehecka"
+          ],
+          "Final",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            null,
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -269987,6 +285246,30 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-06T10:08:38.000Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-06",
+          "2026-10-07",
+          "competition:tennis:atp-tokyo-2026",
+          "ATP",
+          "tennis",
+          null,
+          null,
+          "fixture-tennis-atp-tokyo-2026-f-alcaraz-lehecka",
+          [
+            "competitor:tennis:atp:carlos-alcaraz",
+            "competitor:tennis:atp:jiri-lehecka"
+          ],
+          "Final",
+          [
+            "tournament:tennis:atp-tokyo-2026"
+          ],
+          [
+            null,
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -270224,6 +285507,30 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-06T12:10:18.000Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-06",
+          "2026-10-07",
+          "competition:tennis:atp-beijing-2026",
+          "ATP",
+          "tennis",
+          null,
+          null,
+          "fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
+          [
+            "athlete:tennis:novak-djokovic",
+            "athlete:tennis:alex-de-minaur"
+          ],
+          "Final",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       },
       {
@@ -270235,6 +285542,30 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-06T12:10:18.000Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-06",
+          "2026-10-07",
+          "competition:tennis:atp-beijing-2026",
+          "ATP",
+          "tennis",
+          null,
+          null,
+          "fixture-tennis-atp-beijing-2026-f-djokovic-de-minaur",
+          [
+            "athlete:tennis:novak-djokovic",
+            "athlete:tennis:alex-de-minaur"
+          ],
+          "Final",
+          [
+            "tournament:tennis:atp-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -270483,14 +285814,79 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "createdAt": "2026-10-06T09:50:51.444Z",
     "scoreDisplay": "7–5, 1–6, 7–6",
     "displayTitleCompact": "Karolina Muchova v Naomi Osaka",
-    "broadcaster": "Australian viewing unconfirmed",
+    "broadcaster": "Stan Sport / beIN SPORTS",
     "participantSlots": [],
     "participantCountryCodes": [],
     "representativeCountryCodes": [],
     "broadcastOptions": [],
     "broadcasterIds": [],
     "broadcasts": [],
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:tennis:wta-beijing-2026",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-wta-beijing-2026-r16-muchova-osaka",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:tennis:wta-beijing-2026",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-wta-beijing-2026-r16-muchova-osaka",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "sourceEventIds": [
       "fixture:tennis:wta-beijing-2026:r16:muchova-osaka",
       "fixture:tennis:espn:wta:184349",
@@ -270651,6 +286047,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184917",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -270887,6 +286304,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-atp-shanghai-2026-r64-de-minaur-molcan",
+          null,
+          "Round of 64",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -271082,6 +286520,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184942",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -271259,7 +286718,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261011"
     ],
     "sourceType": "official",
-    "broadcaster": "Australian viewing unconfirmed",
+    "broadcaster": "Stan Sport / beIN SPORTS",
     "contestUnit": "match",
     "participants": [
       {
@@ -271308,7 +286767,72 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fixture-tennis-espn-wta-184356"
     ],
     "tournamentName": "China Open",
-    "viewingOptions": [],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184356",
+          null,
+          "Final",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "bein",
+        "rightsScope": "competition",
+        "linkScope": "sport",
+        "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+        "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+        "verifiedAt": "2026-10-14T12:57:35.385Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-03-07",
+          "2027-01-01",
+          "competition:wta-tour",
+          "WTA",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-wta-184356",
+          null,
+          "Final",
+          [
+            "tournament:tennis:wta-beijing-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
     "competitionName": "China Open",
     "sourceCheckedAt": "2026-10-10T23:40:16.252996+00:00",
     "statusCheckedAt": "2026-10-11T19:55:36.000Z",
@@ -271539,6 +287063,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184929",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -271780,6 +287325,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184931",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -272027,6 +287593,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184944",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -272270,6 +287857,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184941",
+          null,
+          "Round of 32",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -272857,6 +288465,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184953",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -273016,6 +288645,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184948",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -273218,6 +288868,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184949",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],
@@ -273389,6 +289060,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "verifiedAt": "2026-10-11T05:19:19.930Z",
         "territory": "AU",
         "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-07",
+          "2026-10-19",
+          "competition:atp-tour",
+          "ATP",
+          "tennis",
+          "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+          null,
+          "fixture-tennis-espn-atp-184958",
+          null,
+          "Round of 16",
+          [
+            "tournament:tennis:atp-shanghai-2026"
+          ],
+          [
+            "2026",
+            null,
+            "sport:tennis",
+            null
+          ]
+        ],
         "reviewId": "au-viewing-20261002"
       }
     ],

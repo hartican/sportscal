@@ -65,11 +65,13 @@ assert.equal(followFirst.stageLabel({ stage:"Grand Final" }), "Grand Final");
 assert.deepEqual(["Round 27", "Wildcard Final", "Qualifying Final", "Elimination Final", "Semi Final", "Preliminary Final", "Grand Final"].sort(followFirst.compareFixtureGroupLabels), ["Round 27", "Wildcard Final", "Elimination Final", "Qualifying Final", "Semi Final", "Preliminary Final", "Grand Final"]);
 assert.equal(followFirst.normalizedFixtureGroupLabel("Australia v New Zealand"), "Other fixtures");
 
-const paidViewing = followFirst.viewingLink({ broadcaster:"Nine / Kayo Sports" }, ["nine"]);
-assert.equal(paidViewing.providerId, "kayo", "an actual paid stream must be preferred over a free-to-air simulcast");
-assert.equal(paidViewing.actionLabel, "Kayo");
-assert.equal(followFirst.viewingLink({ broadcaster:"Stan Sport / 9Now" }, ["nine"]).providerId, "stan", "Stan Sport must win over a free-to-air option");
-assert.equal(followFirst.viewingLink({ broadcaster:"Provider TBC" }), null, "a viewing action must not invent an unrelated provider");
+const verifiedOptions=ids=>ids.map(providerId=>({providerId,rightsScope:'fixture',sourceUrl:'https://example.test/official-au-carriage',verifiedAt:'2026-10-14T00:00:00.000Z'}));
+const paidViewing=followFirst.viewingLink({viewingOptions:verifiedOptions(['nine','kayo'])},['kayo']);
+assert.equal(paidViewing.providerId,'kayo','Subscribed paid coverage precedes free coverage');
+assert.equal(paidViewing.actionLabel,'Kayo');
+assert.equal(followFirst.viewingLink({viewingOptions:verifiedOptions(['stan','nine'])}).providerId,'nine','Without paid subscriptions verified free coverage comes first');
+assert.equal(followFirst.viewingLink({broadcaster:'Stan Sport / 9Now'}),null,'Unstructured provider guesses cannot create viewing actions');
+assert.equal(followFirst.viewingLink({ broadcaster:'Provider TBC' }),null);
 
 const feedDocument = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const explicitAustralianEvents = (feedDocument.events || []).filter(event => representativeEvents.metadataForEventId(event.eventId || event.id));
@@ -171,9 +173,10 @@ let controlledViewing;
 const actionContext={document:{createElement:actionNode},userPreferences:{followFirst:{subscriptions:[]}},FOLLOW_FIRST:{viewingOptions:()=>controlledViewing},buildViewingProviderMark:()=>actionNode('provider-mark')};
 require('node:vm').runInNewContext(['configureProviderLaunch','viewingAccessLabel','appendEventQuickActions'].map(require('./app-shell-test-utils').readCardFunction).join('\n'),actionContext);
 for(const [accessType,cost] of [['free','Free'],['subscription','Subscription'],['ppv','Pay-per-view'],['included','Included in plan'],['unknown','Check cost'],['__proto__','Check cost']]){
- for(const [liveOrReplay,replayVerified,verb] of [['live',false,'Watch'],['replay',false,'Check replay availability'],['replay',true,'Replay']]){
+ for(const [liveOrReplay,replayVerified,verb] of [['live',false,'Watch'],['replay',false,null],['replay',true,'Replay']]){
   const provider={...followFirst.VIEWING_PROVIDERS.stan,accessType,liveOrReplay,replayVerified};controlledViewing=[provider];const saved=JSON.stringify(provider),host=actionNode('host');
   actionContext.appendEventQuickActions(host,{key:'football'},{reminder:false,chat:false});
+  if(!verb){assert.equal(host.children[0].children.length,0,'Unconfirmed replay mounts no provider row');continue;}
   const link=host.children[0].children[0].children[0],caption=link.children.find(n=>n.className==='provider-access');
   assert.equal(link.attributes['aria-label'],verb+' on Stan Sport · '+cost,'Actual accessible viewing action preserves approved purpose and explicit cost');
   assert.equal(caption?.textContent,cost,'Actual visible caption agrees with the accessible cost');
@@ -182,7 +185,7 @@ for(const [accessType,cost] of [['free','Free'],['subscription','Subscription'],
  }
 }
 controlledViewing=[];const unknownViewing=actionNode('host');actionContext.appendEventQuickActions(unknownViewing,{key:'football'},{reminder:false,chat:false});
-assert.equal(unknownViewing.children[0].children[0].children[0].textContent,'Australian viewing unconfirmed','No options cannot create a free viewing claim');
+assert.equal(unknownViewing.children[0].children.length,0,'No options mount no viewing row or placeholder');
 assert(!html.includes("Swipe to like") && !html.includes("Swipe to dislike"), "startup and cards must not teach Tinder-style gestures");
 assert(html.includes('data-tab="follow"') && html.includes("renderFollowView"));
 assert(html.includes("['schedule','Schedule']") && !html.includes('["matches", "Matches"]') && !html.includes('["players", "Players"]') && html.includes("followStandingsLabel"));

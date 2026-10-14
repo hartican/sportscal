@@ -35,8 +35,11 @@ async function run(base){
   await page.evaluate(()=>{const host=document.createElement('div');host.id='qa-phase-controls';for(const phase of ['heat','pulse','impact'])host.append(buildInlineCrowdRating({id:'fixture:phase:'+phase,date:'2026-01-01',status:phase==='heat'?'scheduled':phase==='pulse'?'live':'completed'},{phase,currentUser:{contribution:{rating:3}}}));document.getElementById('settingsBody').append(host);});
   assert.equal(await page.locator('#qa-phase-controls [role=group] button').count(),15);for(const name of ['Anticipation · Stakes','Ongoing · Electricity','Impact · Magnitude'])assert(await page.locator('#qa-phase-controls').getByText(name,{exact:true}).isVisible());
   for(const phase of ['pulse','impact'])assert.equal(await page.locator('#qa-phase-controls [data-rating-phase='+phase+'] button').nth(4).locator('svg').evaluate(n=>getComputedStyle(n).opacity),'0.35','unfilled phase glyphs are visually distinct');
-  await page.locator('#qa-phase-controls summary').first().click();assert((await page.locator('#qa-phase-controls').innerText()).includes('8× weight'));
-  await page.evaluate(()=>document.getElementById('qa-phase-controls').remove());
+  assert.equal(await page.locator('#qa-phase-controls summary').count(),0,'Rating help belongs only in About');
+  await page.evaluate(async()=>{openSettings({section:'about'});await ensureFantasyUi();});
+  const guide=page.locator('[data-about-section=ratings]');await guide.waitFor();assert.equal(await guide.evaluate(e=>e.open),false);await guide.locator('summary').focus();await page.keyboard.press('Enter');assert((await guide.innerText()).includes('8× weight'));
+  await page.locator('#saveSettingsBtn').click();
+  await page.evaluate(()=>document.getElementById('qa-phase-controls')?.remove());
   await page.evaluate(()=>{qaOwner='replacement-account';NOTHINGSPORTS_EPIC_UI.reset();});assert.equal(await page.locator('dialog[data-epic]').count(),0);
   assert.deepEqual(errors,[]);checks.push({engine:label,width,theme,syntheticAccount:true,pagination:true,resultsOff:true,curation:true,carouselFiles:3,ownerReset:true});await page.close();
  }}finally{await browser.close();}}

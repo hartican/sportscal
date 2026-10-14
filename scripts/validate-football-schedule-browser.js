@@ -63,9 +63,8 @@ if(process.env.POSITION_PENDING_REHEARSAL==='1')for(const entry of inspector.sta
     activeTab=mode==='feed'?'feed':'follow';
     document.getElementById('listView').replaceChildren(mode==='schedule'?buildCodeInspectorFixture(fixture):buildEventCard(fixture));
    },{mode,competitionId});
-   const link=page.locator('#listView a.provider-link[aria-label="Check replay availability on Stan Sport · Subscription"]');
-   assert.equal(await link.count(),1,`${mode}: provider page must not promise a verified fixture replay`);
-   assert.equal(await link.getAttribute('href'),`https://www.stan.com.au/watch/sport/football/${slug}`);
+   assert.equal(await page.locator('#listView a.provider-link').count(),0,`${mode}: unconfirmed replay is omitted`);
+   assert.equal(await page.locator('#listView .fixture-providers').count(),0,'No empty provider row');
   }
   console.log('Football browser: matchweek navigation, Results-off protection, dated 20-club EPL and two 36-club European tables, four widths, unchanged preferences and fixture-specific Feed/Schedule viewing passed.');
  }finally{await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}}

@@ -28,6 +28,7 @@ function server(){return http.createServer((req,res)=>{const file=path.resolve(r
     }
     return rows;
    });
+   scenarios.push(...await page.evaluate(async()=>{const cricket=(await(await fetch('/data/code-inspector/cricket.json')).json()).fixtures;return ['competition:cricket:espn:8043','competition:cricket:espn:8626'].map(id=>{const fixture=cricket.find(f=>f.competitionId===id&&['upcoming','scheduled'].includes(f.status));if(!fixture)throw Error('Missing actual domestic Cricket viewing case '+id);return {kind:'actual-domestic-'+id,fixture,expectedMode:'live',actual:true};});}));
    const before=await page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.entries(userPreferences).filter(([k])=>k!=='followBrowse'))));
    for(const width of[320,390,1280])for(const theme of['day','night'])for(const mode of['feed','schedule'])for(const scenario of scenarios){
     await page.setViewportSize({width,height:1000});
@@ -35,9 +36,9 @@ function server(){return http.createServer((req,res)=>{const file=path.resolve(r
      applyThemePreference(theme);activeTab=mode==='feed'?'feed':'follow';const f=scenario.fixture;setCardState(f,'opened');
      const card=mode==='schedule'?buildCodeInspectorFixture(f):buildEventCard(f);document.getElementById('listView').replaceChildren(card);
      const links=[...card.querySelectorAll('a.provider-link')].map(a=>({label:a.getAttribute('aria-label'),href:a.getAttribute('href'),target:a.target,rel:a.rel}));
-     return {links,expected:FOLLOW_FIRST.viewingOptions(f).filter(o=>!o.territory||['AU','GLOBAL'].includes(o.territory)).map(o=>({label:(scenario.expectedMode==='live'?'Watch':'Check replay availability')+' on '+o.label+' · '+({free:'Free',subscription:'Subscription',ppv:'Pay-per-view',included:'Included in plan'}[o.accessType]||'Check cost'),href:o.webUrl})),overflow:document.documentElement.scrollWidth>innerWidth+1};
+     return {links,expected:FOLLOW_FIRST.viewingOptions(f).filter(o=>(!o.territory||['AU','GLOBAL'].includes(o.territory))&&(o.liveOrReplay!=='replay'||o.replayVerified)).map(o=>({label:(scenario.expectedMode==='live'?'Watch':'Replay')+' on '+o.label+' · '+({free:'Free',subscription:'Subscription',ppv:'Pay-per-view',included:'Included in plan'}[o.accessType]||'Check cost'),href:o.webUrl})),overflow:document.documentElement.scrollWidth>innerWidth+1};
     },{theme,mode,scenario});
-    assert(result.links.length>0,`${scenario.kind}: actual provider action missing`);assert(!result.overflow);
+    assert.equal(result.links.length,result.expected.length,`${scenario.kind}: supported actions only`);assert(!result.overflow);
     assert.deepEqual(result.links.map(({label,href})=>({label,href})),result.expected,`${name}/${mode}/${scenario.kind}: declared status governs actual action`);
     assert(result.links.every(l=>l.target==='_blank'&&l.rel.includes('noopener')&&l.rel.includes('noreferrer')));
     observations.push({engine:name,width,theme,mode,scenario:scenario.kind,fixtureId:scenario.fixture.id,actualPublishedFixture:scenario.actual,links:result.links});
@@ -49,22 +50,40 @@ function server(){return http.createServer((req,res)=>{const file=path.resolve(r
     const host=document.getElementById('listView');host.replaceChildren();appendEventQuickActions(host,{...f,viewingOptions:two,broadcaster:'',broadcastOptions:[]},{reminder:false,chat:false});
     return {firstVerified:one[0].replayVerified,secondVerified:two[0].replayVerified,label:host.querySelector('a.provider-link')?.getAttribute('aria-label'),href:host.querySelector('a.provider-link')?.getAttribute('href')};
    });
-   assert.equal(replay.firstVerified,false);assert.equal(replay.secondVerified,false);assert.equal(replay.label,'Check replay availability on Stan Sport · Subscription');
+   assert.equal(replay.firstVerified,false);assert.equal(replay.secondVerified,false);assert.equal(replay.label,undefined,'Unconfirmed completed coverage renders no action');
    const access=await page.evaluate(async()=>{
     const f=(await(await fetch('/data/code-inspector/football.json')).json()).fixtures.find(e=>e.competitionId==='competition:premier-league-2026-27'&&e.status==='completed'),option=FOLLOW_FIRST.viewingOptions(f)[0],rows=[];
     const original=JSON.stringify(f),host=document.getElementById('listView');
     for(const accessType of ['free','subscription','ppv','included','unknown','__proto__']){
-     host.replaceChildren();appendEventQuickActions(host,{...f,viewingOptions:[{...option,accessType}]},{reminder:false,chat:false});
-     const link=host.querySelector('a.provider-link');rows.push({type:accessType,caption:link.querySelector('.provider-access').textContent,label:link.getAttribute('aria-label'),href:link.getAttribute('href'),checkedAt:FOLLOW_FIRST.viewingOptions({...f,viewingOptions:[{...option,accessType}]})[0].verifiedAt});
+     host.replaceChildren();appendEventQuickActions(host,{...f,status:'upcoming',viewingOptions:[{...option,accessType}]},{reminder:false,chat:false});
+     const link=host.querySelector('a.provider-link');rows.push({type:accessType,caption:link.querySelector('.provider-access').textContent,label:link.getAttribute('aria-label'),href:link.getAttribute('href'),checkedAt:FOLLOW_FIRST.viewingOptions({...f,status:'upcoming',viewingOptions:[{...option,accessType}]})[0].verifiedAt});
     }
     return {rows,unchanged:JSON.stringify(f)===original,sourceDate:option.verifiedAt,url:option.webUrl};
    });
    assert.deepEqual(access.rows.map(r=>r.caption),['Free','Subscription','Pay-per-view','Included in plan','Check cost','Check cost'],'Explicit access metadata governs cost; unknown or hostile values cannot become free');
-   assert(access.rows.every(r=>r.label.endsWith(' · '+r.caption)&&r.label.startsWith('Check replay availability on Stan Sport')&&r.href===access.url&&r.checkedAt===access.sourceDate));assert(access.unchanged,'Cost presentation changes no stored source facts');
+   assert(access.rows.every(r=>r.label.endsWith(' · '+r.caption)&&r.label.startsWith('Watch on Stan Sport')&&r.href===access.url&&r.checkedAt===access.sourceDate));assert(access.unchanged,'Cost presentation changes no stored source facts');
    const keyboard=page.locator('#listView a.provider-link');await keyboard.focus();assert(await keyboard.evaluate(e=>e===document.activeElement),'Provider with visible unknown cost remains keyboard focusable');
    observations.push({engine:name,scenario:'controlled-access-metadata',access});
    assert.equal(await page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.entries(userPreferences).filter(([k])=>k!=='followBrowse')))),before,'provider rendering changes no follows, subscriptions or Results');assert.deepEqual(errors,[]);
-   observations.push({engine:name,scenario:'actual-metadata-round-trip',...replay});await page.close();
+   observations.push({engine:name,scenario:'actual-metadata-round-trip',...replay});
+   await page.evaluate(async()=>{openSettings({section:'about'});await ensureFantasyUi();});
+   const guide=page.locator('[data-about-section=ratings]');assert.equal(await guide.count(),1);assert.equal(await guide.evaluate(e=>e.open),false);await guide.locator('summary').focus();await page.keyboard.press('Enter');assert.match(await guide.innerText(),/8× weight/);assert.match(await guide.innerText(),/EPIC Hall of Fame/);assert.equal(await guide.locator('.about-rating-icon').count(),3);await page.locator('#saveSettingsBtn').click();
+   await page.evaluate(async()=>{openSettings({section:'subscriptions'});await ensureFantasyUi();});
+   for(const service of ['Stan Sport','Kayo Sports'])await page.locator('#subscriptionGrid label').filter({hasText:new RegExp('^'+service+'$')}).locator('input').check();
+   await page.locator('#saveSettingsBtn').click();await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>typeof buildEventCard==='function'&&startupFunnelFinished&&!startupCoordinator.isHydrating());
+   assert(await page.evaluate(()=>['stan','kayo'].every(id=>userPreferences.followFirst.subscriptions.includes(id))),'Subscription order survives real Settings save and reload');
+   const controlled=await page.evaluate(()=>({id:'fixture:qa:order',key:'football',name:'Controlled viewing choice',date:'2026-10-18',status:'upcoming',viewingOptions:['bein','nine','stan','kayo'].map(providerId=>({providerId,rightsScope:'fixture',sourceUrl:'https://example.test/official-au-fixture',verifiedAt:'2026-10-14T00:00:00Z',territory:'AU'}))}));
+   await page.route('**/assets/providers/**',r=>r.abort());
+   for(const width of [320,390,1280])for(const theme of ['day','night']){
+    await page.setViewportSize({width,height:1000});await page.evaluate(({controlled,theme})=>{applyThemePreference(theme);activeTab='feed';setCardState(controlled,'opened');document.getElementById('listView').replaceChildren(buildEventCard(controlled));},{controlled,theme});
+    const marks=page.locator('#listView .fixture-access .provider-action-mark');assert.deepEqual(await marks.evaluateAll(nodes=>nodes.map(n=>n.dataset.providerId)),['stan','kayo','nine','bein']);
+    await page.locator('#listView .fixture-access .provider-action-mark-fallback').first().waitFor();assert.equal(await page.locator('#listView .nsc-rating-help,#listView .nsc-rating-timing-note').count(),0);assert(!(await page.locator('#listView').innerText()).includes('Before it starts:'));
+    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Provider labels/fallbacks fit');
+    for(const phase of ['heat','pulse','impact']){await page.evaluate(({phase,controlled})=>{const host=document.createElement('div');host.id='qa-rating-only';host.append(buildInlineCrowdRating(controlled,{phase,currentUser:{contribution:{rating:0}}}));document.getElementById('listView').replaceChildren(host);},{phase,controlled});assert.equal(await page.locator('#qa-rating-only button').count(),5);assert.equal(await page.locator('#qa-rating-only .nsc-rating-prompt').isVisible(),false);assert.equal(await page.locator('#qa-rating-only summary').count(),0);}
+    await page.evaluate(controlled=>{const host=document.getElementById('listView');host.replaceChildren();appendEventQuickActions(host,{...controlled,status:'completed',viewingOptions:[]},{reminder:false,chat:false});},controlled);assert.equal(await page.locator('#listView .fixture-providers').count(),0);assert.equal(await page.locator('#listView .event-quick-actions').evaluate(e=>e.getBoundingClientRect().height),0);
+    observations.push({engine:name,width,theme,scenario:'clean-feed-about-preferences-failed-logos',guideInAbout:true,emptySpace:0,storedSubscriptions:true});
+   }
+   assert.deepEqual(errors,[]);await page.close();
   }finally{await browser.close();}
  }}finally{if(local){local.closeAllConnections();await new Promise(resolve=>local.close(resolve));}}
  if(out){fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,'browser-report.json'),JSON.stringify({checkedAt:new Date().toISOString(),cases:observations.length,observations,scope:'Actual published upcoming NFL and completed Football cards, explicitly controlled NFL placeholder/live status/access cases and repeated real metadata. API requests fail closed; no current sporting-live, source-backed controlled cost or authenticated playback claim.'},null,2)+'\n');}

@@ -17229,6 +17229,27 @@
           "verifiedAt": "2026-10-11T05:19:19.930Z",
           "territory": "AU",
           "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-10-07",
+            "2026-10-19",
+            "competition:atp-tour",
+            "ATP,ATP",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-shanghai-masters-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:atp-shanghai-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
           "reviewId": "au-viewing-20261002"
         }
       ],
@@ -17513,7 +17534,76 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-miami-open-2026-tournament-tennis-wta-miami-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-miami-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-miami-open-2026-tournament-tennis-wta-miami-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-miami-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "Stan Sport / beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:madrid-open:2026:tournament:tennis:wta-madrid-2026",
@@ -17568,7 +17658,76 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-madrid-open-2026-tournament-tennis-wta-madrid-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-madrid-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-madrid-open-2026-tournament-tennis-wta-madrid-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-madrid-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "Stan Sport / beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:italian-open:2026:tournament:tennis:wta-rome-2026",
@@ -17623,7 +17782,76 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-italian-open-2026-tournament-tennis-wta-rome-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-rome-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-italian-open-2026-tournament-tennis-wta-rome-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-rome-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "Stan Sport / beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:national-bank-open:2026:tournament:tennis:wta-toronto-806-2026",
@@ -17678,7 +17906,76 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-national-bank-open-2026-tournament-tennis-wta-toronto-806-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-toronto-806-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-national-bank-open-2026-tournament-tennis-wta-toronto-806-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-toronto-806-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "Stan Sport / beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:cincinnati:2026:tournament:tennis:wta-cincinnati-2026",
@@ -17733,7 +18030,76 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-cincinnati-2026-tournament-tennis-wta-cincinnati-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-cincinnati-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-cincinnati-2026-tournament-tennis-wta-cincinnati-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-cincinnati-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "Stan Sport / beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:china-open:2026:main",
@@ -18454,7 +18820,76 @@
         "synopsisSpoilerOff": "The early rounds are about earning the marquee meetings, not assuming them. Gauff and Swiatek share a quarter, while Andreeva could run into Noskova and Sabalenka has Osaka in her section. Those are possible later matchups, not booked fixtures. With a 96-player singles field, the first weekend tests who can turn a favourable seed into a sustained run.",
         "synopsisSpoilerOn": "The early rounds are about earning the marquee meetings, not assuming them. Gauff and Swiatek share a quarter, while Andreeva could run into Noskova and Sabalenka has Osaka in her section. Those are possible later matchups, not booked fixtures. With a 96-player singles field, the first weekend tests who can turn a favourable seed into a sustained run.",
         "lastReviewedAt": "2026-10-01T23:21:33.194Z"
-      }
+      },
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-china-open-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-beijing-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-china-open-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-beijing-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "Stan Sport / beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:wuhan-open:2026:main",
@@ -18922,7 +19357,76 @@
           ],
           "verifiedAt": "2026-10-02"
         }
-      ]
+      ],
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-wuhan-open-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-wuhan-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-wuhan-open-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-wuhan-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "Stan Sport / beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:mubadala-citi-dc-open:2026:main",
@@ -19283,6 +19787,27 @@
           "verifiedAt": "2026-10-06T10:08:38.000Z",
           "territory": "AU",
           "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-09-30",
+            "2026-10-07",
+            "competition:atp-tour",
+            "ATP,ATP",
+            "tennis",
+            null,
+            null,
+            "tennis-parent-japan-open-tennis-championships-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:atp-tokyo-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
           "reviewId": "au-viewing-20261002"
         },
         {
@@ -19294,6 +19819,27 @@
           "verifiedAt": "2026-10-06T10:08:38.000Z",
           "territory": "AU",
           "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-09-30",
+            "2026-10-07",
+            "competition:atp-tour",
+            "ATP,ATP",
+            "tennis",
+            null,
+            null,
+            "tennis-parent-japan-open-tennis-championships-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:atp-tokyo-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
           "reviewId": "au-viewing-20261002"
         }
       ],
@@ -19409,7 +19955,76 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-mubadala-dc-open-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-washington-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-mubadala-dc-open-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-washington-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "Stan Sport / beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:berlin-tennis-open:2026:main",
@@ -19464,7 +20079,76 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-berlin-tennis-open-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-berlin-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-berlin-tennis-open-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-berlin-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "Stan Sport / beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:bad-homburg-open:2026:main",
@@ -19519,7 +20203,76 @@
       "sourceParticipation": [],
       "participantsConfirmed": true,
       "sourceParticipantIds": [],
-      "contestCount": 0
+      "contestCount": 0,
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-bad-homburg-open-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-bad-homburg-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-bad-homburg-open-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-bad-homburg-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "Stan Sport / beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:atp-finals:2026:main",
@@ -19662,7 +20415,76 @@
           ],
           "verifiedAt": "2026-10-02"
         }
-      ]
+      ],
+      "viewingOptions": [
+        {
+          "providerId": "stan",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-wta-finals-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-finals-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-03-07",
+            "2027-01-01",
+            "competition:wta-tour",
+            "WTA,WTA",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-wta-finals-2026-main",
+            null,
+            null,
+            [
+              "tournament:tennis:wta-finals-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "Stan Sport / beIN SPORTS",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     },
     {
       "id": "tennis-parent:davis-cup:2026:tournament:tennis:davis-cup-finals-2026",
@@ -20685,7 +21507,76 @@
           ],
           "verifiedAt": "2026-10-02"
         }
-      ]
+      ],
+      "viewingOptions": [
+        {
+          "providerId": "bein",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://connect-au.beinsports.com/en",
+          "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-09-23",
+            "2026-10-07",
+            "competition:atp-tour",
+            "ATP,ATP",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-china-open-2026-tournament-tennis-atp-beijing-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:atp-beijing-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        },
+        {
+          "providerId": "tennis-tv",
+          "rightsScope": "competition",
+          "linkScope": "sport",
+          "webUrl": "https://www.tennistv.com/live-schedule",
+          "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "verifiedAt": "2026-10-14T12:57:35.385Z",
+          "territory": "AU",
+          "liveOrReplay": "live",
+          "coverageWindow": [
+            "2026-09-23",
+            "2026-10-07",
+            "competition:atp-tour",
+            "ATP,ATP",
+            "tennis",
+            "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+            null,
+            "tennis-parent-china-open-2026-tournament-tennis-atp-beijing-2026",
+            null,
+            null,
+            [
+              "tournament:tennis:atp-beijing-2026"
+            ],
+            [
+              "2026",
+              null,
+              "sport:tennis",
+              null
+            ]
+          ],
+          "reviewId": "au-viewing-20261002"
+        }
+      ],
+      "broadcaster": "beIN SPORTS / Tennis TV",
+      "broadcastOptions": [],
+      "broadcasterIds": []
     }
   ]
 }

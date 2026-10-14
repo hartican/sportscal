@@ -5,19 +5,20 @@ function appendVenuePanel(card,main,ev){
   card.classList.add('venue-location-card');if(ev.key==='f1')card.classList.add('f1-location-card');
   const hero=document.createElement('div');hero.className='f1-location-hero venue-location-hero';hero.dataset.cardArea='artwork';
   const artwork=p.venueArtwork(ev),track=p.circuitAsset(ev);
-  if(track){const outline=document.createElement('img');outline.src=track;outline.alt=artwork?.label||`${ev.venue} circuit outline`;outline.width=600;outline.height=320;outline.loading='lazy';outline.decoding='async';hero.append(outline);if(artwork?.kind==='fallback')hero.classList.add('is-venue-fallback');outline.onerror=()=>{if(artwork&&!hero.classList.contains('is-venue-fallback')){hero.classList.add('is-venue-fallback');const fallback=p.venueArtwork({...ev,courseGeometryVerified:false,editionGeometryVerified:false,venueConfigurationVerified:false});outline.src=fallback.path;outline.alt=fallback.label;caption.textContent=[ev.venue,ev.venueCity,'Artwork unavailable'].filter(Boolean).join(' • ');}};}
+  if(track){const outline=document.createElement('img');outline.src=track;outline.alt=artwork?.label||`${ev.venue} circuit outline`;outline.width=600;outline.height=320;outline.loading='lazy';outline.decoding='async';hero.append(outline);if(artwork?.kind==='fallback')hero.classList.add('is-venue-fallback');outline.onerror=()=>{if(artwork&&!hero.classList.contains('is-venue-fallback')){hero.classList.add('is-venue-fallback');const fallback=p.venueArtwork({...ev,courseGeometryVerified:false,editionGeometryVerified:false,venueConfigurationVerified:false});outline.src=fallback.path;outline.alt=fallback.label;caption.textContent=[ev.venue,ev.venueCity].filter(Boolean).join(' • ');caption.hidden=!caption.textContent;}};}
   const labels=document.createElement('div');labels.className='f1-location-labels';
   const badge=document.createElement('span');badge.className='f1-location-date';badge.textContent=ev.date?new Date(ev.date+'T12:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'short',timeZone:'UTC'}):'Date TBD';
   if((ev.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(ev.key))&&ev.endDate&&ev.endDate!==ev.date)badge.textContent+=' – '+new Date(ev.endDate+'T12:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'short',timeZone:'UTC'});
   labels.append(badge);
   const raceLabel=p.raceLabel(ev);
   if(raceLabel){const race=document.createElement('span');race.className='f1-location-race';const flag=document.createElement('span');flag.className='f1-chequered-flag';flag.setAttribute('aria-hidden','true');flag.textContent='🏁';race.append(flag,document.createTextNode(raceLabel));labels.append(race);}
-  const caption=document.createElement('span');caption.className='f1-location-caption';caption.textContent=p.circuitCaption(ev)||'Venue TBD';
+  const caption=document.createElement('span');caption.className='f1-location-caption';caption.textContent=p.circuitCaption(ev)||'';caption.hidden=!caption.textContent;
   hero.append(labels,caption);main.prepend(hero);
 }
 
 
-function composeFeedCard(card,ev,{compact,renderCardState}){
+function composeFeedCard(card,ev,{compact,renderCardState,mode}){
+  card.dataset.cardSurface=mode==='schedule'?'schedule':mode==='events'?'events':activeTab==='feed'?'feed':activeTab==='events'?'events':'calendar';
   card.classList.add('feed-fixture');
   if(ev.contestUnit==='tie'&&ev.key==='tennis')card.classList.add('tennis-team-tie');
   const fixtureSides=matchupIdentityMatches(ev,spoilerSafeDisplayTitle(ev));
@@ -323,7 +324,7 @@ function buildDetailedEventCard(ev, options = {}){
     }));
   }
   card.appendChild(mainDiv);
-  if(activeTab==='feed'||activeTab==='events'||mode==='schedule')composeFeedCard(card,ev,{compact:false,renderCardState});
+  if(activeTab==='feed'||activeTab==='events'||mode==='schedule')composeFeedCard(card,ev,{compact:false,renderCardState,mode});
   else if(ev.golfMajorCalendar||['motogp','wrc','sailgp','wsl','tdf','giro','vuelta','dakar','lemans'].includes(ev.key))appendVenuePanel(card,mainDiv,ev);
   if (interactionCard === card) observeNewSurfaceItem(card, ev, presentation);
   if (interactionCard === card && !options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
@@ -698,16 +699,16 @@ function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=
   const root=document.createElement('section');root.className='nsc-peer-results';
   root.dataset.cardArea='ratings';
   const watch=document.createElement('div');watch.className='fixture-watch-rating';watch.dataset.cardArea='rating-interaction';
-  if(inDrawer)appendEventQuickActions(watch,ev,{reminder:false,chat:false});watch.appendChild(buildInlineCrowdRating(ev,snapshot));root.appendChild(watch);
+  if(inDrawer)appendEventQuickActions(watch,ev,{reminder:false,chat:false});const rating=buildInlineCrowdRating(ev,snapshot);if(!rating.hidden)watch.appendChild(rating);if(watch.childElementCount)root.appendChild(watch);
   if(showAggregate){
     const peers=snapshot?.peerResults, summary=document.createElement('p');summary.className='nsc-peer-summary';summary.dataset.cardArea='rating-statistics';
     const phase=snapshot?.phase||({upcoming:'heat',live:'pulse',past:'impact'})[getEventStatus(ev)];
     const singular=peers?.count===1;
     const verb=phase==='heat'?(singular?'expects':'expect'):phase==='pulse'?(singular?'is rating this':'are rating this'):(singular?'has rated this':'have rated this');
     const failed=nothingscoreLoadErrors.has(nothingscoreEventId(ev));
-    summary.textContent=!peers?(failed?'Community ratings unavailable':snapshot?.ratingRequired?'Rate to reveal community ratings':snapshot?'Ratings unavailable':'Ratings loading…'):!peers.count?(failed?'Community ratings unavailable':'Be the first to rate'):`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${nothingscorePhaseCopy(phase).labels[Math.round(peers.rawAverage??peers.average)-1]} · ${Number(peers.average).toFixed(1)}/5${failed?' · Saved ratings; update unavailable':''}`;
-    summary.title='NS curators carry 8× weight in this score. The count is the number of real people.';
-    root.appendChild(summary);
+    summary.textContent=peers?.count?`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${nothingscorePhaseCopy(phase).labels[Math.round(peers.rawAverage??peers.average)-1]} · ${Number(peers.average).toFixed(1)}/5${failed?' · Saved ratings; update unavailable':''}`:'';
+    summary.hidden=!peers?.count;
+    if(summary.textContent)root.appendChild(summary);
     const tags=document.createElement('div');tags.className='fixture-tags';
     const labels=[];const homeTag=followedHomeTag(ev);if(homeTag)labels.push(homeTag);if(NOTHINGSPORTS_PROMOTED_REPLAY.recommendation(ev,snapshot,phase))labels.push('Promoted replay');
     for(const tag of ev.consensusTags||[])if(['Rivalry','Derby','Round-Robin','Knockout','Final','Record Chase'].includes(tag.label)&&tag.sourceUrls?.some(url=>/^https:\/\//.test(url))&&Number(tag.confidence)>=.6)labels.push(tag.label);
@@ -716,29 +717,28 @@ function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=
   if(nothingscoreLoadErrors.has(nothingscoreEventId(ev))){
     const recovery=nothingscoreReadRecoveryState(ev),retry=document.createElement('button');retry.type='button';retry.className='btn ghost nsc-rating-retry';retry.textContent=recovery.pending?'Retrying ratings…':'Retry ratings';retry.disabled=recovery.pending;
     retry.onclick=event=>{event.stopPropagation();retryNothingscoreRatings(ev);};root.append(retry);
+    if(!snapshot?.peerResults?.count&&![...root.querySelectorAll('[role=status]')].some(node=>node.textContent)){const feedback=document.createElement('span');feedback.className='nsc-rating-status';feedback.setAttribute('role','status');feedback.textContent='Ratings unavailable';root.append(feedback);}
   }
-  return root;
+  root.hidden=!root.childElementCount;return root;
 }
 
 function buildInlineCrowdRating(ev,snapshot){
   const root=document.createElement('div');root.className='nsc-inline-rating';
   const phase=snapshot?snapshot.phase:globalThis.NOTHINGSPORTS_EPIC.confirmedOngoing(ev)?'pulse':/^(completed|finished|final)$/.test(ev.status||'')?'impact':getEventStatus(ev)==='upcoming'?'heat':null;
-  if(!phase){root.textContent='Rating awaits a confirmed fixture status.';return root;}
+  if(!phase){root.hidden=true;return root;}
   const awaitingViewer=Boolean(serverSyncClient?.sessionSubject())&&!snapshot;
   const copy=nothingscorePhaseCopy(phase);
   root.dataset.ratingPhase=phase;
-  const heading=document.createElement('span');heading.className='nsc-rating-phase';heading.textContent=copy.name+' · '+copy.detail;heading.title=copy.tip;root.appendChild(heading);
+  const heading=document.createElement('span');heading.className='nsc-rating-phase';heading.textContent=copy.name+' · '+copy.detail;heading.title=copy.detail;root.appendChild(heading);
   const group=document.createElement('div');group.className='nsc-rating-blocks';group.setAttribute('role','group');group.setAttribute('aria-label','Your '+copy.name+' rating out of five');
-  const exactTiming=Boolean(ev?.startTimeUtc)&&(!ev?.timePrecision||ev.timePrecision==='exact');
-  const tip=phase?copy.tip:'Rating awaits a confirmed fixture status.';
   const prompt=document.createElement('span');prompt.className='nsc-rating-prompt';
   const status=document.createElement('span');status.className='nsc-rating-status';status.setAttribute('role','status');
   const id=nothingscoreEventId(ev),owner=serverPersistence.user?.id;
   let chosen=Number(snapshot?.currentUser?.contribution?.rating || snapshot?.currentUser?.submissions?.[phase]?.rating)||0;
   const sealed=false;
-  const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?copy.labels[value-1]:tip;prompt.dataset.rating=String(value||0);};
+  const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?copy.labels[value-1]:'';prompt.hidden=!value;prompt.dataset.rating=String(value||0);};
   for(let value=1;value<=5;value++){
-    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${copy.labels[value-1]}`);b.title=copy.tip;b.disabled=sealed||awaitingViewer||!phase;
+    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${copy.labels[value-1]}`);b.title=`${value}/5 · ${copy.labels[value-1]}`;b.disabled=sealed||awaitingViewer||!phase;
     b.innerHTML=glyphMarkup(copy.glyph);
     b.onclick=async()=>{
       if(!serverSyncClient?.sessionSubject()){status.textContent='Sign in to rate this fixture.';openSettings({section:'account'});return;}
@@ -769,9 +769,7 @@ function buildInlineCrowdRating(ev,snapshot){
     status.textContent=failed?'Ratings are temporarily unavailable. Retry to check your saved rating.':'Checking your rating…';
   }
   paint(chosen);root.append(group,prompt);
-  if(phase==='heat'&&!NOTHINGSPORTS_CARD_TIMING.played(ev)&&!exactTiming&&!ev.dateOnly&&ev.timePrecision!=='date-only'){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent=ev.startTimeUtc&&['not-before','not_before'].includes(ev.timePrecision)?'Not-before start; exact start may be later':'Start time unconfirmed';root.appendChild(timing);}
-  const guide=document.createElement('details');guide.className='nsc-rating-help';const guideTitle=document.createElement('summary');guideTitle.textContent='About '+copy.name+' ratings';guide.append(guideTitle);const explanation=document.createElement('p');explanation.textContent=copy.tip+' NS fixture curators carry 8× weight in community scores. Contributor counts are real people; points and rewards stay the same. Your own genuine 5/5 in any phase preserves the fixture in your EPIC Hall of Fame.';guide.append(explanation);
-  root.append(status,guide);return root;
+  root.append(status);return root;
 }
 
 function buildNothingscoreReceipt(receipt, phaseName){
@@ -967,23 +965,21 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
   const viewingPaused=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev);
   const actions = document.createElement("div");
   actions.className = "event-quick-actions";
-  const viewingLinks = viewing&&!highlightsOnly&&!viewingPaused ? FOLLOW_FIRST.viewingOptions(ev,userPreferences.followFirst?.subscriptions||[]).filter(p=>!p.territory||['AU','GLOBAL'].includes(p.territory)) : [];
+  const viewingLinks = viewing&&!highlightsOnly&&!viewingPaused ? FOLLOW_FIRST.viewingOptions(ev,userPreferences.followFirst?.subscriptions||[]).filter(p=>(!p.territory||['AU','GLOBAL'].includes(p.territory))&&(p.liveOrReplay!=='replay'||p.replayVerified)) : [];
   const highlights=globalThis.NOTHINGSPORTS_FIXTURE_HIGHLIGHTS?.viewing(ev);
   if(viewing&&highlights&&(!highlights.highlightsFeedOnly||activeTab==='feed'))viewingLinks.unshift({...FOLLOW_FIRST.VIEWING_PROVIDERS.youtube,...highlights});
   if(highlightsOnly&&!viewingLinks.length)return;
-  if(viewing){
+  if(viewing&&viewingLinks.length){
     const row=document.createElement('div');row.className='fixture-providers';row.setAttribute('aria-label','Viewing providers');
     for(const viewingLink of viewingLinks){
       const link=document.createElement('a');link.className='event-quick-action provider-link'+(viewingLink.highlights?' fixture-highlights-link':'');
       configureProviderLaunch(link,viewingLink);
-      const verb=viewingLink.highlights?viewingLink.highlightsLabel:viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';
+      const verb=viewingLink.highlights?viewingLink.highlightsLabel:viewingLink.liveOrReplay==='replay'?'Replay':'Watch';
       const access=viewingAccessLabel(viewingLink);
       link.title=`${verb} on ${viewingLink.label}${viewingLink.highlightsSearch?' · Opens a fixture search':` · ${access}`}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
       const cost=document.createElement('span');if(!viewingLink.highlights)cost.className='provider-access';cost.textContent=viewingLink.highlights?verb:access;link.appendChild(cost);
       link.addEventListener('click',event=>{event.stopPropagation();if(!viewingLink.highlights)recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
     }
-    const viewingNote=!viewingLinks.length?'Australian viewing unconfirmed':null;
-    if(viewingNote){const text=document.createElement('span');text.className='viewing-tbc';text.textContent=viewingNote;row.append(text);}
     actions.append(row);
   }
   if (reminder && getEventStatus(ev) === "upcoming"){
@@ -1314,12 +1310,7 @@ function buildDetailedMajorEventCard(record, { interactionCard = null } = {}){
       compact: state === "compact",
     });
     if (immediateSchedule) card.appendChild(immediateSchedule);
-    else {
-      const tbc = document.createElement("p");
-      tbc.className = "major-event-immediate-tbc";
-      tbc.textContent = "Immediate match line-up TBD. Open Schedule for the source-published schedule.";
-      card.appendChild(tbc);
-    }
+
     const tablePreview = buildMajorEventTablePreview(record);
     if (tablePreview && state !== "compact") card.appendChild(tablePreview);
   }

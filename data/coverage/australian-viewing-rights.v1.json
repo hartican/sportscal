@@ -108,7 +108,8 @@
         "kayo",
         "foxtel",
         "seven",
-        "prime-video"
+        "prime-video",
+        "cricket-australia"
       ]
     },
     {
@@ -251,7 +252,14 @@
       "sourceUrl": "https://sailgp.com/news/26/sailgp-confirms-global-broadcast-lineup-2026-season/"
     },
     "competition:fiba-womens-world-cup": {
-      "sourceUrl": "https://www.techradar.com/how-to-watch/basketball/fiba-womens-basketball-world-cup-2026-free"
+      "sourceUrl": "https://about.fiba.basketball/en/news/fiba-agrees-extended-and-expanded-espn-deal-for-australia-new-zealand-and",
+      "corroboratingSources": [
+        "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/where-to-watch"
+      ],
+      "supplementarySources": [
+        "https://www.techradar.com/how-to-watch/basketball/fiba-womens-basketball-world-cup-2026-free"
+      ],
+      "notes": "FIBA confirms ESPN Australian rights for the 2026 women World Cup. Existing ESPN carriage through Kayo/Foxtel is retained; primary rights control the claim. Tournament window only; no every-game, direct playback or replay guarantee."
     },
     "competition:cricket-australia": {
       "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners"
@@ -857,7 +865,3124 @@
       "competitionIds": [
         "competition:atp-tour",
         "competition:tennis:atp-shanghai-2026"
+      ],
+      "excludedDrawPattern": "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)"
+    },
+    {
+      "id": "wta-tour-2026-au",
+      "competitionIds": [
+        "competition:wta-tour",
+        "competition:tennis:wta-beijing-2026"
+      ],
+      "notBefore": "2026-03-07",
+      "notAfter": "2027-01-01",
+      "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/tennis/wta",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "bein",
+          "url": "https://connect-au.beinsports.com/en/competition/wta-tennis",
+          "sourceUrl": "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ],
+      "requiredTour": "WTA",
+      "excludedDrawPattern": "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+      "notes": "Stan sublicensed WTA 250/500/1000 and Finals from 7 March. Main-draw coverage only; no invented qualifying, exact court or replay entitlement."
+    },
+    {
+      "id": "domestic-shield-2026-27-au",
+      "competitionIds": [
+        "competition:cricket:espn:8043"
+      ],
+      "notBefore": "2026-09-01",
+      "notAfter": "2027-04-01",
+      "sourceUrl": "https://www.cricket.com.au/news/4586685/sheffield-shield-2026-27-season-preview-guide-broadcast-how-to-watch-details-news-squads-nsw-victoria-wa-sa-queensland-tasmania",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "cricket-australia",
+          "url": "https://www.cricket.com.au/matches",
+          "sourceUrl": "https://www.cricket.com.au/news/4586685/sheffield-shield-2026-27-season-preview-guide-broadcast-how-to-watch-details-news-squads-nsw-victoria-wa-sa-queensland-tasmania",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "kayo",
+          "url": "https://kayosports.com.au/en-AU/schedule",
+          "sourceUrl": "https://www.cricket.com.au/news/4586685/sheffield-shield-2026-27-season-preview-guide-broadcast-how-to-watch-details-news-squads-nsw-victoria-wa-sa-queensland-tasmania",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
       ]
+    },
+    {
+      "id": "domestic-one-day-2026-27-au",
+      "competitionIds": [
+        "competition:cricket:espn:8626"
+      ],
+      "notBefore": "2026-09-01",
+      "notAfter": "2027-04-01",
+      "sourceUrl": "https://www.cricket.com.au/news/4577303/one-day-cup-2026-27-dean-jones-trophy-guide-broadcast-how-to-watch-details-news-squads-nsw-queensland-south-australia-victoria-tasmania-western",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "cricket-australia",
+          "url": "https://www.cricket.com.au/matches",
+          "sourceUrl": "https://www.cricket.com.au/news/4577303/one-day-cup-2026-27-dean-jones-trophy-guide-broadcast-how-to-watch-details-news-squads-nsw-queensland-south-australia-victoria-tasmania-western",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "kayo",
+          "url": "https://kayosports.com.au/en-AU/schedule",
+          "sourceUrl": "https://www.cricket.com.au/news/4577303/one-day-cup-2026-27-dean-jones-trophy-guide-broadcast-how-to-watch-details-news-squads-nsw-queensland-south-australia-victoria-tasmania-western",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ]
+    },
+    {
+      "id": "bbl-2026-27-au",
+      "competitionIds": [
+        "competition:cricket:espn:8044"
+      ],
+      "notBefore": "2026-12-01",
+      "notAfter": "2027-03-01",
+      "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "kayo",
+          "url": "https://kayosports.com.au/en-AU/schedule",
+          "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "foxtel",
+          "url": "https://www.foxtel.com.au/watch/cricket.html",
+          "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ],
+      "notes": "All BBL games on Foxtel/Kayo. Selective Seven coverage is not inherited by every fixture."
+    },
+    {
+      "id": "australian-home-tests-2026-27-au",
+      "competitionIds": [
+        "competition:cricket:espn:24273",
+        "competition:cricket:espn:24270"
+      ],
+      "notBefore": "2026-09-01",
+      "notAfter": "2027-03-01",
+      "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "kayo",
+          "url": "https://kayosports.com.au/en-AU/schedule",
+          "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "foxtel",
+          "url": "https://www.foxtel.com.au/watch/cricket.html",
+          "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "seven",
+          "url": "https://7plus.com.au/cricket",
+          "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ],
+      "format": "test"
+    },
+    {
+      "id": "australian-home-white-ball-2026-27-au",
+      "competitionIds": [
+        "competition:cricket:espn:24273",
+        "competition:cricket:espn:24270"
+      ],
+      "notBefore": "2026-09-01",
+      "notAfter": "2027-03-01",
+      "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "kayo",
+          "url": "https://kayosports.com.au/en-AU/schedule",
+          "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "foxtel",
+          "url": "https://www.foxtel.com.au/watch/cricket.html",
+          "sourceUrl": "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ]
+    },
+    {
+      "id": "nations-championship-2026-au",
+      "competitionIds": [
+        "competition:rugby:wr:46294cf5-dee3-4234-957a-dbe1f08049f2",
+        "competition:nations-championship:2026"
+      ],
+      "notBefore": "2026-01-01",
+      "notAfter": "2027-01-01",
+      "sourceUrl": "https://www.rugby.com.au/news/2026-nations-rugby-championship-fixtures-schedule-how-to-watch-international-rugby-wallabies-fixtures-2026-2026630",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/rugby",
+          "sourceUrl": "https://www.rugby.com.au/news/2026-nations-rugby-championship-fixtures-schedule-how-to-watch-international-rugby-wallabies-fixtures-2026-2026630",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ]
+    },
+    {
+      "id": "currie-cup-2026-au",
+      "competitionIds": [
+        "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047"
+      ],
+      "notBefore": "2026-01-01",
+      "notAfter": "2027-01-01",
+      "sourceUrl": "https://www.stan.com.au/watch/sport/rugby",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/rugby",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/rugby",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ]
+    },
+    {
+      "id": "melbourne-cup-carnival-2026-au",
+      "competitionIds": [
+        "competition:australian-thoroughbred"
+      ],
+      "notBefore": "2026-10-31",
+      "notAfter": "2026-11-08",
+      "sourceUrl": "https://www.nineforbrands.com.au/media-release/victoria-racing-club-tabcorp-and-nine-enter-landmark-deal-for-melbourne-cup-carnival/",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "nine",
+          "url": "https://www.9now.com.au/melbourne-cup-carnival",
+          "sourceUrl": "https://www.nineforbrands.com.au/media-release/victoria-racing-club-tabcorp-and-nine-enter-landmark-deal-for-melbourne-cup-carnival/",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ],
+      "fixtureIds": [
+        "event:horse-racing:melbourne-cup:2026",
+        "event:horse-racing:victoria-derby:2026",
+        "event:horse-racing:vrc-oaks:2026",
+        "event:horse-racing:champions-stakes:2026"
+      ]
+    },
+    {
+      "id": "seven-spring-races-2026-au",
+      "competitionIds": [
+        "competition:australian-thoroughbred"
+      ],
+      "notBefore": "2026-10-17",
+      "notAfter": "2026-10-25",
+      "sourceUrl": "https://7news.com.au/sport/horse-racing/spring-racing-carnival-blasts-off-on-seven-and-7plus-c-22955200",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "fixture",
+      "providers": [
+        {
+          "id": "seven",
+          "url": "https://7plus.com.au/sevens-horse-racing",
+          "sourceUrl": "https://7news.com.au/sport/horse-racing/spring-racing-carnival-blasts-off-on-seven-and-7plus-c-22955200",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ],
+      "fixtureIds": [
+        "event:horse-racing:caulfield-cup:2026",
+        "event:horse-racing:cox-plate:2026",
+        "event:horse-racing:the-everest:2026"
+      ]
+    },
+    {
+      "id": "atp-beijing-2026-au",
+      "competitionIds": [
+        "competition:atp-tour",
+        "competition:tennis:atp-beijing-2026"
+      ],
+      "notBefore": "2026-09-23",
+      "notAfter": "2026-10-07",
+      "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "bein",
+          "url": "https://connect-au.beinsports.com/en",
+          "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "tennis-tv",
+          "url": "https://www.tennistv.com/live-schedule",
+          "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ],
+      "tournamentIds": [
+        "tournament:tennis:atp-beijing-2026"
+      ],
+      "tour": "ATP",
+      "season": "2026",
+      "sportKey": "tennis",
+      "excludedDrawPattern": "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+      "notes": "Only the published 2026 ATP 500/1000 editions. Existing exact fixture destinations retain precedence. Tennis TV excludes qualifying, Slams, Davis/BJK and Laver Cup; ATP 250 courts require individual confirmation.",
+      "corroboratingSources": [
+        "https://www.beinsports.com/en-au/tennis/articles-video/bein-sports-extends-atp-tour-deal-2024-11-14"
+      ]
+    },
+    {
+      "id": "atp-tokyo-2026-au",
+      "competitionIds": [
+        "competition:atp-tour",
+        "competition:tennis:atp-tokyo-2026"
+      ],
+      "notBefore": "2026-09-30",
+      "notAfter": "2026-10-07",
+      "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+      "verifiedAt": "2026-10-14T12:57:35.385Z",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "bein",
+          "url": "https://connect-au.beinsports.com/en",
+          "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        },
+        {
+          "id": "tennis-tv",
+          "url": "https://www.tennistv.com/live-schedule",
+          "sourceUrl": "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ],
+      "tournamentIds": [
+        "tournament:tennis:atp-tokyo-2026"
+      ],
+      "tour": "ATP",
+      "season": "2026",
+      "sportKey": "tennis",
+      "excludedDrawPattern": "qualifying|qualification|(?:^|[: -])qual(?:[: -]|$)",
+      "notes": "Only the published 2026 ATP 500/1000 editions. Existing exact fixture destinations retain precedence. Tennis TV excludes qualifying, Slams, Davis/BJK and Laver Cup; ATP 250 courts require individual confirmation.",
+      "corroboratingSources": [
+        "https://www.beinsports.com/en-au/tennis/articles-video/bein-sports-extends-atp-tour-deal-2024-11-14"
+      ]
+    },
+    {
+      "id": "davis-cup-finals-2026-au",
+      "competitionIds": [
+        "competition:davis-cup"
+      ],
+      "tournamentIds": [
+        "tournament:tennis:davis-cup-finals-2026"
+      ],
+      "tour": "TEAM",
+      "season": "2026",
+      "sportKey": "tennis",
+      "notBefore": "2026-01-01",
+      "notAfter": "2027-01-01",
+      "verifiedAt": "2026-10-14T13:14:23.740Z",
+      "sourceUrl": "https://www.beinmediagroup.com/article/bein-media-group-extends-davis-cup-and-bjk-cup-rights-across-mena-france-and-australia-until-2026/",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "bein",
+          "url": "https://connect-au.beinsports.com/en/competition/davis-cup",
+          "linkScope": "event",
+          "liveOrReplay": "live"
+        }
+      ],
+      "notes": "Exact 2026 senior Cup edition only. Nine access is selective and not inferred for all ties; no Tennis TV or replay claim."
+    },
+    {
+      "id": "bjk-cup-finals-2026-au",
+      "competitionIds": [
+        "competition:billie-jean-king-cup"
+      ],
+      "tournamentIds": [
+        "tournament:tennis:bjk-cup-finals-2026"
+      ],
+      "tour": "TEAM",
+      "season": "2026",
+      "sportKey": "tennis",
+      "notBefore": "2026-01-01",
+      "notAfter": "2027-01-01",
+      "verifiedAt": "2026-10-14T13:14:23.740Z",
+      "sourceUrl": "https://www.beinmediagroup.com/article/bein-media-group-extends-davis-cup-and-bjk-cup-rights-across-mena-france-and-australia-until-2026/",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "bein",
+          "url": "https://connect-au.beinsports.com/en",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ],
+      "notes": "Exact 2026 senior Cup edition only. Nine access is selective and not inferred for all ties; no Tennis TV or replay claim."
+    },
+    {
+      "id": "laver-cup-2026-au",
+      "competitionIds": [
+        "competition:laver-cup"
+      ],
+      "tournamentIds": [
+        "tournament:tennis:laver-cup-2026"
+      ],
+      "tour": "ATP",
+      "season": "2026",
+      "sportKey": "tennis",
+      "notBefore": "2026-09-25",
+      "notAfter": "2026-09-28",
+      "verifiedAt": "2026-10-14T13:14:23.740Z",
+      "sourceUrl": "https://www.stan.com.au/watch/sport/tennis",
+      "rightsScope": "competition",
+      "providers": [
+        {
+          "id": "stan",
+          "url": "https://www.stan.com.au/watch/sport/tennis",
+          "linkScope": "sport",
+          "liveOrReplay": "live"
+        }
+      ],
+      "notes": "Stan lists the 2026 Laver Cup. It is excluded from Tennis TV; historical live rights do not establish current replay availability."
     }
-  ]
+  ],
+  "catalogueReview": {
+    "reviewedAt": "2026-10-14T14:01:21.718Z",
+    "sourceBase": "aea13cebfb915220f75a3d924d869c47691ba84f",
+    "fixtureCount": 6520,
+    "competitionCount": 126,
+    "notes": "Frozen audit of public Feed, Events overview, Inspector and Schedule projections. Inspection time never renews original evidence dates. A provider destination is not authenticated playback proof. Unknown/selective/future carriage stays internal and renders no placeholder.",
+    "competitions": [
+      {
+        "competitionId": "afl",
+        "sportKey": "afl",
+        "name": "afl",
+        "fixtureCount": 3,
+        "withEvidence": 3,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "big-wave",
+        "sportKey": "big-wave",
+        "name": "big-wave",
+        "fixtureCount": 2,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.worldsurfleague.com/"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "competition:afl-premiership-2026",
+        "sportKey": "afl",
+        "name": "competition:afl-premiership-2026",
+        "fixtureCount": 218,
+        "withEvidence": 218,
+        "providerIds": [
+          "kayo",
+          "foxtel",
+          "seven"
+        ],
+        "sourceUrls": [
+          "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+          "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z",
+          "2026-09-21T12:20:05.571Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:aflw-2026",
+        "sportKey": "aflw",
+        "name": "competition:aflw-2026",
+        "fixtureCount": 117,
+        "withEvidence": 117,
+        "providerIds": [
+          "kayo",
+          "foxtel",
+          "seven"
+        ],
+        "sourceUrls": [
+          "https://www.afl.com.au/aflw/matches/broadcast-guide",
+          "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+          "https://www.afl.com.au/news/1596264/friday-night-lights-prime-time-stage-set-for-2026-nab-aflw-grand-final"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z",
+          "2026-10-09T10:51:48.755Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:atp-tour",
+        "sportKey": "tennis",
+        "name": "China Open",
+        "fixtureCount": 149,
+        "withEvidence": 149,
+        "providerIds": [
+          "bein",
+          "tennis-tv"
+        ],
+        "sourceUrls": [
+          "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "https://www.beinsports.com/en-au/tennis/articles/how-to-watch-the-2026-tennis-season-in-australia-2026-02-04",
+          "https://connect-au.beinsports.com/en",
+          "https://www.tennistv.com/tournaments/329_2026/tokyo"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z",
+          "2026-10-11T05:19:19.930Z",
+          "2026-10-06T10:08:38.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:australian-thoroughbred",
+        "sportKey": "horse-racing",
+        "name": "competition:australian-thoroughbred",
+        "fixtureCount": 18,
+        "withEvidence": 7,
+        "providerIds": [
+          "nine",
+          "seven"
+        ],
+        "sourceUrls": [
+          "https://7news.com.au/sport/horse-racing/spring-racing-carnival-blasts-off-on-seven-and-7plus-c-22955200",
+          "https://www.nineforbrands.com.au/media-release/victoria-racing-club-tabcorp-and-nine-enter-landmark-deal-for-melbourne-cup-carnival/"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:billie-jean-king-cup",
+        "sportKey": "tennis",
+        "name": "competition:billie-jean-king-cup",
+        "fixtureCount": 8,
+        "withEvidence": 8,
+        "providerIds": [
+          "bein"
+        ],
+        "sourceUrls": [
+          "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "https://www.billiejeankingcup.com/en/more/where-to-watch",
+          "https://www.beinmediagroup.com/article/bein-media-group-extends-davis-cup-and-bjk-cup-rights-across-mena-france-and-australia-until-2026/"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T13:14:23.740Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:chl",
+        "sportKey": "ice-hockey",
+        "name": "competition:chl",
+        "fixtureCount": 84,
+        "withEvidence": 84,
+        "providerIds": [
+          "iihf-tv"
+        ],
+        "sourceUrls": [
+          "https://www.nhl.com/info/how-to-watch-by-country",
+          "https://www.chl.hockey/en/fans/where-to-watch"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-26T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:3207",
+        "sportKey": "cricket",
+        "name": "competition:cricket:3207",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:3208",
+        "sportKey": "cricket",
+        "name": "competition:cricket:3208",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:4567",
+        "sportKey": "cricket",
+        "name": "competition:cricket:4567",
+        "fixtureCount": 3,
+        "withEvidence": 3,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663",
+          "https://www.cricket.com.au/news/4578082/south-africa-australia-odis-one-day-internationals-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times-durban-johannesburg-potchefstroom"
+        ],
+        "originalEvidenceDates": [
+          "2026-09-24T14:15:53Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:4612",
+        "sportKey": "cricket",
+        "name": "competition:cricket:4612",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:4613",
+        "sportKey": "cricket",
+        "name": "competition:cricket:4613",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:4675",
+        "sportKey": "cricket",
+        "name": "competition:cricket:4675",
+        "fixtureCount": 2,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:4714",
+        "sportKey": "cricket",
+        "name": "competition:cricket:4714",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:4715",
+        "sportKey": "cricket",
+        "name": "competition:cricket:4715",
+        "fixtureCount": 3,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:4718",
+        "sportKey": "cricket",
+        "name": "competition:cricket:4718",
+        "fixtureCount": 7,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:4719",
+        "sportKey": "cricket",
+        "name": "competition:cricket:4719",
+        "fixtureCount": 2,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:4720",
+        "sportKey": "cricket",
+        "name": "competition:cricket:4720",
+        "fixtureCount": 2,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:4721",
+        "sportKey": "cricket",
+        "name": "competition:cricket:4721",
+        "fixtureCount": 2,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:1550706",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:1550706",
+        "fixtureCount": 7,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:1555109",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:1555109",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:22547",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:22547",
+        "fixtureCount": 5,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:23806",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:23806",
+        "fixtureCount": 2,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24198",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24198",
+        "fixtureCount": 5,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24203",
+        "sportKey": "cricket",
+        "name": "Australia tour of South Africa 2026/27",
+        "fixtureCount": 5,
+        "withEvidence": 5,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663",
+          "https://www.cricket.com.au/matches/series/CA:4568",
+          "https://www.cricket.com.au/news/4578082/south-africa-australia-odis-one-day-internationals-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times-durban-johannesburg-potchefstroom",
+          "https://www.cricket.com.au/matches/series/CA:4567/south-africa-v-australia-odis-2026-men"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-02T05:17:58.761Z",
+          "2026-09-24T14:15:53Z",
+          "2026-09-21T12:20:05.571Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24270",
+        "sportKey": "cricket",
+        "name": "New Zealand tour of Australia 2026/27",
+        "fixtureCount": 6,
+        "withEvidence": 6,
+        "providerIds": [
+          "seven",
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24273",
+        "sportKey": "cricket",
+        "name": "England tour of Australia 2026/27",
+        "fixtureCount": 9,
+        "withEvidence": 9,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24283",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24283",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24286",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24286",
+        "fixtureCount": 7,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24289",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24289",
+        "fixtureCount": 3,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24303",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24303",
+        "fixtureCount": 4,
+        "withEvidence": 3,
+        "providerIds": [
+          "kayo"
+        ],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663",
+          "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times"
+        ],
+        "originalEvidenceDates": [
+          "2026-09-15T05:30:00.000Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24469",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24469",
+        "fixtureCount": 13,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24484",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24484",
+        "fixtureCount": 9,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24707",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24707",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24746",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24746",
+        "fixtureCount": 2,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24752",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24752",
+        "fixtureCount": 3,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24756",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24756",
+        "fixtureCount": 3,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:24799",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:24799",
+        "fixtureCount": 6,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:8043",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:8043",
+        "fixtureCount": 5,
+        "withEvidence": 5,
+        "providerIds": [
+          "cricket-australia",
+          "kayo"
+        ],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663",
+          "https://www.cricket.com.au/news/4586685/sheffield-shield-2026-27-season-preview-guide-broadcast-how-to-watch-details-news-squads-nsw-victoria-wa-sa-queensland-tasmania"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:8044",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:8044",
+        "fixtureCount": 31,
+        "withEvidence": 31,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:8050",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:8050",
+        "fixtureCount": 2,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:cricket:espn:8626",
+        "sportKey": "cricket",
+        "name": "competition:cricket:espn:8626",
+        "fixtureCount": 7,
+        "withEvidence": 7,
+        "providerIds": [
+          "cricket-australia",
+          "kayo"
+        ],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663",
+          "https://www.cricket.com.au/news/4577303/one-day-cup-2026-27-dean-jones-trophy-guide-broadcast-how-to-watch-details-news-squads-nsw-queensland-south-australia-victoria-tasmania-western"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:dakar",
+        "sportKey": "dakar",
+        "name": "competition:dakar",
+        "fixtureCount": 28,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.sbs.com.au/sport/article/sbs-sport-sizzles-in-january-with-dakar-kooyong-and-mapei-cadel-evans-great-ocean-road-race/tnwf8xoum"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:davis-cup",
+        "sportKey": "tennis",
+        "name": "competition:davis-cup",
+        "fixtureCount": 8,
+        "withEvidence": 5,
+        "providerIds": [
+          "bein"
+        ],
+        "sourceUrls": [
+          "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "https://www.daviscup.com/en/about/where-to-watch-TV",
+          "https://www.beinmediagroup.com/article/bein-media-group-extends-davis-cup-and-bjk-cup-rights-across-mena-france-and-australia-until-2026/"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T13:14:23.740Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:fia-wec",
+        "sportKey": "lemans",
+        "name": "competition:fia-wec",
+        "fixtureCount": 26,
+        "withEvidence": 2,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.fiawec.com/en/page/ou-regarder-1/36"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:fiba-womens-world-cup",
+        "sportKey": "fiba-women",
+        "name": "competition:fiba-womens-world-cup",
+        "fixtureCount": 17,
+        "withEvidence": 17,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://about.fiba.basketball/en/news/fiba-agrees-extended-and-expanded-espn-deal-for-australia-new-zealand-and",
+          "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/where-to-watch",
+          "https://www.techradar.com/how-to-watch/basketball/fiba-womens-basketball-world-cup-2026-free"
+        ],
+        "originalEvidenceDates": [
+          "2026-09-06T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Use FIBA/ESPN official fixture listings for individual programme or replay confirmation.",
+        "groupType": "competition-id",
+        "primaryRightsSource": "https://about.fiba.basketball/en/news/fiba-agrees-extended-and-expanded-espn-deal-for-australia-new-zealand-and"
+      },
+      {
+        "competitionId": "competition:fis-alpine",
+        "sportKey": "ski",
+        "name": "competition:fis-alpine",
+        "fixtureCount": 3,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://watch.fis-ski.com/en/home"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:fis-freestyle",
+        "sportKey": "ski",
+        "name": "competition:fis-freestyle",
+        "fixtureCount": 1,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://watch.fis-ski.com/en/home"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:football:international-friendlies",
+        "sportKey": "football",
+        "name": "Men's International Friendlies",
+        "fixtureCount": 2,
+        "withEvidence": 2,
+        "providerIds": [
+          "ten",
+          "paramount"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/football",
+          "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
+        ],
+        "originalEvidenceDates": [
+          "2026-09-23T23:00:53.638Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:formula-one",
+        "sportKey": "f1",
+        "name": "competition:formula-one",
+        "fixtureCount": 60,
+        "withEvidence": 60,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/f1.html"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:giro-ditalia",
+        "sportKey": "giro",
+        "name": "competition:giro-ditalia",
+        "fixtureCount": 22,
+        "withEvidence": 1,
+        "providerIds": [
+          "sbs"
+        ],
+        "sourceUrls": [
+          "https://www.sbs.com.au/ondemand/ko/collection/2026-grand-tours",
+          "https://www.sbs.com.au/aboutus/2026/03/20/feast-for-cycling-fans-as-sbs-extends-road-cycling-broadcasts-to-include-all-grand-tours-and-monuments/"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:golf:masters-2027",
+        "sportKey": "golf",
+        "name": "competition:golf:masters-2027",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:golf:pga-championship-2026",
+        "sportKey": "golf",
+        "name": "competition:golf:pga-championship-2026",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:golf:pga-championship-2027",
+        "sportKey": "golf",
+        "name": "competition:golf:pga-championship-2027",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:golf:the-open-2026",
+        "sportKey": "golf",
+        "name": "competition:golf:the-open-2026",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:golf:the-open-2027",
+        "sportKey": "golf",
+        "name": "competition:golf:the-open-2027",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:golf:us-open-2026",
+        "sportKey": "golf",
+        "name": "competition:golf:us-open-2026",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:golf:us-open-2027",
+        "sportKey": "golf",
+        "name": "competition:golf:us-open-2027",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:italian-gt3-2023",
+        "sportKey": "motorsport",
+        "name": "competition:italian-gt3-2023",
+        "fixtureCount": 1,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.nuerburgring.de/"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:korn-ferry-tour",
+        "sportKey": "golf",
+        "name": "competition:korn-ferry-tour",
+        "fixtureCount": 2,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:laver-cup",
+        "sportKey": "tennis",
+        "name": "competition:laver-cup",
+        "fixtureCount": 9,
+        "withEvidence": 9,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "https://www.stan.com.au/watch/sport/tennis"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T13:14:23.740Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:lpga-tour",
+        "sportKey": "golf",
+        "name": "competition:lpga-tour",
+        "fixtureCount": 13,
+        "withEvidence": 2,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html",
+          "https://kayosports.com.au/help/s/article/What-content-is-available-as-part-of-your-Kayo-subscription"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-02T13:51:45.000Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:mlb",
+        "sportKey": "baseball",
+        "name": "MLB postseason",
+        "fixtureCount": 43,
+        "withEvidence": 1,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://support.mlb.com/s/article/MLB-TV-Game-Availability?language=en_US",
+          "https://kayosports.com.au/en-AU/home",
+          "https://www.foxtel.com.au/tv-guide/channel/ESPN2-HD/ES2/2026/09/09/1755"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-06T04:00:00Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:motogp",
+        "sportKey": "motogp",
+        "name": "competition:motogp",
+        "fixtureCount": 205,
+        "withEvidence": 205,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.motogp.com.au/fan-zone/how-to-watch-motogp-live-on-tv-and-stream-in-australia"
+        ],
+        "originalEvidenceDates": [
+          "2026-09-06T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:nations-championship:2026",
+        "sportKey": "rugby",
+        "name": "competition:nations-championship:2026",
+        "fixtureCount": 6,
+        "withEvidence": 6,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.rugby.com.au/news/2026-nations-rugby-championship-fixtures-schedule-how-to-watch-international-rugby-wallabies-fixtures-2026-2026630"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:nbl",
+        "sportKey": "nba",
+        "name": "competition:nbl",
+        "fixtureCount": 165,
+        "withEvidence": 165,
+        "providerIds": [
+          "nine",
+          "disney",
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl26-season",
+          "https://schedule.nbl.com.au/nbl"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-11T12:37:53.829Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:nfl",
+        "sportKey": "american-football",
+        "name": "competition:nfl",
+        "fixtureCount": 351,
+        "withEvidence": 351,
+        "providerIds": [
+          "dazn",
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.nfl.com/international/ways-to-watch/australia",
+          "https://kayosports.com.au/en-AU/home",
+          "https://www.foxtel.com.au/tv-guide/channel/ESPN2-HD/ES2/2026/09/09/1755",
+          "https://www.dazn.com/en-AU/welcome/nfl"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z",
+          "2026-10-06T04:00:00Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:nhl",
+        "sportKey": "ice-hockey",
+        "name": "competition:nhl",
+        "fixtureCount": 1409,
+        "withEvidence": 1344,
+        "providerIds": [
+          "disney"
+        ],
+        "sourceUrls": [
+          "https://www.nhl.com/info/how-to-watch-by-country"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-04T14:47:13.000Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:nls-2025",
+        "sportKey": "motorsport",
+        "name": "competition:nls-2025",
+        "fixtureCount": 1,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.nuerburgring.de/"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:nls-2026",
+        "sportKey": "motorsport",
+        "name": "competition:nls-2026",
+        "fixtureCount": 3,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.nuerburgring.de/"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:nrl-premiership-2026",
+        "sportKey": "nrl",
+        "name": "competition:nrl-premiership-2026",
+        "fixtureCount": 213,
+        "withEvidence": 213,
+        "providerIds": [
+          "kayo",
+          "foxtel",
+          "nine-tv",
+          "nine"
+        ],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/nrl.html",
+          "https://www.foxtel.com.au/watch/nrl.html/",
+          "https://www.nrl.com/draw/nrl-premiership/2026/finals-week-3/",
+          "https://www.nineforbrands.com.au/media-release/nine-kicks-off-blockbuster-2026-nrl-footy-finals-series/"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z",
+          "2026-09-24T00:00:00Z",
+          "2026-09-27T13:39:49.102Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:nrlw-premiership-2026",
+        "sportKey": "nrlw",
+        "name": "competition:nrlw-premiership-2026",
+        "fixtureCount": 71,
+        "withEvidence": 71,
+        "providerIds": [
+          "nine",
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
+        ],
+        "originalEvidenceDates": [
+          "2026-09-06T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:nurburgring-24-2026",
+        "sportKey": "motorsport",
+        "name": "competition:nurburgring-24-2026",
+        "fixtureCount": 1,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.nuerburgring.de/"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:nurburgring-qualifiers-2026",
+        "sportKey": "motorsport",
+        "name": "competition:nurburgring-qualifiers-2026",
+        "fixtureCount": 1,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.nuerburgring.de/"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:pga-tour",
+        "sportKey": "golf",
+        "name": "PGA TOUR",
+        "fixtureCount": 158,
+        "withEvidence": 158,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:pga-tour-australasia",
+        "sportKey": "golf",
+        "name": "competition:pga-tour-australasia",
+        "fixtureCount": 2,
+        "withEvidence": 2,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:premier-league-2026-27",
+        "sportKey": "premier-league",
+        "name": "Premier League",
+        "fixtureCount": 380,
+        "withEvidence": 380,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/football/premier-league"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:presidents-cup",
+        "sportKey": "golf",
+        "name": "competition:presidents-cup",
+        "fixtureCount": 7,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby-league-world-cup:2026",
+        "sportKey": "nrl",
+        "name": "Rugby League World Cup",
+        "fixtureCount": 3,
+        "withEvidence": 3,
+        "providerIds": [
+          "seven"
+        ],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/nrl.html",
+          "https://sevenwestmedia.com.au/wp-content/uploads/2025/10/Live-free-and-exclusive-%E2%80%93-Rugby-League-World-Cup.pdf"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:ra:3",
+        "sportKey": "rugby",
+        "name": "International",
+        "fixtureCount": 1,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:04278bcb-7618-42e3-ad5c-81a540b6aa82",
+        "sportKey": "rugby",
+        "name": "Pro D2 2027",
+        "fixtureCount": 120,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://top14.lnr.fr/page/les-diffuseurs"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:06dfcce9-aefd-487b-a6f3-4efaf036e1be",
+        "sportKey": "rugby",
+        "name": "Farah Palmer Cup 2026",
+        "fixtureCount": 30,
+        "withEvidence": 30,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.stan.com.au/watch/sport/rugby/fpc"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-02T05:17:58.761Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:11c5aced-2f8c-4987-8f53-85d943466447",
+        "sportKey": "rugby",
+        "name": "Bledisloe Cup",
+        "fixtureCount": 2,
+        "withEvidence": 2,
+        "providerIds": [
+          "nine-tv",
+          "nine",
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.rugby.com.au/watch",
+          "https://www.stan.com.au/watch/sport/rugby/bledisloe-cup"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-02T05:17:58.761Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:145a0f16-1628-498b-afd7-67fa201ab047",
+        "sportKey": "rugby",
+        "name": "Currie Cup 2026",
+        "fixtureCount": 3,
+        "withEvidence": 3,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:14de5b79-3cda-4025-8150-843fa3f19ee8",
+        "sportKey": "rugby",
+        "name": "WXV 2026",
+        "fixtureCount": 30,
+        "withEvidence": 29,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.stan.com.au/watch/sport/rugby/wxv"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-02T05:17:58.761Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:16e09e86-cf77-4acd-80a0-7b9aa9030e57",
+        "sportKey": "rugby",
+        "name": "Bunnings Warehouse NPC 2026",
+        "fixtureCount": 42,
+        "withEvidence": 42,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.stan.com.au/watch/sport/rugby/npc"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-02T05:17:58.761Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:173b3ab9-4247-4dff-9bc1-9bd7ceda6482",
+        "sportKey": "rugby",
+        "name": "Super Rugby AUS 2026",
+        "fixtureCount": 7,
+        "withEvidence": 7,
+        "providerIds": [
+          "stan",
+          "youtube"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.stan.com.au/watch/sport/rugby/super-rugby-aus",
+          "https://www.rugby.com.au/news/hmp-joc-return-boost-force-grand-final-scotch-2026930"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-02T05:17:58.761Z",
+          "2026-10-02T08:24:48.810Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:1f280dac-f9ff-4afa-8d10-98bc461273f4",
+        "sportKey": "rugby",
+        "name": "Heartland Championship 2026",
+        "fixtureCount": 36,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:24bf7f35-5e9f-487b-916d-eab79e4453fb",
+        "sportKey": "rugby",
+        "name": "WXV 2026",
+        "fixtureCount": 9,
+        "withEvidence": 9,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.stan.com.au/watch/sport/rugby/wxv"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-02T05:17:58.761Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:2536cab2-fb7d-426c-8a34-8d3a1a8cdaf8",
+        "sportKey": "rugby",
+        "name": "Serie A Elite 2027",
+        "fixtureCount": 10,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:413bfe21-f81b-420e-9f93-5373628cb6cd",
+        "sportKey": "rugby",
+        "name": "URC 2027",
+        "fixtureCount": 70,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.unitedrugby.com/where-to-watch/"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:46294cf5-dee3-4234-957a-dbe1f08049f2",
+        "sportKey": "rugby",
+        "name": "Nations Championship 2026",
+        "fixtureCount": 21,
+        "withEvidence": 21,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.rugby.com.au/news/2026-nations-rugby-championship-fixtures-schedule-how-to-watch-international-rugby-wallabies-fixtures-2026-2026630"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:5ad2f75b-c8ed-401a-96ca-1109149237a2",
+        "sportKey": "rugby",
+        "name": "Premiership Womens Rugby Cup 2026",
+        "fixtureCount": 19,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:6770011c-d75a-47b9-9eae-b213bc6bc6bc",
+        "sportKey": "rugby",
+        "name": "Celtic Challenge 2027",
+        "fixtureCount": 12,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:6cacfefe-eb6f-4314-989c-893ebff51651",
+        "sportKey": "rugby",
+        "name": "English Premiership 2027",
+        "fixtureCount": 45,
+        "withEvidence": 21,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.stan.com.au/watch/sport/rugby/prem-rugby"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-02T05:17:58.761Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:6f48f2e6-ca17-410e-8860-a8a5447b0b11",
+        "sportKey": "rugby",
+        "name": "Women's Internationals 2026",
+        "fixtureCount": 3,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:77856c82-8f54-4fb6-87d5-42d49d2227fa",
+        "sportKey": "rugby",
+        "name": "Top 14 2027",
+        "fixtureCount": 98,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://top14.lnr.fr/page/les-diffuseurs"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:795ee1f0-cbee-4c72-b0b2-aadf1546a18e",
+        "sportKey": "rugby",
+        "name": "World Rugby Nations Cup 2026",
+        "fixtureCount": 18,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:7a0c709d-ab98-40a1-9352-57c8028bb1e5",
+        "sportKey": "rugby",
+        "name": "Rugby’s Greatest Rivalry 2026",
+        "fixtureCount": 2,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:840754f5-1498-4028-9b04-83992721267b",
+        "sportKey": "rugby",
+        "name": "Americas Rugby Championship South America 2026",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:872d2fcf-e72e-46af-ba81-9b7c68870401",
+        "sportKey": "rugby",
+        "name": "Coppa Italia 2027",
+        "fixtureCount": 18,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:918e620a-c1a4-4050-97ae-20f44da52e33",
+        "sportKey": "rugby",
+        "name": "EPCR Champions Cup 2027",
+        "fixtureCount": 36,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.epcrugby.com/where-to-watch-the-investec-champions-cup"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:9a578eb2-d415-400c-b269-e7f4e751fa73",
+        "sportKey": "rugby",
+        "name": "Rugby Europe Conference Men's  2027",
+        "fixtureCount": 13,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.rugbyeurope.eu/where-to-watch-mens-rugby-europe-championship-2026"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:b18ea809-91dd-44ff-a0f0-8858e58e2ab7",
+        "sportKey": "rugby",
+        "name": "Premiership Womens Rugby 2027",
+        "fixtureCount": 28,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:b7511d98-7be1-4ac3-9470-90c98e84c5f3",
+        "sportKey": "rugby",
+        "name": "Pacific Nations Cup 2026",
+        "fixtureCount": 4,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:bb148549-b1ed-4a03-8ffe-be8f72f1ff47",
+        "sportKey": "rugby",
+        "name": "EPCR Challenge Cup 2027",
+        "fixtureCount": 27,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.epcrugby.com/where-to-watch-the-investec-champions-cup"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:cf9a914d-84b6-4982-bf36-f7266b7cf6b3",
+        "sportKey": "rugby",
+        "name": "Women's Rugby’s Greatest Rivalry 2026",
+        "fixtureCount": 1,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:e2209b51-e926-4148-b168-8637953ec134",
+        "sportKey": "rugby",
+        "name": "Rugby Europe Trophy Women's 2027",
+        "fixtureCount": 1,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.rugbyeurope.eu/where-to-watch-mens-rugby-europe-championship-2026"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:e2abdb4a-5155-4fa2-b5f7-3458b311d66e",
+        "sportKey": "rugby",
+        "name": "Premiership Rugby Cup 2027",
+        "fixtureCount": 8,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:e45b2f9d-c83c-444a-b79b-66a9e3a04461",
+        "sportKey": "rugby",
+        "name": "English Championship 2027",
+        "fixtureCount": 98,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:ee2acc49-be5a-4a96-9850-98752f625fa8",
+        "sportKey": "rugby",
+        "name": "Men's Internationals 2026",
+        "fixtureCount": 6,
+        "withEvidence": 1,
+        "providerIds": [
+          "nine-tv",
+          "nine",
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.rugby.com.au/watch",
+          "https://www.stan.com.au/watch/sport/rugby/wallabies"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-02T05:17:58.761Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:ffbf0515-b948-47c8-86cd-71c4db8562cd",
+        "sportKey": "rugby",
+        "name": "Rugby Europe Trophy Men's 2027",
+        "fixtureCount": 9,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby",
+          "https://www.rugbyeurope.eu/where-to-watch-mens-rugby-europe-championship-2026"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:rugby:wr:rugby",
+        "sportKey": "rugby",
+        "name": "Rugby",
+        "fixtureCount": 1,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:sailgp",
+        "sportKey": "sailgp",
+        "name": "competition:sailgp",
+        "fixtureCount": 48,
+        "withEvidence": 26,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://sailgp.com/news/26/sailgp-confirms-global-broadcast-lineup-2026-season/"
+        ],
+        "originalEvidenceDates": [
+          "2026-09-06T00:00:00.000Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:supercars",
+        "sportKey": "supercars",
+        "name": "Repco Supercars Championship",
+        "fixtureCount": 1,
+        "withEvidence": 1,
+        "providerIds": [
+          "seven",
+          "foxtel",
+          "kayo"
+        ],
+        "sourceUrls": [
+          "https://www.supercars.com/tv-schedule"
+        ],
+        "originalEvidenceDates": [
+          "2026-09-24T01:50:44.155Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:tennis:atp-beijing-2026",
+        "sportKey": "tennis",
+        "name": "competition:tennis:atp-beijing-2026",
+        "fixtureCount": 4,
+        "withEvidence": 3,
+        "providerIds": [
+          "bein",
+          "tennis-tv"
+        ],
+        "sourceUrls": [
+          "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "https://connect-au.beinsports.com/en/events/158518?Title=Beijing+Final",
+          "https://www.tennistv.com/live-schedule"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z",
+          "2026-10-06T12:10:18.000Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:tennis:atp-tokyo-2026",
+        "sportKey": "tennis",
+        "name": "competition:tennis:atp-tokyo-2026",
+        "fixtureCount": 3,
+        "withEvidence": 3,
+        "providerIds": [
+          "bein",
+          "tennis-tv"
+        ],
+        "sourceUrls": [
+          "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "https://connect-au.beinsports.com/en",
+          "https://www.tennistv.com/tournaments/329_2026/tokyo",
+          "https://connect-au.beinsports.com/en/events/158530?Title=Tokyo+Final",
+          "https://www.tennistv.com/live-schedule"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-06T10:08:38.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:tennis:us-open:2026",
+        "sportKey": "tennis",
+        "name": "competition:tennis:us-open:2026",
+        "fixtureCount": 958,
+        "withEvidence": 958,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour",
+          "https://www.stan.com.au/watch/sport/tennis/us-open"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:tennis:wta-beijing-2026",
+        "sportKey": "tennis",
+        "name": "China Open",
+        "fixtureCount": 2,
+        "withEvidence": 1,
+        "providerIds": [
+          "stan",
+          "bein"
+        ],
+        "sourceUrls": [
+          "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:tour-de-france",
+        "sportKey": "tdf",
+        "name": "competition:tour-de-france",
+        "fixtureCount": 24,
+        "withEvidence": 21,
+        "providerIds": [
+          "sbs"
+        ],
+        "sourceUrls": [
+          "https://www.sbs.com.au/aboutus/2026/03/20/feast-for-cycling-fans-as-sbs-extends-road-cycling-broadcasts-to-include-all-grand-tours-and-monuments/"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:uefa-champions-league",
+        "sportKey": "uefa-champions-league",
+        "name": "competition:uefa-champions-league",
+        "fixtureCount": 156,
+        "withEvidence": 156,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/football/uefa-champions-league"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:uefa-europa-league",
+        "sportKey": "football",
+        "name": "UEFA Europa League",
+        "fixtureCount": 144,
+        "withEvidence": 144,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/football",
+          "https://www.stan.com.au/watch/sport/football/uefa-europa-league"
+        ],
+        "originalEvidenceDates": [
+          "2026-09-27T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:vuelta-a-espana",
+        "sportKey": "vuelta",
+        "name": "competition:vuelta-a-espana",
+        "fixtureCount": 22,
+        "withEvidence": 1,
+        "providerIds": [
+          "sbs"
+        ],
+        "sourceUrls": [
+          "https://www.sbs.com.au/ondemand/ko/collection/2026-grand-tours",
+          "https://www.sbs.com.au/aboutus/2026/03/20/feast-for-cycling-fans-as-sbs-extends-road-cycling-broadcasts-to-include-all-grand-tours-and-monuments/"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "partial-carriage",
+        "reason": "Some editions or fixtures lack applicable AU coverage evidence.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:wrc-2026",
+        "sportKey": "wrc",
+        "name": "competition:wrc-2026",
+        "fixtureCount": 14,
+        "withEvidence": 14,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:wrc-2027",
+        "sportKey": "wrc",
+        "name": "competition:wrc-2027",
+        "fixtureCount": 1,
+        "withEvidence": 1,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/motorsport/wrc"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:wsl-championship-tour",
+        "sportKey": "wsl",
+        "name": "competition:wsl-championship-tour",
+        "fixtureCount": 12,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.worldsurfleague.com/"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "competition:wta-tour",
+        "sportKey": "tennis",
+        "name": "competition:wta-tour",
+        "fixtureCount": 140,
+        "withEvidence": 140,
+        "providerIds": [
+          "stan",
+          "bein"
+        ],
+        "sourceUrls": [
+          "https://support.tennistv.com/hc/en-us/articles/21142679835420-What-can-I-watch-on-Tennis-TV",
+          "https://www.stan.news/stan-sport-strengthens-tennis-portfolio-with-addition-of-wta-tour"
+        ],
+        "originalEvidenceDates": [
+          "2026-10-14T12:57:35.385Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "competition-id"
+      },
+      {
+        "competitionId": "cricket",
+        "sportKey": "cricket",
+        "name": "cricket",
+        "fixtureCount": 2,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.cricket.com.au/our-partners/our-broadcast-partners",
+          "https://www.cricket.com.au/news/4029663"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "cwg",
+        "sportKey": "cwg",
+        "name": "cwg",
+        "fixtureCount": 34,
+        "withEvidence": 34,
+        "providerIds": [
+          "seven",
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://sevenwestmedia.com.au/assets/pdfs/Seven-the-home-of-the-Glasgow-2026-Commonwealth-Games-FINAL.pdf",
+          "https://netball.com.au/supernetball/broadcast"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "downhill-mtb",
+        "sportKey": "downhill-mtb",
+        "name": "downhill-mtb",
+        "fixtureCount": 1,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.uci.org/"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "f1",
+        "sportKey": "f1",
+        "name": "f1",
+        "fixtureCount": 17,
+        "withEvidence": 17,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/f1.html"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "fifa",
+        "sportKey": "fifa",
+        "name": "fifa",
+        "fixtureCount": 20,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.sbs.com.au/sport/fifa-world-cup-2026/how-to-watch/"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "goodwood",
+        "sportKey": "goodwood",
+        "name": "goodwood",
+        "fixtureCount": 1,
+        "withEvidence": 1,
+        "providerIds": [
+          "goodwood"
+        ],
+        "sourceUrls": [
+          "https://api.goodwood.com/grr/event-coverage/festival-of-speed/how-to-watch-festival-of-speed/"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "masters",
+        "sportKey": "masters",
+        "name": "masters",
+        "fixtureCount": 4,
+        "withEvidence": 4,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/golf.html"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "nba",
+        "sportKey": "nba",
+        "name": "nba",
+        "fixtureCount": 7,
+        "withEvidence": 7,
+        "providerIds": [
+          "nba-pass"
+        ],
+        "sourceUrls": [
+          "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl26-season",
+          "https://support.watch.nba.com/hc/en-us/articles/115002481154-League-Pass-Blackouts"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "nfl",
+        "sportKey": "nfl",
+        "name": "nfl",
+        "fixtureCount": 1,
+        "withEvidence": 1,
+        "providerIds": [
+          "dazn"
+        ],
+        "sourceUrls": [
+          "https://www.nfl.com/international/ways-to-watch/australia"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "nrl",
+        "sportKey": "nrl",
+        "name": "nrl",
+        "fixtureCount": 4,
+        "withEvidence": 4,
+        "providerIds": [
+          "kayo",
+          "foxtel"
+        ],
+        "sourceUrls": [
+          "https://www.foxtel.com.au/watch/nrl.html",
+          "https://www.foxtel.com.au/watch/nrl.html/"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "rugby",
+        "sportKey": "rugby",
+        "name": "rugby",
+        "fixtureCount": 11,
+        "withEvidence": 0,
+        "providerIds": [],
+        "sourceUrls": [
+          "https://www.stan.com.au/watch/sport/rugby"
+        ],
+        "originalEvidenceDates": [],
+        "disposition": "unverified",
+        "reason": "No applicable dated AU entitlement is established for these published records.",
+        "nextAction": "Obtain an official AU edition/fixture listing before adding a watch or replay action.",
+        "groupType": "sport-key-fallback"
+      },
+      {
+        "competitionId": "wimbledon",
+        "sportKey": "wimbledon",
+        "name": "wimbledon",
+        "fixtureCount": 32,
+        "withEvidence": 32,
+        "providerIds": [
+          "stan"
+        ],
+        "sourceUrls": [
+          "https://www.nineforbrands.com.au/media-release/9network-in-2026/",
+          "https://www.stan.com.au/watch/sport/tennis"
+        ],
+        "originalEvidenceDates": [
+          "2026-08-25T00:00:00.000Z"
+        ],
+        "disposition": "scoped-carriage",
+        "reason": "Published records resolve to dated carriage evidence; replay and individual court access remain separate.",
+        "nextAction": "Retain source dates; recheck when edition rights or listings change.",
+        "groupType": "sport-key-fallback"
+      }
+    ],
+    "groupCount": 140,
+    "fallbackSportGroupCount": 14
+  }
 }

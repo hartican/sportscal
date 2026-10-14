@@ -76,7 +76,7 @@ for(const id of ['fixture:golf:pga:H2026166','fixture:golf:lpga:2026076','fixtur
 const foreign={...unknown,viewingOptions:[{providerId:'seven',rightsScope:'fixture',sourceUrl:'https://example.test/official-fixture',verifiedAt:'2026-09-25T00:00:00Z'}]};assert.deepEqual(providers(foreign),['seven'],'separate verified fixture evidence survives');
 assert.deepEqual(follow.viewingOptions({key:'cricket',competitionId:'competition:cricket:4567'}),[],'undated fixtures do not inherit time-bounded ODI rights');
 assert.deepEqual(follow.viewingOptions({key:'cricket',competitionId:'competition:cricket:4567',startTimeUtc:'2027-09-24T00:00:00Z'}),[],'UTC-only observations obey season bounds');
-assert.deepEqual(follow.viewingOptions({key:'netball',competitionId:'competition:netball',startTimeUtc:'2027-09-01T00:00:00Z'}).map(o=>o.providerId),['stan','nine'],'other dated rights use actual UTC timing');
+assert.deepEqual(follow.viewingOptions({key:'netball',competitionId:'competition:netball',startTimeUtc:'2027-09-01T00:00:00Z'}).map(o=>o.providerId),['nine','stan'],'other dated rights use actual UTC timing');
 // Real retained NHL rows, including zero-score final; viewing never changes facts.
 const hockey=require('../data/code-inspector/ice-hockey.json').fixtures;
 const nhl=hockey.filter(f=>f.competitionId==='competition:nhl');
@@ -114,7 +114,7 @@ const nhlRule=audit.reviewedWindows.find(r=>r.competitionIds?.includes('competit
 const nhlRights=follow.COMPETITION_VIEWING_RIGHTS['competition:nhl:2026-27'];
 assert(nhlRule&&nhlRights);assert.equal(nhlRights.fixtureIdPattern,nhlRule.fixtureIdPattern);assert.equal(nhlRights.roundLabel,nhlRule.roundLabel);
 for(const rule of audit.reviewedWindows){assert(Number.isFinite(Date.parse(rule.verifiedAt)));assert(Date.parse(rule.notBefore)<Date.parse(rule.notAfter));assert(/^https:\/\//.test(rule.sourceUrl));assert(rule.fixtureIds?.length||rule.competitionIds?.length);
- if(rule.tournamentIds){assert(Array.isArray(rule.tournamentIds)&&rule.tournamentIds.length);assert(rule.tournamentIds.every(id=>typeof id==='string'&&id.startsWith('tournament:tennis:')&&id.endsWith('-'+rule.season)));assert.equal(rule.sportKey,'tennis');assert(['ATP','WTA'].includes(rule.tour));assert.equal(rule.rightsScope,'competition');}
+ if(rule.tournamentIds){assert(Array.isArray(rule.tournamentIds)&&rule.tournamentIds.length);assert(rule.tournamentIds.every(id=>typeof id==='string'&&id.startsWith('tournament:tennis:')&&id.endsWith('-'+rule.season)));assert.equal(rule.sportKey,'tennis');assert(['ATP','WTA','TEAM'].includes(rule.tour));assert.equal(rule.rightsScope,'competition');}
 }
 const beijingId='fixture:tennis:atp-beijing-2026:f:djokovic-de-minaur';
 const beijing=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.find(f=>f.id===beijingId);assert(beijing);
@@ -124,7 +124,7 @@ assert.equal(beijingOptions[0].webUrl,'https://connect-au.beinsports.com/en/even
 assert.equal(beijingOptions[1].webUrl,'https://www.tennistv.com/live?id=4582948');
 assert(beijingOptions.every(o=>o.rightsScope==='fixture'&&o.linkScope==='fixture'&&o.territory==='AU'&&!o.replayVerified));
 assert.deepEqual(sporting(review(beijing)),sporting(beijing),'viewing leaves Beijing source clocks, live status and reminder identity unchanged');
-for(const mutation of [{competitionId:'competition:tennis:wta-beijing-2026'},{roundLabel:'Semifinal'},{participantIds:['athlete:tennis:novak-djokovic','unknown']},{date:'2027-10-06',startTimeUtc:'2027-10-06T11:00:00Z'}])assert.deepEqual(providers({...review(beijing),...mutation}),[],'Beijing final rights do not leak to WTA, another round, person or edition');
+for(const mutation of [{competitionId:'competition:tennis:wta-beijing-2026'},{roundLabel:'Semifinal'},{participantIds:['athlete:tennis:novak-djokovic','unknown']},{date:'2027-10-06',startTimeUtc:'2027-10-06T11:00:00Z'}])assert(follow.viewingOptions(review({...review(beijing),...mutation})).every(o=>o.linkScope!=='fixture'),'Beijing final destinations do not leak; independently verified same-edition main-draw carriage may remain');
 if(process.argv.includes('--published'))for(const folder of ['code-inspector','follow-schedule']){const f=require(`../data/${folder}/tennis.json`).fixtures.find(f=>(f.canonicalEventId||f.id)===beijingId);assert(f);assert.deepEqual(follow.viewingOptions(f).map(o=>o.providerId),['bein','tennis-tv']);assert(['live','completed'].includes(f.status),'The named final retains explicit observed play or its subsequently published final');if(f.status==='completed')assert(f.score&&f.winnerParticipantId,'The observed final has a result');}
 const japanId='fixture:tennis:atp-tokyo-2026:f:alcaraz-lehecka';
 const japan=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.find(f=>f.id===japanId);assert(japan);
@@ -134,7 +134,7 @@ assert.equal(japanOptions[1].webUrl,'https://www.tennistv.com/live?id=4582945');
 assert(japanOptions.every(o=>o.rightsScope==='fixture'&&o.linkScope==='fixture'&&o.territory==='AU'&&o.accessType==='subscription'&&!o.replayVerified));
 assert.deepEqual(review(review(japan)),review(japan),'unchanged Japan review retains bytes and source dates');
 assert.deepEqual(sporting(review(japan)),sporting(japan),'viewing cannot renew timing or change live, score or action facts');
-for(const mutation of [{competitionId:'competition:tennis:atp-beijing-2026'},{participantIds:['competitor:tennis:atp:carlos-alcaraz','competitor:tennis:atp:novak-djokovic']},{roundLabel:'Semifinal'},{date:'2027-10-06',startTimeUtc:'2027-10-06T09:00:00Z'}])assert.deepEqual(providers({...review(japan),...mutation}),[],'Japan final viewing requires the exact edition, participants, round and date');
+for(const mutation of [{competitionId:'competition:tennis:atp-beijing-2026'},{participantIds:['competitor:tennis:atp:carlos-alcaraz','competitor:tennis:atp:novak-djokovic']},{roundLabel:'Semifinal'},{date:'2027-10-06',startTimeUtc:'2027-10-06T09:00:00Z'}])assert(follow.viewingOptions(review({...review(japan),...mutation})).every(o=>o.linkScope!=='fixture'),'Japan final destinations require exact identity; independently verified tournament carriage may remain');
 assert(follow.viewingOptions(review({...japan,status:'completed'})).every(o=>!o.replayVerified),'live carriage is not proof of final replay playback');
 if(process.argv.includes('--published')){
  for(const folder of ['code-inspector','follow-schedule']){

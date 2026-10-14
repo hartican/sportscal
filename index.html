@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="538">
+<meta name="app-shell-version" content="539">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=538" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=539" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -1712,7 +1712,7 @@ header.top,#calendarControls,#mainContent,.app-footer,#jumpTodayBtn{animation:no
 .fixture-timing-badge{display:flex;flex-direction:column;align-items:center;text-align:center}.fixture-timing-day,.fixture-timing-clock{font-size:inherit;font-weight:750;line-height:1.2}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=463">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=534">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=539">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=536">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -2009,7 +2009,7 @@ header.top,#calendarControls,#mainContent,.app-footer,#jumpTodayBtn{animation:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=538"></script>
+<script src="assets/js/app-shell-runtime.js?v=539"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10775,7 +10775,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=536';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=539';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 let epicUiLoading;
@@ -12603,7 +12603,7 @@ async function loadMatchCentre(){
   const panel=document.getElementById('listView');
   if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return;}
   panel.className='match-centre';panel.textContent='Loading Match Centre…';
-  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=528'),loadDeferredScript('config/score-details.js?v=527'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=535')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
+  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=528'),loadDeferredScript('config/score-details.js?v=527'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=539')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
 }
 function renderTeamsAndPlayersDirectory(container){
   if(typeof globalThis.renderTeamsAndPlayersDirectoryLoaded==='function')return globalThis.renderTeamsAndPlayersDirectoryLoaded(container);
