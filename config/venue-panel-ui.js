@@ -106,7 +106,7 @@ function buildTournamentMarker(event){
  summary.setAttribute('aria-label','Expand '+event.name+'. '+timing.ariaLabel);
  const content=document.createElement('div');content.className='feed-tournament-appearances';details.append(content);let mounted=false;
  const mount=()=>{if(details.open){tennisFeedOpenParents.add(id);if(!mounted){mounted=true;loadDeferredScript('assets/js/tournament-card-ui.js?v=533').then(()=>NOTHINGSPORTS_TOURNAMENT_CARD_UI.render(content,event)).catch(()=>{mounted=false;content.textContent='Appearances could not load. Close and reopen to retry.';});}}else tennisFeedOpenParents.delete(id);};details.addEventListener('toggle',mount);
- card.append(details,buildEventCardControls(event,{card}),buildCardDisclosureControl(event.name,'selected',(state,options)=>{setCardState(event,state);refreshExpandableCard(card,buildTournamentMarker(event),options);syncNothingscoreReadRecovery();}));if(details.open)queueMicrotask(mount);return card;
+ card.append(details,buildEventCardControls(event,{card}),buildCardDisclosureControl(event.name,'selected',(state,options)=>{setCardState(event,state);refreshExpandableCard(card,buildTournamentMarker(event),options);syncNothingscoreReadRecovery();}));appendEventQuickActions(card,event,{reminder:false,chat:false,highlightsOnly:true});if(details.open)queueMicrotask(mount);return card;
 }
 
 function buildFixtureTimingBadge(ev){
@@ -964,12 +964,12 @@ function viewingAccessLabel(viewing){
 }
 
 function appendEventQuickActions(container, ev, { reminder = true, chat = true, viewing = true, highlightsOnly = false } = {}){
-  if(globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev))viewing=false;
+  const viewingPaused=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev);
   const actions = document.createElement("div");
   actions.className = "event-quick-actions";
-  const viewingLinks = viewing&&!highlightsOnly ? FOLLOW_FIRST.viewingOptions(ev,userPreferences.followFirst?.subscriptions||[]).filter(p=>!p.territory||['AU','GLOBAL'].includes(p.territory)) : [];
+  const viewingLinks = viewing&&!highlightsOnly&&!viewingPaused ? FOLLOW_FIRST.viewingOptions(ev,userPreferences.followFirst?.subscriptions||[]).filter(p=>!p.territory||['AU','GLOBAL'].includes(p.territory)) : [];
   const highlights=globalThis.NOTHINGSPORTS_FIXTURE_HIGHLIGHTS?.viewing(ev);
-  if(viewing&&highlights)viewingLinks.unshift({...FOLLOW_FIRST.VIEWING_PROVIDERS.youtube,...highlights});
+  if(viewing&&highlights&&(!highlights.highlightsFeedOnly||activeTab==='feed'))viewingLinks.unshift({...FOLLOW_FIRST.VIEWING_PROVIDERS.youtube,...highlights});
   if(highlightsOnly&&!viewingLinks.length)return;
   if(viewing){
     const row=document.createElement('div');row.className='fixture-providers';row.setAttribute('aria-label','Viewing providers');
@@ -978,9 +978,9 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
       configureProviderLaunch(link,viewingLink);
       const verb=viewingLink.highlights?viewingLink.highlightsLabel:viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';
       const access=viewingAccessLabel(viewingLink);
-      link.title=`${verb} on ${viewingLink.label}${viewingLink.highlightsSearch?'':` · ${access}`}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
+      link.title=`${verb} on ${viewingLink.label}${viewingLink.highlightsSearch?' · Opens a fixture search':` · ${access}`}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
       const cost=document.createElement('span');if(!viewingLink.highlights)cost.className='provider-access';cost.textContent=viewingLink.highlights?verb:access;link.appendChild(cost);
-      link.addEventListener('click',event=>{event.stopPropagation();recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
+      link.addEventListener('click',event=>{event.stopPropagation();if(!viewingLink.highlights)recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
     }
     const viewingNote=!viewingLinks.length?'Australian viewing unconfirmed':null;
     if(viewingNote){const text=document.createElement('span');text.className='viewing-tbc';text.textContent=viewingNote;row.append(text);}
@@ -1191,6 +1191,7 @@ function buildFixtureFallbackCard(event, options = {}){
     if(phase)copy.appendChild(buildEventTimingStateChip(ev,phase));
   }
   card.append(copy,...(ev.calendarNote?[]:[buildFeedScheduleLink(ev)]));
+  appendEventQuickActions(card,ev,{reminder:false,chat:false,highlightsOnly:true});
   if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
   card.setAttribute("aria-label", `${label}. Fixture details.`);
   card.append(buildCardDisclosureControl(label,'selected',(state,settings)=>{setCardState(ev,state);refreshExpandableCard(card,buildFixtureFallbackCard(ev,options),settings);syncNothingscoreReadRecovery();}));

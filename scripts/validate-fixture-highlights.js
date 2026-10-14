@@ -112,6 +112,7 @@ async function main(){
  assert(require('./quick-results').projectionSteps(['Tennis highlights']).some(step=>step[0]==='scripts/build-paged-feed.js'));
  await require('./validate-fixture-highlights-cache').main();
  await require('./validate-tennis-highlights-seven-days').main();
+  require('./validate-all-sport-highlights').main();
  console.log('Highlights: sourced rounds, draw/publisher/edition matching, public feeds, key fallback, removal/outage, safe persisted overlays, cadence, schemas and canonical owners passed.');
  }finally{Date.now=realNow;}
 }

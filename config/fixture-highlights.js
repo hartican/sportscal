@@ -26,15 +26,16 @@
   }
   function viewing(event,now=Date.now()){
     if(completed(event)&&valid(event.highlights,now))return {...youtube,webUrl:event.highlights.url,highlightsLabel:'Watch highlights'};
-    if(!tennisEligible(event)||!recent(event,now))return null;
+    if(!completed(event)||!recent(event,now))return null;
+    const policy=epic(),date=policy.validDay(event.date)?event.date:policy.finalDay({...event,status:'completed'},new Date(now));
     const names=playerNames(event),format=[event.eventType,event.matchType,event.tennisDrawType,event.drawType].join(' ');
-    if(names.length!==(/double/i.test(format)?4:2))return null;
     const place=event.tournamentName||event.eventName||event.competitionName||String(event.tournamentId||'').replace(/^(?:tournament:)?tennis:/,'').replace(/[:-]/g,' ');
-    if(!place)return null;
-    const publisher=/women|female|\bWTA\b/i.test(format+' '+event.gender+' '+event.key)?'WTA':'ATP Tour Tennis TV';
-    const policy=epic(),year=(policy.validDay(event.date)?event.date:policy.finalDay({...event,status:'completed'},new Date(now))).slice(0,4);
-    const query=[names.join(' vs '),place,year,event.roundLabel||event.round,publisher,'highlights'].filter(Boolean).join(' ');
-    return {...youtube,webUrl:'https://www.youtube.com/results?search_query='+encodeURIComponent(query),highlightsSearch:true,highlightsLabel:'Search highlights'};
+    const namedTennis=tennisEligible(event)&&names.length===(/double/i.test(format)?4:2)&&Boolean(place);
+    const title=namedTennis?names.join(' vs '):String(event.name||'').trim();
+    if(!title||/^(?:TBD|TBC|unknown)(?:\s+v(?:s)?\.?\s+(?:TBD|TBC|unknown))?$/i.test(title))return null;
+    const sport=namedTennis?(/women|female|\bWTA\b/i.test(format+' '+event.gender+' '+event.key)?'WTA':'ATP Tour Tennis TV'):String(event.codeId||event.sportKey||event.key||'').replace(/^(?:sport|competition):/,'').replace(/[-:]/g,' ');
+    const query=[title,namedTennis?place:event.competitionName||event.tournamentName,namedTennis?date.slice(0,4):date,namedTennis?event.roundLabel||event.round:event.stage||event.roundLabel,sport,'highlights'].filter(Boolean).join(' ');
+    return {...youtube,webUrl:'https://www.youtube.com/results?search_query='+encodeURIComponent(query),highlightsSearch:true,highlightsFeedOnly:!namedTennis,highlightsLabel:'Watch highlights'};
   }
   return Object.freeze({SCHEMA_VERSION,MAX_CACHE_AGE_MS,fresh,completed,recent,playerNames,tennisEligible,valid,viewing});
 });
