@@ -70,10 +70,15 @@ for(const next of [retracted,rescheduled,{...official,id:wta.id,planningTimeEvid
  for(const actual of [context.actualObservations[0],context.actualCurrent])for(const field of ['startTimeUtc','estimatedStartTimeUtc','planningTimeEvidence','timePrecision','scheduleStatus','timeTbc','startTimeTbc','time','date'])assert.deepEqual(JSON.parse(JSON.stringify(actual[field]??null)),JSON.parse(JSON.stringify(expected[field]??null)),'Actual UI carries current planning field '+field);
 }
 (async()=>{
+ // This isolated captured-adapter rehearsal must not age with the wall clock.
+ const realNow=Date.now;Date.now=()=>+elapsed;
+ try{
  let reads=0;const fetchImpl=async()=>{reads++;return new Response(JSON.stringify(receipts[0].payload),{status:200,headers:{date:elapsed.toUTCString()}});};
  const adapter=require('../lib/live-tennis-scoreboard').sources({fetchImpl}).find(s=>s.id==='live-tennis-wta');
  const liveRows=await adapter.fetch({now:elapsed,previous:[wta]});const live=liveRows.find(e=>e.id===wta.id);
  assert.equal(reads,1,'The real shared adapter keeps its single source request');assert.deepEqual(live.planningTimeEvidence,wta.planningTimeEvidence);assert.equal(timing.presentation(live,elapsed).status,'Awaiting match update');assert.equal(require('../config/feed-timeline').status(live,elapsed),'unknown');assert.equal(live.startTimeUtc,null);assert.equal(policy.timing(live,elapsed),null);assert.equal(policy.manualTiming(live,elapsed),null);assert.equal('publisherPlanningReceipt' in live,false);
  assert.equal(policy.intent(live,prefs,{[live.id]:{reminderChoice:'off'}},{},elapsed).enabled,false,'An ordinary estimate refresh cannot undo OFF');
+ await assert.rejects(owner.observe({tour:'wta',now:elapsed,fetchImpl,catalogue,clock:()=>+elapsed+6*3600000+1}),/older than six hours/,'The production observer still rejects a genuinely stale receipt');
  console.log('Publisher planning: captured estimate, ordinary refresh/adapter awaiting continuity, first-elapsed rejection, TBD retraction, changed-clock handling, original receipts, official priority and unchanged reminder/OFF rules passed.');
+ }finally{Date.now=realNow;}
 })().catch(error=>{console.error(error);process.exitCode=1;});
