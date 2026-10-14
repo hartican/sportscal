@@ -1,5 +1,7 @@
 # CTO delivery programme — authoritative current queue
 
+**In final checks — 15 October:** Faster complete player-match loading, recent suitable highlights and mobile Stan app-linked destinations are assembled locally. The combined match, highlights, viewing and installed-app upgrade checks pass. Independent review, live database acceptance and exact-version publication remain pending; this is not a live-delivery claim. There is no new subscription or regular owner task. Broader sport certification and physical-phone acceptance remain open.
+
 **Direct highlights delivery - 15 October:** Watch highlights now opens a checked video or the first YouTube search-service video, with an honest unverified note. Repeated lookups reuse saved selections and the free allowance is protected. Phone-sized/desktop live checks and installed/offline rehearsals passed. No subscription or owner routine. [Dated evidence](quality/direct-highlights-current-2026-10-15.md).
 
 **Cleaner cards and viewing delivery — 15 October:** Rating explanations now live in a collapsed About section; cards keep useful match details with less repeated help and empty space. Viewing choices favour your subscriptions, then confirmed free services, with exact match links preserved and unconfirmed replays hidden. Both browser and installed/offline checks pass. No subscription or owner routine. [Dated evidence](quality/clean-feed-viewing-2026-10-15.md).
