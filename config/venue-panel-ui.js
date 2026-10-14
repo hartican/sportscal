@@ -207,7 +207,7 @@ function mountMinimisedCard(card,ev,activate){
   const summary=buildCompactCardSummary(ev);
   summary.onclick=event=>{event.stopPropagation();const mounted=summary.closest('.event-card')||card,choice=mounted.querySelector('[data-calendar-id]');if(calendarChoice.active&&activeTab==='feed'&&choice){if(!choice.disabled)choice.click();return;}activate('selected',{restoreFocus:event.detail===0,focusTarget:mounted});};
   card.append(summary);
-  if(ev.highlights&&!calendarChoice.active)appendEventQuickActions(card,ev,{reminder:false,chat:false,highlightsOnly:true});
+  if(globalThis.NOTHINGSPORTS_FIXTURE_HIGHLIGHTS?.viewing(ev)&&!calendarChoice.active)appendEventQuickActions(card,ev,{reminder:false,chat:false,highlightsOnly:true});
   return card;
 }
 function refreshMinimisedCard(card,ev){
@@ -968,18 +968,18 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
   const actions = document.createElement("div");
   actions.className = "event-quick-actions";
   const viewingLinks = viewing&&!highlightsOnly ? FOLLOW_FIRST.viewingOptions(ev,userPreferences.followFirst?.subscriptions||[]).filter(p=>!p.territory||['AU','GLOBAL'].includes(p.territory)) : [];
-  const h=ev.highlights;
-  if(viewing&&/^(completed|finished|final|past)$/i.test(ev.status||'')&&h?.availability==='public'&&h.standalone&&h.verifiedAt&&h.regionStatus!=='blocked'&&h.url==='https://www.youtube.com/watch?v='+h.videoId)viewingLinks.unshift({...FOLLOW_FIRST.VIEWING_PROVIDERS.youtube,providerId:'youtube',webUrl:h.url,highlights:true});
+  const highlights=globalThis.NOTHINGSPORTS_FIXTURE_HIGHLIGHTS?.viewing(ev);
+  if(viewing&&highlights)viewingLinks.unshift({...FOLLOW_FIRST.VIEWING_PROVIDERS.youtube,...highlights});
   if(highlightsOnly&&!viewingLinks.length)return;
   if(viewing){
     const row=document.createElement('div');row.className='fixture-providers';row.setAttribute('aria-label','Viewing providers');
     for(const viewingLink of viewingLinks){
       const link=document.createElement('a');link.className='event-quick-action provider-link'+(viewingLink.highlights?' fixture-highlights-link':'');
       configureProviderLaunch(link,viewingLink);
-      const verb=viewingLink.highlights?'Watch highlights':viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';
+      const verb=viewingLink.highlights?viewingLink.highlightsLabel:viewingLink.liveOrReplay==='replay'?(viewingLink.replayVerified?'Replay':'Check replay availability'):'Watch';
       const access=viewingAccessLabel(viewingLink);
-      link.title=`${verb} on ${viewingLink.label} · ${access}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
-      const cost=document.createElement('span');if(!viewingLink.highlights)cost.className='provider-access';cost.textContent=viewingLink.highlights?'Watch highlights':access;link.appendChild(cost);
+      link.title=`${verb} on ${viewingLink.label}${viewingLink.highlightsSearch?'':` · ${access}`}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
+      const cost=document.createElement('span');if(!viewingLink.highlights)cost.className='provider-access';cost.textContent=viewingLink.highlights?verb:access;link.appendChild(cost);
       link.addEventListener('click',event=>{event.stopPropagation();recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
     }
     const viewingNote=!viewingLinks.length?'Australian viewing unconfirmed':null;

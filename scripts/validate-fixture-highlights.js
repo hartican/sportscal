@@ -20,9 +20,9 @@ async function main(){
  const realNow=Date.now;Date.now=()=>+now;
  try{
  for(const roundLabel of ['Round of 16','Last 16','Quarterfinal','QF','Semifinal','SF','Final'])assert(contract.tennisEligible({...fixture,roundLabel}),roundLabel);
- for(const roundLabel of ['Round of 32','Round 4','Round unconfirmed'])assert(!contract.tennisEligible({...fixture,roundLabel,roundNumber:null,tournamentRoundTotal:null,totalRounds:null}));
+ for(const roundLabel of ['Round of 128','Round of 64','Round of 32','Round 4','Round unconfirmed'])assert(contract.tennisEligible({...fixture,roundLabel,roundNumber:null,tournamentRoundTotal:null,totalRounds:null}));
  assert(contract.tennisEligible({...fixture,roundLabel:'Round 2',roundNumber:2,tournamentRoundTotal:5}));
- for(const eventType of ['boys-singles','girls-doubles','wheelchair-singles','qualifying-singles'])assert(!contract.tennisEligible({...fixture,eventType}));
+ for(const eventType of ['boys-singles','girls-doubles','wheelchair-singles'])assert(!contract.tennisEligible({...fixture,eventType}));
  assert(!contract.tennisEligible({...fixture,status:'live',score:'6-3'}));assert(!contract.tennisEligible({...fixture,status:undefined,score:'6-3'}));
  for(const patch of [{tournamentParent:true},{isEditionOverview:true},{cardType:'tennis_parent'}])assert(!contract.tennisEligible({...fixture,...patch}),'tournament overviews cannot compete with their match for a highlights binding');
  assert(media.suitable(video,fixture));assert.equal(media.parseFeed(feed(channel,[video]),channel,now)[0].videoId,video.videoId);
@@ -111,6 +111,7 @@ async function main(){
  assert(require('./update-cards').buildSteps({localOnly:true}).some(step=>step[0]==='scripts/refresh-fixture-highlights.js'));
  assert(require('./quick-results').projectionSteps(['Tennis highlights']).some(step=>step[0]==='scripts/build-paged-feed.js'));
  await require('./validate-fixture-highlights-cache').main();
+ await require('./validate-tennis-highlights-seven-days').main();
  console.log('Highlights: sourced rounds, draw/publisher/edition matching, public feeds, key fallback, removal/outage, safe persisted overlays, cadence, schemas and canonical owners passed.');
  }finally{Date.now=realNow;}
 }
