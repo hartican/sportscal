@@ -94,7 +94,7 @@ assert.match(roomRender, /shareHeader\.hidden = !\(chatState\.isAdmin && room\.s
 assert.match(roomRender, /shareHeader\.textContent = "Share room"/);
 assert.match(html, /\.chat-room-composer\{[\s\S]*?grid-template-columns:1fr;[\s\S]*?width:calc\(100% \+ 36px\);/);
 assert.match(html, /\.chat-room-composer textarea\{[\s\S]*?width:100%;/);
-assert.match(html, /\.chat-room-composer \.btn\{ width:100%;/);
+assert.match(html, /\.chat-room-composer \.btn\{\s*width:\s*100%;/);
 assert.doesNotMatch(html, /<form[^>]+class="chat-composer"/, "the retired fixed drawer composer must not render");
 
 // Replies remain one level, while grouped reactions use the exact fixed palette and their own cursor.
@@ -162,7 +162,7 @@ assert.match(accountProfile, /nothingscoreProfileForm\(\)/);
 const profileForm = section(html, "function nothingscoreProfileForm()", "async function setNothingscoreProfileVisibility");
 assert.match(profileForm, /buildPublicProfileAvatarEditor/);
 assert.match(profileForm, /avatarEditor\.upload\(\)/);
-assert.match(html, /\.chat-message-avatar\{ width:1rem; height:1rem;/, "message avatars must stay square and independent of the smaller initials font");
+assert.match(html, /\.chat-message-avatar\{\s*width:\s*1rem;\s*height:\s*1rem;/, "message avatars must stay square and independent of the smaller initials font");
 const nscDrawer = section(html, "function renderNothingscoreDrawer()", "async function loadNothingscoreLeaderboard");
 assert.doesNotMatch(nscDrawer, /nothingscoreProfileForm\(\)/, "NSC must link to Settings instead of duplicating the editor");
 const accountSummary = section(html, "function buildMyNscAccountSection", "function refreshMyNscAccountSection");

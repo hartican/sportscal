@@ -270,7 +270,7 @@ async function run(){
   assert.match(html, /document\.visibilityState !== "visible" \|\| !navigator\.onLine/);
   assert.match(html, /document\.visibilityState !== "visible" \|\| !navigator\.onLine\)\{[\s\S]+Background — polling paused[\s\S]+return;/);
   assert.match(html, /event\.key === "Escape"/);
-  assert.match(html, /\.chat-composer\[hidden\]\{ display:none; \}/, "the message composer must stay hidden during room setup");
+  assert.match(html, /\.chat-composer\[hidden\]\{\s*display:\s*none;\s*\}/, "the message composer must stay hidden during room setup");
   assert.match(html, /copy\.className = "chat-user-copy"/);
   assert.match(html, /name\.className = "chat-user-name"/);
   assert.match(html, /renderChatUserSearch/);
