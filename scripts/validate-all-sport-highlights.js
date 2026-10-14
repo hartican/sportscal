@@ -12,7 +12,7 @@ function clickAuthority(now,events){
   for(const event of [search,direct]){
     const host=element();context.appendEventQuickActions(host,event,{reminder:false,chat:false});
     const link=host.children[0].children[0].children.find(n=>n.listeners.click);assert(link,'actual quick-action owner mounted highlights');
-    let stopped=false;link.listeners.click({stopPropagation(){stopped=true;}});assert(stopped);assert.equal(calls.length,0,'both direct and search clicks leave saved preferences alone');assert.match(link.href,/^https:\/\/www\.youtube\.com\//);
+    let stopped=false;link.listeners.click({stopPropagation(){stopped=true;}});assert(stopped);assert.equal(calls.length,0,'both direct and search clicks leave saved preferences alone');assert.match(link.href,event===direct?/^https:\/\/www\.youtube\.com\/watch/:/^\/api\/fixtures\?mode=highlight&ids=/);
   }
   context.activeTab='events';
   const eventsHost=element();context.appendEventQuickActions(eventsHost,search,{reminder:false,chat:false,highlightsOnly:true});assert.equal(eventsHost.children.length,0,'new cross-sport searches stay within the approved Feed');
@@ -28,13 +28,13 @@ function main(){
   for(const event of recent){
     const action=contract.viewing(event,now);assert(action,'existing recent named fixture: '+event.id);
     assert.equal(action.highlightsLabel,'Watch highlights');sports.add(event.key);
-    const url=new URL(action.webUrl);assert.equal(url.origin,'https://www.youtube.com');
+    const url=new URL(action.webUrl,'https://nothingsport.local');
     if(action.highlightsSearch){
-      assert.equal(url.pathname,'/results');const query=url.searchParams.get('search_query');assert(query.endsWith('highlights'));
+      assert.equal(url.pathname,'/api/fixtures');assert.equal(url.searchParams.get('mode'),'highlight');assert.equal(url.searchParams.get('ids'),event.canonicalEventId||event.eventId||event.id);assert.equal(action.highlightsTopResult,true);const query=contract.searchQuery(event,now);assert(query.endsWith('highlights'));
       if(!contract.tennisEligible(event)){assert(query.includes(event.name));assert(query.includes(event.date));}
       if(event.key==='f1'){assert(query.includes(event.stage));assert(!query.includes('George Russell vs'),'race session uses its identity rather than the entire field');}
       if(event.codeId==='sport:nbl')assert(query.includes('nbl'),'a shared legacy key cannot mislabel the competition as NBA');
-    }else{assert.equal(url.pathname,'/watch');assert.equal(action.webUrl,event.highlights.url);}
+    }else{assert.equal(url.origin,'https://www.youtube.com');assert.equal(url.pathname,'/watch');assert.equal(action.webUrl,event.highlights.url);}
   }
   assert(sports.size>=8,'real published completed fixtures exercise multiple sport families');assert.equal(JSON.stringify(recent),before,'URL generation cannot change sporting facts');
   for(const key of ['cricket','golf']){
@@ -48,6 +48,6 @@ function main(){
   const source=recent.find(e=>e.key==='f1');assert.equal(contract.viewing({...source,name:'TBD',highlights:null},now),null);
   assert.equal(contract.viewing({...source,name:null,eventName:'Overview',highlights:null},now),null,'unnamed fixtures cannot borrow an overview title');
   clickAuthority(now,recent);
-  console.log('All-sport highlights: '+recent.length+' actual published cards across '+sports.size+' sports; fixture/session queries, direct precedence, immutable facts and controlled multi-day lifecycle passed.');
+  console.log('All-sport highlights: '+recent.length+' actual published cards across '+sports.size+' sports; fixture/session top-result redirects, direct precedence, immutable facts and controlled multi-day lifecycle passed.');
 }
 if(require.main===module)main();module.exports={main};

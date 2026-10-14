@@ -9,8 +9,8 @@ async function main(){
   for(const eventType of ['mens-singles','womens-singles'])for(const roundLabel of ['Round of 128','Round of 64','Round of 32','Round 1','Round unconfirmed']){
     const event={...fixture,eventType,roundLabel,key:eventType.startsWith('womens')?'tennis-women':'tennis'};
     const action=contract.viewing(event,now);assert.equal(action.highlightsLabel,'Watch highlights');
-    const url=new URL(action.webUrl);assert.equal(url.origin,'https://www.youtube.com');assert.equal(url.pathname,'/results');
-    const query=url.searchParams.get('search_query');for(const name of media.names(event))assert(query.toLowerCase().includes(name));assert(query.includes('2026'));
+    const url=new URL(action.webUrl,'https://nothingsport.local');assert.equal(url.pathname,'/api/fixtures');assert.equal(url.searchParams.get('mode'),'highlight');assert.equal(action.highlightsTopResult,true);
+    const query=contract.searchQuery(event,now);for(const name of media.names(event))assert(query.toLowerCase().includes(name));assert(query.includes('2026'));
     assert(query.includes(eventType.startsWith('womens')?'WTA':'ATP Tour'));
   }
   assert(contract.tennisEligible({...fixture,isQualifying:true,eventType:'qualifying-singles'}));
@@ -18,14 +18,14 @@ async function main(){
   for(const date of ['2026-10-15','2026-02-31','2026-99-99'])assert(!contract.recent({...fixture,date},now));
   assert(!contract.recent({...fixture,date:null,startTimeUtc:null},now),'A missing calendar and own-fixture UTC clock remain unknown');
   assert(contract.recent({...fixture,date:null},now),'The shared retained-calendar owner recognises an existing own-fixture UTC clock');
-  assert(new URL(contract.viewing({...fixture,date:null},now).webUrl).searchParams.get('search_query').includes('2026'),'A bound UTC clock preserves the match year in the search');
+  assert(contract.searchQuery({...fixture,date:null},now).includes('2026'),'A bound UTC clock preserves the match year in the search');
   const unknownCalendar={...fixture,date:null,startDate:null,startTimeUtc:null,endDate:null,endTimeUtc:null,actualEndTimeUtc:null,completedAt:null,firstConfirmedCompleteAt:null};
   for(const alias of [{startDate:'2026-10-13'},{firstConfirmedCompleteAt:'2026-10-13T04:00:00Z'}]){
     const action=contract.viewing({...unknownCalendar,...alias,tournamentName:'Shanghai'},now);
-    assert.equal(action?.highlightsLabel,'Watch highlights');assert(new URL(action.webUrl).searchParams.get('search_query').includes('2026'),'Every accepted shared-calendar alias preserves its match year');
+    assert.equal(action?.highlightsLabel,'Watch highlights');assert(contract.searchQuery({...unknownCalendar,...alias,tournamentName:'Shanghai'},now).includes('2026'),'Every accepted shared-calendar alias preserves its match year');
   }
   const yearBoundary={...unknownCalendar,date:'2025-12-31',completedAt:'2026-01-01T04:00:00Z'};
-  assert(new URL(contract.viewing(yearBoundary,new Date('2026-01-02T08:00:00Z')).webUrl).searchParams.get('search_query').includes('2025'),'A later confirmation preserves the original published match year');
+  assert(contract.searchQuery(yearBoundary,new Date('2026-01-02T08:00:00Z')).includes('2025'),'A later confirmation preserves the original published match year');
   assert(contract.recent({...fixture,date:'2026-10-01',startTimeUtc:null,completedAt:new Date(+now-7*86400000).toISOString()},now));
   assert(contract.recent({...fixture,date:'2026-10-01',startTimeUtc:null,completedAt:new Date(+now-7*86400000-1).toISOString()},now),'A few elapsed hours cannot retire a retained Sydney-day-seven card');
   for(const [date,completedAt,lastRetained,firstRetired] of [
@@ -93,7 +93,7 @@ async function main(){
   rankedEvents[0].tournamentId='tournament:tennis:atp-paris-2026';
   const rankPass=await media.refresh({events:rankedEvents,coverage:rankedCoverage,now,apiKey:'controlled-key',fetchImpl:rankedFetch,rankings:ranks});assert(queried.length===2&&queried.every(q=>q.includes('shanghai')));
   queried=[];await media.refresh({events:rankedEvents,coverage:rankPass.coverage,now:new Date(+now+1800000),apiKey:'controlled-key',fetchImpl:rankedFetch,rankings:ranks});assert(queried.every(q=>q.includes('paris')),'higher-ranked attempted pairs yield to the remaining queue');
-  const source=media.source({published:[fixture],environment:{YOUTUBE_DATA_API_KEY:'controlled-key'},loadArchives:async()=>[],loadCurrent:async args=>{assert.equal(args.scope,'participants');const error=Error('controlled timeout');error.payload={code:'supabase_timeout'};error.status=504;throw error;},fetchImpl});
+  const source=media.source({quotaReserve:null,published:[fixture],environment:{YOUTUBE_DATA_API_KEY:'controlled-key'},loadArchives:async()=>[],loadCurrent:async args=>{assert.equal(args.scope,'participants');const error=Error('controlled timeout');error.payload={code:'supabase_timeout'};error.status=504;throw error;},fetchImpl});
   const fallback=await source.fetch({now,previous:[],privateCoverage:{}});assert.equal(fallback.coverage.inputState,'published-fallback');assert.equal(fallback.coverage.status,'partial');assert.deepEqual(fallback.coverage.inputFailure,{code:'supabase_timeout',status:504});assert(fallback.coverage.failures.some(f=>f.code==='supabase_timeout'));assert.equal(fallback.coverage.eligible,1);assert.equal(fixture.status,'completed');
   const live=require('../lib/live-fixtures'),scope=media.tennisScope([fixture],now);
   const originalSources=[{source_id:'controlled-tennis-cache',revision:1,fixtures:[fixture]}];
@@ -102,7 +102,7 @@ async function main(){
   await live.readLiveSnapshots({...scope,store:currentStore,now:+now-1000,maxAgeMs:0});failRead=true;
   const loadCurrent=args=>live.readLiveSnapshots({...args,store:currentStore,now:+now,maxAgeMs:0});
   const cached=await loadCurrent(scope);assert(cached.stale);assert.deepEqual(cached.sources,originalSources);assert.deepEqual(cached.readFailure,{code:'supabase_timeout',status:504});assert(!JSON.stringify(cached).includes('private upstream detail'));
-  const cachedSource=media.source({published:[fixture],loadCurrent,loadArchives:async()=>[],fetchImpl,environment:{}});
+  const cachedSource=media.source({quotaReserve:null,published:[fixture],loadCurrent,loadArchives:async()=>[],fetchImpl,environment:{}});
   const cachedFallback=await cachedSource.fetch({now,previous:[],privateCoverage:{}});
   assert.equal(cachedFallback.coverage.status,'partial');assert.equal(cachedFallback.coverage.inputState,'published-fallback');assert.deepEqual(cachedFallback.coverage.inputFailure,cached.readFailure,'Cached last-good input retains the actual sanitised failure');
   failRead=false;const recovered=await loadCurrent(scope);assert.equal(recovered.stale,false);assert(!Object.hasOwn(recovered,'readFailure'));assert.deepEqual(recovered.sources,originalSources,'Input recovery changes no fixture facts');
@@ -113,7 +113,7 @@ async function main(){
   assert.equal(failedReport._highlightQuota.search,1,'first-ever source timeout retains its pre-request reservation');
   assert(!Object.hasOwn(require('../lib/compact-fixture-observations').publicReport(failedReport),'_highlightQuota'));
   let providerCalls=0,publishedReport;
-  const providerError=media.source({published:[fixture],environment:{YOUTUBE_DATA_API_KEY:'controlled-key'},loadArchives:async()=>[],loadCurrent:async()=>({sources:[]}),fetchImpl:async url=>{
+  const providerError=media.source({quotaReserve:null,published:[fixture],environment:{YOUTUBE_DATA_API_KEY:'controlled-key'},loadArchives:async()=>[],loadCurrent:async()=>({sources:[]}),fetchImpl:async url=>{
     if(url.includes('/feeds/'))return new Response(feed(media.channels.find(c=>url.includes(c.id))));
     providerCalls++;return new Response('',{status:503});
   }});
@@ -121,7 +121,7 @@ async function main(){
   await require('../lib/live-fixtures').refreshDueSources({now,store:errorStore,sources:[providerError]});
   assert.equal(providerCalls,2);assert.equal(publishedReport._highlightQuota.search,providerCalls,'actual failed API requests persist in the ordinary publish report');
   providerCalls=0;failedReport=null;
-  const timedSource=media.source({published:[fixture],environment:{YOUTUBE_DATA_API_KEY:'controlled-key'},loadArchives:async()=>[],loadCurrent:async()=>({sources:[]}),fetchImpl:async(url,{signal})=>{
+  const timedSource=media.source({quotaReserve:null,published:[fixture],environment:{YOUTUBE_DATA_API_KEY:'controlled-key'},loadArchives:async()=>[],loadCurrent:async()=>({sources:[]}),fetchImpl:async(url,{signal})=>{
     if(url.includes('/feeds/'))return new Response(feed(media.channels.find(c=>url.includes(c.id))));
     providerCalls++;return new Promise((resolve,reject)=>signal.addEventListener('abort',()=>reject(Error('controlled provider abort')),{once:true}));
   }});
@@ -139,7 +139,7 @@ async function main(){
     const result=await canonical.refresh({now,fetchImpl});assert.equal(result.mode,'public-feeds');
     assert(!requests.some(u=>u.hostname==='www.googleapis.com'),'canonical refresh ignores an available key and cannot bypass the sole shared ledger');
   }finally{process.chdir(cwd);if(oldKey===undefined)delete process.env.YOUTUBE_DATA_API_KEY;else process.env.YOUTUBE_DATA_API_KEY=oldKey;fs.rmSync(temp,{recursive:true,force:true});}
-  console.log('Seven-day Tennis highlights: all rounds/genders, search destinations, receipt/calendar bounds, verified-rank ordering, cooldowns, Pacific/DST caps, failed-call reservations and truthful input fallback passed.');
+  console.log('Seven-day Tennis highlights: all rounds/genders, automatic top-result routes, receipt/calendar bounds, verified-rank ordering, cooldowns, Pacific/DST caps, failed-call reservations and truthful input fallback passed.');
 }
 if(require.main===module)main().catch(error=>{console.error(error);process.exitCode=1;});
 module.exports={main};

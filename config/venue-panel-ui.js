@@ -946,7 +946,7 @@ function buildFeedScheduleLink(ev){
 
 function configureProviderLaunch(link, viewing){
   const target = viewing.webUrl || viewing.universalUrl || viewing.url;
-  link.href = /^https:\/\//i.test(String(target || "")) ? target : "#";
+  link.href = /^https:\/\//i.test(String(target || "")) || viewing.highlightsTopResult&&/^\/api\/fixtures\?mode=highlight&ids=[-a-z0-9_%]+$/i.test(target||'') ? target : "#";
   link.target = "_blank";
   link.rel = "noopener noreferrer external";
 }
@@ -976,7 +976,7 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
       configureProviderLaunch(link,viewingLink);
       const verb=viewingLink.highlights?viewingLink.highlightsLabel:viewingLink.liveOrReplay==='replay'?'Replay':'Watch';
       const access=viewingAccessLabel(viewingLink);
-      link.title=`${verb} on ${viewingLink.label}${viewingLink.highlightsSearch?' · Opens a fixture search':` · ${access}`}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
+      link.title=`${verb} on ${viewingLink.label}${viewingLink.highlightsTopResult?' · Top YouTube result; match not verified':viewingLink.highlightsSearch?' · Opens a fixture search':` · ${access}`}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
       const cost=document.createElement('span');if(!viewingLink.highlights)cost.className='provider-access';cost.textContent=viewingLink.highlights?verb:access;link.appendChild(cost);
       link.addEventListener('click',event=>{event.stopPropagation();if(!viewingLink.highlights)recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
     }

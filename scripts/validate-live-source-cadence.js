@@ -6,6 +6,7 @@ module.exports=async function validateCadence(){
  try{
   await db.exec("create role anon;create role authenticated;create role service_role bypassrls;grant usage on schema public to service_role;");
   for(const name of ['20260908093906_live_fixture_snapshots.sql','20260908110529_discovery_source_health.sql','20260914061506_right_size_fixture_runtime.sql','20260924104317_compact_live_scores.sql','20261002171936_preserve_compact_fixture_observations.sql','20261010140633_align_live_source_refresh_cadence.sql'])await db.exec(fs.readFileSync('supabase/migrations/'+name,'utf8').split('-- One write replaces')[0]);
+  for(const name of ['20261010233101_hydrate_cricket_refresh_claim.sql','20261014130245_shared_youtube_top_result_budget.sql'])await db.exec(fs.readFileSync('supabase/migrations/'+name,'utf8'));
   const token='11111111-1111-4111-8111-111111111111',other='22222222-2222-4222-8222-222222222222';
   const claim=async source=>(await db.query('select * from public.nothingsports_claim_fixture_source($1,$2)',[source,token])).rows[0];
   const read=async source=>(await db.query("select *,extract(epoch from next_due_at) as due from public.nothingsports_fixture_sources where source_id=$1",[source])).rows[0];

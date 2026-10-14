@@ -67,7 +67,7 @@ async function main(){
   throw Error('Unexpected bounded-batch request');
  }});
  assert.equal(batchApiCalls,1,'the shared batch needs only one API availability request');assert.equal(apiIds.length,24,'API availability IDs obey the same twenty-four candidate cap');assert.equal(embedIds.length,24,'oEmbed obeys the shared cap');assert.deepEqual(new Set(apiIds),new Set(embedIds),'both verifiers consume the identical batch');assert.equal(bounded.filter(r=>r.highlights).length,24);assert.equal(bounded.coverage.pending,4);
- const source=media.source({published:[fixture],fetchImpl,loadCurrent:async scope=>{assert.equal(scope.scope,'participants');assert(scope.sportKeys.includes('tennis')&&scope.sportKeys.includes('tennis-women')&&scope.sportKeys.includes('wimbledon'));assert(scope.participantIds.includes(fixture.participantIds[0]));assert(scope.preserveIds.includes(fixture.canonicalEventId));return {sources:[]};},loadArchives:async()=>[]});assert.equal(source.minimumIntervalMs,1800000);assert.equal(source.refreshInterval(),1800000);
+ const source=media.source({quotaReserve:null,published:[fixture],fetchImpl,loadCurrent:async scope=>{assert.equal(scope.scope,'participants');assert(scope.sportKeys.includes('tennis')&&scope.sportKeys.includes('tennis-women')&&scope.sportKeys.includes('wimbledon'));assert(scope.participantIds.includes(fixture.participantIds[0]));assert(scope.preserveIds.includes(fixture.canonicalEventId));return {sources:[]};},loadArchives:async()=>[]});assert.equal(source.minimumIntervalMs,1800000);assert.equal(source.refreshInterval(),1800000);
  const store={dueIds:async()=>[],claim:async()=>({fixtures:[],discovery_report:{}}),publish:async(_id,_token,value)=>{assert.equal(value.intervalMs,1800000);assert.equal(value.fixtures[0].highlights.videoId,video.videoId);},fail:async()=>assert.fail('source failed')};
  const result=await require('../lib/live-fixtures').refreshDueSources({sources:[source],store,now});assert.deepEqual(result.refreshed,[media.SOURCE_ID]);
  const apiFixture={...fixture,id:'fixture:tennis:test:highlights',canonicalEventId:'fixture:tennis:test:highlights',sourceEventIds:[]};let liveMedia=[];
@@ -113,6 +113,8 @@ async function main(){
  await require('./validate-fixture-highlights-cache').main();
  await require('./validate-tennis-highlights-seven-days').main();
   require('./validate-all-sport-highlights').main();
+  await require('./validate-youtube-top-result').main();
+  await require('./validate-youtube-top-result-database').main();
  console.log('Highlights: sourced rounds, draw/publisher/edition matching, public feeds, key fallback, removal/outage, safe persisted overlays, cadence, schemas and canonical owners passed.');
  }finally{Date.now=realNow;}
 }
