@@ -63,6 +63,16 @@ async function run(){
  check('zero scores and original facts',()=>{const e=scoped.find(s=>s.source_id==='fantasy').fixtures[0];assert.equal(e.homeScore,0);assert.equal(e.awayScore,0);assert.equal(Date.parse(e.scoreCheckedAt),Date.parse(observed));assert.equal(Date.parse(e.scoreFactObservedAt),Date.parse(factAt));assert.equal(Date.parse(e.firstConfirmedCompleteAt),Date.parse(factAt));});
  const global=await store.read(),globalRows=global.flatMap(s=>s.fixtures);
  check('full projected field equality',()=>{for(const e of scoped){const base=global.find(g=>g.source_id===e.source_id);for(const f of e.fixtures)if(!['moved','third'].includes(f.id))assert.deepEqual(f,base.fixtures.find(g=>g.id===f.id));}});
+ // The media owner reads the whole Tennis family, rather than projecting the
+ // world or limiting new arrivals to today's published roster/fixture IDs.
+ const tennisPublished={...seed.tennis[0],id:'published-tennis-alias',sourceEventIds:['alias:tennis:required']};
+ const tennisPlan=require('../lib/fixture-highlights').tennisScope([tennisPublished]);
+ const tennisNew=fixture('tennis-new-roster','tennis',{homeParticipantId:'competitor:tennis:atp:carlos-alcaraz',awayParticipantId:'competitor:tennis:atp:jannik-sinner',participantIds:['competitor:tennis:atp:carlos-alcaraz','competitor:tennis:atp:jannik-sinner']});
+ const tennisMoved={...tennisNew,id:'tennis-required-moved',key:'cricket',date:'2099-01-01',sourceEventIds:['alias:tennis:required']};
+ for(const e of [tennisNew,tennisMoved])await db.query('insert into public.nothingsports_fixture_current(source_id,fixture_id,fixture,identity_keys,content_hash) values($1,$2,$3::jsonb,$4,$5)',['tennis',e.id,JSON.stringify(e),[e.id,...(e.sourceEventIds||[])],e.id]);
+ const beforeTennisCalls=calls.length,tennisScoped=await store.read(tennisPlan),tennisIds=tennisScoped.flatMap(s=>s.fixtures).map(f=>f.id);
+ check('media whole Tennis family, unknown rows and required alias',()=>{assert(tennisPlan.sportKeys.includes('tennis-women'));assert(tennisPlan.sportKeys.includes('wimbledon'));assert.deepEqual(tennisPlan.knownSportKeys,Object.keys(registry.byKey).sort());for(const id of ['tennis-only','tennis-new-roster','tennis-required-moved','unregistered'])assert(tennisIds.includes(id),id);assert(!tennisIds.includes('unrelated'));assert.equal(calls.length-beforeTennisCalls,2);assert(calls.slice(beforeTennisCalls).some(c=>c.route.endsWith('nothingsports_read_participant_fixture_bundle')));assert(!calls.slice(beforeTennisCalls).some(c=>c.route.endsWith('nothingsports_read_current_fixture_bundle')));});
+ await db.query("delete from public.nothingsports_fixture_current where fixture_id in('tennis-new-roster','tennis-required-moved')");
  check('unknown and empty requirements use full read',()=>{assert.equal(requirements({userState:state([])}),null);assert.equal(requirements({userState:state(['competitor:unknown:somebody'])}),null);});
  const mixed=requirements({userState:state(['competitor:tennis:atp:alex-de-minaur']),participantId:'team:football:epl:1'});
  check('mixed Favourites include Tennis',()=>{assert(mixed.sportKeys.includes('tennis'));assert(mixed.sportKeys.includes('premier-league'));});

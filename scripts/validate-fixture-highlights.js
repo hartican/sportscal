@@ -17,6 +17,8 @@ async function fetchImpl(url){
  throw Error('Unexpected request');
 }
 async function main(){
+ const realNow=Date.now;Date.now=()=>+now;
+ try{
  for(const roundLabel of ['Round of 16','Last 16','Quarterfinal','QF','Semifinal','SF','Final'])assert(contract.tennisEligible({...fixture,roundLabel}),roundLabel);
  for(const roundLabel of ['Round of 32','Round 4','Round unconfirmed'])assert(!contract.tennisEligible({...fixture,roundLabel,roundNumber:null,tournamentRoundTotal:null,totalRounds:null}));
  assert(contract.tennisEligible({...fixture,roundLabel:'Round 2',roundNumber:2,tournamentRoundTotal:5}));
@@ -65,7 +67,7 @@ async function main(){
   throw Error('Unexpected bounded-batch request');
  }});
  assert.equal(batchApiCalls,1,'the shared batch needs only one API availability request');assert.equal(apiIds.length,24,'API availability IDs obey the same twenty-four candidate cap');assert.equal(embedIds.length,24,'oEmbed obeys the shared cap');assert.deepEqual(new Set(apiIds),new Set(embedIds),'both verifiers consume the identical batch');assert.equal(bounded.filter(r=>r.highlights).length,24);assert.equal(bounded.coverage.pending,4);
- const source=media.source({published:[fixture],fetchImpl,loadCurrent:async()=>({sources:[]}),loadArchives:async()=>[]});assert.equal(source.minimumIntervalMs,1800000);assert.equal(source.refreshInterval(),1800000);
+ const source=media.source({published:[fixture],fetchImpl,loadCurrent:async scope=>{assert.equal(scope.scope,'participants');assert(scope.sportKeys.includes('tennis')&&scope.sportKeys.includes('tennis-women')&&scope.sportKeys.includes('wimbledon'));assert(scope.participantIds.includes(fixture.participantIds[0]));assert(scope.preserveIds.includes(fixture.canonicalEventId));return {sources:[]};},loadArchives:async()=>[]});assert.equal(source.minimumIntervalMs,1800000);assert.equal(source.refreshInterval(),1800000);
  const store={dueIds:async()=>[],claim:async()=>({fixtures:[],discovery_report:{}}),publish:async(_id,_token,value)=>{assert.equal(value.intervalMs,1800000);assert.equal(value.fixtures[0].highlights.videoId,video.videoId);},fail:async()=>assert.fail('source failed')};
  const result=await require('../lib/live-fixtures').refreshDueSources({sources:[source],store,now});assert.deepEqual(result.refreshed,[media.SOURCE_ID]);
  const apiFixture={...fixture,id:'fixture:tennis:test:highlights',canonicalEventId:'fixture:tennis:test:highlights',sourceEventIds:[]};let liveMedia=[];
@@ -76,6 +78,33 @@ async function main(){
  liveMedia=[{...first[0],id:apiFixture.id,sourceEventIds:[]}];res=response();await handler(request(beforeRevision),res);assert.equal(res.code,200,'new media invalidates the selected-reader validator');const served=res.body.sources[0].fixtures[0];assert.deepEqual(served.highlights,first[0].highlights);assert.equal(served.status,fixture.status);assert.equal(served.startTimeUtc,fixture.startTimeUtc);
  const lifecycle=require('../config/feed-refresh-lifecycle');assert.notEqual(lifecycle.presentationFingerprint({events:[apiFixture]}),lifecycle.presentationFingerprint({events:[served]}),'media arrival redraws through the existing presentation lifecycle');
  const linkedRevision=res.body.revision;liveMedia=[{...liveMedia[0],highlights:null}];res=response();await handler(request(linkedRevision),res);assert.equal(res.code,200);assert.equal(res.body.sources[0].fixtures[0].highlights,null,'the public selected reader carries explicit removal');
+ // Actual default published owner has no discovered ESPN fixture. A current
+ // database-only row still receives its canonical media after the live merge.
+ const cache=require('../data/canonical/fixture-highlights.v1.json'),savedCache=cache.events;
+ const currentOnly={...fixture};delete currentOnly.highlights;const controlledCache=[first[0]];
+ const defaultOwner=identity.mergeOverlays(require('../data/follow-sources/coverage.v1.json').events,require('../lib/competition-fixtures').fixtures());
+ assert(!defaultOwner.some(e=>[e.id,e.canonicalEventId,...(e.sourceEventIds||[])].includes(currentOnly.canonicalEventId)),'regression fixture is absent from the actual default published owner');
+ let currentRows=[currentOnly],readerNow=new Date(now),selectedReads=0;
+ const defaultHandler=require('../lib/live-fixture-handler').createLiveFixtureHandler({clock:()=>readerNow,read:async()=>{selectedReads++;return {revision:'same-current-only-snapshot',stale:false,sources:[{source_id:'live-tennis-atp',fixtures:currentRows}]};}});
+ const readCurrent=async(id=currentOnly.canonicalEventId,revision)=>{const r=response();await defaultHandler({url:'/api/fixtures?ids='+id+(revision?'&revision='+revision:''),headers:{}},r);return r;};
+ try{
+  cache.events=[];const unlinked=await readCurrent();assert.equal(unlinked.code,200);assert(!unlinked.body.sources[0].fixtures[0].highlights);
+  cache.events=controlledCache;const fallback=await readCurrent(currentOnly.canonicalEventId,unlinked.body.revision);assert.equal(fallback.code,200,'old no-link validator receives media arrival');
+  const attached=fallback.body.sources[0].fixtures[0];assert(attached.highlights?.url);assert(!fallback.body.sources.some(s=>s.source_id===media.SOURCE_ID),'no highlights discovery snapshot is required');
+  assert.deepEqual({...attached,highlights:undefined},{...unlinked.body.sources[0].fixtures[0],highlights:undefined},'actual starts/results/participants and sporting facts are preserved');
+  const aliased=await readCurrent(currentOnly.id);assert.equal(aliased.body.sources[0].fixtures[0].highlights.url,attached.highlights.url,'published aliases resolve the same current-only media');
+  assert.notEqual(lifecycle.presentationFingerprint({events:unlinked.body.sources[0].fixtures}),lifecycle.presentationFingerprint({events:fallback.body.sources[0].fixtures}),'native Feed consumer detects fallback media arrival');
+  const unchanged=await readCurrent(currentOnly.canonicalEventId,fallback.body.revision);assert.equal(unchanged.code,304,'unchanged media retains the response validator');
+  currentRows=[{...currentOnly,highlights:null}];const withdrawn=await readCurrent(currentOnly.canonicalEventId,fallback.body.revision);assert.equal(withdrawn.code,200);assert.equal(withdrawn.body.sources[0].fixtures[0].highlights,null,'explicit live withdrawal cannot be restored by canonical media');
+  currentRows=[{...currentOnly,highlights:{...attached.highlights,regionStatus:'blocked'}}];const knownBlocked=await readCurrent();assert.equal(knownBlocked.body.sources[0].fixtures[0].highlights,null,'owned known restriction is withdrawn rather than overwritten');
+  const owned={...attached.highlights,videoId:'OWNED000001',url:'https://www.youtube.com/watch?v=OWNED000001'};
+  currentRows=[{...currentOnly,highlights:owned}];assert.equal((await readCurrent()).body.sources[0].fixtures[0].highlights.url,owned.url,'fresh source-owned media wins');
+  readerNow=new Date(Math.max(...controlledCache.map(r=>Date.parse(r.highlights.checkedAt||r.highlights.verifiedAt)))+contract.MAX_CACHE_AGE_MS);
+  // Synthetic end-date keeps this isolated expiry replay in the active window.
+  const expiryRow={...currentOnly,endDate:readerNow.toISOString().slice(0,10)};currentRows=[expiryRow];const expiredFallback=await readCurrent(currentOnly.canonicalEventId,fallback.body.revision);assert.equal(expiredFallback.code,200);assert.equal(expiredFallback.body.sources[0].fixtures[0].highlights,null,'expired static fallback is explicit and invalidates the old link');
+  currentRows=[{...expiryRow,highlights:owned}];assert.equal((await readCurrent()).body.sources[0].fixtures[0].highlights,null,'expired owned metadata is also withdrawn');
+  assert(selectedReads>0);
+ }finally{cache.events=savedCache;}
  const failedStore={dueIds:async()=>[],claim:async()=>({fixtures:[],discovery_report:restricted.coverage}),fail:async(_id,_token,value)=>assert.deepEqual(value.coverage._highlightVideos,restricted.coverage._highlightVideos)};
  await require('../lib/live-fixtures').refreshDueSources({sources:[{...source,fetch:async()=>{throw Error('controlled source failure');}}],store:failedStore,now});
  const ajv=new (require('ajv/dist/2020'))({strict:false});require('ajv-formats')(ajv);const validate=ajv.compile(JSON.parse(fs.readFileSync('schemas/fixture-highlights.schema.json')));assert(validate(first[0].highlights),JSON.stringify(validate.errors));assert(!validate({...first[0].highlights,unexpected:true}));
@@ -83,5 +112,6 @@ async function main(){
  assert(require('./quick-results').projectionSteps(['Tennis highlights']).some(step=>step[0]==='scripts/build-paged-feed.js'));
  await require('./validate-fixture-highlights-cache').main();
  console.log('Highlights: sourced rounds, draw/publisher/edition matching, public feeds, key fallback, removal/outage, safe persisted overlays, cadence, schemas and canonical owners passed.');
+ }finally{Date.now=realNow;}
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

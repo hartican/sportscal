@@ -193,8 +193,9 @@ loadMatchCentreStyles();
   manual=operation;refreshControl?.setBusy(true);render();return manual;
  }
  globalThis.openMilestoneMatchCentreFixture=(e,snapshot)=>{
-  notificationTarget=e;notificationRetained=false;membershipOwner=owner();scores.set(m().id(e),m().observation(m().compact(e),snapshot||m().compact(e)));expanded.add(m().id(e));notice='Alerts use periodic updates; this moment may have passed. Showing the latest available details.';render();
-  requestAnimationFrame(()=>{const card=cards.get(m().id(e))?.card;if(card){card.tabIndex=-1;card.scrollIntoView({block:'center'});card.focus({preventScroll:true});}});
+  const t=ticket(),revision=fixtureNavigationRevision;
+  notificationTarget=e;notificationRetained=false;membershipOwner=owner();scores.set(m().id(e),m().observation(m().compact(e),snapshot||m().compact(e)));expanded.add(m().id(e));notice=new URLSearchParams(location.search).get('moment')?.startsWith('test-')?'Test alert: checking delivery and opening. Showing the latest available match details.':'Alerts use periodic updates; this moment may have passed. Showing the latest available details.';render();
+  requestAnimationFrame(()=>{if(!valid(t)||revision!==fixtureNavigationRevision||notificationTarget!==e)return;const card=cards.get(m().id(e))?.card;if(card){card.tabIndex=-1;window.scrollTo({top:Math.max(0,window.scrollY+card.getBoundingClientRect().top-stickyFeedChromeHeight()-12),behavior:'auto'});card.focus({preventScroll:true});}});
   saveMembership(ticket());
  };
  globalThis.openRetainedMilestoneMatchCentreFixture=async(id,current=()=>true)=>{

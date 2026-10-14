@@ -26,9 +26,16 @@ const server=http.createServer((request,response)=>{
  }catch{response.statusCode=404;response.end();}
 });
 async function handoff(page,url=target){return page.evaluate(url=>new Promise((resolve,reject)=>{const channel=new MessageChannel(),timer=setTimeout(()=>reject(Error('Worker handoff timed out')),5000);channel.port1.onmessage=e=>{clearTimeout(timer);channel.port1.close();resolve(e.data);};navigator.serviceWorker.controller.postMessage({type:'qa-notification-handoff',url},[channel.port2]);}),url);}
-async function exact(page,fixture=event){
+async function exact(page,fixture=event,resultsOn=false){
  const card=page.locator('[data-match-id="'+fixture.id+'"]');await card.locator('details[open]').waitFor();
- assert.equal(await page.evaluate(()=>activeTab),'match-centre');assert.equal(await card.locator('table').count(),0,'Results OFF survives the worker handoff');
+ assert.equal(await page.evaluate(()=>activeTab),'match-centre');
+ if(resultsOn){
+  assert(await card.locator('table').count()>0,'Results ON renders the full scorecard');
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+  const position=await card.evaluate(card=>({top:card.getBoundingClientRect().top,height:card.getBoundingClientRect().height,headerBottom:document.querySelector('header.top').getBoundingClientRect().bottom,viewport:innerHeight}));
+  assert(position.height>position.viewport,'The replay needs a scorecard taller than the viewport');
+  assert(position.top>=position.headerBottom+10&&position.top<=position.headerBottom+18,'The fixture heading must land just below sticky chrome, not halfway into the expanded scorecard: '+JSON.stringify(position));
+ }else assert.equal(await card.locator('table').count(),0,'Results OFF survives the worker handoff');
  assert.equal(await page.evaluate(id=>Boolean(getEventAction({id}).addedToFixtures),fixture.id),false,'An exact landing never adds the fixture to Feed');
  await card.getByRole('link',{name:'Official scorecard',exact:true}).waitFor({state:'visible'});
 }
@@ -36,19 +43,24 @@ async function exact(page,fixture=event){
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const base='http://127.0.0.1:'+server.address().port,receipts=[];
  try{for(const engine of ['chromium','webkit']){
   const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:'chrome'}:{})});
-  try{for(const lateBoot of [false,true]){
+  try{for(const {lateBoot,resultsOn} of (process.env.NOTIFICATION_LANDING_VIEWPORT_ONLY?[{lateBoot:false,resultsOn:true}]:[{lateBoot:false,resultsOn:false},{lateBoot:true,resultsOn:false},{lateBoot:false,resultsOn:true}])){
    const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'allow'}),page=await context.newPage(),errors=[];
    page.on('pageerror',error=>errors.push(error.message));
-   await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:26,onboardingComplete:true,showSpoilers:false,selectedSelectorEntityIds:[],followedSports:[],fantasyDeadlines:{enabled:false},followFirst:{notifications:{enabled:false,autoRemindersEnabled:false},refinement:{promptedAt:'2026-10-14'}}})));
+   await page.addInitScript(resultsOn=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:26,onboardingComplete:true,showSpoilers:resultsOn,selectedSelectorEntityIds:[],followedSports:[],fantasyDeadlines:{enabled:false},followFirst:{notifications:{enabled:false,autoRemindersEnabled:false},refinement:{promptedAt:'2026-10-14'}}})),resultsOn);
    await page.goto(base+(lateBoot?'/?qa-late-handoff=1':'/'));await page.locator('#startupLaunch').waitFor({state:'hidden'});
    await page.evaluate(async()=>{await navigator.serviceWorker.ready;if(!navigator.serviceWorker.controller)await new Promise(resolve=>navigator.serviceWorker.addEventListener('controllerchange',resolve,{once:true}));setTunePromptOpen(false);suppressSessionRatingPrompt();});
    assert.equal(await page.evaluate(()=>activeTab),'feed');assert.equal((await handoff(page)).stored,true);
    if(lateBoot){assert.equal(await page.evaluate(()=>activeTab),'feed','A dropped cold-start message retains its destination');await page.evaluate(async url=>{await loadDeferredScript(url);startMilestoneNotificationNavigation();},navigationUrl);}
-   await exact(page);
-   await page.evaluate(()=>activateTopLevelTab('feed',{resetViewport:false}));await context.setOffline(true);await handoff(page);await exact(page);
+   await exact(page,event,resultsOn);
+   if(resultsOn){
+    // Recheck with a taller real sticky header, as on larger-text phone layouts.
+    await page.evaluate(()=>document.querySelector('header.top').style.paddingBottom='54px');await handoff(page);await exact(page,event,true);
+    if(process.env.NOTIFICATION_LANDING_OUTPUT){fs.mkdirSync(process.env.NOTIFICATION_LANDING_OUTPUT,{recursive:true});await page.screenshot({path:path.join(process.env.NOTIFICATION_LANDING_OUTPUT,engine+'-results-on-heading.png')});}
+   }
+   await page.evaluate(()=>activateTopLevelTab('feed',{resetViewport:false}));await context.setOffline(true);await handoff(page);await exact(page,event,resultsOn);
    assert.match(await page.locator('.mc-status').first().innerText(),/Awaiting update|Finished/);
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);
-   if(!lateBoot){
+   if(!lateBoot&&!resultsOn){
     await context.setOffline(false);
     await page.evaluate(()=>{const mount=openMilestoneMatchCentreFixture;globalThis.qaMounted=[];globalThis.openMilestoneMatchCentreFixture=(e,s)=>{qaMounted.push(e.id);mount(e,s);};writeStorage(PUSH_INSTALLATION_STORAGE_KEY,{installationId:'test-installation',secret:'test-only'});});
     for(const retained of [false,true]){
@@ -62,8 +74,19 @@ async function exact(page,fixture=event){
      const result={engine,delayedOldFetch:true,retainedFailure:retained,newestOnlyMounted:true,newestOnlyReceipt:true,resultsOff:true,noFeedPin:true};receipts.push(result);console.log(JSON.stringify(result));race=null;
     }
    }
+   if(resultsOn){
+    await context.setOffline(false);
+    const live=require('./lib/milestone-fixtures').fixture(Date.now(),{id:40000});
+    await page.evaluate(({completed,live})=>{activeEvents=[completed];liveFixtureEvents=[live];globalThis.qaTestCommands=[];ensurePushInstallation=async()=>{};notificationDiagnosticsCommand=async(action,data)=>{qaTestCommands.push({action,...data});};refreshNotificationDiagnosticsStatus=async()=>{};openSettings({section:'notifications'});},{completed:event,live});
+    const advanced=page.locator('details').filter({has:page.getByText('Advanced milestone controls',{exact:true})});await advanced.locator('summary').click();
+    assert(await advanced.getByText(/otherwise it may open a completed match/).isVisible(),'Settings explains the diagnostic fallback before sending');
+    const testButton=page.getByRole('button',{name:'Send milestone test',exact:true});await testButton.click();await advanced.getByText('Test sent. Tap the alert to check that Match Centre opens at the match heading.',{exact:true}).waitFor();
+    assert.deepEqual(await page.evaluate(()=>qaTestCommands),[{action:'milestone-test',eventId:live.id}],'The compiled Settings caller prefers verified active cricket over the first completed Feed card');
+    await page.evaluate(completed=>{activeEvents=[completed];liveFixtureEvents=[];qaTestCommands.length=0;},event);await testButton.click();
+    assert.deepEqual(await page.evaluate(()=>qaTestCommands),[{action:'milestone-test',eventId:undefined}],'A completed client fixture leaves selection to the bounded server discovery instead of hiding an active match elsewhere');
+   }
    assert.deepEqual(errors,[]);
-   const receipt={engine,lateBoot,exactMatchExpanded:true,resultsOff:true,noFeedPin:true,officialScorecard:true,offlineRetainedLanding:true,errors};receipts.push(receipt);console.log(JSON.stringify(receipt));await context.close();
+   const receipt={engine,lateBoot,exactMatchExpanded:true,resultsOff:!resultsOn,headingBelowStickyChrome:resultsOn?true:null,compiledTestChoice:resultsOn?true:null,noFeedPin:true,officialScorecard:true,offlineRetainedLanding:true,errors};receipts.push(receipt);console.log(JSON.stringify(receipt));await context.close();
   }}finally{await browser.close();}
  }}finally{await new Promise(resolve=>server.close(resolve));}
  if(process.env.NOTIFICATION_LANDING_OUTPUT){fs.mkdirSync(process.env.NOTIFICATION_LANDING_OUTPUT,{recursive:true});fs.writeFileSync(path.join(process.env.NOTIFICATION_LANDING_OUTPUT,'browser-replays.json'),JSON.stringify({receipts,limit:'Controlled worker handoff, not a native notification tap or physical iPhone test.'},null,2)+'\n');}

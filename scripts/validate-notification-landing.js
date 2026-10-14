@@ -9,6 +9,16 @@ const fixtureCode=fs.readFileSync('assets/js/fixture-navigation.js','utf8'),mile
 const event={id:'fixture:cricket:CA:39990',canonicalEventId:'fixture:cricket:CA:39990'};
 const matchCentreCode=fs.readFileSync('assets/js/match-centre-ui.source.js','utf8'),retainedStart=matchCentreCode.indexOf(' globalThis.openRetainedMilestoneMatchCentreFixture='),retainedCode=matchCentreCode.slice(retainedStart,matchCentreCode.indexOf(' navigator.serviceWorker?.addEventListener',retainedStart));
 assert(retainedStart>=0&&retainedCode.includes('disposableStore'));
+// The viewport frame runs after routing may already have consumed the URL.
+const mountCode=matchCentreCode.slice(matchCentreCode.indexOf(' globalThis.openMilestoneMatchCentreFixture='),retainedStart);
+function viewportFrameGuard(){
+ const frames=[],scrolls=[],focused=[],next={id:'fixture:cricket:CA:40000'};let subject='account',generation=0;
+ const context={URLSearchParams,location:new URL('https://example.test/?moment=test-example'),activeTab:'match-centre',fixtureNavigationRevision:1,notificationTarget:null,notificationRetained:false,membershipOwner:'',scores:new Map(),expanded:new Set(),notice:'',owner:()=>subject,ticket:()=>({subject,generation}),valid:t=>t.subject===subject&&t.generation===generation&&context.activeTab==='match-centre',render(){},saveMembership(){},m:()=>({id:e=>e.id,compact:e=>e,observation:(e,s)=>s}),cards:new Map([event,next].map((e,index)=>[e.id,{card:{getBoundingClientRect:()=>({top:1000+index*500}),focus:options=>focused.push({id:e.id,preventScroll:options.preventScroll})}}])),requestAnimationFrame:callback=>frames.push(callback),stickyFeedChromeHeight:()=>196,scrollY:700,scrollTo:options=>scrolls.push(options.top)};context.window=context;vm.createContext(context);vm.runInContext(mountCode,context);
+ context.openMilestoneMatchCentreFixture(event);context.location.search='';frames.shift()();assert.deepEqual(scrolls,[1492],'URL cleanup cannot cancel the current heading alignment');assert.deepEqual(focused,[{id:event.id,preventScroll:true}]);
+ scrolls.length=0;focused.length=0;context.openMilestoneMatchCentreFixture(event);context.fixtureNavigationRevision++;context.openMilestoneMatchCentreFixture(next);frames.shift()();frames.shift()();assert.deepEqual(scrolls,[1992],'Only the newest fixture may scroll or focus');assert.deepEqual(focused,[{id:next.id,preventScroll:true}]);
+ for(const invalidate of [()=>{subject='other-account';},()=>{context.activeTab='feed';},()=>{generation++;}]){context.activeTab='match-centre';context.openMilestoneMatchCentreFixture(next);invalidate();const before=scrolls.length;frames.shift()();assert.equal(scrolls.length,before,'Account, tab or view changes cancel the deferred viewport movement');}
+}
+viewportFrameGuard();
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 async function scenario({restoreDuringLoad=false,replacement=false}={}){
  let owner='',release,opened=null;

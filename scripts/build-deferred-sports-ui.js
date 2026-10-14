@@ -2,7 +2,7 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),terser=require('terser'),root=path.resolve(__dirname,'..');
 const modules={
  'assets/js/match-centre-ui.js':['assets/js/match-centre-ui.source.js'],
- 'assets/js/milestone-alerts-ui.js':['config/milestone-preferences.js','assets/js/milestone-alerts-ui.source.js'],
+ 'assets/js/milestone-alerts-ui.js':['config/milestone-preferences.js','config/milestone-test-fixture.js','assets/js/milestone-alerts-ui.source.js'],
  'assets/js/app-update.js':['assets/js/app-update.source.js'],
  'assets/js/notifications-inbox.js':['assets/js/notifications-inbox.source.js'],
 };
