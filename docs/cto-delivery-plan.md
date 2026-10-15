@@ -1,5 +1,7 @@
 # CTO delivery programme — authoritative current queue
 
+**Loading investigation — 16 October:** Two unchanged reads succeeded but still took almost three seconds. The current-fixture database work accounts for most of the wait; no further speed fix was applied or claimed. Keep the intermittent failure and larger reader withheld. [Bounded timings and next acceptance](quality/match-loading-boundary-2026-10-16.md).
+
 **Phone feedback — 16 October:** After closing and reopening the installed iPhone app, the owner reports that buttons feel quicker. The subjective speed check is confirmed; exact installed version and measured phone timing were not captured. The remaining first-match loading and other phone checks stay open. [Evidence](quality/iphone-interaction-performance-2026-10-16.md#owner-phone-confirmation--16-october-2026-sydney).
 
 **Card-polish delivery — 16 October:** Missing venues leave no empty space, unavailable times and saved participant labels are clear, and highlights explain missing confirmed results. Exact 55417c31/shell 549 passed [normal release 38782177967](https://github.com/hartican/sportscal/actions/runs/38782177967), READY/aliases/20 public files/four server-source checks and hosted plus installed/offline rehearsals. No sporting data or saved choices changed. Intermittent first loading and the remaining phone journeys stay open; the subjective button improvement is now confirmed. [Evidence](quality/missing-metadata-2026-10-16.md).

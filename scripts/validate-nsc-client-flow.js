@@ -42,6 +42,7 @@ function readHarness(request){
   Object.assign(context,{
     NOTHINGSCORE:{},nothingscoreLoadErrors:new Map([["alias",1]]),nothingscoreDetailLoading:new Set(),
     nothingscoreBatchInFlight:new Set(),nothingscorePendingIds:new Set(),nothingscoreBatchTimer:null,
+    nothingscorePollTimer:null,nothingscorePollFailures:0,scheduleNothingscorePoll(){},
     nothingscoreWatching:new Set(),nothingscoreHeartbeatTimer:null,nscRankingGeneration:0,
     nscDetailEvents:new Map(),nscRankingState:{},nscOpenedFromRankings:false,
     history:{pushState(){}},window:{clearTimeout(){}},refreshNothingscoreDrawer(){},

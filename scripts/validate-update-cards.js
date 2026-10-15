@@ -193,6 +193,9 @@ assert(localSteps.some(step => step[0] === "scripts/update-rolling-editorial-pro
 assert(localSteps.some(step => step[0] === "scripts/update-sport-editorial-depth.js" && step.includes("--write")), "every canonical update must replace generic football, cricket and AFL templates with researched event-specific editorial");
 assert(localSteps.some(step => step[0] === "scripts/enrich-editorial-consequences.js" && step.includes("--write")), "every canonical update must restore immutable consequence snapshots after generated sport-depth editorial");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-narratives.js"), "every canonical update must validate persistent editorial depth, provenance and L0 rendering");
+const publishedCardsIndex = localSteps.findIndex(step => step[0] === 'scripts/publish-feed.js');
+const narrativeGateIndex = localSteps.findIndex(step => step[0] === 'scripts/validate-editorial-narratives.js');
+assert(localSteps.slice(publishedCardsIndex + 1, narrativeGateIndex).some(step => step[0] === 'scripts/build-app-shell-runtime.js' && !step.includes('--check')), 'newly published cards must rebuild the cold-pin runtime before the narrative rendering gate reads it');
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-consequences.js"), "every canonical update must validate pre-kickoff consequence snapshots, result-aware copy and structured brackets");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-render-coverage.js"), "every canonical update must prove every validated editorial projection passes the exact browser display gate");
 assert(localSteps.some(step => step[0] === "scripts/validate-fixture-editorial-resolution.js"), "every canonical update must keep manual pins and Events children bound to canonical fixture editorial or the research queue");
