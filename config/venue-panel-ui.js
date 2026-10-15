@@ -726,22 +726,22 @@ function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=
 function buildInlineCrowdRating(ev,snapshot){
   const root=document.createElement('div');root.className='nsc-inline-rating';
   const phase=snapshot?snapshot.phase:globalThis.NOTHINGSPORTS_EPIC.confirmedOngoing(ev)?'pulse':/^(completed|finished|final)$/.test(ev.status||'')?'impact':getEventStatus(ev)==='upcoming'?'heat':null;
-  if(!phase){root.hidden=true;return root;}
   const awaitingViewer=Boolean(serverSyncClient?.sessionSubject())&&!snapshot;
-  const copy=nothingscorePhaseCopy(phase);
-  root.dataset.ratingPhase=phase;
-  const heading=document.createElement('span');heading.className='nsc-rating-phase';heading.textContent=copy.name+' · '+copy.detail;heading.title=copy.detail;root.appendChild(heading);
+  const copy=phase?nothingscorePhaseCopy(phase):{name:'Ratings',detail:'Awaiting match update',glyph:'ui:shockwave'};
+  if(phase)root.dataset.ratingPhase=phase;
+  const heading=document.createElement('span');heading.className='nsc-rating-phase';heading.textContent=copy.name+' · '+copy.detail;root.appendChild(heading);
   const group=document.createElement('div');group.className='nsc-rating-blocks';group.setAttribute('role','group');group.setAttribute('aria-label','Your '+copy.name+' rating out of five');
   const prompt=document.createElement('span');prompt.className='nsc-rating-prompt';
   const status=document.createElement('span');status.className='nsc-rating-status';status.setAttribute('role','status');
   const id=nothingscoreEventId(ev),owner=serverPersistence.user?.id;
-  let chosen=Number(snapshot?.currentUser?.contribution?.rating || snapshot?.currentUser?.submissions?.[phase]?.rating)||0;
-  const sealed=false;
-  const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?copy.labels[value-1]:'';prompt.hidden=!value;prompt.dataset.rating=String(value||0);};
+  let chosen=phase?Number(snapshot?.currentUser?.contribution?.rating || snapshot?.currentUser?.submissions?.[phase]?.rating)||0:0;
+  const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?copy.labels[value-1]:'';prompt.hidden=!value;};
   for(let value=1;value<=5;value++){
-    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${copy.labels[value-1]}`);b.title=`${value}/5 · ${copy.labels[value-1]}`;b.disabled=sealed||awaitingViewer||!phase;
+    const label=copy.labels?.[value-1]||copy.detail;
+    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${label}`);b.title=`${value}/5 · ${label}`;b.disabled=awaitingViewer||!phase;
     b.innerHTML=glyphMarkup(copy.glyph);
     b.onclick=async()=>{
+      if(!phase)return;
       if(!serverSyncClient?.sessionSubject()){status.textContent='Sign in to rate this fixture.';openSettings({section:'account'});return;}
       if(inlineRatingRequests.has(id))return;
       const previous=chosen;paint(value);status.textContent='Saving…';group.querySelectorAll('button').forEach(x=>x.disabled=true);
@@ -765,7 +765,7 @@ function buildInlineCrowdRating(ev,snapshot){
       finally{inlineRatingRequests.delete(id);group.querySelectorAll('button').forEach(x=>x.disabled=false);if(owner===(serverPersistence.user?.id))nothingscoreQueueRender();}
     };group.appendChild(b);
   }
-  if(awaitingViewer){
+  if(awaitingViewer&&phase){
     const failed=nothingscoreLoadErrors.has(id);
     status.textContent=failed?'Ratings are temporarily unavailable. Retry to check your saved rating.':'Checking your rating…';
   }
