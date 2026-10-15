@@ -1,6 +1,6 @@
 # Faster phone interactions — 16 October 2026
 
-The installed iPhone slowdown is the current priority. The user authorises optimisation and production publication, prefers consolidation over more independent mechanisms, and wants useful features preserved unless a material trade-off is necessary. Routine technical choices do not require another owner decision.
+The installed iPhone slowdown was the starting priority for this module. The user authorises optimisation and production publication, prefers consolidation over more independent mechanisms, and wants useful features preserved unless a material trade-off is necessary. Routine technical choices do not require another owner decision.
 
 ## What changed
 
@@ -36,8 +36,14 @@ Live a13f44a2, shell 547, through [normal run 38752431962](https://github.com/ha
 
 The final same-data no-worker Safari comparison measures 237→107.5 ms median and 556→272 ms maximum, a 54.6% median reduction. One of ten final comparison taps still exceeds the strict 250 ms diagnostic. The deliberately slowed Chromium stress also retains exceptions. Treat this as a measured improvement, not universal latency acceptance.
 
-The final hosted cached-worker test, after initial source downloads settle, has 119.5 ms median, 194 ms maximum, no navigation errors and no failed requests. Earlier immediate test reloads cancelled unfinished background downloads and produced misleading WebKit access-control errors; the instrumented failures and settled probe remain saved. Local installed/offline rehearsals test the actual older 545 upgrade separately. Physical-iPhone performance remains unverified; one optional owner confirmation is pending.
+The final hosted cached-worker test, after initial source downloads settle, has 119.5 ms median, 194 ms maximum, no navigation errors and no failed requests. Earlier immediate test reloads cancelled unfinished background downloads and produced misleading WebKit access-control errors; the instrumented failures and settled probe remain saved. Local installed/offline rehearsals test the actual older 545 upgrade separately. The later owner confirmation below supplies a subjective phone result; the numerical measurements here remain browser evidence.
 
 The existing gzip cap remains unchanged: 431,425 bytes within 431,441 allowed; eight critical requests. Four calculation guards run through existing release gates. The current favourites browser regression checks the real pointer hit target, 128 accessible favourites, 1,000 retained fixtures, current saved choices, source-read failure recovery and 1.5-second bounds. Native UI/browser tests remain affected-change release requirements; they are not an added scheduled product service.
 
 The first production attempt 38749944041 stopped before deployment because its old test rejected already approved exact Stan programmes. A source-bound programme/fallback assertion and separate negative binding suites close it; all 81 remaining gates passed locally before the complete successful run. No gate was waived. Full Football certification, the withheld wider reader and physical-device viewing acceptance remain open.
+
+## Owner phone confirmation — 16 October 2026 Sydney
+
+Asked whether the buttons felt quicker after closing and reopening Nothing Sport on the iPhone, the owner replied **“Quicker.”** This closes the pending subjective button-responsiveness check for the installed app. The exact installed release and numerical timing were not captured, so do not bind this response to one SHA or infer a percentage improvement. Desktop feel, the intermittent first Match Centre read and the other phone journeys remain separate checks.
+
+Private dated receipt: `/Users/jackhartican/Documents/AI/Codex/iphone-tap-performance-20261016/owner-feedback-20261016.json`. No code change, additional app deployment or owner task is needed to record this feedback.
