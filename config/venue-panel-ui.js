@@ -955,7 +955,7 @@ function configureProviderLaunch(link, viewing){
       else if(url.origin==='https://play.stan.com.au')appHandoff=true;
     }catch(_error){}
   }
-  link.href = /^https:\/\//i.test(String(target || "")) || viewing.highlightsTopResult&&/^\/api\/fixtures\?mode=highlight&ids=[-a-z0-9_%]+$/i.test(target||'') ? target : "#";
+  link.href = /^https:\/\//i.test(String(target || "")) || viewing.highlights&&/^\/api\/fixtures\?mode=highlight&ids=[-a-z0-9_%]+$/i.test(target||'') ? target : "#";
   link.target = appHandoff ? "_self" : "_blank";
   link.rel = "noopener noreferrer external";
 }

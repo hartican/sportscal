@@ -9,6 +9,10 @@ const now=new Date('2026-10-15T00:00:00Z');
 const fixture=id=>{const event=events.find(e=>e.id===id);assert(event,id);return event;};
 const video=(title,description='')=>({title,description,publishedAt:'2026-10-14T20:00:00Z',channelId:'unreviewed'});
 function main(){
+  const namedNfl={...require('../data/follow-fixtures.v1.json').events.find(e=>e.id==='fixture:nfl:401872990'),participants:[]};assert(namedNfl.name);
+  assert(context.matches(namedNfl,video('Bears vs Packers | NFL Week 5 Highlights 2026')),'named at fixture uses both reviewed team aliases when participant details are absent');
+  assert.equal(context.matches(namedNfl,video('Bears vs Lions | NFL Week 5 Highlights 2026')),false,'at parsing cannot replace the second opponent');
+  assert.equal(context.matches(namedNfl,video('Bears vs Packers | NFL Week 4 Highlights 2026')),false,'at parsing retains known week check');
   const nfl=require('../data/code-inspector/american-football.json').fixtures.find(e=>e.id==='fixture:nfl:401772969');assert(nfl);
   assert.equal(selection.contextMatches(video(nfl.name+' | NFL Week 1 Highlights'),nfl,now),false,'known NFL week rejects a rematch from another week');
   assert(selection.contextMatches(video(nfl.name+' | NFL Week 18 Highlights'),nfl,now),'matching sourced NFL week stays valid; matcher-only historical identity probe');

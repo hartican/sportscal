@@ -21,7 +21,7 @@ for(const navigator of [
  assert.equal(render({providerId:'stan',webUrl:'https://www.stan.com.au/account'},navigator).href,'https://www.stan.com.au/account','Do not reinterpret unrelated account routes');
  for(const webUrl of ['https://www.stan.com.au.evil.test/watch/sport','https://evil.test/watch/sport','https://www.stan.com.au@evil.test/watch/sport'])assert.equal(render({providerId:'stan',webUrl},navigator).href,webUrl,'App routing requires the exact official host');
  assert.equal(render({providerId:'nine',webUrl:marketing},navigator).href,marketing,'A URL alone cannot confer Stan provider identity');
- const youtube=render({providerId:'youtube',webUrl:'/api/fixtures?mode=highlight&ids=fixture%3Afootball%3Atest',highlightsTopResult:true},navigator);
+ const youtube=render({providerId:'youtube',webUrl:'/api/fixtures?mode=highlight&ids=fixture%3Afootball%3Atest',highlights:true,highlightsTopResult:true},navigator);
  assert.equal(youtube.href,'/api/fixtures?mode=highlight&ids=fixture%3Afootball%3Atest');assert.equal(youtube.target,'_blank','Keep the existing highlights action');
 }
 for(const navigator of [{userAgent:'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15)',maxTouchPoints:0},{userAgent:'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'},{}]){
