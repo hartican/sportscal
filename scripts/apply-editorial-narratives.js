@@ -4,10 +4,12 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const { isDeepStrictEqual } = require("node:util");
 const {
   fixtureSourceMetadata,
   applyToFeedEvent,
   applyToMajorEvent,
+  editorialNarrativeFor,
   indexesFor,
   projectionTargetIds,
   projectionRecordIndex,
@@ -26,6 +28,49 @@ const MAJOR_EVENTS_PATH = path.resolve("data/major-events.v1.json");
 
 function readJson(filePath){ return JSON.parse(fs.readFileSync(filePath, "utf8")); }
 function writeJson(filePath, value){ fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`); }
+
+function projectionConforms(event, projection, indexes){
+  const actual = event.editorialNarrative;
+  if (!actual) return false;
+  const expected = editorialNarrativeFor(projection, indexes);
+  // A fixture review and a research observation are different clocks. Do not
+  // backdate a reviewed card merely because the same research is reapplied.
+  const observationKeys = new Set(["researchedAt", "refreshAfter", "hookSpoilerOn", "synopsisSpoilerOn"]);
+  if (Object.keys(expected).some(key => !observationKeys.has(key) && !isDeepStrictEqual(actual[key], expected[key]))) return false;
+  for (const key of ["formCopy", "closingCopy", "consequence", "sentiment"]){
+    if (!isDeepStrictEqual(actual[key], expected[key])) return false;
+  }
+  const completed = event.status === "completed" && event.key !== "horse-racing" && event.sportKey !== "horse-racing";
+  if (!completed) return event.selectedSentence === projection.hook && event.fullSpiel === projection.synopsis;
+  const lifecycle = require('../config/editorial-lifecycle');
+  if (actual.resultResearchRequired || actual.resultSignature && actual.resultSignature !== lifecycle.signature(event)) return false;
+  return event.selectedSentence === event.storyline?.hookSpoilerOff
+    && event.fullSpiel === event.storyline?.synopsisSpoilerOff
+    && require('./lib/storyline-card-rules').spoilerContractIssues(event).length === 0;
+}
+
+function laterReview(current, researched){
+  return Number.isFinite(Date.parse(current)) && Date.parse(current) >= Date.parse(researched) ? current : researched;
+}
+
+function reconcileFeedEvent(event, projection, indexes){
+  if (require('../config/editorial-maintenance').protectedFixture(event) || projectionConforms(event, projection, indexes)) return event;
+  const projected = applyToFeedEvent(event, projection, indexes);
+  // Reconciliation owns commentary, not sporting facts, result evidence,
+  // source observations, Follow state or already staged post-match writing.
+  return {
+    ...event,
+    selectedSentence:projected.selectedSentence,
+    fullSpiel:projected.fullSpiel,
+    editorialNarrative:projected.editorialNarrative,
+    editorialPreview:projected.editorialPreview,
+    lastReviewedAt:laterReview(event.lastReviewedAt, projected.lastReviewedAt),
+    storyline:{
+      ...projected.storyline,
+      lastReviewedAt:laterReview(event.storyline?.lastReviewedAt, projected.storyline?.lastReviewedAt),
+    },
+  };
+}
 
 function main(){
   const knowledge = readJson(KNOWLEDGE_PATH);
@@ -50,6 +95,7 @@ function main(){
         const narrative = event.editorialNarrative;
         const primarySource = indexes.sources.get(narrative?.sourceIds?.[0]);
         if (!narrative?.hook || !narrative?.synopsis || !primarySource) return event;
+        if (event.selectedSentence && event.fullSpiel && require('./lib/storyline-card-rules').spoilerContractIssues(event).length === 0) return event;
         const threadTitle = indexes.threads.get(narrative.threadIds?.[0])?.title || "Finals path";
         return {
           ...event,
@@ -69,7 +115,7 @@ function main(){
         };
       }
       applied += 1;
-      return applyToFeedEvent(event, projection, indexes);
+      return reconcileFeedEvent(event, projection, indexes);
     });
     return applied;
   }
@@ -143,6 +189,8 @@ function main(){
   }
   console.log(`${WRITE ? "Applied" : "Would apply"} ${MAJOR_ONLY ? 0 : feedApplied} feed, ${majorApplied} major-event and ${childApplied} fixture-child editorial projections.`);
 }
+
+module.exports = { projectionConforms, reconcileFeedEvent };
 
 if (require.main === module){
   try { main(); }

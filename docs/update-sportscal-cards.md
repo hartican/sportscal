@@ -1,5 +1,29 @@
 # Update Sportscal cards
 
+## Preservation-first editorial reconciliation - 16 October 2026
+
+Recover staged writing through the existing canonical editorial owner without
+regenerating unrelated rolling narratives when sporting inputs have not changed.
+The existing projection writer reconciles missing or genuinely divergent declared
+projections, retaining already conformant cards byte-for-byte. A fixture review
+clock is not the research observation clock: reapplication must not backdate
+either a root or Storyline review. Keep sporting/source/result facts and staged
+post-match writing outside the commentary patch. New result signatures still
+invalidate stale result-aware commentary; Results OFF and the original men's
+NRL Grand Final remain protected.
+
+For this recovery, resume the existing `update-cards.js` chain at
+`scripts/apply-editorial-narratives.js --resume-occurrence 2` after integrating retained source inputs,
+then run every required downstream gate. Do not resume at the rolling generator
+merely to repair an existing publication projection: it can regenerate unrelated
+table templates and replace richer approved copy. If genuine source inputs have
+changed, use their normal canonical owner and review the resulting scope.
+Compare the actual combined source and both feeds; preserve unrelated records
+and retain explicit evidence for any necessary projection-gap repair. No gate,
+source authority, private hold, budget, provider or release rule is bypassed.
+The mandatory projection-identity gate includes the real file-writer
+`validate-editorial-reconciliation.js` regression.
+
 ## EPIC archive and post-match handoff — 14 October 2026
 
 Every card update preserves available Anticipation (heat), Ongoing (pulse) and Impact writing for genuine historical user fives or explicit NS fives. User-owned genuine fives latch personal classics; ordinary cards retire after seven Sydney calendar days while shared source facts, ratings, points and editorial backlog remain. See [the approved contract](plans/epic-fixture-archives-2026-10-14.md) and [adaptive owner extension](adaptive-editorial.md).
