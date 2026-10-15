@@ -1526,6 +1526,26 @@
       "id": "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538",
       "kind": "event",
       "name": "Alexander Zverev v Alex de Minaur"
+    },
+    {
+      "id": "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34",
+      "kind": "event",
+      "name": "Australia v New Zealand"
+    },
+    {
+      "id": "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286",
+      "kind": "event",
+      "name": "Alexander Zverev v Alex de Minaur"
+    },
+    {
+      "id": "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d",
+      "kind": "event",
+      "name": "Australia v New Zealand"
+    },
+    {
+      "id": "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb",
+      "kind": "event",
+      "name": "Alexander Zverev v Alex de Minaur"
     }
   ],
   "sources": [
@@ -7832,6 +7852,174 @@
     {
       "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:2",
       "name": "Alexander Zverev v Alex de Minaur — official research 3",
+      "url": "https://www.atptour.com/en/tournaments/shanghai/5014/overview",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T00:01:15.885Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:0",
+      "name": "Australia v New Zealand — official research 1",
+      "url": "https://www.nrl.com/news/2026/10/13/kangaroos-team-to-face-new-zealand-in-rlwc-2026-opener/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:1",
+      "name": "Australia v New Zealand — official research 2",
+      "url": "https://www.nrl.com/news/2026/10/13/ponga-and-gagai-to-debut-in-kiwis-world-cup-opener/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:2",
+      "name": "Australia v New Zealand — official research 3",
+      "url": "https://www.nrl.com/news/2026/10/12/green-light-the-bus-ride-that-set-yeo-on-world-cup-path/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:3",
+      "name": "Australia v New Zealand — official research 4",
+      "url": "https://www.nrl.com/news/2026/10/12/take-a-lot-of-blame-the-defeat-driving-hughes-world-cup-bid/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:4",
+      "name": "Australia v New Zealand — official research 5",
+      "url": "https://nzrl.co.nz/news/kiwis-kiwi-ferns-2026-rugby-league-world-cup-draws-announced",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:5",
+      "name": "Australia v New Zealand — official research 6",
+      "url": "https://www.nrl.com/news/2026/10/15/moses-munster-chase-hot-start-as-kevvie-plays-it-cool/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:6",
+      "name": "Australia v New Zealand — official research 7",
+      "url": "https://www.abc.net.au/news/2026-10-14/james-tedesco-reece-walsh-australia-world-cup-kevin-walters/107266374",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:7",
+      "name": "Australia v New Zealand — official research 8",
+      "url": "https://www.sen.com.au/news/2026/10/14/rlwc-2026-kevin-walters-explains-decision-behind-his-team-selection-for-new-zealand",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:0",
+      "name": "Alexander Zverev v Alex de Minaur — official research 1",
+      "url": "https://en.rolexshanghaimasters.com/en/media/news/day-9-preview-zverev-d-de-minaur",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:33:23.633Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:1",
+      "name": "Alexander Zverev v Alex de Minaur — official research 2",
+      "url": "https://en.rolexshanghaimasters.com/en/media/news/zverev-bublik-shanghai-2026-tuesday",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:33:23.633Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:2",
+      "name": "Alexander Zverev v Alex de Minaur — official research 3",
+      "url": "https://en.rolexshanghaimasters.com/en/media/news/shanghai-2026-scouting-report",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:33:23.633Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:3",
+      "name": "Alexander Zverev v Alex de Minaur — official research 4",
+      "url": "https://www.atptour.com/en/tournaments/shanghai/5014/overview",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:33:23.633Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:0",
+      "name": "Australia v New Zealand research source 1",
+      "url": "https://www.nrl.com/news/2026/10/13/kangaroos-team-to-face-new-zealand-in-rlwc-2026-opener/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:1",
+      "name": "Australia v New Zealand research source 2",
+      "url": "https://www.nrl.com/news/2026/10/13/ponga-and-gagai-to-debut-in-kiwis-world-cup-opener/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:2",
+      "name": "Australia v New Zealand research source 3",
+      "url": "https://www.nrl.com/news/2026/10/12/green-light-the-bus-ride-that-set-yeo-on-world-cup-path/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:3",
+      "name": "Australia v New Zealand research source 4",
+      "url": "https://www.nrl.com/news/2026/10/12/take-a-lot-of-blame-the-defeat-driving-hughes-world-cup-bid/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:4",
+      "name": "Australia v New Zealand research source 5",
+      "url": "https://nzrl.co.nz/news/kiwis-kiwi-ferns-2026-rugby-league-world-cup-draws-announced",
+      "sourceType": "official",
+      "checkedAt": "2026-10-13T23:57:53.941Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:5",
+      "name": "Australia v New Zealand research source 6",
+      "url": "https://www.nrl.com/news/2026/10/15/moses-munster-chase-hot-start-as-kevvie-plays-it-cool/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:6",
+      "name": "Australia v New Zealand research source 7",
+      "url": "https://www.abc.net.au/news/2026-10-14/james-tedesco-reece-walsh-australia-world-cup-kevin-walters/107266374",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:7",
+      "name": "Australia v New Zealand research source 8",
+      "url": "https://www.sen.com.au/news/2026/10/14/rlwc-2026-kevin-walters-explains-decision-behind-his-team-selection-for-new-zealand",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:0",
+      "name": "Alexander Zverev v Alex de Minaur research source 1",
+      "url": "https://en.rolexshanghaimasters.com/en/media/news/day-9-preview-zverev-d-de-minaur",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:33:23.633Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:1",
+      "name": "Alexander Zverev v Alex de Minaur research source 2",
+      "url": "https://en.rolexshanghaimasters.com/en/media/news/zverev-bublik-shanghai-2026-tuesday",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T00:01:15.885Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:2",
+      "name": "Alexander Zverev v Alex de Minaur research source 3",
+      "url": "https://en.rolexshanghaimasters.com/en/media/news/shanghai-2026-scouting-report",
+      "sourceType": "official",
+      "checkedAt": "2026-10-14T22:33:23.633Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:3",
+      "name": "Alexander Zverev v Alex de Minaur research source 4",
       "url": "https://www.atptour.com/en/tournaments/shanghai/5014/overview",
       "sourceType": "official",
       "checkedAt": "2026-10-14T00:01:15.885Z"
@@ -38166,6 +38354,354 @@
       ],
       "observedAt": "2026-10-14T00:01:15.885Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:0",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34"
+      ],
+      "statement": "Australia named Moses and Munster in the halves with Walsh at fullback and Yeo captain.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:0"
+      ],
+      "observedAt": "2026-10-14T22:39:08.467Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:1",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34"
+      ],
+      "statement": "New Zealand named Hughes and Nikorima in the halves, Ponga at fullback and Gagai at centre.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:1"
+      ],
+      "observedAt": "2026-10-14T22:39:08.467Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:2",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34"
+      ],
+      "statement": "Yeo is postponing pectoral surgery to captain Australia with his club's support.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:2"
+      ],
+      "observedAt": "2026-10-14T22:39:08.467Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:3",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34"
+      ],
+      "statement": "Hughes connects his World Cup ambition to the childhood impact of New Zealand's 2008 title.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:3"
+      ],
+      "observedAt": "2026-10-14T22:39:08.467Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:4",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34"
+      ],
+      "statement": "Australia and New Zealand share Pool A with Fiji and Cook Islands.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:4"
+      ],
+      "observedAt": "2026-10-14T22:39:08.467Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:5",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34"
+      ],
+      "statement": "Walters attributes Tedesco and Walker's opening rest to workload rather than a new injury.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:5",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:6",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:7"
+      ],
+      "observedAt": "2026-10-14T22:39:08.467Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:6",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34"
+      ],
+      "statement": "Walters says the longer-term fullback choice remains open, with rotation based on weekly team needs.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:6",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:7"
+      ],
+      "observedAt": "2026-10-14T22:39:08.467Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286"
+      ],
+      "statement": "De Minaur reports his groin has been improving with daily recovery work; no independent medical clearance is asserted.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:0"
+      ],
+      "observedAt": "2026-10-14T22:33:23.633Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286"
+      ],
+      "statement": "Zverev has reported ankle discomfort.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:1"
+      ],
+      "observedAt": "2026-10-14T22:33:23.633Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286"
+      ],
+      "statement": "The official preview identifies de Minaur neutralising Zverev's serve and extending rallies as a tactical contest.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:0"
+      ],
+      "observedAt": "2026-10-14T22:33:23.633Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286"
+      ],
+      "statement": "De Minaur remains in the ATP Finals qualification contest.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:1",
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:2"
+      ],
+      "observedAt": "2026-10-14T22:33:23.633Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:4",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286"
+      ],
+      "statement": "Zverev is a former Shanghai finalist seeking his first title at the event.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:2"
+      ],
+      "observedAt": "2026-10-14T22:33:23.633Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:5",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286"
+      ],
+      "statement": "Shanghai is the penultimate Masters 1000 and the pairing is a quarter-final in the evening session.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:0",
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:2"
+      ],
+      "observedAt": "2026-10-14T22:33:23.633Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:0",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d"
+      ],
+      "statement": "Australia named Moses and Munster in the halves with Walsh at fullback and Yeo captain.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:0"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:1",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d"
+      ],
+      "statement": "New Zealand named Hughes and Nikorima in the halves, Ponga at fullback and Gagai at centre.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:1"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:2",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d"
+      ],
+      "statement": "Yeo is postponing pectoral surgery to captain Australia with his club's support.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:2"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:3",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d"
+      ],
+      "statement": "Hughes connects his World Cup ambition to the childhood impact of New Zealand's 2008 title.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:3"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:4",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d"
+      ],
+      "statement": "Australia and New Zealand share Pool A with Fiji and Cook Islands.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:4"
+      ],
+      "observedAt": "2026-10-13T23:57:53.941Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:5",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d"
+      ],
+      "statement": "Walters attributes Tedesco and Walker's opening rest to workload rather than a new injury.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:5",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:6",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:7"
+      ],
+      "observedAt": "2026-10-14T22:39:08.467Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:6",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d"
+      ],
+      "statement": "Walters says the longer-term fullback choice remains open, with rotation based on weekly team needs.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:6",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:7"
+      ],
+      "observedAt": "2026-10-14T22:39:08.467Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb"
+      ],
+      "statement": "De Minaur reports his groin has been improving with daily recovery work; no independent medical clearance is asserted.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:0"
+      ],
+      "observedAt": "2026-10-14T22:33:23.633Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb"
+      ],
+      "statement": "Zverev has reported ankle discomfort.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:1"
+      ],
+      "observedAt": "2026-10-14T00:01:15.885Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb"
+      ],
+      "statement": "The official preview identifies de Minaur neutralising Zverev's serve and extending rallies as a tactical contest.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:0"
+      ],
+      "observedAt": "2026-10-14T22:33:23.633Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb"
+      ],
+      "statement": "De Minaur remains in the ATP Finals qualification contest.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:1",
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:2"
+      ],
+      "observedAt": "2026-10-14T22:33:23.633Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:4",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb"
+      ],
+      "statement": "Zverev is a former Shanghai finalist seeking his first title at the event.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:2"
+      ],
+      "observedAt": "2026-10-14T22:33:23.633Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:5",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb"
+      ],
+      "statement": "Shanghai is the penultimate Masters 1000 and the pairing is a quarter-final in the evening session.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:0",
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:2"
+      ],
+      "observedAt": "2026-10-14T22:33:23.633Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -42643,6 +43179,80 @@
       ],
       "status": "active",
       "updatedAt": "2026-10-14T00:01:15.885Z"
+    },
+    {
+      "id": "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34"
+      ],
+      "title": "Australia v New Zealand",
+      "summary": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
+      "factIds": [
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:0",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:1",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:2",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:3",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:4",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:5",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-a680234e520a45b93a6d063d415f7b24543eaa455cb1b6a790530eed356b9b34:6"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286"
+      ],
+      "title": "Alexander Zverev v Alex de Minaur",
+      "summary": "This Shanghai Masters quarter-final offers a semi-final place rather than the trophy itself. Zverev is a former finalist still seeking his first title here; de Minaur's ATP Finals ambitions give the late-season points another consequence. Shanghai is the season's penultimate Masters 1000, so opportunities at this level are narrowing. In the evening session, the important question is whether the returner can make the server play an extra demanding ball without surrendering control of the rally.",
+      "factIds": [
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:0",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:1",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:2",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:3",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:4",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-05f87ef202ec52f54316fcada67c00cd3b1800cd196ca811417904c7b6f2e286:5"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-14T22:33:23.633Z"
+    },
+    {
+      "id": "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d",
+      "subjectIds": [
+        "subject:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d"
+      ],
+      "title": "Australia v New Zealand",
+      "summary": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
+      "factIds": [
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:0",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:1",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:2",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:3",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:4",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:5",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:6"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-14T22:39:08.467Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb",
+      "subjectIds": [
+        "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb"
+      ],
+      "title": "Alexander Zverev v Alex de Minaur",
+      "summary": "This Shanghai Masters quarter-final offers a semi-final place rather than the trophy itself. Zverev is a former finalist still seeking his first title here; de Minaur's ATP Finals ambitions give the late-season points another consequence. Shanghai is the season's penultimate Masters 1000, so opportunities at this level are narrowing. In the evening session, the important question is whether the returner can make the server play an extra demanding ball without surrendering control of the rally.",
+      "factIds": [
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:0",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:1",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:2",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:3",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:4",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:5"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-14T22:33:23.633Z"
     }
   ],
   "audienceMemories": [],
@@ -60106,43 +60716,6 @@
       }
     },
     {
-      "id": "projection:feed:rlwc-australia-new-zealand-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "rlwc-australia-new-zealand-2026"
-      ],
-      "researchDepth": 5,
-      "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
-      "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
-      "formCopy": "Australia have named Moses and Munster in the halves, Walsh at fullback and Yeo as captain. Bostock and Preston are named for their Kangaroos debuts. New Zealand have paired Hughes with Nikorima, with Ponga at fullback and Gagai at centre for their first Kiwis appearances. Fisher-Harris leads a forward group featuring Leota and Tapine. These are announced match-day roles, not simply squad selections; the new combinations still have to work under pressure.",
-      "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
-      "threadIds": [
-        "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162"
-      ],
-      "factIds": [
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
-        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4"
-      ],
-      "sourceIds": [
-        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
-        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4"
-      ],
-      "researchedAt": "2026-10-13T23:57:53.941Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-15T09:05:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-13T23:57:53.941Z"
-      }
-    },
-    {
       "id": "projection:feed:bledisloe-sydney-2026",
       "targetType": "feed-event",
       "targetIds": [
@@ -60220,6 +60793,48 @@
       }
     },
     {
+      "id": "projection:feed:rlwc-australia-new-zealand-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rlwc-australia-new-zealand-2026"
+      ],
+      "researchDepth": 5,
+      "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
+      "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
+      "formCopy": "Australia have named Moses and Munster in the halves, Walsh at fullback and Yeo as captain. Bostock and Preston are named for their Kangaroos debuts. Walters says Tedesco and Walker are being rested after heavy recent workloads, while the longer-term fullback choice remains open. This is a first opportunity, not a settled hierarchy for the tournament. New Zealand have paired Hughes with Nikorima, with Ponga at fullback and Gagai at centre for their first Kiwis appearances. Fisher-Harris leads a forward group featuring Leota and Tapine. These are announced match-day roles, not simply squad selections; the new combinations still have to work under pressure.",
+      "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
+      "threadIds": [
+        "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d"
+      ],
+      "factIds": [
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:0",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:1",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:2",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:3",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:4",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:5",
+        "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:6"
+      ],
+      "sourceIds": [
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:0",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:1",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:2",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:3",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:4",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:5",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:6",
+        "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:7"
+      ],
+      "researchedAt": "2026-10-14T22:39:08.467Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-15T09:05:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-14T22:39:08.467Z"
+      }
+    },
+    {
       "id": "projection:fixture-research:fixture-tennis-espn-atp-184954",
       "targetType": "feed-event",
       "targetIds": [
@@ -60228,31 +60843,33 @@
       ],
       "researchDepth": 5,
       "hook": "Zverev brings the bigger serve; de Minaur brings the harder-earned rallies. Shanghai asks whose way of controlling pressure can survive the other.",
-      "synopsis": "This is a Shanghai Masters quarter-final, with a semi-final place at stake rather than the trophy itself. Zverev is a former Shanghai finalist still seeking his first title here; de Minaur's ATP Finals ambitions give the late-season points another consequence. Shanghai is the season's penultimate Masters 1000, so opportunities at this level are narrowing. The exact start remains unconfirmed on the card; no earlier match outcome is disclosed.",
-      "formCopy": "Zverev has reported an ankle issue, making movement a question to watch rather than a reason to presume withdrawal. De Minaur remains in the ATP Finals qualification contest as the Asian swing closes. The useful contrast is tactical: Zverev wants his serve to shorten exchanges, while de Minaur needs returns and repeated changes of direction to make the court feel larger. Neither a seed number nor an earlier score tells us how that physical contest will unfold.",
+      "synopsis": "This Shanghai Masters quarter-final offers a semi-final place rather than the trophy itself. Zverev is a former finalist still seeking his first title here; de Minaur's ATP Finals ambitions give the late-season points another consequence. Shanghai is the season's penultimate Masters 1000, so opportunities at this level are narrowing. In the evening session, the important question is whether the returner can make the server play an extra demanding ball without surrendering control of the rally.",
+      "formCopy": "De Minaur says his groin has improved with daily recovery work, adding a clearer fitness picture to his ATP Finals pursuit. That is his assessment, not a medical guarantee. Zverev has reported ankle discomfort, so each man's movement merits attention. The tactical contrast remains: Zverev wants his serve to take time away; de Minaur needs returns deep enough to turn the next ball into a contest rather than another defensive sprint.",
       "closingCopy": "For Australian supporters, de Minaur's appeal is not that he makes elite tennis look effortless. It is the sense that another return and another sprint can make a more imposing opponent uncomfortable. Zverev faces a different expectation as Shanghai's top seed: authority must become control, especially when his body is demanding attention. The emotional hinge is who keeps choosing his own game under stress, rather than allowing the other man's strengths to dictate every point.",
       "threadIds": [
-        "thread:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538"
+        "thread:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb"
       ],
       "factIds": [
-        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:0",
-        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:1",
-        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:2",
-        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:3",
-        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:4"
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:0",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:1",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:2",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:3",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:4",
+        "fact:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:5"
       ],
       "sourceIds": [
-        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:0",
-        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:1",
-        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-d957caf29eba768a0b63ad05d148c11d47b01ef7436f1be82f29faf11c968538:2"
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:0",
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:1",
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:2",
+        "source:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb:3"
       ],
-      "researchedAt": "2026-10-14T00:01:15.885Z",
+      "researchedAt": "2026-10-14T22:33:23.633Z",
       "editorialPhase": "preview",
       "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-14T00:01:15.885Z"
+        "reviewedAt": "2026-10-14T22:33:23.633Z"
       }
     }
   ]

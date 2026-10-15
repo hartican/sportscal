@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "weekend-editorial-20261014000127081-highlights-f1690f53e9e8",
-  "publishedAt": "2026-10-14T00:55:39.872Z",
+  "version": "weekend-editorial-20261014225703956",
+  "publishedAt": "2026-10-14T22:57:03.956Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -68452,7 +68452,68 @@
         "resultSignature": "[\"completed\",\"Belgium won 80–68.\",\"Belgium 80–68 Australian Opals\",\"Belgium 80–68 Australian Opals in the World Cup group stage in Berlin.\"]"
       },
       "endTimeUtc": "2026-09-07T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window"
+      "endTimeBasis": "scheduled-live-window",
+      "postMatchEditorial": {
+        "eventId": "event:fiba-women:2026:group-belgium-australia",
+        "hook": "Belgium's best answer to Australia's third-quarter recovery was another pass: an 80-68 win bought a direct route to the quarter-finals.",
+        "body": "Belgium beat the Opals 80-68 in Berlin on 7 September, winning the Group C contest that separated a direct quarter-final place from an extra qualification game. This was control regained, not a lead that went unchallenged. Belgium led 23-17 after the opening quarter and 40-33 at half-time, but Australia won the third period 22-20 to reduce the gap to five.\n\nEmma Meesseman supplied 22 points, 10 rebounds and eight assists. That combination is the important part: Belgium's leading scorer was also creating chances for teammates, rather than leaving the attack dependent on her finishing. FIBA's account confirmed a performance two assists short of a triple-double. Belgium then won the final quarter 20-13, turning a contest still within Australia's reach into a twelve-point victory.\n\nBelgium established an inside threat early. BeBasket's match report describes Kyara Linskens attacking beneath the basket and Meesseman combining scoring with passing; Billie Massey's three-pointer at the half-time buzzer preserved a seven-point advantage. The tactical reading is that Belgium offered more than one problem to solve: protecting the paint did not remove the passing options or the outside finish. That is interpretation of the reported attack, not evidence of a particular Australian defensive scheme.\n\nJulie Allemand added seven assists, taking her career World Cup total to 111 and the competition's recorded lead. The record is bounded by FIBA's statistical coverage beginning in 1994, not every edition ever played.\n\nAustralia's own assessment identified the contrast. In post-match remarks reported by the WNBL, Sandy Brondello called for more purposeful ball and player movement, while Steph Talbot highlighted Belgium's offensive chemistry. Those are participants' explanations, not an invented account of what either dressing room felt.\n\nThe immediate consequence was concrete: Belgium completed the group unbeaten and went straight to the last eight; Australia had to win an additional qualification game to join them. Winning this meeting changed the route through the tournament, not merely the order in a table. It did not settle either team's eventual World Cup finish.\n\nFor the Opals, the useful lesson was more specific than needing to shoot better. Their third-quarter recovery showed that the game remained contestable, but Belgium's closing period restored the separation. Read alongside Brondello's comments, the sporting argument is for better connected possessions, not a claim that effort or belief was missing.",
+        "sourceUrls": [
+          "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128132-BEL-AUS",
+          "https://www.australia.basketball/national-teams/opals/news",
+          "https://www.basketballbelgium.be/nl/newscat/homepage/page/2/",
+          "https://www.fiba.basketball/en/news/september-7-xtb-top-performers-who-did-it-best",
+          "https://www.basketballbelgium.be/nl/news/julie-allemand-heeft-wk-record-inzake-assists/",
+          "https://www.bebasket.be/les-cats-soffrent-laustralie-et-la-premiere-place-du-groupe",
+          "https://www.wnbl.com.au/news/we-want-to-be-the-best-defensive-team-in-the-world-steph-talbot",
+          "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/allemand-is-womens-world-cup-all-time-assists-leader"
+        ],
+        "facts": [
+          {
+            "text": "Belgium beat Australia80-68 in GroupC on7September2026 at Berlin Arena.",
+            "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128132-BEL-AUS"
+          },
+          {
+            "text": "Belgium led23-17 after the first quarter and40-33 at half-time.",
+            "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128132-BEL-AUS"
+          },
+          {
+            "text": "Australia won the third22-20, leaving Belgium60-55 ahead; Belgium won the fourth20-13.",
+            "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128132-BEL-AUS"
+          },
+          {
+            "text": "Meesseman had22points,10rebounds,8assists.",
+            "sourceUrl": "https://www.fiba.basketball/en/news/september-7-xtb-top-performers-who-did-it-best"
+          },
+          {
+            "text": "Allemand supplied7assists, reaching111career WorldCupassists and the recorded lead.",
+            "sourceUrl": "https://www.basketballbelgium.be/nl/news/julie-allemand-heeft-wk-record-inzake-assists/"
+          },
+          {
+            "text": "Recorded assist history begins1994.",
+            "sourceUrl": "https://www.bebasket.be/les-cats-soffrent-laustralie-et-la-premiere-place-du-groupe"
+          },
+          {
+            "text": "Linskens provided an inside threat; BillieMassey made a three at the half-timebuzzer.",
+            "sourceUrl": "https://www.bebasket.be/les-cats-soffrent-laustralie-et-la-premiere-place-du-groupe"
+          },
+          {
+            "text": "Belgium won the group unbeaten and advanced directly to the quarterfinals.",
+            "sourceUrl": "https://www.basketballbelgium.be/nl/newscat/homepage/page/2/"
+          },
+          {
+            "text": "Australia required an additional qualification game rather than being eliminated.",
+            "sourceUrl": "https://www.australia.basketball/national-teams/opals/news"
+          },
+          {
+            "text": "Brondello called for purposeful ball/player movement; Talbot highlighted Belgian offensive chemistry.",
+            "sourceUrl": "https://www.wnbl.com.au/news/we-want-to-be-the-best-defensive-team-in-the-world-steph-talbot"
+          }
+        ],
+        "researchedAt": "2026-10-14T23:51:57.989Z",
+        "tier": 5,
+        "resultSignature": "7dc168e979102d4f87c4623ad082e327519cf0b855096f68a5ccf22654b4a905",
+        "factsSignature": "[\"completed\",\"Belgium won 80–68.\",\"Belgium 80–68 Australian Opals\",null,null,null]"
+      }
     },
     {
       "id": "evt_fiba_women_2026_group_puerto_rico_turkiye",
@@ -70614,7 +70675,51 @@
         }
       ],
       "scoreCheckedAt": "2026-10-11T12:36:43.421Z",
-      "statusCheckedAt": "2026-10-11T12:36:43.421Z"
+      "statusCheckedAt": "2026-10-11T12:36:43.421Z",
+      "postMatchEditorial": {
+        "eventId": "fixture:us-open-2026:official:ms:1504",
+        "hook": "At 3.33am, Shelton's serve ended the argument. Getting there required much more than serving.",
+        "body": "Ben Shelton ended Carlos Alcaraz's US Open title defence with a 6-7(5), 6-1, 6-3, 1-6, 7-6(7) quarter-final victory in Arthur Ashe Stadium. Four hours and 28 minutes of play finished at 3.33am, the latest conclusion in tournament history. The final-set match tiebreak went 10-7 to the American. Those numbers describe an extraordinary night, but its appeal was the repeated refusal of either player to let a bad passage become the whole match.\n\nAlcaraz took the opening tiebreak after Shelton had led it 5-3. Shelton then changed the balance through his returns and angled groundstrokes as well as his left-handed delivery. Nine consecutive games helped him take charge across the middle sets. Alcaraz answered with a 6-1 fourth set, leaving neither man's earlier superiority sufficient.\n\nThe deciding breaker reduced those changes of momentum to individual points. Shelton moved ahead 3-1; Alcaraz answered to lead 5-3. With the score later level at 6-6, Shelton obtained the separation he needed and finished with a 146mph ace. His serve mattered not simply because it was fast, but because it could remove Alcaraz's opportunity to influence a point when every return carried greater consequence.\n\nThat reading is supported by Alcaraz's own account. He singled out the uncertainty a returner faces against Shelton: a rally might develop, or the serve might give the American the point outright. Alcaraz also said he felt better during the fifth set despite having tired earlier. The ending was therefore not an opponent quietly fading away; Shelton had to withstand a renewed challenge.\n\nFor Shelton, the immediate prize was a semi-final against Frances Tiafoe. Beyond the draw, this was evidence that his attacking game could survive a match in which power did not provide continuous control. He lost the first set, dominated for a time and then had to begin the contest again. The more useful lesson than any claim of inevitability is his ability to recover his attacking purpose after control had gone.\n\nAlcaraz was returning from a lengthy wrist-related absence and described leaving healthy and proud of his resistance. Shelton, meanwhile, credited the family, coaches, friends and remaining New York crowd who supported him into the early morning. Those are the players' accounts, not emotions assigned to them. They give the night its human scale: one man moving on, another finding value in how he competed, and a compelling match that required both.",
+        "sourceUrls": [
+          "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html",
+          "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/carlos_alcaraz_on_2026_us_open_defeat_to_ben_shelton_he_is_a_beast.html",
+          "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/family_support_helps_shelton_upset_alcaraz_in_epic_match_at_2026_us_open.html"
+        ],
+        "facts": [
+          {
+            "text": "Shelton won the US Open quarter-final 6-7(5),6-1,6-3,1-6,7-6(7).",
+            "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html"
+          },
+          {
+            "text": "The match lasted four hours28minutes and finished3:33am, the tournament's latest finish.",
+            "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html"
+          },
+          {
+            "text": "Shelton won nine straight games across the middle sets; Alcaraz won the fourth6-1.",
+            "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html"
+          },
+          {
+            "text": "Shelton led the final breaker3-1, Alcaraz led5-3, and Shelton finished with a146mph ace.",
+            "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html"
+          },
+          {
+            "text": "Alcaraz identified Shelton's serve as decisive and said he felt better in the fifth after earlier fatigue.",
+            "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/carlos_alcaraz_on_2026_us_open_defeat_to_ben_shelton_he_is_a_beast.html"
+          },
+          {
+            "text": "Alcaraz was returning from a four-and-a-half-month wrist-injury absence and said he left healthy and proud.",
+            "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/carlos_alcaraz_on_2026_us_open_defeat_to_ben_shelton_he_is_a_beast.html"
+          },
+          {
+            "text": "Shelton credited support from his coaches, family,friends and the New York crowd.",
+            "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-09-09/family_support_helps_shelton_upset_alcaraz_in_epic_match_at_2026_us_open.html"
+          }
+        ],
+        "researchedAt": "2026-10-14T23:24:26.204Z",
+        "tier": 5,
+        "resultSignature": "8e75db9ab15ae286c0ebcad52bb6bd722b3566ac65a4bee58ca420d94a73c850",
+        "factsSignature": "[\"completed\",\"Ben Shelton defeated Carlos Alcaraz in five sets.\",\"Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz\",\"Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz\",null,null]"
+      }
     },
     {
       "id": "fixture-us-open-2026-official-ws-2502",
@@ -72536,6 +72641,65 @@
         "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
         "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
         "needsPreviewRefresh": false
+      },
+      "postMatchEditorial": {
+        "eventId": "major-match:nrl-finals-2026:elimination-final-2",
+        "hook": "Newcastle turned South Sydney's home final into a test of precision, then supplied the sharper answers. A 20-10 win at Allianz Stadium kept the Knights alive and ended the Rabbitohs' campaign.",
+        "body": "The Knights established their advantage through two different kinds of kicking pressure. Sandon Smith's high ball brought Dominic Young into the contest, and the winger's offload released Jermaine McEwen for the opening try. Smith then found the space behind South Sydney with a grubber that Dane Gagai chased down. Newcastle had a 10-0 lead without needing to batter repeatedly at the same defensive doorway.\n\nSouths answered through their own handling quality: Keaon Koloamatangi, David Fifita and Jack Wighton combined to put Campbell Graham over, with Latrell Mitchell converting to make it 10-6 at the break. Cody Walker's calf injury had already removed a central attacking organiser. The tactical reading is that Souths now needed their remaining combinations to create clarity under greater pressure, not simply more possession.\n\nThe second half briefly offered a different direction. Jayden Sullivan reached the line after Alex Johnston lost the ball, but the Bunker ruled a loose carry rather than a strip and disallowed the try. Young's later corner finish was awarded despite debate over the sideline. Those were consequential decisions, not evidence that either side was owed a different result.\n\nBetween those moments, Newcastle produced the cleaner attacking answer. Ponga and Gagai helped release Young, who found McEwen supporting inside for his second try. Ponga finished with 285 running metres; McEwen with 193. The combination mattered as much as the totals: the winger's break had a runner ready to turn territory into points.\n\nGagai's confrontation with Mitchell supplied the night's personal edge. Their contest also made the football compelling: composure and positioning mattered alongside force, particularly against South Sydney's dangerous left side.\n\nNewcastle's progress was more than a fullback carrying a depleted pack. The club had named Tyson Frizell and Cody Hopwood at prop with Jacob Saifiti suspended and Trey Mooney injured. That context makes the contribution across the side important, without pretending every absence creates an underdog victory.\n\nFor Souths, Jye Gray's late try could not repair the gap. The broader sporting lesson is not that experience failed or youth automatically prevailed. Newcastle connected its kicking, support running and edge defence more effectively at the moments that changed the scoreboard. South Sydney retained enough individual skill to threaten, but Walker's exit left a difficult organisational problem. The Knights earned another week; the Rabbitohs were left with a season-ending defeat, not a shortage of hypothetical alternatives.",
+        "sourceUrls": [
+          "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/",
+          "https://www.rabbitohs.com.au/draw/?competition=162",
+          "https://www.newcastleknights.com.au/news/2026/09/08/nrl-team-list--elimination-final/",
+          "https://leagueunlimited.com/news/44694-rabbitohs-v-knights-report/",
+          "https://www.abc.net.au/news/2026-09-11/nrl-finals-live-updates-rabbitohs-vs-knights/107136652",
+          "https://www.abc.net.au/news/2026-09-12/south-sydney-rabbitohs-newcastle-knights-nrl-finals/107145402"
+        ],
+        "facts": [
+          {
+            "text": "The11September2026 eliminationfinal atAllianz ended Knights20-10Rabbitohs.",
+            "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/"
+          },
+          {
+            "text": "Newcastle led10-6 at half-time; Smith kicks set upMcEwen andGagai tries.",
+            "sourceUrl": "https://leagueunlimited.com/news/44694-rabbitohs-v-knights-report/"
+          },
+          {
+            "text": "CampbellGraham scored Souths firsttry, converted byMitchell.",
+            "sourceUrl": "https://leagueunlimited.com/news/44694-rabbitohs-v-knights-report/"
+          },
+          {
+            "text": "CodyWalker left with a calf injury beforehalf-time; exactminute is notasserted.",
+            "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/"
+          },
+          {
+            "text": "Sullivan apparenttry wasdisallowed after theBunker ruled Johnston loss a loosecarry, not astrip.",
+            "sourceUrl": "https://www.abc.net.au/news/2026-09-11/nrl-finals-live-updates-rabbitohs-vs-knights/107136652"
+          },
+          {
+            "text": "McEwen scoredtwice; Young scored beforeGray late reply.",
+            "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/"
+          },
+          {
+            "text": "NRL reported Ponga285runningmetres andMcEwen193.",
+            "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/"
+          },
+          {
+            "text": "Frizell andHopwood were named atprop, withSaifiti suspended andMooney injured.",
+            "sourceUrl": "https://www.newcastleknights.com.au/news/2026/09/08/nrl-team-list--elimination-final/"
+          },
+          {
+            "text": "Gagai andMitchell contestedcentre, including afirsthalf confrontation.",
+            "sourceUrl": "https://www.abc.net.au/news/2026-09-12/south-sydney-rabbitohs-newcastle-knights-nrl-finals/107145402"
+          },
+          {
+            "text": "Newcastle advancedto weektwo; Souths wereeliminated.",
+            "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/"
+          }
+        ],
+        "researchedAt": "2026-10-14T23:51:57.996Z",
+        "tier": 5,
+        "resultSignature": "1147a25ee4a0722631a7cfff9e3acf60900b632001a47393743d2d79fb733dda",
+        "factsSignature": "[\"completed\",\"Knights defeated Rabbitohs 20-10.\",\"Rabbitohs 10-20 Knights\",null,10,20]"
       }
     },
     {
@@ -151475,10 +151639,10 @@
         "synopsisSpoilerOff": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
         "synopsisSpoilerOn": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
         "intensitySource": "computed",
-        "lastReviewedAt": "2026-10-13T23:57:53.941Z",
+        "lastReviewedAt": "2026-10-14T22:39:08.467Z",
         "researchDepth": 5
       },
-      "lastReviewedAt": "2026-10-13T23:57:53.941Z",
+      "lastReviewedAt": "2026-10-14T22:39:08.467Z",
       "editorialPreview": {
         "status": "journalistic",
         "angle": "Australia v New Zealand",
@@ -151490,7 +151654,7 @@
           "narrative:history",
           "narrative:path"
         ],
-        "sourceName": "Australia v New Zealand — official research 1",
+        "sourceName": "Australia v New Zealand research source 1",
         "sourceUrl": "https://www.nrl.com/news/2026/10/13/kangaroos-team-to-face-new-zealand-in-rlwc-2026-opener/",
         "sourceCheckedAt": "2026-10-13T23:57:53.941Z",
         "needsPreviewRefresh": false
@@ -151513,24 +151677,29 @@
         "researchTier": "marquee",
         "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
         "synopsis": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
-        "formCopy": "Australia have named Moses and Munster in the halves, Walsh at fullback and Yeo as captain. Bostock and Preston are named for their Kangaroos debuts. New Zealand have paired Hughes with Nikorima, with Ponga at fullback and Gagai at centre for their first Kiwis appearances. Fisher-Harris leads a forward group featuring Leota and Tapine. These are announced match-day roles, not simply squad selections; the new combinations still have to work under pressure.",
+        "formCopy": "Australia have named Moses and Munster in the halves, Walsh at fullback and Yeo as captain. Bostock and Preston are named for their Kangaroos debuts. Walters says Tedesco and Walker are being rested after heavy recent workloads, while the longer-term fullback choice remains open. This is a first opportunity, not a settled hierarchy for the tournament. New Zealand have paired Hughes with Nikorima, with Ponga at fullback and Gagai at centre for their first Kiwis appearances. Fisher-Harris leads a forward group featuring Leota and Tapine. These are announced match-day roles, not simply squad selections; the new combinations still have to work under pressure.",
         "closingCopy": "Hughes says his World Cup ambition reaches beyond the dressing room: he remembers what New Zealand's 2008 title meant to him as a child and wants today's young supporters to feel that connection. Yeo's decision carries a different cost, postponing surgery with his club's support. Munster faces a teammate whose decisions he knows from training, but familiarity works both ways. For both countries, belonging is now a responsibility to build something together, not just a jersey to wear.",
         "threadIds": [
-          "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162"
+          "thread:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d"
         ],
         "factIds": [
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
-          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4"
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:0",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:1",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:2",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:3",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:4",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:5",
+          "fact:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:6"
         ],
         "sourceIds": [
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:0",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:1",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:2",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:3",
-          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-0649d0c1a0b028c4fa0129b90b262cace8bcca15424881704dfbe41091c97162:4"
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:0",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:1",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:2",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:3",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:4",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:5",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:6",
+          "source:fixture-research:rlwc-australia-new-zealand-2026:revision-1cb73c403db8967554b5cebf30e8e8634135f2c91563b29ba1fcc927da4e879d:7"
         ],
         "dimensions": [
           "form",
@@ -151539,7 +151708,7 @@
           "history",
           "path"
         ],
-        "researchedAt": "2026-10-13T23:57:53.941Z",
+        "researchedAt": "2026-10-14T22:39:08.467Z",
         "refreshAfter": "2026-10-15T09:05:00.000Z",
         "generationMode": "researched",
         "phase": "preview"

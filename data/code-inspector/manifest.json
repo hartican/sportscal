@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-14T14:37:15.200Z",
+  "generatedAt": "2026-10-15T00:27:53.206Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
@@ -72,7 +72,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-14T14:37:15.200Z",
+      "freshAt": "2026-10-15T00:27:53.206Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -179,7 +179,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-14T14:37:15.200Z",
+      "freshAt": "2026-10-15T00:27:53.206Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -227,7 +227,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-14T14:37:15.200Z",
+      "freshAt": "2026-10-15T00:27:53.206Z",
       "chunkPath": "data/code-inspector/basketball.json"
     },
     {
