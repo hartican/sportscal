@@ -117,7 +117,8 @@ assert(
     && html.includes('addedFixture:snapshot'),
   "Standings & Fixtures may pin a concrete one-off fixture while Follow remains the only automatic eligibility control"
 );
-assert(html.includes("function renderFeedControls()") && html.includes("function eventRecommendationProfile(ev)"));
+assert(html.includes("function renderFeedControls()") && html.includes("function eventRecommendationClassification()"));
+require('./validate-card-classification-work');
 assert(!html.includes('b.textContent = "Coming Up"') && !html.includes('b.textContent = "PAST"'), "generic Coming Up and Past badges must stay removed");
 const timingRail=fs.readFileSync('config/venue-panel-ui.js','utf8'),timingPresentation=fs.readFileSync('config/card-timing.js','utf8');
 assert.match(timingRail,/badge\.append\(day\);if\(clock\.textContent\)badge\.append\(clock\);[\s\S]+if\(timing\.status&&!pause\)[\s\S]+badge\.append\(status\)/,'Current native timing badge must keep source status beside its clock, including matchup cards');
