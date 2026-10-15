@@ -33,7 +33,7 @@
       ],
       "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,events.json,follow-fixtures.v1.json,major-events.v1.json}"
     },
-    "api/_fixture-transport-preflight.js": {
+    "api/fixture-transport-preflight.js": {
       "regions": [
         "syd1"
       ],
