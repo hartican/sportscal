@@ -2,6 +2,7 @@
 // Source/projection step owned exclusively by update-cards.js, including quick.
 const fs=require('node:fs'),crypto=require('node:crypto'),media=require('../lib/fixture-highlights'),identity=require('../config/fixture-identity');
 const CACHE='data/canonical/fixture-highlights.v1.json';
+const STAN_CACHE='data/coverage/stan-football-programmes.v1.json';
 function apply(records,now=new Date()){
   let count=0;
   for(const file of ['feeds/incoming/events.json','data/events.json']){
@@ -23,7 +24,14 @@ function apply(records,now=new Date()){
 }
 async function refresh({offline=false,now=new Date(),fetchImpl=globalThis.fetch,records}={}){
   const previous=JSON.parse(fs.readFileSync(CACHE,'utf8'));
-  let failed=false;
+  let failed=false,stanChanged=false,stanFailed=false;
+  if(!records&&!offline)try{
+    const previousCatalogue=JSON.parse(fs.readFileSync(STAN_CACHE,'utf8'));
+    const events=[...JSON.parse(fs.readFileSync('data/follow-schedule/football.json','utf8')).fixtures,...JSON.parse(fs.readFileSync('feeds/incoming/events.json','utf8')).events];
+    const stan=await require('../lib/stan-football-recaps').refreshCatalogue({previousCatalogue,events,now,fetchImpl,signal:AbortSignal.timeout(20000)});
+    stanFailed=stan.failed;stanChanged=stan.changed;
+    if(stanChanged)fs.writeFileSync(STAN_CACHE,JSON.stringify(stan.catalogue,null,2)+'\n');
+  }catch{stanFailed=true;}
   if(!records&&!offline)try{
     const feed=JSON.parse(fs.readFileSync('feeds/incoming/events.json','utf8')).events;
     const schedule=JSON.parse(fs.readFileSync('data/follow-schedule/tennis.json','utf8')).fixtures.map(e=>identity.fromSchedule(e,{slug:'tennis'}));
@@ -33,7 +41,7 @@ async function refresh({offline=false,now=new Date(),fetchImpl=globalThis.fetch,
   }catch{failed=true;}
   const events=media.expireRecords(records?require('../lib/fixture-snapshot').mergeFixtureSnapshot(previous.events,records).events:previous.events,now);
   if(JSON.stringify(events)!==JSON.stringify(previous.events))fs.writeFileSync(CACHE,JSON.stringify({...previous,events},null,2)+'\n');
-  const changed=apply(events,now);return {changed,linked:events.filter(e=>e.highlights).length,failed,mode:'public-feeds'};
+  const changed=apply(events,now);return {changed,linked:events.filter(e=>e.highlights).length,failed,stanChanged,stanFailed,mode:'public-feeds'};
 }
 if(require.main===module)refresh({offline:process.argv.includes('--offline')}).then(r=>console.log(JSON.stringify(r))).catch(()=>{console.error('Highlights projection failed');process.exitCode=1;});
 module.exports={refresh,apply,CACHE};

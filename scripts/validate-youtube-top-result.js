@@ -12,7 +12,7 @@ async function main(){
     assert(action.highlightsTopResult);assert.equal(action.highlightsLabel,'Watch highlights');
   }
   const direct=require('../data/canonical/fixture-highlights.v1.json').events.find(e=>e.highlights).highlights;
-  assert.equal(contract.viewing({...fixture,highlights:direct},now).webUrl,direct.url);
+  assert.equal(contract.viewing({...fixture,highlights:direct},now).webUrl,'/api/fixtures?mode=highlight&ids='+encodeURIComponent(fixture.canonicalEventId));
   const diagnostics=[];
   let reserve=0,grants=0,provider=0,cache=null,fail=false,granted=true,allowCache=true;
   const request=async(path,options={})=>{
@@ -54,7 +54,7 @@ async function main(){
   for(const ids of ['',fixture.id+',other','not-a-fixture']){const bad=response();await handler({...req,url:'/api/fixtures?mode=highlight&ids='+ids},bad);assert(bad.code>=400);assert(!bad.headers.Location);}assert.equal(selected,1,'unknown/invalid fixtures cannot spend quota on arbitrary user queries');
   const liveHandler=require('../lib/live-fixture-handler').createLiveFixtureHandler({publishedFixtures:()=>[{...fixture,status:'live'}],read:async()=>({sources:[],revision:'controlled',stale:false}),clock:()=>now,resolveHighlights:()=>assert.fail('live fixture cannot trigger search')});
   const live=response();await liveHandler(req,live);assert.equal(live.code,404);
-  const approved=require('../lib/live-fixture-handler').createLiveFixtureHandler({publishedFixtures:()=>[{...fixture,highlights:direct}],read:async()=>({sources:[],revision:'controlled',stale:false}),clock:()=>now,resolveHighlights:()=>assert.fail('verified direct video bypasses search')});
+  const approved=require('../lib/live-fixture-handler').createLiveFixtureHandler({publishedFixtures:()=>[{...fixture,highlights:direct}],read:async()=>({sources:[],revision:'controlled',stale:false}),clock:()=>now,resolveHighlights:async event=>{assert.equal(event.highlights.videoId,direct.videoId);return {url:direct.url,selection:'verified-match'};}});
   const approvedRes=response();await approved(req,approvedRes);assert.equal(approvedRes.headers.Location,direct.url);assert.equal(approvedRes.headers['X-Highlights-Selection'],'verified-match');
   const broken=require('../lib/live-fixture-handler').createLiveFixtureHandler({publishedFixtures:()=>[fixture],read:async()=>({sources:[],revision:'controlled',stale:false}),clock:()=>now,resolveHighlights:async()=>{throw Error('private credentials');}});
   const unavailable=response();await broken(req,unavailable);assert.equal(unavailable.code,503);assert.match(unavailable.body,/Highlights unavailable/);assert(!unavailable.body.includes('private credentials'));assert(!unavailable.headers.Location);

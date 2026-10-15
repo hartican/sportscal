@@ -38,7 +38,7 @@ async function run(){
  const first=await media.refresh({events:[fixture],now,fetchImpl});assert.equal(first.length,1);assert.equal(first[0].highlights.videoId,video.videoId);assert.equal(first[0].highlights.regionStatus,'unknown');assert.equal(apiCount,0,'keyless discovery never calls authenticated API');assert.equal(oembedCount,1);
  assert(contract.valid(first[0].highlights));const baseline={...fixture,score:'3-6 4-6',firstConfirmedCompleteAt:'2026-10-13T06:00:00Z',editorialNarrative:{text:'Saved copy'}};
  const enriched=identity.mergeOverlays([baseline],[{...first[0],status:'live',score:'0-0',startTimeUtc:'2027-01-01T00:00:00Z'}])[0];assert.deepEqual({...enriched,highlights:undefined},{...baseline,highlights:undefined});
- assert.equal(identity.mergeOverlays([],first).length,0,'media never creates a fixture');assert.equal(contract.viewing({...enriched,status:'live'}),null);assert.equal(contract.viewing(enriched).webUrl,video.url);
+ assert.equal(identity.mergeOverlays([],first).length,0,'media never creates a fixture');assert.equal(contract.viewing({...enriched,status:'live'}),null);assert.equal(contract.viewing(enriched).webUrl,'/api/fixtures?mode=highlight&ids='+encodeURIComponent(enriched.canonicalEventId||enriched.eventId||enriched.id));
  const second=await media.refresh({events:[fixture],previous:first,coverage:first.coverage,now:new Date(+now+1800000),fetchImpl});assert.deepEqual(second[0].highlights,first[0].highlights);assert.equal(oembedCount,1,'stable link skips repeated verification');
  fail=true;const failed=await media.refresh({events:[fixture],previous:first,coverage:first.coverage,now:new Date(+now+2*86400000),fetchImpl});assert.deepEqual(failed[0].highlights,first[0].highlights);assert(failed.coverage.failures.length);fail=false;
  deleted=true;const removed=await media.refresh({events:[fixture],previous:first,coverage:first.coverage,now:new Date(+now+2*86400000),fetchImpl});assert.equal(removed[0].highlights,null);assert.equal(identity.mergeOverlays([enriched],removed)[0].highlights,null);deleted=false;
@@ -115,6 +115,9 @@ async function run(){
   require('./validate-all-sport-highlights').main();
   await require('./validate-youtube-top-result').main();
   await require('./validate-highlights-recency').main();
+  await require('./validate-direct-highlight-policy').main();
+  await require('./validate-stan-football-recaps').main();
+  await require('./validate-stan-football-recap-projection').main();
   await require('./validate-cross-sport-highlight-selection').main();
   await require('./validate-cross-sport-highlight-cache').main();
   require('./validate-highlight-context-regressions').main();

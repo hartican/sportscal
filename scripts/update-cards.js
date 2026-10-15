@@ -605,9 +605,10 @@ async function runMain() {
     const allowed=new Set(['--highlights','--local-only','-p']);
     if(process.argv.slice(2).some(arg=>!allowed.has(arg)))throw Error('Highlights refresh cannot be combined with another route');
     const result=await require('./refresh-fixture-highlights').refresh();console.log(JSON.stringify(result));
-    if(!result.changed){runStep(['scripts/build-app-shell-runtime.js']);runStep(['scripts/version-generated-shell.js']);runStep(['scripts/validate-fixture-highlights.js']);if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);return;}
+    if(!result.changed&&!result.stanChanged){runStep(['scripts/build-app-shell-runtime.js']);runStep(['scripts/version-generated-shell.js']);runStep(['scripts/validate-fixture-highlights.js']);if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);return;}
+    if(result.stanChanged)runStep(['scripts/publish-feed.js','data/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known']);
     for(const step of [
-      ['scripts/build-code-inspector.js','--codes=tennis'],['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js',result.stanChanged?'--codes=tennis,football,champions-league':'--codes=tennis'],['scripts/build-follow-fixtures.js'],['scripts/build-paged-feed.js'],
       ['scripts/build-tennis-feed-parents.js'],['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
       ['scripts/validate-fixture-highlights.js'],['scripts/validate-feed.js','data/events.json']
     ])runStep(step);

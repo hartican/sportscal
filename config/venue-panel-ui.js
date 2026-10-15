@@ -955,7 +955,7 @@ function configureProviderLaunch(link, viewing){
       else if(url.origin==='https://play.stan.com.au')appHandoff=true;
     }catch(_error){}
   }
-  link.href = /^https:\/\//i.test(String(target || "")) || viewing.highlightsTopResult&&/^\/api\/fixtures\?mode=highlight&ids=[-a-z0-9_%]+$/i.test(target||'') ? target : "#";
+  link.href = /^https:\/\//i.test(String(target || "")) || viewing.highlights&&/^\/api\/fixtures\?mode=highlight&ids=[-a-z0-9_%]+$/i.test(target||'') ? target : "#";
   link.target = appHandoff ? "_self" : "_blank";
   link.rel = "noopener noreferrer external";
 }
@@ -1016,7 +1016,7 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
     nothingscoreEventRefs.set(nothingscoreEventId(ev),ev);
     appendFixtureChatActions(actions, ev);
   }
-  if(/^cricket(?:-women)?$/.test(ev.key||'')){
+  if(!highlightsOnly&&/^cricket(?:-women)?$/.test(ev.key||'')){
     void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=535').then(()=>NOTHINGSPORTS_MILESTONE_UI.appendMute(actions,ev));
   }
   container.appendChild(actions);

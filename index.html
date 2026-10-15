@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="543">
+<meta name="app-shell-version" content="544">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=543" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=544" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2009,7 +2009,7 @@ header.top,#calendarControls,#mainContent,.app-footer,#jumpTodayBtn{animation:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=543"></script>
+<script src="assets/js/app-shell-runtime.js?v=544"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -3284,7 +3284,7 @@ function observeFeedPerformance(){
       }
     });
     lcpObserver.observe({ type: "largest-contentful-paint", buffered: true });
-  }catch(_error){ /* unsupported performance entry type */ }
+  }catch(_error){ }
   try{
     const longTaskObserver = new PerformanceObserver(list => {
       list.getEntries().forEach(entry => {
@@ -3294,7 +3294,7 @@ function observeFeedPerformance(){
       publishFeedPerformanceMetrics();
     });
     longTaskObserver.observe({ type: "longtask", buffered: true });
-  }catch(_error){ /* unsupported performance entry type */ }
+  }catch(_error){ }
   try{
     const layoutShiftObserver = new PerformanceObserver(list => {
       list.getEntries().forEach(entry => {
@@ -3308,7 +3308,7 @@ function observeFeedPerformance(){
       publishFeedPerformanceMetrics();
     });
     layoutShiftObserver.observe({ type: "layout-shift", buffered: true });
-  }catch(_error){ /* unsupported performance entry type */ }
+  }catch(_error){ }
   publishFeedPerformanceMetrics();
 }
 let discoverySessionIncludedSportIds = [];
@@ -6680,7 +6680,6 @@ function normalizeEvents(events = activeEvents){
       ev.round = ev.round || inferRound(ev.name);
     }
     } catch (_error){
-      // Keep core identity.
       console.warn("Fixture presentation normalization fallback", ev.eventId || ev.id);
     }
     globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.apply(ev,{inPlace:true});
@@ -6693,7 +6692,6 @@ syncLegacyArchiveReferences(activeEvents);
 purgeDerivedCardCache();
 rebuildDerivedCardCache(activeEvents);
 
-// Sydney labels.
 function nowAEST(){
   return new Date();
 }
@@ -8153,7 +8151,6 @@ function discoverySportHasFroth(nodeId, preferences = userPreferences){
     preference.enabled !== false
     && (
       preference.templateId === "template:froth"
-      // Keep discovery depth.
       || (preference.templateId === "template:custom" && preference.includeAllFixtures === true)
     )
     && (

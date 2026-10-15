@@ -37,10 +37,14 @@
   }
   function searchQuery(event,now=Date.now()){return typeof require==='function'?require('../lib/fixture-highlight-query').searchQuery(event,now):null;}
   function viewing(event,now=Date.now()){
-    if(completed(event)&&valid(event.highlights,now))return {...youtube,webUrl:event.highlights.url};
+    const id=event?.canonicalEventId||event?.eventId||event?.id;
+    if(!/^[-a-z0-9_:]{1,200}$/i.test(id||''))return null;
+    const webUrl='/api/fixtures?mode=highlight&ids='+encodeURIComponent(id);
+    // A stored source receipt is a candidate, not current playback authority.
+    // The shared route also checks direct records against current metadata.
+    if(completed(event)&&valid(event.highlights,now))return {...youtube,webUrl};
     const selection=searchCandidate(event,now);if(!selection)return null;
-    const id=event.canonicalEventId||event.eventId||event.id;if(!/^[-a-z0-9_:]{1,200}$/i.test(id||''))return null;
-    return {...youtube,webUrl:'/api/fixtures?mode=highlight&ids='+encodeURIComponent(id),highlightsSearch:true,highlightsTopResult:true,highlightsFeedOnly:!selection.namedTennis};
+    return {...youtube,webUrl,highlightsSearch:true,highlightsTopResult:true,highlightsFeedOnly:!selection.namedTennis};
   }
   return Object.freeze({SCHEMA_VERSION,MAX_CACHE_AGE_MS,MAX_UPLOAD_AGE_MS,fresh,recentUpload,completed,recent,playerNames,tennisEligible,valid,searchCandidate,searchQuery,viewing});
 });

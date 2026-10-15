@@ -823,10 +823,6 @@
   }
 
   function providerIdForOption(option){
-    if (typeof option === "string"){
-      const text = option.toLowerCase();
-      return Object.entries(VIEWING_PROVIDERS).find(([, provider]) => provider.aliases.some(alias => text.includes(alias)))?.[0] || null;
-    }
     const direct = String(option?.providerId || option?.serviceId || "").trim().toLowerCase();
     if (VIEWING_PROVIDERS[direct]) return direct;
     const text = [option?.broadcasterName, option?.serviceLabel, option?.platform, option?.channelBrand].filter(Boolean).join(" ").toLowerCase();
@@ -835,27 +831,35 @@
 
   const viewingDay = new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'});
   function viewingIdentity(event){return [event.season,event.sportId,event.sportDomainId,event.taxonomySportId].map(value=>value==null?null:String(value));}
+  function stanContext(event){return JSON.stringify([event.canonicalEventId||event.id||event.eventId,event.competitionId,event.season||event.footballMatchContext?.season,event.date,event.actualStartTimeUtc||event.startTimeUtc,event.roundNumber||event.roundLabel||event.round,event.status,(event.participants||[]).map(p=>[p.name,p.role])]);}
   function reviewedWindowAllows(event,option){
     if(option.reviewId!=='au-viewing-20261002')return true;
     const scope=option.coverageWindow;
     const nullableString=value=>value===null||typeof value==='string';
     const strings=value=>Array.isArray(value)&&value.every(item=>typeof item==='string');
-    if(!Array.isArray(scope)||scope.length!==12||!/^\d{4}-\d{2}-\d{2}$/.test(scope[0])||!/^\d{4}-\d{2}-\d{2}$/.test(scope[1])
-      ||!nullableString(scope[2])||typeof scope[3]!=='string'||!nullableString(scope[4])||!nullableString(scope[5])||!nullableString(scope[6])
-      ||typeof scope[7]!=='string'||!(scope[8]===null||strings(scope[8]))||!nullableString(scope[9])||!strings(scope[10])||!Array.isArray(scope[11])||scope[11].length!==4||!scope[11].every(nullableString)||JSON.stringify(scope[11])!==JSON.stringify(viewingIdentity(event))
+    const isoDay=value=>/^\d{4}-\d{2}-\d{2}$/.test(value),equal=(left,right)=>JSON.stringify(left)===JSON.stringify(right);
+    if(!Array.isArray(scope)||scope.length!==12||!isoDay(scope[0])||!isoDay(scope[1])
+      ||![2,4,5,6,9].every(index=>nullableString(scope[index]))||typeof scope[3]!=='string'
+      ||typeof scope[7]!=='string'||!(scope[8]===null||strings(scope[8]))||!strings(scope[10])||!Array.isArray(scope[11])||scope[11].length!==4||!scope[11].every(nullableString)||!equal(scope[11],viewingIdentity(event))
       ||event.representedTours!=null&&!Array.isArray(event.representedTours)||scope[8]&&!strings(event.participantIds||[]))return false;
     let excludedDraw;try{excludedDraw=scope[5]?new RegExp(scope[5],'i'):null;}catch{return false;}
     const at=Date.parse(event.startTimeUtc||event.startsAt||event.date||''),date=Number.isFinite(at)?(event.startTimeUtc||event.startsAt?viewingDay.format(new Date(at)):event.date):null;
-    if(!date||!/^\d{4}-\d{2}-\d{2}$/.test(date)||new Date(date+'T00:00:00Z').toISOString().slice(0,10)!==date||date<scope[0]||date>=scope[1]||(event.competitionId||null)!==scope[2]||(event.key||null)!==scope[4])return false;
+    if(!date||!isoDay(date)||new Date(date+'T00:00:00Z').toISOString().slice(0,10)!==date||date<scope[0]||date>=scope[1]||(event.competitionId||null)!==scope[2]||(event.key||null)!==scope[4])return false;
     const tours=[event.tour,event.tennisTour,...(event.representedTours||[])].filter(Boolean).map(t=>String(t).toUpperCase()).sort().join(',');
     if(tours!==scope[3]||excludedDraw&&excludedDraw.test([event.drawId,event.drawType,event.stage,event.roundLabel,event.id].filter(Boolean).join(' '))||scope[6]&&String(event.format||event.matchFormat||'').toLowerCase()!==scope[6])return false;
-    return String(event.canonicalEventId||event.id||event.eventId||'').replace(/:/g,'-')===scope[7]&&(!scope[8]||JSON.stringify([...(event.participantIds||[])].sort())===JSON.stringify([...scope[8]].sort()))&&(event.roundLabel||null)===scope[9]&&JSON.stringify([...new Set([event.tournamentId,event.tennisTournamentId,...(Array.isArray(event.tournamentIds)?event.tournamentIds:[])].filter(Boolean))])===JSON.stringify(scope[10]);
+    return String(event.canonicalEventId||event.id||event.eventId||'').replace(/:/g,'-')===scope[7]&&(!scope[8]||equal([...(event.participantIds||[])].sort(),[...scope[8]].sort()))&&(event.roundLabel||null)===scope[9]&&equal([...new Set([event.tournamentId,event.tennisTournamentId,...(Array.isArray(event.tournamentIds)?event.tournamentIds:[])].filter(Boolean))],scope[10]);
   }
 
   function trustedProviderIdForOption(event, option){
+    if (!option || typeof option !== 'object') return null;
     const providerId = providerIdForOption(option);
-    if (!providerId || !option || typeof option !== 'object' || !reviewedWindowAllows(event,option)) return null;
+    if (!providerId || !reviewedWindowAllows(event,option)) return null;
     const at = Date.parse(option.verifiedAt || '');
+    if(option.reviewId==='stan.v1'){
+      const days=(Date.parse(viewingDay.format(new Date(Date.now())))-Date.parse(event.date))/86400000;
+      if(providerId!=='stan'||option.stanContext!==stanContext(event)||Date.now()-at>7*86400000
+        ||!(days>=0&&days<=7&&new Date(event.date).toISOString().slice(0,10)===event.date))return null;
+    }
     const territory = option.territory || VIEWING_PROVIDERS[providerId].territory || 'AU';
     return /^https:\/\//.test(option.sourceUrl || '') && Number.isFinite(at) && at <= Date.now()
       && ['AU','GLOBAL'].includes(territory) ? providerId : null;
@@ -904,9 +908,8 @@
       })
       .map(providerId => {
         const provider = VIEWING_PROVIDERS[providerId];
-        const explicit = explicitOptions.find(option => option && typeof option === "object" && trustedProviderIdForOption(event, option) === providerId)
-          || explicitOptions.find(option => trustedProviderIdForOption(event, option) === providerId);
-        const explicitObject = explicit && typeof explicit === "object" ? explicit : {};
+        const explicit = explicitOptions.find(option => trustedProviderIdForOption(event, option) === providerId);
+        const explicitObject = explicit || {};
         const explicitUrl = explicitObject.webUrl || explicitObject.url || null;
         const explicitScope = String(explicitObject.linkScope || "").toLowerCase();
         const fixtureUrl = explicitScope === "fixture" && explicitUrl ? explicitUrl : explicitObject.fixtureUrl || null;
@@ -981,6 +984,7 @@
     competitionRightsForEvent,
     viewingIdentity,
     viewingOptions,
+    stanContext,
     viewingLink,
   });
 });

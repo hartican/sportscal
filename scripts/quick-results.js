@@ -53,7 +53,7 @@ async function refreshNflResults(options={}){
 function projectionSteps(changes,{rebuild=false}={}){
  if(!changes.length&&!rebuild)return [];
  const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL')||change==='Current card evidence');
- const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Editorial preview maintenance|Tennis highlights|Current tennis|MLB|NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Editorial preview maintenance|Tennis highlights|Stan Football programmes|Current tennis|MLB|NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
  const codes=new Set();
  if(changes.some(change=>change.startsWith('Known finals NRL')))codes.add('nrl');
  if(changes.some(change=>change.startsWith('Known finals WRC')))['wrc','motorsport'].forEach(code=>codes.add(code));
@@ -63,6 +63,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  for(const change of changes)if(change.startsWith('Live coverage '))codes.add(change.slice('Live coverage '.length));
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
+ if(changes.includes('Stan Football programmes'))['football','champions-league'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('EPL standings')))codes.add('football');
  if(changes.some(change=>change.startsWith('European Football')))['football','champions-league'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('F1')))['f1','motorsport'].forEach(code=>codes.add(code));
@@ -276,6 +277,8 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  const highlights=await require('./refresh-fixture-highlights').refresh({offline,now});
  if(highlights.changed)changes.push('Tennis highlights');
  if(highlights.failed)failures.push('Tennis highlights source unavailable; retained verified links');
+ if(highlights.stanChanged)changes.push('Stan Football programmes');
+ if(highlights.stanFailed)failures.push('Stan Football programme metadata unavailable; retained dated source receipts');
  const previewMaintenance=require('./update-sport-editorial-depth').repairMissing({reference:now});
  if(previewMaintenance.changed)changes.push('Editorial preview maintenance');
  runProjectionSteps(projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});

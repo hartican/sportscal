@@ -1,6 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),p=require('../config/feed-card-presentation'),t=require('../config/card-timing'),v=require('../config/venue-registry'),f=require('../config/follow-first');
 const now=new Date('2026-09-24T00:00:00Z');
+assert.equal(p.shortLabel('team:missing','Fallback team',null),'Fallback team','missing identity record still renders the compact card and actions');
 for(const [day,suffix] of [[1,'1ST'],[2,'2ND'],[3,'3RD'],[11,'11TH'],[12,'12TH'],[13,'13TH'],[21,'21ST'],[22,'22ND'],[23,'23RD']])assert.equal(p.ordinal(day),suffix);
 assert.equal(p.dateBanner('2026-09-25',now),'FRI 25 SEP');assert.match(p.dateBanner('2027-01-01',now),/2027$/);
 assert.equal(p.venue({venue:'Suncorp Stadium',venueCity:'Brisbane'},v),'Suncorp Stadium, Brisbane');
