@@ -99,6 +99,7 @@ function main(){
   function applyFeed(document){
     let applied = 0;
     document.events = document.events.map(event => {
+      if (require('../config/editorial-maintenance').protectedFixture(event)) return event;
       const projection = projectionForTarget(knowledge, "feed-event", event);
       if (!projection){
         const narrative = event.editorialNarrative;
@@ -106,7 +107,7 @@ function main(){
         if (!narrative?.hook || !narrative?.synopsis || !primarySource) return event;
         const completed = event.status === 'completed' && event.key !== 'horse-racing' && event.sportKey !== 'horse-racing';
         const copy = completed ? require('../config/editorial-lifecycle').copy(event,narrative,false) : narrative;
-        if (event.selectedSentence === copy.hook && event.fullSpiel === copy.synopsis && require('./lib/storyline-card-rules').spoilerContractIssues(event).length === 0) return event;
+        if (event.selectedSentence === copy.hook && event.fullSpiel === copy.synopsis && event.editorialPreview?.sourceUrl === primarySource.url && require('./lib/storyline-card-rules').spoilerContractIssues(event).length === 0) return event;
         const threadTitle = indexes.threads.get(narrative.threadIds?.[0])?.title || "Finals path";
         return {
           ...event,

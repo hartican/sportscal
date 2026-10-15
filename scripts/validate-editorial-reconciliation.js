@@ -72,7 +72,7 @@ try{
   const k={...structuredClone(knowledge),eventProjections:[structuredClone(projection),other]};
   k.eventProjections[0].targetIds=[valid.id];
   const files=['data/editorial-knowledge.v1.json','feeds/incoming/events.json','data/events.json','data/major-events.v1.json'];
-  for(const [index,value] of [k,{events:[valid,broken,retained]},{events:[valid,broken,retained]},{events:[]}].entries())fs.writeFileSync(path.join(temporary,files[index]),JSON.stringify(value)+'\n');
+  for(const [index,value] of [k,{events:[valid,broken,retained,protectedOriginal]},{events:[valid,broken,retained,protectedOriginal]},{events:[]}].entries())fs.writeFileSync(path.join(temporary,files[index]),JSON.stringify(value)+'\n');
   const invoke=()=>spawnSync(process.execPath,[path.join(__dirname,'apply-editorial-narratives.js'),'--write'],{cwd:temporary,encoding:'utf8',timeout:30000});
   const result=invoke();assert.equal(result.status,0,result.stderr);
   for(const file of files.slice(1,3)){
@@ -82,8 +82,15 @@ try{
     assert.equal(output.events[2].selectedSentence,retained.editorialNarrative.hook,'Retained narrative corrections reach root copy without a declared projection.');
     assert.equal(output.events[2].fullSpiel,retained.editorialNarrative.synopsis);
     assert.equal(output.events[2].lastReviewedAt,retained.lastReviewedAt,'Missing retained research dates cannot erase a genuine fixture review.');
+    assert.deepEqual(output.events[3],protectedOriginal,'The real writer protects the original NRL card even without a declared projection.');
     for(const key of Object.keys(broken))if(!editorial.has(key))assert.deepEqual(output.events[1][key],broken[key],file+':'+key);
   }
+  for(const file of files.slice(1,3)){
+    const output=JSON.parse(fs.readFileSync(path.join(temporary,file)));output.events[2].editorialPreview.sourceUrl='https://example.test/old-retained-source';
+    fs.writeFileSync(path.join(temporary,file),JSON.stringify(output)+'\n');
+  }
+  assert.equal(invoke().status,0);
+  for(const file of files.slice(1,3))assert.equal(JSON.parse(fs.readFileSync(path.join(temporary,file))).events[2].editorialPreview.sourceUrl,indexes.sources.get(retained.editorialNarrative.sourceIds[0]).url,'Retained source URL corrections publish even when root copy already matches.');
   const first=files.map(file=>fs.readFileSync(path.join(temporary,file),'utf8'));
   assert.equal(invoke().status,0);
   assert.deepEqual(files.map(file=>fs.readFileSync(path.join(temporary,file),'utf8')),first,'Unchanged CLI rerun preserves all bytes.');
