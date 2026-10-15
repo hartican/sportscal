@@ -93,4 +93,6 @@ The existing canonical highlights stage refreshes the reviewed Stan public metad
 
 The minimised highlights-only action row does not schedule a deferred Cricket milestone mute control, which otherwise covered its one-tap video link after mounting. Ordinary card and Match Centre controls retain their existing behaviour and saved notification choices. The action-owner regression and delayed both-engine hit tests exercise this lifecycle.
 
+A successful metadata check that rejects a requested cached video revokes its last-good fallback and attempts to delete only that exact fixture/query/video binding. A later denied search cannot restore it. Other suitable videos in the same batch remain selectable. Genuine provider failures without contrary evidence still preserve an eligible cache. The existing resolver performs this conditional cache withdrawal without another provider call or schema change.
+
 Regressions: `validate-direct-highlight-policy.js`, `validate-stan-football-recaps.js`, `validate-stan-football-recap-projection.js`, existing highlights/cache/Postgres quota gates and shared browser-card checks. Controlled component evidence is separate from the requested account's actual Feed inventory and live destination audit.
