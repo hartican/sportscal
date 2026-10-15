@@ -12,11 +12,11 @@ const played=owner.merge([planned],[first],{now})[0];assert.equal(played.startTi
 assert.equal(timing.presentation(played,now).time,'REPORTED START 3:10 PM');assert(!/NOT BEFORE|Scheduled/.test(timing.presentation(played,now).ariaLabel));
 assert.equal(timing.minimised(played,now).time,'REPORTED START 15:10 · FINISHED','compact cards also qualify the publisher-reported start');
 assert.match(timing.presentation(planned,now).time,/NOT BEFORE 3:00 PM/,'upcoming lower bounds stay qualified');
-assert.equal(timing.presentation({...planned,status:'completed'},now).time,'START UNAVAILABLE','scheduled lower bound cannot become an actual start');
-assert.equal(timing.presentation({...planned,status:'completed',timePrecision:'exact'},now).time,'START UNAVAILABLE','a scheduled exact clock is not actual-play evidence');
+assert.equal(timing.presentation({...planned,status:'completed'},now).time,'SCHEDULED NOT BEFORE 3:00 PM','scheduled lower bound remains a labelled lower bound');
+assert.equal(timing.presentation({...planned,status:'completed',timePrecision:'exact'},now).time,'SCHEDULED 3:00 PM','a scheduled exact clock is not actual-play evidence');
 assert.equal(timing.actualStart({...played,cardType:'tennis_parent'},now),null,'a tournament overview is not an individual played match');
 assert.match(timing.presentation({...played,status:'COMPLETED'},now).time,/REPORTED START/,'source status case does not restore obsolete qualifiers');
-for(const [raw,expected] of [['2026-10-13T04:12:29Z','REPORTED START 3:10 PM'],['2026-10-13T04:12:30Z','REPORTED START 3:15 PM'],['2026-10-13T04:17:31Z','REPORTED START 3:20 PM']]){
+for(const [raw,expected] of [['2026-10-13T04:12:29Z','REPORTED START 3:12 PM'],['2026-10-13T04:12:30Z','REPORTED START 3:12 PM'],['2026-10-13T04:17:31Z','REPORTED START 3:17 PM']]){
  const e={...played,actualStartTimeUtc:raw,actualStartEvidence:{...played.actualStartEvidence,startsAt:raw}},before=JSON.stringify(e);assert.equal(timing.presentation(e,now).time,expected);assert.equal(JSON.stringify(e),before,'display rounding preserves raw source precision');
 }
 for(const patch of [{verified:false},{fixtureId:'other'},{sourceUrl:'javascript:alert(1)'},{sourceUrl:'https://a:b@example.com/'},{participantIds:[]},{checkedAt:'2026-12-01T00:00:00Z'}])assert.equal(timing.actualStart({...played,actualStartEvidence:{...played.actualStartEvidence,...patch}},now),null,'invalid actual-start evidence cannot establish a clock');
@@ -25,4 +25,4 @@ for(const change of [m=>m.timeValid=false,m=>delete m.startDate,m=>m.startDate='
 }
 const repeated=owner.merge([played],[{...first,actualStartEvidence:{...first.actualStartEvidence,checkedAt:new Date(+now+60000).toISOString()}}],{now:new Date(+now+60000)})[0];assert.deepEqual(repeated.actualStartEvidence,played.actualStartEvidence,'unchanged observations retain first actual-start verification');
 assert.equal(require('../config/fixture-reminder-policy').timing(first,now),null,'actual historical start cannot create a reminder');
-console.log('Played starts: captured publisher clocks, separate schedule facts, 5-minute display rounding, obsolete qualifiers, bad evidence and unchanged receipts passed.');
+console.log('Played starts: captured publisher clocks, separate schedule facts, explicit publisher minutes, obsolete qualifiers, bad evidence and unchanged receipts passed.');

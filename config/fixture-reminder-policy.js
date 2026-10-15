@@ -20,7 +20,8 @@
   if(!Number.isFinite(earliest)||!Number.isFinite(latest)||earliest>middle||latest<middle||latest-earliest>3600000)return null;
   const at=value=>exactTiming({...f,startTimeUtc:value,timePrecision:'exact',scheduleStatus:'confirmed',timingVerified:true,sourceCheckedAt:p.sourceCheckedAt},now);
   if(!at(p.startsAt)||!at(p.latestStartTimeUtc||p.startsAt))return null;
-  const t=at(p.earliestStartTimeUtc||p.startsAt);
+  const clock=globalThis.NOTHINGSPORTS_CARD_TIMING||(typeof require==='function'?require('./card-timing'):null);
+  const t=at(clock.estimateClock(f,p.startsAt));
   return t?{...t,precision:'estimated',latestStartTimeUtc:p.latestStartTimeUtc||p.startsAt}:null;
  }
  function publisherTiming(f,now=Date.now()){

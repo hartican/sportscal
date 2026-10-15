@@ -72,13 +72,17 @@
     if(!played(event)||!proof||proof.kind!=='publisher-reported-match-start'||proof.verified!==true||proof.startsAt!==raw||!Number.isFinite(start)||!Number.isFinite(checked)||start>checked||checked>+new Date(reference)||!/^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(raw||'')||new Date(raw.slice(0,10)+'T00:00Z').toISOString().slice(0,10)!==raw.slice(0,10)||!/^https:\/\/[^/@\s]+(?:\/|$)/.test(proof.sourceUrl||'')||![event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(proof.fixtureId)||!Array.isArray(proof.participantIds)||!event.participantIds?.length||JSON.stringify([...proof.participantIds].sort())!==JSON.stringify([...event.participantIds].sort()))return null;
     return new Date(start);
   }
+  function estimateClock(event, raw){
+    const at=Date.parse(raw||'');
+    return event.manualStartEstimate?.kind==='official-session-order-estimate'&&Number.isFinite(at)?new Date(Math.round(at/900000)*900000).toISOString():raw;
+  }
   function presentation(event, reference = new Date(), {fullRange=false} = {}){
     const now = new Date(reference);
     const started=played(event),actual=actualStart(event,reference);
-    const precision = actual?'actual':started&&['not-before','not_before','estimated','follows'].includes(event.timePrecision)?'unresolved':event.timePrecision;
+    const precision = actual?'actual':event.timePrecision;
     const uncertain = event.timeTbc || event.startTimeTbc;
     const pausedRestart=/^(stumps|rain-delay|break|suspended|interrupted)$/.test(event.status||'')&&Number.isFinite(Date.parse(event.restartTimeUtc||''))?event.restartTimeUtc:null;
-    const raw = pausedRestart || (actual?new Date(Math.round(+actual/300000)*300000).toISOString():precision === "estimated" ? event.estimatedStartTimeUtc || event.startTimeUtc : event.startTimeUtc);
+    const raw = pausedRestart || (actual?actual.toISOString():precision === "estimated" ? estimateClock(event,event.estimatedStartTimeUtc || event.startTimeUtc) : event.startTimeUtc);
     const parsed = new Date(raw || "");
     const hasTime = (actual||!event.dateOnly&&!uncertain) && (!precision || ["actual","exact","session-start","estimated","not-before"].includes(precision)) && Number.isFinite(+parsed);
     const first = calendarDate(event.date || event.startDate), end = calendarDate(event.endDate);
@@ -96,10 +100,11 @@
     const overview=(event.dateOnly||precision==='date-only')&&(event.key==='wrc'||event.cardType==='golf_tournament');
     const settled=/^(completed|finished|final|cancelled|canceled|abandoned)$/.test(event.status||'');
     const windowStart=new Date(event.estimatedEarliestStartTimeUtc||''),windowEnd=new Date(event.estimatedLatestStartTimeUtc||'');
-    const windowLabel=precision==='estimated'&&Number.isFinite(+windowStart)&&Number.isFinite(+windowEnd)?'APPROX. '+format(windowStart,{hour:'numeric',minute:'2-digit',hour12:true})+' – '+format(windowEnd,{hour:'numeric',minute:'2-digit',hour12:true}):null;
+    const windowLabel=precision==='estimated'&&event.manualStartEstimate?.kind!=='official-session-order-estimate'&&Number.isFinite(+windowStart)&&Number.isFinite(+windowEnd)?'APPROX. '+format(windowStart,{hour:'numeric',minute:'2-digit',hour12:true})+' – '+format(windowEnd,{hour:'numeric',minute:'2-digit',hour12:true}):null;
     const progressLabel=progress(event,reference);
     const originalDate=progressLabel&&first;if(originalDate)fullDate=dated(originalDate)+(end>originalDate?' – '+dated(end):'');
-    const time = actual&&!pausedRestart?'REPORTED START '+clock:started&&!pausedRestart&&!overview&&!progressLabel?'START UNAVAILABLE':progressLabel&&event.dateOnly?'':windowLabel || (overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? started?'START UNAVAILABLE':"TIME UNAVAILABLE" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`);
+    const scheduled=started&&!actual&&!pausedRestart&&!overview&&clock?'SCHEDULED '+(precision==='estimated'?'APPROX. ':precision==='not-before'?'NOT BEFORE ':'')+clock:'';
+    const time = actual&&!pausedRestart?'REPORTED START '+clock:scheduled?scheduled:started&&!pausedRestart&&!overview&&!progressLabel?'':progressLabel&&event.dateOnly?'':windowLabel || (overview ? settled?'':event.key==='wrc'?'RALLY DATES':'TOURNAMENT DATES' : precision === "follows" ? "FOLLOWS PRIOR MATCH" : event.dateOnly || uncertain || !clock ? started?'':"TIME TBD" : `${precision === "estimated" ? "APPROX. " : precision === "not-before" ? "NOT BEFORE " : ""}${clock}`);
     const schedule = [day,time].filter(Boolean).join(delta !== null && delta >= 0 && (delta < 7 || precision==='not-before' && delta===7) && !range ? " " : " · ");
     // Venue calendar dates cannot establish Sydney dates without a race start.
     const venueCalendar = !hasTime && event.timingProvenance?.precision === 'venue-calendar' && event.displayDateLabel;
@@ -135,15 +140,15 @@
     const clock=raw=>formatter('en-AU',{hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw));
     const restart=Date.parse(event.restartTimeUtc||'');
     const actual=actualStart(event,reference);
-    let time=actual&&!pause?'REPORTED START '+clock(new Date(Math.round(+actual/300000)*300000))+(value.status?' · '+value.status:''):value.status;
+    const started=played(event),raw=event.timePrecision==='estimated'?estimateClock(event,event.estimatedStartTimeUtc||event.startTimeUtc):event.startTimeUtc;
+    let time=actual&&!pause?'REPORTED START '+clock(actual)+(value.status?' · '+value.status:''):started&&!pause?[value.time?'SCHEDULED '+(event.timePrecision==='estimated'?'APPROX. ':event.timePrecision==='not-before'?'NOT BEFORE ':'')+clock(raw):'',value.status].filter(Boolean).join(' · '):value.status;
     if(pause&&!/^(FINISHED|CANCELLED|POSTPONED|ABANDONED)$/.test(time)){
       const suffix=Number.isFinite(restart)&&restart>+new Date(reference)?clock(restart):Number.isFinite(restart)||/awaiting/i.test(value.status)?'AWAITING UPDATE':'TIME UNAVAILABLE';
       time=pause.label.toUpperCase()+' · '+suffix;
     }else if(/awaiting/i.test(time))time='AWAITING UPDATE';
-    if(!time){
-      const raw=event.timePrecision==='estimated'?event.estimatedStartTimeUtc||event.startTimeUtc:event.startTimeUtc;
+    if(!time&&!started){
       const known=!event.dateOnly&&!event.timeTbc&&!event.startTimeTbc&&(!event.timePrecision||['exact','session-start','estimated','not-before'].includes(event.timePrecision))&&Number.isFinite(Date.parse(raw||''));
-      time=known?(event.timePrecision==='not-before'?'NB ':event.timePrecision==='estimated'?'APPROX. ':'')+clock(raw):event.timePrecision==='follows'?'FOLLOWS':'TIME UNAVAILABLE';
+      time=known?(event.timePrecision==='not-before'?'NB ':event.timePrecision==='estimated'?'APPROX. ':'')+clock(raw):event.timePrecision==='follows'?'FOLLOWS':'TIME TBD';
     }
     const overview=event.tournamentParent||event.isEditionOverview||event.majorEventMarker||['tennis_parent','golf_tournament','tournament_overview'].includes(event.cardType);
     if(overview&&!value.progress){
@@ -156,7 +161,7 @@
   }
   function dateOnlyLabel(event){
     if(['completed','finished','final'].includes(event.status))return 'Completed';
-    return event.eventType==='match'||event.timingProvenance?.precision==='venue-calendar'?'Time unavailable':String(event.displayTime||'Session times vary').replace(/\b(?:TBC|TBD)\b/gi,'unavailable');
+    return event.eventType==='match'||event.timingProvenance?.precision==='venue-calendar'?'Time TBD':String(event.displayTime||'Session times vary').replace(/\b(?:TBC|unavailable)\b/gi,'TBD');
   }
-  return Object.freeze({presentation,minimised,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason,progress,played,actualStart});
+  return Object.freeze({presentation,minimised,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason,progress,played,actualStart,estimateClock});
 });

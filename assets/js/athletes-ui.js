@@ -99,7 +99,7 @@
   button.type='button';button.setAttribute('aria-label',label);button.dataset.profileTrigger=key;button.dataset.athletesFocusKey=key;button.onclick=()=>openMatch(event,button);return button;
  }
  function timing(event){
-  if(event.timePrecision==='estimated'&&Number.isFinite(Date.parse(event.estimatedStartTimeUtc)))return NOTHINGSPORTS_CARD_TIMING.presentation(event).fullSchedule;
+  if(NOTHINGSPORTS_CARD_TIMING.played(event)||event.timePrecision==='estimated'&&Number.isFinite(Date.parse(event.estimatedStartTimeUtc)))return NOTHINGSPORTS_CARD_TIMING.presentation(event).fullSchedule;
   const calendar=model.calendarTiming(event);if(calendar)return calendar;
   if(String(event.timePrecision).replace('_','-')==='followed-by'&&!Number.isFinite(Date.parse(event.startTimeUtc)))return 'Match time unresolved · follows an earlier match';
   const state=model.timingState(event);if(state==='publication-pending')return 'Organiser publication pending';if(state==='unresolved')return 'Match time unresolved';if(state==='unverified')return 'Match time not verified';if(state==='stale'&&!Number.isFinite(Date.parse(event.startTimeUtc)))return 'Timing needs rechecking';

@@ -1184,10 +1184,7 @@ function buildFixtureFallbackCard(event, options = {}){
   title.textContent = label;
   const timing = document.createElement("p");
   timing.className = "compact-card-meta";
-  const fallbackClock = ev.time && !ev.timeTbc && !ev.startTimeTbc && !ev.dateOnly
-    ? `${ev.timePrecision === 'estimated' ? 'Approx. ' : ev.timePrecision === 'not-before' ? 'Not before ' : ''}${ev.time}` : "TIME UNAVAILABLE";
-  timing.textContent = ev.timingProvenance?.precision==='venue-calendar' ? NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule : [NOTHINGSPORTS_AUSTRALIAN_DATES.date(ev.date), fallbackClock,
-    ["cancelled", "canceled", "abandoned", "postponed"].includes(ev.scheduleStatus || ev.status) ? ev.scheduleStatus || ev.status : ""].filter(Boolean).join(" · ");
+  timing.textContent = NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule;
   if(ev.calendarNote?.localDateLabel)timing.textContent=ev.calendarNote.localDateLabel+' · Sydney time unavailable';
   if(activeTab === 'feed')copy.appendChild(ev.calendarNote?.localDateLabel?timing:buildFixtureTimingGroup(ev));
   copy.append(title,...(ev.calendarNote&&activeTab==='feed'?[]:[timing]));
