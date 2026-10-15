@@ -1,5 +1,6 @@
 'use strict';
 const fs=require('node:fs'),assert=require('node:assert/strict');
+const diagnostics=require('node:diagnostics_channel');
 const {readBundleParts}=require('../lib/fixture-bundle-parts');
 const {supabaseServiceRequest}=require('../lib/supabase-server');
 async function run({scope,environment=process.env,output,cycles=2}={}){
@@ -13,11 +14,15 @@ async function run({scope,environment=process.env,output,cycles=2}={}){
   for(let cycle=0;cycle<cycles;cycle++)for(const kind of ['participants','global']){
    const receipt={cycle,scope:kind,parts:[]},started=performance.now();proof.checks.push(receipt);
    const request=async(name,body)=>{
-    const began=performance.now(),part={part:body.p_part};receipt.parts.push(part);
+    const began=performance.now(),part={part:body.p_part,network:[]};receipt.parts.push(part);
+    const channels=['undici:client:beforeConnect','undici:client:connected','undici:request:bodySent','undici:request:headers'].map(name=>{
+     const channel=diagnostics.channel(name),listener=()=>part.network.push({event:name.split(':').at(-1),elapsedMs:Math.round(performance.now()-began)});
+     channel.subscribe(listener);return [channel,listener];
+    });
     try{
      const value=await supabaseServiceRequest('/rest/v1/rpc/'+name,{method:'POST',body,environment,timeoutMs:3000,fetchImpl:async(...args)=>{const response=await fetch(...args);part.headersMs=Math.round(performance.now()-began);return response;}});
      part.elapsedMs=Math.round(performance.now()-began);assert(part.elapsedMs<3000,'Request exceeded its transport allowance');return value;
-    }finally{part.elapsedMs??=Math.round(performance.now()-began);}
+    }finally{for(const [channel,listener]of channels)channel.unsubscribe(listener);part.elapsedMs??=Math.round(performance.now()-began);}
    };
    const result=await readBundleParts(request,{scope:kind,...(kind==='participants'?{sportKeys:scope.p_sport_keys,knownSportKeys:scope.p_known_sport_keys,participantIds:scope.p_participant_ids,requiredIds:scope.p_required_ids}:{})});
    assert.equal(receipt.parts.length,2);assert(result.rows.length>0,'Unexpected empty complete scope');
