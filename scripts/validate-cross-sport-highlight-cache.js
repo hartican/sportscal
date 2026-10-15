@@ -27,7 +27,7 @@ async function main(){
   assert.equal(calls.length,1);assert.deepEqual(grants,['ordinary'],'all-user cache repeat spends zero additional quota');
   const stored=[...rows.values()][0];
   assert(!Object.keys(stored).some(key=>/user|account|profile|handle/.test(key)),'selection cache has no account identity');
-  for(const patch of [{competitionId:'competition:other-league'},{gender:'women'},{participants:event.participants.map((p,i)=>({...p,id:'team:changed:'+i}))}]){
+  for(const patch of [{competitionId:'competition:other-league'},{season:'2025/26'},{seasonLabel:'2025/26'},{gender:'women'},{participants:event.participants.map((p,i)=>({...p,id:'team:changed:'+i}))}]){
     granted=false;await assert.rejects(secondUser.resolve({...event,...patch},now),'changed sporting context cannot reuse a prior selection');
     assert.equal(calls.length,1,'denied quota dispatches no provider request');
   }
