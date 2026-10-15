@@ -111,6 +111,3 @@ AS $function$
   'complete',coalesce((select valid and metadata_ready from inputs),false) and count(*)<=5000,
   'rows',coalesce(jsonb_agg(to_jsonb(projected) order by source_id,fixture_id),'[]'::jsonb)) from projected;
 $function$;
-
-
-
