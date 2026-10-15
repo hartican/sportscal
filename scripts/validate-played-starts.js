@@ -12,8 +12,8 @@ const played=owner.merge([planned],[first],{now})[0];assert.equal(played.startTi
 assert.equal(timing.presentation(played,now).time,'REPORTED START 3:10 PM');assert(!/NOT BEFORE|Scheduled/.test(timing.presentation(played,now).ariaLabel));
 assert.equal(timing.minimised(played,now).time,'REPORTED START 15:10 · FINISHED','compact cards also qualify the publisher-reported start');
 assert.match(timing.presentation(planned,now).time,/NOT BEFORE 3:00 PM/,'upcoming lower bounds stay qualified');
-assert.equal(timing.presentation({...planned,status:'completed'},now).time,'START TBD','scheduled lower bound cannot become an actual start');
-assert.equal(timing.presentation({...planned,status:'completed',timePrecision:'exact'},now).time,'START TBD','a scheduled exact clock is not actual-play evidence');
+assert.equal(timing.presentation({...planned,status:'completed'},now).time,'START UNAVAILABLE','scheduled lower bound cannot become an actual start');
+assert.equal(timing.presentation({...planned,status:'completed',timePrecision:'exact'},now).time,'START UNAVAILABLE','a scheduled exact clock is not actual-play evidence');
 assert.equal(timing.actualStart({...played,cardType:'tennis_parent'},now),null,'a tournament overview is not an individual played match');
 assert.match(timing.presentation({...played,status:'COMPLETED'},now).time,/REPORTED START/,'source status case does not restore obsolete qualifiers');
 for(const [raw,expected] of [['2026-10-13T04:12:29Z','REPORTED START 3:10 PM'],['2026-10-13T04:12:30Z','REPORTED START 3:15 PM'],['2026-10-13T04:17:31Z','REPORTED START 3:20 PM']]){

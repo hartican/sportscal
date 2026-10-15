@@ -1,5 +1,15 @@
 # Follow and Feed decisions
 
+## Missing sporting metadata — 16 October 2026 Sydney
+
+Nothing Sport discovers sporting facts; missing app data must not be described as a decision awaiting an organiser. Omit unknown venue rows and their space; retain a sourced city if that is all that is available. Missing date, start, court, participant and broadcaster labels describe data as unavailable, including cached TBC/TBD presentation. Preserve source records and unknown values; never derive a venue from the home club or completion from an elapsed clock. “To be determined” is reserved for an actual sporting outcome still unresolved because play has not happened.
+
+Highlights feedback distinguishes a missing confirmed fixture update from an unsuccessful media lookup. The former explains that Nothing Sport has not received completion, before any YouTube request, and returns to the same fixture. Existing completed-fixture, recent-upload, identity, selection, quota and scheduler rules remain. This does not make a missing app update evidence that a game is still playing, or an unsuccessful lookup evidence that no highlights exist. Regressions: `validate-missing-fixture-metadata.js`, shared timing/venue tests and native venue browser matrix.
+
+A cached `past` display label or elapsed tee/kickoff time does not establish completion for highlights. Only the existing explicit completed/finished/final source states admit the action. This prevents a stale client from offering a highlights link that the server correctly rejects before discovery; it does not suppress source-confirmed completed fixtures or alter Feed admission or history.
+
+The explicit Rugby League World Cup competition maps to the existing reviewed NRL publisher within the existing bounded official-feed discovery. An explicit Rugby Union competition cannot borrow it. This repairs the missing publisher lookup without relaxing video suitability or adding a search, quota allowance or scheduler.
+
 ## Honest missing-result wording — 16 October 2026 Sydney
 
 The authorised existing World Cup result repair also corrects the shared completed-card fallback. Results ON with no usable outcome says “Result not yet available”; Results OFF keeps its protected reveal guidance. Retain source-backed outcomes, reject stale preview recaps and preserve every saved result choice, identity, kickoff, admission and retention rule. Fact dates follow accepted status/score observations when an old saved row is rejected; a collection check cannot change them. Tests: validate-rlwc-result-fallback, shared live-score continuity, actual Feed/Schedule rendering and both installed-update rehearsals. [Dated scope](quality/rlwc-result-repair-2026-10-16.md).

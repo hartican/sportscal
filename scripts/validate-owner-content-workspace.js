@@ -13,7 +13,7 @@ async function main(){
   const preview=content.postingSlots(fixture,now-3*content.DAY);assert.equal(preview[0].at,'2026-10-01T08:30:00.000Z');
   assert.equal(content.postingSlots(fixture,now+2*content.DAY).length,1,'Missed preview collapses into day-of');
   const dateOnly={...fixture,startTimeUtc:null,date:'2026-10-04'};assert(content.postingSlots(dateOnly,now)[0].at);assert(content.postingSlots(dateOnly,now)[0].estimated);
-  assert.equal(content.dates({id:'genuinely-unknown'}).sydneyStart.date,'Date TBD','A missing sporting date must never become the Unix epoch');
+  assert.equal(content.dates({id:'genuinely-unknown'}).sydneyStart.date,'Date unavailable','A missing sporting date must never become the Unix epoch');
   assert.equal(content.rating(fixture,null).source,'editorial');assert.equal(content.rating(fixture,null).animationPreset,'subtle');
   assert.equal(content.rating(fixture,{mean:4.8,count:5}).animationPreset,'subtle');assert.equal(content.rating(fixture,{mean:4.81,count:5}).animationPreset,'energy');
   assert(content.eligible({...fixture,storyline:{stakes:4}},{mean:4.8,count:3},now));assert(content.eligible({...fixture,commsKind:'major-event',storyline:{stakes:3}},null,now));assert(!content.eligible({...fixture,status:'completed'},null,now));

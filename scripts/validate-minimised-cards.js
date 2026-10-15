@@ -11,15 +11,15 @@ function check(event,expected,{progress,aria}={}){
 }
 check(base,'21:00');check({...base,timePrecision:'not-before'},'NB 21:00',{aria:/NOT BEFORE 9:00 PM/});
 check({...base,timePrecision:'estimated',estimatedStartTimeUtc:'2026-10-13T09:30:00Z'},'APPROX. 20:30');
-check({...base,timeTbc:true},'TIME TBD');check({...base,startTimeUtc:'invalid'},'TIME TBD');check({...base,timePrecision:'follows'},'FOLLOWS');
+check({...base,timeTbc:true},'TIME UNAVAILABLE');check({...base,startTimeUtc:'invalid'},'TIME UNAVAILABLE');check({...base,timePrecision:'follows'},'FOLLOWS');
 for(const [status,label] of [['live','LIVE'],['completed','FINISHED'],['cancelled','CANCELLED'],['postponed','POSTPONED'],['abandoned','ABANDONED']])check({...base,status},label);
 const test={...base,key:'cricket',format:'Test',date:'2026-10-09',endDate:'2026-10-13',startTimeUtc:'2026-10-09T07:30:00Z',matchDay:4,numberOfDays:5,matchDaySourceUrl:'https://www.cricket.com.au/',status:'stumps'};
 check({...test,restartTimeUtc:'2026-10-13T07:30:00Z'},'STUMPS · 18:30',{progress:'DAY 4',aria:/Live again at 6:30 pm/});
 check({...test,restartTimeUtc:'2026-10-12T07:30:00Z'},'STUMPS · AWAITING UPDATE',{progress:'DAY 4',aria:/Awaiting resumption update/});
-check({...test,restartTimeUtc:null},'STUMPS · TIME TBD',{progress:'DAY 4',aria:/Resume time TBD/});
-check({...test,status:'rain-delay'},'RAIN DELAY · TIME TBD',{progress:'DAY 4'});
+check({...test,restartTimeUtc:null},'STUMPS · TIME UNAVAILABLE',{progress:'DAY 4',aria:/Resume time unavailable/});
+check({...test,status:'rain-delay'},'RAIN DELAY · TIME UNAVAILABLE',{progress:'DAY 4'});
 check({...test,status:'completed',matchDay:2},'FINISHED',{progress:'DAY 2'});
-check({...test,matchDaySourceUrl:null},'STUMPS · TIME TBD',{progress:'DAY UNCONFIRMED'});
+check({...test,matchDaySourceUrl:null},'STUMPS · TIME UNAVAILABLE',{progress:'DAY UNCONFIRMED'});
 const overview={key:'tennis',name:'Combined tours',cardType:'tennis_parent',tournamentParent:true,dateOnly:true,date:'2026-10-12',endDate:'2026-10-18',status:'ongoing',representedTours:['ATP','WTA'],tournamentProgress:['ATP','WTA'].map(tour=>({tour,drawType:'singles',mainDraw:true,roundNumbers:[3,4],totalRounds:7,playDate:'2026-10-12',sourceUrl:'https://www.atptour.com/controlled-test',sourceCheckedAt:now.toISOString()}))};
 check(overview,'IN PROGRESS',{progress:'ATP · ROUND 3-4 OF 7 · WTA · ROUND 3-4 OF 7'});
 check({...overview,status:'completed'},'12 OCT–18 OCT · FINISHED',{progress:null});

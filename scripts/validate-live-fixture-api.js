@@ -42,7 +42,7 @@ async function main(){
   res=response();await clockHandler({url:'/api/fixtures?ids=nrl-confirmed-clock',headers:{}},res);
   const currentClock=res.body.sources.flatMap(source=>source.fixtures)[0];
   assert.equal(clock.presentation({...currentClock,status:'scheduled'}).time,clock.presentation(exactFixture).time,'the public live API reconciles inherited date-only metadata for the retained appointment');
-  assert.equal(clock.presentation(currentClock).time,'START TBD','a sourced live status cannot turn the scheduled appointment into a reported start');
+  assert.equal(clock.presentation(currentClock).time,'START UNAVAILABLE','a sourced live status cannot turn the scheduled appointment into a reported start');
   assert.equal(currentClock.schedulePrecision,'exact');assert.equal(currentClock.dateOnly,false);
   const oldRevision=require('node:crypto').createHash('sha256').update(`legacy-date-only:${require('../lib/live-fixtures').contentHash([exactFixture])}:nrl-confirmed-clock`).digest('hex');
   res=response();await clockHandler({url:'/api/fixtures?ids=nrl-confirmed-clock&revision='+oldRevision,headers:{}},res);
