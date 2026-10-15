@@ -78,6 +78,11 @@ async function check(db,args,{original='public.ns_test_original_participant_bund
   clockRows.push({fixture_id:fixtureId,fixture:base,score,first_completed_at:complete?stamp:null});
   clockReceipts[fixtureId]={s:clockValues[r],t:clockValues[(r+3)%clockValues.length]};
  }
+ for(const score of [null,[],[0],'text',0,false]){
+  const fixtureId='lab:clock:'+clockRows.length;
+  clockRows.push({fixture_id:fixtureId,fixture:fixture({id:fixtureId,scoreCheckedAt:stamp,statusCheckedAt:stamp}),score,first_completed_at:stamp});
+  clockReceipts[fixtureId]={s:stamp,t:stamp};
+ }
  await db.query('INSERT INTO public.nothingsports_fixture_sources(source_id,discovery_report) VALUES($1,$2::jsonb)',[clockSource,JSON.stringify({_fixtureObservations:clockReceipts})]);
  await db.query('INSERT INTO public.nothingsports_fixture_current(source_id,fixture_id,fixture,identity_keys,content_hash) SELECT $1,fixture_id,fixture,ARRAY[fixture_id],fixture_id FROM jsonb_to_recordset($2::jsonb) r(fixture_id text,fixture jsonb)',[clockSource,JSON.stringify(clockRows)]);
  await db.query('INSERT INTO public.nothingsports_live_scores(source_id,fixture_id,score,content_hash,first_completed_at) SELECT $1,fixture_id,score,fixture_id,first_completed_at FROM jsonb_to_recordset($2::jsonb) r(fixture_id text,score jsonb,first_completed_at timestamptz)',[clockSource,JSON.stringify(clockRows)]);
