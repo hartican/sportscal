@@ -155,7 +155,7 @@
     const preheader = `Join the ${identity.shortTitle} watch party, then rate it after the finish.`.slice(0, 150);
     const captionWhen = hasConfirmedStart ? `${when.date} at ${when.time} ${when.timezone}` : `${when.date}; exact time unavailable`;
     const caption = `UNMISSABLE ${clean(event?.sport || event?.key || "SPORT").toUpperCase()}: ${identity.recognisableTitle}${matchupSuffix}. ${captionWhen}. 5/5 stakes. ${hook} Join the watch party and rate it afterwards — link in bio.`;
-    const altText = `Nothing Sport UNMISSABLE card for ${identity.recognisableTitle}${matchupSuffix}, ${hasConfirmedStart ? `starting ${when.date} at ${when.time} ${when.timezone}` : `listed for ${when.date} with the exact start time to be confirmed`}.`;
+    const altText = `Nothing Sport UNMISSABLE card for ${identity.recognisableTitle}${matchupSuffix}, ${hasConfirmedStart ? `starting ${when.date} at ${when.time} ${when.timezone}` : `listed for ${when.date} with the exact start time unavailable`}.`;
     const headline = hasConfirmedStart ? `${when.weekday || when.day} watch party: ${identity.shortTitle}` : `${identity.shortTitle}: on the 5/5 watchlist`;
     const context = identity.context || hook;
     const invitationName = /^(?:the|a|an)\b/i.test(identity.recognisableTitle) ? identity.recognisableTitle : `the ${identity.recognisableTitle}`;

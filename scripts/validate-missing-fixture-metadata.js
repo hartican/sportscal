@@ -1,6 +1,28 @@
 'use strict';
 const assert=require('node:assert/strict'),presentation=require('../config/feed-card-presentation'),timing=require('../config/card-timing');
 const now=new Date('2026-10-16T00:00:00Z');
+const fs=require('node:fs'),vm=require('node:vm');
+const html=fs.readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8');
+assert.equal(presentation.dateBanner(null,now),'DATE UNAVAILABLE');
+assert(!html.includes('Upcoming · dates to be confirmed'),'Missing app dates are described consistently');
+const timeSource=html.slice(html.indexOf('function eventTimeLabel(ev){'),html.indexOf('function buildEventActionPanel(ev,'));
+const context={NOTHINGSPORTS_CARD_TIMING:timing,nowAEST:()=>now,fmtTime12:()=> '7:00 PM',eventLocationLabel:e=>presentation.venue(e)};
+vm.runInNewContext(timeSource,context);
+for(const patch of [{},{timePrecision:'estimated'},{dateOnly:true},{timePrecision:'not-before'}]){
+ const fixture={date:'2026-10-17',time:'19:00',startTimeUtc:'2026-10-17T08:00:00Z',...patch};
+ const label=context.eventTimeLabel(fixture);
+ assert(!/^\s*·|·\s*$/.test(label),'An omitted venue cannot leave an empty separator: '+label);
+ assert.match(context.eventTimeLabel({...fixture,venueCity:'Sydney'}),/ · Sydney$/,'A sourced city remains visible');
+}
+function element(tag){return{tag,children:[],dataset:{},classList:{add(){}},append(...nodes){this.children.push(...nodes);},appendChild(node){this.append(node);}};}
+const hubContext={document:{createElement:element},NOTHINGSPORTS_FEED_CARD_PRESENTATION:presentation,userPreferences:{showSpoilers:false},spoilerSafeDisplayTitle:e=>e.name,dayDateLabel:d=>d,fmtTime12:()=> '7:00 PM'};
+vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../assets/js/sport-hub-ui.js'),'utf8'),hubContext);
+for(const resultsMode of [false,true])for(const key of ['wrc','nrl'])for(const venueCity of [null,'Sydney']){
+ const row=hubContext.buildSportHubFixtureRow({event:{key,name:'Source fixture',date:'2026-10-17',time:'19:00',venueCity},liveProviders:[],replayProviders:[]},{resultsMode});
+ const detail=row.children[1].children.find(n=>n.className==='sport-hub-fixture-detail').textContent;
+ assert(!/^\s*·|·\s*$/.test(detail),'Missing legacy venue leaves no empty detail separator');
+ if(venueCity)assert.match(detail,/^Sydney · /);
+}
 const rugby=require('../data/events.json').events.find(e=>e.id==='rlwc-australia-new-zealand-2026');
 const golf=require('../data/code-inspector/golf.json').fixtures.find(e=>(e.name||'').startsWith('Minjee Lee /'));
 const football=require('../data/providers/openligadb/football-2026-27.json').events.filter(e=>/LASK v Liverpool|Manchester City v Paris/.test(e.name));

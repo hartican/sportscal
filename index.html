@@ -7755,16 +7755,17 @@ function eventLocationLabel(ev){
 
 function eventTimeLabel(ev){
   if(NOTHINGSPORTS_CARD_TIMING.played(ev))return NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).time+' (Sydney time)';
-  if(ev.timePrecision==="estimated")return `Approx. ${fmtTime12(ev.time)} · ${eventLocationLabel(ev)}`;
+  const atVenue=label=>[label,eventLocationLabel(ev)].filter(Boolean).join(' · ');
+  if(ev.timePrecision==="estimated")return atVenue(`Approx. ${fmtTime12(ev.time)}`);
   if(ev.timePrecision==="follows")return "Follows prior match";
-  if(ev.dateOnly)return `${NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel(ev)} · ${eventLocationLabel(ev)}`;
+  if(ev.dateOnly)return atVenue(NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel(ev));
   if(ev.timePrecision==='not-before'){
     const timing=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
-    return timing.time==='TIME UNAVAILABLE'?'Time unavailable':`${timing.time} (Sydney time) · ${eventLocationLabel(ev)}`;
+    return timing.time==='TIME UNAVAILABLE'?'Time unavailable':atVenue(`${timing.time} (Sydney time)`);
   }
   if (ev.displayTimeLabel) return ev.displayTimeLabel;
   if (ev.timeTbc) return "Time unavailable";
-  return `${fmtTime12(ev.time)} · ${eventLocationLabel(ev)}`;
+  return atVenue(fmtTime12(ev.time));
 }
 
 function buildEventActionPanel(ev, options = {}){
@@ -11422,7 +11423,7 @@ function appendFeedPageToCurrentList(incomingEvents){
       groupDiv.dataset.feedDate = dateStr;
       const heading = document.createElement("div");
       heading.className = "date-heading";
-      heading.innerHTML = (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)?fmtDateHeading(dateStr):"Upcoming · dates to be confirmed") + (dateStr === todayStr ? ' <span class="today-flag">TODAY</span>' : '');
+      heading.innerHTML = (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)?fmtDateHeading(dateStr):"Upcoming · dates unavailable") + (dateStr === todayStr ? ' <span class="today-flag">TODAY</span>' : '');
       grid = document.createElement("div");
       grid.className = "cards-grid";
       groupDiv.append(heading, grid);
@@ -11523,7 +11524,7 @@ function renderListView(){
       heading.className = "date-heading";
       const relativeBadge = dateStr === todayStr ? "TODAY"
         : future && groupIndex === 0 ? boundaryPresentation.nextDateBadge : "";
-      heading.innerHTML = (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)?fmtDateHeading(dateStr):"Upcoming · dates to be confirmed") + (relativeBadge ? ` <span class="today-flag">${relativeBadge}</span>` : "");
+      heading.innerHTML = (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)?fmtDateHeading(dateStr):"Upcoming · dates unavailable") + (relativeBadge ? ` <span class="today-flag">${relativeBadge}</span>` : "");
       if (dateStr === todayStr){
         heading.id = "calendarTodayAnchor";
         heading.setAttribute("role", "heading");

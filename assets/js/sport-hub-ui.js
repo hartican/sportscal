@@ -57,11 +57,12 @@ function buildSportHubFixtureRow(view, {
   }
   const details = document.createElement("p");
   details.className = "sport-hub-fixture-detail";
-  details.textContent = resultsMode
+  const detail = resultsMode
     ? event.key === "wrc"
-      ? `${sportHubVenueLabel(view)} · ${event.resultStatus === "pending" ? "Official result pending" : "Official result"} · Replays: ${sportHubProviderCopy(view.replayProviders, "Unavailable")}`
-      : `${sportHubVenueLabel(view)} · Result record · video availability is not promised`
-    : `${sportHubVenueLabel(view)} · ${sportHubProviderCopy(view.liveProviders, "Broadcaster unavailable")}`;
+      ? `${event.resultStatus === "pending" ? "Official result pending" : "Official result"} · Replays: ${sportHubProviderCopy(view.replayProviders, "Unavailable")}`
+      : "Result record · video availability is not promised"
+    : sportHubProviderCopy(view.liveProviders, "Broadcaster unavailable");
+  details.textContent = [sportHubVenueLabel(view),detail].filter(Boolean).join(' · ');
   main.append(titleLine, details);
 
   const status = document.createElement("div");

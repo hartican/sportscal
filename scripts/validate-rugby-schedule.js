@@ -53,7 +53,7 @@ try{
  while(later())later().onclick();
  assert.equal(walk(rendered).filter(x=>x.className==='code-inspector-group').length,5,'edition and unknown identities remain separate');
  const unknown=walk(rendered).filter(x=>x.tag==='h3'&&x.textContent.includes('DATE UNAVAILABLE'));
- assert.equal(unknown.length,2);assert(unknown.every(x=>x.textContent.includes('Competition TBD')),'missing facts stay unknown');
+ assert.equal(unknown.length,2);assert(unknown.every(x=>x.textContent.includes('Competition unavailable')),'missing facts stay unknown');
  const retained=JSON.parse(fs.readFileSync(require.resolve('../data/code-inspector/rugby-union.json'),'utf8')).fixtures;
  const original=JSON.stringify(retained);render(retained);
  assert(walk(rendered).filter(x=>x.tag==='card').length<40,'retained calendar opens with a small useful window');

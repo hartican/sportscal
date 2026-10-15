@@ -9,7 +9,7 @@
     return `${entry.sharedRank===true?'Joint ':''}${rank}`;
   }
   function dateBanner(value,now=new Date()){
-    if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return 'DATE UNCONFIRMED';
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return 'DATE UNAVAILABLE';
     const dates=globalThis.NOTHINGSPORTS_AUSTRALIAN_DATES||(typeof require==='function'?require('./australian-dates'):null);
     return dates.date(value,{reference:now});
   }
