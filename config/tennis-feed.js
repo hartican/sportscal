@@ -92,18 +92,19 @@
   function reason(parent,preferences,{collectionsById={},preparedPreferences=null,expandedParticipantIds=null,participantTours={},now=new Date()}={}){
     const policy=api('NOTHINGSPORTS_FOLLOW_FEED_POLICY'),follow=api('NOTHINGSPORTS_FOLLOW_FIRST');
     const prefs=preparedPreferences||follow.migratePreferences(preferences);
+    const participantFollowed=id=>follow.effectiveParticipantFollow(id,prefs,collectionsById,prefs).followed;
     if(!policy.activeEligible(parent)||policy.explicitlyExcluded(parent,prefs)||policy.eventExcluded(parent,prefs))return null;
-    const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
+    const today=policy.dateKey(now);if(!today)return null;
     const ongoing=parent.date<=today&&parent.endDate>=today&&!parent.majorEventMarker&&!policy.presidentsCup(parent);
     const verifiedIds=[...new Set([...(parent.participantIds||[]),...(parent.sourceParticipation||[]).filter(e=>!e.excluded&&!['withdrawn','excluded'].includes(e.participationStatus)).map(e=>e.participantId)])].filter(id=>!(parent.excludedParticipantIds||[]).includes(id));
-    if(ongoing&&(parent.participantsConfirmed!==true||!verifiedIds.some(id=>follow.effectiveParticipantFollow(id,prefs,collectionsById).followed||expandedParticipantIds?.has(id))))return null;
+    if(ongoing&&(parent.participantsConfirmed!==true||!verifiedIds.some(id=>participantFollowed(id)||expandedParticipantIds?.has(id))))return null;
     if(policy.sportKey(parent).startsWith('tennis')&&parent.date>today){
       const horizon=new Date(today+'T12:00:00Z');horizon.setUTCFullYear(horizon.getUTCFullYear()+1);if(horizon.getUTCDate()!==Number(today.slice(-2)))horizon.setUTCDate(0);
       if(parent.date>horizon.toISOString().slice(0,10)||!/^https:\/\//.test(parent.sourceUrl||''))return null;
       const identity=follow.participantFollowIdentityKey;
       const removed=new Set([...(parent.excludedParticipantIds||[]),...(parent.participationEvidence||[]).filter(e=>['withdrawn','excluded'].includes(e.participationStatus)).map(e=>e.participantId),...(parent.outlookParticipation||[]).filter(e=>e.status==='withdrawn').map(e=>e.participantId)].map(identity));
       const ids=[...new Set([...(prefs.preferenceGraph?.entityFollows||[]).map(f=>f.participantId),...(expandedParticipantIds||[])])];
-      const athlete=ids.find(id=>!id.startsWith('team:')&&!removed.has(identity(id))&&follow.effectiveParticipantFollow(id,prefs,collectionsById).followed&&(verifiedIds.some(p=>identity(p)===identity(id))||(parent.outlookParticipation||[]).some(p=>identity(p.participantId)===identity(id)&&p.status!=='withdrawn')||(parent.outlookTours||[]).includes(participantTours[identity(id)]||id.match(/:tennis:(atp|wta):/i)?.[1].toUpperCase())));
+      const athlete=ids.find(id=>!id.startsWith('team:')&&!removed.has(identity(id))&&participantFollowed(id)&&(verifiedIds.some(p=>identity(p)===identity(id))||(parent.outlookParticipation||[]).some(p=>identity(p.participantId)===identity(id)&&p.status!=='withdrawn')||(parent.outlookTours||[]).includes(participantTours[identity(id)]||id.match(/:tennis:(atp|wta):/i)?.[1].toUpperCase())));
       return athlete?{type:'athlete',id:athlete,displayTag:false}:null;
     }
     if(policy.sportKey(parent).startsWith('tennis')&&!parent.date)return null;
@@ -112,7 +113,7 @@
     const excluded=new Set(parent.excludedParticipantIds||[]),golf=['golf','golf-women','masters'].includes(policy.sportKey(parent));
     if(golf&&parent.participantsConfirmed!==true)return null;
     if(golf&&policy.hasAustralianParticipant(parent)&&(prefs.followFirst?.australiansOnlySportIds||[]).includes('sport:golf'))return {type:'sport',id:'golf',displayTag:false};
-    const participant=[...new Set([...(parent.participantIds||[]),...(parent.sourceParticipation||[]).filter(e=>!e.excluded).map(e=>e.participantId)])].find(id=>!excluded.has(id)&&(follow.effectiveParticipantFollow(id,prefs,collectionsById).followed || expandedParticipantIds?.has(id)));
+    const participant=[...new Set([...(parent.participantIds||[]),...(parent.sourceParticipation||[]).filter(e=>!e.excluded).map(e=>e.participantId)])].find(id=>!excluded.has(id)&&(participantFollowed(id) || expandedParticipantIds?.has(id)));
     return participant?{type:participant.startsWith('team:')?'team':'athlete',id:participant,displayTag:false}:null;
   }
   function timingLabel(parent){

@@ -1,4 +1,5 @@
 'use strict';
+require('./validate-retirement-date-format-reuse');
 const assert=require('node:assert/strict'),fs=require('node:fs'),epic=require('../config/epic-classics');
 const now=new Date('2026-10-14T01:00:00Z');
 assert.equal(epic.retired({date:'2026-10-06',status:'completed'},now),true);

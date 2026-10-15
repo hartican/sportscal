@@ -241,7 +241,7 @@ function buildDetailedEventCard(ev, options = {}){
   const hasSpoilerFacts = hasSpoilerSensitiveContent(ev, protectedFacts, status);
   const spoilerProtected = !spoilerVisible && hasSpoilerFacts;
   const localGame = isLocalGame(ev);
-  const recommendationProfile = eventRecommendationProfile(ev);
+  const recommendationClass = eventRecommendationClassification(ev);
   const action = getEventAction(ev);
   const isMinimised = activeTab!=="feed" && Boolean(action.isMinimised);
   const card = document.createElement("article");
@@ -263,7 +263,7 @@ function buildDetailedEventCard(ev, options = {}){
     displayedResult ? "has-card-result" : "",
     presentation.isNew ? "is-new" : "",
     status === "past" ? "is-past" : "",
-    ["adjacent", "discovery"].includes(recommendationProfile.classification) ? "is-discovery" : "",
+    ["adjacent", "discovery"].includes(recommendationClass) ? "is-discovery" : "",
     isMinimised ? "is-event-minimised" : "",
   ].filter(Boolean).join(" ");
   if(options.inspectorFixture)card.dataset.inspectorFixtureId=options.inspectorFixture.id;
@@ -275,7 +275,7 @@ function buildDetailedEventCard(ev, options = {}){
   card.dataset.cardVariant = enrichment.cardVariant;
   card.dataset.intensity = String(enrichment.intensity);
   card.dataset.mustWatchScore = String(enrichment.mustWatchScore);
-  card.dataset.recommendationClassification = recommendationProfile.classification;
+  card.dataset.recommendationClassification = recommendationClass;
   card.dataset.nscPhase = nothingscoreSnapshotFor(ev)?.phase || "loading";
   card.style.setProperty("--sport-color", meta.color);
   card.style.setProperty("--importance-color", importanceColor);

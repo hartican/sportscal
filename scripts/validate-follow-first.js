@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 "use strict";
+require('./validate-follow-preparation-reuse');
+require('./validate-card-classification-work');
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");

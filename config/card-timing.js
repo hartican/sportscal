@@ -5,9 +5,12 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function(){
   "use strict";
   const timeZone = "Australia/Sydney";
-  const format = (date, options) => new Intl.DateTimeFormat("en-AU", {timeZone, ...options}).format(date).replace(/,/g, "").replace(/Sept\b/g, "Sep").toUpperCase();
+  // Only the fixed styles below are retained; fixture values and clocks stay current.
+  const formats=Object.create(null);
+  function formatter(locale,options){const key=locale+JSON.stringify(options);return formats[key]||(formats[key]=new Intl.DateTimeFormat(locale,{timeZone,...options}));}
+  const format = (date, options) => formatter("en-AU", options).format(date).replace(/,/g, "").replace(/Sept\b/g, "Sep").toUpperCase();
   function dayKey(date){
-    const parts = new Intl.DateTimeFormat("en-CA", {timeZone, year:"numeric", month:"2-digit", day:"2-digit"}).formatToParts(date);
+    const parts = formatter("en-CA", {year:"numeric", month:"2-digit", day:"2-digit"}).formatToParts(date);
     const p = Object.fromEntries(parts.map(part => [part.type, part.value]));
     return `${p.year}-${p.month}-${p.day}`;
   }
@@ -35,8 +38,8 @@
     const label=pauseReason(event);if(!label)return null;
     const restart=Date.parse(event.restartTimeUtc||''),now=new Date(reference);
     const clock=Number.isFinite(restart)&&restart>+now?new Date(restart):null;
-    const time=clock?new Intl.DateTimeFormat('en-AU',{timeZone,hour:'numeric',minute:'2-digit',hour12:true}).format(clock):null;
-    const day=clock&&dayKey(clock)!==dayKey(now)?new Intl.DateTimeFormat('en-AU',{timeZone,weekday:'short',day:'numeric',month:'short',...(dayKey(clock).slice(0,4)!==dayKey(now).slice(0,4)?{year:'numeric'}:{})}).format(clock).replace(/,/g,'')+', ':'';
+    const time=clock?formatter('en-AU',{hour:'numeric',minute:'2-digit',hour12:true}).format(clock):null;
+    const day=clock&&dayKey(clock)!==dayKey(now)?formatter('en-AU',{weekday:'short',day:'numeric',month:'short',...(dayKey(clock).slice(0,4)!==dayKey(now).slice(0,4)?{year:'numeric'}:{})}).format(clock).replace(/,/g,'')+', ':'';
     return {label,restart:clock?'Live again at '+day+time:Number.isFinite(restart)?'Awaiting resumption update':'Resume time TBD'};
   }
   function progress(event, reference = new Date()){
@@ -129,7 +132,7 @@
   }
   function minimised(event, reference = new Date()){
     const value=presentation(event,reference),pause=pausePresentation(event,reference);
-    const clock=raw=>new Intl.DateTimeFormat('en-AU',{timeZone,hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw));
+    const clock=raw=>formatter('en-AU',{hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw));
     const restart=Date.parse(event.restartTimeUtc||'');
     const actual=actualStart(event,reference);
     let time=actual&&!pause?'REPORTED START '+clock(new Date(Math.round(+actual/300000)*300000))+(value.status?' · '+value.status:''):value.status;

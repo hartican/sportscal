@@ -8960,12 +8960,12 @@ function buildFollowEligibilityContext(){
 
 function cachedParticipantFollow(id){
   const context=buildFollowEligibilityContext();
-  if(!context.participantFollows.has(id))context.participantFollows.set(id,FOLLOW_FIRST.effectiveParticipantFollow(id,userPreferences,context.collectionsById));
+  if(!context.participantFollows.has(id))context.participantFollows.set(id,FOLLOW_FIRST.effectiveParticipantFollow(id,userPreferences,context.collectionsById,context.preparedPreferences));
   return context.participantFollows.get(id);
 }
 function automaticEventFollowReason(ev, context=buildFollowEligibilityContext()){
   if(ev.universeOnly||!FOLLOW_FEED_POLICY.activeEligible(ev)||!NOTHINGSPORTS_CRICKET_COVERAGE.allowed(ev))return null;
-  if(FOLLOW_FEED_POLICY.multiDayMarker(ev))return NOTHINGSPORTS_TENNIS_FEED.reason(ev,userPreferences,{collectionsById:followCollectionsById(),participantTours:tennisFeedParentDocument?.participantTours,now:nowAEST()});
+  if(FOLLOW_FEED_POLICY.multiDayMarker(ev))return NOTHINGSPORTS_TENNIS_FEED.reason(ev,userPreferences,{...context,participantTours:tennisFeedParentDocument?.participantTours,now:nowAEST()});
   if(!FOLLOW_FEED_POLICY.sportingFixture(ev) || FOLLOW_FEED_POLICY.explicitlyExcluded(ev,userPreferences)||(FOLLOW_FEED_POLICY.sportKey(ev).startsWith('tennis')&&!NOTHINGSPORTS_TENNIS_FEED.playStarted(ev,{parents:tennisFeedParentDocument?.parents,now:nowAEST()})))return null;
   const eventParticipantIds = Array.from(new Set([
     ...(Array.isArray(ev?.participantIds) ? ev.participantIds : []),
@@ -9007,11 +9007,11 @@ function followFeedPolicySource(reason){
     : "sport";
 }
 
-function eventFollowReason(ev, context){
+function eventFollowReason(ev, context=buildFollowEligibilityContext()){
   if(ev.universeOnly||!FOLLOW_FEED_POLICY.activeEligible(ev))return null;
-  if(FOLLOW_FEED_POLICY.multiDayMarker(ev))return NOTHINGSPORTS_TENNIS_FEED.reason(ev,userPreferences,{collectionsById:followCollectionsById(),participantTours:tennisFeedParentDocument?.participantTours,now:nowAEST()});
+  if(FOLLOW_FEED_POLICY.multiDayMarker(ev))return NOTHINGSPORTS_TENNIS_FEED.reason(ev,userPreferences,{...context,participantTours:tennisFeedParentDocument?.participantTours,now:nowAEST()});
   if(!NOTHINGSPORTS_CRICKET_COVERAGE.allowed(ev)&&!CARD_LIFECYCLE.isRetentionExemptAction(getEventAction(ev)))return null;
-  if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return NOTHINGSPORTS_TENNIS_FEED.reason(ev,userPreferences,{collectionsById:followCollectionsById(),participantTours:tennisFeedParentDocument?.participantTours,now:nowAEST()});
+  if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return NOTHINGSPORTS_TENNIS_FEED.reason(ev,userPreferences,{...context,participantTours:tennisFeedParentDocument?.participantTours,now:nowAEST()});
   if(NOTHINGSPORTS_TENNIS_FEED.isRubber(ev))return null;
   if (!FOLLOW_FEED_POLICY.sportingFixture(ev) || !FOLLOW_FEED_POLICY.feedEligibleSession(ev) || FOLLOW_FEED_POLICY.explicitlyExcluded(ev,userPreferences)) return null;
   const followLevels = eventParticipantFollowLevels(ev);
@@ -9105,13 +9105,8 @@ function eventHasExplicitCoverage(ev){
     || getEventAction(ev).addedToFixtures;
 }
 
-function eventRecommendationProfile(ev){
-  const reason = eventFollowReason(ev);
-  return { classification:"direct", eligible:Boolean(reason), label:null, reasons:reason ? [reason.type] : [] };
-}
-
-function eventRecommendationClassification(ev){
-  return eventRecommendationProfile(ev).classification;
+function eventRecommendationClassification(){
+  return "direct";
 }
 
 function eventUsesFocusedSportFrothOverride(ev){

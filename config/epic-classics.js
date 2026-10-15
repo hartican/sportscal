@@ -1,7 +1,8 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.NOTHINGSPORTS_EPIC=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
  'use strict';
  const phases=['heat','pulse','impact'],completed=e=>/^(completed|finished|final)$/.test(e?.status||'');
- const day=value=>{if(value===null||value===undefined||value==='')return null;const date=new Date(value);return Number.isFinite(+date)?new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(date):null;};
+ const sydneyDayFormat=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'});
+ const day=value=>{if(value===null||value===undefined||value==='')return null;const date=new Date(value);return Number.isFinite(+date)?sydneyDayFormat.format(date):null;};
  const validDay=value=>{const date=new Date(value+'T12:00:00Z');return /^\d{4}-\d{2}-\d{2}$/.test(value||'')&&Number.isFinite(+date)&&date.toISOString().slice(0,10)===value;};
  function verifiedEnd(event,now=new Date()){
   if(!completed(event))return null;

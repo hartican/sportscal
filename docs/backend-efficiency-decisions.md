@@ -1,5 +1,13 @@
 # Backend efficiency decisions
 
+## Shared phone interaction work — 16 October 2026 Sydney
+
+Jack reports slow buttons in the installed iPhone app and asks to consolidate repeated work before sacrificing features. Reuse formatting machinery, never sporting facts: the shared retirement module holds one Sydney date formatter, and card timing retains only its finite internal locale/style combinations. Every call still reads the current fixture, status, observation and reference time. Parent admission and participant checks reuse the existing prepared Follow context, retaining its preference/directory-reference invalidation. Unprepared server/module callers still prepare once. Native parent admission passes the same participant-tour and current-time inputs. Presentation classification remains direct and no longer computes unused eligibility/reason fields; actual Feed admission remains with its existing policy.
+
+No feature, source, scheduler, poll, retry, account write, sporting clock, result visibility, retention or Follow rule is added or removed. Do not merge modules merely to reduce their number. Share measured repeated work at the existing boundary and retain small behavioural tests. New formatter and prepared-context regressions run through existing timing, Follow and EPIC gates.
+
+Phone-sized repeated-tap tests reproduced the production pause. Sequential Safari-engine samples with six locally selected sports improved from 239 ms median/595 ms maximum steady taps to 146/244 ms without the worker; the cached-worker candidate measured 108/216 ms. These are local simulated phone measurements, not physical iPhone proof or universal speed guarantees. A 4x-slowed Chromium stress run still exceeds the 250 ms diagnostic target on some taps; retain that limitation and avoid claiming complete latency elimination. Exact final-byte release/upgrade evidence is recorded separately. [Current performance evidence](quality/iphone-interaction-performance-2026-10-16.md).
+
 The one-time canonical archive backfill recovers accepted metadata with exact source/fixture score pairs, complete scoped pages and declared canonical bindings. It writes through the existing archive RPC after catalogue capture, preserves original source clocks and copies no historical writing. Unknown older detail remains unavailable; no sporting-table write, provider replay or new owner is added.
 
 ## Complete fixture reads use two complementary parts — 15 October 2026

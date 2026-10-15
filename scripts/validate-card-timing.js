@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 'use strict';
+require('./validate-card-time-format-reuse');
 const assert=require('node:assert/strict');
 const {presentation:p}=require('../config/card-timing');
 const {dateOnlyLabel}=require('../config/card-timing');
