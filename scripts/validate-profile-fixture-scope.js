@@ -5,7 +5,7 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
 const {requirements}=require('../lib/profile-fixture-requirements');
 const registry=require('../config/sport-domain-registry');
 const migration=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_scope_participant_fixture_reads.sql'));
-async function database(){
+async function database({withReadContext=true}={}){
  const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite'),db=new PGlite();
  await db.exec('create role anon;create role authenticated;create role service_role bypassrls;grant usage on schema public to service_role;');
  for(const name of ['20260908093906_live_fixture_snapshots.sql','20260908110529_discovery_source_health.sql'])await db.exec(fs.readFileSync('supabase/migrations/'+name,'utf8'));
@@ -16,6 +16,12 @@ async function database(){
  await db.exec('create table public.nothingsports_reminder_intents(fixture_id text,enabled boolean,choice text);create table public.nothingsports_reminders(event_id text,dispatched_at timestamptz);');
  await db.exec(fs.readFileSync('supabase/migrations/20261010114326_bound_reminder_fixture_read_scope.sql','utf8'));
  await db.exec(fs.readFileSync('supabase/migrations/'+migration,'utf8'));
+ if(withReadContext){
+  const prepared=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_prepare_participant_fixture_context.sql'));
+  if(prepared)await db.exec('BEGIN;\n'+fs.readFileSync('supabase/migrations/'+prepared,'utf8')+'\nCOMMIT;');
+  const indexed=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_index_participant_fixture_context.sql'));
+  if(indexed)await db.exec('BEGIN;\n'+fs.readFileSync('supabase/migrations/'+indexed,'utf8')+'\nCOMMIT;');
+ }
  return db;
 }
 const emptyPrefs={version:26,onboardingComplete:true,showSpoilers:false,followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]}};
@@ -125,5 +131,5 @@ async function run(){
  console.log(JSON.stringify({passed:true,checks,migration,limits:'Actual local schema/store/handler with controlled observations; production and real phone remain separate.'}));
  }finally{await db.close();}
 }
-if(require.main===module)run().catch(e=>{console.error(e);process.exitCode=1;});
+if(require.main===module)run().then(()=>require('./validate-participant-read-context').run()).catch(e=>{console.error(e);process.exitCode=1;});
 module.exports={database,run};
