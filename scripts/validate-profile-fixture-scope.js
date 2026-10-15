@@ -5,7 +5,7 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
 const {requirements}=require('../lib/profile-fixture-requirements');
 const registry=require('../config/sport-domain-registry');
 const migration=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_scope_participant_fixture_reads.sql'));
-async function database(){
+async function database({withReadContext=true}={}){
  const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite'),db=new PGlite();
  await db.exec('create role anon;create role authenticated;create role service_role bypassrls;grant usage on schema public to service_role;');
  for(const name of ['20260908093906_live_fixture_snapshots.sql','20260908110529_discovery_source_health.sql'])await db.exec(fs.readFileSync('supabase/migrations/'+name,'utf8'));
@@ -16,6 +16,20 @@ async function database(){
  await db.exec('create table public.nothingsports_reminder_intents(fixture_id text,enabled boolean,choice text);create table public.nothingsports_reminders(event_id text,dispatched_at timestamptz);');
  await db.exec(fs.readFileSync('supabase/migrations/20261010114326_bound_reminder_fixture_read_scope.sql','utf8'));
  await db.exec(fs.readFileSync('supabase/migrations/'+migration,'utf8'));
+ if(withReadContext){
+  const prepared=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_prepare_participant_fixture_context.sql'));
+  if(prepared)await db.exec('BEGIN;\n'+fs.readFileSync('supabase/migrations/'+prepared,'utf8')+'\nCOMMIT;');
+  const indexed=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_index_participant_fixture_context.sql'));
+  if(indexed)await db.exec('BEGIN;\n'+fs.readFileSync('supabase/migrations/'+indexed,'utf8')+'\nCOMMIT;');
+  const projection=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_flatten_fixture_observation_projection.sql'));
+  if(projection)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+projection,'utf8')+'COMMIT;');
+  const clocks=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_reuse_participant_observation_clocks.sql'));
+  if(clocks)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+clocks,'utf8')+'COMMIT;');
+  for(const suffix of ['_restore_participant_reader_before_clock_rework.sql','_map_participant_observation_clocks.sql','_retain_indexed_participant_reader_before_parts.sql','_partition_current_fixture_bundle.sql','_reuse_fixture_part_work.sql','_serialize_fixture_part_response.sql','_stabilize_fixture_part_plan.sql','_index_required_fixture_selection.sql','_defer_fixture_payload_projection.sql','_combine_fixture_index_integrity_checks.sql','_enforce_fixture_index_integrity_at_commit.sql','_index_fixture_calendar_selection.sql','_group_fixture_source_sport_keys.sql','_index_match_centre_linked_lookup.sql','_lookup_linked_match_context_by_key.sql']){
+   const next=fs.readdirSync('supabase/migrations').find(n=>n.endsWith(suffix));
+   if(next)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+next,'utf8')+'COMMIT;');
+  }
+ }
  return db;
 }
 const emptyPrefs={version:26,onboardingComplete:true,showSpoilers:false,followedSports:[],selectedSelectorEntityIds:[],preferenceGraph:{entityFollows:[]}};
@@ -125,5 +139,5 @@ async function run(){
  console.log(JSON.stringify({passed:true,checks,migration,limits:'Actual local schema/store/handler with controlled observations; production and real phone remain separate.'}));
  }finally{await db.close();}
 }
-if(require.main===module)run().catch(e=>{console.error(e);process.exitCode=1;});
+if(require.main===module)run().then(()=>require('./validate-indexed-match-centre-read').run()).then(()=>require('./validate-fixture-index-commit').run()).then(()=>require('./validate-fixture-observation-projection').run()).catch(e=>{console.error(e);process.exitCode=1;});
 module.exports={database,run};
