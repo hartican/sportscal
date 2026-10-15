@@ -32,12 +32,6 @@
         "syd1"
       ],
       "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,events.json,follow-fixtures.v1.json,major-events.v1.json}"
-    },
-    "api/fixture-transport-preflight.js": {
-      "regions": [
-        "syd1"
-      ],
-      "maxDuration": 30
     }
   },
   "redirects": [
