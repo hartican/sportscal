@@ -4,14 +4,16 @@ async function run(){
  const db=await require('./validate-profile-fixture-scope').database();let checks=0;
  try{
   const baseline=fs.readFileSync('supabase/migrations/20261015120039_lookup_linked_match_context_by_key.sql','utf8');
-  const candidate=fs.readFileSync('supabase/migrations/20261015162218_use_parameter_aware_match_centre_plan.sql','utf8');
+  const migration=fs.readdirSync('supabase/migrations').filter(n=>n.endsWith('_restore_bound_match_centre_after_rehearsal.sql'));assert.equal(migration.length,1);
+  const candidate=fs.readFileSync('supabase/migrations/'+migration[0],'utf8');
   const previousBody=baseline.split('AS $function$\n')[1].split('\n$function$;')[0].trimEnd().replace(/;$/,'');
   const definition=(await db.query("select p.prosrc,p.proconfig,p.prosecdef,p.provolatile,p.proacl::text acl,l.lanname from pg_proc p join pg_language l on l.oid=p.prolang where p.oid='public.nothingsports_read_match_centre_fixture_bundle(text[])'::regprocedure")).rows[0];
-  assert.equal(definition.prosrc,'\nbegin\n return (\n'+previousBody+'\n );\nend;\n','Parameter-aware wrapper retains the complete reviewed SQL statement');
-  assert.equal(definition.lanname,'plpgsql');assert.equal(definition.prosecdef,false);assert.equal(definition.provolatile,'s');
-  assert.deepEqual(definition.proconfig,['search_path=\"\"','plan_cache_mode=force_custom_plan']);
+  assert.equal(definition.prosrc.trim(),previousBody.trim()+';','Rejected trials restore the exact complete SQL statement');
+  assert.equal((await db.query("select md5(pg_get_functiondef('public.nothingsports_read_match_centre_fixture_bundle(text[])'::regprocedure)) hash")).rows[0].hash,'d98d88497311a8d06a31556004df30a2','All recorded rehearsals restore the original reader');
+  assert.equal(definition.lanname,'sql');assert.equal(definition.prosecdef,false);assert.equal(definition.provolatile,'s');
+  assert.deepEqual(definition.proconfig,['search_path=\"\"']);
   assert.equal(definition.acl,'{postgres=X/postgres,service_role=X/postgres}');
-  assert.equal((await db.query('show plan_cache_mode')).rows[0].plan_cache_mode,'auto','Plan choice is function-local');checks++;
+  assert.equal((await db.query('show plan_cache_mode')).rows[0].plan_cache_mode,'auto','Other planner settings remain unchanged');assert.equal((await db.query('show enable_mergejoin')).rows[0].enable_mergejoin,'on','Scan setting is function-local');checks++;
   await db.exec('begin');await assert.rejects(db.exec(candidate),/Unexpected Match Centre reader/);await db.exec('rollback');checks++;
   const original=fs.readFileSync('supabase/migrations/20261012133505_qualify_match_centre_read_candidates.sql','utf8').match(/create or replace function[\s\S]*?\$\$;/)[0];
   await db.exec(original.replace('public.nothingsports_read_match_centre_fixture_bundle','public.qa_unindexed_near'));
@@ -35,6 +37,7 @@ async function run(){
   const got=await equal('Complete published fields, aliases, sides, uncertain clocks and zeros');
   const ids=new Set(got.rows.map(r=>r.fixture_id));for(const id of ['seed','same-sides','alias-child','pipe-seed','uncertain','nullable','zero-final'])assert(ids.has(id),id);assert(!ids.has('pipe-unrelated'),'Lossy side-token collision cannot admit unrelated fixture');checks++;
   await equal('Caller-preserved distant correction',['future:1199']);
+  await equal('Unusual caller identities stay bound data',['future:1199',"'); SELECT 1; --"]);
   for(const override of [{status:null,startTimeUtc:null,homeParticipantId:null},{status:'completed',statusCheckedAt:clock(-20),homeScore:0,awayScore:0},{status:'scheduled',startTimeUtc:'invalid',awayParticipantId:'changed'}]){
    await db.query("insert into public.nothingsports_live_scores(source_id,fixture_id,score,content_hash) values('near-test','nullable',$1::jsonb,'update') on conflict(source_id,fixture_id) do update set score=excluded.score",[JSON.stringify(override)]);await equal('Canonical score override '+checks);
   }

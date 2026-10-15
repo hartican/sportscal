@@ -1,8 +1,10 @@
 # Backend efficiency decisions
 
-## Parameter-aware Match Centre lookup — 16 October 2026 Sydney
+## Match Centre trials retain the original reader — 16 October 2026 Sydney
 
-Keep the existing complete near-match selection statement but use a PL/pgSQL wrapper with function-local `plan_cache_mode=force_custom_plan`. Actual service-role SQL execution and prepared-plan comparisons distinguish this lookup from the larger complementary-part reader, whose different plan remains unchanged and whose client activation remains withheld. Preserve stable/invoker service-only access, empty search path, all facts/observations, linked context, ordering, sentinels and the three-second request limit. No new source/cache/index/writer, scheduler, request, retry, customer write or owner routine. Require full captured-output equality, real role checks, exact guarded rollback and fresh cloud/public acceptance; inline EXPLAIN or local timing is insufficient. [Contract and evidence](quality/match-centre-plan-2026-10-16.md).
+The normal result/first-page release reached production but failed its final public current-data check. Two guarded database trials preserved complete captured outputs and permissions, yet each failed an actual three-second full-response check. Both were restored exactly; the active near reader remains MD5 `d98d88497311a8d06a31556004df30a2`, with its original SQL, empty search path and service-only invoker grants. Keep both real migration/rollback pairs in history and cover their final restored state in the existing regression gate.
+
+Later public checks passed with eight and nine displayed fixtures, and a longer diagnostic completed in 970 ms; those do not erase the failures. A further join-setting probe was not applied: fresh comparisons did not establish a reliable causal gain. Local/inline/warmed timings cannot certify first-load speed. Keep the intermittent first-read delay open and the larger personal/history client withheld. No deadline, fallback, scheduler, source, writer, customer state, subscription or owner routine changes. Publish completed app work only through the unchanged release gates, without warming traffic or retries to obtain a pass. [Dated evidence and limits](quality/match-centre-plan-2026-10-16.md).
 
 ## Retained results keep their own fact dates — 16 October 2026 Sydney
 
