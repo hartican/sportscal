@@ -855,7 +855,11 @@
     const providerId = providerIdForOption(option);
     if (!providerId || !reviewedWindowAllows(event,option)) return null;
     const at = Date.parse(option.verifiedAt || '');
-    if(option.reviewId==='stan.v1'&&(providerId!=='stan'||option.stanContext!==stanContext(event)||Date.now()-at>7*86400000))return null;
+    if(option.reviewId==='stan.v1'){
+      const days=(Date.parse(viewingDay.format(new Date(Date.now())))-Date.parse(event.date))/86400000;
+      if(providerId!=='stan'||option.stanContext!==stanContext(event)||Date.now()-at>7*86400000
+        ||!(days>=0&&days<=7&&new Date(event.date).toISOString().slice(0,10)===event.date))return null;
+    }
     const territory = option.territory || VIEWING_PROVIDERS[providerId].territory || 'AU';
     return /^https:\/\//.test(option.sourceUrl || '') && Number.isFinite(at) && at <= Date.now()
       && ['AU','GLOBAL'].includes(territory) ? providerId : null;

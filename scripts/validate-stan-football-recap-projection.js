@@ -31,6 +31,12 @@ try{
  }
  Date.now=()=>now+7*86400000;
  assert(!follow.viewingOptions(projected).some(p=>p.webUrl.includes('/programs/')),'stale cached receipt returns to existing competition fallback');
+ const hull=require('../data/events.json').events.find(e=>e.id==='epl-2026-27-128978');
+ Date.now=()=>Date.parse('2026-10-19T01:00:00Z');
+ const cachedBoundary=reviewedAuViewing(hull);
+ assert(follow.viewingOptions(cachedBoundary).some(p=>p.webUrl==='https://play.stan.com.au/programs/8424086/play'),'Sydney day seven retains the cached exact programme');
+ Date.now=()=>Date.parse('2026-10-20T01:00:00Z');
+ assert(!follow.viewingOptions(cachedBoundary).some(p=>p.webUrl.includes('/programs/')),'Sydney day eight rejects the cached programme even while its receipt is fresh');
  console.log('Stan projection: exact reviewed fixture programme, Rapid Recap preference, no variant autoplay claim, lifecycle/context/cache expiry and unchanged sporting facts passed.');
 }finally{Date.now=original;}
 }

@@ -3284,7 +3284,7 @@ function observeFeedPerformance(){
       }
     });
     lcpObserver.observe({ type: "largest-contentful-paint", buffered: true });
-  }catch(_error){ /* unsupported performance entry type */ }
+  }catch(_error){ }
   try{
     const longTaskObserver = new PerformanceObserver(list => {
       list.getEntries().forEach(entry => {
@@ -3294,7 +3294,7 @@ function observeFeedPerformance(){
       publishFeedPerformanceMetrics();
     });
     longTaskObserver.observe({ type: "longtask", buffered: true });
-  }catch(_error){ /* unsupported performance entry type */ }
+  }catch(_error){ }
   try{
     const layoutShiftObserver = new PerformanceObserver(list => {
       list.getEntries().forEach(entry => {
@@ -3308,7 +3308,7 @@ function observeFeedPerformance(){
       publishFeedPerformanceMetrics();
     });
     layoutShiftObserver.observe({ type: "layout-shift", buffered: true });
-  }catch(_error){ /* unsupported performance entry type */ }
+  }catch(_error){ }
   publishFeedPerformanceMetrics();
 }
 let discoverySessionIncludedSportIds = [];
@@ -6680,7 +6680,6 @@ function normalizeEvents(events = activeEvents){
       ev.round = ev.round || inferRound(ev.name);
     }
     } catch (_error){
-      // Keep core identity.
       console.warn("Fixture presentation normalization fallback", ev.eventId || ev.id);
     }
     globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.apply(ev,{inPlace:true});
@@ -6693,7 +6692,6 @@ syncLegacyArchiveReferences(activeEvents);
 purgeDerivedCardCache();
 rebuildDerivedCardCache(activeEvents);
 
-// Sydney labels.
 function nowAEST(){
   return new Date();
 }
@@ -8153,7 +8151,6 @@ function discoverySportHasFroth(nodeId, preferences = userPreferences){
     preference.enabled !== false
     && (
       preference.templateId === "template:froth"
-      // Keep discovery depth.
       || (preference.templateId === "template:custom" && preference.includeAllFixtures === true)
     )
     && (
