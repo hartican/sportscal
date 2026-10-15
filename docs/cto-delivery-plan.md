@@ -1,5 +1,7 @@
 # CTO delivery programme — authoritative current queue
 
+**Current match loading — 15 October:** The live Match Centre list and its displayed score updates now pass after an indexed database lookup repair. It keeps the same records and response limits. The larger personal/history reader remains withheld after a failed cloud speed check; new normal release proof for the database packet is pending. [Current evidence and limits](quality/match-loading-current-2026-10-15.md).
+
 **Latest delivery — 15 October:** Two updated previews and three post-match reviews are live and recorded in the archive, with hidden results protected. The Stan mobile link repair is also live and ready for the physical-phone test. Both browser and installed/offline checks passed. No new subscription or regular owner task. [Writing evidence](quality/daily-writing-current-2026-10-15.md), [Stan evidence](quality/stan-app-handoff-2026-10-15.md). Fresh player-match loading, broader Football quality and full sport acceptance remain open.
 
 **Owner communication — 15 October:** Use short, plain-English updates by default: what changed, how it affects users, what remains and the next action. Keep technical evidence in the reports; provide it in chat when asked. Avoid a stream of implementation detail and ask only for material product, spending or irreversible decisions.
