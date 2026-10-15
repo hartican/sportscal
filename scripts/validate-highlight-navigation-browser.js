@@ -5,11 +5,14 @@ const {execFileSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..'),out=process.env.HIGHLIGHTS_NAVIGATION_EVIDENCE_DIR||'/tmp/highlights-navigation';
 const fixture=require('../data/events.json').events.find(e=>e.id==='rlwc-australia-new-zealand-2026');
 assert.equal(fixture.status,'completed');
+// Replay the sourced completion observation so this incident test does not
+// expire with the public seven-day highlights window.
+const referenceTime=Date.parse(fixture.firstConfirmedCompleteAt);assert(Number.isFinite(referenceTime));
 const panel=fs.readFileSync(path.join(root,'config/venue-panel-ui.js'),'utf8');
 const launch=panel.slice(panel.indexOf('function configureProviderLaunch('),panel.indexOf('function viewingAccessLabel('));
 assert(launch.startsWith('function configureProviderLaunch('));
 const version=JSON.parse(fs.readFileSync(path.join(root,'app-version.json'))).version;
-const html='<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="app-shell-version" content="'+version+'"><title>Installed highlights navigation rehearsal</title><h1>Fixture</h1><a class="fixture-highlights-link">Watch highlights</a><script src="/config/epic-classics.js"></script><script src="/config/fixture-highlights.js"></script><script>'+launch+';configureProviderLaunch(document.querySelector("a"),NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing('+JSON.stringify(fixture)+'));navigator.serviceWorker.register("/service-worker.js");</script>';
+const html='<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="app-shell-version" content="'+version+'"><title>Installed highlights navigation rehearsal</title><h1>Fixture</h1><a class="fixture-highlights-link">Watch highlights</a><script src="/config/epic-classics.js"></script><script src="/config/fixture-highlights.js"></script><script>'+launch+';configureProviderLaunch(document.querySelector("a"),NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing('+JSON.stringify(fixture)+','+referenceTime+'));navigator.serviceWorker.register("/service-worker.js");</script>';
 let outcome='unavailable',apiRequests=0,videoOrigin,networkFailure=false;
 const videoServer=http.createServer((_req,res)=>{res.writeHead(200,{'Content-Type':'text/html'});res.end('<h1>Selected video destination</h1>');});
 const types={'.js':'application/javascript','.json':'application/json','.html':'text/html','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.woff2':'font/woff2'};
