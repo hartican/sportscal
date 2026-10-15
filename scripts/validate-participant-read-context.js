@@ -78,9 +78,9 @@ async function check(db,args,{original='public.ns_test_original_participant_bund
   clockRows.push({fixture_id:fixtureId,fixture:base,score,first_completed_at:complete?stamp:null});
   clockReceipts[fixtureId]={s:clockValues[r],t:clockValues[(r+3)%clockValues.length]};
  }
- for(const score of [null,[],[0],'text',0,false]){
+ for(const rawClock of [null,[],[0],'text',0,false]){
   const fixtureId='lab:clock:'+clockRows.length;
-  clockRows.push({fixture_id:fixtureId,fixture:fixture({id:fixtureId,scoreCheckedAt:stamp,statusCheckedAt:stamp}),score,first_completed_at:stamp});
+  clockRows.push({fixture_id:fixtureId,fixture:fixture({id:fixtureId,scoreCheckedAt:stamp,statusCheckedAt:stamp}),score:{id:fixtureId,scoreCheckedAt:rawClock,statusCheckedAt:rawClock},first_completed_at:stamp});
   clockReceipts[fixtureId]={s:stamp,t:stamp};
  }
  await db.query('INSERT INTO public.nothingsports_fixture_sources(source_id,discovery_report) VALUES($1,$2::jsonb)',[clockSource,JSON.stringify({_fixtureObservations:clockReceipts})]);
@@ -148,6 +148,10 @@ async function run(){
   assert.equal((await db.query("SELECT to_regprocedure('nothingsports_fixture_read_private.backfill_batch(integer)') IS NULL absent")).rows[0].absent,true,'One-time preparation helper is removed after activation');
   const clocks=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_reuse_participant_observation_clocks.sql'));
   if(clocks)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+clocks,'utf8')+'COMMIT;');
+  for(const suffix of ['_restore_participant_reader_before_clock_rework.sql','_map_participant_observation_clocks.sql']){
+   const next=fs.readdirSync('supabase/migrations').find(n=>n.endsWith(suffix));
+   if(next)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+next,'utf8')+'COMMIT;');
+  }
   const result=await check(db,[['tennis'],Object.keys(registry.byKey).sort(),['competitor:tennis:atp:lab-a'],[]]);
   console.log(JSON.stringify({passed:true,checks:result.checks,migration,limits:'Actual isolated schema, original/new readers and canonical publisher. Full captured-world comparison and production timing are separate.'}));
   return result;
