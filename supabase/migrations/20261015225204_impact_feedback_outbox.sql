@@ -77,6 +77,7 @@ create function private.impact_available(r private.impact_requests,at_time times
  and not exists(select 1 from public.nothingsports_nsc_personas p where p.user_id=r.user_id and p.moderation_flag)
  and not exists(select 1 from public.nothingsports_nsc_pilot_members p where p.user_id=r.user_id and p.suspended)
  and not private.impact_rated(r.user_id,r.event_id,w.aliases)
+ and not exists(select 1 from jsonb_array_elements(s.archived_events) a where coalesce(a->>'canonicalEventId',a->>'eventId',a->>'id')=any(w.aliases))
  and not exists(select 1 from jsonb_each(coalesce(s.event_user_state,'{}')) a where (a.key=any(w.aliases) or a.value->>'canonicalEventId'=r.event_id or a.value->>'eventId'=any(w.aliases)) and (a.value->>'dismissed'='true' or a.value->>'archived'='true' or a.value->>'isPurged'='true'))
  from private.impact_watches w join public.nothingsports_user_state s on s.user_id=r.user_id where w.event_id=r.event_id;
 $$;
@@ -102,7 +103,7 @@ declare accounts jsonb;fixtures jsonb;ids text[];people uuid[];begin
  ) q) chosen;
  update private.impact_watches set examined_at=private.impact_now() where event_id=any(ids);
  select coalesce(jsonb_agg(jsonb_build_object('eventId',w.event_id,'anyFive',w.any_five_at is not null,'aliases',w.aliases,'completionAt',w.completion_at,'sourceCheckedAt',w.source_checked_at)),'[]') into fixtures from private.impact_watches w where w.event_id=any(ids);
- select coalesce(jsonb_agg(jsonb_build_object('userId',s.user_id,'preferences',s.preferences,'actions',s.event_user_state,'updatedAt',s.updated_at,'self',coalesce((select jsonb_agg(q.event_id) from private.impact_qualifications q where q.user_id=s.user_id and q.event_id=any(ids)),'[]'))),'[]') into accounts from public.nothingsports_user_state s where s.user_id=any(people);
+ select coalesce(jsonb_agg(jsonb_build_object('userId',s.user_id,'preferences',s.preferences,'actions',s.event_user_state,'archivedEvents',s.archived_events,'updatedAt',s.updated_at,'self',coalesce((select jsonb_agg(q.event_id) from private.impact_qualifications q where q.user_id=s.user_id and q.event_id=any(ids)),'[]'))),'[]') into accounts from public.nothingsports_user_state s where s.user_id=any(people);
  return jsonb_build_object('epoch',(select to_jsonb(e) from private.impact_epoch e),'accounts',accounts,'fixtures',fixtures);
 end $$;
 
@@ -197,7 +198,7 @@ create function private.impact_page(target_user uuid,target_event text default n
  and not exists(select 1 from public.nothingsports_nsc_pilot_members p where p.user_id=r.user_id and p.suspended)
  and not private.impact_rated(r.user_id,r.event_id,w.aliases)
  order by r.ready_at desc,r.id limit 100)
- select jsonb_build_object('account',(select jsonb_build_object('userId',s.user_id,'preferences',s.preferences,'actions',s.event_user_state,'updatedAt',s.updated_at) from public.nothingsports_user_state s where s.user_id=target_user and private.impact_enabled(s.preferences)),
+ select jsonb_build_object('account',(select jsonb_build_object('userId',s.user_id,'preferences',s.preferences,'actions',s.event_user_state,'archivedEvents',s.archived_events,'updatedAt',s.updated_at) from public.nothingsports_user_state s where s.user_id=target_user and private.impact_enabled(s.preferences)),
  'items',coalesce((select jsonb_agg(jsonb_build_object('id',r.id,'kind','impact_request','eventId',r.event_id,'phase','impact','title','Rate the Impact','detail',r.title,'at',r.ready_at,'version',1,'read',false) order by r.ready_at desc,r.id) from candidates r),'[]'));
 $$;
 -- No private table is exposed through PostgREST. Service-only wrappers retain

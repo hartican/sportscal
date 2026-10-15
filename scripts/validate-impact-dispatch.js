@@ -5,6 +5,7 @@ const user='11111111-1111-4111-8111-111111111111',account={userId:user,preferenc
 const inventory={accounts:[account],fixtures:[{eventId:fixture.id,anyFive:true}]};
 const good=impact.packets(inventory,[fixture],now);assert.deepEqual(good.packets[0].eligible_ids,[fixture.id]);
 for(const action of [{dismissed:true},{archived:true},{isPurged:true}])assert.equal(impact.packets({...inventory,accounts:[{...account,actions:{[fixture.id]:{canonicalEventId:fixture.id,...action}}}]},[fixture],now).packets[0].eligible_ids.length,0);
+assert.equal(impact.packets({...inventory,accounts:[{...account,archivedEvents:[{canonicalEventId:fixture.id}]}]},[fixture],now).packets[0].eligible_ids.length,0,'Legacy archive lists cannot create requests');
 assert.equal(impact.packets({...inventory,accounts:[{...account,preferences:{version:27,preferenceGraph:{entityFollows:[{participantId:fixture.participantIds[0],followLevel:'unfollow'}]}}}]},[fixture],now).packets[0].eligible_ids.length,0);
 assert.equal(impact.observation({...fixture,status:'scheduled',startTimeUtc:'2020-01-01'},now).completed,false,'Elapsed time never completes a fixture');
 for(const change of [{statusCheckedAt:'2099-01-01',statusFactObservedAt:null},{sourceUrl:'bad',statusSourceUrl:null,resultSourceUrl:null,statusSource:null},{statusCheckedAt:null,statusFactObservedAt:null,scoreCheckedAt:null,sourceCheckedAt:null}])assert.equal(impact.observation({...fixture,...change},now),null);
