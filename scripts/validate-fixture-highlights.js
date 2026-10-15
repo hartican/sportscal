@@ -116,6 +116,7 @@ async function run(){
   await require('./validate-youtube-top-result').main();
   await require('./validate-highlights-recency').main();
   await require('./validate-direct-highlight-policy').main();
+  await require('./validate-highlight-fixture-fallback').main();
   await require('./validate-stan-football-recaps').main();
   await require('./validate-stan-football-recap-projection').main();
   await require('./validate-cross-sport-highlight-selection').main();
