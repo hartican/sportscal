@@ -1,12 +1,13 @@
 'use strict';
-const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{spawnSync}=require('node:child_process'),db=require('../../lib/epic-classics');
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{isDeepStrictEqual}=require('node:util'),{spawnSync}=require('node:child_process'),db=require('../../lib/epic-classics');
 const sourcePath='data/editorial-post-match.v1.json',read=file=>JSON.parse(fs.readFileSync(file,'utf8'));
 function publicationPlan(jobs,articles,served){
  const entries=new Map(articles.entries.map(e=>[e.eventId,e])),published=[],deferred=[];
  for(const job of jobs.filter(j=>j.status==='staged'&&!j.held&&j.editorial_eligible!==false)){
   const copy=entries.get(job.event_id),event=served.find(e=>require('../../lib/nothingscore-server').canonicalEventId(e.canonicalEventId||e.eventId||e.id)===job.event_id);
-  let reason=!copy?'Published source has no article.':copy.resultSignature!==job.result_signature?'Verified result changed.':db.hash(copy)!==db.hash({eventId:job.event_id,...job.staged_copy})?'Published source differs from staged research.':null;
-  if(!reason&&event&&!require('../../config/editorial-maintenance').protectedFixture(event)&&db.policy.completed(event)&&db.hash(event.postMatchEditorial)!==db.hash(copy))reason='Served card did not preserve staged Impact copy.';
+  // PostgreSQL jsonb reorders object keys; values and array order must still match.
+  let reason=!copy?'Published source has no article.':copy.resultSignature!==job.result_signature?'Verified result changed.':!isDeepStrictEqual(copy,{eventId:job.event_id,...job.staged_copy})?'Published source differs from staged research.':null;
+  if(!reason&&event&&!require('../../config/editorial-maintenance').protectedFixture(event)&&db.policy.completed(event)&&!isDeepStrictEqual(event.postMatchEditorial,copy))reason='Served card did not preserve staged Impact copy.';
   if(reason)deferred.push({job,reason});else published.push({job,copy});
  }
  return{published,deferred};

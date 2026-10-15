@@ -32,6 +32,14 @@ async function call(handler,request){const response={headers:{},setHeader(k,v){t
  assert.equal(validateEntry(entry,job).tier,3);assert.throws(()=>validateEntry({...entry,resultSignature:'wrong'},job));assert.throws(()=>validateEntry(entry,{...job,fixture:{status:'scheduled'}}));assert.throws(()=>validateEntry({...entry,sourceUrls:[]},job));assert.throws(()=>validateEntry({...entry,whatHappened:'This fixture will be important. '+body},job));
  const copy={eventId:'fixture:qa',...validateEntry(entry,job)},publicationJob={...job,status:'staged',held:false,staged_copy:validateEntry(entry,job)};
  assert.equal(publicationPlan([publicationJob],{entries:[copy]},[]).published.length,1,'retired qualifying editorial remains publishable through the exact server archive source');
+ const reorder=value=>Array.isArray(value)?value.map(reorder):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).reverse().map(([key,item])=>[key,reorder(item)])):value;
+ const databaseJob={...publicationJob,staged_copy:reorder(publicationJob.staged_copy)},servedCopy={id:'fixture:qa',status:'completed',postMatchEditorial:reorder(copy)};
+ assert.equal(publicationPlan([databaseJob],{entries:[copy]},[]).published.length,1,'database object-key order cannot reject unchanged archive writing');
+ assert.equal(publicationPlan([databaseJob],{entries:[copy]},[servedCopy]).published.length,1,'served object-key order cannot reject unchanged writing');
+ for(const changed of [{...copy,body:copy.body+' changed'},{...copy,sourceUrls:['https://different.example/result']},{...copy,facts:copy.facts.toReversed()},{...copy,researchedAt:'2020-01-01T00:00:00Z'},{...copy,factsSignature:'different'},{...copy,resultSignature:'different'}]){
+  assert.equal(publicationPlan([databaseJob],{entries:[changed]},[]).published.length,0,'changed writing or evidence must stay blocked');
+  assert.equal(publicationPlan([databaseJob],{entries:[copy]},[{...servedCopy,postMatchEditorial:changed}]).published.length,0,'changed served writing must stay blocked');
+ }
  assert.equal(publicationPlan([publicationJob],{entries:[copy]},[{id:'fixture:qa',status:'completed'}]).deferred.length,1,'an ordinary served card must contain its verified Impact copy');
  assert.equal(publicationPlan([{...publicationJob,held:true}],{entries:[copy]},[]).published.length,0);
  assert.equal(publicationPlan([{...publicationJob,editorial_eligible:false}],{entries:[copy]},[]).published.length,0,'unqualified retained work cannot publish new writing');
