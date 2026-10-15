@@ -159,6 +159,10 @@
   const factTime=(e,kind)=>e?.[kind+'CheckedAt']||(e?.fixtureObservationSchema?null:observationTime(e));
   const hasScore=e=>SCORE_OBSERVATION_FIELDS.some(k=>{const v=e?.[k];return Array.isArray(v)?v.length>0:v!=null&&v!==''&&(typeof v!=='object'||Object.keys(v).length>0);});
   const settled=status=>/^(completed|finished|final|abandoned)$/i.test(status||'');
+  function retainStatusObservation(base,event){
+    event.status=base.status;event.statusCheckedAt=factTime(base,'status');
+    event.statusFactObservedAt=base.statusFactObservedAt??null;
+  }
   function inningsAdvanced(base,event){
     if(sportKey(event)!=='cricket'||!Array.isArray(base?.innings)||!Array.isArray(event.innings))return false;
     const value=(i,key)=>(key==='wickets'&&typeof i[key]!=='number'?i.wicketsCount:i[key])??i[{runs:'runsScored',wickets:'numberOfWicketsFallen',overs:'oversBowled'}[key]];
@@ -176,10 +180,10 @@
     // Snapshot retrieval time cannot reopen a confirmed result. Preserve final
     // scores and provenance too; otherwise a stale live score could replace them.
     if(settled(base?.status)&&!settled(event.status)){
-      for(const key of [...SCORE_OBSERVATION_FIELDS,'homeParticipantId','awayParticipantId','winnerParticipantId','winner','result','outcome','actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt']){
+      for(const key of [...SCORE_OBSERVATION_FIELDS,'scoreFactObservedAt','homeParticipantId','awayParticipantId','winnerParticipantId','winner','result','outcome','actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt']){
         if(base[key]!==undefined)event[key]=base[key];else delete event[key];
       }
-      event.status=base.status;event.statusCheckedAt=factTime(base,'status');
+      retainStatusObservation(base,event);
       event.scoreCheckedAt=factTime(base,'score');
       event.livePlayObservedAt=null;
       return;
@@ -190,7 +194,7 @@
       if(inningsAdvanced(base,event)){
         for(const key of ['statusText','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','cricketBalance','cricketPhaseConfirmed','cricketPhaseCheckedAt'])if(event[key]===undefined)event[key]=null;
       }else{
-        event.status=base.status;event.statusCheckedAt=factTime(base,'status');
+        retainStatusObservation(base,event);
         for(const key of ['statusText','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt','cricketPhaseConfirmed','cricketPhaseCheckedAt','matchDay','matchDaySourceUrl'])if(base[key]!==undefined)event[key]=base[key];
       }
     }
@@ -206,6 +210,7 @@
     else if(hasScore(base)){
       for(const key of SCORE_OBSERVATION_FIELDS)delete event[key];
       event.scoreCheckedAt=factTime(base,'score');
+      event.scoreFactObservedAt=base.scoreFactObservedAt??null;
       // Retained home/away scores must retain their participant association.
       for(const key of ['homeParticipantId','awayParticipantId'])if(base[key])event[key]=base[key];
     }
@@ -224,7 +229,7 @@
     }
     const passive=status=>!status||/^(scheduled|upcoming|not.started|pending)$/i.test(status);
     if(base&&((!passive(base.status)&&passive(event.status))||older(statusTime,factTime(base,'status')))){
-      event.status=base.status;event.statusCheckedAt=factTime(base,'status');
+      retainStatusObservation(base,event);
       for(const key of ['actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt'])if(base[key])event[key]=base[key];
     }else if(event.status)event.statusCheckedAt=statusTime;
   }

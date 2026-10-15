@@ -39,6 +39,7 @@ const markerContext = {
   getEventAction:()=>({}),
   tennisFeedOpenParents:new Set(),
   NOTHINGSPORTS_CARD_TIMING:require("../config/card-timing"),
+  NOTHINGSPORTS_FEED_TIMELINE:require("../config/feed-timeline"),
   NOTHINGSPORTS_FIXTURE_LABELS:require("../config/fixture-labels"),
   nowAEST:()=>new Date("2026-10-12T01:00:00Z"),
   loadDeferredScript:()=>Promise.resolve(),

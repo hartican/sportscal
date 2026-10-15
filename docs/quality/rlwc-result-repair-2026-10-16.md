@@ -1,0 +1,21 @@
+# World Cup result and missing-result wording — 16 October 2026
+
+Status: prepared for the existing Audit release owner; production proof pending.
+
+Jack reported that the finished Australia–New Zealand World Cup opener still showed as upcoming, and that Results ON asked him to reveal results. He authorised coordination with the concurrent repair chat. Correct this existing fixture and the shared missing-result wording; retain the domestic NRL source and assess ongoing World Cup ingestion separately.
+
+The captured [official NRL match centre](https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/) identifies match 20261310110, FullTime, Australia 24–22 New Zealand. Its original observation is 15 October 14:24:33.442807 UTC; provider update 13:40:31 UTC is separate. Neither is an invented actual finish. The reviewed record explicitly leaves actualEndTimeUtc, completedAt, endTimeUtc and resultPublishedAt unknown. Preserve its existing fixture ID, ordered participants, kickoff, viewing and saved activity.
+
+Publish through the existing `update-cards.js --reviewed-fixtures --ids=rlwc-australia-new-zealand-2026` route. The retained official-result ledger must replay the same final, and repeat application must remain byte-stable. Results OFF keeps the outcome hidden. With Results ON and no usable outcome, say “Result not yet available”; stale preview text must not become a recap.
+
+An independent actual Match Centre handler replay also reproduced a mixed-clock defect: the accepted final kept an August observation from a rejected upcoming row. Status and score fact dates must follow the accepted facts. The shared identity merger now retains these dates with protected final, pause and older-observation decisions, without re-dating facts on a successful poll. Accepted newer facts still advance normally; unknown fact dates remain unknown. Match Centre's existing observed-completion window and legacy public completedAt field remain unchanged; no actual-finish claim is added.
+
+Acceptance requires the reviewed writer/replay/negative/idempotence tests, stale compact and legacy rows through the actual selected handler, shared score/status continuity, both actual card renderers with Results ON/OFF, both themes and phone/desktop widths, installed/offline upgrades in both engines, unchanged release budgets, and exact published-SHA/READY/alias/served-file/live rendering proof. Physical iPhone use remains separate.
+
+The broad offline quick-refresh attempt correctly rolled back on fifteen unrelated overdue result gaps. The existing scoped reviewed-fixture route passed without a source lookup or weakening a gate. An older provenance test also failed before this repair because its temporary fixture lacked the current tennis scoreboard; adding that input preserves its real writer and negative assertions. The fixture-contract harness similarly lacked its existing shared timeline dependency; restoring that import leaves its behavioural assertions unchanged. The baseline editorial-narrative projection failure remains a separate audit exception; do not claim that every carried sport is certified.
+
+The fixed 1.25% compressed startup limit remains. Shared completion copy avoids repeated title construction, and three redundant non-executable shell comments were removed; no feature or executable shell logic was removed.
+
+No source adapter, scheduler, provider request, retry, database migration, customer write, reminder replay, subscription or regular owner task is added. Existing domestic NRL coverage remains. The canonical publisher also projects two previously retained reviewed Stan replay links for Hull–Everton and Liverpool–Manchester City; their original receipts and sporting facts stay unchanged. Automatic World Cup updates and commercial source/artwork permission remain open.
+
+Private evidence: `/Users/jackhartican/Documents/AI/Codex/rlwc-results-2026-10-16`. The authoritative ignored coverage register captures this existing-match repair as R001 (1), Pending ranking, without changing demand or ranking scores.

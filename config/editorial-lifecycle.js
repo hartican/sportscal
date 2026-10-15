@@ -2,14 +2,15 @@
  'use strict';
  const completed=e=>['completed','finished','final','past'].includes(String(e?.status).toLowerCase());
  const signature=e=>JSON.stringify([completed(e)?'completed':e?.status||'',e?.outcomeText||'',e?.scoreDisplay||e?.score||'',e?.recapText||'']);
+ const completionCopy=(event,text='Reveal results for the outcome.')=>`${event.displayTitleCompact||event.name||'This fixture'} is complete. ${text}`;
  function copy(event,narrative={},spoilers=false){
   const ongoing=epic.liveContext(event);if(ongoing&&spoilers)return {hook:ongoing.hook,synopsis:ongoing.body};
-  if(epic.completed(event)&&event.postMatchEditorial?.body&&event.postMatchEditorial.factsSignature===epic.factsSignature(event))return spoilers?{hook:event.postMatchEditorial.hook,synopsis:event.postMatchEditorial.body}:{hook:`${event.displayTitleCompact||event.name||'This fixture'} is complete. Reveal results for the outcome.`,synopsis:''};
+  if(epic.completed(event)&&event.postMatchEditorial?.body&&event.postMatchEditorial.factsSignature===epic.factsSignature(event))return spoilers?{hook:event.postMatchEditorial.hook,synopsis:event.postMatchEditorial.body}:{hook:completionCopy(event),synopsis:''};
   if(!completed(event)||event.key==='horse-racing'||event.sportKey==='horse-racing')return {hook:narrative.hook||'',synopsis:narrative.synopsis||''};
-  const safe=`${event.displayTitleCompact||event.name||'This fixture'} is complete. Reveal results for the outcome.`;
+  const safe=completionCopy(event);
   const current=narrative.resultSignature===signature(event);
   if(!spoilers)return {hook:current&&narrative.phase==='recap'?narrative.hook||safe:safe,synopsis:current&&narrative.phase==='recap'?narrative.synopsis||'':''};
-  const hook=event.outcomeText||event.scoreDisplay||event.score||(current?narrative.hookSpoilerOn:'')||safe;
+  const hook=event.outcomeText||event.scoreDisplay||event.score||(current?narrative.hookSpoilerOn:'')||completionCopy(event,'Result not yet available.');
   const synopsis=current?narrative.synopsisSpoilerOn||event.recapText||'':event.recapText||'';
   return {hook:String(hook),synopsis:String(synopsis)};
  }

@@ -1882,6 +1882,34 @@
         "checkedAt": "2026-10-11T07:45:02.471Z"
       },
       "firstConfirmedCompleteAt": "2026-10-11T06:32:05.755533+00:00"
+    },
+    {
+      "id": "rlwc-australia-new-zealand-2026",
+      "status": "completed",
+      "homeScore": 24,
+      "awayScore": 22,
+      "score": "Australia 24–22 New Zealand",
+      "outcomeText": "Australia defeated New Zealand 24–22.",
+      "recapText": "The official NRL match centre records a 24–22 full-time result at Allianz Stadium in the World Cup opener.",
+      "sourceName": "NRL official match centre",
+      "sourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
+      "sourceCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+      "sourceType": "official",
+      "resultStatus": "official",
+      "resultSourceName": "NRL official match centre",
+      "resultSourceType": "official",
+      "resultSourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
+      "resultSourceCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+      "resultSourceUpdatedAt": "2026-10-15T13:40:31Z",
+      "scoreCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+      "statusCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+      "scoreFactObservedAt": "2026-10-15T14:24:33.442807+00:00",
+      "statusFactObservedAt": "2026-10-15T14:24:33.442807+00:00",
+      "firstConfirmedCompleteAt": "2026-10-15T14:24:33.442807+00:00",
+      "endTimeUtc": null,
+      "actualEndTimeUtc": null,
+      "completedAt": null,
+      "resultPublishedAt": null
     }
   ],
   "broadcastOverrides": [

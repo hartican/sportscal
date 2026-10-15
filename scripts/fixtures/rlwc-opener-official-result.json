@@ -1,0 +1,28 @@
+{
+  "matchId": "20261310110",
+  "matchMode": "Post",
+  "matchState": "FullTime",
+  "updated": "2026-10-15T13:40:31Z",
+  "startTime": "2026-10-15T09:05:00Z",
+  "roundNumber": 1,
+  "roundTitle": "Round 1",
+  "url": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
+  "venue": "Allianz Stadium",
+  "homeTeam": {
+    "teamId": 500149,
+    "name": "Australia",
+    "score": 24
+  },
+  "awayTeam": {
+    "teamId": 500150,
+    "name": "New Zealand",
+    "score": 22
+  },
+  "retrievedAt": "2026-10-15T14:24:33.442807+00:00",
+  "sha256": "6e043148d9d6610f4854da5c0be96aedc2a85a71e13dffcc9665e191cc4785d9",
+  "sha256Scope": "captured official-match.html bytes",
+  "canonicalFixtureId": "rlwc-australia-new-zealand-2026",
+  "scope": "Reviewed one-match official response; not an unattended source or permission claim",
+  "actualFinishTimeUtc": null,
+  "resultPublishedAt": null
+}

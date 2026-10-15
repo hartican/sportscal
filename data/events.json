@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "weekend-editorial-20261014225703956-20261015002753206",
-  "publishedAt": "2026-10-15T00:27:53.206Z",
+  "version": "weekend-editorial-20261014225703956-20261015002753206-20261015151900269",
+  "publishedAt": "2026-10-15T15:19:00.269Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -153310,17 +153310,19 @@
       "viewingOptions": [
         {
           "providerId": "stan",
-          "serviceId": "stan",
-          "serviceLabel": "Stan Sport",
+          "rightsScope": "fixture",
+          "linkScope": "fixture",
           "territory": "AU",
-          "accessType": "subscription",
-          "liveOrReplay": "live",
-          "replayVerified": false,
-          "linkScope": "sport",
-          "rightsScope": "competition",
-          "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
-          "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
-          "verifiedAt": "2026-08-25T00:00:00.000Z"
+          "liveOrReplay": "replay",
+          "replayVerified": true,
+          "webUrl": "https://play.stan.com.au/programs/8424086/play",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/feed/3578.json",
+          "verifiedAt": "2026-10-15T05:16:16.084Z",
+          "permalinkVerifiedAt": "2026-10-15T05:16:16.084Z",
+          "reviewId": "stan.v1",
+          "stanContext": "[\"event:premier-league:128978\",\"competition:premier-league-2026-27\",\"2026/27\",\"2026-10-12\",\"2026-10-11T13:00:00.000Z\",6,\"completed\",[[\"Hull City\",\"home\"],[\"Everton\",\"away\"]]]",
+          "programmeKind": "programme",
+          "variantSpecific": false
         }
       ],
       "venue": "The MKM Stadium",
@@ -153488,17 +153490,19 @@
       "viewingOptions": [
         {
           "providerId": "stan",
-          "serviceId": "stan",
-          "serviceLabel": "Stan Sport",
+          "rightsScope": "fixture",
+          "linkScope": "fixture",
           "territory": "AU",
-          "accessType": "subscription",
-          "liveOrReplay": "live",
-          "replayVerified": false,
-          "linkScope": "sport",
-          "rightsScope": "competition",
-          "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
-          "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
-          "verifiedAt": "2026-08-25T00:00:00.000Z"
+          "liveOrReplay": "replay",
+          "replayVerified": true,
+          "webUrl": "https://play.stan.com.au/programs/8423935/play",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/feed/3578.json",
+          "verifiedAt": "2026-10-15T05:16:16.084Z",
+          "permalinkVerifiedAt": "2026-10-15T05:16:16.084Z",
+          "reviewId": "stan.v1",
+          "stanContext": "[\"event:premier-league:128980\",\"competition:premier-league-2026-27\",\"2026/27\",\"2026-10-12\",\"2026-10-11T15:30:00.000Z\",6,\"completed\",[[\"Liverpool\",\"home\"],[\"Manchester City\",\"away\"]]]",
+          "programmeKind": "programme",
+          "variantSpecific": false
         }
       ],
       "venue": "Anfield",
@@ -162477,16 +162481,16 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "match",
-      "selectedSentence": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
-      "fullSpiel": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
-      "sourceName": "RLWC 2026 — competition rules",
-      "sourceUrl": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
-      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+      "selectedSentence": "Australia v New Zealand — Rugby League World Cup is complete. Reveal results for the outcome.",
+      "fullSpiel": "Australia v New Zealand — Rugby League World Cup is complete. Reveal results for the outcome.",
+      "sourceName": "NRL official match centre",
+      "sourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
+      "sourceCheckedAt": "2026-10-15T14:24:33.442807+00:00",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "status": "upcoming",
+      "status": "completed",
       "participants": [
         {
           "name": "Australia",
@@ -162502,12 +162506,12 @@
       "storyline": {
         "stakes": 5,
         "intensity": 5,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 10,
-        "hookSpoilerOff": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
-        "hookSpoilerOn": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
-        "synopsisSpoilerOff": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
-        "synopsisSpoilerOn": "Thursday's Allianz Stadium opener begins Pool A, alongside Fiji and Cook Islands. Its points shape the route through the group; they do not award the trophy. Moses and Munster must establish Australia's attacking rhythm, while Hughes and Nikorima need their forwards to create time rather than leave them reacting under pressure. Ponga adds another decision-maker to that contest. Australian coverage is on Seven and 7plus; late team changes remain possible.",
+        "hookSpoilerOff": "Australia v New Zealand — Rugby League World Cup is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Australia defeated New Zealand 24–22.",
+        "synopsisSpoilerOff": "Australia v New Zealand — Rugby League World Cup is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOn": "The official NRL match centre records a 24–22 full-time result at Allianz Stadium in the World Cup opener.",
         "intensitySource": "computed",
         "lastReviewedAt": "2026-10-14T22:39:08.467Z",
         "researchDepth": 5
@@ -162529,7 +162533,7 @@
         "sourceCheckedAt": "2026-10-13T23:57:53.941Z",
         "needsPreviewRefresh": false
       },
-      "sourceTrust": "unverified",
+      "sourceTrust": "verified",
       "competitionScope": "international",
       "isInternational": true,
       "representativeCountryCodes": [
@@ -162583,7 +162587,7 @@
         "generationMode": "researched",
         "phase": "preview"
       },
-      "statusCheckedAt": "2026-08-29T23:56:41.761Z",
+      "statusCheckedAt": "2026-10-15T14:24:33.442807+00:00",
       "timePrecision": "exact",
       "participantSlots": [],
       "participantCountryCodes": [],
@@ -162598,7 +162602,31 @@
       "competitionId": "competition:rugby-league-world-cup:2026",
       "competitionName": "Rugby League World Cup",
       "roundNumber": 1,
-      "roundLabel": "Rugby League World Cup Round 1"
+      "roundLabel": "Rugby League World Cup Round 1",
+      "homeScore": 24,
+      "awayScore": 22,
+      "score": "Australia 24–22 New Zealand",
+      "outcomeText": "Australia defeated New Zealand 24–22.",
+      "recapText": "The official NRL match centre records a 24–22 full-time result at Allianz Stadium in the World Cup opener.",
+      "resultStatus": "official",
+      "resultSourceName": "NRL official match centre",
+      "resultSourceType": "official",
+      "resultSourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
+      "resultSourceCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+      "resultSourceUpdatedAt": "2026-10-15T13:40:31Z",
+      "scoreCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+      "scoreFactObservedAt": "2026-10-15T14:24:33.442807+00:00",
+      "statusFactObservedAt": "2026-10-15T14:24:33.442807+00:00",
+      "firstConfirmedCompleteAt": "2026-10-15T14:24:33.442807+00:00",
+      "endTimeUtc": null,
+      "actualEndTimeUtc": null,
+      "completedAt": null,
+      "resultPublishedAt": null,
+      "sourceRefs": [
+        "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
+        "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/"
+      ],
+      "stakesScore": 5
     },
     {
       "id": "fixture-mlb-849818",

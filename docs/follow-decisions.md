@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Honest missing-result wording — 16 October 2026 Sydney
+
+The authorised existing World Cup result repair also corrects the shared completed-card fallback. Results ON with no usable outcome says “Result not yet available”; Results OFF keeps its protected reveal guidance. Retain source-backed outcomes, reject stale preview recaps and preserve every saved result choice, identity, kickoff, admission and retention rule. Fact dates follow accepted status/score observations when an old saved row is rejected; a collection check cannot change them. Tests: validate-rlwc-result-fallback, shared live-score continuity, actual Feed/Schedule rendering and both installed-update rehearsals. [Dated scope](quality/rlwc-result-repair-2026-10-16.md).
+
 ## Reliable favourite pointer targets — 16 October 2026 Sydney
 
 The phone/web responsiveness repair keeps favourite cards fully drawn. Safari's skipped offscreen drawing could target the surrounding group after scrolling instead of the visible profile button. Remove that shortcut only from favourite cards; retain separate bounded directory rendering and the existing shared fixture index. No Follow, admission, source, retention, Results or reminder rule changes. For relevant Follow styling/navigation edits, run `validate-follow-responsiveness-browser.js` in both engines: 128 favourites / 1,000 retained fixtures, real `elementFromPoint` hit target and native profile/Back, saved-choice preservation, failure recovery and existing 1.5-second bounds. No forced click. Establish synthetic retained input after startup source reads settle; measure favourites entry from its real tap. Shared calculation guards are part of the existing Follow/timing/EPIC release gates; native UI and installed-update checks remain affected-change release requirements. [Evidence](quality/iphone-interaction-performance-2026-10-16.md).

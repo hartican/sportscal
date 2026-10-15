@@ -6,7 +6,7 @@ const {validateCurrentCardCoverage}=require('./validate-current-card-coverage');
 const participant=require('./apply-reviewed-participant-fixtures');
 const {applyOfficialResults}=require('./sync-official-card-results');
 const root=path.resolve(__dirname,'..'),temp=fs.mkdtempSync(path.join(os.tmpdir(),'ns-reviewed-results-'));
-const files=['feeds/incoming/events.json','data/events.json','data/canonical/official-card-results-2026.json','data/canonical/current-card-evidence-2026.json','data/canonical/afl-nrl-2026.json'];
+const files=['feeds/incoming/events.json','data/events.json','data/canonical/official-card-results-2026.json','data/canonical/current-card-evidence-2026.json','data/canonical/afl-nrl-2026.json','data/canonical/tennis-scoreboard.v1.json'];
 const ids=['event-aflw-cd_m20262640803','fixture-tennis-atp-beijing-2026-r16-de-minaur-halys','supercars-bathurst-1000-2026'];
 const evidence=JSON.parse(fs.readFileSync(path.join(root,files[3]))),selected=evidence.resultOverrides.filter(e=>ids.includes(e.id));
 const aliases=e=>[e.id,e.eventId,e.canonicalEventId,...(e.sourceEventIds||[])].filter(Boolean);

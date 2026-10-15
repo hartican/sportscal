@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Retained results keep their own fact dates — 16 October 2026 Sydney
+
+When the shared identity merger rejects an upcoming row against a final, an unsupported live flag against a pause, or an older observation, retain the accepted status fact date with its status and check date. Retained scores also retain their score fact date. Unknown fact dates remain unknown; accepted newer facts still advance. The actual World Cup selected-handler replay reproduced an August upcoming date attached to the new final. Reuse one small status-retention helper across the existing decisions, with shared continuity and actual handler regressions. No scheduler, persistence, source request, API contract, deadline, reminder or account change. [Scope and release evidence](quality/rlwc-result-repair-2026-10-16.md).
+
 ## Shared phone interaction work — 16 October 2026 Sydney
 
 Jack reports slow buttons in the installed iPhone app and asks to consolidate repeated work before sacrificing features. Reuse formatting machinery, never sporting facts: the shared retirement module holds one Sydney date formatter, and card timing retains only its finite internal locale/style combinations. Every call still reads the current fixture, status, observation and reference time. Parent admission and participant checks reuse the existing prepared Follow context, retaining its preference/directory-reference invalidation. Unprepared server/module callers still prepare once. Native parent admission passes the same participant-tour and current-time inputs. Presentation classification remains direct and no longer computes unused eligibility/reason fields; actual Feed admission remains with its existing policy.

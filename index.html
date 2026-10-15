@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="547">
+<meta name="app-shell-version" content="548">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=547" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=548" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2009,7 +2009,7 @@ header.top,#calendarControls,#mainContent,.app-footer,#jumpTodayBtn{animation:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=547"></script>
+<script src="assets/js/app-shell-runtime.js?v=548"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -6193,7 +6193,6 @@ async function performRemoteFeedRefresh({ quiet = false, signedInHint = false } 
         message: "Your local copy is active. The central feed rebuild is temporarily unavailable.",
       });
     }
-    // Retain validated data on failure.
     if(activeEvents.length && derivedCardCache?.derivedCards?.length){
       if(!quiet)showToast('Refresh unavailable. Your saved fixtures are still available.');
       return {source:'last-valid',eventCount:activeEvents.length,cardCount:derivedCardCache.derivedCards.length,rendered:false};
@@ -9669,7 +9668,6 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
   restoreAnchor();
   scheduleRestore();
   window.requestAnimationFrame(() => {
-    // Recheck anchored position.
     scheduleRestore();
     if (restoreFocus){
       const requestedFocus = typeof focusTarget === "string"
@@ -10405,7 +10403,6 @@ function nothingscoreQueueRender(){
     nothingscoreRenderQueued = false;
     const anchor = captureViewportRenderAnchor().card;
     mutateWithScrollContinuity(anchor, () => {
-      // Patch scores in place.
       document.querySelectorAll(".nsc-summary").forEach(node => {
         const ev = nothingscoreEventRefs.get(node.dataset.nscEventId);
         if (!ev || inlineRatingRequests.has(nothingscoreEventId(ev))) return;
