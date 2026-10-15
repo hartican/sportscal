@@ -67,6 +67,22 @@ async function check(db,args,{original='public.ns_test_original_participant_bund
  await db.exec('BEGIN');await db.query('UPDATE nothingsports_fixture_read_private.fixture_context SET shape_version=2 WHERE source_id=$1 AND fixture_id=$2',[source,sentinel]);
  const unsupported=(await db.query(`SELECT ${candidate}($1,$2,$3,$4) value`,args)).rows[0].value;assert.equal(unsupported.complete,false);assert.equal(unsupported.rows.length,0);await db.exec('ROLLBACK');
  results.push({label:'Unsupported metadata version reports incomplete rather than dropping matches',passed:true});
+ // Exercise the memoised clocks through complete actual readers, not a mirror
+ // of the patch expression. Distinct bad/offset/future/missing values retain
+ // the original parser's result and source/receipt precedence.
+ const clockSource='discovery-local-clock-check',clockValues=[undefined,null,'invalid','2026-02-30T00:00:00Z',new Date(Date.now()+600000).toISOString(),stamp,stamp.replace('Z','+00:00')],clockRows=[],clockReceipts={};
+ for(let b=0;b<clockValues.length;b++)for(let s=0;s<clockValues.length;s++)for(let r=0;r<clockValues.length;r++)for(const complete of [false,true]){
+  const fixtureId='lab:clock:'+clockRows.length;
+  const base=fixture({id:fixtureId,scoreCheckedAt:clockValues[b],statusCheckedAt:clockValues[(b+1)%clockValues.length]});
+  const score={id:fixtureId,homeScore:0,awayScore:0,scoreCheckedAt:clockValues[s],statusCheckedAt:clockValues[(s+2)%clockValues.length]};
+  clockRows.push({fixture_id:fixtureId,fixture:base,score,first_completed_at:complete?stamp:null});
+  clockReceipts[fixtureId]={s:clockValues[r],t:clockValues[(r+3)%clockValues.length]};
+ }
+ await db.query('INSERT INTO public.nothingsports_fixture_sources(source_id,discovery_report) VALUES($1,$2::jsonb)',[clockSource,JSON.stringify({_fixtureObservations:clockReceipts})]);
+ await db.query('INSERT INTO public.nothingsports_fixture_current(source_id,fixture_id,fixture,identity_keys,content_hash) SELECT $1,fixture_id,fixture,ARRAY[fixture_id],fixture_id FROM jsonb_to_recordset($2::jsonb) r(fixture_id text,fixture jsonb)',[clockSource,JSON.stringify(clockRows)]);
+ await db.query('INSERT INTO public.nothingsports_live_scores(source_id,fixture_id,score,content_hash,first_completed_at) SELECT $1,fixture_id,score,fixture_id,first_completed_at FROM jsonb_to_recordset($2::jsonb) r(fixture_id text,score jsonb,first_completed_at timestamptz)',[clockSource,JSON.stringify(clockRows)]);
+ await equal('All '+clockRows.length+' controlled clock combinations retain full output');
+ await db.query('DELETE FROM public.nothingsports_fixture_sources WHERE source_id=$1',[clockSource]);
  const corruptions=[
   ['Missing fixture identity link',"DELETE FROM nothingsports_fixture_read_private.fixture_tokens WHERE (source_id,fixture_id,kind,token)=(SELECT source_id,fixture_id,kind,token FROM nothingsports_fixture_read_private.fixture_tokens WHERE kind=1 ORDER BY source_id,fixture_id,token LIMIT 1)"],
   ['Missing same-side fixture link',"DELETE FROM nothingsports_fixture_read_private.fixture_tokens WHERE (source_id,fixture_id,kind,token)=(SELECT source_id,fixture_id,kind,token FROM nothingsports_fixture_read_private.fixture_tokens WHERE kind=2 ORDER BY source_id,fixture_id,token LIMIT 1)"],
@@ -125,6 +141,8 @@ async function run(){
   const done=(await db.query('SELECT nothingsports_fixture_read_private.backfill_batch(1) value')).rows[0].value;assert.equal(done.processed,0);assert.equal(done.complete,true,'An ordinary writer fills a still-pending row before resumption');
   await db.exec('BEGIN;\n'+fs.readFileSync('supabase/migrations/'+migration,'utf8')+'\nCOMMIT;');
   assert.equal((await db.query("SELECT to_regprocedure('nothingsports_fixture_read_private.backfill_batch(integer)') IS NULL absent")).rows[0].absent,true,'One-time preparation helper is removed after activation');
+  const clocks=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_reuse_participant_observation_clocks.sql'));
+  if(clocks)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+clocks,'utf8')+'COMMIT;');
   const result=await check(db,[['tennis'],Object.keys(registry.byKey).sort(),['competitor:tennis:atp:lab-a'],[]]);
   console.log(JSON.stringify({passed:true,checks:result.checks,migration,limits:'Actual isolated schema, original/new readers and canonical publisher. Full captured-world comparison and production timing are separate.'}));
   return result;

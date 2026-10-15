@@ -23,6 +23,8 @@ async function database({withReadContext=true}={}){
   if(indexed)await db.exec('BEGIN;\n'+fs.readFileSync('supabase/migrations/'+indexed,'utf8')+'\nCOMMIT;');
   const projection=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_flatten_fixture_observation_projection.sql'));
   if(projection)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+projection,'utf8')+'COMMIT;');
+  const clocks=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_reuse_participant_observation_clocks.sql'));
+  if(clocks)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+clocks,'utf8')+'COMMIT;');
  }
  return db;
 }
