@@ -125,7 +125,7 @@ assert.match(timingRail,/badge\.append\(day\);if\(clock\.textContent\)badge\.app
 assert.match(timingPresentation,/controls\?\.timingState\(event,reference\)[\s\S]+observed\?\.key==='awaiting-update'/,'The actual shared badge consumes the existing source-qualified timing state');
 assert.match(html, /\.event-timing-state\.starts-soon[\s\S]+\.event-timing-state\.live-now[\s\S]+\.event-timing-state\.just-finished/, "all three semantic timing states need distinct visible treatments");
 assert.match(html, /\.event-timing-state\.live-now::before[\s\S]+background:#ff3b4d/, "Live Now needs a restrained red dot");
-assert.match(html, /@media \(prefers-reduced-motion:reduce\)[\s\S]+\.event-timing-state\.live-now\{ animation:none/, "reduced-motion users must keep the static red state without pulse animation");
+assert.match(html, /@media \(prefers-reduced-motion:reduce\)[\s\S]+\.event-timing-state\.live-now\{\s*animation:none/, "reduced-motion users must keep the static red state without pulse animation");
 assert(html.includes("FOLLOW_FIRST?.toggleFeedback") && html.includes("targetType:target.targetType"), "curated swipes must retain weighted target metadata with reversible likes");
 assert(!html.includes('className = "badge discovery"') && !html.includes('className = "badge availability"'), "discovery and availability classifications must both stay behind the scenes");
 assert(html.includes('sessionOpenedEventIds.add(') && !html.includes('label.className = "new-tag"'), "open signals must remain session-local without exposing a New metadata label");
