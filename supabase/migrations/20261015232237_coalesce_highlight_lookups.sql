@@ -34,13 +34,14 @@ $$;
 create function public.nothingsports_reserve_youtube_lookup_quota(p_fixture_id text,p_query_hash text,p_token uuid,p_bucket text)
 returns jsonb language plpgsql security invoker set search_path='' set statement_timeout='3s'
 as $$
-declare budget jsonb; changed integer; today date:=(clock_timestamp() at time zone 'America/Los_Angeles')::date;
+declare budget jsonb; changed integer; today date;
 begin
   if not exists(select 1 from public.nothingsports_youtube_selections where fixture_id=p_fixture_id and lookup_query_hash=p_query_hash and lookup_token=p_token and lookup_until>clock_timestamp()) then return jsonb_build_object('granted',false,'code','lookup_busy');end if;
   -- Acquire the existing quota/source locks before the cache-row lock, in the
   -- same order as the existing expiry cleanup. No second quota authority.
   budget:=public.nothingsports_reserve_youtube_quota(p_bucket,null);
   if not coalesce((budget->>'granted')::boolean,false) then return budget;end if;
+  today:=(budget#>>'{quota,day}')::date;
   update public.nothingsports_youtube_selections set
     lookup_search_calls=case when lookup_quota_day=today then lookup_search_calls else 0 end+case when p_bucket='search' then 1 else 0 end,
     lookup_ordinary_calls=case when lookup_quota_day=today then lookup_ordinary_calls else 0 end+case when p_bucket='ordinary' then 1 else 0 end,

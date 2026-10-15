@@ -29,3 +29,7 @@ After reverting the application, the matching file in `supabase/rollbacks/` remo
 Acceptance: canonical `validate-fixture-highlights.js`, including production resolver plus local SQL negative reuse, independent-instance coalescing, saved-ID reuse, crash/context/token fencing, full-search-budget official uploads, grants and rollback; existing Follow/backend/release guards. Local PGlite tests queue SQL statements and do not constitute multi-connection production lock timing proof. The sole shared release owner applies/reviews the production migration, runs the normal exact-SHA release and performs one bounded actual AUS–NZ media check. A valid real video redirect and physical Australian playback remain separate evidence; never mark playback passed from mocked data.
 
 Evidence directory: `/Users/jackhartican/Documents/AI/Codex/highlights-budget-20261016`.
+
+## Review closure
+
+The first paired review found three defects: a waiting worker could return its original video after another worker withdrew it; a withdrawal-request timeout could leave the rejected video stored when failure finalisation succeeded; fixture attribution captured its own Pacific date before the authoritative reservation. Deterministic local SQL regressions reproduce the first race and cover all three. Successful shared reads now replace or clear retained state; known rejected IDs travel into atomic failure finalisation; attribution uses the granted ledger day. Original review findings are retained in the external evidence folder, followed by the final review dispositions.
