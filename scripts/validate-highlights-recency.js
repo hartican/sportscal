@@ -1,6 +1,6 @@
 'use strict';
 const assert = require('node:assert/strict');
-const { createTopResultResolver } = require('../lib/youtube-top-result');
+const { createTopResultResolver } = require('./highlight-resolver-test');
 const contract=require('../config/fixture-highlights'),media=require('../lib/fixture-highlights'),selection=require('../lib/highlight-selection');
 const now = new Date('2026-10-15T00:00:00Z');
 const fixture = { ...require('./fixtures/shanghai-highlights-184950.json'), id: 'fixture:test:recency', canonicalEventId: 'fixture:test:recency', eventId: 'fixture:test:recency', status: 'completed', highlights: null };

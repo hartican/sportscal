@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict');
-const {createTopResultResolver}=require('../lib/youtube-top-result');
+const {createTopResultResolver}=require('./highlight-resolver-test');
 const registry=require('../lib/highlight-channels'),contract=require('../config/fixture-highlights');
 const now=new Date('2026-10-15T00:00:00Z');
 async function main(){
