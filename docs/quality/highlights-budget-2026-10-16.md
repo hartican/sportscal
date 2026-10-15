@@ -22,7 +22,7 @@ A deterministic red regression reproduced three sequential unresolved taps issui
 
 ## Application and rollback
 
-Apply additive migration `20261015232237_coalesce_highlight_lookups.sql` before deploying the resolver. Existing positive selections and the quota function remain unchanged; old cache readers safely ignore null-video negative rows. Four empty-search-path security-invoker RPCs retain service-role-only execution and three-second limits. No frontend shell change is needed.
+Apply additive migration `20261015235542_coalesce_highlight_lookups.sql` before deploying the resolver. The production migration service assigned that version to the unchanged reviewed SQL, originally named `20261015232237_coalesce_highlight_lookups.sql`; the recovery README records the mapping. Existing positive selections and the quota function remain unchanged; old cache readers safely ignore null-video negative rows. Four empty-search-path security-invoker RPCs retain service-role-only execution and three-second limits. No frontend shell change is needed.
 
 After reverting the application, the matching file in `supabase/rollbacks/` removes only null-video lookup rows and additive coordination fields/functions. It restores the original non-null video constraint and retains valid selected videos, global usage and all sporting/source data. Local migration/rollback verifies the original quota function definition hash and spent counters are unchanged.
 

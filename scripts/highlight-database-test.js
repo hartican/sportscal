@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs');
-const migration='20261015232237_coalesce_highlight_lookups.sql';
+const migration='20261015235542_coalesce_highlight_lookups.sql';
 const functions={claim_youtube_lookup:['p_fixture_id','p_query_hash','p_token'],reserve_youtube_lookup_quota:['p_fixture_id','p_query_hash','p_token','p_bucket'],withdraw_youtube_lookup:['p_fixture_id','p_query_hash','p_token','p_video_id'],finish_youtube_lookup:['p_fixture_id','p_query_hash','p_token','p_outcome','p_selection','p_invalid_video_id']};
 async function database(){
   const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite'),db=new PGlite();
