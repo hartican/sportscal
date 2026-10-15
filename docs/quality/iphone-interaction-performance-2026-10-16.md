@@ -4,7 +4,9 @@ The installed iPhone slowdown is the current priority. The user authorises optim
 
 ## What changed
 
-Screen changes repeatedly created the same date-formatting tools and re-prepared existing Follow preferences. Shared retirement and card-timing modules now reuse their formatting tools; native Feed parent/participant checks pass the prepared Follow snapshot already owned by the existing eligibility context. Current fixtures, reference clocks, source observations and preference changes remain live inputs. Card presentation no longer computes unused admission metadata merely to return its existing direct classification. No sporting fact, preference, visibility rule, reminder, provider, scheduler or customer record changes.
+Screen changes repeatedly created the same date-formatting tools and re-prepared existing Follow preferences. Shared retirement and card-timing modules now reuse their formatting tools; native Feed parent/participant checks pass the prepared Follow snapshot already owned by the existing eligibility context. Current fixtures, reference clocks, source observations and preference changes remain live inputs. Card presentation no longer computes unused admission metadata merely to return its existing direct classification. No sporting fact, preference, match-visibility rule, reminder, provider, scheduler or customer record changes.
+
+The expanded 128-favourite Safari journey also exposed an existing pointer-target failure after scrolling: CSS skipped offscreen row drawing and a tap could hit the surrounding group. Removing that shortcut only from favourite cards restored the real button hit target in both tested widths. The shared fixture index still builds once, and measured favourite entry/settling stays below the existing 1.5-second budget. Other directory lists keep their separate bounded rendering. The regression checks the actual pointer target and the native profile/Back journey; no forced click or skipped assertion.
 
 ## Evidence and limits
 
