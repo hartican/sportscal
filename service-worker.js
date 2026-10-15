@@ -21,6 +21,7 @@ const APP_SHELL = [
   "/assets/providers/7plus-transparent.svg",
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=533",
+  "/assets/js/impact-feedback-ui.js?v=550",
   "/assets/js/settings-optional-ui.js?v=539",
   "/assets/js/follow-navigation.js?v=522",
   "/assets/js/tournament-fixture-ui.js?v=533",

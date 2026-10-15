@@ -17927,6 +17927,7 @@ function completeStartupFeedHydration(){
   publishFeedPerformanceMetrics();
   if (!startupReloadRestoreState && !startupFeedNavigationTouched && activeTab === "feed" && activeView === "list") calendarInitialJumpPending = true;
   renderAll();
+  window.dispatchEvent(new Event('ns-startup-ready'));
   window.requestAnimationFrame(() => {
     if (startupReloadRestoreState){
       const target = Math.max(0, Number(startupReloadRestoreState.scrollY || 0));
@@ -18114,7 +18115,9 @@ function closeNotificationDestination(){
   if(document.body.classList.contains('nsc-open'))setNothingscoreDrawerOpen(false);
   const closing=notificationDestinationDialog;notificationDestinationDialog=null;if(closing){closing.dataset.closingFromRoute="true";closing.close();closing.remove();}
 }
+async function ensureImpactFeedback(){await loadDeferredScript('assets/js/impact-feedback-ui.js?v=550');return NOTHINGSPORTS_IMPACT_UI;}
 async function openNotificationDestination(item){
+  if(item.kind==='impact_request'){await (await ensureImpactFeedback()).open(item.eventId);return;}
   if(item.yearReview){const ui=await ensureEpicUi();notificationDestinationDialog=ui.openReview(item.yearReview);return;}
   if(['chat','added'].includes(item.kind)){setChatDrawerOpen(true);await openChatRoom(item.roomId);return;}
   if(item.kind==='invitation'){
@@ -18148,6 +18151,7 @@ const notificationsInbox=NOTHINGSPORTS_INBOX.create({
   navigate:openNotificationDestination,closeDestination:closeNotificationDestination,
   signIn:()=>openSettings({section:'account'})
 });
+if(new URLSearchParams(location.search).has('impactRequest')||new URLSearchParams(location.search).has('impactInbox'))void ensureImpactFeedback().then(ui=>ui.route()).catch(()=>showToast('Impact requests could not load.'));
 </script>
 </body>
 </html>

@@ -83,6 +83,7 @@ async function main(){
    mock('../lib/comms-refresh',{reconcile:async()=>{throw Error('Private upstream details');}}),
    mock('../lib/comms-post-alerts',{dispatch:async()=>({sent:0})}),
    mock('../lib/live-rating-alerts',{dispatch:async()=>({sent:0})}),
+   mock('../lib/impact-feedback',{dispatch:async()=>({sent:0})}),
    mock('../lib/social-reward-alerts',{dispatch:async()=>({sent:0})}),
   ];
   const oldKeys={VAPID_PUBLIC_KEY:process.env.VAPID_PUBLIC_KEY,VAPID_PRIVATE_KEY:process.env.VAPID_PRIVATE_KEY};
