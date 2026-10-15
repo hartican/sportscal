@@ -56,7 +56,7 @@ const engine=process.env.FOOTBALL_QA_BROWSER||'chromium';assert(['chromium','web
  }
  await page.evaluate(()=>{const f=qaEuropeanFixtures.find(f=>f.participantIds.includes('team:football:club:lech-poznan')&&f.status==='upcoming');activeTab='feed';document.getElementById('qaEuropeanCards').replaceChildren(buildEventCard({...f,eventId:f.id}));});
  const profileChoices=await page.evaluate(()=>JSON.stringify(userPreferences));
- await page.getByRole('button',{name:'Open Lech Poznań profile in Follow',exact:true}).click();
+ await page.locator('#qaEuropeanCards').getByRole('button',{name:'Open Lech Poznań profile in Follow',exact:true}).click();
  await page.evaluate(()=>document.getElementById('qaEuropeanCards').hidden=true);
  const profile=page.locator('.participant-profile-header');await profile.waitFor();assert((await profile.innerText()).includes('Lech Poznań'));
  await page.locator('.athletes-profile-back').click();

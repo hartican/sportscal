@@ -3,7 +3,8 @@ const assert=require('node:assert/strict'),follow=require('../config/follow-firs
 const {reviewedAuViewing}=require('../lib/reviewed-au-viewing');
 async function main(){
 const catalogue=require('../data/coverage/stan-football-programmes.v1.json');
-const source=require('../data/follow-schedule/football.json').fixtures.find(f=>f.id==='fixture:football:openligadb:uefa-champions-league:87418');
+const published=require('../data/follow-schedule/football.json').fixtures.find(f=>f.id==='fixture:football:openligadb:uefa-champions-league:87418');
+const source={...structuredClone(published),status:'upcoming'}; // Controlled earlier state; today's fixture may already be final.
 const now=Math.max(...catalogue.programmes.map(p=>Date.parse(p.observedAt)))+1000;
 const original=Date.now;Date.now=()=>now;
 try{
