@@ -1,5 +1,5 @@
 'use strict';
-const {lifecycleFor,stakesFor}=require('./storyline-card-rules');
+const {lifecycleFor,stakesFor,wordCount}=require('./storyline-card-rules');
 const policy=require('../../config/editorial-maintenance');
 const locks=require('../../config/editorial-locks');
 function displayCopy(event,spoilersOn,now=new Date()){
@@ -19,7 +19,7 @@ function displayCopy(event,spoilersOn,now=new Date()){
   };
 }
 function needsDisplayCopy(event,now=new Date()){
-  return stakesFor(event)>=4&&[false,true].some(on=>{const copy=displayCopy(event,on,now);return !copy.hook||!copy.synopsis;});
+  return stakesFor(event)>=4&&[false,true].some(on=>{const copy=displayCopy(event,on,now);return !copy.hook||!copy.synopsis||wordCount(copy.hook)>25||wordCount(copy.synopsis)>80;});
 }
 function completeStagedCopy(state){
   return state.staged_copy&&policy.fields.every(field=>typeof state.staged_copy[field]==='string'&&state.staged_copy[field].trim());

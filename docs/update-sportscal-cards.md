@@ -91,3 +91,11 @@ Concurrent commits to main are a recoverable integration condition, not a reason
 If the bounded recovery cannot finish, preserve the local work and staged private copy, report the exact conflict/failing stage and next action, and do not claim deployment. A genuine shared safety/release failure still stops release; a card-local failure defers only that card and its direct dependants.
 
 This rule adds no scheduler, provider request, automatic force-push or gate bypass. Apply it to canonical card releases and the existing adaptive/weekend editorial task.
+
+### Required display-copy length repair
+
+Adaptive required-copy inventory uses the same inclusive 25-word hook and 80-word short-context limits as the shared card audit, in both actually displayed spoiler states. A recently checked but overlong published preview is still a repair candidate; a successful check does not make malformed display copy valid. Tighten only the affected copy through the canonical research/application and revision-CAS path, preserving source observations, immutable research history and the other full editorial sections. Holds, locks, protected fixtures, kickoff boundaries and the existing horizon still win. Do not relax the shared audit or defer independent valid cards because one short-context field needs correction.
+
+### Shared-renderer test recovery
+
+When an existing gate still inspects removed inline card code, bind it to the actual published module with `scripts/app-shell-test-utils.js`, including its exact runtime, manifest and offline URL checks. Inspect actual function owners with the existing Acorn-backed reader rather than slicing to a now-unrelated next function. Preserve privacy, spoiler, accessibility, layout values and source-authority assertions. CSS minification may change whitespace, not the required geometry. Resolve retired labels or discovery defaults against the dated approved decision record; never change application behaviour or weaken a guard merely to satisfy an obsolete test. Retain the original failure, run the repaired original gate, and continue the intact downstream chain without repeating provider ingestion or asking for routine approval.

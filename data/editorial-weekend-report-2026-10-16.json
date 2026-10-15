@@ -1,0 +1,36 @@
+{
+  "weekend": {
+    "from": "2026-10-16",
+    "to": "2026-10-19"
+  },
+  "acceptedIds": [
+    "fixture:cricket:espn:1525660",
+    "rugby-australia-new-zealand-2026-10-17",
+    "fixture-mlb-849810",
+    "evt_wsl_2026_portugal",
+    "fixture-mlb-849817",
+    "fixture-mlb-849808",
+    "fixture-mlb-849816",
+    "fixture-mlb-849806",
+    "evt_horse_racing_the_everest_2026"
+  ],
+  "deferred": [
+    {
+      "id": "fixture-mlb-849818",
+      "reason": "Official MLB Game3 is final and actual first pitch preceded this research. Do not retrospectively rewrite its preview.",
+      "sources": [
+        "https://www.mlb.com/gameday/rays-vs-guardians/2026/10/15/849818/final/wrap"
+      ],
+      "nextAction": "Audit should reconcile accepted status/timing through its canonical sporting lane; evaluate postmatch through registered EPIC claims, not this preview."
+    },
+    {
+      "id": "evt_horse_racing_caulfield_cup_2026",
+      "reason": "Current final accepted field, withdrawals and inspection outcomes not established by the bounded official-source pass. No verified material change to existing narrative.",
+      "sources": [
+        "https://mrc.racing.com/spring/media-guide",
+        "https://www.racingvictoria.com.au/racing/international-resources"
+      ],
+      "nextAction": "Retain last-known preview; obtain current official final declarations and inspection outcomes before a contestant-led rewrite."
+    }
+  ]
+}

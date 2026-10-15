@@ -281,7 +281,7 @@
     ["shanghai", ["atp"], "qizhong-tennis-center", ["Stadium Court", "Grandstand 2", "Show Court 3", "Court 4"], ["Court 7"]],
     // Current publisher labels are retained only for this exact edition. They
     // do not attest a physical court identity, location or official assignment.
-    ["wuhan", ["wta"], "optics-valley-tennis-center", [], ["Court 1", "Court 2", "Dongfeng Voyah Center Court"]],
+    ["wuhan", ["wta"], "optics-valley-tennis-center", [], ["Court 1", "Court 2", "Court 3", "Dongfeng Voyah Center Court"]],
   ];
 
   function tennisVenue(normalized, context){

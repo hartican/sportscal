@@ -1,155 +1,14 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-10-11T12:42:46.830Z",
+  "generatedAt": "2026-10-15T23:24:53.916Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 25,
-    "passed": 25,
+    "due": 20,
+    "passed": 20,
     "failed": 0
   },
   "cards": [
-    {
-      "id": "fixture-tennis-espn-wta-184356",
-      "name": "Zheng Qinwen v Mirra Andreeva",
-      "sport": "Tennis",
-      "date": "2026-10-11",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:form",
-        "narrative:matchup",
-        "narrative:schedule"
-      ],
-      "sourceUrl": "https://www.wtatennis.com/news/4589836/mirra-andreeva-vs-zheng-qinwen-everything-to-know-about-china-open-beijing-final",
-      "issues": []
-    },
-    {
-      "id": "evt_33",
-      "name": "Singapore GP · Race",
-      "sport": "Formula 1",
-      "date": "2026-10-11",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:schedule",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "issues": []
-    },
-    {
-      "id": "fixture-mlb-849836",
-      "name": "Tampa Bay Rays v New York Yankees",
-      "date": "2026-10-11",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
-      ],
-      "sourceUrl": "https://www.mlb.com/gameday/849836",
-      "issues": []
-    },
-    {
-      "id": "fixture-mlb-849809",
-      "name": "Milwaukee Brewers v Los Angeles Dodgers",
-      "date": "2026-10-12",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
-      ],
-      "sourceUrl": "https://www.mlb.com/gameday/849809",
-      "issues": []
-    },
-    {
-      "id": "fixture-mlb-849812",
-      "name": "Milwaukee Brewers v Los Angeles Dodgers",
-      "date": "2026-10-13",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
-      ],
-      "sourceUrl": "https://www.mlb.com/gameday/849812",
-      "issues": []
-    },
-    {
-      "id": "fixture-mlb-849820",
-      "name": "Tampa Bay Rays v Cleveland Guardians",
-      "date": "2026-10-13",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
-      ],
-      "sourceUrl": "https://www.mlb.com/gameday/849820",
-      "issues": []
-    },
-    {
-      "id": "fixture-mlb-849813",
-      "name": "Tampa Bay Rays v Cleveland Guardians",
-      "date": "2026-10-14",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
-      ],
-      "sourceUrl": "https://www.mlb.com/gameday/849813",
-      "issues": []
-    },
-    {
-      "id": "fixture-mlb-849811",
-      "name": "Los Angeles Dodgers v Milwaukee Brewers",
-      "date": "2026-10-15",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
-      ],
-      "sourceUrl": "https://www.mlb.com/gameday/849811",
-      "issues": []
-    },
-    {
-      "id": "rlwc-australia-new-zealand-2026",
-      "name": "Australia v New Zealand — Rugby League World Cup",
-      "sport": "Rugby League",
-      "date": "2026-10-15",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:matchup",
-        "narrative:history",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2026/10/05/kangaroos-squad-for-2026-rugby-league-world-cup/",
-      "issues": []
-    },
     {
       "id": "fixture-mlb-849818",
       "name": "Cleveland Guardians v Tampa Bay Rays",
@@ -173,11 +32,12 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:format",
+        "narrative:history",
+        "narrative:form",
         "narrative:path",
         "narrative:matchup"
       ],
-      "sourceUrl": "https://www.mlb.com/gameday/849810",
+      "sourceUrl": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
       "issues": []
     },
     {
@@ -188,8 +48,12 @@
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
-        "official-schedule",
-        "event window"
+        "event-specific",
+        "narrative:path",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:format",
+        "narrative:consequence"
       ],
       "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main",
       "issues": []
@@ -202,11 +66,12 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
+        "narrative:history",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:consequence"
       ],
-      "sourceUrl": "https://www.mlb.com/gameday/849817",
+      "sourceUrl": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
       "issues": []
     },
     {
@@ -218,13 +83,13 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:path",
         "narrative:form",
-        "narrative:matchup",
         "narrative:history",
-        "narrative:consequence"
+        "narrative:matchup",
+        "narrative:consequence",
+        "narrative:path"
       ],
-      "sourceUrl": "https://www.allblacks.com/team/all-blacks/bledisloe-cup",
+      "sourceUrl": "https://www.rugby.com.au/wallabies/news/wallabies-team-confirmed-to-play-new-zealand-in-sydney-20261015",
       "issues": []
     },
     {
@@ -235,10 +100,12 @@
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
-        "official-schedule",
-        "competition"
+        "event-specific",
+        "narrative:format",
+        "narrative:venue",
+        "narrative:history"
       ],
-      "sourceUrl": "https://mrc.racing.com/calendar/caulfield-cup",
+      "sourceUrl": "https://mrc.racing.com/racing/racing-information/feature-race-information/caulfield-cup?sc_site=MRC",
       "issues": []
     },
     {
@@ -249,10 +116,14 @@
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
-        "official-schedule",
-        "competition"
+        "event-specific",
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup",
+        "narrative:consequence",
+        "narrative:format"
       ],
-      "sourceUrl": "https://www.australianturfclub.com.au/races/everest-day/",
+      "sourceUrl": "https://www.australianturfclub.com.au/tab-everest-how-it-works/",
       "issues": []
     },
     {
@@ -263,11 +134,11 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
+        "narrative:history",
+        "narrative:form",
+        "narrative:path"
       ],
-      "sourceUrl": "https://www.mlb.com/gameday/849808",
+      "sourceUrl": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
       "issues": []
     },
     {
@@ -279,12 +150,13 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:path",
-        "narrative:consequence",
+        "narrative:form",
         "narrative:matchup",
-        "narrative:history"
+        "narrative:history",
+        "narrative:consequence",
+        "narrative:path"
       ],
-      "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+      "sourceUrl": "https://supersport.com/cricket/news/4dc5ed81-4b33-42b8-8b64-a67d8bcfe0cb/stubbs-out-breetzke-in-as-proteas-announce-squad-for-second-test",
       "issues": []
     },
     {
@@ -295,11 +167,12 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
+        "narrative:history",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:consequence"
       ],
-      "sourceUrl": "https://www.mlb.com/gameday/849816",
+      "sourceUrl": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
       "issues": []
     },
     {
@@ -310,11 +183,11 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
+        "narrative:history",
+        "narrative:form",
+        "narrative:path"
       ],
-      "sourceUrl": "https://www.mlb.com/gameday/849806",
+      "sourceUrl": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
       "issues": []
     },
     {
@@ -363,36 +236,95 @@
       "issues": []
     },
     {
-      "id": "tennis-tournament-atp-shanghai-2026-2026-10-11",
-      "name": "Rolex Shanghai Masters — ATP Masters 1000",
-      "sport": "Tennis",
-      "date": "2026-10-11",
+      "id": "evt_motogp_2026_australia_qualifying",
+      "name": "MotoGP Australia Grand Prix · Qualifying (Q1 + Q2)",
+      "sport": "MotoGP",
+      "date": "2026-10-24",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
-        "atp-tour",
-        "atp_masters_1000",
-        "active-tournament-window",
-        "hard-surface"
+        "official-schedule",
+        "Qualifying (Q1 + Q2)"
       ],
-      "sourceUrl": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
       "issues": []
     },
     {
-      "id": "tennis-tournament-wta-beijing-2026-2026-10-11",
-      "name": "China Open — WTA 1000",
-      "sport": "Tennis",
-      "date": "2026-10-11",
+      "id": "evt_motogp_2026_australia_sprint",
+      "name": "MotoGP Australia Grand Prix · Sprint",
+      "sport": "MotoGP",
+      "date": "2026-10-24",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "official-schedule",
+        "Sprint"
+      ],
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
+      "issues": []
+    },
+    {
+      "id": "evt_horse_racing_cox_plate_2026",
+      "name": "Cox Plate",
+      "sport": "Horse Racing",
+      "date": "2026-10-24",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
         "narrative:format",
-        "narrative:matchup",
-        "narrative:path",
-        "narrative:schedule"
+        "narrative:history",
+        "narrative:venue"
       ],
-      "sourceUrl": "https://www.wtatennis.com/tournaments/china-open",
+      "sourceUrl": "https://www.thevalley.com.au/racing/ws-cox-plate",
+      "issues": []
+    },
+    {
+      "id": "evt_34",
+      "name": "United States GP · Qualifying",
+      "sport": "Formula 1",
+      "date": "2026-10-25",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:schedule",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "issues": []
+    },
+    {
+      "id": "evt_motogp_2026_australia",
+      "name": "MotoGP Australia Grand Prix",
+      "sport": "MotoGP",
+      "date": "2026-10-25",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "issues": []
+    },
+    {
+      "id": "evt_35",
+      "name": "United States GP · Race",
+      "sport": "Formula 1",
+      "date": "2026-10-26",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:schedule",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "issues": []
     }
   ]

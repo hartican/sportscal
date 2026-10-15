@@ -1546,6 +1546,56 @@
       "id": "subject:fixture-research:fixture-tennis-espn-atp-184954:revision-4aebe88c7be2b610fdc2abd7e3d6f16ff9864f9bcbe910446c82b9119c9b81fb",
       "kind": "event",
       "name": "Alexander Zverev v Alex de Minaur"
+    },
+    {
+      "id": "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71",
+      "kind": "event",
+      "name": "Australia v New Zealand — Sydney"
+    },
+    {
+      "id": "subject:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb",
+      "kind": "event",
+      "name": "South Africa v Australia — Second Test"
+    },
+    {
+      "id": "subject:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0",
+      "kind": "event",
+      "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 4"
+    },
+    {
+      "id": "subject:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646",
+      "kind": "event",
+      "name": "MEO Rip Curl Pro Portugal — Men"
+    },
+    {
+      "id": "subject:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838",
+      "kind": "event",
+      "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5"
+    },
+    {
+      "id": "subject:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808",
+      "kind": "event",
+      "name": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6"
+    },
+    {
+      "id": "subject:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e",
+      "kind": "event",
+      "name": "The Everest"
+    },
+    {
+      "id": "subject:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad",
+      "kind": "event",
+      "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4"
+    },
+    {
+      "id": "subject:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4",
+      "kind": "event",
+      "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5"
+    },
+    {
+      "id": "subject:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d",
+      "kind": "event",
+      "name": "South Africa v Australia — Second Test"
     }
   ],
   "sources": [
@@ -8023,6 +8073,244 @@
       "url": "https://www.atptour.com/en/tournaments/shanghai/5014/overview",
       "sourceType": "official",
       "checkedAt": "2026-10-14T00:01:15.885Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:0",
+      "name": "Rugby Australia team announcement",
+      "url": "https://www.rugby.com.au/wallabies/news/wallabies-team-confirmed-to-play-new-zealand-in-sydney-20261015",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:1",
+      "name": "New Zealand Rugby team announcement",
+      "url": "https://www.allblacks.com/news/all-blacks/all-blacks-team-named-to-play-australia-in-second-bledisloe-cup-test",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:2",
+      "name": "Rugby Australia / AAP tactical reporting",
+      "url": "https://www.rugby.com.au/news/we-know-wallabies-tweaking-game-plan-for-all-blacks-high-ball-battle-20261013",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:0",
+      "name": "Cricket South Africa announcement via SuperSport",
+      "url": "https://supersport.com/cricket/news/4dc5ed81-4b33-42b8-8b64-a67d8bcfe0cb/stubbs-out-breetzke-in-as-proteas-announce-squad-for-second-test",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:1",
+      "name": "Reuters coach reporting",
+      "url": "https://www.thestar.com.my/sport/cricket/2026/10/15/cricket-australia-open-minded-about-batting-order-green-still-to-prove-fitness-for-second-test-coach",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:2",
+      "name": "Cricket Australia selection reporting",
+      "url": "https://www.cricket.com.au/news/4591880/matthew-renshaw-first-test-south-africa-190-82-australia-kingsmead-positional-switch-number-five-opener-maddinson-cummins-green-cricketplus",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:3",
+      "name": "Cricket Australia tour schedule",
+      "url": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:0",
+      "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 4 — primary research",
+      "url": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:1",
+      "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 4 — primary research",
+      "url": "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:2",
+      "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 4 — primary research",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:0",
+      "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+      "url": "https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:1",
+      "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+      "url": "https://www.worldsurfleague.com/posts/561899/pressure-meets-portugal-at-the-meo-rip-curl-pro-portugal-presented-by-corona-cero",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:2",
+      "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+      "url": "https://www.worldsurfleague.com/posts/546281/2026-championship-tour-schedule-and-formats",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:3",
+      "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+      "url": "https://www.worldsurfleague.com/posts/557079/world-surf-league-announces-cloud-9-philippines-as-new-stop-on-2026-championship-tour-schedule",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:0",
+      "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5 — primary research",
+      "url": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:1",
+      "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5 — primary research",
+      "url": "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:2",
+      "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5 — primary research",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:0",
+      "name": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6 — primary research",
+      "url": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:1",
+      "name": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6 — primary research",
+      "url": "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:2",
+      "name": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6 — primary research",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:0",
+      "name": "The Everest — primary research",
+      "url": "https://www.australianturfclub.com.au/tab-everest-how-it-works/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:1",
+      "name": "The Everest — primary research",
+      "url": "https://www.racingnsw.com.au/news/latest-racing-news/freedman-confident-ninjas-not-making-up-everest-numbers/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:2",
+      "name": "The Everest — primary research",
+      "url": "https://www.australianturfclub.com.au/10th-running-of-tab-everest-hits-a-new-peak-on-historic-day-for-sydney-racing/",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:3",
+      "name": "The Everest — primary research",
+      "url": "https://www.racingnsw.com.au/wp-content/uploads/Everest-Conditions-2026.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:0",
+      "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4 — primary research",
+      "url": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:1",
+      "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4 — primary research",
+      "url": "https://www.mlb.com/rays/news/junior-caminero-jose-ramirez-friendship-alcs-2026",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:2",
+      "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4 — primary research",
+      "url": "https://www.mlb.com/news/gavin-williams-chase-delauter-travis-bazzana-guardians-2026-success",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:0",
+      "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5 — primary research",
+      "url": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:1",
+      "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5 — primary research",
+      "url": "https://www.mlb.com/rays/news/junior-caminero-jose-ramirez-friendship-alcs-2026",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:2",
+      "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5 — primary research",
+      "url": "https://www.mlb.com/news/gavin-williams-chase-delauter-travis-bazzana-guardians-2026-success",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:0",
+      "name": "Cricket South Africa announcement via SuperSport",
+      "url": "https://supersport.com/cricket/news/4dc5ed81-4b33-42b8-8b64-a67d8bcfe0cb/stubbs-out-breetzke-in-as-proteas-announce-squad-for-second-test",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:1",
+      "name": "Reuters coach reporting",
+      "url": "https://www.thestar.com.my/sport/cricket/2026/10/15/cricket-australia-open-minded-about-batting-order-green-still-to-prove-fitness-for-second-test-coach",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:2",
+      "name": "Cricket Australia selection reporting",
+      "url": "https://www.cricket.com.au/news/4591880/matthew-renshaw-first-test-south-africa-190-82-australia-kingsmead-positional-switch-number-five-opener-maddinson-cummins-green-cricketplus",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:3",
+      "name": "Cricket Australia tour schedule",
+      "url": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+      "sourceType": "official",
+      "checkedAt": "2026-10-15T22:10:19.416Z"
     }
   ],
   "narrativeFacts": [
@@ -38702,6 +38990,647 @@
       ],
       "observedAt": "2026-10-14T22:33:23.633Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:0",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71"
+      ],
+      "statement": "Australia named Henry at inside centre, Suaalii outside him and Meredith alongside Lonergan; Donaldson is unavailable with an upper-leg injury.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:0"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:1",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71"
+      ],
+      "statement": "Salakaia-Loto is named to play his 50th Test; McLaughlin-Phillips is an uncapped replacement.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:0"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:2",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71"
+      ],
+      "statement": "New Zealand named Bower, Holland and Moorby to start, with McKenzie at ten and Beauden Barrett at fifteen.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:1"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:3",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71"
+      ],
+      "statement": "The Wallabies have been working on the high-ball contest and the connected decisions after reception.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:2"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:4",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71"
+      ],
+      "statement": "Sydney is Australia's final home Test of 2026 before their November northern fixtures.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:0"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:5",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71"
+      ],
+      "statement": "The quad-header including the Wallabies is available on Stan Sport in Australia.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:2"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb"
+      ],
+      "statement": "CSA's 15 October squad replaced Stubbs with Breetzke; Rickelton will keep wicket with Verreynne retained as cover.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:0"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb"
+      ],
+      "statement": "McDonald said on 15 October that Green had not resumed batting and Inglis had completed net sessions following his broken finger.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:1"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb"
+      ],
+      "statement": "McDonald said the opposition and surface inform Australia's open-minded approach to batting order.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:1"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb"
+      ],
+      "statement": "Steve Waugh argued for Renshaw to remain at number five rather than returning to the top of the order.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:1"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:4",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb"
+      ],
+      "statement": "Cummins expressed a preference for Renshaw at five subject to the demands of the conditions.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:2"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:5",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb"
+      ],
+      "statement": "The second Test is at St George's Park between Durban and Newlands; the series is on Kayo and Fox Cricket in Australia.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:3"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0"
+      ],
+      "statement": "Los Angeles entered this postseason as two-time defending champions.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0"
+      ],
+      "statement": "Los Angeles and Milwaukee also met in the 2025 NLCS.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:0"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0"
+      ],
+      "statement": "MLB's reporting identifies Jake Bauers' patient plate appearances as part of Milwaukee's offensive approach.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0"
+      ],
+      "statement": "The official schedule lists these clubs in the 2026 NLCS; later games remain conditional.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:2"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:4",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0"
+      ],
+      "statement": "Shane Drohan is announced to open Milwaukee's bullpen game in NLCS Game 4.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:0"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646"
+      ],
+      "statement": "WSL confirmsPortugal16-25October2026atSupertubos,Peniche,CTStop10.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:0",
+        "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:3"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646"
+      ],
+      "statement": "WSLdescribesshifting sandbanks, strong tides and Atlantic swells.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646"
+      ],
+      "statement": "MoraisandRibeiroaremen'swildcards; this is Ribeiro'sfirstCTwildcard.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646"
+      ],
+      "statement": "22qualifiers plus2wildcards formthe24-surfer postseasonfield,withthetop8seedsenteringRound2.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:1",
+        "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:2"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:4",
+      "subjectIds": [
+        "subject:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646"
+      ],
+      "statement": "Postseasonformat removesnoneliminationrounds and usesheadtoheadheats.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:2"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838"
+      ],
+      "statement": "Los Angeles entered this postseason as two-time defending champions.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838"
+      ],
+      "statement": "Los Angeles and Milwaukee also met in the 2025 NLCS.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:0"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838"
+      ],
+      "statement": "MLB's reporting identifies Jake Bauers' patient plate appearances as part of Milwaukee's offensive approach.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838"
+      ],
+      "statement": "The official schedule lists these clubs in the 2026 NLCS; later games remain conditional.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:2"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808"
+      ],
+      "statement": "Los Angeles entered this postseason as two-time defending champions.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808"
+      ],
+      "statement": "Los Angeles and Milwaukee also met in the 2025 NLCS.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:0"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808"
+      ],
+      "statement": "MLB's reporting identifies Jake Bauers' patient plate appearances as part of Milwaukee's offensive approach.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808"
+      ],
+      "statement": "The official schedule lists these clubs in the 2026 NLCS; later games remain conditional.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:2"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e"
+      ],
+      "statement": "ATC publishes twelve runners including Ka Ying Rising, Giga Kick and Ninja, with barriers11,12and3; Tempted hasone.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:0"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e"
+      ],
+      "statement": "The 2026 edition is the tenth running and Ka Ying Rising is attempting consecutive victories.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:2"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e"
+      ],
+      "statement": "Racing NSW's15October report identifies Tommy Berry as Ninja's rider and discusses Freedman's emphasis on settling.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e"
+      ],
+      "statement": "Ninja is Michael Freedman's first Everest runner.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:4",
+      "subjectIds": [
+        "subject:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e"
+      ],
+      "statement": "The official conditions specify1200metres, weightforage, three-year-oldsandolder and maximum12starters.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:3"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad"
+      ],
+      "statement": "Caminero was traded by Cleveland to Tampa Bay in November 2021.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:0"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad"
+      ],
+      "statement": "Caminero and Ramirez are friends; the Tampa Bay third baseman admires Cleveland's veteran.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad"
+      ],
+      "statement": "MLB's current-season development feature traces Cleveland's 2026 success through first-round selections Gavin Williams, Chase DeLauter and Travis Bazzana.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:2"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad"
+      ],
+      "statement": "The ALCS places two organisations with connected player-development stories on the route to the World Series.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:0",
+        "source:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:2"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4"
+      ],
+      "statement": "Caminero was traded by Cleveland to Tampa Bay in November 2021.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:0"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4"
+      ],
+      "statement": "Caminero and Ramirez are friends; the Tampa Bay third baseman admires Cleveland's veteran.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:1"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4"
+      ],
+      "statement": "MLB's current-season development feature traces Cleveland's 2026 success through first-round selections Gavin Williams, Chase DeLauter and Travis Bazzana.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:2"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4"
+      ],
+      "statement": "The ALCS places two organisations with connected player-development stories on the route to the World Series.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:0",
+        "source:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:2"
+      ],
+      "observedAt": "2026-10-15T22:13:16.591Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d"
+      ],
+      "statement": "CSA's 15 October squad replaced Stubbs with Breetzke; Rickelton will keep wicket with Verreynne retained as cover.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:0"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d"
+      ],
+      "statement": "McDonald said on 15 October that Green had not resumed batting and Inglis had completed net sessions following his broken finger.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:1"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d"
+      ],
+      "statement": "McDonald said the opposition and surface inform Australia's open-minded approach to batting order.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:1"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d"
+      ],
+      "statement": "Steve Waugh argued for Renshaw to remain at number five rather than returning to the top of the order.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:1"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:4",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d"
+      ],
+      "statement": "Cummins expressed a preference for Renshaw at five subject to the demands of the conditions.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:2"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:5",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d"
+      ],
+      "statement": "The second Test is at St George's Park between Durban and Newlands; the series is on Kayo and Fox Cricket in Australia.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:3"
+      ],
+      "observedAt": "2026-10-15T22:10:19.416Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -43253,6 +44182,175 @@
       ],
       "status": "active",
       "updatedAt": "2026-10-14T22:33:23.633Z"
+    },
+    {
+      "id": "thread:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71",
+      "subjectIds": [
+        "subject:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71"
+      ],
+      "title": "Australia v New Zealand — Sydney",
+      "summary": "The aerial contest remains an important tactical question at Accor Stadium, but Suaalii's move inside changes where Australia deploy their threat. Potter, Jorgensen and Wright must connect the catch with the next phase while the midfield organises around them. New Zealand's McKenzie-Barrett combination offers decision-making across the backline. This is Australia's final home Test before the northern tour; announced substitutes include uncapped Harry McLaughlin-Phillips, whose appearance is not guaranteed. Stan Sport carries the match in Australia.",
+      "factIds": [
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:0",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:1",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:2",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:3",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:4",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:5"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb"
+      ],
+      "title": "South Africa v Australia — Second Test",
+      "summary": "St George's Park hosts the middle match of the three-Test series. Rickelton taking the gloves changes South Africa's allocation of work, but his batting position is not announced here. Breetzke's inclusion offers a new batting option rather than a promised place. Australia must weigh the surface, availability and batting balance without counting on an unfit all-rounder's overs. The contest asks for sustained partnerships and disciplined pressure across five days. Earlier results remain undisclosed; Australian viewing is on Kayo and Fox Cricket.",
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:0",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:1",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:2",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:3",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:4",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-80a1f16bb4b66a135d9032a7c6813167f0067544f7e1adf2b7e5f7e4cfd3c1fb:5"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-15T22:10:19.416Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0"
+      ],
+      "title": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 4",
+      "summary": "This is a rematch with its own immediate tactical identity. Drohan's opening role should not be mistaken for a promised long outing, and patience at the plate is an observation to watch rather than a forecast of runs. The official Game 4 start is earlier than the saved card clock; editorial must stop at the official first pitch. Earlier series outcomes remain undisclosed.",
+      "factIds": [
+        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:0",
+        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:1",
+        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:2",
+        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:3",
+        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646",
+      "subjectIds": [
+        "subject:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646"
+      ],
+      "title": "MEO Rip Curl Pro Portugal — Men",
+      "summary": "The official window is 16-25 October at Supertubos, Peniche. Atlantic swell, moving sandbanks and strong tides make adaptation part of the contest, while the reduced knockout format gives an early heat an immediate consequence. The window does not guarantee surfing on each day. No opening heat time, live state, withdrawal or current result is inferred from a scheduled first call.",
+      "factIds": [
+        "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:0",
+        "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:1",
+        "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:2",
+        "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:3",
+        "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838"
+      ],
+      "title": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5",
+      "summary": "This fixture remains conditional. If the series reaches Game 5, its actual stakes, starters and availability must come from the next official announcements rather than being reverse-engineered from the game number. This preview offers result-neutral rematch context only; it does not imply Game 4 has finished or that either club needs one particular result.",
+      "factIds": [
+        "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:0",
+        "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:1",
+        "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:2",
+        "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808"
+      ],
+      "title": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6",
+      "summary": "Game 6 is listed only if required; a published date is not confirmation that the series will return to Milwaukee. No outcome from an earlier game, elimination scenario or rest advantage is supplied here. A later official continuation decision and game-specific team news must settle those details before the conditional fixture becomes a confirmed occasion.",
+      "factIds": [
+        "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:0",
+        "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:1",
+        "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:2",
+        "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e",
+      "subjectIds": [
+        "subject:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e"
+      ],
+      "title": "The Everest",
+      "summary": "Royal Randwick's 1,200-metre weight-for-age contest has twelve starting places. The published draw gives viewers a way to follow how the field organises, not a guarantee of who leads or where a rider must go. Watch the balance between settling and acceleration; no race map, track bias, betting assessment or eventual finishing order is assumed.",
+      "factIds": [
+        "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:0",
+        "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:1",
+        "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:2",
+        "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:3",
+        "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad"
+      ],
+      "title": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4",
+      "summary": "Game 4 belongs to an American League Championship Series shaped by connected organisations and contrasting routes into the majors. Watch how each club creates opportunities rather than assuming the same players will decide every game. The official schedule retains a timing contingency tied to the National League series; no definitive revised clock or game-specific starter is asserted in this preview.",
+      "factIds": [
+        "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:0",
+        "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:1",
+        "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:2",
+        "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4",
+      "subjectIds": [
+        "subject:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4"
+      ],
+      "title": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5",
+      "summary": "This preview keeps Game 5 separate from the events that precede it. No clinching scenario, bullpen rest advantage or current series tally is assumed. The sporting question is how Cleveland and Tampa Bay turn their developing talent into precise decisions under postseason pressure. Any later stakes or starting-pitcher announcement requires its own confirmed evidence.",
+      "factIds": [
+        "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:0",
+        "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:1",
+        "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:2",
+        "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-15T22:13:16.591Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d"
+      ],
+      "title": "South Africa v Australia — Second Test",
+      "summary": "St George's Park hosts the middle Test. Rickelton taking the gloves changes South Africa's workload, but his batting position is unannounced. Breetzke offers another batting option, not a guaranteed place. Australia must weigh the surface, availability and balance without assuming an unfit all-rounder's overs. Sustained partnerships and disciplined pressure will matter across five days. Earlier results remain protected; Australian viewing is on Kayo and Fox Cricket.",
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:0",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:1",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:2",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:3",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:4",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:5"
+      ],
+      "status": "active",
+      "updatedAt": "2026-10-15T22:10:19.416Z"
     }
   ],
   "audienceMemories": [],
@@ -60112,156 +61210,6 @@
       "researchedAt": "2026-10-11T12:38:02.024Z"
     },
     {
-      "id": "projection:mlb-context:849810",
-      "targetType": "feed-event",
-      "targetIds": [
-        "fixture-mlb-849810"
-      ],
-      "researchDepth": 2,
-      "hook": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
-      "synopsis": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
-      "threadIds": [
-        "thread:mlb-context:849810"
-      ],
-      "factIds": [
-        "fact:mlb-context:849810:format",
-        "fact:mlb-context:849810:path",
-        "fact:mlb-context:849810:fixture"
-      ],
-      "sourceIds": [
-        "source:mlb-fixture:849810",
-        "source:mlb-postseason-rules:2026",
-        "source:mlb-postseason-path:2026"
-      ],
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-11T02:39:29.237Z"
-      },
-      "researchedAt": "2026-10-11T02:39:29.237Z"
-    },
-    {
-      "id": "projection:mlb-context:849817",
-      "targetType": "feed-event",
-      "targetIds": [
-        "fixture-mlb-849817"
-      ],
-      "researchDepth": 2,
-      "hook": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 4, in the race for the World Series.",
-      "synopsis": "American League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
-      "threadIds": [
-        "thread:mlb-context:849817"
-      ],
-      "factIds": [
-        "fact:mlb-context:849817:format",
-        "fact:mlb-context:849817:path",
-        "fact:mlb-context:849817:fixture"
-      ],
-      "sourceIds": [
-        "source:mlb-fixture:849817",
-        "source:mlb-postseason-rules:2026",
-        "source:mlb-postseason-path:2026"
-      ],
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-11T12:38:02.024Z"
-      },
-      "researchedAt": "2026-10-11T12:38:02.024Z"
-    },
-    {
-      "id": "projection:mlb-context:849808",
-      "targetType": "feed-event",
-      "targetIds": [
-        "fixture-mlb-849808"
-      ],
-      "researchDepth": 2,
-      "hook": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 5, if needed, in the race for the World Series.",
-      "synopsis": "National League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "threadIds": [
-        "thread:mlb-context:849808"
-      ],
-      "factIds": [
-        "fact:mlb-context:849808:format",
-        "fact:mlb-context:849808:path",
-        "fact:mlb-context:849808:fixture"
-      ],
-      "sourceIds": [
-        "source:mlb-fixture:849808",
-        "source:mlb-postseason-rules:2026",
-        "source:mlb-postseason-path:2026"
-      ],
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-11T02:39:29.237Z"
-      },
-      "researchedAt": "2026-10-11T02:39:29.237Z"
-    },
-    {
-      "id": "projection:mlb-context:849816",
-      "targetType": "feed-event",
-      "targetIds": [
-        "fixture-mlb-849816"
-      ],
-      "researchDepth": 2,
-      "hook": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 5, if needed, in the race for the World Series.",
-      "synopsis": "American League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "threadIds": [
-        "thread:mlb-context:849816"
-      ],
-      "factIds": [
-        "fact:mlb-context:849816:format",
-        "fact:mlb-context:849816:path",
-        "fact:mlb-context:849816:fixture"
-      ],
-      "sourceIds": [
-        "source:mlb-fixture:849816",
-        "source:mlb-postseason-rules:2026",
-        "source:mlb-postseason-path:2026"
-      ],
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-11T12:38:02.024Z"
-      },
-      "researchedAt": "2026-10-11T12:38:02.024Z"
-    },
-    {
-      "id": "projection:mlb-context:849806",
-      "targetType": "feed-event",
-      "targetIds": [
-        "fixture-mlb-849806"
-      ],
-      "researchDepth": 2,
-      "hook": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 6, if needed, in the race for the World Series.",
-      "synopsis": "National League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
-      "threadIds": [
-        "thread:mlb-context:849806"
-      ],
-      "factIds": [
-        "fact:mlb-context:849806:format",
-        "fact:mlb-context:849806:path",
-        "fact:mlb-context:849806:fixture"
-      ],
-      "sourceIds": [
-        "source:mlb-fixture:849806",
-        "source:mlb-postseason-rules:2026",
-        "source:mlb-postseason-path:2026"
-      ],
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-11T02:39:29.237Z"
-      },
-      "researchedAt": "2026-10-11T02:39:29.237Z"
-    },
-    {
       "id": "projection:mlb-context:849807",
       "targetType": "feed-event",
       "targetIds": [
@@ -60524,38 +61472,6 @@
       }
     },
     {
-      "id": "projection:fixture-research:event:horse-racing:the-everest:2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "evt_horse_racing_the_everest_2026",
-        "event:horse-racing:the-everest:2026"
-      ],
-      "researchDepth": 4,
-      "hook": "The Everest puts sprinting’s explosive speed at the heart of a Sydney sporting occasion.",
-      "synopsis": "Over 1,200 metres at Royal Randwick, the contest leaves little room for hesitation: a clean start, a jockey’s judgement and a decisive burst can shape the race.",
-      "closingCopy": "Its appeal is immediate and visceral, bringing elite sprinters together for a short, fiercely contested show of speed.",
-      "threadIds": [
-        "thread:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd"
-      ],
-      "factIds": [
-        "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:0",
-        "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:1",
-        "fact:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:2"
-      ],
-      "sourceIds": [
-        "source:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:0",
-        "source:fixture-research:event:horse-racing:the-everest:2026:revision-9937881ab9a8ec3a0a4e4aa97520ca022d1c598f6208cda5dc671e88d9753afd:1"
-      ],
-      "researchedAt": "2026-10-13T08:14:23.253Z",
-      "editorialPhase": "preview",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-13T08:14:23.253Z"
-      }
-    },
-    {
       "id": "projection:fixture-research:event:horse-racing:victoria-derby:2026",
       "targetType": "feed-event",
       "targetIds": [
@@ -60716,83 +61632,6 @@
       }
     },
     {
-      "id": "projection:feed:bledisloe-sydney-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "rugby-australia-new-zealand-2026-10-17",
-        "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
-        "fixture-rugby-wr-e3cbae12-66b3-4835-b1ce-4014b63055c8",
-        "fixture:rugby:ra:949627",
-        "fixture-rugby-ra-949627"
-      ],
-      "researchDepth": 5,
-      "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
-      "synopsis": "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
-      "formCopy": "Ikitau and Petaia are ruled out, with Paisami suspended. Toole and Pritchard have joined the Wallabies squad, but call-ups are not an announced Sydney XV. Suaalii has been learning the wing role while covering centre when injuries intervene; his position for this Test remains unconfirmed. Australia are working on their response to New Zealand's pressure around the high ball. The All Blacks have also brought in injury cover, so neither side's final combination should be assumed.",
-      "closingCopy": "Suaalii describes playing for Australia as a childhood dream, but the privilege comes with unfamiliar work: learning a new position while being ready to move again. For supporters, versatility is reassuring only if it produces a settled connection with the players around him. Sydney gives the Wallabies a home crowd, not an answer to that problem. A clean catch, an organised chase and a centre pairing that understands each other are small acts through which belief becomes something more dependable.",
-      "threadIds": [
-        "thread:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224"
-      ],
-      "factIds": [
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2",
-        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3"
-      ],
-      "sourceIds": [
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:0",
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:1",
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:2",
-        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-7210561260bd6d2d4ebe01824c8aa12403369019c715f9e19cbdb43f0ac68224:3"
-      ],
-      "researchedAt": "2026-10-13T23:57:53.941Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-17T05:00:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-13T23:57:53.941Z"
-      }
-    },
-    {
-      "id": "projection:sport-depth:fixture-cricket-espn-1525660",
-      "targetType": "feed-event",
-      "targetIds": [
-        "fixture:cricket:espn:1525660",
-        "evt_88",
-        "fixture-cricket-espn-1525660"
-      ],
-      "researchDepth": 5,
-      "hook": "Renshaw's place is more than a vacancy to fill: Australia's returning batters make Gqeberha a test of selection trust as well as balance.",
-      "synopsis": "The middle Test at St George's Park leaves one match still to come at Newlands. Gqeberha's recent spin history makes patience against slow bowling and the allocation of batting depth central questions, not a prediction of this pitch. A batter-only return for Green would not supply Australia with another seam-bowling option; a second specialist spinner would change the balance again. Fitness updates and announced teams must settle those choices. No earlier match outcome or series position is disclosed.",
-      "formCopy": "Inglis is back with the squad and has trained, but that is not confirmation of fitness or selection. Green may return as a batter only rather than a bowling option. Cummins favours retaining Renshaw at No.5 unless conditions make a compelling case for a move. Smith's further concussion assessment was pending in the 12 October report; no later clearance is asserted here. Kuhnemann remains a possible second spinner alongside Lyon, not an announced selection. Neither second-Test XI is confirmed.",
-      "closingCopy": "For Australian supporters, a returning name and a player making a role his own create different kinds of hope. Cummins' preference for Renshaw at No.5 gives that debate a captain's backing, without making the team sheet unconditional. Inglis and Green cannot be promised places before their availability is resolved. South Africa must weigh familiarity against the combination this ground demands. The emotional pull of loyalty matters, but five days ask whether the chosen eleven can turn that trust into sustained pressure.",
-      "threadIds": [
-        "thread:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee"
-      ],
-      "factIds": [
-        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:0",
-        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:1",
-        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:2",
-        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:3",
-        "fact:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:4"
-      ],
-      "sourceIds": [
-        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:0",
-        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:1",
-        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:2",
-        "source:fixture-research:fixture:cricket:espn:1525660:revision-4bccb6e995768e606affa78540509ce4af7465d3162035924f3bbca294c6baee:3"
-      ],
-      "researchedAt": "2026-10-13T23:57:53.941Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-18T08:00:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-13T23:57:53.941Z"
-      }
-    },
-    {
       "id": "projection:feed:rlwc-australia-new-zealand-2026",
       "targetType": "feed-event",
       "targetIds": [
@@ -60870,6 +61709,335 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-14T22:33:23.633Z"
+      }
+    },
+    {
+      "id": "projection:mlb-context:849810",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture-mlb-849810",
+        "fixture:mlb:849810"
+      ],
+      "researchDepth": 5,
+      "hook": "Milwaukee's bullpen plan makes Game 4 a sequence of decisions against the defending champions, not a single starting-pitcher duel.",
+      "synopsis": "This is a rematch with its own immediate tactical identity. Drohan's opening role should not be mistaken for a promised long outing, and patience at the plate is an observation to watch rather than a forecast of runs. The official Game 4 start is earlier than the saved card clock; editorial must stop at the official first pitch. Earlier series outcomes remain undisclosed.",
+      "formCopy": "Milwaukee have announced Shane Drohan to open a bullpen game. That is a Game 4 plan, not a projection for later fixtures. MLB's reporting also highlights Jake Bauers' patient at-bats. Los Angeles are the two-time defending champions, and these clubs met in the 2025 NLCS. No opposing starter or late fitness clearance is invented here.",
+      "closingCopy": "A bullpen game spreads responsibility. Its interest lies in the handovers: when a manager changes the matchup, whether a hitter can make that decision arrive earlier, and how the next reliever responds. For Milwaukee supporters, that offers a collective route through a meeting with an established champion. For Los Angeles, the task is to keep making sound choices as the pitcher changes.",
+      "threadIds": [
+        "thread:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:0",
+        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:1",
+        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:2",
+        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:3",
+        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:0",
+        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:1",
+        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:2"
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-16T01:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-15T22:13:16.591Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_wsl_2026_portugal",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_wsl_2026_portugal",
+        "event:wsl:2026:portugal"
+      ],
+      "researchDepth": 5,
+      "hook": "Home wildcards meet a smaller knockout field and shifting sandbanks at Supertubos.",
+      "synopsis": "The official window is 16-25 October at Supertubos, Peniche. Atlantic swell, moving sandbanks and strong tides make adaptation part of the contest, while the reduced knockout format gives an early heat an immediate consequence. The window does not guarantee surfing on each day. No opening heat time, live state, withdrawal or current result is inferred from a scheduled first call.",
+      "formCopy": "WSL's 15 October preview names Frederico Morais and Guilherme Ribeiro as the men's wildcards, with Ribeiro receiving his first CT wildcard. They join 22 postseason qualifiers. The published format gives the top eight seeds entry in Round 2; the opening round is head-to-head, not an old non-elimination warm-up. These confirmations do not establish the entire heat draw.",
+      "closingCopy": "A home wildcard is an invitation to compete, not a promised breakthrough. Ribeiro's first chance and Morais' presence give the Portuguese crowd identifiable people to follow within the larger title contest. At a shifting beachbreak, local familiarity still has to become the right wave choice at the right moment. That is the opportunity, not an assumed advantage or an invented expectation.",
+      "threadIds": [
+        "thread:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:0",
+        "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:1",
+        "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:2",
+        "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:3",
+        "fact:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:0",
+        "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:1",
+        "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:2",
+        "source:fixture-research:evt_wsl_2026_portugal:revision-229b4960f5149d3d1c4ee5f478158103344df2ea6369f469070f6254e004c646:3"
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-15T22:13:16.591Z"
+      }
+    },
+    {
+      "id": "projection:mlb-context:849817",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture-mlb-849817",
+        "fixture:mlb:849817"
+      ],
+      "researchDepth": 5,
+      "hook": "Caminero faces the club that traded him: this matchup puts two development stories on the same October stage.",
+      "synopsis": "Game 4 belongs to an American League Championship Series shaped by connected organisations and contrasting routes into the majors. Watch how each club creates opportunities rather than assuming the same players will decide every game. The official schedule retains a timing contingency tied to the National League series; no definitive revised clock or game-specific starter is asserted in this preview.",
+      "formCopy": "Tampa Bay's Junior Caminero has a direct connection with Cleveland, the organisation that traded him in 2021. Across the diamond is Jose Ramirez, a friend and player he admires. Cleveland's own story includes first-round selections Gavin Williams, Chase DeLauter and Travis Bazzana. Those histories establish the people involved, not a confirmed Game 4 lineup or pitching assignment.",
+      "closingCopy": "A trade is usually judged in hindsight. Here it becomes something supporters can see in real time: a player Cleveland once held facing the club that helped introduce him to professional baseball. Friendship with Ramirez adds familiarity without making the contest less exacting. Neither connection needs an invented revenge motive to make a plate appearance worth watching.",
+      "threadIds": [
+        "thread:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:0",
+        "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:1",
+        "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:2",
+        "fact:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:0",
+        "source:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:1",
+        "source:fixture-research:fixture-mlb-849817:revision-d125c96711b8bc6e5be3c089d3e413ba75e889b6791144122b97a3a863649dad:2"
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-16T22:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-15T22:13:16.591Z"
+      }
+    },
+    {
+      "id": "projection:mlb-context:849808",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture-mlb-849808",
+        "fixture:mlb:849808"
+      ],
+      "researchDepth": 5,
+      "hook": "If Game 5 is needed, a familiar October pairing asks a fresh question of Milwaukee's hitters and the champion Dodgers.",
+      "synopsis": "This fixture remains conditional. If the series reaches Game 5, its actual stakes, starters and availability must come from the next official announcements rather than being reverse-engineered from the game number. This preview offers result-neutral rematch context only; it does not imply Game 4 has finished or that either club needs one particular result.",
+      "formCopy": "Los Angeles and Milwaukee met in the previous year's NLCS. The Dodgers entered 2026 as consecutive World Series champions; Milwaukee's current postseason reporting features Jake Bauers' patient approach and Jackson Chourio's place in the club's October history. These are participant references, not a confirmed Game 5 lineup, pitching assignment or series position.",
+      "closingCopy": "Repeating an opponent does not repeat a game. For supporters, the useful comparison is in the decisions: whether hitters stay disciplined, whether managers find the matchup they want and whether players can create a different contest from familiar names. That is enough narrative without turning last year's meeting into a prediction or assigning feelings to the players.",
+      "threadIds": [
+        "thread:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:0",
+        "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:1",
+        "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:2",
+        "fact:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:0",
+        "source:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:1",
+        "source:fixture-research:fixture-mlb-849808:revision-f027bd167784d72ef2cc4416a158aef8371db90fe23b21329c2663e1a395d838:2"
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-15T22:13:16.591Z"
+      }
+    },
+    {
+      "id": "projection:mlb-context:849816",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture-mlb-849816",
+        "fixture:mlb:849816"
+      ],
+      "researchDepth": 5,
+      "hook": "Ramirez and Caminero turn a friendship across the diamond into a test of attention, not a manufactured grudge.",
+      "synopsis": "This preview keeps Game 5 separate from the events that precede it. No clinching scenario, bullpen rest advantage or current series tally is assumed. The sporting question is how Cleveland and Tampa Bay turn their developing talent into precise decisions under postseason pressure. Any later stakes or starting-pitcher announcement requires its own confirmed evidence.",
+      "formCopy": "MLB's account of Jose Ramirez and Junior Caminero describes friendship and admiration between opposing third basemen. Cleveland also brings a development story involving Williams, DeLauter and Bazzana; Tampa Bay's Caminero once belonged to Cleveland's system. None of that confirms the Game 5 starters, lineup or either club's position when this game arrives.",
+      "closingCopy": "An October opponent does not have to be a stranger. The interest here is the contrast between a respected veteran and a younger player who looks up to him, now wearing different uniforms. Supporters can appreciate that shared history without pretending friendship predicts a pitch, a swing or a moment of restraint. Familiarity makes the people clearer; the contest still has to be played.",
+      "threadIds": [
+        "thread:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:0",
+        "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:1",
+        "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:2",
+        "fact:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:0",
+        "source:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:1",
+        "source:fixture-research:fixture-mlb-849816:revision-e75550b4f96ef148397c2a41935abf449842f418665563402393d0b9ce7db1f4:2"
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-15T22:13:16.591Z"
+      }
+    },
+    {
+      "id": "projection:mlb-context:849806",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture-mlb-849806",
+        "fixture:mlb:849806"
+      ],
+      "researchDepth": 5,
+      "hook": "A possible return to Milwaukee would put home support around a contest between patient at-bats and championship experience.",
+      "synopsis": "Game 6 is listed only if required; a published date is not confirmation that the series will return to Milwaukee. No outcome from an earlier game, elimination scenario or rest advantage is supplied here. A later official continuation decision and game-specific team news must settle those details before the conditional fixture becomes a confirmed occasion.",
+      "formCopy": "MLB's postseason reporting identifies Jake Bauers' patient plate appearances and Jackson Chourio's place in Milwaukee's club history. The Dodgers arrive in this postseason as the two-time defending champions. Neither that experience nor the clubs' 2025 NLCS meeting establishes the lineup, starters or balance of this potential Game 6.",
+      "closingCopy": "A home crowd can give an occasion its sound, but it cannot manufacture the extra pitch a hitter leaves alone or the contact that follows. If this game takes place, those small decisions are a more useful viewing thread than a generic promise of October drama. Milwaukee's named hitters and Los Angeles' established championship core give the meeting recognisable characters.",
+      "threadIds": [
+        "thread:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:0",
+        "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:1",
+        "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:2",
+        "fact:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:0",
+        "source:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:1",
+        "source:fixture-research:fixture-mlb-849806:revision-2bcf74178e26f071d6fe3a5bd5a3a33547119c69aa8dd51cdd2e0243559e0808:2"
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-15T22:13:16.591Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event:horse-racing:the-everest:2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_horse_racing_the_everest_2026",
+        "event:horse-racing:the-everest:2026"
+      ],
+      "researchDepth": 5,
+      "hook": "Ka Ying Rising's title defence meets a first Everest for Freedman's Ninja: two very different milestones over the same sprint.",
+      "synopsis": "Royal Randwick's 1,200-metre weight-for-age contest has twelve starting places. The published draw gives viewers a way to follow how the field organises, not a guarantee of who leads or where a rider must go. Watch the balance between settling and acceleration; no race map, track bias, betting assessment or eventual finishing order is assumed.",
+      "formCopy": "ATC's published runners include defending champion Ka Ying Rising, former winner Giga Kick and Ninja. The draw places them in barriers 11, 12 and 3 respectively, with Tempted in one. Racing NSW's 15 October report names Tommy Berry for Ninja and identifies this as trainer Michael Freedman's first Everest runner. Published entries remain subject to later withdrawals and rider changes.",
+      "closingCopy": "Freedman's account of teaching Ninja to settle provides a specific human thread beside the champion's attempted repeat. Getting a horse to use its speed rather than spend it too early is an act of preparation, not a slogan about courage. The tenth running brings established title history and a trainer's first participation into one field without making either a prediction.",
+      "threadIds": [
+        "thread:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:0",
+        "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:1",
+        "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:2",
+        "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:3",
+        "fact:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:0",
+        "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:1",
+        "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:2",
+        "source:fixture-research:evt_horse_racing_the_everest_2026:revision-27f8d08054548fe86508e9d4a4bff907753b052ae10a3c9c502073534bd5427e:3"
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "editorialPhase": "preview",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-15T22:13:16.591Z"
+      }
+    },
+    {
+      "id": "projection:feed:bledisloe-sydney-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rugby-australia-new-zealand-2026-10-17",
+        "fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "fixture-rugby-wr-e3cbae12-66b3-4835-b1ce-4014b63055c8",
+        "fixture:rugby:ra:949627",
+        "fixture-rugby-ra-949627"
+      ],
+      "researchDepth": 5,
+      "hook": "Suaalii is back at centre and Meredith takes the reins: Sydney asks whether Australia's new connections can withstand New Zealand's pressure.",
+      "synopsis": "The aerial contest remains an important tactical question at Accor Stadium, but Suaalii's move inside changes where Australia deploy their threat. Potter, Jorgensen and Wright must connect the catch with the next phase while the midfield organises around them. New Zealand's McKenzie-Barrett combination offers decision-making across the backline. This is Australia's final home Test before the northern tour; announced substitutes include uncapped Harry McLaughlin-Phillips, whose appearance is not guaranteed. Stan Sport carries the match in Australia.",
+      "formCopy": "Australia have named Isaac Henry and Joseph-Aukuso Suaalii in midfield, with Declan Meredith partnering Ryan Lonergan in the halves. Ben Donaldson is unavailable through injury. Harry Potter starts on the left wing; Lukhan Salakaia-Loto reaches his 50th Test. New Zealand have named George Bower, Fabian Holland and Josh Moorby to start, with Damian McKenzie at flyhalf and Beauden Barrett at fullback. These are announced selections, not projected combinations.",
+      "closingCopy": "Meredith's familiar connection with Lonergan gives Australia's reshuffle one established reference point. Outside them, Henry and Suaalii must turn a changed midfield into a shared understanding under pressure. That is the substance behind a home crowd's hope: decisions made together, not an individual rescue act. Salakaia-Loto's milestone gives the occasion another personal thread, while the possibility of a McLaughlin-Phillips debut places a new beginning alongside that experience.",
+      "threadIds": [
+        "thread:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71"
+      ],
+      "factIds": [
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:0",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:1",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:2",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:3",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:4",
+        "fact:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:5"
+      ],
+      "sourceIds": [
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:0",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:1",
+        "source:fixture-research:rugby-australia-new-zealand-2026-10-17:revision-ab92b076c3e69391a055aeb836487055d2f98be3e0235f009991836db7155e71:2"
+      ],
+      "researchedAt": "2026-10-15T22:10:19.416Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-17T05:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-15T22:10:19.416Z"
+      }
+    },
+    {
+      "id": "projection:sport-depth:fixture-cricket-espn-1525660",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture:cricket:espn:1525660",
+        "evt_88",
+        "fixture-cricket-espn-1525660"
+      ],
+      "researchDepth": 5,
+      "hook": "South Africa reset their batting and keeping roles; Australia's question is whether flexibility can coexist with trust in Renshaw's place.",
+      "synopsis": "St George's Park hosts the middle Test. Rickelton taking the gloves changes South Africa's workload, but his batting position is unannounced. Breetzke offers another batting option, not a guaranteed place. Australia must weigh the surface, availability and balance without assuming an unfit all-rounder's overs. Sustained partnerships and disciplined pressure will matter across five days. Earlier results remain protected; Australian viewing is on Kayo and Fox Cricket.",
+      "formCopy": "South Africa have replaced Tristan Stubbs with Matthew Breetzke in their squad and assigned Ryan Rickelton the gloves. Kyle Verreynne remains as wicketkeeping cover; a squad announcement does not settle the entire XI or batting order. Australia coach Andrew McDonald says the surface will guide selection. In his 15 October update, Green had not resumed batting, while Inglis had completed net sessions in his recovery from a broken finger. Neither is a confirmed selection.",
+      "closingCopy": "Renshaw's place is the point at which two reasonable ideas collide. A team can reward a batter's comfort in a role, or keep moving its pieces to meet the next conditions. McDonald remains open-minded; Steve Waugh has publicly argued for continuity. That disagreement gives Australian supporters something more tangible than a selection slogan to watch. South Africa's altered roles put a similar question to their own dressing room: can a change of responsibilities create a more dependable batting unit?",
+      "threadIds": [
+        "thread:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:0",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:1",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:2",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:3",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:4",
+        "fact:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:5"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:0",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:1",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:2",
+        "source:fixture-research:fixture:cricket:espn:1525660:revision-e786767027e078c3d4eb1389285bb2ec59fd34c7b7b6a15d3a04fde2ea79368d:3"
+      ],
+      "researchedAt": "2026-10-15T22:10:19.416Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-10-18T08:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-10-15T22:10:19.416Z"
       }
     }
   ]

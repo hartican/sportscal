@@ -42,6 +42,16 @@ assert.equal(select([card({...fixture,date:p.plus(p.day(now),15)})]).length,0);
 assert.equal(select([card()],[]).length,0,'Repair cannot create coverage.');
 const low={...fixture,storyline:{stakes:2}};assert.equal(select([card(low)],[low]).length,0);
 const full={...fixture,selectedSentence:'Specific preview',fullSpiel:'Complete preview context'};assert(!display.needsDisplayCopy(full,now));assert.equal(select([card(full)],[full]).length,0);
+const words=count=>Array(count).fill('word').join(' ');
+const atLimit={...full,selectedSentence:words(25),fullSpiel:words(80)};
+assert(!display.needsDisplayCopy(atLimit,now),'the shared 25/80 display limits remain inclusive');
+for(const change of [{selectedSentence:words(26)},{fullSpiel:words(81)}]){
+ const overlong={...full,...change};assert(display.needsDisplayCopy(overlong,now),'either spoiler state must satisfy the intact shared display limits');
+ assert.equal(select([card(overlong,{last_checked_at:now.toISOString()})],[overlong]).length,1,'invalid display copy remains repairable after a recent successful check');
+ assert.equal(select([card(overlong,{held:true})],[overlong]).length,0,'display length repair never overrides a hold');
+ for(const blocked of [{status:'live'},{status:'completed'},{id:'evt_84'},{date:p.plus(p.day(now),15)}]){const stopped={...overlong,...blocked};assert.equal(select([card(stopped)],[stopped]).length,0,'display length repair retains kickoff, protection and horizon boundaries');}
+}
+for(const field of ['hookSpoilerOff','hookSpoilerOn','synopsisSpoilerOff','synopsisSpoilerOn']){const completed={...full,status:'completed',storyline:{stakes:4,hookSpoilerOff:'Safe hook',hookSpoilerOn:'Safe hook',synopsisSpoilerOff:'Safe context',synopsisSpoilerOn:'Safe context',[field]:words(field.startsWith('hook')?26:81)}};assert(display.needsDisplayCopy(completed,now),'both displayed completed spoiler states retain the shared length limits');assert.equal(select([card(completed)],[completed]).length,0,'post-match copy cannot enter the pre-kickoff repair owner');}
 const staged={hook:'Retained hook',formCopy:'Retained form',closingCopy:'Retained storyline',synopsis:'Retained context'};
 const checked={last_checked_at:now.toISOString(),staged_copy:staged};
 assert.equal(select([card(full,checked,true)],[full])[0].repairReason,'unpublished-staged-copy','Recent checks must not conceal unpublished copy.');
