@@ -26,6 +26,19 @@ async function main(){
     assert(arrivals.every(r=>r.url==='https://www.youtube.com/watch?v='+video.id));assert.equal(searches,1);assert.equal(metadata,1,'Separate workers reuse the committed selection');
     await db.query("update public.nothingsports_youtube_selections set selected_at=clock_timestamp()-interval '2 hours'");
     assert.equal((await createTopResultResolver({...options,fetchImpl:found}).resolve(fixture,now)).url,arrivals[0].url);assert.equal(searches,1);assert.equal(metadata,2,'An old selection is checked by ID without another search');
+    await db.query("update public.nothingsports_youtube_selections set selected_at=clock_timestamp()-interval '2 hours'");
+    let beginCheck,releaseCheck;const checking=new Promise(r=>beginCheck=r),released=new Promise(r=>releaseCheck=r);
+    const rejecting=createTopResultResolver({...options,fetchImpl:async url=>{if(new URL(url).pathname.endsWith('/videos')){beginCheck();await released;}return Response.json({items:[]});}}).resolve(fixture,now);
+    const rejected=rejecting.catch(e=>e);await checking;
+    const follower=createTopResultResolver({...options,fetchImpl:()=>assert.fail('The waiting worker cannot spend after a shared rejection'),pause:async()=>{releaseCheck();await rejected;}});
+    await assert.rejects(follower.resolve(fixture,now),'A waiting worker cannot resurrect a video withdrawn by current metadata');await assert.rejects(rejecting);
+    assert.equal((await db.query('select video_id from public.nothingsports_youtube_selections')).rows[0].video_id,null);
+    await reset();await createTopResultResolver({...options,fetchImpl:found}).resolve(fixture,now);
+    await db.query("update public.nothingsports_youtube_selections set selected_at=clock_timestamp()-interval '2 hours'");
+    const withdrawalFailure=async(path,o)=>{if(path.endsWith('/nothingsports_withdraw_youtube_lookup'))throw Error('controlled database timeout');return request(path,o);};
+    await assert.rejects(createTopResultResolver({...options,request:withdrawalFailure,fetchImpl:async()=>Response.json({items:[]})}).resolve(fixture,now),/controlled database timeout/);
+    assert.equal((await db.query('select video_id from public.nothingsports_youtube_selections')).rows[0].video_id,null,'Failure finalisation also clears a known rejected video');
+    await assert.rejects(createTopResultResolver({...options,fetchImpl:()=>assert.fail('Cooldown cannot resurrect rejected media')}).resolve(fixture,now));
     await reset();
     const hash='a'.repeat(64),otherHash='b'.repeat(64),token='11111111-1111-4111-8111-111111111111',other='22222222-2222-4222-8222-222222222222';
     const rpc=async(name,values)=>(await db.query('select public.nothingsports_'+name+'('+values.map((_,i)=>'$'+(i+1)).join(',')+') as r',values)).rows[0].r;
@@ -36,6 +49,14 @@ async function main(){
     assert(!(await rpc('reserve_youtube_lookup_quota',[id,hash,token,'search'])).granted);
     assert(!(await rpc('finish_youtube_lookup',[id,hash,token,'no_results',null,null])).applied,'Stale completion cannot overwrite a replacement owner');
     assert.equal((await db.query('select search_calls from public.nothingsports_youtube_api_daily')).rows[0].search_calls,1);
+    // Model a midnight boundary where the existing authority assigns its
+    // reservation a different day from the wrapper's entry clock. Roll back
+    // this local stub so the real authority and ledger are never replaced.
+    await db.exec("reset role;begin;create or replace function public.nothingsports_reserve_youtube_quota(p_bucket text,p_source_token uuid default null) returns jsonb language plpgsql security invoker set search_path='' as $$begin return jsonb_build_object('granted',true,'quota',jsonb_build_object('day',((clock_timestamp() at time zone 'America/Los_Angeles')::date+1)::text));end;$$;set role service_role;");
+    const boundaryId='fixture:test:pacific-boundary';
+    assert.equal((await rpc('claim_youtube_lookup',[boundaryId,hash,token])).state,'claimed');assert((await rpc('reserve_youtube_lookup_quota',[boundaryId,hash,token,'search'])).granted);
+    assert((await db.query("select lookup_quota_day=((clock_timestamp() at time zone 'America/Los_Angeles')::date+1) as correct from public.nothingsports_youtube_selections where fixture_id=$1",[boundaryId])).rows[0].correct,'Fixture attribution uses the granted reservation day, including a midnight boundary');
+    await db.exec('rollback;set role service_role;');
     await reset();
     await db.query("insert into public.nothingsports_youtube_api_daily(quota_day,search_calls,ordinary_calls,scheduled_search_calls) values((clock_timestamp() at time zone 'America/Los_Angeles')::date,90,0,45)");
     let playlists=0;metadata=0;
