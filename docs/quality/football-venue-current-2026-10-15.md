@@ -1,0 +1,9 @@
+# Football venue visibility — 15 October 2026
+
+Completed matches with no viewing action hid the whole viewing section, including a known ground. Retain that section when the shared venue formatter supplies a known venue or city. Unknown and deliberately empty venues keep the previous layout. Facts, dates, viewing destinations, results choices and saved activity are unchanged.
+
+The actual published OpenLigaDB fixture reproduces the bug in Feed and Schedule. The repaired shared renderer passed 96 controlled cases across Chromium/WebKit, 320/390/1280 widths, both themes, selected/opened cards and known/unknown venues; repeated More/Less and saved-choice checks also pass. No provider or customer write was made. Shell 545 includes the new runtime and stylesheet binding; fixed startup, compression and cache limits pass. Both installed 544-to-545 upgrade/offline rehearsals pass; the first concurrent Chromium rehearsal stalled on worker activation, while its sequential repeat passed. Physical-device behaviour is separate.
+
+The wider European browser suite passed the sourced-venue and unknown-status checks after replacing its obsolete status-class selector with the current exact status element. Its later navigation failure remains a separate unresolved quality check; this venue repair does not certify Football.
+
+Detailed local evidence is under `/Users/jackhartican/Documents/AI/Codex/football-quality-current-2026-10-15`. Exact GitHub, production and hosted-rendering proof must be added after the normal release succeeds.

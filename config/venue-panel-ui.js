@@ -75,6 +75,7 @@ function composeFeedCard(card,ev,{compact,renderCardState,mode}){
   const info=document.createElement('div');info.className='fixture-access';info.dataset.cardArea='essentials';
   appendEventQuickActions(info,ev,{reminder:false,chat:false});
   const venue=document.createElement('p');venue.className='fixture-venue';venue.textContent=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.womensT20(ev)?'':NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue(ev,VENUE_REGISTRY);info.append(venue);
+  info.classList.toggle('has-venue',!!venue.textContent&&venue.textContent!=='Venue TBD');
   const schedule=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
   if(cardStateForEvent(ev)==='opened'){const date=document.createElement('p');date.className='fixture-scheduled event-date-chip';date.textContent=schedule.fullSchedule;info.prepend(date);}
 
