@@ -81,7 +81,11 @@ const engine=process.env.FOOTBALL_QA_BROWSER||'chromium';assert(['chromium','web
   assert.equal(await chip.textContent(),'Awaiting match update');
   for(const width of [320,390,768,1280]){await page.setViewportSize({width,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),mode+': unconfirmed status fits '+width);}
   assert.equal(await page.locator('#qaEuropeanCards .event-timing-state.live-now, #listView .event-timing-state.just-finished').count(),0);
-  assert.equal(await page.locator('#qaEuropeanCards .nsc-rating-blocks').count(),0,'unknown status must not invent a local post-match rating prompt');
+  const waitingRating=page.locator('#qaEuropeanCards .nsc-inline-rating');
+  assert.equal(await waitingRating.count(),1,'unknown status retains the approved waiting bar');
+  assert.match(await waitingRating.innerText(),/Awaiting match update/i,'unknown status cannot claim a post-match phase');
+  assert.equal(await waitingRating.locator('.nsc-rating-block:disabled').count(),5,'unknown status must keep every rating disabled');
+  assert.equal(await waitingRating.locator('[data-rating-phase="impact"]').count(),0,'unknown status must not invent a post-match phase');
  }
  const qualifiers=await page.evaluate(async()=>{const response=await fetch('/data/code-inspector/champions-league.json');return (await response.json()).fixtures.filter(f=>f.id.startsWith('major-match:ucl-2026-27:'));});
  assert.equal(qualifiers.length,7);
