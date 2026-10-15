@@ -9,6 +9,12 @@ const now=new Date('2026-10-15T00:00:00Z');
 const fixture=id=>{const event=events.find(e=>e.id===id);assert(event,id);return event;};
 const video=(title,description='')=>({title,description,publishedAt:'2026-10-14T20:00:00Z',channelId:'unreviewed'});
 function main(){
+  const seasonFixture=fixture('epl-2026-27-128973');
+  for(const season of ['25/26','25-26','25–26','2025/26'])assert.equal(selection.contextMatches(video(seasonFixture.name+' | Premier League '+season+' Highlights'),seasonFixture,now),false,'short prior season cannot borrow a fresh upload: '+season);
+  for(const season of ['26/27','26-27','26–27','2026/27'])assert(selection.contextMatches(video(seasonFixture.name+' | Premier League '+season+' Highlights'),seasonFixture,now),'sourced current season alias stays valid: '+season);
+  const premierClass={...require('../data/follow-schedule/motogp.json').fixtures.find(e=>e.id==='event:motogp:2026:indonesia'),status:'completed'};
+  for(const category of ['Moto2','Moto3','MotoE'])assert.equal(selection.contextMatches(video('MotoGP Indonesia Grand Prix | '+category+' Race Highlights | MotoGP'),premierClass,now),false,'MotoGP branding cannot certify another class: '+category);
+  assert(selection.contextMatches(video('MotoGP Indonesian GP Race Highlights 2026'),premierClass,now),'actual premier-class race remains valid');
   const baseball=fixture('fixture-mlb-849832');
   for(const date of ['October 1, 2026','1 October 2026','Oct 1st, 2026'])assert.equal(selection.contextMatches(video(baseball.name+' | '+date+' Highlights'),baseball,now),false,'fresh upload cannot renew a different explicitly dated game: '+date);
   assert(selection.contextMatches(video(baseball.name+' | October 9, 2026 Highlights'),baseball,now),'matching month-name game date remains accepted');
