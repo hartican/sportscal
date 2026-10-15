@@ -1,5 +1,5 @@
 name: Canonical card refresh
-run-name: Read-only single-request timing diagnosis
+run-name: Read-only fixture transport preflight
 on:
   workflow_dispatch:
 permissions:
@@ -20,9 +20,9 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-        run: node diagnostics/measure-one-part.js
+        run: node scripts/verify-complete-fixture-transport.js --live-read --scope-file=diagnostics/public-fixture-transport-scope.json --output=transport-proof.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: read-only-timing-diagnosis
-          path: one-part-timing.json
+          name: read-only-transport-proof
+          path: transport-proof.json
