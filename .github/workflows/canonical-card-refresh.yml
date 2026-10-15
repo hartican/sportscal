@@ -1,118 +1,28 @@
 name: Canonical card refresh
-
+run-name: Read-only fixture transport preflight
 on:
   workflow_dispatch:
-    inputs:
-      quick:
-        description: Verify the daily incremental refresh instead of full reconciliation
-        type: boolean
-        default: false
-  schedule:
-    - cron: "0 3 * * *"
-      timezone: Australia/Sydney
-
 permissions:
-  contents: write
-  actions: write
-
+  contents: read
 concurrency:
   group: canonical-card-refresh
   cancel-in-progress: false
-
 jobs:
-  refresh:
-    runs-on: macos-15
-    timeout-minutes: 90
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
     steps:
-      - name: Select tournament or baseline cadence
-        id: cadence
-        shell: bash
-        run: |
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "quick=${{ inputs.quick && '1' || '0' }}" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "run=true" >> "$GITHUB_OUTPUT"
-          if [[ "$(TZ=Australia/Sydney date +%u)" == "7" ]]; then
-            echo "quick=0" >> "$GITHUB_OUTPUT"
-          else
-            echo "quick=1" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Check out main
-        if: steps.cadence.outputs.run == 'true'
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          ref: main
-          fetch-depth: 0
-
-      - name: Set up Node
-        if: steps.cadence.outputs.run == 'true'
-        uses: actions/setup-node@v5
-        with:
-          node-version: 24
-          cache: npm
-
-      - name: Install project and deployment dependencies
-        if: steps.cadence.outputs.run == 'true'
-        run: |
-          npm ci
-          npm install --global vercel@59.1.4
-
-      - name: Link the immutable deployment target
-        if: steps.cadence.outputs.run == 'true'
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: |
-          mkdir -p .vercel
-          node -e 'const fs=require("node:fs"); fs.writeFileSync(".vercel/project.json", JSON.stringify({orgId:process.env.VERCEL_ORG_ID,projectId:process.env.VERCEL_PROJECT_ID}, null, 2) + "\n", {mode:0o600})'
-
-      - name: Configure release author
-        if: steps.cadence.outputs.run == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Refresh, validate, publish and deploy
-        if: steps.cadence.outputs.run == 'true'
+          node-version: 24.19.0
+      - name: Read complete public scopes without refresh or deployment
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          GH_TOKEN: ${{ github.token }}
-          TOURNAMENT_HYDRATION_REPORT: ${{ runner.temp }}/tournament-hydration-report.json
-          FOOTBALL_DATA_API_TOKEN: ${{ secrets.FOOTBALL_DATA_API_TOKEN }}
-          FOOTBALL_DATA_REPORT: ${{ runner.temp }}/football-data-backup-report.json
-          QUICK_RESULTS_REPORT: ${{ runner.temp }}/quick-results-report.json
-          KNOWN_FINAL_RESULTS_REPORT: ${{ runner.temp }}/known-final-results-report.json
-          GOLF_SOURCE_REPORT: ${{ runner.temp }}/golf-source-report.json
-          WRC_SOURCE_FAILURE_REPORT: ${{ runner.temp }}/wrc-source-failure.json
-          RELEASE_COMMIT_MESSAGE: Automated canonical sports refresh
-          QUICK_RESULTS: ${{ steps.cadence.outputs.quick }}
-        run: bash scripts/update-sportscal-cards-and-release.sh
-
-      - name: Clean temporary and replaced profile pictures
-        if: always() && github.event_name == 'schedule' && steps.cadence.outputs.run == 'true'
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: node scripts/maintain-profile-avatars.js
-
-      - name: Preserve tournament hydration report
+        run: node scripts/verify-complete-fixture-transport.js --live-read --scope-file=diagnostics/public-fixture-transport-scope.json --output=transport-proof.json
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: tournament-hydration-report
-          path: |
-            ${{ runner.temp }}/tournament-hydration-report.json
-            ${{ runner.temp }}/quick-results-report.json
-            ${{ runner.temp }}/known-final-results-report.json
-            ${{ runner.temp }}/football-data-backup-report.json
-            ${{ runner.temp }}/golf-source-report.json
-            ${{ runner.temp }}/wrc-source-failure.json
-          if-no-files-found: ignore
-          retention-days: 14
+          name: read-only-transport-proof
+          path: transport-proof.json
