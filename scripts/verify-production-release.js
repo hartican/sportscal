@@ -8,6 +8,7 @@ async function main(){
   const sha=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
   const live=v.project().targets?.production;
   if(live?.readyState!=='READY'||v.sha(live)!==sha)throw new Error('Production READY/SHA mismatch');
+  const aliases=require('./lib/production-aliases').ensureProductionAliases(live);
   const checks=[];
   for(const file of ['index.html','service-worker.js','data/feed-meta.json','data/events.json','app-version.json']){
     const response=await fetch(`https://nothingsport.vercel.app/${file==='index.html'?'':file}?verify=${sha}-${Date.now()}`);
@@ -29,7 +30,7 @@ async function main(){
     await encodedResponse.body?.cancel();
     internalSources.push({file,status:response.status,code:body.code,cacheControl:response.headers.get('cache-control'),encodedStatus:encodedResponse.status});
   }
-  const report={checkedAt:new Date().toISOString(),sha,deployment:v.summary(live),checks,unauthenticated:401,internalSources};
+  const report={checkedAt:new Date().toISOString(),sha,deployment:v.summary(live),aliases,checks,unauthenticated:401,internalSources};
   if(process.env.NS_DEPLOY_REPORT_DIR){fs.mkdirSync(process.env.NS_DEPLOY_REPORT_DIR,{recursive:true});fs.writeFileSync(path.join(process.env.NS_DEPLOY_REPORT_DIR,'production-verification.json'),JSON.stringify(report,null,2));}
   console.log(JSON.stringify(report,null,2));
 }
