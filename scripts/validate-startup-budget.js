@@ -5,6 +5,7 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const vm = require("node:vm");
+require('./validate-feed-page-budget');
 
 const serviceWorker = fs.readFileSync("service-worker.js", "utf8");
 const html = fs.readFileSync("index.html", "utf8");

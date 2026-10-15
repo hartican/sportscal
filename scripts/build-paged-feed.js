@@ -10,6 +10,7 @@ const SOURCE_PATH = path.join(ROOT, "data/events.json");
 const OUTPUT_DIR = path.join(ROOT, "data/feed");
 const MANIFEST_PATH = path.join(OUTPUT_DIR, "manifest.json");
 const PAGE_SIZE = 20;
+const FIRST_PAGE_MAX_BYTES = 100 * 1024;
 const RETENTION_DAYS = 14;
 
 function stableEventId(event){
@@ -56,24 +57,31 @@ function buildPagedFeed(source){
   if (!source || !Array.isArray(source.events)) throw new Error("Published events.json is invalid");
   const publishedEvents = retainedEvents(source);
   const pages = [];
-  for (let offset = 0; offset < publishedEvents.length; offset += PAGE_SIZE){
-    const pageNumber = Math.floor(offset / PAGE_SIZE) + 1;
+  for (let offset = 0; offset < publishedEvents.length;){
+    const pageNumber = pages.length + 1;
     const fileName = `page-${String(pageNumber).padStart(3, "0")}.json`;
     const events = publishedEvents.slice(offset, offset + PAGE_SIZE);
+    const payload = {
+      schemaVersion: "public-feed-page.v2",
+      sourceVersion: source.version || "",
+      sourcePublishedAt: source.publishedAt || null,
+      page: pageNumber - 1,
+      events,
+    };
+    if(pageNumber===1){
+      const bytes=()=>Buffer.byteLength(JSON.stringify(payload)+'\n');
+      while(events.length>1&&bytes()>FIRST_PAGE_MAX_BYTES)events.pop();
+      if(bytes()>FIRST_PAGE_MAX_BYTES)throw new Error('First feed fixture exceeds the startup byte budget: '+stableEventId(events[0]));
+    }
     pages.push({
       index: pageNumber - 1,
       path: `data/feed/${fileName}`,
       eventCount: events.length,
       firstEventId: stableEventId(events[0]),
       lastEventId: stableEventId(events.at(-1)),
-      payload: {
-        schemaVersion: "public-feed-page.v2",
-        sourceVersion: source.version || "",
-        sourcePublishedAt: source.publishedAt || null,
-        page: pageNumber - 1,
-        events,
-      },
+      payload,
     });
+    offset += events.length;
   }
   return {
     schemaVersion: "public-feed.v2",
@@ -117,4 +125,4 @@ function main(){
 
 if (require.main === module) main();
 
-module.exports = { PAGE_SIZE, RETENTION_DAYS, buildPagedFeed, retainedEvents, writePagedFeed };
+module.exports = { PAGE_SIZE, FIRST_PAGE_MAX_BYTES, RETENTION_DAYS, buildPagedFeed, retainedEvents, writePagedFeed };
