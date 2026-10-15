@@ -33,11 +33,19 @@ async function run(){
   await db.exec('COMMIT');assert.equal(await pending(),0);assert.equal((await read()).complete,true,'A correct repair can commit without a reset');checks++;
   await db.exec('SET ROLE service_role');await db.query('DELETE FROM public.nothingsports_fixture_current WHERE source_id=$1',[source]);
   assert.equal(await pending(),0,'Canonical deletion validates cascades and final token removal');checks++;
+  const token=require('node:crypto').randomUUID(),batch=Array.from({length:1000},(_,i)=>({...fixture,id:'lab:commit:bulk:'+i}));
+  await db.query('UPDATE public.nothingsports_fixture_sources SET next_due_at=clock_timestamp() WHERE source_id=$1',[source]);
+  assert.equal((await db.query('SELECT * FROM public.nothingsports_claim_fixture_source($1,$2)',[source,token])).rows.length,1);
+  const began=performance.now();
+  await db.query('SELECT public.nothingsports_publish_compact_scores($1,$2,$3,$4,$5,$6,$7)',[source,token,JSON.stringify(batch),JSON.stringify(batch.map(f=>({id:f.id,status:f.status}))),token,120000,'{}']);
+  const bulkPublishMs=Math.round(performance.now()-began);
+  assert.equal(await pending(),0,'The actual 1000-fixture canonical publisher commits a validated index');
+  assert.equal((await read()).rowCount,1000,'The full published scope remains complete');checks++;
   await db.exec('RESET ROLE');
   for(const role of ['anon','authenticated']){
    await db.exec('SET ROLE '+role);await assert.rejects(db.query('SELECT * FROM nothingsports_fixture_read_private.integrity_pending'),/permission denied/);await db.exec('RESET ROLE');checks++;
   }
-  console.log(JSON.stringify({passed:true,checks,actualSql:true,serviceWriter:true,commitRefusal:true,productionChanged:false}));
+  console.log(JSON.stringify({passed:true,checks,actualSql:true,serviceWriter:true,commitRefusal:true,bulkFixtures:1000,bulkPublishMs,productionChanged:false}));
  }finally{await db.close();}
 }
 if(require.main===module)run().catch(e=>{console.error(e);process.exitCode=1;});
