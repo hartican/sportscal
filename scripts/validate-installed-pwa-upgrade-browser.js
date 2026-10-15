@@ -50,7 +50,13 @@ async function assertCachedFixtureHighlights(page){
       const link=host.querySelector('.fixture-highlights-link');return {id:stored.id,url:link?.href,label:link?.textContent,external:link?.target==='_blank',noVideoTitle:!host.textContent.includes(stored.highlights.matchTitle),metadataPreserved:JSON.stringify(stored.highlights)===JSON.stringify(fixture.highlights)};
     });}finally{activeTab=tab;cardViewStates=states;}
   },fixtures);
-  for(let i=0;i<fixtures.length;i++){assert.equal(results[i].url,fixtures[i].highlights.url);assert.match(results[i].label,/Watch highlights/);assert(results[i].external&&results[i].noVideoTitle&&results[i].metadataPreserved);}
+  for(let i=0;i<fixtures.length;i++){
+    const url=new URL(results[i].url);
+    assert.equal(url.pathname,'/api/fixtures','Upgraded and offline cards retain the current-policy highlights resolver');
+    assert.equal(url.searchParams.get('mode'),'highlight');
+    assert.equal(url.searchParams.get('ids'),fixtures[i].canonicalEventId||fixtures[i].eventId||fixtures[i].id,'The resolver stays bound to the original fixture');
+    assert.match(results[i].label,/Watch highlights/);assert(results[i].external&&results[i].noVideoTitle&&results[i].metadataPreserved);
+  }
 }
 async function assertCachedParticipantCalendar(page){
   const html=fs.readFileSync(path.join(root,'index.html'),'utf8'),modelPath=html.match(/config\/athletes\.js\?v=\d+/)?.[0],uiPath=html.match(/assets\/js\/athletes-ui\.js\?v=\d+/)?.[0];
