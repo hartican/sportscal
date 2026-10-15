@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Horse Racing picker navigation — 15 October 2026 Sydney
+
+Keep the global Men/Women sport-picker tabs visible while Horse Racing is selected, including the collapsed Sports menu. Horse Racing remains one gender-neutral sport reachable from either picker; the tabs switch browsing context and never create gendered racing categories or change follows. This clarifies the 13 October statement that Horse Racing has no gender section. Regression: `validate-follow-gender-ratings-browser.js` and `validate-horse-follow-browser.js`.
+
 Nonexistent calendar dates cannot establish a finish. The shared retirement policy checks the original calendar date before interpreting a timestamp; valid leap days and later valid completion fields remain usable.
 
 ## EPIC classics and ordinary card retirement — 14 October 2026 Sydney

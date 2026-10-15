@@ -7,7 +7,7 @@ function directoryViewFilters(key,records){
 }
 function appendDirectoryEntityTabs(host,key,filters){const tabs=document.createElement('nav');tabs.className='follow-directory-tabs';tabs.setAttribute('aria-label',directorySectionLabel(key));for(const [type,label]of [['team','Teams'],['athlete',directoryIndividualLabel(key)]]){const b=document.createElement('button');b.type='button';b.className='btn ghost';b.textContent=label;b.disabled=type==='team'&&!filters.teamsAvailable;if(b.disabled){b.style.opacity='.45';b.title='No teams are available for this sport.';}b.setAttribute('aria-pressed',String(filters.entityType===type));b.onclick=()=>{updateDirectoryFilters(key,{entityType:type});renderStandingsContext();};tabs.append(b);}host.append(tabs);}
 "use strict";
-// Optional Follow presentation. Admission, preferences and mutations stay in the shell.
+// Follow UI; admission and mutations stay in the shell.
 function buildDirectorySelect(label, value, options, onChange){
   const field = document.createElement("label");
   field.className = "football-directory-field";
@@ -526,7 +526,7 @@ function renderFollowViewLoaded(){
   const genderTabs=document.createElement('nav');genderTabs.className='follow-gender-tabs events-view-tabs';genderTabs.setAttribute('role','tablist');genderTabs.setAttribute('aria-label','Browse sports gender');
   for(const [value,label]of [['men','Men'],['women','Women']]){const button=document.createElement('button');button.type='button';button.className='btn ghost'+(value===gender?' active':'');button.textContent=label;button.setAttribute('role','tab');button.setAttribute('aria-selected',String(value===gender));button.onclick=()=>{if(value===gender)return;const sportId=value==='women'?'sport:tennis-women':rankedFollowGridSports(BASE_SPORT_SELECTOR_ENTITIES.filter(e=>Number(e.level)===2&&!female(e)))[0]?.id||'sport:afl';const genderRoutes={...(state.genderRoutes||{}),[gender]:{sportId:state.sportId,categoryId:state.categoryId,section:state.section}};saveFollowBrowse({sportId,categoryId:'',section:'teams-players',...(genderRoutes[value]||{}),gender:value,genderRoutes});activeInspectorCodeId=null;renderFollowView();};genderTabs.append(button);}
   for(const [index,button]of [...genderTabs.children].entries())button.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const target=event.key==='Home'?0:event.key==='End'?1:1-index;genderTabs.children[target].click();requestAnimationFrame(()=>container.querySelector('.follow-gender-tabs [aria-selected="true"]')?.focus({preventScroll:true}));});
-  if(!raceOnly)container.insertBefore(genderTabs,retainedBar);
+  container.insertBefore(genderTabs,retainedBar);
   const primarySports=rankedFollowGridSports(sports);
   if(gender==='women'&&!primarySports.length){const tennis=sports.find(e=>e.id==='sport:tennis-women');if(tennis)primarySports.push(tennis);}
   const primaryIds=primarySports.map(entity=>entity.id);
