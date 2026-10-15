@@ -1,11 +1,13 @@
 'use strict';
-const assert=require('node:assert/strict');const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-(async()=>{const browser=await chromium.launch({channel:'chrome'});try{
+const assert=require('node:assert/strict');const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const engine=process.env.FOOTBALL_QA_BROWSER||'chromium';assert(['chromium','webkit'].includes(engine));
+(async()=>{const browser=await (engine==='webkit'?webkit:chromium).launch(engine==='chromium'?{channel:'chrome'}:{});try{
  const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'});
  await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({selectedSelectorEntityIds:['sport:football'],onboardingComplete:true,showSpoilers:false,preferenceGraph:{entityFollows:[{participantId:'team:football:epl:10',followLevel:'follow'}]}})));
  await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:33991');
  await page.waitForFunction(()=>typeof saveFollowBrowse==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
+ await page.locator('.tab-btn[data-tab="follow"]').click();
  await page.evaluate(()=>{activeTab='follow';followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();});
  await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='sport:football'&&!codeInspectorChunkLoading);
  const counts=await page.evaluate(()=>Object.fromEntries(['competition:uefa-champions-league','competition:uefa-europa-league'].map(id=>[id,codeInspectorChunk.fixtures.filter(f=>f.competitionId===id&&f.sourceAttribution?.provider==='OpenLigaDB').length])));
@@ -121,22 +123,30 @@ const assert=require('node:assert/strict');const {chromium}=require(process.env.
    await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({selectedSelectorEntityIds:['sport:football'],onboardingComplete:true,showSpoilers:false,preferenceGraph:{entityFollows:[]}})));
    await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:33991');
    await page.waitForFunction(()=>typeof saveFollowBrowse==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
+   await page.locator('.tab-btn[data-tab="follow"]').click();
    await page.evaluate(()=>{activeTab='follow';followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();});
    await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='sport:football'&&!codeInspectorChunkLoading);
  // Chunk readiness is earlier than the deferred Follow presentation. Exercise
  // the shipped schedule-link control against settled UI, not a loading frame.
- const settled=competition=>{const view=document.querySelector('#listView');if(!view?.querySelector('.event-card')||view.innerText.includes('Loading schedule'))return false;if(!competition)return true;const known=new Map(codeInspectorChunk.fixtures.map(f=>[f.id,f.competitionId]));return [...view.querySelectorAll('.event-card')].every(card=>(profileFixtureEvents.get(card.dataset.eventId)?.competitionId||known.get(card.dataset.eventId))===competition);};
+ // Capture readiness and its evidence in one browser task: deferred rendering
+ // can release the Inspector chunk between a wait and a separate evaluation.
+ const settled=competition=>{
+  const view=document.querySelector('#listView'),chunk=codeInspectorChunk;
+  if(!chunk?.fixtures||!view?.querySelector('.event-card')||view.innerText.includes('Loading schedule'))return null;
+  if(!competition)return true;
+  const known=new Map(chunk.fixtures.map(f=>[f.id,f.competitionId])),cards=[...view.querySelectorAll('.event-card')];
+  const competitions=cards.map(card=>profileFixtureEvents.get(card.dataset.eventId)?.competitionId||known.get(card.dataset.eventId));
+  if(!competitions.every(id=>id===competition))return null;
+  return {scope:followBrowseState().scheduleScope?.competitionId,competitions,cards:cards.map(card=>({dataset:{...card.dataset},classes:card.className,text:card.innerText.slice(0,220)})),overflow:document.documentElement.scrollWidth>innerWidth+1};
+ };
  await page.waitForFunction(settled,null,{timeout:15000});
  for(const competition of Object.keys(counts)){
-  await page.evaluate(competition=>{const f=codeInspectorChunk.fixtures.find(f=>f.competitionId===competition&&f.status==='upcoming');const link=buildFeedScheduleLink(f);link.id='qa-european-schedule-link';document.body.append(link);},competition);
+  const routeFixture=require('../data/code-inspector/football.json').fixtures.find(f=>f.competitionId===competition&&f.status==='upcoming');assert(routeFixture,'Published routing fixture exists');
+  await page.evaluate(f=>{const link=buildFeedScheduleLink(f);link.id='qa-european-schedule-link';document.body.append(link);},routeFixture);
   await page.locator('#qa-european-schedule-link').click();
   await page.waitForFunction(competition=>followBrowseState().scheduleScope?.competitionId===competition&&!codeInspectorChunkLoading,competition,{timeout:15000});
-  await page.waitForFunction(settled,competition,{timeout:15000});
-  const scoped=await page.evaluate(()=>{
-   const known=new Map(codeInspectorChunk.fixtures.map(f=>[f.id,f.competitionId]));
-   const cards=[...document.querySelectorAll('#listView .event-card')];
-   return {scope:followBrowseState().scheduleScope.competitionId,competitions:cards.map(card=>profileFixtureEvents.get(card.dataset.eventId)?.competitionId||known.get(card.dataset.eventId)),cards:cards.map(card=>({dataset:{...card.dataset},classes:card.className,text:card.innerText.slice(0,220)})),overflow:document.documentElement.scrollWidth>innerWidth+1};
-  });
+  const scopedHandle=await page.waitForFunction(settled,competition,{timeout:15000});
+  const scoped=await scopedHandle.jsonValue();await scopedHandle.dispose();
   assert.equal(scoped.scope,competition);assert(scoped.competitions.length>0,'settled route renders actual published match cards');
   if(!scoped.competitions.every(id=>id===competition)&&process.env.QA_FAILURE_FILE)require('node:fs').writeFileSync(process.env.QA_FAILURE_FILE,JSON.stringify({competition,scoped},null,2)+'\n');assert(scoped.competitions.every(id=>id===competition),'competition schedule link cannot admit another league or legacy stage');
   assert.equal(scoped.overflow,false,'scoped mobile schedule fits the viewport');
