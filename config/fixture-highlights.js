@@ -6,7 +6,7 @@
   const youtube={providerId:'youtube',label:'YouTube',actionLabel:'YouTube',logoPath:'assets/providers/youtube.png',highlights:true,highlightsLabel:'Watch highlights'};
   const fresh=(stamp,now=Date.now())=>{const age=+now-Date.parse(stamp);return age>=-300000&&age<MAX_CACHE_AGE_MS;};
   const recentUpload=(stamp,now=Date.now())=>{const age=+now-Date.parse(stamp);return age>=0&&age<=MAX_UPLOAD_AGE_MS;};
-  const completed=event=>/^(completed|finished|final|past)$/i.test(event?.status||'');
+  const completed=event=>/^(completed|finished|final)$/i.test(event?.status||'');
   const epic=()=>typeof require==='function'?require('./epic-classics'):globalThis.NOTHINGSPORTS_EPIC;
   function recent(event,now=Date.now()){
     const policy=epic(),date=policy.finalDay({...event,status:'completed'},new Date(now));

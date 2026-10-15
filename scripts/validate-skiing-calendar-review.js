@@ -7,7 +7,7 @@ const seed={id:'evt_103',key:'ski',name:"Sun Valley — Men's Alpine Finals Down
 const calendar=api.qualify(seed);assert.equal(calendar.id,seed.id);assert.equal(calendar.time,null);assert.equal(calendar.startTimeUtc,null);assert.equal(calendar.timePrecision,'date-only');assert.equal(calendar.sourceCheckedAt,review.checkedAt);assert.equal(calendar.broadcaster,'Australian viewing unconfirmed');assert(!/Watch via FIS/.test(calendar.fullSpiel));
 assert.deepEqual(api.qualify(calendar),calendar,'Unchanged reruns must not refresh observations');
 assert.equal(policy.timing(calendar),null,'Calendar dates cannot create reminder clocks');
-assert.match(timing.presentation(calendar).fullSchedule,/Idaho date.*TIME TBD.*Sydney start TBD/);assert(!timing.presentation(calendar).fullSchedule.includes('(Sydney time)'));
+assert.match(timing.presentation(calendar).fullSchedule,/Idaho date.*TIME UNAVAILABLE.*Sydney start unavailable/);assert(!timing.presentation(calendar).fullSchedule.includes('(Sydney time)'));
 const exact={...calendar,sourceCheckedAt:review.checkedAt,scheduleStatus:'confirmed',timePrecision:'exact',timeTbc:false,startTimeTbc:false,startTimeUtc:'2027-03-20T20:00:00.000Z'};
 assert.deepEqual(api.qualify(exact),exact,'A verified exact start survives the old calendar review');
 const normalized=identity.normalizeCore(exact);assert.equal(normalized.date,'2027-03-21');assert.equal(normalized.dateOnly,false);assert(!normalized.displayDateLabel);assert(!normalized.endDate,'Old venue day cannot become a backwards Sydney range');assert.match(timing.presentation(normalized).fullSchedule,/21 MAR.*Sydney time/);

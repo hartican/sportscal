@@ -31,7 +31,7 @@ async function run(){
     assert.equal(result.actions,0,'Real completed fixture reproduces the empty viewing action path');
     assert.equal(result.visible,known,'Known venue remains visible; an unknown venue keeps the prior compact layout');
     assert.equal(result.accessVisible,known);assert(result.choicesUnchanged&&!result.overflow);
-    if(known)assert.notEqual(result.text,'Venue TBD');else assert.equal(result.text,'Venue TBD');
+    if(known)assert(result.text&&!/TBD|TBC/.test(result.text));else assert.equal(result.text,undefined,'Missing venue data leaves no invented venue or placeholder row');
     proof.cases.push({engine,width,theme,surface,state,known,...result});
     if(process.env.VENUE_QA_OUTPUT&&width===390&&theme==='day'&&known&&state==='opened'){
      fs.mkdirSync(process.env.VENUE_QA_OUTPUT,{recursive:true});await page.locator('#qaVenue .event-card').screenshot({path:path.join(process.env.VENUE_QA_OUTPUT,`${engine}-${surface}-venue.png`)});

@@ -6,7 +6,9 @@ for(const [day,suffix] of [[1,'1ST'],[2,'2ND'],[3,'3RD'],[11,'11TH'],[12,'12TH']
 assert.equal(p.dateBanner('2026-09-25',now),'FRI 25 SEP');assert.match(p.dateBanner('2027-01-01',now),/2027$/);
 assert.equal(p.venue({venue:'Suncorp Stadium',venueCity:'Brisbane'},v),'Suncorp Stadium, Brisbane');
 assert.equal(p.venue({venue:'MCG',venueCity:'Melbourne'},v),'Melbourne Cricket Ground, Melbourne');
-assert.equal(p.venue({venue:'Unknown'},v),'Venue TBD');
+for(const venue of [null,'','Unknown','TBD','TBC','Venue TBD','Venue TBC','Location TBD','Venue to be determined','To be confirmed'])assert.equal(p.venue({venue},v),'','Missing venue data is not an undecided venue');
+assert.equal(p.venue({venue:'TBD',venueCity:'Manchester'},v),'Manchester','A sourced city remains useful when the stadium is missing');
+assert.equal(p.venue({venue:'TBD',venueCity:'Location TBD'},v),'','A second placeholder cannot become a venue');
 assert.equal(p.venue({venue:'Suncorp Stadium'},v),'Suncorp Stadium, Brisbane','cached projections can recover reviewed venue location');
 const fixture={competitionId:'competition:nrl-premiership-2026',startTimeUtc:'2026-09-25T09:50:00Z'};
 const data={ladderSnapshots:[{competitionId:fixture.competitionId,snapshotTimeUtc:'2026-09-23T00:00:00Z',entries:[{participantId:'team:nrl:9538',rank:3}]},{competitionId:fixture.competitionId,snapshotTimeUtc:'2026-09-30T00:00:00Z',entries:[{participantId:'team:nrl:9538',rank:1}]}]};
@@ -31,7 +33,7 @@ try{
 }finally{fs.rmSync(dir,{recursive:true,force:true});}
 for(const status of ['live','completed','postponed','cancelled'])assert(t.presentation({...fixture,status},now).primary===t.presentation({...fixture,status},now).status);
 assert.equal(t.presentation({...fixture,date:'2026-09-25',timePrecision:'follows'},now).primary,'FOLLOWS PRIOR MATCH');
-assert.equal(t.presentation({...fixture,timeTbc:true},now).primary,'TIME TBD');
+assert.equal(t.presentation({...fixture,timeTbc:true},now).primary,'TIME UNAVAILABLE');
 assert.equal(t.presentation({...fixture,timePrecision:'estimated'},now).primary,'APPROX. 7:50 PM');
 const parent={cardType:'golf_tournament',dateOnly:true,date:'2026-09-23',endDate:'2026-09-27',status:'live'};
 assert.equal(t.tournamentPhase(parent).label,'In progress');

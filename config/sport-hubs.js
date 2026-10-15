@@ -226,7 +226,7 @@
         participantIndex.get(fixture.result?.driverParticipantId),
         participantIndex.get(fixture.result?.coDriverParticipantId),
       ].filter(Boolean).map((participant, index) => ({ name: participant.displayName, role: index === 0 ? "driver" : "co-driver" })),
-      broadcaster: liveProviders.join(" / ") || "Broadcaster TBC",
+      broadcaster: liveProviders.join(" / ") || "Broadcaster unavailable",
       broadcastOptions: liveProviders,
       broadcasterIds: (fixture.broadcasters || []).map(item => String(item.broadcasterId || "").replace(/^broadcaster:/, "")).filter(Boolean),
       canonicalResultScoreline: fixture.result?.scorelineText

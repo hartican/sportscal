@@ -21,9 +21,9 @@ const compact=model.compact(resumed);for(const key of ['statusFactObservedAt','p
 for(const key of ['statusFactObservedAt','pauseObservation','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt'])assert.equal(model.compact({...base,status:'live',[key]:null})[key],null,'A cleared source fact stays cleared');
 assert.equal(timing.pausePresentation(resumed,now).restart,'Live again at 6:30 pm');
 assert.match(timing.pausePresentation({...resumed,restartTimeUtc:'2026-10-13T07:30:00Z'},now).restart,/Tue 13 Oct.*6:30 pm/);
-for(const restartTimeUtc of [null,'invalid'])assert.equal(timing.pausePresentation({...resumed,restartTimeUtc},now).restart,'Resume time TBD');
+for(const restartTimeUtc of [null,'invalid'])assert.equal(timing.pausePresentation({...resumed,restartTimeUtc},now).restart,'Resume time unavailable');
 assert.equal(timing.pausePresentation({...resumed,restartTimeUtc:stamp},now).restart,'Awaiting resumption update');
-assert.equal(timing.pausePresentation({...base,restartTimeUtc:null,broadcasts:[{startTimeUtc:resumed.restartTimeUtc}]},now).restart,'Resume time TBD','Broadcasts cannot supply playing restarts');
+assert.equal(timing.pausePresentation({...base,restartTimeUtc:null,broadcasts:[{startTimeUtc:resumed.restartTimeUtc}]},now).restart,'Resume time unavailable','Broadcasts cannot supply playing restarts');
 assert.equal(timing.pausePresentation({...base,status:'live'},now),null);
 assert.equal(timing.pausePresentation({...base,tournamentParent:true},now),null);
 assert.equal(timing.pausePresentation({...base,status:'stumps'},now).label,'Stumps');

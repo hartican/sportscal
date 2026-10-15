@@ -49,7 +49,7 @@ const aliases=e=>[e.id,e.eventId,e.canonicalEventId,...(e.sourceEventIds||[])];
       const current=find(activeEvents),live=find(liveFixtureEvents);
       return {id:current?.id,sourceEventIds:current?.sourceEventIds,time:NOTHINGSPORTS_CARD_TIMING.presentation(current,reference).time,liveDateOnly:live?.dateOnly,livePrecision:live?.schedulePrecision};
     },reference);
-    assert.equal(result.time,'7:30 PM','the actual live refresh cannot restore TIME TBD');
+    assert.equal(result.time,'7:30 PM','the actual live refresh cannot restore TIME UNAVAILABLE');
     assert.equal(result.id,fixture.id,'saved-action fixture identity survives live refresh');
     assert(result.sourceEventIds.includes('evt_84'));assert.equal(result.liveDateOnly,false);assert.equal(result.livePrecision,'exact');
     assert(fixtureRequests>0,'test must actually request the live API');

@@ -39,9 +39,10 @@ async function main(){
     const snapshot={eventId:fixture.id,phase:'impact',currentUser:{contribution:{rating:4}}};nothingscoreSnapshots.set(fixture.id,snapshot);
     card.querySelector('.nsc-summary').replaceWith(buildNothingscoreSummary({...fixture,status:'completed'}));
     const after=card.querySelector('.nsc-inline-rating');
-    return{before,phase:after?.dataset.ratingPhase,filled:after?.querySelectorAll('.is-filled').length};
+    return{before,phase:after?.dataset.ratingPhase,filled:after?.querySelectorAll('.is-filled').length,pastHighlights:NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing({...fixture,status:'past'},Date.parse('2026-10-16T00:00:00Z'))};
    },fixture);
    assert.equal(fullCard.before,5,'The actual expanded AUS v NZ card retains disabled rating controls');assert.equal(fullCard.phase,'impact');assert.equal(fullCard.filled,4,'A recovered Impact snapshot restores the saved rating');
+   assert.equal(fullCard.pastHighlights,null,'The actual browser module cannot offer highlights from a cached past label');
    await page.evaluate(()=>document.getElementById('reported-ratings-evidence').remove());
    const before=await page.evaluate(()=>JSON.stringify(userPreferences.selectedSelectorEntityIds));
    for(const gender of ['Men','Women','Men','Women']){

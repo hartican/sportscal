@@ -41,6 +41,9 @@ async function assertCachedFonts(page){
   for(const file of ['assets/fonts/dm-sans-latin.woff2','assets/fonts/dm-sans-latin-ext.woff2']){const digest=await page.evaluate(async file=>{const response=await caches.match('/'+file);if(!response)throw Error('Missing cached font: '+file);const bytes=await response.arrayBuffer();return [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(b=>b.toString(16).padStart(2,'0')).join('');},file);assert.equal(digest,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),'Bundled font survives upgrade/offline exactly');}
 }
 async function assertCachedFixtureHighlights(page){
+  const golf=require('../data/code-inspector/golf.json').fixtures.find(e=>(e.name||'').startsWith('Minjee Lee /'));
+  const missing=await page.evaluate(golf=>({venue:NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue({venue:'Venue TBD'}),time:NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel({displayTime:'Time TBC'}),highlights:NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing({...golf,status:'past'},Date.parse('2026-10-16T00:00:00Z'))}),golf);
+  assert.equal(missing.venue,'','Cached unknown venue cannot become an organiser decision');assert.equal(missing.time,'Time unavailable');assert.equal(missing.highlights,null,'Upgrade/offline cannot restore a highlights promise from a past display label');
   const fixtures=require('../data/events.json').events.filter(e=>e.highlights?.provider==='youtube');
   if(!fixtures.length)return;
   const results=await page.evaluate(fixtures=>{
@@ -78,7 +81,7 @@ async function assertCachedStageCalendarPolicy(page){
 async function assertCachedAflwFinalDate(page){
   const id='event:aflw:cd_m20262641601',expected=require('../data/code-inspector/aflw.json').fixtures.find(f=>f.id===id);
   const result=await page.evaluate(async id=>{const fixture=(await(await fetch('/data/code-inspector/aflw.json')).json()).fixtures.find(f=>f.id===id);return {fixture,label:NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel(fixture)};},id);
-  assert.deepEqual(result.fixture,expected,'Updated/offline Schedule keeps the exact reviewed date and original primary facts');assert.equal(result.label,'Time TBD');assert.equal(result.fixture.startTimeUtc,null);assert.equal(result.fixture.time,null);
+  assert.deepEqual(result.fixture,expected,'Updated/offline Schedule keeps the exact reviewed date and original primary facts');assert.equal(result.label,'Time unavailable');assert.equal(result.fixture.startTimeUtc,null);assert.equal(result.fixture.time,null);
 }
 async function assertCachedMultidayRetention(page){
   const raw=require('../data/code-inspector/cricket.json').fixtures.find(f=>f.id==='evt_91');
@@ -112,7 +115,7 @@ async function assertCachedReviewedCalendarNotes(page){
   },{legacy,mtb,rugby});
   assert.equal(result.checks.length,api.ids.length*2,'Every retained reviewed identity must have current and actual archived/offline evidence');assert(result.preferencesPreserved);
   for(const id of api.ids){assert.equal(result.checks.filter(c=>c.id===id).length,2);assert(result.checks.some(c=>c.id===id&&c.origin==='archived-baseline'));}
-  for(const check of result.checks){assert(check.noClock&&check.unchanged);assert(check.hasWindow?/15–18 July 2027.*UK dates.*Sydney time TBD/s.test(check.text):/DATE TBD.*TIME TBD/s.test(check.text));assert(!/22 JAN|7 FEB|7:00 PM|2:00 AM|10 JUL|5 NOV|10:00 AM|8:00 AM|28 NOV|Watch via Stan Sport|Tap to rate|Remind/.test(check.text),'An upgraded/offline cache cannot restore unsupported seed claims');}
+  for(const check of result.checks){assert(check.noClock&&check.unchanged);assert(check.hasWindow?/15–18 July 2027.*UK dates.*Sydney time unavailable/s.test(check.text):/DATE UNAVAILABLE.*TIME UNAVAILABLE/s.test(check.text));assert(!/22 JAN|7 FEB|7:00 PM|2:00 AM|10 JUL|5 NOV|10:00 AM|8:00 AM|28 NOV|Watch via Stan Sport|Tap to rate|Remind/.test(check.text),'An upgraded/offline cache cannot restore unsupported seed claims');}
 }
 async function assertCachedMinimisedRows(page){
   const result=await page.evaluate(async()=>{
