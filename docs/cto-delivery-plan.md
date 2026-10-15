@@ -4,6 +4,8 @@
 
 **Owner communication — 15 October:** Use short, plain-English updates by default: what changed, how it affects users, what remains and the next action. Keep technical evidence in the reports; provide it in chat when asked. Avoid a stream of implementation detail and ask only for material product, spending or irreversible decisions.
 
+**Reliable highlights delivered — 15 October:** Recent clip selection across the existing sports is live. It favours the correct official match/session and rejects more wrong opponents, old seasons and misleading footage. The correct official Singapore Practice 1 clip and repeat open pass; the wider sample also exposes unavailable clips and live-input gaps, so coverage remains incomplete. All eight hosted card checks pass. No subscription or regular owner task. [Delivery and remaining gaps](quality/reliable-highlights-current-2026-10-15.md).
+
 **Delivered — 15 October:** The reported Tennis and MotoGP cards now open recent official highlights of the correct event. Old uploads and unsuitable long coverage are rejected, including when a button has already been on screen. Live links, both browsers, installed/offline upgrades and repeat-cache reuse pass. No subscription or regular owner task. [Dated evidence](quality/recent-highlights-current-2026-10-15.md). The player-match loading setup rolled back safely after a timeout and remains open. Stan was withheld in the first combined attempt; its later scoped release is recorded above. Broader sport certification and physical-phone acceptance remain open.
 
 **Direct highlights delivery - 15 October:** Watch highlights now opens a checked video or the first YouTube search-service video, with an honest unverified note. Repeated lookups reuse saved selections and the free allowance is protected. Phone-sized/desktop live checks and installed/offline rehearsals passed. No subscription or owner routine. [Dated evidence](quality/direct-highlights-current-2026-10-15.md).
@@ -58,7 +60,7 @@
 
 **Next five actions, in order:**
 
-- Release the approved cross-sport recent-Feed highlights shortcut through the sole checked lane; searches add no provider calls. Keep the slow current-data read explicitly open.
+- Finish reliable fresh player-match loading within the existing loading limit. Keep the timed-out live setup rolled back until a bounded replacement passes; retain the new highlights sample's AFLW status disagreement and absent older MLB lookup as coverage exceptions.
 - Finish the one real-phone opening check. Keep automatic Cricket alerts off until their separate live-match evidence passes; archive phone/export and actual year-end delivery evidence remain separate.
 - Close Football’s remaining viewing, table, mobile and commercial-permission checks before calling the pilot ready.
 - Apply the same measured card-quality checks to the next most valuable carried sports; avoid expanding breadth before the current coverage is dependable.
