@@ -10,6 +10,8 @@ A cached `past` display label or elapsed tee/kickoff time does not establish com
 
 The explicit Rugby League World Cup competition maps to the existing reviewed NRL publisher within the existing bounded official-feed discovery. An explicit Rugby Union competition cannot borrow it. This repairs the missing publisher lookup without relaxing video suitability or adding a search, quota allowance or scheduler.
 
+The scoped presentation repair shipped on 16 October as 55417c31 / shell 549, with hosted and installed/offline proof. [Dated evidence and remaining limits](quality/missing-metadata-2026-10-16.md).
+
 ## Honest missing-result wording — 16 October 2026 Sydney
 
 The authorised existing World Cup result repair also corrects the shared completed-card fallback. Results ON with no usable outcome says “Result not yet available”; Results OFF keeps its protected reveal guidance. Retain source-backed outcomes, reject stale preview recaps and preserve every saved result choice, identity, kickoff, admission and retention rule. Fact dates follow accepted status/score observations when an old saved row is rejected; a collection check cannot change them. Tests: validate-rlwc-result-fallback, shared live-score continuity, actual Feed/Schedule rendering and both installed-update rehearsals. [Dated scope](quality/rlwc-result-repair-2026-10-16.md).
