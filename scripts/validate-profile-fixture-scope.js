@@ -21,6 +21,8 @@ async function database({withReadContext=true}={}){
   if(prepared)await db.exec('BEGIN;\n'+fs.readFileSync('supabase/migrations/'+prepared,'utf8')+'\nCOMMIT;');
   const indexed=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_index_participant_fixture_context.sql'));
   if(indexed)await db.exec('BEGIN;\n'+fs.readFileSync('supabase/migrations/'+indexed,'utf8')+'\nCOMMIT;');
+  const projection=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_flatten_fixture_observation_projection.sql'));
+  if(projection)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+projection,'utf8')+'COMMIT;');
  }
  return db;
 }
@@ -131,5 +133,5 @@ async function run(){
  console.log(JSON.stringify({passed:true,checks,migration,limits:'Actual local schema/store/handler with controlled observations; production and real phone remain separate.'}));
  }finally{await db.close();}
 }
-if(require.main===module)run().then(()=>require('./validate-participant-read-context').run()).catch(e=>{console.error(e);process.exitCode=1;});
+if(require.main===module)run().then(()=>require('./validate-participant-read-context').run()).then(()=>require('./validate-fixture-observation-projection').run()).catch(e=>{console.error(e);process.exitCode=1;});
 module.exports={database,run};
