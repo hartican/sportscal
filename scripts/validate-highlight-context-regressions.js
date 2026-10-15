@@ -9,6 +9,9 @@ const now=new Date('2026-10-15T00:00:00Z');
 const fixture=id=>{const event=events.find(e=>e.id===id);assert(event,id);return event;};
 const video=(title,description='')=>({title,description,publishedAt:'2026-10-14T20:00:00Z',channelId:'unreviewed'});
 function main(){
+  const nfl=require('../data/code-inspector/american-football.json').fixtures.find(e=>e.id==='fixture:nfl:401772969');assert(nfl);
+  assert.equal(selection.contextMatches(video(nfl.name+' | NFL Week 1 Highlights'),nfl,now),false,'known NFL week rejects a rematch from another week');
+  assert(selection.contextMatches(video(nfl.name+' | NFL Week 18 Highlights'),nfl,now),'matching sourced NFL week stays valid; matcher-only historical identity probe');
   const seasonFixture=fixture('epl-2026-27-128973');
   for(const season of ['25/26','25-26','25–26','2025/26'])assert.equal(selection.contextMatches(video(seasonFixture.name+' | Premier League '+season+' Highlights'),seasonFixture,now),false,'short prior season cannot borrow a fresh upload: '+season);
   for(const season of ['26/27','26-27','26–27','2026/27'])assert(selection.contextMatches(video(seasonFixture.name+' | Premier League '+season+' Highlights'),seasonFixture,now),'sourced current season alias stays valid: '+season);
