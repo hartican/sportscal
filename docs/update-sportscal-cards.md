@@ -11,6 +11,9 @@ either a root or Storyline review. Keep sporting/source/result facts and staged
 post-match writing outside the commentary patch. New result signatures still
 invalidate stale result-aware commentary; Results OFF and the original men's
 NRL Grand Final remain protected.
+Results-ON-only corrections, corrected primary source URLs and retained narrative
+corrections are material changes too. A missing completed-result signature cannot
+establish that a card is already conformant.
 
 For this recovery, resume the existing `update-cards.js` chain at
 `scripts/apply-editorial-narratives.js --resume-occurrence 2` after integrating retained source inputs,

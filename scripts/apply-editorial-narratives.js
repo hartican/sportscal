@@ -33,24 +33,33 @@ function projectionConforms(event, projection, indexes){
   const actual = event.editorialNarrative;
   if (!actual) return false;
   const expected = editorialNarrativeFor(projection, indexes);
+  const completed = event.status === "completed" && event.key !== "horse-racing" && event.sportKey !== "horse-racing";
   // A fixture review and a research observation are different clocks. Do not
   // backdate a reviewed card merely because the same research is reapplied.
-  const observationKeys = new Set(["researchedAt", "refreshAfter", "hookSpoilerOn", "synopsisSpoilerOn"]);
+  const observationKeys = new Set(["researchedAt", "refreshAfter", ...(completed ? ["hookSpoilerOn", "synopsisSpoilerOn"] : [])]);
   if (Object.keys(expected).some(key => !observationKeys.has(key) && !isDeepStrictEqual(actual[key], expected[key]))) return false;
-  for (const key of ["formCopy", "closingCopy", "consequence", "sentiment"]){
+  for (const key of ["formCopy", "closingCopy", "consequence", "sentiment", ...(completed ? [] : ["hookSpoilerOn", "synopsisSpoilerOn"])]){
     if (!isDeepStrictEqual(actual[key], expected[key])) return false;
   }
-  const completed = event.status === "completed" && event.key !== "horse-racing" && event.sportKey !== "horse-racing";
+  if (event.editorialPreview?.sourceUrl !== indexes.sources.get(projection.sourceIds[0])?.url) return false;
+  const projected = applyToFeedEvent(event, projection, indexes);
+  for (const key of ['hookSpoilerOff','hookSpoilerOn','synopsisSpoilerOff','synopsisSpoilerOn','arcStage','researchDepth']){
+    if (event.storyline?.[key] !== projected.storyline?.[key]) return false;
+  }
   if (!completed) return event.selectedSentence === projection.hook && event.fullSpiel === projection.synopsis;
   const lifecycle = require('../config/editorial-lifecycle');
-  if (actual.resultResearchRequired || actual.resultSignature && actual.resultSignature !== lifecycle.signature(event)) return false;
+  if (actual.resultResearchRequired || actual.resultSignature !== lifecycle.signature(event)) return false;
+  const resultCopy = projected.editorialNarrative;
+  for (const key of ["hookSpoilerOn", "synopsisSpoilerOn", "phase"]){
+    if (actual[key] !== resultCopy[key]) return false;
+  }
   return event.selectedSentence === event.storyline?.hookSpoilerOff
     && event.fullSpiel === event.storyline?.synopsisSpoilerOff
     && require('./lib/storyline-card-rules').spoilerContractIssues(event).length === 0;
 }
 
 function laterReview(current, researched){
-  return Number.isFinite(Date.parse(current)) && Date.parse(current) >= Date.parse(researched) ? current : researched;
+  return Number.isFinite(Date.parse(current)) && (!Number.isFinite(Date.parse(researched)) || Date.parse(current) >= Date.parse(researched)) ? current : researched;
 }
 
 function reconcileFeedEvent(event, projection, indexes){
@@ -95,14 +104,16 @@ function main(){
         const narrative = event.editorialNarrative;
         const primarySource = indexes.sources.get(narrative?.sourceIds?.[0]);
         if (!narrative?.hook || !narrative?.synopsis || !primarySource) return event;
-        if (event.selectedSentence && event.fullSpiel && require('./lib/storyline-card-rules').spoilerContractIssues(event).length === 0) return event;
+        const completed = event.status === 'completed' && event.key !== 'horse-racing' && event.sportKey !== 'horse-racing';
+        const copy = completed ? require('../config/editorial-lifecycle').copy(event,narrative,false) : narrative;
+        if (event.selectedSentence === copy.hook && event.fullSpiel === copy.synopsis && require('./lib/storyline-card-rules').spoilerContractIssues(event).length === 0) return event;
         const threadTitle = indexes.threads.get(narrative.threadIds?.[0])?.title || "Finals path";
         return {
           ...event,
-          selectedSentence:narrative.hook,
-          fullSpiel:narrative.synopsis,
+          selectedSentence:copy.hook,
+          fullSpiel:copy.synopsis,
           ...fixtureSourceMetadata(event,primarySource),
-          lastReviewedAt:narrative.researchedAt || event.lastReviewedAt,
+          lastReviewedAt:laterReview(event.lastReviewedAt,narrative.researchedAt),
           editorialPreview:{
             status:"journalistic",
             angle:threadTitle,
