@@ -3812,7 +3812,7 @@ function taxonomySelectionForSelectorIds(entityIds){
 function selectorEntityIsEffectivelySelected(entityId, preferences){
   const selected = new Set(preferences?.selectedSelectorEntityIds || []);
   if (selected.has(entityId)) return true;
-  if(['sport:wsl','sport:tdf','sport:giro','sport:vuelta','sport:dakar'].includes(entityId))return false; // New competition choices require explicit consent.
+  if(['sport:wsl','sport:tdf','sport:giro','sport:vuelta','sport:dakar'].includes(entityId))return false; // See docs/shell-source-notes.md
   if (entityId.startsWith("sport:") && selected.has("category:sports")) return true;
   const entity = selectorEntityById(entityId);
   if (entity?.parentId && selected.has(entity.parentId)) return true;
@@ -9175,7 +9175,7 @@ function calendarTimelineEvents(list){
   return sortedChrono(list);
 }
 
-/* Upcoming first (ascending by date), past events at bottom (also ascending, but after all upcoming) */
+
 function sortUpcomingFirst(list){
   const now = nowAEST();
   const upcoming = [];
@@ -11742,7 +11742,7 @@ function sportHubCanonicalFixtures(sportKey = activeSportHubKey()){
 }
 
 function sportHubMutedParticipantIds(){
-  return new Set(); // Ordinary participant unfollows never hide the opponent's schedule.
+  return new Set(); // See docs/shell-source-notes.md
 }
 
 function sportHubCuratedCanonicalIds(sportKey, reference = nowAEST()){
@@ -14957,7 +14957,7 @@ async function useCurrentSetupLocation(){
     const payload = await response.json();
     label = payload.location?.label || label;
     region = payload.location?.region || region;
-  }catch(_error){ /* Rounded coordinates still provide a privacy-safe local centre. */ }
+  }catch(_error){  }
   applyStartupMetaDraft({ location:{ label, region, countryCode:"AU", latitude, longitude, radiusKm:startupMetaDraft().location.radiusKm, mode:"automatic", source:"system", updatedAt:new Date().toISOString() } });
   renderSettingsScreen();
 }
@@ -16239,7 +16239,7 @@ function registerExpandableAvatar(element,avatarUrl,displayName){
           node.addEventListener('click',open);node.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' ')open(event);});
         }
       }
-    }catch(_error){ /* Signed-out and unavailable accounts retain ordinary thumbnails. */ }
+    }catch(_error){  }
   },80);
 }
 async function openProfileAvatar(profileId,displayName,trigger){
@@ -17111,7 +17111,7 @@ async function markCurrentChatRead(){
   try{
     await serverSyncClient.chatRequest({}, { action:"mark-read", roomId:room.roomId, readAt:chatState.messages.filter(message=>!message.pending).at(-1)?.sentAt });
     await refreshChatActive();
-  }catch(_error){ /* The next successful room poll will reconcile unread state. */ }
+  }catch(_error){  }
 }
 
 function mergeChatReceipts(changes){
@@ -17467,7 +17467,7 @@ function setNothingscoreDrawerOpen(open){
 function syncNscPageFromHistory(){
   const route=history.state?.nscPage;
   if(route || location.hash==='#nsc'){
-    nscMyView=false; // Old saved My NSC routes now open the single public ladder.
+    nscMyView=false; // See docs/shell-source-notes.md
     activeNothingscoreContributionEvent=route?.eventId?nscDetailEvents.get(route.eventId)||null:null;
     setNothingscoreDrawerOpen(true);return true;
   }
@@ -17815,7 +17815,7 @@ async function refreshNothingscoreDrawer(){
     await openNothingscoreContribution(activeNothingscoreContributionEvent);
     return;
   }
-  try{ await refreshNothingscoreViewer(); }catch(_error){ /* Read-only leaderboard still remains available. */ }
+  try{ await refreshNothingscoreViewer(); }catch(_error){  }
   if (!document.getElementById("nothingscoreBackdrop").classList.contains("show")) return;
   renderNothingscoreDrawer();
 }
