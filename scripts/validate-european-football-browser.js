@@ -85,7 +85,7 @@ const engine=process.env.FOOTBALL_QA_BROWSER||'chromium';assert(['chromium','web
   assert.equal(await waitingRating.count(),1,'unknown status retains the approved waiting bar');
   assert.match(await waitingRating.innerText(),/Awaiting match update/i,'unknown status cannot claim a post-match phase');
   assert.equal(await waitingRating.locator('.nsc-rating-block:disabled').count(),5,'unknown status must keep every rating disabled');
-  assert.equal(await waitingRating.locator('[data-rating-phase="impact"]').count(),0,'unknown status must not invent a post-match phase');
+  assert.equal(await waitingRating.getAttribute('data-rating-phase'),null,'unknown status must not invent a rating phase');
  }
  const qualifiers=await page.evaluate(async()=>{const response=await fetch('/data/code-inspector/champions-league.json');return (await response.json()).fixtures.filter(f=>f.id.startsWith('major-match:ucl-2026-27:'));});
  assert.equal(qualifiers.length,7);
