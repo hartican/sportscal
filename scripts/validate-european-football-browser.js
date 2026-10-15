@@ -73,7 +73,7 @@ const assert=require('node:assert/strict');const {chromium}=require(process.env.
    return preferences===JSON.stringify(userPreferences);
   },mode);
   assert(unchanged,'degraded timing must not change Follow or Results settings');
-  const chip=page.locator(mode==='feed'?'#qaEuropeanCards .fixture-timing-badge > small':'#qaEuropeanCards .event-timing-state.awaiting-update');
+  const chip=page.locator('#qaEuropeanCards .fixture-timing-badge > .fixture-timing-status');
   if(!await chip.count())throw new Error(mode+': missing update label: '+await page.locator('#qaEuropeanCards').innerText());
   await chip.scrollIntoViewIfNeeded();assert(await chip.isVisible(),mode+': visible unconfirmed status');
   assert.equal(await chip.textContent(),'Awaiting match update');
