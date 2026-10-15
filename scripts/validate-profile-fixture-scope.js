@@ -25,7 +25,7 @@ async function database({withReadContext=true}={}){
   if(projection)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+projection,'utf8')+'COMMIT;');
   const clocks=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_reuse_participant_observation_clocks.sql'));
   if(clocks)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+clocks,'utf8')+'COMMIT;');
-  for(const suffix of ['_restore_participant_reader_before_clock_rework.sql','_map_participant_observation_clocks.sql','_retain_indexed_participant_reader_before_parts.sql','_partition_current_fixture_bundle.sql','_reuse_fixture_part_work.sql','_serialize_fixture_part_response.sql','_stabilize_fixture_part_plan.sql','_index_required_fixture_selection.sql','_defer_fixture_payload_projection.sql','_combine_fixture_index_integrity_checks.sql','_enforce_fixture_index_integrity_at_commit.sql']){
+  for(const suffix of ['_restore_participant_reader_before_clock_rework.sql','_map_participant_observation_clocks.sql','_retain_indexed_participant_reader_before_parts.sql','_partition_current_fixture_bundle.sql','_reuse_fixture_part_work.sql','_serialize_fixture_part_response.sql','_stabilize_fixture_part_plan.sql','_index_required_fixture_selection.sql','_defer_fixture_payload_projection.sql','_combine_fixture_index_integrity_checks.sql','_enforce_fixture_index_integrity_at_commit.sql','_index_fixture_calendar_selection.sql']){
    const next=fs.readdirSync('supabase/migrations').find(n=>n.endsWith(suffix));
    if(next)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+next,'utf8')+'COMMIT;');
   }
@@ -165,5 +165,5 @@ async function run(){
  console.log(JSON.stringify({passed:true,checks,migration,limits:'Actual local schema/store/handler with controlled observations; production and real phone remain separate.'}));
  }finally{await db.close();}
 }
-if(require.main===module)run().then(()=>require('./validate-participant-read-context').run()).then(()=>require('./validate-fixture-observation-projection').run()).then(()=>require('./validate-fixture-index-commit').run()).catch(e=>{console.error(e);process.exitCode=1;});
+if(require.main===module)run().then(()=>require('./validate-participant-read-context').run()).then(()=>require('./validate-fixture-observation-projection').run()).then(()=>require('./validate-fixture-index-commit').run()).then(()=>require('./validate-fixture-calendar-index').run()).catch(e=>{console.error(e);process.exitCode=1;});
 module.exports={database,run};
