@@ -1,5 +1,7 @@
 # CTO delivery programme — authoritative current queue
 
+**Highlights repair delivered — 16 October:** App 4e7bc82e / shell 550 passed [normal release 38818928346](https://github.com/hartican/sportscal/actions/runs/38818928346), exact READY/SHA, all three alias/protection checks and six served-file comparisons. Both actual hosted installed-worker highlights taps show the real unavailable page instead of endless Feed loading, preserving the saved home page. All 146 required shell files agree with both full installed/offline rehearsals. Playable footage and physical-phone use of this repair remain separate; first-match latency stays open. The prepared writing packet remains staged for its separately reviewed recovery. [Evidence](quality/highlights-navigation-2026-10-16.md).
+
 **Loading investigation — 16 October:** Two unchanged reads succeeded but still took almost three seconds. The current-fixture database work accounts for most of the wait; no further speed fix was applied or claimed. Keep the intermittent failure and larger reader withheld. [Bounded timings and next acceptance](quality/match-loading-boundary-2026-10-16.md).
 
 **Phone feedback — 16 October:** After closing and reopening the installed iPhone app, the owner reports that buttons feel quicker. The subjective speed check is confirmed; exact installed version and measured phone timing were not captured. The remaining first-match loading and other phone checks stay open. [Evidence](quality/iphone-interaction-performance-2026-10-16.md#owner-phone-confirmation--16-october-2026-sydney).
