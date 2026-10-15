@@ -143,7 +143,7 @@ analyze nothingsports_fixture_read_private.source_tokens;
 -- Lock one canonical source before reading its current rows, as the publisher does.
 create function nothingsports_fixture_read_private.backfill_batch(p_limit integer default 128) returns jsonb
 language plpgsql security invoker set search_path='' as $$
-declare selected_source text;item record;processed integer:=0;remaining bigint;
+declare selected_source text;processed integer:=0;remaining bigint;
 begin
  if p_limit is null or p_limit<1 or p_limit>128 then raise exception 'Backfill batch must be between 1 and 128';end if;
  select c.source_id into selected_source from public.nothingsports_fixture_current c
@@ -151,13 +151,22 @@ begin
  where ctx.fixture_id is null order by c.source_id,c.fixture_id limit 1;
  if selected_source is not null then
   perform 1 from public.nothingsports_fixture_sources where source_id=selected_source for update;
-  for item in select c.fixture_id from public.nothingsports_fixture_current c
+  with pending as materialized (
+   select c.source_id,c.fixture_id,c.identity_keys,c.fixture,s.score from public.nothingsports_fixture_current c
    left join nothingsports_fixture_read_private.fixture_context ctx using(source_id,fixture_id)
+   left join public.nothingsports_live_scores s using(source_id,fixture_id)
    where c.source_id=selected_source and ctx.fixture_id is null order by c.fixture_id limit p_limit
-  loop
-   perform nothingsports_fixture_read_private.sync_fixture(selected_source,item.fixture_id);
-   processed:=processed+1;
-  end loop;
+  ), added as (
+   insert into nothingsports_fixture_read_private.fixture_context(source_id,fixture_id,identity_keys,base_key,score_key,has_score_key,participant_ids,sides,base_selection,score_selection)
+   select p.source_id,p.fixture_id,p.identity_keys,f.* from pending p
+   cross join lateral nothingsports_fixture_read_private.context_fields(p.fixture,p.score) f
+   returning source_id,fixture_id,identity_keys,sides
+  ), tokens as (
+   insert into nothingsports_fixture_read_private.fixture_tokens
+   select distinct source_id,fixture_id,1::smallint,id from added cross join lateral unnest(identity_keys) id where id is not null
+   union all select source_id,fixture_id,2::smallint,sides from added where sides is not null
+   returning 1
+  ) select count(*) into processed from added;
  end if;
  select count(*) into remaining from public.nothingsports_fixture_current c
  left join nothingsports_fixture_read_private.fixture_context ctx using(source_id,fixture_id) where ctx.fixture_id is null;
