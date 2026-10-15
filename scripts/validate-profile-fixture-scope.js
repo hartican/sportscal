@@ -25,7 +25,7 @@ async function database({withReadContext=true}={}){
   if(projection)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+projection,'utf8')+'COMMIT;');
   const clocks=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_reuse_participant_observation_clocks.sql'));
   if(clocks)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+clocks,'utf8')+'COMMIT;');
-  for(const suffix of ['_restore_participant_reader_before_clock_rework.sql','_map_participant_observation_clocks.sql','_retain_indexed_participant_reader_before_parts.sql','_partition_current_fixture_bundle.sql','_reuse_fixture_part_work.sql','_serialize_fixture_part_response.sql','_stabilize_fixture_part_plan.sql','_index_required_fixture_selection.sql','_defer_fixture_payload_projection.sql','_combine_fixture_index_integrity_checks.sql','_enforce_fixture_index_integrity_at_commit.sql','_index_fixture_calendar_selection.sql','_group_fixture_source_sport_keys.sql','_index_match_centre_linked_lookup.sql','_lookup_linked_match_context_by_key.sql']){
+  for(const suffix of ['_restore_participant_reader_before_clock_rework.sql','_map_participant_observation_clocks.sql','_retain_indexed_participant_reader_before_parts.sql','_partition_current_fixture_bundle.sql','_reuse_fixture_part_work.sql','_serialize_fixture_part_response.sql','_stabilize_fixture_part_plan.sql','_index_required_fixture_selection.sql','_defer_fixture_payload_projection.sql','_combine_fixture_index_integrity_checks.sql','_enforce_fixture_index_integrity_at_commit.sql','_index_fixture_calendar_selection.sql','_group_fixture_source_sport_keys.sql','_index_match_centre_linked_lookup.sql','_lookup_linked_match_context_by_key.sql','_balance_complete_fixture_transport.sql']){
    const next=fs.readdirSync('supabase/migrations').find(n=>n.endsWith(suffix));
    if(next)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+next,'utf8')+'COMMIT;');
   }
@@ -94,7 +94,7 @@ async function run(){
  check('player includes current team',()=>{const index=require('../data/canonical/football-follow-index.v1.json'),player=index.players.find(p=>p.currentTeamId);assert(player);const p=requirements({userState:state([]),participantId:player.id});assert(p.participantIds.includes(player.currentTeamId));});
  const rpc=async body=>(await db.query('select public.nothingsports_read_participant_fixture_bundle($1,$2,$3,$4) as value',[body.p_sport_keys,body.p_known_sport_keys,body.p_participant_ids,body.p_required_ids])).rows[0].value;
  const body=calls[1].body,bundle=await rpc(body);
- for(const change of [{scope:'global'},{complete:false},{sportKeys:['tennis']},{participantIds:['different']},{requiredIds:[]},{knownSportKeys:['only-one']},{rows:Array(5001).fill(bundle.rows[0])}]){
+ for(const change of [{schemaVersion:'fixture-bundle-part.v1'},{scope:'global'},{complete:false},{sportKeys:['tennis']},{participantIds:['different']},{requiredIds:[]},{knownSportKeys:['only-one']},{rows:Array(5001).fill(bundle.rows[0])}]){
   await assert.rejects(createSnapshotStore({request:async(route,{body})=>{const part=(await db.query('select public.nothingsports_read_fixture_bundle_part($1,$2,$3,$4,$5,$6) value',[body.p_scope,body.p_part,body.p_sport_keys,body.p_known_sport_keys,body.p_participant_ids,body.p_required_ids])).rows[0].value;return body.p_part===0?{...part,...change}:part;}}).read(plan));checks++;
  }
  for(const role of ['anon','authenticated']){await db.exec('set role '+role);await assert.rejects(rpc(body),/permission denied/);await db.exec('reset role');checks++;}
