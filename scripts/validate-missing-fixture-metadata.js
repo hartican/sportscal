@@ -1,6 +1,14 @@
 'use strict';
 const assert=require('node:assert/strict'),presentation=require('../config/feed-card-presentation'),timing=require('../config/card-timing');
 const now=new Date('2026-10-16T00:00:00Z');
+for(const [cached,expected] of [['Player TBD','Player unavailable'],['Side TBC','Side unavailable'],['TBA','unavailable'],['To be determined','unavailable']]){
+ assert.equal(presentation.displayLabel(undefined,cached),expected,'Cached participant placeholders describe missing app data');
+ assert.equal(presentation.shortLabel(undefined,'Known fallback',{shortName:cached}),expected,'Cached short names follow the same rule');
+}
+for(const label of ['Winner of semi-final','Loser of match 2','Qualifier to be determined']){
+ assert.equal(presentation.displayLabel('team:afl:cd_t60',label),label,'Actual unresolved sporting outcomes keep their source description');
+ assert.equal(presentation.shortLabel('team:afl:cd_t60',label,{shortName:'Dockers'}),label,'Compact nicknames cannot reveal a protected outcome');
+}
 const fs=require('node:fs'),vm=require('node:vm');
 const html=fs.readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8');
 assert.equal(presentation.dateBanner(null,now),'DATE UNAVAILABLE');

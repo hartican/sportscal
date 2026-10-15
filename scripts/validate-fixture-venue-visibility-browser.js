@@ -41,6 +41,14 @@ async function run(){
     await page.evaluate(surface=>{activeTab=surface==='feed'?'feed':'follow';setCardState(qaVenueFixture,'selected');document.getElementById('qaVenue').replaceChildren(surface==='feed'?buildEventCard({...qaVenueFixture,eventId:qaVenueFixture.id}):buildCodeInspectorFixture(qaVenueFixture));},surface);
     for(let i=0;i<4;i++){await page.locator('#qaVenue .fixture-more').click();assert(await page.locator('#qaVenue .fixture-venue').isVisible(),'Repeated expansion retains the sourced venue');}
    }
+   const cachedLabels=await page.evaluate(()=>{
+    const event={...qaVenueFixture,key:'tennis',name:'Player TBD v Player TBC',participantIds:[],participantSlots:[],participants:[],matchupSides:[{players:[{name:'Player TBD',shortName:'Player TBD'}]},{players:[{displayName:'Player TBC'}]}]};
+    const compact=buildCompactCardSummary(event),full=majorEventMatchupLineup(event),short=majorEventMatchupLineup(event,{compact:true});
+    const sides=majorEventMatchupLineup({...event,matchupSides:[{name:'Side TBC'},{displayName:'Side TBD'}]});
+    return {compact:compact.querySelector('.minimised-card-label').textContent,full:full.textContent,short:short.textContent,sides:sides.textContent,choicesUnchanged:qaVenueChoices===JSON.stringify([userPreferences,eventActions])};
+   });
+   for(const key of ['compact','full','short','sides']){assert(!/\b(?:TBC|TBD)\b/.test(cachedLabels[key]),'Native cached participant boundary: '+key);assert.match(cachedLabels[key],/unavailable/i);}
+   assert(cachedLabels.choicesUnchanged);
   }finally{await browser.close();}
  }
  proof.passed=true;

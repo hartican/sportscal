@@ -180,13 +180,13 @@ function buildCompactCardSummary(ev){
     if(sides.length!==2&&ev.participants?.length===2)sides=ev.participants.map(player=>({players:[typeof player==='string'?{name:player}:player]}));
     if(sides.length===2)identities=NOTHINGSPORTS_FIXTURE_LABELS.australianFirst(sides,ev,cardIdentityParticipants()).map(side=>{
       const players=side.players||[],person=players[0]||{},known=NOTHINGSPORTS_FIXTURE_LABELS.participantRecord(person,ev,cardIdentityParticipants());
-      return {participant:{...known,id:person.id||person.playerId||known.id},label:players.map(p=>p.name||p.displayName||'Player unavailable').join(' / '),shortLabel:players.map(p=>{const record=NOTHINGSPORTS_FIXTURE_LABELS.participantRecord(p,ev,cardIdentityParticipants());return record.shortName||record.familyName||record.lastName||p.shortName||p.name||p.displayName||'Player unavailable';}).join('/')};
+      return {participant:{...known,id:person.id||person.playerId||known.id},label:players.map(p=>NOTHINGSPORTS_FEED_CARD_PRESENTATION.metadataLabel(p.name||p.displayName||'Player unavailable')).join(' / '),shortLabel:players.map(p=>{const record=NOTHINGSPORTS_FIXTURE_LABELS.participantRecord(p,ev,cardIdentityParticipants());return NOTHINGSPORTS_FEED_CARD_PRESENTATION.metadataLabel(record.shortName||record.familyName||record.lastName||p.shortName||p.name||p.displayName||'Player unavailable');}).join('/')};
     });
   }
   const name=document.createElement('span');name.className='compact-card-name minimised-card-name';
   const label=document.createElement('span');label.className='minimised-card-label';
   if(identities.length===2){
-    const short=identities.map(side=>side.shortLabel||NOTHINGSPORTS_FEED_CARD_PRESENTATION.shortLabel(side.participant?.id||side.mark?.id,NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(side.mark?.id,side.mark?.label||side.label),side.participant));
+    const short=identities.map(side=>NOTHINGSPORTS_FEED_CARD_PRESENTATION.metadataLabel(side.shortLabel||NOTHINGSPORTS_FEED_CARD_PRESENTATION.shortLabel(side.participant?.id||side.mark?.id,NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(side.mark?.id,side.mark?.label||side.label),side.participant)));
     label.textContent=short.join(' v ');name.append(buildMinimisedParticipant(identities[0],ev),label,buildMinimisedParticipant(identities[1],ev));
   }else{label.textContent=overview?ev.name:compactFixtureName(ev);const brand=CARD_IDENTITIES.markForEvent(ev);if(brand&&(brand.url||brand.logo?.primary))name.append(buildMinimisedParticipant({mark:brand,label:ev.name},ev));name.append(label);}
   const format=document.createElement('span');format.className='minimised-card-format';
@@ -545,7 +545,7 @@ function majorEventMatchupLineup(subEvent,{compact=false}={}){
         person.className = "major-event-matchup-player";
         const known=NOTHINGSPORTS_FIXTURE_LABELS.participantRecord(player,subEvent,cardIdentityParticipants());
         const countryCode = known.countryCode;
-        const fullName=player.name || player.displayName || "Player unavailable";
+        const fullName=NOTHINGSPORTS_FEED_CARD_PRESENTATION.metadataLabel(player.name || player.displayName || "Player unavailable");
         const name = participantProfileLink(player.id || player.playerId,fullName,subEvent.key || 'tennis');
         name.textContent = compact ? fullName.trim().split(/\s+/).slice(-1)[0] : fullName;
         if(compact)name.title=fullName;
@@ -556,7 +556,7 @@ function majorEventMatchupLineup(subEvent,{compact=false}={}){
         person.appendChild(name);
         group.appendChild(person);
       });
-    } else group.textContent = side.name || side.displayName || "Side unavailable";
+    } else group.textContent = NOTHINGSPORTS_FEED_CARD_PRESENTATION.metadataLabel(side.name || side.displayName || "Side unavailable");
     matchup.appendChild(group);
   });
   return matchup;
