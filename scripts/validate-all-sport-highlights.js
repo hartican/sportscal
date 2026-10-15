@@ -23,6 +23,11 @@ function clickAuthority(now,events){
   context.activeTab='feed';
   context.FOLLOW_FIRST.viewingOptions=()=>[{label:'Existing provider',webUrl:'https://example.com/watch',accessType:'free'}];
   const host=element();context.appendEventQuickActions(host,{...search,status:'upcoming'},{reminder:false,chat:false});host.children[0].children[0].children[0].listeners.click({stopPropagation(){}});assert.equal(calls.length,1,'ordinary provider clicks retain existing affinity behaviour');
+  const deferred=[],mute=[];context.loadDeferredScript=()=>({then:callback=>deferred.push(callback)});context.NOTHINGSPORTS_MILESTONE_UI={appendMute:(...args)=>mute.push(args)};
+  const cricket={...search,key:'cricket',name:'South Africa v Australia'};
+  context.appendEventQuickActions(element(),cricket,{reminder:false,chat:false,highlightsOnly:true});
+  assert.equal(deferred.length,0,'a minimised highlights-only card cannot schedule a later alert control over its link');
+  context.appendEventQuickActions(element(),cricket,{reminder:false,chat:false});assert.equal(deferred.length,1,'the ordinary Cricket card retains its milestone control');deferred[0]();assert.equal(mute.length,1,'deferred controls remain available outside the highlights-only row');
 }
 function main(){
   const now=new Date('2026-10-14T08:00:00Z'),events=require('../data/events.json').events.map(e=>require('../config/fixture-identity').normalizeCore(e));

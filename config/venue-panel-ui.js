@@ -1016,7 +1016,7 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
     nothingscoreEventRefs.set(nothingscoreEventId(ev),ev);
     appendFixtureChatActions(actions, ev);
   }
-  if(/^cricket(?:-women)?$/.test(ev.key||'')){
+  if(!highlightsOnly&&/^cricket(?:-women)?$/.test(ev.key||'')){
     void loadDeferredScript('assets/js/milestone-alerts-ui.js?v=535').then(()=>NOTHINGSPORTS_MILESTONE_UI.appendMute(actions,ev));
   }
   container.appendChild(actions);
