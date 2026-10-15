@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 const assert=require('node:assert/strict'),follow=require('../config/follow-first');
+const programmes=require('../lib/stan-football-recaps'),catalogue=require('../data/coverage/stan-football-programmes.v1.json');
 for(const folder of ['code-inspector','follow-schedule']){
  const fixtures=require(`../data/${folder}/football.json`).fixtures;
  for (const [competitionId, count, slug] of [
@@ -16,12 +17,22 @@ for(const folder of ['code-inspector','follow-schedule']){
    assert.equal(options.length,1,`${fixture.id}: do not invent another Australian provider`);
    const option=options[0];
    assert.equal(option.providerId,'stan');
-   assert.equal(option.webUrl,`https://www.stan.com.au/watch/sport/football/${slug}`);
+   const programme=programmes.select(fixture,catalogue);
+   assert.equal(option.webUrl,programme?programme.programUrl:`https://www.stan.com.au/watch/sport/football/${slug}`);
    assert.equal(option.territory,'AU');assert.equal(option.paid,true);
    assert.equal(option.accessType,'subscription');
-   assert.equal(option.linkScope,'sport');
-   assert.equal(option.permalinkVerifiedAt,null);
-   assert.equal(option.replayVerified,false,'public live listings do not prove replay playback');
+   if(programme){
+    assert.equal(option.linkScope,'fixture');
+    assert.equal(option.sourceUrl,programme.feedUrl);
+    assert.equal(option.permalinkVerifiedAt,programme.observedAt);
+    assert.equal(option.verifiedAt,programme.observedAt);
+    assert.equal(option.replayVerified,true,'only the reviewed, currently bound programme establishes replay');
+    assert.equal(option.liveOrReplay,'replay');
+   }else{
+    assert.equal(option.linkScope,'sport');
+    assert.equal(option.permalinkVerifiedAt,null);
+    assert.equal(option.replayVerified,false,'public live listings do not prove replay playback');
+   }
   }
  }
 
@@ -37,4 +48,4 @@ for(const folder of ['code-inspector','follow-schedule']){
  assert.deepEqual(follow.viewingOptions(second).map(o=>o.providerId),['paramount'],'do not grant free coverage to the second fixture');
  assert.deepEqual(follow.viewingOptions({...second,viewingOptions:[],broadcaster:''}).map(o=>o.providerId),['paramount'],'national-team fallback must not inherit a fixture exception');
 }
-console.log('Football viewing: all 668 EPL/UCL/Europa provider destinations avoid unsupported replay guarantees; sourced Socceroos fixture exceptions and provenance preserved.');
+console.log('Football viewing: all 668 EPL/UCL/Europa destinations use currently bound reviewed programmes or honest competition fallbacks; Socceroos exceptions and source dates preserved.');
