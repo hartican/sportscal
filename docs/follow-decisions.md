@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Reliable favourite pointer targets — 16 October 2026 Sydney
+
+The phone/web responsiveness repair keeps favourite cards fully drawn. Safari's skipped offscreen drawing could target the surrounding group after scrolling instead of the visible profile button. Remove that shortcut only from favourite cards; retain separate bounded directory rendering and the existing shared fixture index. No Follow, admission, source, retention, Results or reminder rule changes. For relevant Follow styling/navigation edits, run `validate-follow-responsiveness-browser.js` in both engines: 128 favourites / 1,000 retained fixtures, real `elementFromPoint` hit target and native profile/Back, saved-choice preservation, failure recovery and existing 1.5-second bounds. No forced click. Establish synthetic retained input after startup source reads settle; measure favourites entry from its real tap. Shared calculation guards are part of the existing Follow/timing/EPIC release gates; native UI and installed-update checks remain affected-change release requirements. [Evidence](quality/iphone-interaction-performance-2026-10-16.md).
+
 ## Horse Racing picker navigation — 15 October 2026 Sydney
 
 Keep the global Men/Women sport-picker tabs visible while Horse Racing is selected, including the collapsed Sports menu. Horse Racing remains one gender-neutral sport reachable from either picker; the tabs switch browsing context and never create gendered racing categories or change follows. This clarifies the 13 October statement that Horse Racing has no gender section. Regression: `validate-follow-gender-ratings-browser.js` and `validate-horse-follow-browser.js`.
