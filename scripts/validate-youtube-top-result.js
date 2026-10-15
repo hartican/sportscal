@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),contract=require('../config/fixture-highlights');
-const {createTopResultResolver}=require('../lib/youtube-top-result');
+const {createTopResultResolver}=require('./highlight-resolver-test');
 const now=new Date('2026-10-14T08:00:00Z');
 const fixture={...require('./fixtures/shanghai-highlights-184950.json'),id:'fixture:test:top-result',eventId:'fixture:test:top-result',canonicalEventId:'fixture:test:top-result',sourceEventIds:[],fixtureIdAliases:[],status:'completed',highlights:null};
 function response(){return {headers:{},setHeader(k,v){this.headers[k]=v;},status(c){this.code=c;return this;},json(value){this.body=value;},end(value){this.body=value;}};}
@@ -33,6 +33,7 @@ async function main(){
   assert.deepEqual(Object.keys(cache).sort(),['duration_seconds','fixture_id','published_at','query_hash','selected_at','video_id'],'cache contains public lookup metadata only');
   const reused=await resolver.resolve(fixture,now);assert(reused.cached);assert.equal(provider,2);assert.equal(reserve,2,'cached clicks consume no API quota');
   allowCache=false;granted=false;await assert.rejects(resolver.resolve(fixture,now));assert.equal(provider,2,'quota denial fails closed before dispatch');
+  require('./highlight-resolver-test').reset(request); // Separate provider-outage scenario after the quota-denial cooldown.
   granted=true;fail=true;await assert.rejects(resolver.resolve(fixture,now));assert.equal(reserve,4);assert.equal(provider,3,'failed requests remain reserved');
   assert.deepEqual(diagnostics.at(-1),{stage:'provider-response',code:'provider_http',providerStatus:503},'provider failures have a bounded operator category');
   const empty=createTopResultResolver({discoverOfficial:async()=>[],request:async(_path,o)=>o.method==='POST'?{granted:true}:[],environment:{YOUTUBE_DATA_API_KEY:'private-empty-key'},fetchImpl:async()=>new Response('{"items":[]}'),diagnose:entry=>diagnostics.push(entry)});
@@ -43,8 +44,8 @@ async function main(){
   const blankKey=createTopResultResolver({discoverOfficial:async()=>[],request:async path=>{assert(!path.includes('/rpc/'),'blank keys cannot reserve provider quota');return [];},environment:{YOUTUBE_DATA_API_KEY:' \n\t '},fetchImpl:()=>assert.fail('blank key cannot dispatch'),diagnose:entry=>diagnostics.push(entry)});await assert.rejects(blankKey.resolve(fixture,now));assert.deepEqual(diagnostics.at(-1),{stage:'cache-read',code:'missing_key',providerStatus:null});
   const stale=createTopResultResolver({discoverOfficial:async()=>[],request:async(_p,o)=>o.method==='POST'?{granted:false}:[{video_id:'RPmOiRHHgX8',selected_at:new Date(+now-contract.MAX_CACHE_AGE_MS).toISOString()}],environment:{},fetchImpl:()=>assert.fail('expired metadata cannot become a keyless video')});await assert.rejects(stale.resolve(fixture,now));
   const dayOld={video_id:'RPmOiRHHgX8',selected_at:new Date(+now-86400000).toISOString(),published_at:'2026-10-13T07:16:25Z',duration_seconds:300};let reselected=0;
-  const refreshSelection=createTopResultResolver({discoverOfficial:async()=>[],environment:{YOUTUBE_DATA_API_KEY:'controlled-key'},request:async(_p,o)=>o.method==='POST'?{granted:true}:[dayOld],fetchImpl:async()=>{reselected++;return new Response(JSON.stringify({items:[{id:reselected===1?{videoId:'UNOFFICIAL1'}:'UNOFFICIAL1',snippet:{channelId:'unreviewed',title:'Alex de Minaur vs Karen Khachanov Highlights | Shanghai 2026',publishedAt:'2026-10-13T07:16:25Z'},contentDetails:{duration:'PT5M'},status:{privacyStatus:'public',uploadStatus:'processed'}}]}));}});
-  assert.equal((await refreshSelection.resolve(fixture,now)).url,'https://www.youtube.com/watch?v=UNOFFICIAL1');assert.equal(reselected,2,'an hourly reselection allows newer uploads without polling');
+  const refreshSelection=createTopResultResolver({discoverOfficial:async()=>[],environment:{YOUTUBE_DATA_API_KEY:'controlled-key'},request:async(_p,o)=>o.method==='POST'?{granted:true}:[dayOld],fetchImpl:async url=>{assert(new URL(url).pathname.endsWith('/videos'),'A saved result needs a metadata check, not a new search');reselected++;return new Response(JSON.stringify({items:[{id:'RPmOiRHHgX8',snippet:{channelId:'unreviewed',title:'Alex de Minaur vs Karen Khachanov Highlights | Shanghai 2026',publishedAt:'2026-10-13T07:16:25Z'},contentDetails:{duration:'PT5M'},status:{privacyStatus:'public',uploadStatus:'processed'}}]}));}});
+  assert.equal((await refreshSelection.resolve(fixture,now)).url,'https://www.youtube.com/watch?v=RPmOiRHHgX8');assert.equal(reselected,1,'An hour-old current selection is revalidated by ID without spending another search');
   const retainedWithoutKey=createTopResultResolver({discoverOfficial:async()=>[],environment:{},request:async()=>[dayOld],fetchImpl:()=>assert.fail('keyless cache fallback is free')});
   assert.equal((await retainedWithoutKey.resolve(fixture,now)).url,'https://www.youtube.com/watch?v=RPmOiRHHgX8','last selected video remains usable when a new lookup has no key');
   let selected=0;

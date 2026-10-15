@@ -128,6 +128,7 @@ async function run(){
   await require('./validate-cross-sport-highlight-cache').main();
   require('./validate-highlight-context-regressions').main();
   await require('./validate-youtube-top-result-database').main();
+  await require('./validate-highlight-search-reuse').main();
  console.log('Highlights: sourced rounds, draw/publisher/edition matching, public feeds, key fallback, removal/outage, safe persisted overlays, cadence, schemas and canonical owners passed.');
  }finally{Date.now=realNow;}
 }

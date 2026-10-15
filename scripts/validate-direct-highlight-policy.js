@@ -6,7 +6,7 @@ const contract=require('../config/fixture-highlights');
 const media=require('../lib/fixture-highlights');
 const selection=require('../lib/highlight-selection');
 const {createLiveFixtureHandler}=require('../lib/live-fixture-handler');
-const {createTopResultResolver}=require('../lib/youtube-top-result');
+const {createTopResultResolver}=require('./highlight-resolver-test');
 const now=new Date('2026-10-15T00:00:00Z');
 const published=require('../data/events.json').events;
 const saved=require('../data/canonical/fixture-highlights.v1.json').events.find(e=>e.highlights);

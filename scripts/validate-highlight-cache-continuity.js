@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),contract=require('../config/fixture-highlights'),policy=require('../lib/highlight-selection');
-const {createTopResultResolver}=require('../lib/youtube-top-result');
+const {createTopResultResolver}=require('./highlight-resolver-test');
 const now=new Date('2026-10-15T10:00:00Z');
 const fixture={id:'event:motogp:2026:indonesia',canonicalEventId:'event:motogp:2026:indonesia',key:'motogp',codeId:'competition:motogp',competitionId:'competition:motogp',name:'MotoGP Indonesia Grand Prix',date:'2026-10-11',startTimeUtc:'2026-10-11T07:00:00.000Z',roundLabel:'Grand Prix',stage:'Grand Prix',roundNumber:17,season:'2026',status:'completed',participants:[]};
 // Public retained receipt: candidate only. Controlled current metadata must revalidate it.
