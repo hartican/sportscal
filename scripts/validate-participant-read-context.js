@@ -156,6 +156,13 @@ async function run(){
    const next=fs.readdirSync('supabase/migrations').find(n=>n.endsWith(suffix));
    if(next)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+next,'utf8')+'COMMIT;');
   }
+  // Exercise the current transport with the retained preparation/resume cases.
+  // These pre-existing rows need the same calendar descriptors as production.
+  for(const suffix of ['_index_fixture_calendar_selection.sql','_group_fixture_source_sport_keys.sql','_balance_complete_fixture_transport.sql']){
+   const next=fs.readdirSync('supabase/migrations').find(n=>n.endsWith(suffix));
+   const prepare=suffix==='_index_fixture_calendar_selection.sql'?"UPDATE nothingsports_fixture_read_private.fixture_context ctx SET base_selection=ctx.base_selection||jsonb_build_object('calendarWindow',nothingsports_fixture_read_private.window_fields(c.fixture)),score_selection=ctx.score_selection||jsonb_build_object('calendarWindow',nothingsports_fixture_read_private.window_fields(s.score)) FROM public.nothingsports_fixture_current c LEFT JOIN public.nothingsports_live_scores s USING(source_id,fixture_id) WHERE ctx.source_id=c.source_id AND ctx.fixture_id=c.fixture_id;":'';
+   await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+next,'utf8')+prepare+'COMMIT;');
+  }
   const result=await check(db,[['tennis'],Object.keys(registry.byKey).sort(),['competitor:tennis:atp:lab-a'],[]]);
   console.log(JSON.stringify({passed:true,checks:result.checks,migration,limits:'Actual isolated schema, original/new readers and canonical publisher. Full captured-world comparison and production timing are separate.'}));
   return result;

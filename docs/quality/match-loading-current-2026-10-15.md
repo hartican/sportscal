@@ -1,0 +1,15 @@
+# Match loading — 15 October 2026
+
+The live Match Centre list now passes its public check, including the displayed matches' subsequent score reads. The fix reuses the existing canonical match index rather than repeatedly comparing every stored match. It preserves identities, results, source dates, uncertain clocks, corrections, transitive context and the same two requests with three-second deadlines.
+
+The final database migration is `20261015120039_lookup_linked_match_context_by_key`, after `20261015114618_index_match_centre_linked_lookup`; current definition hash `d98d88497311a8d06a31556004df30a2`. Both independent source reviews are clear. The exact saved-world comparisons preserve 196 rows without explicit correction IDs and 1,329 rows with 1,621 correction IDs. Local runtimes changed from 715 to 223 ms and 2,225 to 508 ms respectively. These local results are separate from live speed.
+
+At 12:00 UTC, the real service returned all 473 current context records in 2,545 ms, within the unchanged three-second request allowance. The public check then passed for two displayed matches and their two selected score reads on deployed app `8d82182d12d8590ecc5a62fb822f87fafca58631`. The earlier normal release run [38725807549](https://github.com/hartican/sportscal/actions/runs/38725807549) remains failed; this later check does not rewrite its outcome. A new normal release is required for the published database history.
+
+The existing 38 profile checks pass, alongside 12 focused actual-SQL checks, 15 commit-integrity checks including a real 1,000-fixture service publisher, and 1,134 observation-projection checks. Missing or transaction-pending metadata retains the original raw lookup. Exact side-array checks reject delimiter collisions. Anonymous and authenticated database callers remain denied. No cached-shell asset changed, and no provider call, scheduler, subscription, replay or customer-state write was added.
+
+The wider two-part personal/history reader is still withheld. Its full saved outputs agree, but fresh cloud run [38725671234](https://github.com/hartican/sportscal/actions/runs/38725671234) failed the three-second transport allowance. This release does not switch that application reader or claim all match-loading paths are repaired. Cold-server/concurrent-load and physical-phone proof remain separate.
+
+Football's remaining read-only checks retain the completed browser, score-hiding, table and viewing evidence. Independent UEFA results/rankings, paid playback, physical-phone use and commercial permissions remain open. Whole-sport certification remains 0/3 Football pilots and 0/18 carried families.
+
+Detailed receipts are retained under `/Users/jackhartican/Documents/AI/Codex/participant-reader-recovery-20261015`, including the complete before/after capture, SQL checks, actual nested execution plan and public acceptance. Earlier timed-out attempts are retained, rather than reported as successful releases.
