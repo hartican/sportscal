@@ -12,6 +12,7 @@ function main(){
   const nfl=require('../data/code-inspector/american-football.json').fixtures.find(e=>e.id==='fixture:nfl:401772969');assert(nfl);
   assert.equal(selection.contextMatches(video(nfl.name+' | NFL Week 1 Highlights'),nfl,now),false,'known NFL week rejects a rematch from another week');
   assert(selection.contextMatches(video(nfl.name+' | NFL Week 18 Highlights'),nfl,now),'matching sourced NFL week stays valid; matcher-only historical identity probe');
+  assert(selection.contextMatches(video(nfl.name+' at Raymond James Stadium | NFL Week 18 Highlights'),nfl,now),'one dedicated game and its venue are not a multiple-match title');
   const seasonFixture=fixture('epl-2026-27-128973');
   for(const season of ['25/26','25-26','25–26','2025/26'])assert.equal(selection.contextMatches(video(seasonFixture.name+' | Premier League '+season+' Highlights'),seasonFixture,now),false,'short prior season cannot borrow a fresh upload: '+season);
   for(const season of ['26/27','26-27','26–27','2026/27'])assert(selection.contextMatches(video(seasonFixture.name+' | Premier League '+season+' Highlights'),seasonFixture,now),'sourced current season alias stays valid: '+season);
@@ -30,6 +31,12 @@ function main(){
     assert.equal(context.matches(event,video(event.name+' | '+family.toUpperCase()+' Rugby Union Highlights')),false,'league card rejects union media');
   }
   const football=fixture('epl-2026-27-128973');
+  assert.equal(selection.contextMatches(video('Arsenal v Everton & Chelsea v Leeds United | Premier League 2026 Highlights'),football,now),false,'unlabelled multi-match title cannot borrow both opponents');
+  assert(selection.contextMatches(video('Arsenal & Leeds United | Premier League 2026 Highlights'),football,now),'names-only dedicated title remains valid');
+  assert(selection.contextMatches(video('Arsenal 3-0 Leeds United | Premier League 2026 Highlights'),football,now),'normal dedicated scoreline remains valid');
+  const pairedTitle='Arsenal v Leeds United & Chelsea v Everton | Premier League Matchweek 6 Day Highlights 2026';
+  assert(selection.contextMatches(video(pairedTitle),football,now),'genuine explicitly paired multi-match reel remains valid');
+  assert(context.isReel(pairedTitle),'multiple actual matches cannot rank as a dedicated video');
   const title='Premier League Matchweek 6 Day Highlights 2026';
   assert.equal(selection.contextMatches(video(title,'Arsenal v Everton. Leeds United v Chelsea.'),football,now),false,'a reel naming both teams in separate fixtures cannot certify their pairing');
   assert(selection.contextMatches(video(title,'00:00 Arsenal v Leeds United\n04:00 Chelsea v Everton'),football,now),'chapter explicitly naming both opponents is valid');
@@ -43,6 +50,8 @@ function main(){
   assert.equal(selection.contextMatches(januaryVideo(football.name+' | Premier League 2026 Highlights'),january,new Date('2027-01-12T00:00:00Z')),false,'standalone previous year is not a season range');
   const tennis={...fixture('fixture-tennis-espn-atp-184949'),status:'completed'};
   const reel=description=>({...video('Shanghai 2026 Highlights Day 8',description),url:'https://www.youtube.com/watch?v=BPI3JafcKns',videoId:'BPI3JafcKns',channelId:'UCbcxFkd6B9xUU54InHv4Tig'});
+  assert.equal(selection.contextMatches({...reel(''),title:'Medvedev v Fritz & Tsitsipas v Paul | Shanghai 2026 Highlights'},tennis,now),false,'Tennis dedicated path cannot borrow players from an unlabelled multi-match title');
+  for(const heading of ['Tsitsipas & Medvedev Clash Again | Shanghai 2026 Highlights','Tsitsipas v Medvedev 7-5, 6-4 | Shanghai 2026 Highlights'])assert(selection.contextMatches({...reel(''),title:heading},tennis,now),'legitimate dedicated names/set-score title remains valid: '+heading);
   assert.equal(selection.contextMatches(reel('00:00 Daniil Medvedev v Taylor Fritz\n04:00 Stefanos Tsitsipas v Tommy Paul'),tennis,now),false,'tennis reel cannot bind opponents playing separate matches');
   for(const description of ['00:00 Tsitsipas v Medvedev','Stefanos Tsitsipas Faces Daniil Medvedev','Daniil Medvedev Plays Stefanos Tsitsipas'])assert(selection.contextMatches(reel(description),tennis,now),'real publisher match connectors remain accepted: '+description);
   const doubles={...fixture('fixture-us-open-2026-official-wd-4104'),status:'completed'};
