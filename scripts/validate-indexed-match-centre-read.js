@@ -3,6 +3,16 @@ const fs=require('node:fs'),assert=require('node:assert/strict');
 async function run(){
  const db=await require('./validate-profile-fixture-scope').database();let checks=0;
  try{
+  const baseline=fs.readFileSync('supabase/migrations/20261015120039_lookup_linked_match_context_by_key.sql','utf8');
+  const candidate=fs.readFileSync('supabase/migrations/20261015162218_use_parameter_aware_match_centre_plan.sql','utf8');
+  const previousBody=baseline.split('AS $function$\n')[1].split('\n$function$;')[0].trimEnd().replace(/;$/,'');
+  const definition=(await db.query("select p.prosrc,p.proconfig,p.prosecdef,p.provolatile,p.proacl::text acl,l.lanname from pg_proc p join pg_language l on l.oid=p.prolang where p.oid='public.nothingsports_read_match_centre_fixture_bundle(text[])'::regprocedure")).rows[0];
+  assert.equal(definition.prosrc,'\nbegin\n return (\n'+previousBody+'\n );\nend;\n','Parameter-aware wrapper retains the complete reviewed SQL statement');
+  assert.equal(definition.lanname,'plpgsql');assert.equal(definition.prosecdef,false);assert.equal(definition.provolatile,'s');
+  assert.deepEqual(definition.proconfig,['search_path=\"\"','plan_cache_mode=force_custom_plan']);
+  assert.equal(definition.acl,'{postgres=X/postgres,service_role=X/postgres}');
+  assert.equal((await db.query('show plan_cache_mode')).rows[0].plan_cache_mode,'auto','Plan choice is function-local');checks++;
+  await db.exec('begin');await assert.rejects(db.exec(candidate),/Unexpected Match Centre reader/);await db.exec('rollback');checks++;
   const original=fs.readFileSync('supabase/migrations/20261012133505_qualify_match_centre_read_candidates.sql','utf8').match(/create or replace function[\s\S]*?\$\$;/)[0];
   await db.exec(original.replace('public.nothingsports_read_match_centre_fixture_bundle','public.qa_unindexed_near'));
   const now=(await db.query('select statement_timestamp() as now')).rows[0].now;
@@ -33,6 +43,8 @@ async function run(){
   await db.query("delete from public.nothingsports_fixture_current where fixture_id='alias-child'");await equal('Canonical delete removes linked row');
   for(const role of ['anon','authenticated']){await db.exec('set role '+role);await assert.rejects(read('nothingsports_read_match_centre_fixture_bundle',[]),/permission denied/);await db.exec('reset role');checks++;}
   await db.exec('set role service_role');await equal('Existing service-only reader');await db.exec('reset role');
+  assert.equal((await read('nothingsports_read_match_centre_fixture_bundle',Array(5001).fill('over-limit'))).complete,false);checks++;
+  assert.equal((await db.query('show plan_cache_mode')).rows[0].plan_cache_mode,'auto');checks++;
   console.log(JSON.stringify({passed:true,checks,fixtures:fixtures.length,actualSql:true,completeOutputAgreement:true,pendingFallback:true,productionChanged:false}));
  }finally{await db.close();}
 }

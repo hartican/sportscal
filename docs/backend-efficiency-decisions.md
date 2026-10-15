@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Parameter-aware Match Centre lookup — 16 October 2026 Sydney
+
+Keep the existing complete near-match selection statement but use a PL/pgSQL wrapper with function-local `plan_cache_mode=force_custom_plan`. Actual service-role SQL execution and prepared-plan comparisons distinguish this lookup from the larger complementary-part reader, whose different plan remains unchanged and whose client activation remains withheld. Preserve stable/invoker service-only access, empty search path, all facts/observations, linked context, ordering, sentinels and the three-second request limit. No new source/cache/index/writer, scheduler, request, retry, customer write or owner routine. Require full captured-output equality, real role checks, exact guarded rollback and fresh cloud/public acceptance; inline EXPLAIN or local timing is insufficient. [Contract and evidence](quality/match-centre-plan-2026-10-16.md).
+
 ## Retained results keep their own fact dates — 16 October 2026 Sydney
 
 When the shared identity merger rejects an upcoming row against a final, an unsupported live flag against a pause, or an older observation, retain the accepted status fact date with its status and check date. Retained scores also retain their score fact date. Unknown fact dates remain unknown; accepted newer facts still advance. The actual World Cup selected-handler replay reproduced an August upcoming date attached to the new final. Reuse one small status-retention helper across the existing decisions, with shared continuity and actual handler regressions. No scheduler, persistence, source request, API contract, deadline, reminder or account change. [Scope and release evidence](quality/rlwc-result-repair-2026-10-16.md).
