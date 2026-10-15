@@ -25,7 +25,7 @@ async function database({withReadContext=true}={}){
   if(projection)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+projection,'utf8')+'COMMIT;');
   const clocks=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_reuse_participant_observation_clocks.sql'));
   if(clocks)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+clocks,'utf8')+'COMMIT;');
-  for(const suffix of ['_restore_participant_reader_before_clock_rework.sql','_map_participant_observation_clocks.sql']){
+  for(const suffix of ['_restore_participant_reader_before_clock_rework.sql','_map_participant_observation_clocks.sql','_retain_indexed_participant_reader_before_parts.sql','_partition_current_fixture_bundle.sql']){
    const next=fs.readdirSync('supabase/migrations').find(n=>n.endsWith(suffix));
    if(next)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+next,'utf8')+'COMMIT;');
   }
@@ -64,6 +64,7 @@ async function run(){
  const calls=[];
  const store=createSnapshotStore({request:async(route,{body,timeoutMs})=>{
   assert.equal(timeoutMs,3000);calls.push({route,body});const name=route.split('/').at(-1);
+  if(name==='nothingsports_read_fixture_bundle_part')return (await db.query('select public.nothingsports_read_fixture_bundle_part($1,$2,$3,$4,$5,$6) as value',[body.p_scope,body.p_part,body.p_sport_keys,body.p_known_sport_keys,body.p_participant_ids,body.p_required_ids])).rows[0].value;
   if(name==='nothingsports_read_fixture_source_health')return (await db.query('select * from public.nothingsports_read_fixture_source_health()')).rows;
   if(name==='nothingsports_read_participant_fixture_bundle')return (await db.query('select public.nothingsports_read_participant_fixture_bundle($1,$2,$3,$4) as value',[body.p_sport_keys,body.p_known_sport_keys,body.p_participant_ids,body.p_required_ids])).rows[0].value;
   if(name==='nothingsports_read_current_fixture_bundle')return (await db.query('select public.nothingsports_read_current_fixture_bundle(null) as value')).rows[0].value;
@@ -85,7 +86,7 @@ async function run(){
  const tennisMoved={...tennisNew,id:'tennis-required-moved',key:'cricket',date:'2099-01-01',sourceEventIds:['alias:tennis:required']};
  for(const e of [tennisNew,tennisMoved])await db.query('insert into public.nothingsports_fixture_current(source_id,fixture_id,fixture,identity_keys,content_hash) values($1,$2,$3::jsonb,$4,$5)',['tennis',e.id,JSON.stringify(e),[e.id,...(e.sourceEventIds||[])],e.id]);
  const beforeTennisCalls=calls.length,tennisScoped=await store.read(tennisPlan),tennisIds=tennisScoped.flatMap(s=>s.fixtures).map(f=>f.id);
- check('media whole Tennis family, unknown rows and required alias',()=>{assert(tennisPlan.sportKeys.includes('tennis-women'));assert(tennisPlan.sportKeys.includes('wimbledon'));assert.deepEqual(tennisPlan.knownSportKeys,Object.keys(registry.byKey).sort());for(const id of ['tennis-only','tennis-new-roster','tennis-required-moved','unregistered'])assert(tennisIds.includes(id),id);assert(!tennisIds.includes('unrelated'));assert.equal(calls.length-beforeTennisCalls,2);assert(calls.slice(beforeTennisCalls).some(c=>c.route.endsWith('nothingsports_read_participant_fixture_bundle')));assert(!calls.slice(beforeTennisCalls).some(c=>c.route.endsWith('nothingsports_read_current_fixture_bundle')));});
+ check('media whole Tennis family, unknown rows and required alias',()=>{assert(tennisPlan.sportKeys.includes('tennis-women'));assert(tennisPlan.sportKeys.includes('wimbledon'));assert.deepEqual(tennisPlan.knownSportKeys,Object.keys(registry.byKey).sort());for(const id of ['tennis-only','tennis-new-roster','tennis-required-moved','unregistered'])assert(tennisIds.includes(id),id);assert(!tennisIds.includes('unrelated'));assert.equal(calls.length-beforeTennisCalls,2);assert(calls.slice(beforeTennisCalls).some(c=>c.route.endsWith('nothingsports_read_fixture_bundle_part')));assert(!calls.slice(beforeTennisCalls).some(c=>c.route.endsWith('nothingsports_read_current_fixture_bundle')));});
  await db.query("delete from public.nothingsports_fixture_current where fixture_id in('tennis-new-roster','tennis-required-moved')");
  check('unknown and empty requirements use full read',()=>{assert.equal(requirements({userState:state([])}),null);assert.equal(requirements({userState:state(['competitor:unknown:somebody'])}),null);});
  const mixed=requirements({userState:state(['competitor:tennis:atp:alex-de-minaur']),participantId:'team:football:epl:1'});
@@ -94,7 +95,7 @@ async function run(){
  const rpc=async body=>(await db.query('select public.nothingsports_read_participant_fixture_bundle($1,$2,$3,$4) as value',[body.p_sport_keys,body.p_known_sport_keys,body.p_participant_ids,body.p_required_ids])).rows[0].value;
  const body=calls[1].body,bundle=await rpc(body);
  for(const change of [{scope:'global'},{complete:false},{sportKeys:['tennis']},{participantIds:['different']},{requiredIds:[]},{knownSportKeys:['only-one']},{rows:Array(5001).fill(bundle.rows[0])}]){
-  await assert.rejects(createSnapshotStore({request:async route=>route.endsWith('nothingsports_read_fixture_source_health')?[]:{...bundle,...change}}).read(plan));checks++;
+  await assert.rejects(createSnapshotStore({request:async(route,{body})=>{const part=(await db.query('select public.nothingsports_read_fixture_bundle_part($1,$2,$3,$4,$5,$6) value',[body.p_scope,body.p_part,body.p_sport_keys,body.p_known_sport_keys,body.p_participant_ids,body.p_required_ids])).rows[0].value;return body.p_part===0?{...part,...change}:part;}}).read(plan));checks++;
  }
  for(const role of ['anon','authenticated']){await db.exec('set role '+role);await assert.rejects(rpc(body),/permission denied/);await db.exec('reset role');checks++;}
  await db.exec('set role service_role');assert.equal((await rpc(body)).complete,true);await db.exec('reset role');checks++;
@@ -113,7 +114,32 @@ async function run(){
  fail=false;assert.equal((await readLiveSnapshots({...p1,now:now+62000})).stale,false);checks++;
  for(let n=0;n<9;n++)await readLiveSnapshots({...p1,participantIds:['team:football:bounded-'+n]});
  const before=reads;await readLiveSnapshots(p1);assert.equal(reads,before+1,'An unbounded public profile key cannot retain unlimited snapshots');checks++;
- let missingCalls=0;await assert.rejects(createSnapshotStore({request:async()=>{missingCalls++;throw Object.assign(Error('Missing function'),{status:404});}}).read(plan));assert.equal(missingCalls,2,'No third legacy/full read after a failed participant bundle');checks++;
+ let missingCalls=0;await assert.rejects(createSnapshotStore({request:async()=>{missingCalls++;throw Object.assign(Error('Missing function'),{status:404});}}).read(plan));assert.equal(missingCalls,1,'A failed first part starts no second part, legacy or full read');checks++;
+ // A complete two-part read must not accept a changed snapshot, omitted row,
+ // duplicated identity, swapped partition, or source missing from its manifest.
+ const readPart=async data=>(await db.query('select public.nothingsports_read_fixture_bundle_part($1,$2,$3,$4,$5,$6) value',[data.p_scope,data.p_part,data.p_sport_keys,data.p_known_sport_keys,data.p_participant_ids,data.p_required_ids])).rows[0].value;
+ const controlParts=await Promise.all([0,1].map(p_part=>readPart({...body,p_scope:'participants',p_part})));
+ const partOptions={scope:'participants',sportKeys:body.p_sport_keys,knownSportKeys:body.p_known_sport_keys,participantIds:body.p_participant_ids,requiredIds:body.p_required_ids};
+ const {readBundleParts}=require('../lib/fixture-bundle-parts');
+ for(const mutate of [
+  parts=>{parts[1].snapshotVersion=parts[0].snapshotVersion==='0'.repeat(32)?'1'.repeat(32):'0'.repeat(32);},
+  parts=>{parts[1].rows.pop();},
+  parts=>{assert(parts[0].rows.length>1);parts[0].rows[1]=parts[0].rows[0];},
+  parts=>{[parts[0].rows[0],parts[1].rows[0]]=[parts[1].rows[0],parts[0].rows[0]];},
+  parts=>{parts[0].rows[0].source_id='missing-source';},
+  parts=>{parts[0].manifest.push(parts[0].manifest[0]);}
+ ]){
+  const parts=structuredClone(controlParts);mutate(parts);let count=0;
+  await assert.rejects(readBundleParts(async(name,data)=>{count++;return parts[data.p_part];},partOptions));assert(count<=2);checks++;
+ }
+ await db.exec('BEGIN');let coherentCalls=0;
+ try{await assert.rejects(readBundleParts(async(name,data)=>{const part=await readPart(data);if(coherentCalls++===0)await db.query("update public.nothingsports_fixture_sources set revision=revision+1 where source_id='primary'");return part;},partOptions),/changed between parts/);assert.equal(coherentCalls,2);checks++;}finally{await db.exec('ROLLBACK');}
+ for(const failedPart of [0,1]){
+  let count=0;await assert.rejects(readBundleParts(async(name,data)=>{count++;if(data.p_part===failedPart)throw Error('controlled unavailable');return controlParts[data.p_part];},partOptions));assert.equal(count,failedPart+1,'No retry or third read after a part failure');checks++;
+ }
+ for(const role of ['anon','authenticated']){await db.exec('set role '+role);await assert.rejects(readPart({...body,p_scope:'participants',p_part:0}),/permission denied/);await db.exec('reset role');checks++;}
+ const wholeGlobal=(await db.query('select public.nothingsports_read_current_fixture_bundle(null) value')).rows[0].value;
+ const partsGlobal=await readBundleParts((name,data)=>readPart(data),{scope:'global'});assert.deepEqual(partsGlobal.rows,wholeGlobal.rows,'Parts preserve the complete global timeline');checks++;
  // Actual API and pipeline, with real catalogue dependencies and selected SQL.
  const Module=require('node:module'),path=require('node:path'),filename=path.resolve('api/feed.js'),unit=new Module(filename,module);unit.filename=filename;unit.paths=Module._nodeModulePaths(path.dirname(filename));unit._compile(fs.readFileSync(filename,'utf8')+'\nmodule.exports.auditDependencies=feedDependencies;',filename);
  const dependencies=unit.exports.auditDependencies(),fixedNow=new Date(),clock=()=>new Date(fixedNow);

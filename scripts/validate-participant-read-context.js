@@ -6,9 +6,11 @@ async function check(db,args,{original='public.ns_test_original_participant_bund
  const stamp=new Date(Date.now()-60000).toISOString(),home='competitor:tennis:atp:lab-a',away='competitor:tennis:atp:lab-b';
  const localArgs=[args[0],args[1],[...args[2],home],[...args[3],shared]];
  async function equal(label){
-  const started=performance.now(),r=(await db.query(`SELECT ${original}($1,$2,$3,$4) original,${candidate}($1,$2,$3,$4) candidate`,localArgs)).rows[0];
+  const started=performance.now(),r=(await db.query(`SELECT ${original}($1,$2,$3,$4) original,${candidate}($1,$2,$3,$4) candidate,public.nothingsports_read_fixture_bundle_part('participants',0,$1,$2,$3,$4) part0,public.nothingsports_read_fixture_bundle_part('participants',1,$1,$2,$3,$4) part1`,localArgs)).rows[0];
+  let partCalls=0;const merged=await require('../lib/fixture-bundle-parts').readBundleParts(async(name,body)=>{assert.equal(body.p_part,partCalls++);return r['part'+body.p_part];},{scope:'participants',sportKeys:localArgs[0],knownSportKeys:localArgs[1],participantIds:localArgs[2],requiredIds:localArgs[3]});
+  assert.equal(partCalls,2);assert.deepEqual(merged.rows,r.original.rows,label+' both complete parts agree');
   assert.deepEqual(r.candidate,r.original,label);assert.equal(r.candidate.complete,true,label+' complete');
-  results.push({label,fullOutputAgreement:true,rows:r.candidate.rows.length,comparisonMs:Math.round(performance.now()-started)});
+  results.push({label,fullOutputAgreement:true,partitionedOutputAgreement:true,rows:r.candidate.rows.length,comparisonMs:Math.round(performance.now()-started)});
 
  }
  const fixture=(extra={})=>({id,key:'tennis',date:day,status:'upcoming',startTimeUtc:new Date(Date.now()+3600000).toISOString(),homeParticipantId:home,awayParticipantId:away,participantIds:[home,away],sourceCheckedAt:stamp,...extra});
@@ -100,7 +102,9 @@ async function check(db,args,{original='public.ns_test_original_participant_bund
  for(const [label,sql] of corruptions){
   await db.exec('BEGIN');const changed=await db.query(sql);assert(changed.affectedRows>0,label+' changes a populated row');
   const broken=(await db.query(`SELECT ${candidate}($1,$2,$3,$4) value`,args)).rows[0].value;
-  assert.equal(broken.complete,false,label);assert.equal(broken.rows.length,0,label);await db.exec('ROLLBACK');
+  assert.equal(broken.complete,false,label);assert.equal(broken.rows.length,0,label);
+  const part=(await db.query("SELECT public.nothingsports_read_fixture_bundle_part('participants',0,$1,$2,$3,$4) value",args)).rows[0].value;
+  assert.equal(part.complete,false,label+' parts fail closed');assert.equal(part.rows.length,0,label+' no partial rows');await db.exec('ROLLBACK');
   results.push({label:label+' fails closed',passed:true});
  }
  // Inject only the calendar reference into each actual reader body. The real
@@ -148,7 +152,7 @@ async function run(){
   assert.equal((await db.query("SELECT to_regprocedure('nothingsports_fixture_read_private.backfill_batch(integer)') IS NULL absent")).rows[0].absent,true,'One-time preparation helper is removed after activation');
   const clocks=fs.readdirSync('supabase/migrations').find(n=>n.endsWith('_reuse_participant_observation_clocks.sql'));
   if(clocks)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+clocks,'utf8')+'COMMIT;');
-  for(const suffix of ['_restore_participant_reader_before_clock_rework.sql','_map_participant_observation_clocks.sql']){
+  for(const suffix of ['_restore_participant_reader_before_clock_rework.sql','_map_participant_observation_clocks.sql','_retain_indexed_participant_reader_before_parts.sql','_partition_current_fixture_bundle.sql']){
    const next=fs.readdirSync('supabase/migrations').find(n=>n.endsWith(suffix));
    if(next)await db.exec('BEGIN;'+fs.readFileSync('supabase/migrations/'+next,'utf8')+'COMMIT;');
   }

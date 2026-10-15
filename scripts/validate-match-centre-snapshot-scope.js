@@ -5,6 +5,7 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
  const calls=[],fixture={id:'fixture:scope-test',key:'nrl',status:'live'},store=createSnapshotStore({request:async(route,options)=>{
   calls.push({route,...options});
   if(route.endsWith('source_health'))return [{source_id:'scope-test',revision:1}];
+  if(route.endsWith('nothingsports_read_fixture_bundle_part')){const row={source_id:'scope-test',fixture_id:fixture.id,identity_keys:[fixture.id],fixture};return {schemaVersion:'fixture-bundle-part.v1',scope:'global',part:options.body.p_part,complete:true,rowCount:1,snapshotVersion:'a'.repeat(32),sportKeys:[],knownSportKeys:[],participantIds:[],requiredIds:[],manifest:options.body.p_part===0?[{source_id:'scope-test',revision:1}]:null,rows:require('../lib/fixture-bundle-parts').rowPart(row)===options.body.p_part?[row]:[]};}
   return {schemaVersion:'current-fixture-bundle.v1',scope:route.endsWith('nothingsports_read_match_centre_fixture_bundle')?'match-centre':'global',complete:true,rows:[{source_id:'scope-test',fixture}]};
  }});
  await store.read({scope:'match-centre',preserveIds:['fixture:kept','alias:kept','fixture:kept']});
@@ -14,7 +15,7 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
  assert.deepEqual(near.body,{p_membership_ids:['alias:kept','fixture:kept']},'Keep all known member IDs and aliases for corrective updates');
  assert(calls.every(c=>c.timeoutMs===3000));
  const wrongScope=createSnapshotStore({request:async route=>route.endsWith('source_health')?[]:{schemaVersion:'current-fixture-bundle.v1',scope:'global',complete:true,rows:[]}});await assert.rejects(()=>wrongScope.read({scope:'match-centre'}),/Wrong membership snapshot scope/,'A mismatched complete snapshot cannot certify membership');
- calls.length=0;await store.read();assert(calls.some(c=>c.route.endsWith('nothingsports_read_current_fixture_bundle')),'Other readers retain their original future timeline');
+ calls.length=0;await store.read();assert.equal(calls.length,2);assert(calls.every(c=>c.route.endsWith('nothingsports_read_fixture_bundle_part')),'Global readers use both complementary parts; full horizon is checked against actual SQL separately');
  for(const options of [{scope:'unknown'},{scope:'match-centre',preserveIds:Array.from({length:5001},(_,i)=>'fixture:'+i)},{scope:'match-centre',preserveIds:['invalid id']}]){
   calls.length=0;await assert.rejects(()=>store.read(options));assert.equal(calls.length,0,'Invalid scope input fails before a database read');
  }
