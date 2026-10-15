@@ -1,6 +1,6 @@
 # World Cup result and missing-result wording — 16 October 2026
 
-Status: prepared for the existing Audit release owner; production proof pending.
+Status: published and live as f2112076 / shell 548 through normal run 38773769526. Exact READY dpl_5bVsxzu6mCRh6nVsiawxn5Vz1XYr, all three aliases and eleven served build hashes agree; 64 hosted card cases, both paging engines and both installed-update/offline rehearsals pass. Physical iPhone proof remains separate.
 
 Jack reported that the finished Australia–New Zealand World Cup opener still showed as upcoming, and that Results ON asked him to reveal results. He authorised coordination with the concurrent repair chat. Correct this existing fixture and the shared missing-result wording; retain the domestic NRL source and assess ongoing World Cup ingestion separately.
 
@@ -21,3 +21,7 @@ No source adapter, scheduler, provider request, retry, database migration, custo
 The actual offline-shell gate also caught a first-page payload increase: 124,997 bytes pushed precache 8,664 bytes beyond the fixed 3 MiB limit. The existing paged-feed builder now bounds only the first page to 100 KiB including its JSON envelope and newline, with the existing maximum twenty records per page. Whole overflow records continue on the next page; every retained fact, identity and order remains. Existing manifest/page-index navigation already supports variable counts. An individually oversized first fixture fails before publication, never truncates. The regression uses multibyte records, exact complete continuation, immutable input and oversized/empty/invalid cases. No browser module, schema, retry, request owner, total-data reduction or limit increase is introduced.
 
 Private evidence: `/Users/jackhartican/Documents/AI/Codex/rlwc-results-2026-10-16`. The authoritative ignored coverage register captures this existing-match repair as R001 (1), Pending ranking, without changing demand or ranking scores.
+
+The earlier app release 38764632520 failed its final current-data check after deployment. Both later database trials were restored exactly; their source/history review and actual request failures are recorded in [the loading investigation](match-centre-plan-2026-10-16.md). The final normal run passed with one displayed fixture and its subsequent score lookup. This dated pass does not certify reliable cold-query latency.
+
+A supplemental hash check initially compared raw pretty JSON to the existing compact deployment transform. The final proof verifies the source Git blob, sealed transform, exact served bytes and all parsed fields/order. No sporting date or payload field was omitted. One separately observed public selected-fixture source-link gap remains: its generic official URL still points to the World Cup rules page while the reviewed result-source URL is the correct NRL match page. Ongoing tournament collection and that link are follow-up work, not completed coverage.
