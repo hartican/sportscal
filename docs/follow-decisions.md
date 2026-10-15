@@ -12,6 +12,8 @@ The explicit Rugby League World Cup competition maps to the existing reviewed NR
 
 The scoped presentation repair shipped on 16 October as 55417c31 / shell 549, with hosted and installed/offline proof. [Dated evidence and remaining limits](quality/missing-metadata-2026-10-16.md).
 
+Highlights API navigations preserve the server response or external video redirect. A failed lookup must never become the Feed loading shell, and resolver HTML must never overwrite the installed app shell cache. API routes run before app navigation recovery in the service worker. A forward shell-cache version installs clean shell bytes for existing clients. Regressions: `validate-highlight-navigation.js` (in the existing highlights gate) and `validate-highlight-navigation-browser.js` (real installed-worker taps in Chromium/WebKit). This repairs routing only; video suitability, confirmed completion and provider budgets remain unchanged.
+
 ## Honest missing-result wording — 16 October 2026 Sydney
 
 The authorised existing World Cup result repair also corrects the shared completed-card fallback. Results ON with no usable outcome says “Result not yet available”; Results OFF keeps its protected reveal guidance. Retain source-backed outcomes, reject stale preview recaps and preserve every saved result choice, identity, kickoff, admission and retention rule. Fact dates follow accepted status/score observations when an old saved row is rejected; a collection check cannot change them. Tests: validate-rlwc-result-fallback, shared live-score continuity, actual Feed/Schedule rendering and both installed-update rehearsals. [Dated scope](quality/rlwc-result-repair-2026-10-16.md).

@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v549";
-const SHELL_VERSION = "549";
+const CACHE_NAME = "nothingsport-shell-v550";
+const SHELL_VERSION = "550";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -63,7 +63,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=549",
+  "/assets/js/app-shell-runtime.js?v=550",
   "/assets/js/follow-schedule-panel.js?v=548",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
@@ -363,6 +363,12 @@ self.addEventListener("fetch", event => {
     event.respondWith(fetch(event.request));
     return;
   }
+  // Highlights are API navigations too. Keep their redirects and error pages
+  // out of shell recovery, and never cache their HTML as /index.html.
+  if (requestUrl.pathname.startsWith("/api/")){
+    event.respondWith(fetch(event.request));
+    return;
+  }
   if (event.request.mode === "navigate" && (/^\/fixture\//.test(requestUrl.pathname) || requestUrl.pathname === "/live")){
     event.respondWith(networkFirst(event.request, event, new Request("/participate.html")));
     return;
@@ -377,10 +383,6 @@ self.addEventListener("fetch", event => {
   }
   if (event.request.mode === "navigate"){
     event.respondWith(networkFirst(event.request, event, new Request("/index.html")));
-    return;
-  }
-  if (requestUrl.origin === self.location.origin && requestUrl.pathname.startsWith("/api/")){
-    event.respondWith(fetch(event.request));
     return;
   }
   if (requestUrl.pathname === "/data/feed-meta.json" || /^\/data\/feed\//.test(requestUrl.pathname)){

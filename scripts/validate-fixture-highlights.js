@@ -115,6 +115,7 @@ async function run(){
   require('./validate-all-sport-highlights').main();
   await require('./validate-youtube-top-result').main();
   await require('./validate-missing-fixture-metadata').main();
+  await require('./validate-highlight-navigation').run();
   await require('./validate-highlights-recency').main();
   await require('./validate-direct-highlight-policy').main();
   await require('./validate-highlight-fixture-fallback').main();
