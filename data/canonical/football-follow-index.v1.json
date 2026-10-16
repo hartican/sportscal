@@ -385,6 +385,54 @@
     {
       "id": "team:football:club:troyes",
       "leagueId": "competition:ligue-1"
+    },
+    {
+      "id": "team:football:adelaide-united",
+      "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:club:auckland-fc",
+      "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:brisbane-roar",
+      "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:club:central-coast-mariners",
+      "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:club:macarthur-fc",
+      "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:club:melbourne-city-fc",
+      "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:melbourne-victory",
+      "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:club:newcastle-jets",
+      "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:perth-glory",
+      "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:sydney-fc",
+      "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:club:wellington-phoenix-fc",
+      "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:western-sydney-wanderers",
+      "leagueId": "competition:a-leagues"
     }
   ],
   "players": [
@@ -14861,6 +14909,10 @@
       "displayName": "Lucas Herrington"
     },
     {
+      "id": "team:football:adelaide-united",
+      "displayName": "Adelaide United"
+    },
+    {
       "id": "team:football:argentina",
       "displayName": "Argentina"
     },
@@ -14871,6 +14923,10 @@
     {
       "id": "team:football:brazil",
       "displayName": "Brazil"
+    },
+    {
+      "id": "team:football:brisbane-roar",
+      "displayName": "Brisbane Roar"
     },
     {
       "id": "team:football:canada",
@@ -14927,6 +14983,10 @@
     {
       "id": "team:football:club:atletico-madrid",
       "displayName": "Atlético Madrid"
+    },
+    {
+      "id": "team:football:club:auckland-fc",
+      "displayName": "Auckland FC"
     },
     {
       "id": "team:football:club:az-alkmaar",
@@ -14987,6 +15047,10 @@
     {
       "id": "team:football:club:celtic",
       "displayName": "Celtic"
+    },
+    {
+      "id": "team:football:club:central-coast-mariners",
+      "displayName": "Central Coast Mariners"
     },
     {
       "id": "team:football:club:club-brugge",
@@ -15129,6 +15193,10 @@
       "displayName": "Lyon"
     },
     {
+      "id": "team:football:club:macarthur-fc",
+      "displayName": "Macarthur FC"
+    },
+    {
       "id": "team:football:club:mainz",
       "displayName": "Mainz"
     },
@@ -15141,6 +15209,10 @@
       "displayName": "Marseille"
     },
     {
+      "id": "team:football:club:melbourne-city-fc",
+      "displayName": "Melbourne City FC"
+    },
+    {
       "id": "team:football:club:monza",
       "displayName": "Monza"
     },
@@ -15151,6 +15223,10 @@
     {
       "id": "team:football:club:napoli",
       "displayName": "Napoli"
+    },
+    {
+      "id": "team:football:club:newcastle-jets",
+      "displayName": "Newcastle Jets"
     },
     {
       "id": "team:football:club:nice",
@@ -15333,6 +15409,10 @@
       "displayName": "Villarreal"
     },
     {
+      "id": "team:football:club:wellington-phoenix-fc",
+      "displayName": "Wellington Phoenix FC"
+    },
+    {
       "id": "team:football:club:werder-bremen",
       "displayName": "Werder Bremen"
     },
@@ -15433,6 +15513,10 @@
       "displayName": "France"
     },
     {
+      "id": "team:football:melbourne-victory",
+      "displayName": "Melbourne Victory"
+    },
+    {
       "id": "team:football:mexico",
       "displayName": "Mexico"
     },
@@ -15447,6 +15531,10 @@
     {
       "id": "team:football:paraguay",
       "displayName": "Paraguay"
+    },
+    {
+      "id": "team:football:perth-glory",
+      "displayName": "Perth Glory"
     },
     {
       "id": "team:football:portugal",
@@ -15465,12 +15553,20 @@
       "displayName": "Switzerland"
     },
     {
+      "id": "team:football:sydney-fc",
+      "displayName": "Sydney FC"
+    },
+    {
       "id": "team:football:turkiye",
       "displayName": "Türkiye"
     },
     {
       "id": "team:football:usa",
       "displayName": "USA"
+    },
+    {
+      "id": "team:football:western-sydney-wanderers",
+      "displayName": "Western Sydney Wanderers"
     }
   ]
 }

@@ -78,6 +78,7 @@
     stan:{ label:"Stan Sport", actionLabel:"Stan Sport", webUrl:"https://www.stan.com.au/watch/sport", paid:true, territory:"AU", accessType:"subscription", aliases:["stan sport", "stan"], logoPath:"assets/providers/stan-sport.jpg", logoBackground:"#0877f9" },
     disney:{label:"Disney+",actionLabel:"Disney+",webUrl:"https://www.disneyplus.com/en-au",paid:true,territory:"AU",accessType:"subscription",aliases:["disney+", "disney plus", "espn on disney"]},
     optus:{ label:"Optus Sport", actionLabel:"Optus Sport", webUrl:"https://sport.optus.com.au/", active:false, paid:true, territory:"AU", accessType:"subscription", aliases:["optus sport", "optus"] },
+    "ten-tv":{label:"Network 10",actionLabel:"Network 10 guide",webUrl:"https://aleagues.com.au/more/where-to-watch-aleagues-mens/",paid:false,territory:"AU",accessType:"free",aliases:["10 television"]},
     ten:{ label:"10 Streaming", actionLabel:"10 Streaming", webUrl:"https://10.com.au/", paid:false, territory:"AU", accessType:"free", aliases:["network 10", "channel 10", "10 streaming", "10play", "10 play"] },
     paramount:{ label:"Paramount+", actionLabel:"Paramount+", webUrl:"https://www.paramountplus.com/au/", paid:true, territory:"AU", accessType:"subscription", aliases:["paramount+", "paramount plus", "paramount"], logoPath:"assets/providers/paramount-plus.svg", logoBackground:"#ffffff" },
     seven:{ label:"7plus", actionLabel:"7plus", webUrl:"https://7plus.com.au/", paid:false, territory:"AU", accessType:"free", aliases:["7plus", "channel 7", "seven"], logoPath:"assets/providers/7plus-transparent.svg", logoBackground:"transparent" },
@@ -142,7 +143,6 @@
     "competition:chl":viewingRights(["competition:chl", "champions-hockey-league"], ["iihf-tv"], "https://www.chl.hockey/en/fans/where-to-watch", { sourceIsProvider:false, providerUrls:Object.freeze({ "iihf-tv":"https://iihf.tv/" }) }),
     "competition:netball-2026":viewingRights(["competition:netball"], ["kayo", "foxtel"], "https://netball.com.au/supernetball/broadcast", { notAfter:"2026-12-31T23:59:59.999Z" }),
     "competition:netball-2027":viewingRights(["competition:netball"], ["stan", "nine"], "https://netball.com.au/news/new-broadcast-deal-delivers-fans", { notBefore:"2027-01-01T00:00:00.000Z", matchPriority:1 }),
-    "competition:a-leagues":viewingRights(["competition:a-league"], ["paramount"], "https://www.paramountanz.com.au/news/paramount-remains-the-home-of-australian-football/"),
     "competition:australian-national-football":viewingRights(["competition:afc-womens-asian-cup", "competition:afc-asian-cup", "competition:australia-cup", "socceroos", "matildas", "australia-cup"], ["paramount"], "https://footballaustralia.com.au/news/football-australia-and-paramount-australia-agree-historic-multi-year-multi-platform-media"),
     "competition:fifa-world-cup-2026":viewingRights(["competition:fifa-world-cup-2026"], ["sbs"], "https://www.sbs.com.au/sport/fifa-world-cup-2026/how-to-watch/"),
     "competition:tennis-major":viewingRights(["competition:tennis:australian-open", "competition:tennis:roland-garros", "competition:tennis:wimbledon", "australian-open", "roland-garros", "french-open", "wimbledon"], ["stan"], "https://www.stan.com.au/watch/sport/tennis"),
@@ -595,7 +595,7 @@
     }
     const sportAliases = {
       "rugby-union":"rugby", basketball:"nba", "multi-sport":"cwg",
-      fifa:"football", "premier-league":"football", bundesliga:"football", "la-liga":"football", "serie-a":"football", "ligue-1":"football",
+      fifa:"football", "premier-league":"football", bundesliga:"football", "la-liga":"football", "serie-a":"football", "ligue-1":"football", "a-league-men":"football",
       wimbledon:"tennis", tdf:"cycling", giro:"cycling", vuelta:"cycling", masters:"golf", nfl:"american-football",
       nhl:"ice-hockey", chl:"ice-hockey",
       ski:"telemark", skiing:"telemark", alpine:"telemark", freestyle:"telemark",

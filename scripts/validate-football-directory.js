@@ -28,8 +28,8 @@ function validate(){
   const workerSource = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
   const hierarchySource = fs.readFileSync(path.join(ROOT, "config/sport-hierarchy.js"), "utf8");
   assert.equal(directory.schemaVersion, "football-directory.v1");
-  assert.equal(directory.leagues.length, 5, "exactly the five approved leagues must be published");
-  assert(!directory.leagues.some(league => league.id === "competition:a-leagues" || league.key === "a-league-men"), "A-League Men must not remain in the active directory");
+  assert.equal(directory.leagues.length, 6, "all six approved leagues must be published");
+  assert(directory.leagues.some(league => league.id === "competition:a-leagues" && league.key === "a-league-men"), "A-League Men must be available under Football leagues");
   uniqueIds(directory.leagues, "league");
   uniqueIds(directory.teams, "team");
   uniqueIds(directory.players, "player");

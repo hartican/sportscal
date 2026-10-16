@@ -21,13 +21,6 @@
     eventSpoilerState: ["ns_event_spoiler_state_v1", "ns_spoiler_reveals_v1"],
     surfacePresentation: ["ns_surface_presentation_v1"],
   });
-  const REMOVED_COMPETITION_IDS = new Set(["competition:a-leagues", "a-league-men"]);
-  const REMOVED_A_LEAGUE_TEAM_IDS = new Set([
-    "team:football:adelaide-united", "team:football:club:auckland-fc", "team:football:brisbane-roar",
-    "team:football:club:central-coast-mariners", "team:football:club:macarthur-fc", "team:football:club:melbourne-city-fc",
-    "team:football:melbourne-victory", "team:football:club:newcastle-jets", "team:football:perth-glory",
-    "team:football:sydney-fc", "team:football:club:wellington-phoenix-fc", "team:football:western-sydney-wanderers",
-  ]);
   const selectorAlias = value => String(value || "") === "sport:rally" ? "sport:wrc" : String(value || "");
   const sportAlias = value => String(value || "") === "rally" ? "wrc" : String(value || "");
   const competitionAlias = value => String(value || "") === "competition:world-rally" ? "competition:wrc-2026" : String(value || "");
@@ -57,8 +50,7 @@
     ["selectedSelectorEntityIds", "followedSports"].forEach(key => {
       if (Array.isArray(preferences[key])){
         preferences[key] = Array.from(new Set(preferences[key]
-          .map(key === "selectedSelectorEntityIds" ? selectorAlias : sportAlias)
-          .filter(id => !REMOVED_COMPETITION_IDS.has(String(id)))));
+          .map(key === "selectedSelectorEntityIds" ? selectorAlias : sportAlias)));
       }
     });
     if (Array.isArray(preferences.standings?.selectedSportKeys)) preferences.standings.selectedSportKeys = Array.from(new Set(preferences.standings.selectedSportKeys.map(sportAlias)));
@@ -77,12 +69,8 @@
       }
       if (Array.isArray(graph.competitionPreferences)){
         graph.competitionPreferences = graph.competitionPreferences
-          .filter(item => !REMOVED_COMPETITION_IDS.has(String(item?.competitionId || item?.id || "")))
           .map(item => ({ ...item, competitionId:competitionAlias(item?.competitionId) }));
         graph.competitionPreferences = uniquePreferences(graph.competitionPreferences, "competitionId", competitionAlias);
-      }
-      if (Array.isArray(graph.entityFollows)){
-        graph.entityFollows = graph.entityFollows.filter(item => !REMOVED_A_LEAGUE_TEAM_IDS.has(String(item?.participantId || item?.id || "")));
       }
     }
     return preferences;
@@ -232,8 +220,6 @@
       eventUserState: sanitizeEventUserState(input.eventUserState),
       eventSpoilerState: input.eventSpoilerState && typeof input.eventSpoilerState === "object" ? input.eventSpoilerState : {},
     };
-    bundle.competitionPreferences = bundle.competitionPreferences.filter(item => !REMOVED_COMPETITION_IDS.has(String(item?.competitionId || item?.id || "")));
-    bundle.entityFollows = bundle.entityFollows.filter(item => !REMOVED_A_LEAGUE_TEAM_IDS.has(String(item?.participantId || item?.id || "")));
     bundle.profile.onboardingCompleted = Boolean(
       input.profile?.onboardingCompleted ?? input.preferences?.onboardingComplete
     );

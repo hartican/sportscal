@@ -187,11 +187,11 @@
       "id": "sport:football",
       "slug": "football",
       "label": "Football",
-      "fixtureCount": 690,
+      "fixtureCount": 846,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-15T00:27:53.206Z",
+      "freshAt": "2026-10-16T07:55:06.306Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {

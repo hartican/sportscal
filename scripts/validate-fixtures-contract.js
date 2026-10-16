@@ -74,9 +74,9 @@ for (const major of [true, false]){
 assert(detailSource.includes('Open in Events') && detailSource.includes('pendingTournamentFocusFixture=parent'), "Expanded tournament cards route their exact edition into Events");
 assert(!html.includes("pruneUnavailableFootballFollows"), "directory membership changes must preserve explicit player follows");
 assert.match(html, /--fixture-card-collapsed-height:248px[\s\S]{0,500}\.cards-grid > \.event-card\[data-card-state="compact"\][\s\S]{0,500}height:var\(--fixture-card-collapsed-height\)/, "all collapsed fixture variants must share one outer height");
-assert(!fs.existsSync("data/football/fixtures/a-league-men.json") && !fs.existsSync("data/football/fixtures/a-league-men.js"), "A-League fixture bundles must be removed from active data");
+assert(fs.existsSync("data/football/fixtures/a-league-men.json") && fs.existsSync("data/football/fixtures/a-league-men.js"), "A-League fixture bundles must be published");
 const football = JSON.parse(fs.readFileSync("data/canonical/football-directory.v1.json", "utf8"));
-assert.equal(football.leagues.length, 5);
-assert(!football.leagues.some(league => league.id === "competition:a-leagues" || league.key === "a-league-men"));
+assert.equal(football.leagues.length, 6);
+assert(football.leagues.some(league => league.id === "competition:a-leagues" && league.key === "a-league-men"));
 
-console.log("Fixtures contract valid: canonical chronology, equal L0 geometry, invisible seen-state lifecycle, Events links and five-league catalogue passed.");
+console.log("Fixtures contract valid: canonical chronology, equal L0 geometry, invisible seen-state lifecycle, Events links and six-league catalogue passed.");
