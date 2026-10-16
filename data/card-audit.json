@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-10-16T07:25:55.957Z",
+  "generatedAt": "2026-10-16T08:13:04.053Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -13,8 +13,8 @@
   },
   "summary": {
     "totalMajorCards": 618,
-    "completed": 415,
-    "upcoming": 203,
+    "completed": 416,
+    "upcoming": 202,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -5926,7 +5926,7 @@
       "id": "fixture-mlb-849810",
       "name": "Los Angeles Dodgers v Milwaukee Brewers",
       "date": "2026-10-16",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,

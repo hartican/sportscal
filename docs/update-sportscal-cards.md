@@ -177,3 +177,7 @@ Sparse-retained regressions exercise both persistent writers and unchanged rerun
 ### Canonical readiness maintenance
 
 `node scripts/update-cards.js --canonical-readiness --local-only` runs the existing combined AFL/NRL fixture and standings loader once, rebuilds its generated runtime, and checks canonical/pilot readiness. It rejects mixed/offline routes; retained data cannot masquerade as a fresh source observation. This introduces no separate scheduler or ladders-only refresh. Broadcaster review also rebuilds/checks its dependent local discovery dashboard from the same retained source observations, without provider requests.
+
+### Generated runtime version after concurrent integration
+
+After integrating current `origin/main`, run `node scripts/version-generated-shell.js` before sealing the release. The canonical versioner compares with accepted main when it is included in `HEAD` or the pending merge, not merely with an already committed local runtime. Different runtime bytes must never reuse main's numeric shell version. Keep HTML, worker, runtime URLs and `app-version.json` aligned, then run the generated-shell/cache contracts and installed-update checks. This is bounded local recovery, not authority to reset a checkout, overwrite unrelated edits, or bypass release gates.

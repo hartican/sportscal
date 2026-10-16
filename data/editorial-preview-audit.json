@@ -1,29 +1,14 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-10-16T07:25:55.796Z",
+  "generatedAt": "2026-10-16T08:13:03.879Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 19,
-    "passed": 19,
+    "due": 18,
+    "passed": 18,
     "failed": 0
   },
   "cards": [
-    {
-      "id": "fixture-mlb-849810",
-      "name": "Los Angeles Dodgers v Milwaukee Brewers",
-      "date": "2026-10-16",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
-      ],
-      "sourceUrl": "https://www.mlb.com/gameday/849810",
-      "issues": []
-    },
     {
       "id": "evt_wsl_2026_portugal",
       "name": "MEO Rip Curl Pro Portugal Presented By Corona Cero — Men",
@@ -32,8 +17,12 @@
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
-        "official-schedule",
-        "event window"
+        "event-specific",
+        "narrative:path",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:format",
+        "narrative:consequence"
       ],
       "sourceUrl": "https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main",
       "issues": []
@@ -46,11 +35,12 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
+        "narrative:history",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:consequence"
       ],
-      "sourceUrl": "https://www.mlb.com/gameday/849817",
+      "sourceUrl": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
       "issues": []
     },
     {
@@ -62,12 +52,13 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:matchup",
         "narrative:form",
+        "narrative:history",
+        "narrative:matchup",
         "narrative:consequence",
         "narrative:path"
       ],
-      "sourceUrl": "https://www.rugby.com.au/news/we-know-wallabies-tweaking-game-plan-for-all-blacks-high-ball-battle-20261013",
+      "sourceUrl": "https://www.rugby.com.au/wallabies/news/wallabies-team-confirmed-to-play-new-zealand-in-sydney-20261015",
       "issues": []
     },
     {
@@ -78,11 +69,11 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
+        "narrative:history",
+        "narrative:form",
+        "narrative:path"
       ],
-      "sourceUrl": "https://www.mlb.com/gameday/849808",
+      "sourceUrl": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
       "issues": []
     },
     {
@@ -95,11 +86,12 @@
       "contextSignals": [
         "event-specific",
         "narrative:form",
-        "narrative:consequence",
         "narrative:matchup",
+        "narrative:history",
+        "narrative:consequence",
         "narrative:path"
       ],
-      "sourceUrl": "https://www.cricket.com.au/news/4591880/matthew-renshaw-first-test-south-africa-190-82-australia-kingsmead-positional-switch-number-five-opener-maddinson-cummins-green-cricketplus",
+      "sourceUrl": "https://supersport.com/cricket/news/4dc5ed81-4b33-42b8-8b64-a67d8bcfe0cb/stubbs-out-breetzke-in-as-proteas-announce-squad-for-second-test",
       "issues": []
     },
     {
@@ -110,11 +102,12 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
+        "narrative:history",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:consequence"
       ],
-      "sourceUrl": "https://www.mlb.com/gameday/849816",
+      "sourceUrl": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
       "issues": []
     },
     {
@@ -125,11 +118,11 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:format",
-        "narrative:path",
-        "narrative:matchup"
+        "narrative:history",
+        "narrative:form",
+        "narrative:path"
       ],
-      "sourceUrl": "https://www.mlb.com/gameday/849806",
+      "sourceUrl": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
       "issues": []
     },
     {
@@ -294,11 +287,13 @@
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:venue",
-        "narrative:format",
-        "narrative:history"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup",
+        "narrative:consequence",
+        "narrative:format"
       ],
-      "sourceUrl": "https://www.australianturfclub.com.au/races/everest-day/",
+      "sourceUrl": "https://www.australianturfclub.com.au/tab-everest-how-it-works/",
       "issues": []
     }
   ]

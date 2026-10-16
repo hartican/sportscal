@@ -1,8 +1,21 @@
 #!/usr/bin/env node
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),{execFileSync}=require('node:child_process');
-function ensureGeneratedShellVersion({root=path.resolve(__dirname,'..')}={}){
- const prior=file=>execFileSync('git',['show','HEAD:'+file],{cwd:root,maxBuffer:16*1024*1024,stdio:['ignore','pipe','pipe']});
+function ensureGeneratedShellVersion({root=path.resolve(__dirname,'..'),baselineRef}={}){
+ const git=args=>execFileSync('git',args,{cwd:root,maxBuffer:16*1024*1024,stdio:['ignore','pipe','pipe']});
+ if(baselineRef===undefined){
+  baselineRef='HEAD';
+  // A local merge may already have committed different bytes at the live
+  // version. Compare with integrated accepted main, not that local commit.
+  try{
+   git(['rev-parse','--verify','origin/main^{commit}']);
+   for(const tip of ['HEAD','MERGE_HEAD']){
+    try{git(['merge-base','--is-ancestor','origin/main',tip]);baselineRef='origin/main';break;}catch{}
+   }
+  }catch{}
+ }
+ if(typeof baselineRef!=='string'||! /^[A-Za-z0-9_][A-Za-z0-9_./-]*$/.test(baselineRef))throw Error('Invalid generated-shell baseline');
+ const prior=file=>git(['show',baselineRef+':'+file]);
  const runtime='assets/js/app-shell-runtime.js';
  if(fs.readFileSync(path.join(root,runtime)).equals(prior(runtime)))return {changed:false,reason:'runtime unchanged'};
  const files=['app-version.json','index.html','service-worker.js'];
