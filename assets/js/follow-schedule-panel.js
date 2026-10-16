@@ -7,17 +7,18 @@ function inspectorHasResultEvidence(event,identity){
   ||!['','pending','unknown','unavailable'].includes(String(event?.resultStatus||'').toLowerCase())
   ||['resultScore','result','outcome','outcomeText','winner','winnerParticipantId'].some(key=>populated(event?.[key]))
   ||receipt(event?.scoreCheckedAt)&&identity.hasScoreFields(event)
-  ||['scoreFactObservedAt','actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt'].some(key=>receipt(event?.[key]));
+  ||['scoreFactObservedAt','resultSourceCheckedAt','actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt'].some(key=>receipt(event?.[key]));
 }
 function inspectorSourcePreferred(source,candidate){
  const id=candidate?.id,direct=id&&(id===source?.id||id===source?.canonicalEventId);
- const fields=['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType'];
+ const fields=['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType','matchType','drawType','draw','sportKey','codeId','sportDomainId','sport','actualStartTimeUtc'];
  // Older exact pins used a competition family instead of its dated edition.
  // This supplies no sporting fact: only the source's explicit final can win.
  const family=direct&&typeof source.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(source.date)
   &&typeof candidate.competitionId==='string'&&source.competitionId===candidate.competitionId+':'+source.date.slice(0,4);
  if(!source||typeof id!=='string'||(!direct&&!id.startsWith('major-match:'))
   ||!Array.isArray(source.sourceEventIds)||!source.sourceEventIds.includes(id)
+  ||[candidate.eventId,candidate.canonicalEventId].some(value=>value!=null&&![source.id,source.eventId,source.canonicalEventId,...source.sourceEventIds].includes(value))
   ||!source.key||source.key!==candidate.key||!source.competitionId
   ||(candidate.competitionId?source.competitionId!==candidate.competitionId&&!family:!direct)||source.date!==candidate.date
   ||!['completed','finished','final'].includes(String(source.status||'').toLowerCase())||!['scheduled','upcoming','past'].includes(candidate.status))return false;
@@ -27,7 +28,7 @@ function inspectorSourcePreferred(source,candidate){
  const resultOwner=globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY||(typeof module==='object'&&module.exports&&typeof require==='function'?require('../../config/fixture-identity'):null);
  if(legacy&&(!resultOwner?.hasScore||!resultOwner.hasScoreFields||inspectorHasResultEvidence(candidate,resultOwner)))return false;
  return Boolean(key&&key===identity(candidate)&&!fields.some(k=>source[k]!=null&&candidate[k]!=null&&source[k]!==candidate[k])
-  &&(!legacy||![...fields,'drawType','draw'].some(k=>candidate[k]!=null&&(source[k]==null||source[k]!==candidate[k]))));
+  &&(!legacy||!fields.some(k=>candidate[k]!=null&&(source[k]==null||source[k]!==candidate[k]))));
 }
 
 // The source calendar owns chronological round order; views never create follows.
