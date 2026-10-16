@@ -109,8 +109,8 @@
     // Venue calendar dates cannot establish Sydney dates without a race start.
     const venueCalendar = !hasTime && event.timingProvenance?.precision === 'venue-calendar' && event.displayDateLabel;
     if(venueCalendar){day=fullDate=event.displayDateLabel;}
-    const scheduleLabel = venueCalendar ? [day,time].join(' · ') : schedule;
-    const fullSchedule = [fullDate,time].filter(Boolean).join(" · ") + (venueCalendar ? ' · Sydney start unavailable' : " (Sydney time)");
+    const scheduleLabel = venueCalendar ? [day,time].filter(Boolean).join(' · ') : schedule;
+    const fullSchedule = [fullDate,time].filter(Boolean).join(" · ") + (venueCalendar ? started?'':' · Sydney start unavailable' : " (Sydney time)");
     // Explicit source status only: duration heuristics must not claim completion.
     const statuses = [event.status,event.scheduleStatus].map(value => String(value || "").toLowerCase());
     const pause = pauseReason(event);

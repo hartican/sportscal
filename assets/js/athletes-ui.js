@@ -101,8 +101,8 @@
  function timing(event){
   if(NOTHINGSPORTS_CARD_TIMING.played(event)||event.timePrecision==='estimated'&&Number.isFinite(Date.parse(event.estimatedStartTimeUtc)))return NOTHINGSPORTS_CARD_TIMING.presentation(event).fullSchedule;
   const calendar=model.calendarTiming(event);if(calendar)return calendar;
-  if(String(event.timePrecision).replace('_','-')==='followed-by'&&!Number.isFinite(Date.parse(event.startTimeUtc)))return 'Match time unresolved · follows an earlier match';
-  const state=model.timingState(event);if(state==='publication-pending')return 'Organiser publication pending';if(state==='unresolved')return 'Match time unresolved';if(state==='unverified')return 'Match time not verified';if(state==='stale'&&!Number.isFinite(Date.parse(event.startTimeUtc)))return 'Timing needs rechecking';
+  if(String(event.timePrecision).replace('_','-')==='followed-by'&&!Number.isFinite(Date.parse(event.startTimeUtc)))return 'Time TBD · follows an earlier match';
+  const state=model.timingState(event);if(state==='publication-pending')return 'Time TBD · organiser publication pending';if(state==='unresolved')return 'Time TBD';if(state==='unverified')return 'Time TBD · timing not verified';if(state==='stale'&&!Number.isFinite(Date.parse(event.startTimeUtc)))return 'Time TBD · timing needs rechecking';
   return (state==='stale'?'Update needed · last published time: ':'')+(String(event.timePrecision).replace('_','-')==='not-before'?'Not before ':'')+new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(new Date(event.startTimeUtc));
  }
  function official(record){

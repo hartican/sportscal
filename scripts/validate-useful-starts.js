@@ -23,4 +23,10 @@ assert.equal(timing.estimateClock({timePrecision:'estimated',planningTimeEvidenc
 assert.equal(policy.timing({...event,status:'completed'},+reference),null);
 assert.equal(policy.timing({...event,manualEstimateHeld:true},+reference),null);
 assert.equal(policy.timing(event,Date.parse('2026-10-11T05:45:00Z')),null,'A rounded clock cannot replay after start');
+const venueFinal={...match,startTimeUtc:null,dateOnly:true,timingProvenance:{precision:'venue-calendar'},displayDateLabel:'15 OCT 2026 · venue date'};
+assert.equal(timing.presentation(venueFinal,now).fullSchedule,venueFinal.displayDateLabel,'A played unknown start keeps only the venue-calendar date, without a Sydney conversion or placeholder');
+const profileFile=require('node:fs').readFileSync(require.resolve('../assets/js/athletes-ui.js'),'utf8'),profileStart=profileFile.indexOf('function timing(event){'),profileEnd=profileFile.indexOf('\n function official(',profileStart);
+assert(profileStart>=0&&profileEnd>profileStart);
+const profileTiming=require('node:vm').runInNewContext('('+profileFile.slice(profileStart,profileEnd)+')',{NOTHINGSPORTS_CARD_TIMING:timing,model:require('../config/athletes')});
+assert.match(profileTiming({status:'scheduled',timePrecision:'unresolved',startTimeUtc:null}),/TBD/,'Upcoming unknown profile timing uses the shared TBD wording');
 console.log('Useful starts: blank unknowns, Scheduled fallback, exact publisher minutes, rounded derived display/reminders and immutable evidence passed.');

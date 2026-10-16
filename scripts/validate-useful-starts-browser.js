@@ -2,8 +2,8 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const retained=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.filter(e=>e.sessionOrderEvidence);
 const estimated=require('../lib/session-order-estimates').apply(retained,new Date('2026-10-10T23:00:00Z')).find(e=>e.id.endsWith('184929'));
-// Exercise the exact source function without editing the generated runtime.
-// The publication owner separately builds and checks the final whole shell.
+// Default/release checks execute the generated runtime. Source preparation
+// may explicitly inspect its pending function before the publisher builds it.
 const panelFile=fs.readFileSync(require.resolve('../config/venue-panel-ui.js'),'utf8'),panelStart=panelFile.indexOf('function buildNothingscorePanel('),panelEnd=panelFile.indexOf('\nfunction ',panelStart+1),panelSource=panelFile.slice(panelStart,panelEnd<0?undefined:panelEnd);assert(panelStart>=0);
 const evidence=[];
 (async()=>{for(const engine of ['chromium','webkit']){const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:'chrome'}:{})});try{for(const width of [390,1280]){
@@ -11,7 +11,7 @@ const evidence=[];
  await page.clock.setFixedTime(new Date('2026-10-10T23:00:00Z'));
  await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:27,onboardingComplete:true,showSpoilers:false,followFirst:{notifications:{enabled:false,sportingRemindersEnabled:false,autoRemindersEnabled:false}}})));
- await page.goto(process.env.MATCH_CENTRE_QA_URL||'http://127.0.0.1:34109');await page.locator('#startupLaunch').waitFor({state:'hidden'});await page.addScriptTag({content:panelSource});
+ await page.goto(process.env.MATCH_CENTRE_QA_URL||'http://127.0.0.1:34109');await page.locator('#startupLaunch').waitFor({state:'hidden'});if(process.env.USEFUL_STARTS_SOURCE_PANEL==='1')await page.addScriptTag({content:panelSource});
  for(const results of [false,true])for(const surface of ['feed','events','match-centre']){
   const report=await page.evaluate(({estimated,results,surface})=>{
    setTunePromptOpen(false);suppressSessionRatingPrompt();userPreferences.showSpoilers=results;activeTab=surface;const settingsBefore=JSON.stringify(userPreferences.followFirst.notifications);
