@@ -116,6 +116,8 @@ async function main(){
   const installationMigration = fs.readFileSync(`${ROOT}/supabase/follow-first-user-meta-and-notifications.sql`, "utf8");
   const socialMigration = fs.readFileSync(`${ROOT}/supabase/migrations/20260915231544_social_reward_notifications.sql`, "utf8");
   const vercel = JSON.parse(fs.readFileSync(`${ROOT}/vercel.json`, "utf8"));
+  assert.equal(vercel.functions?.["api/notifications.js"]?.maxDuration, 30, "notification requests must retain the configured 30-second hosting limit");
+  assert.equal(vercel.functions["api/notifications.js"].includeFiles, "data/code-inspector/*.json", "notification requests must retain their fixture data bundle");
   const quickReminder = html.match(/async function toggleQuickReminder[\s\S]*?\n\}/)?.[0] || "";
   assert(quickReminder.includes("return ensureWebPushReminder(ev, timing)") && quickReminder.includes("rollback:prior"), "optimistic Remind must await server confirmation and roll back failure");
   assert(quickReminder.includes("return removeWebPushReminder(ev)"), "turning a reminder off must confirm server cancellation");

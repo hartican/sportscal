@@ -5,6 +5,7 @@
   },
   "functions": {
     "api/notifications.js": {
+      "includeFiles": "data/code-inspector/*.json",
       "maxDuration": 30
     },
     "api/notification-dispatch.js": {
@@ -30,9 +31,6 @@
       "maxDuration": 60,
       "regions": ["syd1"],
       "includeFiles": "data/{code-inspector/*.json,discovery/enrichment.v1.json,events.json,follow-fixtures.v1.json,major-events.v1.json}"
-    },
-    "api/notifications.js": {
-      "includeFiles": "data/code-inspector/*.json"
     }
   },
   "redirects": [
