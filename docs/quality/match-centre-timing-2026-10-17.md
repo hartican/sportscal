@@ -1,6 +1,6 @@
 # Match Centre timing evidence — 17 October 2026
 
-Status: private diagnostic preparation, not a loading fix or production deployment. Current accepted application is88d2e3b0/app558; documentation baseline87b8c23b. No database rewrite is proposed.
+Status: diagnostic update delivered at `d10b419fefe3f517f7bf99300f09fc1267957406` on 17 October Sydney; app/cache remains 558. [Normal production run](https://github.com/hartican/sportscal/actions/runs/38927163642) succeeded. This is not a loading fix or cold-speed certification. UI inputs remain exact from accepted 88d2e3b0/app 558; no database rewrite was made.
 
 ## Evidence and decision
 
@@ -24,8 +24,14 @@ Existing Feed timing is bypassed by the Match Centre route. Add phase timings in
 
 ## Verification
 
-The actual-handler diagnostic test failed before instrumentation and passes after it. It covers slow healthy/quiet healthy/degraded/selected states, zero scores, original clocks, no extra request, no private fields and unavailable logging. The existing29-handler-case replay produces byte-equivalent complete response bodies and existing headers before/after; Server-Timing is the sole header addition. The release checker test proves exactly one empty-window read or the existing membership+selected two reads, a closed numeric timing receipt and missing-header failure without retry. The existing Match Centre gate invokes these tests. Independent Spec review found that the release checker required snapshot timing but omitted required preparation/merge timings. A new individual-omission regression first reproduced that gap; the corrected checker now rejects each missing membership phase once, while selected reads require only their own phases.
+The actual-handler diagnostic test failed before instrumentation and passes after it. It covers slow healthy/quiet healthy/degraded/selected states, zero scores, original clocks, no extra request, no private fields and unavailable logging. The existing 29-handler-case replay produces byte-equivalent complete response bodies and existing headers before/after; Server-Timing is the sole header addition. The release checker test proves exactly one empty-window read or the existing membership+selected two reads, a closed numeric timing receipt and missing-header failure without retry. The existing Match Centre gate invokes these tests. Independent Spec review found that the release checker required snapshot timing but omitted required preparation/merge timings. A new individual-omission regression first reproduced that gap; the corrected checker now rejects each missing membership phase once, while selected reads require only their own phases.
 
 Collect bounded independent source-review findings before freezing the expensive final pass. Then run affected/API/privacy/budget checks and the unchanged normal exact-SHA release. Browser/PWA assets are unchanged, so retain prior hash-bound558 update/offline and viewing proof; this does not renew physical-phone acceptance. Save actual release timing as an observation, not a universal improvement.
 
 Evidence: /Users/jackhartican/Documents/AI/Codex/match-loading-observation-20261017. All failed/preparation observations are retained. No new purchase or recurring owner task. Loading remains open until actual evidence supports a repair and dependable behaviour.
+
+## Delivered observation and acceptance
+
+The normal release’s match-list request completed in 5.08 seconds; the handler reported 4.68 seconds of work. It returned an empty quiet window and did not test selected scores. Catalogue preparation took 2.42 seconds; waiting for snapshots took 1.83 seconds. Profile catalogue preparation first, preserving the complete data, before another database change. This is one release observation, not dependable cold-server or phone-speed proof.
+
+All 220 final local commands passed in one frozen run. Fresh READY/SHA/three-alias and eight served-artifact hashes agree. The existing 29 complete controlled responses and original headers agree before/after; only Server-Timing is added. Six unchanged UI input hashes retain accepted 558 browser/PWA evidence within its existing scope; no new physical-phone or playback evidence. Initial Standards source review found no issue; Spec’s single P2 was corrected and confirmed resolved. The final narrow correction was not independently revisited on Standards. No source refresh, provider/DB/customer write, extra API warming, retry, purchase or owner routine. Actual timing receipt: `/Users/jackhartican/Documents/AI/Codex/match-loading-observation-20261017/final-d10b419f/public-match-timings.json`. Loading and whole-sport acceptance remain open.
