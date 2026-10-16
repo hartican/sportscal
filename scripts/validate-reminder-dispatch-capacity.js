@@ -10,6 +10,7 @@ async function main(){
  const delayed=()=>new Promise(r=>setTimeout(r,100));
  const serviceRequest=async(p,o={})=>{await delayed();
   if(p.endsWith('nothingsports_reminder_accounts')||p.endsWith('nothingsports_reminder_schedule_candidates'))return [];
+  if(p.endsWith('nothingsports_impact_inventory')){assert.equal(sent,10,'Impact inventory starts only after time-critical reminders finish');return {accounts:[],fixtures:[]};}
   if(p.endsWith('nothingsports_claim_due_reminders')){claimLimit=o.body.batch_limit;return rows.map(r=>({...r,claimed_at:o.body.claim_at}));}
   if(p.includes('nothingsports_push_installations?installation_id=in.'))return rows.map(r=>({installation_id:r.installation_id,timezone:'Australia/Sydney'}));
   if(p.endsWith('nothingsports_begin_fixture_reminder')){begun.add(o.body.reminder_id);return true;}
