@@ -224,3 +224,5 @@ do $$ declare f record;begin for f in select p.oid::regprocedure signature from 
  execute format('grant execute on function %s to service_role',f.signature);
 end loop;end $$;
 grant usage on schema private to service_role;
+
+notify pgrst, 'reload schema';

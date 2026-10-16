@@ -32,7 +32,7 @@ const fs=require('node:fs'),assert=require('node:assert/strict'),{PGlite}=requir
  await db.query("insert into nothingsports_nsc_rating_history values($1,'fixture:backfill-chain','heat',3,now()-interval '4 days'),($1,'fixture:backfill-chain','heat',5,now()-interval '2 days')",[a]);
  await db.query("insert into nothingsports_inbox(recipient_user_id,kind,source_key,title) values($1,'system','baseline','Baseline')",[b]);
  const priorInbox=(await db.query('select nothingsports_inbox_page($1) p',[b])).rows[0].p;
- await db.exec(fs.readFileSync('supabase/migrations/20261015225204_impact_feedback_outbox.sql','utf8'));
+ await db.exec(fs.readFileSync('supabase/migrations/'+fs.readdirSync('supabase/migrations').find(name=>name.endsWith('_impact_feedback_outbox.sql')),'utf8'));
  assert.deepEqual((await db.query('select nothingsports_inbox_page($1) p',[b])).rows[0].p,priorInbox,'The actual pre-existing inbox projection remains byte-equivalent for other kinds');
  await db.exec("create or replace function private.impact_now() returns timestamptz language sql volatile set search_path='' as $$ select current_setting('qa.impact_time')::timestamptz $$");
  let now='2026-10-16T01:00:00Z';const clock=async value=>{now=value;await db.query("select set_config('qa.impact_time',$1,false)",[value]);};await clock(now);
