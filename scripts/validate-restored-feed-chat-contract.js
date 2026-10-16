@@ -3,7 +3,7 @@ const fs=require('fs');
 const assert=require('assert');
 const read=path=>fs.readFileSync(path,'utf8');
 
-const html=read('index.html');
+const html=require("./app-shell-test-utils").readCardApplicationSource();
 const chat=read('api/chat.js');
 const migration=read('supabase/migrations/20260909143000_chat_fullscreen_receipts_invitations.sql');
 const finals=JSON.parse(read('data/canonical/afl-nrl-finals-2026.json'));
@@ -27,7 +27,8 @@ assert.equal(resolvedFeed.events.find(event=>event.canonicalEventId===grandFinal
 assert.equal(resolvedFeed.events.find(event=>event.canonicalEventId===grandFinalId)?.stage,'Grand Final','resolved clubs retain stage');
 
 assert.match(html,/row\.tabIndex=0/,'followed participants need a keyboard-scrollable single row');
-assert.match(html,/time\.textContent=`\$\{timing\} • \$\{sportLabel\}/,'compact cards need an explicit sport label');
+// Approved 13 October minimised-card contract: separate format/progress/time, qualified clocks and accessible full context.
+require('./validate-minimised-cards');
 assert.match(html,/Chat sound on/,'chat sound activation needs acknowledgement');
 assert.match(html,/chatIncomingBanner/,'incoming chat needs an exact-room banner');
 assert.match(html,/Remove from list/,'bulk personal archiving must remain distinct from destructive chat deletion');
