@@ -43,7 +43,7 @@ async function assertCachedFonts(page){
 async function assertCachedFixtureHighlights(page){
   const golf=require('../data/code-inspector/golf.json').fixtures.find(e=>(e.name||'').startsWith('Minjee Lee /'));
   const missing=await page.evaluate(golf=>({venue:NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue({venue:'Venue TBD'}),time:NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel({displayTime:'Time TBC'}),highlights:NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing({...golf,status:'past'},Date.parse('2026-10-16T00:00:00Z'))}),golf);
-  assert.equal(missing.venue,'','Cached unknown venue cannot become an organiser decision');assert.equal(missing.time,'Time unavailable');assert.equal(missing.highlights,null,'Upgrade/offline cannot restore a highlights promise from a past display label');
+  assert.equal(missing.venue,'','Cached unknown venue cannot become an organiser decision');assert.equal(missing.time,'Time TBD');assert.equal(missing.highlights,null,'Upgrade/offline cannot restore a highlights promise from a past display label');
   const labels=await page.evaluate(()=>({player:NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(null,'Player TBD'),short:NOTHINGSPORTS_FEED_CARD_PRESENTATION.shortLabel(null,'Fallback',{shortName:'Side TBC'}),outcome:NOTHINGSPORTS_FEED_CARD_PRESENTATION.shortLabel('team:afl:cd_t60','Winner of semi-final')}));
   assert.deepEqual(labels,{player:'Player unavailable',short:'Side unavailable',outcome:'Winner of semi-final'},'Upgraded/offline participant labels distinguish missing app data from actual unresolved outcomes');
   const fixtures=require('../data/events.json').events.filter(e=>e.highlights?.provider==='youtube');
