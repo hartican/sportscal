@@ -119,6 +119,18 @@ assert(!retainedFeedProjectionSteps(['EPL standings source check','European Foot
   assert.deepEqual(require('./lib/editorial-publication').reconcileFullPreviews([shortFinal],historicalBathurst.knowledge),[shortFinal],'a pre-match projection cannot repair or overwrite a later final');
   assert(require('./lib/feed-utils').validateFeed({...current,events:[shortFinal]}).some(issue=>issue.includes('synopsis must be 80-700')),'short final copy still fails the real publication schema');
  }
- assert(quick.includes('runProjectionSteps(projectionSteps(changes,')&&quick.includes("if(file==='scripts/publish-feed.js'&&editorialBaseline)"),'the ordinary publication boundary must execute retention after enrichment');
+ // Evaluate the actual refresh call, including the retained-results branch,
+ // rather than requiring its older literal argument spelling.
+ const refresh=require('acorn').parse(quick,{ecmaVersion:'latest'}).body.find(node=>node.type==='FunctionDeclaration'&&node.id.name==='refresh');
+ const publication=refresh.body.body.find(node=>node.type==='ExpressionStatement'&&node.expression.type==='CallExpression'&&node.expression.callee.name==='runProjectionSteps');
+ assert(publication,'the actual refresh owner must invoke its publication boundary');
+ const editorialBaseline=new Map();
+ for(const [changes,rebuild,retained] of [[['Premier League 2'],false,false],[['Reconciled fixture results'],false,true],[['Reconciled fixture results','Premier League 2'],false,false],[[],true,false],[[],false,false]]){
+  let selected;
+  require('node:vm').runInNewContext(quick.slice(publication.start,publication.end),{changes,editorialBaseline,projectionSteps,retainedFeedProjectionSteps,process:{argv:rebuild?['--rebuild']:[]},runProjectionSteps:(steps,options)=>{selected={steps,options};}});
+  assert(selected,'the ordinary refresh must execute its projection call');
+  assert.deepEqual(selected.steps,retained?retainedFeedProjectionSteps(changes):projectionSteps(changes,{rebuild}),'actual dispatch preserves ordinary, retained-result, mixed and rebuild routes');
+  assert.strictEqual(selected.options.editorialBaseline,editorialBaseline,'the actual caller forwards the original baseline to the tested retention boundary');
+ }
  console.log('Football daily table: one request, genuine observation, fixture/other-sport retention, idempotence, failure/date retention and scoped projections passed.');
 }finally{fs.rmSync(directory,{recursive:true,force:true});}})().catch(error=>{console.error(error);process.exitCode=1;});
