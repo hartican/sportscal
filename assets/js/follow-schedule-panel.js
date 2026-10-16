@@ -1,5 +1,14 @@
 // Fact selection belongs to Schedule, which is loaded before these cards render.
 // An exact retained identity may omit context; known contradictions still reject.
+function inspectorHasResultEvidence(event,identity){
+ const receipt=value=>typeof value==='string'&&Number.isFinite(Date.parse(value));
+ const populated=value=>value!=null&&value!==''&&(typeof value!=='object'||(Array.isArray(value)?value:Object.keys(value)).length>0);
+ return identity.hasScore(event)
+  ||!['','pending','unknown','unavailable'].includes(String(event?.resultStatus||'').toLowerCase())
+  ||['resultScore','result','outcome','outcomeText','winner','winnerParticipantId'].some(key=>populated(event?.[key]))
+  ||receipt(event?.scoreCheckedAt)&&identity.hasScoreFields(event)
+  ||['scoreFactObservedAt','actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt'].some(key=>receipt(event?.[key]));
+}
 function inspectorSourcePreferred(source,candidate){
  const id=candidate?.id,direct=id&&(id===source?.id||id===source?.canonicalEventId);
  const fields=['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType'];
@@ -16,7 +25,7 @@ function inspectorSourcePreferred(source,candidate){
  const key=identity(source);
  const legacy=family||candidate.status==='past';
  const resultOwner=globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY||(typeof module==='object'&&module.exports&&typeof require==='function'?require('../../config/fixture-identity'):null);
- if(legacy&&(!resultOwner?.hasResultEvidence||resultOwner.hasResultEvidence(candidate)))return false;
+ if(legacy&&(!resultOwner?.hasScore||!resultOwner.hasScoreFields||inspectorHasResultEvidence(candidate,resultOwner)))return false;
  return Boolean(key&&key===identity(candidate)&&!fields.some(k=>source[k]!=null&&candidate[k]!=null&&source[k]!==candidate[k])
   &&(!legacy||![...fields,'drawType','draw'].some(k=>candidate[k]!=null&&(source[k]==null||source[k]!==candidate[k]))));
 }

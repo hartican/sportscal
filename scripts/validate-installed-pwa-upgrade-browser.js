@@ -53,13 +53,19 @@ async function assertCachedFixtureHighlights(page){
     try{
       liveFixtureEvents=retained.overlays;
       const merged=liveScheduleFixtures([retained.source],{id:'sport:nrl',slug:'nrl'})[0];
-      return {sha256,sourcePreferred:globalThis.inspectorSourcePreferred(frozen.fixture,frozen.staleCanonical),retained:{sourcePreferred:globalThis.inspectorSourcePreferred(merged,retained.candidate),protectsResult:!globalThis.inspectorSourcePreferred(merged,{...retained.candidate,homeScore:0,awayScore:0,scoreFactObservedAt:'2026-10-16T12:00:00Z'}),roundNumber:merged.roundNumber,roundLabel:merged.roundLabel,sourceCheckedAt:merged.sourceCheckedAt,url:NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing(merged,Date.parse('2026-10-16T12:26:03Z'))?.webUrl,unchanged:JSON.stringify(retained)===before}};
+      liveFixtureEvents=retained.overlays.map(event=>event.id.startsWith('major-match:')?{...event,roundNumber:null,roundLabel:'Round 2'}:event);
+      const contrary=liveScheduleFixtures([retained.source],{id:'sport:nrl',slug:'nrl'})[0];
+      liveFixtureEvents=retained.overlays.map(event=>event.id.startsWith('major-match:')?{...event,sourceUrl:'https://example.invalid/controlled-provider',sourceCheckedAt:'2026-10-16T12:00:00Z'}:event);
+      const provenance=liveScheduleFixtures([retained.source],{id:'sport:nrl',slug:'nrl'})[0];
+      return {sha256,sourcePreferred:globalThis.inspectorSourcePreferred(frozen.fixture,frozen.staleCanonical),retained:{sourcePreferred:globalThis.inspectorSourcePreferred(merged,retained.candidate),protectsResult:!globalThis.inspectorSourcePreferred(merged,{...retained.candidate,homeScore:0,awayScore:0,scoreFactObservedAt:'2026-10-16T12:00:00Z'}),protectsRound:contrary.roundLabel==='Round 2'&&!NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing(contrary,Date.parse('2026-10-16T12:26:03Z')),coherentProvenance:provenance.sourceUrl==='https://example.invalid/controlled-provider'&&provenance.sourceCheckedAt==='2026-10-16T12:00:00Z'&&provenance.sourceName===null,roundNumber:merged.roundNumber,roundLabel:merged.roundLabel,sourceCheckedAt:merged.sourceCheckedAt,url:NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing(merged,Date.parse('2026-10-16T12:26:03Z'))?.webUrl,unchanged:JSON.stringify(retained)===before}};
     }finally{liveFixtureEvents=previous;}
   },{url:scheduleUrl,version:candidateVersion,frozen,retained});
   assert.equal(scheduleProof.sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'assets/js/follow-schedule-panel.js'))).digest('hex'),'Upgrade/offline uses the exact new Schedule fact-selection module');
   assert(scheduleProof.sourcePreferred,'Cached Schedule logic retains the sourced final over its exact retained planning copy');
   assert(scheduleProof.retained.sourcePreferred&&scheduleProof.retained.unchanged,'Cached actual merge and selection preserve source/input ownership');
   assert(scheduleProof.retained.protectsResult,'The cached legacy guard cannot discard a newer populated result, including zero scores');
+  assert(scheduleProof.retained.protectsRound,'Cached reconciliation preserves a contrary round label without a number');
+  assert(scheduleProof.retained.coherentProvenance,'Cached reconciliation cannot attach an older provider receipt to changed source facts');
   for(const key of ['roundNumber','roundLabel','sourceCheckedAt'])assert.equal(scheduleProof.retained[key],retained.source[key],'Upgrade/offline preserves the published '+key+' through both saved live aliases');
   assert.equal(scheduleProof.retained.url,'https://www.rlwc2026.com/videos/australia-v-new-zealand---round-1-2026','Upgraded/offline retained merge reaches the unchanged highlights guard');
   const golf=require('../data/code-inspector/golf.json').fixtures.find(e=>(e.name||'').startsWith('Minjee Lee /'));

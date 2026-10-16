@@ -43,6 +43,42 @@ function validateRetainedSchedule(){
  const conflicting=context.liveScheduleFixtures([frozen.source],{id:'sport:nrl',slug:'nrl'})[0];
  assert.equal(conflicting.roundNumber,2,'An explicit different numbered round is not converted into Round 1');
  assert.notEqual(highlights.viewing(conflicting,now)?.providerId,'rlwc','Conflicting round evidence cannot receive the reviewed Round 1 clip');
+ const mergePlanning=(patch,sourceFixture=frozen.source)=>{
+  context.liveFixtureEvents=frozen.overlays.map(event=>event.id.startsWith('major-match:')?{...event,...patch}:event);
+  return context.liveScheduleFixtures([sourceFixture],{id:'sport:nrl',slug:'nrl'}).find(event=>event.id===sourceFixture.id);
+ };
+ for(const label of ['Round 2','Grand Final']){
+  const contrary=mergePlanning({roundNumber:null,roundLabel:label});
+  assert.equal(contrary.roundLabel,label,'A populated round label remains contrary even without a round number');
+  assert.notEqual(highlights.viewing(contrary,now)?.providerId,'rlwc','A contrary unnumbered round cannot borrow a reviewed clip');
+ }
+ for(const label of [null,'','Australia v New Zealand',frozen.source.roundLabel]){
+  const recovered=mergePlanning({roundNumber:null,roundLabel:label});
+  assert.equal(recovered.roundNumber,frozen.source.roundNumber);
+  assert.equal(recovered.roundLabel,frozen.source.roundLabel,'Only missing or exact source matchup context recovers the published round');
+ }
+ assert.equal(mergePlanning({roundNumber:null,roundLabel:'Grand Final'},{...frozen.source,name:'Grand Final'}).roundLabel,'Grand Final','An event title without a matchup is not a planning round placeholder');
+ const oldApi={NOTHINGSPORTS_FIXTURE_IDENTITY:{...identity,hasScore:undefined,hasScoreFields:undefined}};
+ vm.createContext(oldApi);vm.runInContext(fs.readFileSync(path.join(root,'assets/js/follow-schedule-panel.js'),'utf8'),oldApi);
+ assert.equal(oldApi.inspectorSourcePreferred(frozen.source,frozen.candidate),false,'A newly fetched Schedule module fails closed against an older identity API');
+ const later='2026-10-16T12:00:00Z';
+ for(const patch of [
+  {sourceUrl:'https://example.invalid/changed-provider',sourceName:'Different provider',venue:'Different venue',sourceCheckedAt:later},
+  {venue:'Different venue',sourceCheckedAt:later},
+  {startTimeUtc:'2026-10-15T10:05:00.000Z',sourceCheckedAt:later},
+  {timingProvenance:{kind:'controlled-contrary-source'},sourceCheckedAt:later},
+  {sourceUrl:'https://example.invalid/unknown-receipt',sourceCheckedAt:null},
+  {sourceName:'Different provider',sourceCheckedAt:undefined}
+ ]){
+  const changed=mergePlanning(patch);
+  for(const [key,value] of Object.entries(patch))assert.deepEqual(changed[key],value??null,'Contrary context keeps its own values and receipt: '+key);
+  for(const key of ['sourceUrl','sourceName','sourceType'])assert.equal(changed[key],patch[key]??null,'A new context cannot inherit a different provider tuple: '+key);
+  assert.equal(changed.status,frozen.source.status);assert.equal(changed.scoreCheckedAt,frozen.source.scoreCheckedAt,'The protected result still keeps its own fact clock');
+ }
+ const unchanged=mergePlanning({sourceCheckedAt:later});
+ for(const key of ['roundNumber','roundLabel','sourceUrl','sourceName','sourceType','venue','date','time','startTimeUtc','sourceCheckedAt','scoreCheckedAt','statusCheckedAt'])assert.deepEqual(unchanged[key],frozen.source[key],key+' cannot be renewed by a generic check');
+ const accepted=identity.mergeOverlays([frozen.source],[{...frozen.source,status:'completed',homeScore:0,awayScore:0,sourceUrl:'https://example.invalid/controlled-final-correction',sourceCheckedAt:later,scoreCheckedAt:later,statusCheckedAt:later}])[0];
+ assert.equal(accepted.homeScore,0);assert.equal(accepted.awayScore,0);assert.equal(accepted.scoreCheckedAt,later);assert.equal(accepted.sourceCheckedAt,later,'A genuine accepted completed correction still advances through the existing owner');
  assert.equal(JSON.stringify(frozen),before,'Neither published facts nor retained fixture inputs are rewritten');
  console.log('Captured retained Schedule merge/caller/highlights chain and contradictory-context fences passed.');
 }
