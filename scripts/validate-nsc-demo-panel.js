@@ -132,7 +132,7 @@ assert.deepEqual(validateSnapshot(document),[]);
 assert.equal(JSON.stringify(safe).includes("demo:"),false,"editorial memory must contain no demo or real identity");
 assert.equal(safe.impact.uniqueContributorCount,3,"privacy-safe audience memory must retain the real aggregate only");
 
-const html=fs.readFileSync("index.html","utf8"),serverSource=fs.readFileSync("lib/nothingscore-server.js","utf8"),demoSource=fs.readFileSync("api/_nsc-modelled-panel.js","utf8"),visualSource=fs.readFileSync("config/nsc-visual.js","utf8");
+const html=require("./app-shell-test-utils").readCardApplicationSource(),serverSource=fs.readFileSync("lib/nothingscore-server.js","utf8"),demoSource=fs.readFileSync("api/_nsc-modelled-panel.js","utf8"),visualSource=fs.readFileSync("config/nsc-visual.js","utf8");
 assert.equal(fs.existsSync("config/nsc-demo-panel.js"),false,"modelled panel definitions must not remain in the public config directory");
 assert.equal(fs.existsSync("lib/nsc-modelled-panel.js"),false,"modelled panel definitions must not remain in the public static library directory");
 assert(fs.existsSync("api/_nsc-modelled-panel.js"),"the model must use Vercel's underscore-prefixed private API utility convention");
@@ -146,8 +146,9 @@ assert.match(visualSource,/createElementNS\("http:\/\/www\.w3\.org\/2000\/svg"/)
 assert.match(visualSource,/Accessible data for/);
 assert.match(visualSource,/Community responses/);
 assert.match(visualSource,/Modelled responses/);
-assert.match(html,/How do you think it'll go\?/);
-assert.doesNotMatch(html,/name:"Anticipation"|>Anticipation</,"the public reader must use the agreed pre-fixture wording");
+assert.match(html,/function nothingscorePhaseCopy\(phase\)\{\s*return globalThis\.NOTHINGSPORTS_EPIC\.phaseCopy\(phase\);/,"the public reader must use the canonical EPIC phase copy");
+assert.equal(require("../config/epic-classics").phaseCopy("heat").name,"Anticipation","the public reader must use the approved EPIC pre-fixture wording");
+assert.equal(require("../config/epic-classics").phaseCopy("heat").detail,"Stakes");
 assert.match(html,/function openSportRoundSummary[\s\S]*openCodeInspector/);
 assert.doesNotMatch(html,/function openSportRoundSummary[\s\S]{0,600}setActiveFeedFilter/,"round summaries must not turn Feed into a one-sport view");
 assert.doesNotMatch(demoSource,/supabase|auth|telemetry|awardPoints/i,"demo definitions must not write identities, telemetry or progression");

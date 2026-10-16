@@ -34,6 +34,19 @@ try{
  const invalid=new Map(files.map(file=>[file,fs.readFileSync(path.join(root,file),'utf8')]));
  assert.throws(()=>ensureGeneratedShellVersion({root}),/inconsistent/,'inconsistent manual versions fail before any write');
  for(const [file,bytes] of invalid)assert.equal(fs.readFileSync(path.join(root,file),'utf8'),bytes);
+ // Reproduce concurrent integration: accepted main and a locally committed
+ // merge have different runtime bytes but the same numeric shell version.
+ for(const [file,bytes] of once)fs.writeFileSync(path.join(root,file),bytes);
+ git(['add','.']);git(['-c','user.name=QA','-c','user.email=qa@example.invalid','commit','--quiet','-m','Synthetic accepted main']);
+ git(['update-ref','refs/remotes/origin/main','HEAD']);
+ fs.writeFileSync(path.join(root,'assets/js/app-shell-runtime.js'),'independent merged runtime at the accepted version');
+ git(['add','.']);git(['-c','user.name=QA','-c','user.email=qa@example.invalid','commit','--quiet','-m','Synthetic local merge with colliding version']);
+ const collision=ensureGeneratedShellVersion({root});
+ assert.equal(collision.version,String(Number(result.version)+1),'committed local bytes cannot reuse the accepted main cache key');
+ assert.equal(ensureGeneratedShellVersion({root}).reason,'already versioned','accepted-main comparison remains idempotent');
+ const safeVersions=files.map(file=>fs.readFileSync(path.join(root,file),'utf8'));
+ assert.throws(()=>ensureGeneratedShellVersion({root,baselineRef:'--unsafe'}),/Invalid generated-shell baseline/);
+ files.forEach((file,index)=>assert.equal(fs.readFileSync(path.join(root,file),'utf8'),safeVersions[index],'invalid baseline changes no file'));
  const release=fs.readFileSync(path.join(__dirname,'redeploy-and-release.sh'),'utf8');
  const main=release.slice(release.indexOf('INITIAL_HEAD='));
  for(const file of files)assert(main.includes('"'+file+'"'),'generated cache changes are published with their runtime');

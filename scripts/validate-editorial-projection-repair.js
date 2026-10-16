@@ -1,0 +1,53 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),{spawnSync}=require('node:child_process');
+const narrative=require('./lib/editorial-narrative'),{applyScopedFeed}=require('./apply-editorial-narratives'),policy=require('../config/editorial-maintenance');
+const root=path.resolve(__dirname,'..'),knowledge=JSON.parse(fs.readFileSync(path.join(root,'data/editorial-knowledge.v1.json'))),feed=JSON.parse(fs.readFileSync(path.join(root,'data/events.json')));
+const base=feed.events.find(event=>!policy.protectedFixture(event)&&narrative.projectionForTarget(knowledge,'feed-event',event));assert(base);
+const oldProjection=narrative.projectionForTarget(knowledge,'feed-event',base),now=Date.now(),reviewed=new Date(now-86400000).toISOString(),researched=new Date(now-172800000).toISOString();
+const selected={...structuredClone(base),id:'fixture-projection-regression-selected',eventId:'fixture-projection-regression-selected',canonicalEventId:'fixture:projection:regression:selected',sourceEventIds:[],status:'upcoming',selectedSentence:'Retained older hook.',fullSpiel:'Retained older context.',lastReviewedAt:reviewed,storyline:{...(base.storyline||{}),lastReviewedAt:reviewed},postMatchEditorial:{body:'An unrelated retained archive payload.'}};
+for(const key of ['editorialNarrative','score','scoreDisplay','result','outcomeText','recapText','consensusResult','resultLabels','winnerParticipantId','loserParticipantId','eliminatedParticipantIds'])delete selected[key];
+const projection={...structuredClone(oldProjection),id:oldProjection.id+'-scope-regression',targetIds:[selected.id,selected.canonicalEventId],hook:'A constructed fixture-specific preview hook.',synopsis:'This constructed fixture context checks an existing declared projection without making a new sporting claim or changing any source observations.',researchedAt:researched,refreshAfter:null};
+delete projection.hookSpoilerOn;delete projection.synopsisSpoilerOn;
+const sampleKnowledge={...knowledge,eventProjections:[...knowledge.eventProjections,projection]},unrelated={...structuredClone(selected),id:'fixture-projection-regression-unrelated',eventId:'fixture-projection-regression-unrelated',canonicalEventId:'fixture:projection:regression:unrelated',sourceEventIds:[],selectedSentence:'Keep this unrelated copy exactly.'};
+const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ns-editorial-projection-repair-'));
+const write=(name,value)=>{const file=path.join(temporary,name);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,JSON.stringify(value,null,2)+'\n');};
+const files=['feeds/incoming/events.json','data/events.json'];
+const seed=()=>{write('data/editorial-knowledge.v1.json',sampleKnowledge);for(const file of files)write(file,{version:'projection-regression-v1',publishedAt:'2026-01-01T00:00:00.000Z',events:[structuredClone(selected),structuredClone(unrelated)]});};
+const bytes=()=>files.map(file=>fs.readFileSync(path.join(temporary,file)));
+try{
+  seed();const before=bytes();
+  assert.throws(()=>applyScopedFeed([selected.id,'missing-projection-id'],temporary),/Unknown or ambiguous/);
+  files.forEach((file,i)=>assert(fs.readFileSync(path.join(temporary,file)).equals(before[i]),'invalid mixed scope must write nothing'));
+  const protectedRecord={...selected,id:'evt_84',eventId:'evt_84',canonicalEventId:'major-match:nrl-finals-2026:grand-final'};
+  for(const file of files)write(file,{events:[protectedRecord]});
+  const protectedBytes=bytes();assert.throws(()=>applyScopedFeed(['evt_84'],temporary),/Protected editorial/);
+  files.forEach((file,i)=>assert(fs.readFileSync(path.join(temporary,file)).equals(protectedBytes[i]),'protected copy is never rewritten'));
+  seed();assert.equal(applyScopedFeed([selected.id],temporary).changed,1);
+  const allowed=new Set(['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt','storyline']);
+  for(const file of files){
+    const document=JSON.parse(fs.readFileSync(path.join(temporary,file))),actual=document.events[0];
+    assert.deepEqual(document.events[1],unrelated,'same-name/date unrelated fixture is byte-content unchanged');
+    assert.equal(actual.editorialNarrative.projectionId,projection.id);
+    assert.equal(actual.selectedSentence,projection.hook);assert.equal(actual.fullSpiel,projection.synopsis);
+    assert.equal(actual.lastReviewedAt,reviewed);assert.equal(actual.storyline.lastReviewedAt,reviewed);
+    assert.equal(actual.editorialNarrative.researchedAt,researched,'original research clock is not renewed');
+    for(const key of Object.keys(selected))if(!allowed.has(key))assert.deepEqual(actual[key],selected[key],'retain '+key);
+    assert.deepEqual(require('./lib/storyline-card-rules').spoilerContractIssues(actual),[]);
+  }
+  const unchanged=bytes();assert.equal(applyScopedFeed([selected.id],temporary).changed,0);
+  files.forEach((file,i)=>assert(fs.readFileSync(path.join(temporary,file)).equals(unchanged[i]),'unchanged scoped repair is exact-byte idempotent'));
+  seed();const slug=selected.key||'tennis';
+  write('data/code-inspector/manifest.json',{codes:[{slug,chunkPath:'data/code-inspector/selected.json'},{slug:'regression-child',chunkPath:'data/code-inspector/child.json'}]});
+  write('data/code-inspector/selected.json',{fixtures:[selected]});write('data/code-inspector/child.json',{fixtures:[{id:selected.canonicalEventId}]});
+  const hook=path.join(temporary,'trace.cjs');fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[];cp.spawnSync=(command,args)=>{seen.push(args);return {status:0,stdout:'',stderr:''};};globalThis.fetch=()=>{throw Error('No source reads in editorial repair regression');};process.on('exit',()=>console.log('EDITORIAL_REPAIR_STEPS '+JSON.stringify(seen)));\n");
+  const run=extra=>spawnSync(process.execPath,['--require',hook,path.join(root,'scripts/update-cards.js'),'-p','--local-only','--reviewed-fixtures','--editorial-projections','--ids='+selected.id,...extra],{cwd:temporary,encoding:'utf8',env:{PATH:process.env.PATH,LANG:process.env.LANG,FOOTBALL_DATA_RUN_DIR:path.join(temporary,'diagnostics')}});
+  const result=run([]);assert.equal(result.status,0,result.stderr||result.stdout);
+  const steps=JSON.parse(result.stdout.match(/EDITORIAL_REPAIR_STEPS (\[[^\n]+\])/)[1]);
+  assert(steps.some(step=>step[0]==='scripts/publish-feed.js'));
+  assert(steps.some(step=>step[0]==='scripts/build-code-inspector.js'&&step[1].includes('regression-child')));
+  assert(!steps.some(step=>/refresh-|apply-current-card-evidence|snapshot-active-follows|redeploy/.test(step[0])),'canonical editorial repair cannot ingest facts, preferences or media');
+  const second=run([]);assert.equal(second.status,0,second.stderr);const secondTrace=second.stdout.match(/EDITORIAL_REPAIR_STEPS (\[[^\n]*\])/);assert(secondTrace,second.stdout);assert.deepEqual(JSON.parse(secondTrace[1]),[],'unchanged repair does not churn derived publication');
+  const {parseOptions}=require('./update-cards');
+  for(const args of [['--editorial-projections'],['--editorial-projections','--reviewed-fixtures','--ids=x','--quick'],['--editorial-projections','--reviewed-fixtures','--ids=x','--result-observations']])assert.throws(()=>parseOptions(args,{}),/Editorial projection repair requires/);
+}finally{fs.rmSync(temporary,{recursive:true,force:true});}
+console.log('Scoped editorial repair: exact IDs, protected/unknown rejection, unchanged unrelated facts/copy, literal review clocks, spoiler safety, idempotence and canonical no-provider dispatch passed.');

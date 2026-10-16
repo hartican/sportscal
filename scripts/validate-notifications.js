@@ -77,6 +77,7 @@ async function dispatchHarness({ serviceRequest, sendNotification, scheduleError
     sendNotification,
   });
   const restoreAutomatic=withMockedModule(require.resolve('../lib/automatic-reminders'),{reconcile:async()=>({accounts:0,fixtures:0})});
+  const restoreImpact=withMockedModule(require.resolve('../lib/impact-feedback'),{dispatch:async()=>({checked:0,sent:0,failed:0})});
   const restoreLiveAlerts = withMockedModule(liveAlertsPath, { dispatch:async()=>({ checked:0, sent:0, failed:0, skipped:0 }) });
   const restoreSocialAlerts = withMockedModule(socialAlertsPath, { dispatch:async()=>({ checked:0, sent:0, failed:0, skipped:0 }) });
   delete require.cache[sendGuardPath];
@@ -104,7 +105,7 @@ async function dispatchHarness({ serviceRequest, sendNotification, scheduleError
       }
       return response;
     },
-    close(){ delete require.cache[require.resolve('../lib/reminder-schedules')]; delete require.cache[dispatchPath]; restoreSocialAlerts(); restoreLiveAlerts(); restoreAutomatic();restoreWebPush(); restoreServer(); },
+    close(){ delete require.cache[require.resolve('../lib/reminder-schedules')]; delete require.cache[dispatchPath]; restoreSocialAlerts(); restoreImpact();restoreLiveAlerts(); restoreAutomatic();restoreWebPush(); restoreServer(); },
   };
 }
 
@@ -349,7 +350,12 @@ async function main(){
   console.log("Reliable Web Push validation passed: UI confirmation, account fan-out, cancellation, and atomic dispatch claims are enforced.");
 }
 
-main().catch(error => {
+main().then(()=>{
+  // Isolated processes keep each API test's dependency doubles independent.
+  for(const gate of ['validate-impact-feedback.js','validate-impact-dispatch.js','validate-impact-inbox.js']){
+    require('node:child_process').execFileSync(process.execPath,[require('node:path').join(__dirname,gate)],{cwd:ROOT,env:process.env,stdio:'inherit'});
+  }
+}).catch(error => {
   console.error(error);
   process.exitCode = 1;
 });

@@ -7,7 +7,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 
 const framedRoles = [
   ".identity-frame",
@@ -36,10 +36,10 @@ assert(html.includes("identity.replaceChildren(fallback)") && html.includes("ide
 assert(html.includes("function auditFeedUiGeometry"), "the app must expose deterministic live geometry checks for responsive browser QA");
 assert(html.includes('type: "horizontal-overflow"') && html.includes('type: "identity-escape"') && html.includes('type: "identity-overlap"') && html.includes('type: "image-fallback-collision"'), "the live geometry audit must reject every required collision class");
 assert(!/\.event-card,\s*\n\.major-event-card,\s*\n\.joint-tournament-card[\s\S]{0,160}contain-intrinsic-size:\s*440px/.test(html), "variable-height feed cards must not use a shared intrinsic estimate");
-assert(/\.code-inspector-fixture:not\(\.is-expanded\)\{ content-visibility:auto; contain-intrinsic-size:auto 92px; \}/.test(html), "only fixed compact Inspector rows may reserve their measured 92px geometry");
-assert(/\.cards-grid > \.event-card\{ padding:14px 14px 18px; \}/.test(html), "mobile Feed cards must retain 14px sides and 18px bottom whitespace");
+assert(/\.code-inspector-fixture:not\(\.is-expanded\)\{\s*content-visibility:auto;\s*contain-intrinsic-size:auto 92px;\s*\}/.test(html), "only fixed compact Inspector rows may reserve their measured 92px geometry");
+assert(/\.cards-grid\s*>\s*\.event-card\{\s*padding:14px 14px 18px;\s*\}/.test(html), "mobile Feed cards must retain 14px sides and 18px bottom whitespace");
 assert(html.includes("height:auto;") && html.includes("max-height:none;") && html.includes("overflow:visible;"), "compact cards must not clip a growing final row");
-assert(html.includes(".ticket-sale-card,.ticket-sale-card *{ min-width:0; }") && html.includes("overflow-wrap:anywhere"), "ticket-alert detail must wrap safely on iOS");
+assert(/\.ticket-sale-card,\.ticket-sale-card \*\{\s*min-width:0;\s*\}/.test(html) && html.includes("overflow-wrap:anywhere"), "ticket-alert detail must wrap safely on iOS");
 assert(/\.code-inspector-fixture-side \.code-inspector-feed-action\{[\s\S]{0,140}flex:0 0 var\(--card-action-height\)/.test(html), "Standings fixture pin controls must not stretch to the full mobile row height");
 
 console.log(`Feed UI geometry contract valid across ${framedRoles.length} identity roles.`);

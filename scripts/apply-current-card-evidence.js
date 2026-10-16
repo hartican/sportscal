@@ -6,6 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const reviewedTiming=require('../lib/reviewed-session-timing');
+const acceptedResults=require('./lib/accepted-result-projection');
 
 const ROOT = path.resolve(__dirname, "..");
 const TARGETS = ["data/canonical/afl-nrl-2026.json", "feeds/incoming/events.json", "data/follow-sources/coverage.v1.json", "data/canonical/official-card-results-2026.json", "data/major-events.v1.json"];
@@ -22,6 +23,7 @@ function publicFields(override){
   return next;
 }
 function mergeRecord(record, override, checkedAt){
+  if(acceptedResults.isAcceptedResult(override)) return acceptedResults.mergeAcceptedResult(record,override);
   if(record.customClassification && override.sourceType==='official'){
     const {customClassification,...rest}=record;
     record={...rest,importedCalendarClassification:customClassification};
@@ -126,6 +128,7 @@ function applyEvidence({ check=false, root=ROOT } = {}){
   const read=relative=>JSON.parse(fs.readFileSync(path.join(root,relative),'utf8'));
   const write=(relative,value)=>fs.writeFileSync(path.join(root,relative),`${JSON.stringify(value,null,2)}\n`);
   const evidence = read("data/canonical/current-card-evidence-2026.json");
+  acceptedResults.validateAcceptedSet(evidence.resultOverrides);
   const timings=reviewedTiming.validate(evidence.timingOverrides||[]);
   // Reviewed results are final facts, not merely score text on upcoming cards.
   evidence.resultOverrides = evidence.resultOverrides.map(result => ({ ...result, status:"completed" }));
@@ -167,7 +170,7 @@ function applyEvidence({ check=false, root=ROOT } = {}){
         || coverage.events.find(item => matches(item, override));
       assert(record, `${override.id} must exist in Feed or detailed Event fixtures`);
       assert.equal(record.score, override.score, `${override.id} score`);
-      assert(hasCompletionBoundary(record), `${override.id} must have a stable completion boundary or explicit date-only window`);
+      assert(acceptedResults.isAcceptedResult(override) ? acceptedResults.validateAcceptedProjection(record,override) : hasCompletionBoundary(record), `${override.id} must have a stable completion boundary or explicit date-only window`);
     }
     for(const group of evidence.broadcastOverrides) for(const id of group.ids) assert.equal(coverage.events.find(record => identity(record) === id)?.broadcaster, group.broadcaster, `${id} broadcaster`);
     console.log("Current card evidence is fully applied.");
@@ -183,11 +186,13 @@ function applySelectedResults(ids,{root=ROOT}={}){
   const write=(relative,value)=>fs.writeFileSync(path.join(root,relative),`${JSON.stringify(value,null,2)}\n`);
   assert(ids.length&&new Set(ids).size===ids.length,'Unique reviewed result IDs are required');
   const evidence=read('data/canonical/current-card-evidence-2026.json');
+  acceptedResults.validateAcceptedSet(evidence.resultOverrides);
   const selected=ids.map(id=>{
     const row=evidence.resultOverrides.find(row=>row.id===id);
     assert(row && row.sourceCheckedAt && row.sourceUrl && row.sourceName, `${id}: dated result evidence is required`);
     assert(/^https:\/\//.test(row.sourceUrl)&&Number.isFinite(Date.parse(row.sourceCheckedAt))&&Date.parse(row.sourceCheckedAt)<=Date.now(),`${id}: valid source observation is required`);
-    assert(row.score&&row.outcomeText&&row.recapText,`${id}: a reviewed final requires its score and factual summary`);
+    assert(row.score!==undefined&&row.score!==null&&row.score!==''&&row.outcomeText&&row.recapText,`${id}: a reviewed final requires its score and factual summary`);
+    if(acceptedResults.isAcceptedResult(row))acceptedResults.validateAcceptedResult(row);
     return {...row,status:'completed'};
   });
   const files=['feeds/incoming/events.json','data/events.json'];
@@ -215,6 +220,17 @@ function applySelectedResults(ids,{root=ROOT}={}){
     for(const key of ['storyline','cardVariant','archived'])delete next[key];
     return next;
   });
+  // Accepted observations must reach every existing persistent child projection.
+  // Preflight all identities before any write; never upsert a guessed fixture.
+  if(selected.some(acceptedResults.isAcceptedResult)){
+    for(const childFile of ['data/follow-sources/coverage.v1.json','data/major-events.v1.json']){
+      const document=read(childFile);
+      const apply=records=>records.map(record=>{const row=selected.find(row=>acceptedResults.isAcceptedResult(row)&&matches(record,row));return row?acceptedResults.mergeAcceptedResult(record,row):record;});
+      if(childFile.includes('major-events'))document.events=document.events.map(event=>Array.isArray(event.subEvents)?{...event,subEvents:apply(event.subEvents)}:event);
+      else document.events=apply(document.events);
+      updates.push({file:childFile,document});
+    }
+  }
   for(const update of updates)write(update.file,update.document);
   write(canonicalFile,canonical);
   write(file,results);

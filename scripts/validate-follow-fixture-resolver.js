@@ -247,7 +247,7 @@ assert.match(snapshotSource, /FOLLOW_SNAPSHOT_PRELOADED_PATH[^]*readSnapshot[^]*
 const artifactBuilderSource = fs.readFileSync(path.resolve(__dirname, "build-follow-fixtures.js"), "utf8");
 assert(artifactBuilderSource.includes("includeCompactArtifact:false"), "the compact artifact must be regenerated from source bundles rather than its previous saved state");
 
-const html = fs.readFileSync(path.resolve(__dirname, "../index.html"), "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v12"'), "pre-unfollow-policy personalised pages must be invalidated");
 assert(html.includes('payload?.schemaVersion !== "server-feed.v3"'), "the client must reject stale personalised schemas");
 assert(html.includes("requestFeedRebuildAfterFollowChange"), "follow changes must request an immediate server rebuild");

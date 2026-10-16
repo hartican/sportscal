@@ -7,7 +7,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const chatApi = fs.readFileSync(path.join(root, "api", "chat.js"), "utf8");
 const authApi = fs.readFileSync(path.join(root, "api", "auth.js"), "utf8");
 const serverSync = fs.readFileSync(path.join(root, "config", "server-sync.js"), "utf8");
@@ -86,7 +86,7 @@ assert.match(html, /\.chat-room-composer\{[\s\S]*position:sticky;[\s\S]*bottom:0
 assert.match(html, /window\.setTimeout\(stopStabilizing, 1250\)/);
 assert.match(html, /if \(observedMutationElement\) resizeObserver\?\.observe/);
 assert.match(html, /lateRestoreTimer = window\.setInterval/);
-assert.match(html, /padding-bottom: calc\(124px \+ env\(safe-area-inset-bottom\)\)/);
+assert.match(html, /padding-bottom:\s*calc\(124px \+ env\(safe-area-inset-bottom\)\)/);
 assert.match(html, /function serverErrorEndsSession\(error\)/);
 assert.doesNotMatch(html, /const signedOut = error\?\.status === 401/);
 assert.match(serverSync, /navigator\.locks/);

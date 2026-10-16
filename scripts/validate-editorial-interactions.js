@@ -9,7 +9,7 @@ const followFirst = require("../config/follow-first.js");
 const feed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const majorEvents = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
 const knowledge = JSON.parse(fs.readFileSync("data/editorial-knowledge.v1.json", "utf8"));
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const projections = new Map(knowledge.eventProjections.map(projection => [projection.id, projection]));
 
 const projectedRecords = [...feed.events, ...majorEvents.events].filter(record => record.editorialNarrative);

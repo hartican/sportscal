@@ -129,9 +129,17 @@ async function run(){
   require('./validate-highlight-context-regressions').main();
   await require('./validate-youtube-top-result-database').main();
   await require('./validate-highlight-search-reuse').main();
+  await require('./validate-reviewed-publisher-highlights').main();
  console.log('Highlights: sourced rounds, draw/publisher/edition matching, public feeds, key fallback, removal/outage, safe persisted overlays, cadence, schemas and canonical owners passed.');
  }finally{Date.now=realNow;}
 }
 
-async function main(){const original=Date.now;Date.now=()=>+now;try{return await run();}finally{Date.now=original;}}
+async function main(){
+ // Validate today's real result catalogue before the media scenarios rewind
+ // their clock. Later verified results cannot be tested as future evidence.
+ const competition=require('../lib/competition-fixtures'),readFixtures=competition.fixtures;
+ const currentFixtures=readFixtures(),original=Date.now;
+ competition.fixtures=()=>currentFixtures;Date.now=()=>+now;
+ try{return await run();}finally{Date.now=original;competition.fixtures=readFixtures;}
+}
 main().catch(error=>{console.error(error);process.exitCode=1;});

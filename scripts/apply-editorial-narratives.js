@@ -4,10 +4,12 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const { isDeepStrictEqual } = require("node:util");
 const {
   fixtureSourceMetadata,
   applyToFeedEvent,
   applyToMajorEvent,
+  editorialNarrativeFor,
   indexesFor,
   projectionTargetIds,
   projectionRecordIndex,
@@ -27,6 +29,58 @@ const MAJOR_EVENTS_PATH = path.resolve("data/major-events.v1.json");
 function readJson(filePath){ return JSON.parse(fs.readFileSync(filePath, "utf8")); }
 function writeJson(filePath, value){ fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`); }
 
+function projectionConforms(event, projection, indexes){
+  const actual = event.editorialNarrative;
+  if (!actual) return false;
+  const expected = editorialNarrativeFor(projection, indexes);
+  const completed = event.status === "completed" && event.key !== "horse-racing" && event.sportKey !== "horse-racing";
+  // A fixture review and a research observation are different clocks. Do not
+  // backdate a reviewed card merely because the same research is reapplied.
+  const observationKeys = new Set(["researchedAt", "refreshAfter", ...(completed ? ["hookSpoilerOn", "synopsisSpoilerOn"] : [])]);
+  if (Object.keys(expected).some(key => !observationKeys.has(key) && !isDeepStrictEqual(actual[key], expected[key]))) return false;
+  for (const key of ["formCopy", "closingCopy", "consequence", "sentiment", ...(completed ? [] : ["hookSpoilerOn", "synopsisSpoilerOn"])]){
+    if (!isDeepStrictEqual(actual[key], expected[key])) return false;
+  }
+  if (event.editorialPreview?.sourceUrl !== indexes.sources.get(projection.sourceIds[0])?.url) return false;
+  const projected = applyToFeedEvent(event, projection, indexes);
+  for (const key of ['hookSpoilerOff','hookSpoilerOn','synopsisSpoilerOff','synopsisSpoilerOn','arcStage','researchDepth']){
+    if (event.storyline?.[key] !== projected.storyline?.[key]) return false;
+  }
+  if (!completed) return event.selectedSentence === projection.hook && event.fullSpiel === projection.synopsis;
+  const lifecycle = require('../config/editorial-lifecycle');
+  if (actual.resultResearchRequired || actual.resultSignature !== lifecycle.signature(event)) return false;
+  const resultCopy = projected.editorialNarrative;
+  for (const key of ["hookSpoilerOn", "synopsisSpoilerOn", "phase"]){
+    if (actual[key] !== resultCopy[key]) return false;
+  }
+  return event.selectedSentence === event.storyline?.hookSpoilerOff
+    && event.fullSpiel === event.storyline?.synopsisSpoilerOff
+    && require('./lib/storyline-card-rules').spoilerContractIssues(event).length === 0;
+}
+
+function laterReview(current, researched){
+  return Number.isFinite(Date.parse(current)) && (!Number.isFinite(Date.parse(researched)) || Date.parse(current) >= Date.parse(researched)) ? current : researched;
+}
+
+function reconcileFeedEvent(event, projection, indexes){
+  if (require('../config/editorial-maintenance').protectedFixture(event) || projectionConforms(event, projection, indexes)) return event;
+  const projected = applyToFeedEvent(event, projection, indexes);
+  // Reconciliation owns commentary, not sporting facts, result evidence,
+  // source observations, Follow state or already staged post-match writing.
+  return {
+    ...event,
+    selectedSentence:projected.selectedSentence,
+    fullSpiel:projected.fullSpiel,
+    editorialNarrative:projected.editorialNarrative,
+    editorialPreview:projected.editorialPreview,
+    lastReviewedAt:laterReview(event.lastReviewedAt, projected.lastReviewedAt),
+    storyline:{
+      ...projected.storyline,
+      lastReviewedAt:laterReview(event.storyline?.lastReviewedAt, projected.storyline?.lastReviewedAt),
+    },
+  };
+}
+
 function main(){
   const knowledge = readJson(KNOWLEDGE_PATH);
   const issues = validateKnowledge(knowledge);
@@ -45,18 +99,22 @@ function main(){
   function applyFeed(document){
     let applied = 0;
     document.events = document.events.map(event => {
+      if (require('../config/editorial-maintenance').protectedFixture(event)) return event;
       const projection = projectionForTarget(knowledge, "feed-event", event);
       if (!projection){
         const narrative = event.editorialNarrative;
         const primarySource = indexes.sources.get(narrative?.sourceIds?.[0]);
         if (!narrative?.hook || !narrative?.synopsis || !primarySource) return event;
+        const completed = event.status === 'completed' && event.key !== 'horse-racing' && event.sportKey !== 'horse-racing';
+        const copy = completed ? require('../config/editorial-lifecycle').copy(event,narrative,false) : narrative;
+        if (event.selectedSentence === copy.hook && event.fullSpiel === copy.synopsis && event.editorialPreview?.sourceUrl === primarySource.url && require('./lib/storyline-card-rules').spoilerContractIssues(event).length === 0) return event;
         const threadTitle = indexes.threads.get(narrative.threadIds?.[0])?.title || "Finals path";
         return {
           ...event,
-          selectedSentence:narrative.hook,
-          fullSpiel:narrative.synopsis,
+          selectedSentence:copy.hook,
+          fullSpiel:copy.synopsis,
           ...fixtureSourceMetadata(event,primarySource),
-          lastReviewedAt:narrative.researchedAt || event.lastReviewedAt,
+          lastReviewedAt:laterReview(event.lastReviewedAt,narrative.researchedAt),
           editorialPreview:{
             status:"journalistic",
             angle:threadTitle,
@@ -69,7 +127,7 @@ function main(){
         };
       }
       applied += 1;
-      return applyToFeedEvent(event, projection, indexes);
+      return reconcileFeedEvent(event, projection, indexes);
     });
     return applied;
   }
@@ -143,6 +201,49 @@ function main(){
   }
   console.log(`${WRITE ? "Applied" : "Would apply"} ${MAJOR_ONLY ? 0 : feedApplied} feed, ${majorApplied} major-event and ${childApplied} fixture-child editorial projections.`);
 }
+
+function applyScopedFeed(ids, root = process.cwd()){
+  if (!Array.isArray(ids) || !ids.length || ids.length > 60 || new Set(ids).size !== ids.length || ids.some(id => typeof id !== 'string' || !/^[A-Za-z0-9_:./-]+$/.test(id))) throw new Error('Provide one to sixty distinct reviewed fixture IDs.');
+  const knowledge = readJson(path.join(root,'data/editorial-knowledge.v1.json'));
+  const issues = validateKnowledge(knowledge);
+  if (issues.length) throw new Error('Editorial knowledge invalid: '+issues.join('; '));
+  const indexes = indexesFor(knowledge), locks = require('../config/editorial-locks');
+  const permitted = new Set(['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt','storyline']);
+  const updated = new Set();
+  // Prepare both documents before the first write. A bad alias, missing source,
+  // protected fixture or spoiler conflict cannot leave a partial semantic patch.
+  const plans = ['feeds/incoming/events.json','data/events.json'].map(relative => {
+    const file = path.join(root,relative), document = readJson(file), chosen = new Set();
+    for (const id of ids){
+      const matches = document.events.filter(event => projectionTargetIds(event).includes(id));
+      if (matches.length !== 1) throw new Error('Unknown or ambiguous editorial projection fixture: '+id);
+      chosen.add(matches[0]);
+    }
+    const events = document.events.map(event => {
+      if (!chosen.has(event)) return event;
+      if (require('../config/editorial-maintenance').protectedFixture(event)) throw new Error('Protected editorial fixture: '+event.id);
+      const projection = projectionForTarget(knowledge,'feed-event',event);
+      if (!projection) throw new Error('No declared editorial projection for '+event.id);
+      const next = reconcileFeedEvent(event,locks.projection(event,projection),indexes);
+      for (const key of new Set([...Object.keys(event),...Object.keys(next)])){
+        if (!permitted.has(key) && !isDeepStrictEqual(next[key],event[key])) throw new Error('Editorial repair changed sporting/source metadata: '+key);
+      }
+      const spoilers = require('./lib/storyline-card-rules').spoilerContractIssues(next);
+      if (spoilers.length) throw new Error('Editorial repair is not spoiler safe: '+spoilers.join('; '));
+      if (!isDeepStrictEqual(next,event)) updated.add(event.id);
+      return next;
+    });
+    return {file,document:{...document,events},changed:!isDeepStrictEqual(events,document.events)};
+  });
+  for (const plan of plans.filter(plan => plan.changed)){
+    const temporary = plan.file+'.editorial-projection-'+process.pid+'.tmp';
+    try { writeJson(temporary,plan.document); fs.renameSync(temporary,plan.file); }
+    finally { fs.rmSync(temporary,{force:true}); }
+  }
+  return {changed:updated.size,updatedIds:[...updated],sourceRequests:0,scope:'existing-declared-editorial-projections'};
+}
+
+module.exports = { projectionConforms, reconcileFeedEvent, applyScopedFeed };
 
 if (require.main === module){
   try { main(); }

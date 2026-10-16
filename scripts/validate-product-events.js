@@ -339,7 +339,7 @@ async function run(){
   assert.match(pilotReadoutSql, /prompt_dismissal_percent/i);
   assert.match(pilotReadoutSql, /spectacle_rating_completion_percent/i);
 
-  const html = fs.readFileSync("index.html", "utf8");
+  const html = require("./app-shell-test-utils").readCardApplicationSource();
   require("./app-shell-test-utils").assertShellModule(html,"config/product-events.js");
   const settingsAsset = html.match(/script\.src='(assets\/js\/settings-optional-ui\.js\?v=\d+)'/)?.[1];
   assert(settingsAsset && html.includes("ui.renderAppearanceSettings(body)"), "Appearance must load its published Settings module");

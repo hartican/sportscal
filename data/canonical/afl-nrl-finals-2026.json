@@ -2616,8 +2616,8 @@
             "resultResearchRequired": false,
             "phase": "preview",
             "resultSignature": "[\"completed\",\"Sydney Roosters 19, Newcastle Knights 18.\",\"Roosters 19-18 Knights\",\"The official NRL match centre reports a 19-18 Grand Final result.\"]",
-            "hookSpoilerOn": "Sydney Roosters 19, Newcastle Knights 18.",
-            "synopsisSpoilerOn": "The official NRL match centre reports a 19-18 Grand Final result."
+            "hookSpoilerOn": "Roosters defeated Knights in Grand Final.",
+            "synopsisSpoilerOn": "Roosters defeated Knights in Grand Final. The official NRL match centre reports a 19-18 Grand Final result."
           },
           "storyline": {
             "stakes": 5,

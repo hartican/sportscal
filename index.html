@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="551">
+<meta name="app-shell-version" content="554">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=551" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=554" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2009,7 +2009,7 @@ header.top,#calendarControls,#mainContent,.app-footer,#jumpTodayBtn{animation:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=551"></script>
+<script src="assets/js/app-shell-runtime.js?v=554"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10719,7 +10719,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=539';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=552';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 let epicUiLoading;
@@ -17927,6 +17927,7 @@ function completeStartupFeedHydration(){
   publishFeedPerformanceMetrics();
   if (!startupReloadRestoreState && !startupFeedNavigationTouched && activeTab === "feed" && activeView === "list") calendarInitialJumpPending = true;
   renderAll();
+  window.dispatchEvent(new Event('ns-startup-ready'));
   window.requestAnimationFrame(() => {
     if (startupReloadRestoreState){
       const target = Math.max(0, Number(startupReloadRestoreState.scrollY || 0));
@@ -18106,7 +18107,7 @@ window.addEventListener('focus',maybeInviteClassicReview);
 setTimeout(maybeInviteClassicReview,5000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFeedClock();});
 </script>
-<script src="assets/js/notifications-inbox.js?v=533"></script>
+<script src="assets/js/notifications-inbox.js?v=552"></script>
 <script>
 let notificationDestinationDialog=null;
 function closeNotificationDestination(){
@@ -18114,7 +18115,9 @@ function closeNotificationDestination(){
   if(document.body.classList.contains('nsc-open'))setNothingscoreDrawerOpen(false);
   const closing=notificationDestinationDialog;notificationDestinationDialog=null;if(closing){closing.dataset.closingFromRoute="true";closing.close();closing.remove();}
 }
+async function ensureImpactFeedback(){await loadDeferredScript('assets/js/impact-feedback-ui.js?v=552');return NOTHINGSPORTS_IMPACT_UI;}
 async function openNotificationDestination(item){
+  if(item.kind==='impact_request'){await (await ensureImpactFeedback()).open(item.eventId);return;}
   if(item.yearReview){const ui=await ensureEpicUi();notificationDestinationDialog=ui.openReview(item.yearReview);return;}
   if(['chat','added'].includes(item.kind)){setChatDrawerOpen(true);await openChatRoom(item.roomId);return;}
   if(item.kind==='invitation'){
@@ -18148,6 +18151,7 @@ const notificationsInbox=NOTHINGSPORTS_INBOX.create({
   navigate:openNotificationDestination,closeDestination:closeNotificationDestination,
   signIn:()=>openSettings({section:'account'})
 });
+if(new URLSearchParams(location.search).has('impactRequest')||new URLSearchParams(location.search).has('impactInbox'))void ensureImpactFeedback().then(ui=>ui.route()).catch(()=>showToast('Impact requests could not load.'));
 </script>
 </body>
 </html>

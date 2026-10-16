@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "venue-source-context.v1",
+  "source": "Four retained accepted-main ESPN label observations; pending disposition only, no physical court verification or new provider fetch",
+  "sourceGitSha": "4e7bc82e5f2c333efbca06c28c866b3258847d82",
+  "sourcePath": "data/events.json",
+  "sourceFeedSha256": "ac01fd850a7c0b78bb60bbf9f979ff5a9e6fbd9854af08b27236a06c09c09957",
+  "records": [
+    {
+      "id": "fixture-tennis-espn-wta-185322",
+      "canonicalEventId": "fixture:tennis:espn:wta:185322",
+      "key": "tennis",
+      "venue": "Court 3",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisProviderTour": "wta",
+      "tennisProviderEventId": "381-2026",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185322",
+      "sourceCheckedAt": "2026-10-14T01:09:46.000Z"
+    },
+    {
+      "id": "fixture-tennis-espn-wta-185332",
+      "canonicalEventId": "fixture:tennis:espn:wta:185332",
+      "key": "tennis",
+      "venue": "Court 3",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisProviderTour": "wta",
+      "tennisProviderEventId": "381-2026",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185332",
+      "sourceCheckedAt": "2026-10-14T01:09:46.000Z"
+    },
+    {
+      "id": "fixture-tennis-espn-wta-185358",
+      "canonicalEventId": "fixture:tennis:espn:wta:185358",
+      "key": "tennis",
+      "venue": "Court 3",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisProviderTour": "wta",
+      "tennisProviderEventId": "381-2026",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
+      "sourceCheckedAt": "2026-10-13T21:00:17.000Z"
+    },
+    {
+      "id": "fixture-tennis-espn-wta-185346",
+      "canonicalEventId": "fixture:tennis:espn:wta:185346",
+      "key": "tennis",
+      "venue": "Court 3",
+      "tournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisTournamentId": "tournament:tennis:wta-wuhan-2026",
+      "tennisProviderTour": "wta",
+      "tennisProviderEventId": "381-2026",
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185346",
+      "sourceCheckedAt": "2026-10-13T21:00:17.000Z"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const notificationSource = fs.readFileSync("api/notification-dispatch.js", "utf8");
 const userStateSource = fs.readFileSync("api/user-state.js", "utf8");
 const resetUiSource = fs.readFileSync("config/preference-reset-ui.js", "utf8");
@@ -41,7 +41,11 @@ check("card content cycles while overlay dismiss stays independent", () => {
 
 check("crowd ratings retain accessible controls", () => {
   assert(html.includes("buildInlineCrowdRating"));
-  assert(html.includes("Tap to rate") || html.includes("TAP TO RATE"));
+  const rating=require("./app-shell-test-utils").readCardFunction("buildInlineCrowdRating");
+  assert(rating.includes("group.setAttribute('role','group')")&&rating.includes("'Your '+copy.name+' rating out of five"),"the canonical EPIC phase must label its accessible group");
+  assert.match(rating,/for\(let value=1;value<=5;value\+\+\)/,"retain all five rating choices");
+  assert(rating.includes("b.setAttribute('aria-label',`${value} out of 5: ${label}`)")&&rating.includes("b.setAttribute('aria-pressed',String(i+1===value))"),"every choice must expose its label and selected state");
+  assert(rating.includes("status.setAttribute('role','status')"),"rating feedback must remain announced");
 });
 
 check("Dismiss replaces Dislike and Like is suggestion-only", () => {
@@ -92,7 +96,7 @@ check("NSC submission visibly confirms, rolls back and retries", () => {
 });
 
 check("Why it matters rejects boilerplate and only renders validated editorial", () => {
-  const editorial = html.slice(html.indexOf("function buildEventWhyItMatters"), html.indexOf("function nothingscoreActionLabelForEvent"));
+  const editorial = require("./app-shell-test-utils").readCardFunction("buildEventWhyItMatters");
   assert.doesNotMatch(editorial, /selectedSentenceForDisplay/);
   assert.doesNotMatch(editorial, /eventSpielForDisplay/);
   assert.match(html, /function isValidatedEditorialCopy\(/);

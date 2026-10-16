@@ -102,7 +102,9 @@ assert.equal(courtAudit.contexts.length, 2);
 const shanghaiCourt7 = venues.resolve("Court 7", { key: "tennis", tournamentId: "tournament:tennis:atp-shanghai-2026" });
 assert.equal(shanghaiCourt7.reviewDisposition, "court_identity_pending_review", "the formerly hidden Shanghai outer-court context stays unresolved");
 assert.notEqual(shanghaiCourt7.id, venues.resolve("Court 7", { key: "tennis", eventSeriesId: "event-series:us-open" }).id, "Shanghai and New York courts must not share identity");
-const wuhanVenueInputs = require('./fixtures/wuhan-venue-contexts-20261011.json').records;
+const wuhanCourt3=feed.events.find(event=>[event.id,event.canonicalEventId,...(event.sourceEventIds||[])].includes('fixture:tennis:espn:wta:185358'));
+assert.equal(wuhanCourt3?.venue,'Court 3','Retain the actual published court label without attesting its physical identity');
+const wuhanVenueInputs = [...require('./fixtures/wuhan-venue-contexts-20261011.json').records,wuhanCourt3];
 for (const event of wuhanVenueInputs) {
   const court = venues.resolve(event.venue, event);
   assert.equal(court.audited, false, 'A publisher label cannot attest a physical court');
@@ -116,7 +118,20 @@ for (const event of wuhanVenueInputs) {
 const wuhanVenueAudit = venues.audit(wuhanVenueInputs);
 assert.deepEqual(wuhanVenueAudit.unclassified, []);
 assert.equal(wuhanVenueAudit.audited, 0);
-assert.equal(wuhanVenueAudit.pending.length, 3);
+assert.equal(wuhanVenueAudit.pending.length, 4);
+const retainedWuhanCourts=require('./fixtures/wuhan-venue-contexts-20261016.json');
+assert.equal(retainedWuhanCourts.sourceGitSha,'4e7bc82e5f2c333efbca06c28c866b3258847d82');
+assert.match(retainedWuhanCourts.sourceFeedSha256,/^[a-f0-9]{64}$/);
+assert.equal(retainedWuhanCourts.records.length,4,'four retained publisher observations establish this exact pending label only');
+for(const event of retainedWuhanCourts.records){
+ assert.equal(event.venue,'Court 3');assert.equal(event.tournamentId,'tournament:tennis:wta-wuhan-2026');assert.equal(event.tennisTournamentId,event.tournamentId);
+ assert.match(event.sourceUrl,/^https:\/\/www\.espn\.com\/tennis\/matchstats\?gameId=\d+$/);assert(['2026-10-14T01:09:46.000Z','2026-10-13T21:00:17.000Z'].includes(event.sourceCheckedAt),'retain original provider receipts, not a new observation clock');
+ const pending=venues.resolve(event.venue,event);assert.equal(pending.audited,false);assert.equal(pending.reviewDisposition,'court_identity_pending_review');assert.equal(pending.displayName,event.venue);assert(!pending.latitude&&!pending.longitude&&!pending.geometry,'pending publisher labels establish no physical location');
+ for(const wrong of [{},{...event,key:'baseball'},{...event,tournamentId:'tournament:tennis:wta-wuhan-2027',tennisTournamentId:'tournament:tennis:wta-wuhan-2027'},{...event,tournamentId:'tournament:tennis:atp-wuhan-2026',tennisTournamentId:'tournament:tennis:atp-wuhan-2026'},{...event,tennisTournamentId:'tournament:tennis:wta-beijing-2026'}])assert.equal(venues.resolve('Court 3',wrong).reviewDisposition,'unclassified','pending Wuhan Court 3 cannot approve another edition, sport or conflicting identity');
+ assert.equal(venues.resolve('Court 99',event).reviewDisposition,'unclassified','the exact observed label cannot approve another court');
+ assert.notEqual(pending.id,venues.resolve('Court 3',{key:'tennis',tournamentId:'tournament:tennis:wta-beijing-2026'}).id,'identically labelled courts retain separate tournament identities');
+}
+assert.deepEqual(venues.audit(retainedWuhanCourts.records).unclassified,[]);assert.equal(venues.audit(retainedWuhanCourts.records).audited,0);
 assert.equal(venues.resolve('Court 99', wuhanVenueInputs[0]).reviewDisposition, 'unclassified');
 assert.notEqual(venues.resolve('Court 1', wuhanVenueInputs[0]).id, venues.resolve('Court 1', {key:'tennis',tournamentId:'tournament:tennis:atp-tokyo-2026'}).id);
 assert(venues.audit([wuhanVenueInputs[0], {...wuhanVenueInputs[0],tournamentId:'tournament:tennis:wta-wuhan-2027',tennisTournamentId:'tournament:tennis:wta-wuhan-2027'}]).unclassified.includes('Court 1'), 'One pending context cannot hide another unknown use');
