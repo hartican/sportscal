@@ -95,11 +95,13 @@ declare accounts jsonb;fixtures jsonb;ids text[];people uuid[];begin
  and not exists(select 1 from public.nothingsports_nsc_pilot_members p where p.user_id=s.user_id and p.suspended)
  order by a.checked_at nulls first,s.user_id limit 20) s;
  insert into private.impact_accounts select id,private.impact_now() from unnest(people) id on conflict(user_id) do update set checked_at=excluded.checked_at;
+ -- Twenty pending identities plus forty rotating watches fit the unchanged
+ -- sixty-ID shared selected reader. The public input safety fence stays100.
  select coalesce(array_agg(event_id),'{}') into ids from (
  select distinct event_id from (
  (select event_id from private.impact_requests where user_id=any(people) and status in('pending','assigned','notified') and (expires_at>private.impact_now() or (digest_at at time zone 'Australia/Sydney')::date=(private.impact_now() at time zone 'Australia/Sydney')::date) order by verified_at nulls first limit 20)
  union all
- (select event_id from private.impact_watches where completion_at is null or completion_at>private.impact_now()-interval '8 days' order by examined_at nulls first,added_at desc,event_id limit 80)
+ (select event_id from private.impact_watches where completion_at is null or completion_at>private.impact_now()-interval '8 days' order by examined_at nulls first,added_at desc,event_id limit 40)
  ) q) chosen;
  update private.impact_watches set examined_at=private.impact_now() where event_id=any(ids);
  select coalesce(jsonb_agg(jsonb_build_object('eventId',w.event_id,'anyFive',w.any_five_at is not null,'aliases',w.aliases,'completionAt',w.completion_at,'sourceCheckedAt',w.source_checked_at)),'[]') into fixtures from private.impact_watches w where w.event_id=any(ids);
