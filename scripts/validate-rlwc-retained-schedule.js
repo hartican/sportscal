@@ -15,6 +15,30 @@ function validateRetainedSchedule(){
   +extract('function canonicalFeedFixtureForInspector(','function codeInspectorFixtureSnapshot(')
   +extract('function buildCodeInspectorFixture(','function appendSchedulePin('),context);
  const now=new Date('2026-10-16T12:26:03Z'),expected='https://www.rlwc2026.com/videos/australia-v-new-zealand---round-1-2026';
+ // Full public source/candidate captured from the actual app560 failing card.
+ // Display labels differ while its exact sport key and fixture context agree.
+ const live=require('./fixtures/rlwc-sport-labels-live-20261017.json'),liveBefore=JSON.stringify(live);
+ for(const major of [null,require('../config/major-events')]){
+  context.MAJOR_EVENTS=major;context.EVENTS=[live.candidate];
+  assert.equal(highlights.viewing(context.buildCodeInspectorFixture(live.source),now)?.webUrl,expected,'Actual app560 caller keeps the reviewed link across NRL/Rugby League labels');
+  for(const [sourceLabel,candidateLabel]of [['NRL','NRL'],['Rugby League','NRL'],[' nrl ','rugby league']]){
+   context.EVENTS=[{...live.candidate,sport:candidateLabel}];
+   assert.equal(schedule.inspectorSourcePreferred({...live.source,sport:sourceLabel},context.EVENTS[0]),true,'Only declared labels of the same explicit sport agree');
+  }
+  for(const sport of ['Rugby Union','NRLW','Rugby League Women','Wheelchair Rugby League','Football','Unknown sport']){
+   const candidate={...live.candidate,sport};context.EVENTS=[candidate];
+   assert.equal(context.buildCodeInspectorFixture(live.source),candidate,'A conflicting or unknown sport label remains a refusal: '+sport);
+   assert.equal(schedule.inspectorSourcePreferred({...live.source,sport},live.candidate),false,'A contrary source sport label cannot be hidden: '+sport);
+  }
+  for(const patch of [{homeScore:0,awayScore:0},{score:null,scoreCheckedAt:'2026-10-16T20:00:00Z'},{gender:'women'},{matchType:'women'},{sportKey:'rugby'},{codeId:'sport:rugby-union'}]){
+   const candidate={...live.candidate,...patch};context.EVENTS=[candidate];
+   assert.equal(context.buildCodeInspectorFixture(live.source),candidate,'Label compatibility preserves existing result/identity fences: '+JSON.stringify(patch));
+  }
+ }
+ assert.equal(JSON.stringify(live),liveBefore,'Actual public fixture inputs are not rewritten');
+ const missingRegistry={NOTHINGSPORTS_FIXTURE_IDENTITY:identity};vm.createContext(missingRegistry);vm.runInContext(fs.readFileSync(path.join(root,'assets/js/follow-schedule-panel.js'),'utf8'),missingRegistry);
+ assert.equal(missingRegistry.inspectorSourcePreferred(live.source,live.candidate),false,'An unavailable label registry cannot infer sport compatibility');
+
  assert.equal(highlights.viewing(frozen.source,now)?.webUrl,expected,'Captured public final is eligible before the live merge');
  const before=JSON.stringify(frozen);
  for(const major of [null,require('../config/major-events')]){
