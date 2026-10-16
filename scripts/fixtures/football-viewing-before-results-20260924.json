@@ -1,0 +1,253 @@
+{
+  "sourceSha": "daf5052decc98be6420ad49688f3104487fd5ee0",
+  "scope": "Actual historical published pre-result Football records for a temporal native regression; not current sporting state or new source research.",
+  "fixtures": [
+    {
+      "id": "football-australia-brazil-2026-09-25",
+      "sourceEventIds": [
+        "football-australia-brazil-2026-09-25"
+      ],
+      "codeId": "sport:football",
+      "key": "football",
+      "marqueeClassification": {
+        "isMarquee": true,
+        "sourceUrls": [
+          "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
+        ],
+        "reason": "Senior Australia international against Brazil"
+      },
+      "sportDomainId": "sport:football",
+      "cardKind": "fixture",
+      "competitionId": "competition:football:international-friendlies",
+      "name": "Socceroos v Brazil",
+      "date": "2026-09-25",
+      "time": "20:00",
+      "timePrecision": "exact",
+      "startTimeUtc": "2026-09-25T10:00:00.000Z",
+      "narrativeType": "all",
+      "venueCountryCode": "AU",
+      "competitionName": "Men's International Friendlies",
+      "isSenior": true,
+      "gender": "men",
+      "sourceName": "Football Australia / Socceroos",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-09-23T23:00:53.638Z",
+      "homeParticipantId": "team:football:socceroos",
+      "awayParticipantId": "team:football:brazil",
+      "consensusTags": [],
+      "eventType": "match",
+      "venue": "Queensland Country Bank Stadium",
+      "status": "upcoming",
+      "scheduleStatus": "confirmed",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "participantId": "team:football:socceroos",
+          "label": "Socceroos",
+          "logoUrl": "assets/identities/national/football/socceroos-symbol.svg"
+        },
+        {
+          "slot": 2,
+          "participantId": "team:football:brazil",
+          "label": "Brazil",
+          "logoUrl": "assets/identities/national/football/brazil.png"
+        }
+      ],
+      "participantIds": [
+        "team:football:socceroos",
+        "team:football:brazil"
+      ],
+      "participants": [
+        {
+          "id": "team:football:socceroos",
+          "name": "Socceroos",
+          "displayName": "Socceroos",
+          "countryCode": "AU",
+          "role": "home"
+        },
+        {
+          "id": "team:football:brazil",
+          "name": "Brazil",
+          "displayName": "Brazil",
+          "countryCode": "BR",
+          "role": "away"
+        }
+      ],
+      "participantCountryCodes": [
+        "AU",
+        "BR"
+      ],
+      "participantsConfirmed": true,
+      "detailsExpectedAt": null,
+      "schedulingWindow": null,
+      "roundNumber": null,
+      "roundLabel": "International friendly",
+      "stage": "International friendly",
+      "groupOrder": 5000,
+      "competitionScope": "international",
+      "isInternational": true,
+      "representativeCountryCodes": [
+        "AUS",
+        "BRA",
+        "AU"
+      ],
+      "expected": 8,
+      "broadcaster": "10 / 10 Streaming / Paramount+",
+      "viewingOptions": [
+        {
+          "providerId": "ten",
+          "territory": "AU",
+          "accessType": "free",
+          "liveOrReplay": "live",
+          "rightsScope": "fixture",
+          "webUrl": "https://10.com.au/",
+          "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+          "verifiedAt": "2026-09-23T23:00:53.638Z"
+        },
+        {
+          "providerId": "paramount",
+          "territory": "AU",
+          "accessType": "subscription",
+          "liveOrReplay": "live",
+          "rightsScope": "fixture",
+          "webUrl": "https://www.paramountplus.com/au/",
+          "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+          "verifiedAt": "2026-09-23T23:00:53.638Z"
+        }
+      ],
+      "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+      "ticketUrl": null,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
+        "hookSpoilerOn": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
+        "synopsisSpoilerOff": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
+        "synopsisSpoilerOn": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
+        "expectedSpectacle": 8,
+        "intensitySource": "computed"
+      },
+      "sourceCoverage": "published-feed"
+    },
+    {
+      "id": "football-australia-brazil-2026-09-29",
+      "sourceEventIds": [
+        "football-australia-brazil-2026-09-29"
+      ],
+      "codeId": "sport:football",
+      "key": "football",
+      "marqueeClassification": {
+        "isMarquee": true,
+        "sourceUrls": [
+          "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
+        ],
+        "reason": "Senior Australia international against Brazil"
+      },
+      "sportDomainId": "sport:football",
+      "cardKind": "fixture",
+      "competitionId": "competition:football:international-friendlies",
+      "name": "Socceroos v Brazil",
+      "date": "2026-09-29",
+      "time": "20:00",
+      "timePrecision": "exact",
+      "startTimeUtc": "2026-09-29T10:00:00.000Z",
+      "narrativeType": "all",
+      "venueCountryCode": "AU",
+      "competitionName": "Men's International Friendlies",
+      "isSenior": true,
+      "gender": "men",
+      "sourceName": "Football Australia / Socceroos",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-09-23T23:00:53.638Z",
+      "homeParticipantId": "team:football:socceroos",
+      "awayParticipantId": "team:football:brazil",
+      "consensusTags": [],
+      "eventType": "match",
+      "venue": "Suncorp Stadium",
+      "status": "upcoming",
+      "scheduleStatus": "confirmed",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "participantId": "team:football:socceroos",
+          "label": "Socceroos",
+          "logoUrl": "assets/identities/national/football/socceroos-symbol.svg"
+        },
+        {
+          "slot": 2,
+          "participantId": "team:football:brazil",
+          "label": "Brazil",
+          "logoUrl": "assets/identities/national/football/brazil.png"
+        }
+      ],
+      "participantIds": [
+        "team:football:socceroos",
+        "team:football:brazil"
+      ],
+      "participants": [
+        {
+          "id": "team:football:socceroos",
+          "name": "Socceroos",
+          "displayName": "Socceroos",
+          "countryCode": "AU",
+          "role": "home"
+        },
+        {
+          "id": "team:football:brazil",
+          "name": "Brazil",
+          "displayName": "Brazil",
+          "countryCode": "BR",
+          "role": "away"
+        }
+      ],
+      "participantCountryCodes": [
+        "AU",
+        "BR"
+      ],
+      "participantsConfirmed": true,
+      "detailsExpectedAt": null,
+      "schedulingWindow": null,
+      "roundNumber": null,
+      "roundLabel": "International friendly",
+      "stage": "International friendly",
+      "groupOrder": 5000,
+      "competitionScope": "international",
+      "isInternational": true,
+      "representativeCountryCodes": [
+        "AUS",
+        "BRA",
+        "AU"
+      ],
+      "expected": 8,
+      "broadcaster": "Paramount+",
+      "viewingOptions": [
+        {
+          "providerId": "paramount",
+          "territory": "AU",
+          "accessType": "subscription",
+          "liveOrReplay": "live",
+          "rightsScope": "fixture",
+          "webUrl": "https://www.paramountplus.com/au/",
+          "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+          "verifiedAt": "2026-09-23T23:00:53.638Z"
+        }
+      ],
+      "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+      "ticketUrl": null,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
+        "hookSpoilerOn": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
+        "synopsisSpoilerOff": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
+        "synopsisSpoilerOn": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
+        "expectedSpectacle": 8,
+        "intensitySource": "computed"
+      },
+      "sourceCoverage": "published-feed"
+    }
+  ],
+  "sourcePath": "data/code-inspector/football.json"
+}

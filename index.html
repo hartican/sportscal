@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="558">
+<meta name="app-shell-version" content="559">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=558" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=559" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2009,7 +2009,7 @@ header.top,#calendarControls,#mainContent,.app-footer,#jumpTodayBtn{animation:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=558"></script>
+<script src="assets/js/app-shell-runtime.js?v=559"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -6239,7 +6239,6 @@ function warmNextFeedPageDuringIdle(){
   warmedPublicFeedPages.add(path);
   const warm = () => {
     publicFeedWarmHandle = null;
-    // Drain prefetch before upgrade.
     fetch(path, { cache:"force-cache", credentials:"same-origin", signal:AbortSignal.timeout(8000) }).then(async response => {
       if (!response.ok){
         await response.body?.cancel();
@@ -10743,7 +10742,6 @@ function jointTournamentIsActive(document = jointTournamentData, reference = now
   if (localDay > tournament.endDate) return false;
   if (localDay >= tournament.startDate) return true;
 
-  // Only official OOP can pin this card.
   const scheduleDate = document?.schedule?.date;
   const retrievedAt = Date.parse(document?.retrievedAt || "");
   return Boolean(document?.schedule?.matches?.length

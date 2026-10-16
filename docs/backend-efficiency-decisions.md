@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Reuse fixed catalogue identity work — 17 October 2026 Sydney
+
+The observed public Match Centre read spends substantial preparation time in the complete catalogue. Prepare collapsed fixture aliases and reverse identity lists once in the existing shared identity owner, freeze the forward table after setup, and reuse an identical Sydney date-only formatter after its first need. Reuse a record’s resolved ID in its existing reviewed-innings check. Do not cache sporting facts, dates, eligibility or source observations; retain exact IDs, alias order/precedence, unknowns, scores, withdrawals and saved actions. No query, source, provider, account, scheduler, timeout or owner-routine change. Complete-output, browser/cache/startup and normal exact-SHA release evidence are required separately. [Scope and local observations](quality/catalogue-alias-reuse-2026-10-17.md).
+
+Two redundant comments move out of the downloaded page while executable guards remain unchanged: “Drain prefetch before upgrade” describes the existing bounded prefetch’s complete-body handling; “Only official OOP can pin this card” describes the existing source-verified tournament schedule requirement. The unchanged fetch/body and official-schedule conditions remain in index.html and their existing regressions. This payload cleanup removes no user-facing text, safety condition or attribution and does not increase the startup limit.
+
 ## Bounded Match Centre request timing — 17 October 2026 Sydney
 
 The public Match Centre route bypasses the existing personalised Feed timing path. Measure its fixed preparation/read/projection phases with a monotonic diagnostic timer, leaving sporting clocks and response bodies unchanged. Add Server-Timing metadata and one aggregate-only warning for valid slow (at least 2 seconds) or degraded origin responses; healthy faster responses stay quiet and logger failure cannot affect delivery. The threshold is observational, not a new timeout. No fixture/account IDs, query/source content, scores, dates, errors or credentials enter logs. Public cached headers may describe earlier origin work; origin time excludes platform startup, encoding and network.
