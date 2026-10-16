@@ -38,10 +38,11 @@ assert(rugby&&golf&&football.length===2);
 for(const fixture of [rugby,golf])assert.equal(require('../config/fixture-highlights').viewing({...fixture,status:'past'},now),null,'A cached past/elapsed-clock label is not source-confirmed completion and cannot promise highlights');
 assert.deepEqual(require('../lib/highlight-channels').channelsFor(rugby).map(c=>c.label),['NRL'],'The reported World Cup fixture must use its reviewed official NRL publisher');
 assert(!require('../lib/highlight-channels').channelsFor({...rugby,competitionId:'competition:rugby-world-cup-2027',key:'rugby'}).some(c=>c.label==='NRL'),'Rugby Union cannot borrow the Rugby League publisher');
-for(const displayTime of ['Time TBC','Time TBD'])assert.equal(timing.dateOnlyLabel({displayTime}),'Time unavailable','Cached placeholders use truthful missing-data language');
+for(const displayTime of ['Time TBC','Time TBD'])assert.equal(timing.dateOnlyLabel({displayTime}),'Time TBD','Cached placeholders keep the agreed upcoming unknown-time wording');
 for(const fixture of football)assert.equal(presentation.venue({...fixture,venue:null,venueCity:null}),'');
 for(const fixture of [{date:'2026-10-17',dateOnly:true},{...rugby,status:'completed',actualStartTimeUtc:null},{...golf,timeTbc:true},{status:'stumps',key:'cricket',date:'2026-10-15'}]){
- const value=timing.presentation(fixture,now);assert(!/\b(?:TBD|TBC)\b|to be determined/i.test(JSON.stringify(value)),'Missing app metadata must not imply an organiser decision: '+JSON.stringify(value));
+ const value=timing.presentation(fixture,now);assert(!/\bTBC\b|to be determined/i.test(JSON.stringify(value)),'Missing app metadata must not imply an organiser decision: '+JSON.stringify(value));
+ if(timing.played(fixture))assert(!/START (?:UNAVAILABLE|TBD)|^TIME TBD$/i.test(value.time),'The later played-start rule leaves unknown starts blank');
 }
 function response(){return{headers:{},setHeader(k,v){this.headers[k]=v;},status(code){this.code=code;return this;},end(value){this.body=value;},json(value){this.body=value;}};}
 async function main(){

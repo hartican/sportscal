@@ -9,7 +9,7 @@ for(const seed of seeds){
  assert.equal(note.id,seed.id);assert.equal(note.sourceCheckedAt,seed.sourceCheckedAt);assert.equal(note.statusCheckedAt,seed.statusCheckedAt);assert.equal(note.importedSeedFacts.startTimeUtc,seed.startTimeUtc);
  assert.equal(feed.validateFeed(feed.normalizeFeed({...document,events:[note]})).length,0,'Honest unconfirmed note must publish without a fabricated date');
  assert.equal(reminder.timing(note),null);assert.equal(calendar.knownDate(note),false);assert(!calendar.buildIcs([note]).includes('BEGIN:VEVENT'));
- assert.match(timing.presentation(identity.normalizeCore(note)).fullSchedule,/DATE UNAVAILABLE.*TIME UNAVAILABLE/);
+ assert.match(timing.presentation(identity.normalizeCore(note)).fullSchedule,/DATE UNAVAILABLE.*TIME TBD/);
  assert.equal(require('../config/follow-feed-policy').eligibleForFollow(note,{explicitSelection:true}),true,'A retained explicit pin remains eligible');
  const generated={...note,fullSpiel:'An unsourced regenerated preview.',storyline:{hookSpoilerOff:'An unsourced final.'}};const cleaned=feed.normalizeFeed({...document,events:[generated]}).events[0];assert.equal(cleaned.fullSpiel,note.fullSpiel);assert(!cleaned.storyline,'Generated copy cannot turn this note back into a fixture');
  for(const mutation of [{id:'unreviewed-note'},{date:seed.date},{startTimeUtc:seed.startTimeUtc},{expected:8},{sourceTrust:'verified'},{cardKind:'fixture'},{competitionId:'competition:wsl-championship-tour'},{viewingOptions:[{providerId:'espn'}]},{score:'1-0'},{participantIds:['player:invented']}])assert(feed.validateFeed(feed.normalizeFeed({...document,events:[{...note,...mutation}]})).length,'Mixed/unknown note must fail ordinary publication gates');

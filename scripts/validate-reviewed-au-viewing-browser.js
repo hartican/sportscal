@@ -40,7 +40,7 @@ const aflwOnly=process.argv.includes('--aflw');
    assert.deepEqual(expected.map(o=>o.accessType),['free','subscription','subscription'],'The existing provider metadata distinguishes free and paid access');
    assert.deepEqual(await card.locator('.provider-access').allTextContents(),['Free','Subscription','Subscription'],'Actual mixed-provider card clearly labels each free or paid destination');
    if(process.env.QA_SCREENSHOT_DIR&&mode==='feed'&&!show&&width===390)await card.screenshot({path:require('node:path').join(process.env.QA_SCREENSHOT_DIR,'aflw-access-'+(process.env.QA_BROWSER||'chromium')+'.png')});
-   if(mode==='schedule'){assert.match(text,/27\s+Nov/i);assert.match(text,/Time unavailable/i);assert.match(text,/Winner of PF1/);assert.match(text,/Winner of PF2/);}
+   if(mode==='schedule'){assert.match(text,/27\s+Nov/i);assert.match(text,/Time TBD/i);assert.match(text,/Winner of PF1/);assert.match(text,/Winner of PF2/);}
   }
   if(fixture.id==='fixture:rugby:wr:e492d961-1f1e-4c37-b9d7-e9fd811459be'){
    assert.deepEqual(expected.map(o=>o.id),['youtube','stan'],'final free coverage appears before paid coverage');
