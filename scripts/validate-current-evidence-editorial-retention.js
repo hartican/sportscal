@@ -49,6 +49,45 @@ try{
 }finally{fs.rmSync(root,{recursive:true,force:true});}
 console.log('Current evidence editorial retention: real formerly live preview, original copy clock, repeat bytes, newer research, sporting changes, invalid/missing copy, actual two-surface persistence and failure preflight passed; no source or database requests.');
 
+// Reproduce the actual two-pass refresh: an older fixture preview temporarily
+// reopens Bathurst before its matching result restores the identical final.
+// Editorial retention must compare the final facts with the original record.
+{
+ const id='supercars-bathurst-1000-2026';
+ const live=JSON.parse(cp.execFileSync('git',['show','d30d04b8e9e452a7ca9afebc5eeb5d93b04e050f:data/events.json'],{maxBuffer:32*1024*1024})).events.find(event=>event.id===id);
+ const seed=JSON.parse(cp.execFileSync('git',['show','5b180e150dcc7ac348d4192e265f42f83376d767:data/canonical/current-card-evidence-2026.json'],{maxBuffer:32*1024*1024}));
+ const fixture=seed.fixtureOverrides.find(row=>row.id===id),result=seed.resultOverrides.find(row=>row.id===id);
+ assert.equal(fixture.status,'scheduled');assert.equal(live.status,'completed');
+ assert(Date.parse(live.editorialNarrative.researchedAt)>Date.parse(fixture.editorialNarrative.researchedAt));
+ const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ns-final-editorial-chain-'));
+ const untouched={id:'unrelated',status:'scheduled',sourceCheckedAt:'2026-09-01T00:00:00Z',selectedSentence:'Unchanged'};
+ const seedFor=override=>({checkedAt:seed.checkedAt,fixtureOverrides:[fixture],resultOverrides:[override],broadcastOverrides:[],timingOverrides:[]});
+ const documents={
+  'data/canonical/current-card-evidence-2026.json':seedFor(result),
+  'data/canonical/afl-nrl-2026.json':{events:[]},
+  'feeds/incoming/events.json':{events:[live,untouched]},
+  'data/follow-sources/coverage.v1.json':{events:[]},
+  'data/canonical/official-card-results-2026.json':{results:[]},
+  'data/major-events.v1.json':{events:[]},
+ };
+ const read=file=>JSON.parse(fs.readFileSync(path.join(temporary,file)));
+ const apply=()=>require('./apply-current-card-evidence').applyEvidence({root:temporary});
+ try{
+  for(const [file,document]of Object.entries(documents)){const target=path.join(temporary,file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,JSON.stringify(document,null,2)+'\n');}
+  apply();const after=read('feeds/incoming/events.json').events[0];
+  assert.equal(after.editorialNarrative.researchedAt,live.editorialNarrative.researchedAt,'An intermediate preview cannot erase newer writing for the same final');
+  for(const key of ['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt'])assert.deepEqual(after[key],live[key],key+' is retained through both real writer passes');
+  for(const key of ['id','canonicalEventId','date','time','startTimeUtc','endTimeUtc','status','score','outcomeText','recapText','sourceUrl','sourceCheckedAt','resultSourceCheckedAt'])assert.deepEqual(after[key],live[key],key+' final fact/observation is unchanged');
+  assert.deepEqual(read('feeds/incoming/events.json').events[1],untouched);
+  const paths=Object.keys(documents),hashes=()=>paths.map(file=>crypto.createHash('sha256').update(fs.readFileSync(path.join(temporary,file))).digest('hex'));
+  const first=hashes();apply();assert.deepEqual(hashes(),first,'Unchanged complete writer rerun is byte-identical');
+  const correction={...result,score:result.score+' (controlled correction)',outcomeText:'Controlled corrected final',recapText:'Controlled corrected final.'};
+  fs.writeFileSync(path.join(temporary,'data/canonical/current-card-evidence-2026.json'),JSON.stringify(seedFor(correction),null,2)+'\n');apply();
+  const corrected=read('feeds/incoming/events.json').events[0];assert.equal(corrected.score,correction.score);assert.notEqual(corrected.editorialNarrative.researchedAt,live.editorialNarrative.researchedAt,'Changed final facts must not pin the original preview');
+ }finally{fs.rmSync(temporary,{recursive:true,force:true});}
+}
+console.log('Two-pass real result writer: final-fact editorial retention, original observations, unchanged rerun and genuine correction invalidation passed.');
+
 // Reproduce the full refresh failure at the real file writer: completed Events
 // children share result normalisation with Feed, but have a stricter schema.
 const child=require('../data/major-events.v1.json').events.find(e=>e.id==='major-event:us-open-2026').subEvents.find(e=>e.id==='fixture:us-open-2026:serena-alcaraz-v-routliffe-glasspool');

@@ -2,6 +2,17 @@
 const policy=require('../../config/editorial-maintenance');
 const narrative=require('./editorial-narrative');
 const fields=['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt','storyline'];
+const factFields=['id','name','date','time','timePrecision','startTimeUtc','endTimeUtc','actualEndTimeUtc','venue','competitionId','season','participantIds','participants','participantsConfirmed','teamMatchContext','standingsContext','eventType','sessionType','cardKind','round','roundNumber','roundLabel','stage','status','scheduleStatus','score','scoreDisplay','canonicalResultScoreline','result','resultLabels','homeScore','awayScore','outcomeText','recapText','fixtureResults'];
+function sameEditorialFacts(a,b){
+  // Representation-only empty participants and the two unresolved status names
+  // do not invalidate writing. Real identities, results and context still do.
+  const fact=(event,key)=>key==='status'&&['scheduled','upcoming'].includes(event[key])?'scheduled':['participants','participantIds'].includes(key)&&event[key]===undefined?[]:event[key];
+  return factFields.every(key=>JSON.stringify(fact(a,key))===JSON.stringify(fact(b,key)));
+}
+function newerReviewedNarrative(a,b,now=Date.now()){
+  const reviewed=Date.parse(a.editorialNarrative?.researchedAt),other=Date.parse(b.editorialNarrative?.researchedAt);
+  return Number.isFinite(reviewed)&&reviewed<=now&&reviewed>(Number.isFinite(other)&&other<=now?other:0)&&Boolean(a.editorialNarrative?.sourceIds?.length);
+}
 const matches=(a,b)=>policy.ids(a).some(id=>policy.ids(b).includes(id));
 const complete=copy=>policy.fields.every(field=>String(copy?.[field]||'').trim());
 function reconcileFullPreviews(events,knowledge){
@@ -32,4 +43,4 @@ function publicationPlan(rows,local,served){
   }
   return {published,deferred};
 }
-module.exports={fields,complete,reconcileFullPreviews,publicationMismatch,publicationPlan};
+module.exports={fields,sameEditorialFacts,newerReviewedNarrative,complete,reconcileFullPreviews,publicationMismatch,publicationPlan};

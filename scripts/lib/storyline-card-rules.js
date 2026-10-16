@@ -78,8 +78,8 @@ function participantsFor(event) {
 function safeCompletedCopy(event) {
   const title = event.displayTitleCompact || event.name || "This event";
   return {
-    hook: `${title} is complete; the key moments are protected until you choose to reveal them.`,
-    synopsis: `${title} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`,
+    hook: `${title} is complete. Reveal results for the outcome.`,
+    synopsis: `${title} is complete. Results stay hidden until you choose to reveal them.`,
   };
 }
 

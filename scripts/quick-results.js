@@ -11,12 +11,13 @@ const {storylineFor,spoilerSafeRootCopy,spoilerContractIssues}=require('./lib/st
 const {KEYS,semantic,patchKnown}=require('./lib/known-fixture-patch');
 function retainReviewedResultEditorial(events,previous){
  const byId=new Map(previous.map(event=>[event.id,event]));
- const facts=['id','name','competitionId','participantIds','participants','participantsConfirmed','date','time','timePrecision','startTimeUtc','endTimeUtc','actualEndTimeUtc','venue','roundNumber','roundLabel','scheduleStatus','status','score','scoreDisplay','canonicalResultScoreline','result','resultLabels','homeScore','awayScore','outcomeText','recapText','fixtureResults'];
- const copy=['selectedSentence','fullSpiel','storyline','editorialPreview'];
+ const copy=['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt'];
+ const editorial=require('./lib/editorial-publication');
  return events.map(event=>{
   const old=byId.get(event.id);
-  if(event.status!=='completed'||old?.storyline?.arcStage!=='recap'||old.editorialPreview?.status!=='journalistic'||!old.editorialPreview.sourceUrl||!Number.isFinite(Date.parse(old.editorialPreview.sourceCheckedAt))||spoilerContractIssues(old).length||facts.some(key=>JSON.stringify(old[key])!==JSON.stringify(event[key])))return event;
-  const retained={...event,...Object.fromEntries(copy.filter(key=>Object.hasOwn(old,key)).map(key=>[key,old[key]]))};
+  if(event.status!=='completed'||old?.storyline?.arcStage!=='recap'||old.editorialPreview?.status!=='journalistic'||!old.editorialPreview.sourceUrl||!Number.isFinite(Date.parse(old.editorialPreview.sourceCheckedAt))||spoilerContractIssues(old).length||!editorial.sameEditorialFacts(old,event)||editorial.newerReviewedNarrative(event,old))return event;
+  const retained={...event};
+  for(const field of copy)if(Object.hasOwn(old,field))retained[field]=old[field];else delete retained[field];
   // Keep fresh computed stakes/intensity; retain only reviewed narrative fields.
   retained.storyline={...event.storyline,...Object.fromEntries(['hookSpoilerOff','synopsisSpoilerOff','hookSpoilerOn','synopsisSpoilerOn','researchDepth','lastReviewedAt'].filter(key=>Object.hasOwn(old.storyline,key)).map(key=>[key,old.storyline[key]]))};
   return retained;

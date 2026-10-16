@@ -57,14 +57,8 @@ function retainNewerReviewedEditorial(record, merged){
   // A dated sporting correction can carry seed editorial. Reapplying unchanged
   // facts must not undo a later, already published review. A sporting change
   // still invalidates that older prose; fetch clocks never count as research.
-  const reviewed=Date.parse(record.editorialNarrative?.researchedAt||'');
-  const incomingReviewed=Date.parse(merged.editorialNarrative?.researchedAt||'');
-  const facts=['name','date','time','timePrecision','startTimeUtc','endTimeUtc','actualEndTimeUtc','venue','competitionId','season','participantIds','participants','participantsConfirmed','teamMatchContext','standingsContext','eventType','sessionType','cardKind','round','roundNumber','roundLabel','stage','status','scheduleStatus','score','scoreDisplay','canonicalResultScoreline','result','resultLabels','homeScore','awayScore','outcomeText','recapText','fixtureResults'];
-  // Feed's upcoming and the canonical adapter's scheduled denote the same
-  // unresolved phase. Live/postponed/completed are never equivalent to these.
-  const fact=(event,key)=>key==='status'&&['scheduled','upcoming'].includes(event[key])?'scheduled':['participants','participantIds'].includes(key)&&event[key]===undefined?[]:event[key];
-  const now=Date.now();
-  if(Number.isFinite(reviewed)&&reviewed<=now&&reviewed>(Number.isFinite(incomingReviewed)&&incomingReviewed<=now?incomingReviewed:0)&&record.editorialNarrative?.sourceIds?.length&&facts.every(key=>JSON.stringify(fact(record,key))===JSON.stringify(fact(merged,key)))){
+  const editorial=require('./lib/editorial-publication');
+  if(editorial.newerReviewedNarrative(record,merged)&&editorial.sameEditorialFacts(record,merged)){
     for(const field of ['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt']){
       if(Object.hasOwn(record,field))merged[field]=record[field];else delete merged[field];
     }
@@ -110,6 +104,12 @@ function applyArray(records, overrides, checkedAt, { upsert=false, child=false }
   if(upsert) for(const override of overrides) if(!next.some(record => matches(record, override))) next.push(fixtureSeed(override, checkedAt));
   return next;
 }
+function applyFixtureAndResultEvidence(records,evidence,{upsert=false}={}){
+  const next=applyArray(applyArray(records,evidence.fixtureOverrides,evidence.checkedAt,{upsert}),evidence.resultOverrides,evidence.checkedAt);
+  // Both passes preserve order and append only new fixture seeds. Compare the
+  // coherent final facts with the original, never the transient preview frame.
+  return next.map((record,index)=>index<records.length?retainNewerReviewedEditorial(records[index],record):record);
+}
 function observedCompletionBoundary(record){
   const clocks=[record.statusFactObservedAt,record.firstConfirmedCompleteAt,record.resultSourceCheckedAt||record.sourceCheckedAt];
   if(clocks.some(value=>typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?(?:Z|[+-]\d{2}:\d{2})$/.test(value)))return false;
@@ -134,13 +134,13 @@ function applyEvidence({ check=false, root=ROOT } = {}){
   evidence.resultOverrides = evidence.resultOverrides.map(result => ({ ...result, status:"completed" }));
   const documents = Object.fromEntries(TARGETS.map(file => [file, read(file)]));
   const canonical = documents[TARGETS[0]];
-  canonical.events = applyArray(applyArray(canonical.events || [], evidence.fixtureOverrides, evidence.checkedAt), evidence.resultOverrides, evidence.checkedAt).map(record=>{
+  canonical.events = applyFixtureAndResultEvidence(canonical.events || [],evidence).map(record=>{
     const source={...record};
     for(const key of ['storyline','cardVariant','archived'])delete source[key];
     return source;
   });
   const feed = documents[TARGETS[1]];
-  feed.events = applyArray(applyArray(feed.events || [], evidence.fixtureOverrides, evidence.checkedAt, { upsert:true }), evidence.resultOverrides, evidence.checkedAt);
+  feed.events = applyFixtureAndResultEvidence(feed.events || [],evidence,{upsert:true});
   const coverage = documents[TARGETS[2]];
   coverage.events = applyArray(coverage.events || [], evidence.resultOverrides, evidence.checkedAt);
   for(const group of evidence.broadcastOverrides) coverage.events = (coverage.events || []).map(record => group.ids.includes(identity(record)) ? mergeRecord(record, group, evidence.checkedAt) : record);
