@@ -139,6 +139,8 @@ jobs:
           node scripts/validate-nrl-finals-readiness.js
           node scripts/validate-known-final-results.js
           node scripts/validate-update-cards.js
+          node scripts/validate-fixture-result-reconciliation.js
+          node scripts/validate-deployment-tracking.js
           node scripts/validate-result-completeness-timing.js
           node scripts/validate-motogp-venue-pilot.js
           node scripts/validate-wrc-context.js
@@ -281,7 +283,7 @@ jobs:
           node scripts/verify-production-release.js
           node scripts/verify-match-centre-public.js
           node scripts/validate-security-headers.js https://nothingsport.vercel.app
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         if: always()
         with:
           name: release-${{ inputs.sha }}

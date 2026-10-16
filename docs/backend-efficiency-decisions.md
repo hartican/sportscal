@@ -617,6 +617,12 @@ Authoritative MVP operating decisions, 14 September 2026. Nothing Sport has appr
 
 Regression: `node scripts/validate-backend-efficiency.js`, live fixture/API, chat, Nothing Score, notification, startup-budget and installed-PWA validators.
 
+## Canonical refresh result hand-off — 16 October 2026
+
+Both full and incremental refreshes reconcile existing Feed cards with retained official final fixture evidence before result completeness. Recorded IDs and aliases establish matches; participant and sporting-start checks reject contradictions. This adds no card admission, provider request, database write or scheduler. Final evidence retains its original observation clocks, independently of schedule freshness. Unsupported or conflicting results retain the strict publication gate and restore the candidate's data, feeds and generated runtime on failure.
+
+Refresh diagnostics live outside that rollback boundary and retain missing-result fields, source failures, publication stage and deployment correlation. The existing production workflow remains the sole publisher; tracking retries transient reads only, never an uncertain dispatch. Regression: `validate-fixture-result-reconciliation.js`, `validate-deployment-tracking.js`, `validate-update-cards.js`.
+
 ## Leaderboard epoch and Friends activity — 15 September 2026
 
 Use the existing notification dispatcher for all three 5/5 rating phases. The transactional outbox groups delivery for five minutes; indexed activity records retain each rater/fixture/phase. Activity reads paginate 25 records with batch identity lookup. Leaderboard reads aggregate indexed server-owned reward/prediction records without triggering reward writes. Follow/copy bonuses have permanent uniqueness keys. Copying uses a preference compare-and-swap transaction so a concurrent edit is never overwritten. Award transactions serialize the small MVP reward workload to prevent cross-fixture deadlocks and preserve participation caps.

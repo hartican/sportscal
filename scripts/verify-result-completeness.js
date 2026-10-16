@@ -69,10 +69,10 @@ function resultSourceKind(event) {
 
 const dueEvents = events.filter(isDueForResult);
 
-const missing = dueEvents
-  .filter(event => event.resultStatus === "pending"
-    ? !event.resultSourceUrl || !event.resultSourceCheckedAt
-    : !event.score || !event.outcomeText || !event.recapText || !event.sourceName || !event.sourceUrl || !event.sourceCheckedAt);
+const missingFields = event => (event.resultStatus === "pending"
+  ? ["resultSourceUrl", "resultSourceCheckedAt"]
+  : ["score", "outcomeText", "recapText", "sourceName", "sourceUrl", "sourceCheckedAt"]).filter(key => !event[key]);
+const missing = dueEvents.filter(event => missingFields(event).length);
 
 const summary = {
   checkedAt: now.toISOString(),
@@ -88,8 +88,10 @@ const summary = {
     date: event.date,
     status: event.status || "unset",
     expectedCloseAt: expectedCloseAt(event)?.toISOString() || null,
+    missingFields: missingFields(event),
   })),
 };
+require('./lib/refresh-report').update({stage:'result-validation',lastStep:'scripts/verify-result-completeness.js',resultInput:inputPath,missingResults:summary.missingResults});
 console.log(JSON.stringify(summary, null, 2));
 if (missing.length) {
   console.error(`Result completeness failed for ${missing.length} due card(s).`);
