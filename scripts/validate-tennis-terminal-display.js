@@ -1,6 +1,8 @@
 'use strict';
 const assert=require('node:assert/strict'),model=require('../config/card-results');
-const fixture=require('../data/events.json').events.find(e=>[e.id,e.canonicalEventId,...e.sourceEventIds||[]].includes('fixture-tennis-espn-atp-184948'));
+const archive=require('./fixtures/tennis-retirement-display-20261016.json'),fixture=archive.fixture;
+assert.equal(archive.sourceSha,'3d8911fd44f31272f624d67d3f0e996bf8c3af96');
+assert.match(archive.sourceFeedSha256,/^[a-f0-9]{64}$/);
 assert(fixture,'retained retirement fixture required');
 assert.deepEqual(fixture.sets,[{away:2,home:5}]);
 assert(fixture.resultLabels.includes('Retirement'));
