@@ -2,14 +2,23 @@
 // An exact retained identity may omit context; known contradictions still reject.
 function inspectorSourcePreferred(source,candidate){
  const id=candidate?.id,direct=id&&(id===source?.id||id===source?.canonicalEventId);
+ const fields=['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType'];
+ // Older exact pins used a competition family instead of its dated edition.
+ // This supplies no sporting fact: only the source's explicit final can win.
+ const family=direct&&typeof source.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(source.date)
+  &&typeof candidate.competitionId==='string'&&source.competitionId===candidate.competitionId+':'+source.date.slice(0,4);
  if(!source||typeof id!=='string'||(!direct&&!id.startsWith('major-match:'))
   ||!Array.isArray(source.sourceEventIds)||!source.sourceEventIds.includes(id)
   ||!source.key||source.key!==candidate.key||!source.competitionId
-  ||(candidate.competitionId?source.competitionId!==candidate.competitionId:!direct)||source.date!==candidate.date
-  ||!['completed','finished','final'].includes(String(source.status||'').toLowerCase())||!['scheduled','upcoming'].includes(candidate.status))return false;
+  ||(candidate.competitionId?source.competitionId!==candidate.competitionId&&!family:!direct)||source.date!==candidate.date
+  ||!['completed','finished','final'].includes(String(source.status||'').toLowerCase())||!['scheduled','upcoming','past'].includes(candidate.status))return false;
  const identity=e=>{const ids=[...new Set([...(Array.isArray(e.participantIds)?e.participantIds:[]),...(Array.isArray(e.participantSlots)?e.participantSlots:[]).map(s=>s?.participantId),e.homeParticipantId,e.awayParticipantId].map(id=>String(id||'').trim()).filter(Boolean))].sort(),start=Date.parse(e.startTimeUtc||e.timelineSortTimeUtc||'');return ids.length>=2&&Number.isFinite(start)?JSON.stringify([start,ids]):'';};
  const key=identity(source);
- return Boolean(key&&key===identity(candidate)&&!['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType'].some(k=>source[k]!=null&&candidate[k]!=null&&source[k]!==candidate[k]));
+ const legacy=family||candidate.status==='past';
+ const resultOwner=globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY||(typeof module==='object'&&module.exports&&typeof require==='function'?require('../../config/fixture-identity'):null);
+ if(legacy&&(!resultOwner?.hasResultEvidence||resultOwner.hasResultEvidence(candidate)))return false;
+ return Boolean(key&&key===identity(candidate)&&!fields.some(k=>source[k]!=null&&candidate[k]!=null&&source[k]!==candidate[k])
+  &&(!legacy||![...fields,'drawType','draw'].some(k=>candidate[k]!=null&&(source[k]==null||source[k]!==candidate[k]))));
 }
 
 // The source calendar owns chronological round order; views never create follows.

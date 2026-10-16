@@ -157,7 +157,15 @@
   const SCORE_OBSERVATION_FIELDS=['homeScore','awayScore','scoreDisplay','score','sets','games','innings','rubbers','canonicalResultScoreline'];
   const observationTime=e=>e?.sourceCheckedAt||e?.canonicalSourceCheckedAt||null;
   const factTime=(e,kind)=>e?.[kind+'CheckedAt']||(e?.fixtureObservationSchema?null:observationTime(e));
-  const hasScore=e=>SCORE_OBSERVATION_FIELDS.some(k=>{const v=e?.[k];return Array.isArray(v)?v.length>0:v!=null&&v!==''&&(typeof v!=='object'||Object.keys(v).length>0);});
+  const populated=value=>Array.isArray(value)?value.length>0:value!=null&&value!==''&&(typeof value!=='object'||Object.keys(value).length>0);
+  const hasScore=e=>SCORE_OBSERVATION_FIELDS.some(k=>populated(e?.[k]));
+  // Presence, not verification: an old display state cannot authorise dropping
+  // a retained result, including zero scores or an explicit withdrawal receipt.
+  const hasResultEvidence=e=>hasScore(e)
+    ||!['','pending','unknown','unavailable'].includes(String(e?.resultStatus||'').toLowerCase())
+    ||['resultScore','result','outcome','outcomeText','winner','winnerParticipantId'].some(k=>populated(e?.[k]))
+    ||typeof e?.scoreCheckedAt==='string'&&Number.isFinite(Date.parse(e.scoreCheckedAt))&&SCORE_OBSERVATION_FIELDS.some(k=>Object.prototype.hasOwnProperty.call(e,k))
+    ||['scoreFactObservedAt','actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt'].some(k=>typeof e?.[k]==='string'&&Number.isFinite(Date.parse(e[k])));
   const settled=status=>/^(completed|finished|final|abandoned)$/i.test(status||'');
   function retainStatusObservation(base,event){
     event.status=base.status;event.statusCheckedAt=factTime(base,'status');
@@ -184,6 +192,13 @@
         if(base[key]!==undefined)event[key]=base[key];else delete event[key];
       }
       retainStatusObservation(base,event);
+      // A planning alias can carry its matchup title as a placeholder round.
+      // Keep the published final's numbered round and original source receipt.
+      if(Number.isInteger(base.roundNumber)&&base.roundNumber>0&&event.roundNumber==null){
+        event.roundNumber=base.roundNumber;
+        if(base.roundLabel)event.roundLabel=base.roundLabel;
+      }
+      if(base.sourceCheckedAt!==undefined)event.sourceCheckedAt=base.sourceCheckedAt;
       event.scoreCheckedAt=factTime(base,'score');
       event.livePlayObservedAt=null;
       return;
@@ -408,5 +423,5 @@
     const horizon=new Date(Date.UTC(futureYear,month,Math.min(Number(parts.day),lastDay))).toISOString().slice(0,10);
     return (!/^\d{4}-\d{2}-\d{2}$/.test(end || "") || end >= cutoff) && (!/^\d{4}-\d{2}-\d{2}$/.test(start || "") || start<=horizon);
   }
-  return Object.freeze({canonicalParticipantId,canonicalFixtureId,fixtureAliases,sportKey, scheduleCode, normalizeCore, fromSchedule, followedScheduleCodes,mergeOverlays,estimateTimeline,retainedInActiveTimeline,consensusTagsForEvent});
+  return Object.freeze({canonicalParticipantId,canonicalFixtureId,fixtureAliases,sportKey, scheduleCode, normalizeCore, fromSchedule, followedScheduleCodes,mergeOverlays,hasResultEvidence,estimateTimeline,retainedInActiveTimeline,consensusTagsForEvent});
 });
