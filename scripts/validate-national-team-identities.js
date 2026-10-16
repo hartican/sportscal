@@ -13,7 +13,7 @@ const catalogue = require("../config/team-follow-catalogue");
 const ROOT = path.resolve(__dirname, "..");
 const assetsOnly = process.argv.includes("--assets-only");
 const serviceWorkerSource = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
-const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 
 assert.equal(registry.schemaVersion, "national-team-identities.v1");
 assert.equal(registry.baselineCount, 58);

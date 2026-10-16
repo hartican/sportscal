@@ -58,13 +58,15 @@ const expired = updateAudienceMemories(clone(qualified), { capturedAt:"2027-01-0
 assert.equal(expired.audienceMemories.length, 0, "expired memory must be removed rather than becoming a history list");
 assert(!expired.eventProjections.some(projection => projection.audienceMemoryId), "expired projection references must be removed");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const enrichment = fs.readFileSync("config/enrichment-engine.js", "utf8");
 const internalNothingscore = fs.readFileSync("config/nothingscore.js", "utf8");
 assert(!html.includes("Pilot contributors"));
 assert(!/name:\s*"Heat"|Heat can help/.test(html));
 assert(!/Heat blended/.test(enrichment));
-assert.match(html, /name:"How do you think it'll go\?"/);
+assert.match(html, /function nothingscorePhaseCopy\(phase\)\{\s*return globalThis\.NOTHINGSPORTS_EPIC\.phaseCopy\(phase\);/, "cards must use the canonical EPIC phase wording");
+assert.equal(require("../config/epic-classics").phaseCopy("heat").name, "Anticipation");
+assert.equal(require("../config/epic-classics").phaseCopy("heat").detail, "Stakes");
 assert.match(internalNothingscore, /PHASES = Object\.freeze\(\["heat",\s*"pulse",\s*"impact"\]\)/, "internal nothingscore.v1 phase must remain heat");
 assert.doesNotMatch(html, /label\.textContent = "Sentiment"/, "privacy-safe Sentiment memory must remain stored but invisible while the crowd-results structure is being refined");
 assert.doesNotMatch(html, /if \(state !== "compact"\)[\s\S]{0,240}buildEditorialSentiment\(ev\)/, "NSC aggregate Sentiment must not appear on event cards");

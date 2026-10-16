@@ -15,10 +15,12 @@ const taxonomy = require(path.join(ROOT, "config/selector-taxonomy.js"));
 const followFirst = require(path.join(ROOT, "config/follow-first.js"));
 const identities = require(path.join(ROOT, "config/card-identities.js"));
 
-const html = read("index.html");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
 const exposedSports = taxonomy.exposedSportNodes.filter(node => Number(node.level) === 2);
 const exposedIds = exposedSports.map(node => node.id);
-assert.equal(exposedSports.length, 39, "the user-facing catalogue must expose the approved categories with separate women sports including NBL");
+assert.equal(exposedSports.length, 40, "the user-facing catalogue must expose the approved categories, including the single gender-neutral Horse Racing entry and NBL");
+assert.equal(exposedIds.filter(id=>id==='sport:horse-racing').length,1,"the approved Horse Racing category remains exposed exactly once");
+assert(!exposedIds.includes('sport:horse-racing-women'),"the shared Horse Racing category must not regain a separate gender entry");
 assert(exposedIds.includes("sport:baseball"), "the published Baseball addition must remain exposed");
 assert(exposedIds.includes("sport:ice-hockey"), "Ice Hockey must be a first-class exposed sport");
 for (const retiredId of ["sport:hockey", "sport:gymnastics", "sport:multi-sport"]){

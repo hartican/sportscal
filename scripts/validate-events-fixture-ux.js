@@ -34,7 +34,7 @@ assert(html.includes('primaryActions.className = "event-card-primary-actions"') 
 assert(html.includes('navigationRow.className = "major-event-navigation-row"') && html.includes('major-event-timetable'), "major cards must group Follow Event, viewing and Timetable");
 
 assert(cardCss.includes("width:120px") && cardCss.includes("width:100px"), "Feed and Events share restored responsive identity frames");
-assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");
+assert(/\.event-card\.is-logo-led-matchup\s*\{[^}]*\bmin-height:\s*0(?:;|\})/.test(html) && /\.event-card\.is-logo-led-matchup \.event-date-line\s*\{\s*margin:\s*3px 0 0;/.test(html), "compact fixtures must remove oversized minimum heights and retain the compact date-line spacing; the obsolete metadata rail stays excluded below");
 const renderer=fs.readFileSync("config/venue-panel-ui.js","utf8");
 const eventCardSource = renderer.slice(renderer.indexOf("function buildDetailedEventCard("), renderer.indexOf("function appendFixtureCardArtwork("));
 assert(eventCardSource.includes('displayLabel:displayTitle'), "regular fixture traffic controls must receive the renderer's spoiler-safe display title");
