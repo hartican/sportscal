@@ -19,6 +19,16 @@ const root=path.resolve(__dirname,'..'),snapshot=require('../data/football/fixtu
    await page.evaluate(()=>{acknowledgeSelectorRelease();closeSelectorOptInPrompt({restoreViewport:false});setTunePromptOpen(false);suppressSessionRatingPrompt();});
    await page.locator('.tabs [data-tab=follow]').click();
    await page.getByRole('button',{name:'My athletes & teams',exact:true}).waitFor();
+   await page.locator('.follow-home-tabs').getByRole('button',{name:'Sports',exact:true}).click();
+   const search=page.getByRole('searchbox',{name:'Search all teams and athletes',exact:true});
+   await search.waitFor();
+   const clubs=require('../data/canonical/football-directory.v1.json').teams.filter(t=>t.leagueId==='competition:a-leagues');
+   for(const club of clubs){
+    await search.fill(club.displayName);
+    await page.locator('.global-search-result').filter({has:page.locator(`[data-profile-trigger="search:${club.id}"]`)}).waitFor();
+   }
+   await search.fill('');
+   await page.locator('.follow-home-tabs').getByRole('button',{name:'Sports',exact:true}).click();
    await page.evaluate(()=>{followHomeView='browse';saveFollowBrowse({sportId:'sport:football',categoryId:'',section:'schedule',scheduleScope:null});renderAll();});
    await page.getByRole('button',{name:'Schedule',exact:true}).click();
    try{await page.waitForFunction(()=>codeInspectorChunk?.code?.id==='sport:football'&&!codeInspectorChunkLoading);}catch(error){console.error(JSON.stringify({engine,width,theme,stage:'schedule-load',state:await page.evaluate(()=>({browse:followBrowseState(),tab:activeTab,activeCode:activeInspectorCodeId,manifest:!!codeInspectorManifest,loading:codeInspectorChunkLoading,chunk:codeInspectorChunk?.code,text:document.getElementById('listView').innerText.slice(0,1800)}))}));throw error;}
@@ -43,7 +53,7 @@ const root=path.resolve(__dirname,'..'),snapshot=require('../data/football/fixtu
    const followed=await page.evaluate(id=>{setDirectoryEntityFollow(id,'follow',{sportKey:'football',leagueId:'competition:a-leagues',label:'Sydney FC'});return userPreferences.preferenceGraph.entityFollows.some(f=>f.participantId===id&&f.followLevel==='follow');},snapshot.events[0].homeParticipantId);assert(followed);
    await page.reload();await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating());assert(await page.evaluate(id=>userPreferences.preferenceGraph.entityFollows.some(f=>f.participantId===id&&f.followLevel==='follow'),snapshot.events[0].homeParticipantId),'A-League club follow survives local profile reload');
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
-   console.log('passed',engine,width,theme);rows.push({engine,width,theme,schedule:156,competitionLabel:true,providers:true,followSurvivesReload:true});
+   console.log('passed',engine,width,theme);rows.push({engine,width,theme,searchableClubs:clubs.length,schedule:156,competitionLabel:true,providers:true,followSurvivesReload:true});
    if(process.env.A_LEAGUE_QA_DIR&&width===320)await page.screenshot({path:path.join(process.env.A_LEAGUE_QA_DIR,`${engine}-${theme}.png`)});
    await context.close();
   }}finally{await browser.close();}
