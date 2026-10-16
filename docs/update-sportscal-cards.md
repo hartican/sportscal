@@ -143,3 +143,9 @@ strings accepted and normalised by JavaScript. Result identities must belong to
 the bound participants; winner/loser/eliminated identities and numeric home/away
 score sides must agree. The persistent continuity regression covers both writers
 and verifies that invalid capsules write none of their retained surfaces.
+
+Retaining a newer tuple also retains its missing fields: never fill absent sets,
+score display, outcome, provenance or classification from an older observation.
+Completion/publication labels follow the status tuple. Numeric side aliases are
+added only when the chosen score tuple actually contains the numeric score pair.
+Sparse-retained regressions exercise both persistent writers and unchanged reruns.

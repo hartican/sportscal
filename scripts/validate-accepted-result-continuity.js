@@ -4,6 +4,7 @@
 // Constructed contracts, not a current-data audit. Both actual CLI entrypoints
 // run against disposable roots, frozen helper bytes and denied network access.
 // Optional: --report=/private/report.json --label=baseline-or-fixed-snapshot
+// --helper-reference=/isolated/scripts/lib/accepted-result-projection.js
 const assert = require('node:assert/strict');
 const crypto = require('node:crypto');
 const fs = require('node:fs');
@@ -423,6 +424,118 @@ for (const name of operations) {
       assert.equal(actual.firstConfirmedCompleteAt, ca.firstConfirmedCompleteAt);
       helper.validateAcceptedProjection(actual, row);
     });
+
+  // A retained tuple is authoritative as a whole, including missing keys.
+  // Start from independent retained fixtures, never from a merge under test.
+  // The strict old-capsule projection gate is not a writer acceptance oracle
+  // for a different newer final: it must still reject that score mismatch.
+  function sparseRetainedCase(label, row, retained, missing, firstComplete, rejectProjection = false,
+    expected = retained) {
+    const inspect = (actual, before, incoming) => {
+      const keys = [...new Set([...PROTECTED, ...STATUS_TUPLE, ...SCORE_TUPLE,
+        ...SOURCE_TUPLE, 'homeParticipantId', 'awayParticipantId'])];
+      tuple(actual, expected, keys, 'Exact sparse chosen tuple');
+      for (const key of keys) assert.equal(Object.hasOwn(actual, key), Object.hasOwn(expected, key),
+        `Retained tuple own-property presence: ${key}`);
+      for (const key of missing) {
+        assert(!Object.hasOwn(before, key), `Sparse fixture must omit ${key}`);
+        assert(!Object.hasOwn(actual, key), `Stale incoming must not fill retained ${key}`);
+      }
+      tuple(actual, expected, SOURCE_CLOCKS.filter(key => key !== 'firstConfirmedCompleteAt'),
+        'Literal sparse tuple clocks');
+      assert.equal(actual.firstConfirmedCompleteAt, firstComplete, 'Only compatible earlier completion can contribute');
+      assert.equal(Object.hasOwn(actual, 'firstConfirmedCompleteAt'), firstComplete !== undefined,
+        'Do not fabricate a completion receipt property');
+      assert.equal(actual.status, 'completed');
+      assert.equal(actual.endTimeUtc, null, 'Sparse retained result has no guessed finish');
+      for (const key of ['actualEndTimeUtc', 'completedAt', 'acceptedResultProjection']) {
+        assert(!Object.hasOwn(actual, key), `No invented or leaked ${key}`);
+      }
+      if (rejectProjection) assert.throws(() => helper.validateAcceptedProjection(actual, incoming),
+        /Accepted result score drifted/, 'Strict projection must still reject the obsolete accepted score');
+    };
+    check(`helper: ${label}`, () => {
+      helper.validateAcceptedResult(row);
+      const before = clone(retained), incoming = clone(row);
+      inspect(helper.mergeAcceptedResult(retained, row), before, incoming);
+      assert.deepEqual(retained, before, 'Sparse merge must not mutate retained input');
+      assert.deepEqual(row, incoming, 'Sparse merge must not mutate incoming proof');
+    });
+    successCase(label, [row], [retained], inspect);
+  }
+
+  const sparseScoreMissing = ['scoreDisplay', 'sets', 'resultLabels', 'outcomeText', 'recapText', 'resultStatus'];
+  const sparseCompatible = completed(retirement);
+  for (const key of sparseScoreMissing) delete sparseCompatible[key];
+  Object.assign(sparseCompatible, {
+    scoreFactObservedAt: '2026-10-14T08:00:00.123456+00:00',
+    statusFactObservedAt: '2026-10-14T08:01:00.123456+00:00',
+    scoreCheckedAt: '2026-10-15T23:50:00.123456+00:00',
+    statusCheckedAt: '2026-10-15T23:51:00.123456+00:00',
+    sourceCheckedAt: '2026-10-15T23:50:01.123456+00:00',
+    resultSourceCheckedAt: '2026-10-15T23:50:02.123456+00:00',
+    firstConfirmedCompleteAt: '2026-10-14T07:42:05.123456+00:00',
+  });
+  sparseRetainedCase('sparse compatible ATP 5-2 keeps missing score fields and genuine earlier completion',
+    retirement, sparseCompatible, sparseScoreMissing, retirement.firstConfirmedCompleteAt);
+
+  const sparseChanged = {...clone(sparseCompatible), score: '6\u20132', result: '6\u20132'};
+  sparseRetainedCase('sparse newer ATP 6-2 never inherits stale 5-2 display, sets or retirement copy',
+    retirement, sparseChanged, sparseScoreMissing, sparseChanged.firstConfirmedCompleteAt, true);
+
+  const sparseStatusMissing = ['statusSourceUrl', 'statusSourceName', 'statusSourceType',
+    'resultLabels', 'resultStatus'];
+  const sparseStatus = completed(retirement);
+  for (const key of sparseStatusMissing) delete sparseStatus[key];
+  Object.assign(sparseStatus, {
+    statusFactObservedAt: '2026-10-14T08:01:00.123456+00:00',
+    statusCheckedAt: '2026-10-15T23:51:00.123456+00:00',
+  });
+  const freshScore = retag(retirement, row => {
+    row.scoreFactObservedAt = '2026-10-14T08:30:00.123456+00:00';
+    row.scoreCheckedAt = '2026-10-15T23:52:00.123456+00:00';
+    row.sourceCheckedAt = '2026-10-15T23:52:01.123456+00:00';
+    row.resultSourceCheckedAt = '2026-10-15T23:52:02.123456+00:00';
+  });
+  const expectedStatusOnly = clone(sparseStatus);
+  for (const key of [...SCORE_TUPLE, ...SOURCE_TUPLE]) {
+    if (Object.hasOwn(freshScore, key) && !['resultSourceName', 'resultSourceType'].includes(key)) {
+      expectedStatusOnly[key] = clone(freshScore[key]);
+    }
+  }
+  sparseRetainedCase('sparse newer status keeps absent attribution/classification while fresh score advances',
+    freshScore, sparseStatus, sparseStatusMissing, retirement.firstConfirmedCompleteAt, false, expectedStatusOnly);
+
+  const scoreOnlyMissing = ['scoreDisplay', 'sets', 'outcomeText', 'recapText'];
+  const sparseScoreOnly = {...clone(sparseCompatible), resultStatus: 'published', resultLabels: ['Retirement'],
+    statusFactObservedAt: retirement.statusFactObservedAt, statusCheckedAt: retirement.statusCheckedAt};
+  const freshStatus = retag(retirement, row => {
+    row.statusFactObservedAt = '2026-10-14T08:30:00.123456+00:00';
+    row.statusCheckedAt = '2026-10-15T23:52:00.123456+00:00';
+    row.resultStatus = 'official';
+    row.resultLabels = ['Completed'];
+  });
+  const expectedScoreOnly = clone(sparseScoreOnly);
+  for (const key of STATUS_TUPLE) expectedScoreOnly[key] = clone(freshStatus[key]);
+  sparseRetainedCase('sparse newer score preserves absence without discarding fresh incoming status classification',
+    freshStatus, sparseScoreOnly, scoreOnlyMissing, retirement.firstConfirmedCompleteAt, false, expectedScoreOnly);
+
+  const sparseNBLMissing = ['scoreDisplay', 'homeScore', 'awayScore', 'homeParticipantId',
+    'awayParticipantId', 'resultLabels', 'resultStatus', 'outcomeText', 'recapText'];
+  const sparseNBL = completed(nbl);
+  for (const key of sparseNBLMissing) delete sparseNBL[key];
+  Object.assign(sparseNBL, {
+    score: '99-98', result: '99-98', winnerParticipantId: nbl.participantIds[0],
+    loserParticipantId: nbl.participantIds[1],
+    scoreFactObservedAt: '2026-10-15T23:40:00.123456+00:00',
+    statusFactObservedAt: '2026-10-15T23:41:00.123456+00:00',
+    scoreCheckedAt: '2026-10-15T23:50:00.123456+00:00',
+    statusCheckedAt: '2026-10-15T23:51:00.123456+00:00',
+    sourceCheckedAt: '2026-10-15T23:50:01.123456+00:00',
+    resultSourceCheckedAt: '2026-10-15T23:50:02.123456+00:00',
+  });
+  sparseRetainedCase('sparse newer NBL 99-98 home winner never gains stale 101-102 numeric sides or labels',
+    nbl, sparseNBL, sparseNBLMissing, undefined, true);
 
   const calendarBase = tag({...nbl, date: '2024-02-28',
     sourceCheckedAt: '2026-10-15T23:31:08.522Z', resultSourceCheckedAt: '2026-10-15T23:31:08.522Z',

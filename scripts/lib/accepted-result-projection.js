@@ -20,7 +20,7 @@ const hash = value => createHash("sha256").update(JSON.stringify(value)).digest(
 const payload = row => Object.fromEntries(fields.filter(key => Object.hasOwn(row,key)).map(key => [key,row[key]]));
 const isAcceptedResult = row => !!row?.acceptedResultProjection;
 const aliases = row => [...new Set([row?.id,row?.eventId,row?.canonicalId,row?.canonicalEventId,...(row?.sourceEventIds || [])].filter(Boolean))];
-const statusFields = new Set(['status','statusSourceUrl','statusSourceName','statusSourceType','statusCheckedAt','statusFactObservedAt']);
+const statusFields = new Set(['status','resultStatus','resultLabels','statusSourceUrl','statusSourceName','statusSourceType','statusCheckedAt','statusFactObservedAt']);
 const scoreFields = fields.filter(key=>!statusFields.has(key)&&key!=='firstConfirmedCompleteAt');
 const resultFactFields = ['score','scoreDisplay','result','resultStatus','outcomeText','recapText','sets','resultLabels','homeScore','awayScore','winnerParticipantId','loserParticipantId','eliminatedParticipantIds'];
 const clock = row => Date.parse(row.statusFactObservedAt || row.scoreFactObservedAt || row.statusCheckedAt || row.scoreCheckedAt || row.resultSourceCheckedAt || row.sourceCheckedAt);
@@ -128,10 +128,10 @@ function mergeAcceptedResult(record,row){
     for(const key of keys)if(Object.hasOwn(record,key)){
       if(clocks.includes(key))validateClock(record[key],key);
       next[key]=clone(record[key]);
-    }
+    }else delete next[key];
   }
   validateIdentities(next,proof);
-  if(Object.hasOwn(row,'homeScore') || Object.hasOwn(row,'awayScore')){
+  if(Object.hasOwn(next,'homeScore') || Object.hasOwn(next,'awayScore')){
     for(const [key,index] of [['homeParticipantId',0],['awayParticipantId',1]]){
       if(record[key])assert.equal(record[key],proof.participantIds[index],'Numeric result side conflicts with retained identity');
       next[key]=proof.participantIds[index];
