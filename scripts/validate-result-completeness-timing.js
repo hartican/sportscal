@@ -65,8 +65,13 @@ try {
 
   const actualTest=require('../data/events.json').events.find(e=>e.id==='fixture:cricket:espn:1525659');
   assert(actualTest&&actualTest.format==='Test'&&actualTest.endDate==='2026-10-13','Use the actual Australia-South Africa five-day schedule');
-  assert.equal(runCheck(actualTest,'2026-10-10T12:00:00Z').status,0,'Its generic narrative type cannot shorten a sourced Test to one day');
-  assert.equal(runCheck(actualTest,'2026-10-15T12:00:00Z').status,1,'The format exception cannot hide an overdue Test forever');
+  // Keep the actual sourced schedule, not its subsequently published result.
+  // This tests the resultless boundary even after the real card is repaired.
+  const resultlessActualTest=Object.fromEntries(['id','key','date','time','startTimeUtc','endDate','format','narrativeType','liveWindow'].map(key=>[key,actualTest[key]]));
+  resultlessActualTest.status='upcoming';
+  assert.equal(runCheck(resultlessActualTest,'2026-10-10T12:00:00Z').status,0,'Its generic narrative type cannot shorten a sourced Test to one day');
+  assert.equal(runCheck(resultlessActualTest,'2026-10-15T12:00:00Z').status,1,'The format exception cannot hide an overdue Test forever');
+  assert.equal(runCheck(actualTest,'2026-10-15T12:00:00Z').status,0,'A subsequently published result satisfies the same overdue deadline');
   const oneDayEvent = { ...testMatch, id: "timing-one-day", narrativeType: "t20" };
   const afterEightHours = runCheck(oneDayEvent, "2026-08-13T09:00:00.000Z");
   assert.equal(afterEightHours.status, 1, "ordinary liveWindow timing must remain unchanged");

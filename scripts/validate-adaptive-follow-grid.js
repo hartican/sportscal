@@ -54,14 +54,16 @@ assert.deepEqual(affinity.map(item=>[item.sportId,item.count]),[["sport:motorspo
 
 const html = require("./app-shell-test-utils").readFollowApplicationSource();
 assert(html.includes("rankedFollowGridSports")&&html.includes(".slice(0,7)"),"Follow must rank no more than seven followed sports");
-// The 3 October decision supersedes the old NBL Teams-first default.
+// The 12 October recognised-teams decision supersedes individuals-first defaults.
 // Exercise the actual application filter rather than a removed literal.
 const vm=require("node:vm");
 const filterSource=html.slice(html.indexOf("function directoryFilters("),html.indexOf("function updateDirectoryFilters("));
 const directoryState={filtersBySport:{}};
 const directoryContext={readStandingsDirectorySession:()=>directoryState,normalizeExpandedTeamIds:()=>[],NOTHINGSPORTS_SURFACE_CATEGORY:{genderMatches:()=>false}};
 vm.createContext(directoryContext);vm.runInContext(filterSource,directoryContext);
-assert.equal(directoryContext.directoryFilters("nbl").entityType,"athlete","NBL opens Players under the approved individuals-first rule");
+assert.equal(directoryContext.directoryFilters("nbl").entityType,"team","NBL opens Teams under the approved recognised-teams rule");
+directoryState.filtersBySport.nbl={entityType:"athlete"};
+assert.equal(directoryContext.directoryFilters("nbl").entityType,"athlete","a saved explicit Players tab must remain authoritative during redraw");
 directoryState.filtersBySport.nbl={entityType:"team"};
 assert.equal(directoryContext.directoryFilters("nbl").entityType,"team","a saved explicit Teams tab must remain authoritative");
 const ui=fs.readFileSync("assets/js/nsc-rankings-ui.js","utf8");

@@ -4199,7 +4199,7 @@
       "sourceName": "Cricket Australia",
       "sourceType": "trusted-reporting",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
-      "sourceCheckedAt": "2026-10-13T19:54:00.996Z",
+      "sourceCheckedAt": "2026-10-15T16:28:01.041Z",
       "timingProvenance": {
         "kind": "published-schedule",
         "checkedAt": "2026-10-13T19:54:00.996Z",
@@ -4223,14 +4223,20 @@
         "evt_87"
       ],
       "matchFormat": "Test",
-      "statusCheckedAt": "2026-10-13T20:56:00.771+00:00",
-      "scoreCheckedAt": "2026-10-13T20:56:00.771+00:00",
-      "scoreFactObservedAt": "2026-10-13T11:28:07.158+00:00",
-      "statusFactObservedAt": "2026-10-13T11:28:07.158+00:00",
+      "statusCheckedAt": "2026-10-15T22:30:00.464+00:00",
+      "scoreCheckedAt": "2026-10-15T22:30:00.464+00:00",
+      "scoreFactObservedAt": "2026-10-13T22:02:01.52+00:00",
+      "statusFactObservedAt": "2026-10-13T22:02:01.52+00:00",
       "fixtureObservationSchema": "fixture-observations.v1",
       "firstConfirmedCompleteAt": "2026-10-13T11:28:12.334719+00:00",
-      "endTimeUtc": "2026-10-09T10:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window"
+      "endTimeUtc": null,
+      "score": "Australia won by 214 runs",
+      "outcomeText": "Australia won by 214 runs",
+      "recapText": "Australia won by 214 runs",
+      "sourceTrust": "unverified",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/series/CA%3A4568/"
+      ]
     },
     {
       "id": "fixture:cricket:espn:1529231",

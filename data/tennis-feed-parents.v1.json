@@ -16561,15 +16561,12 @@
       "excludedParticipantIds": [],
       "participantIds": [
         "competitor:tennis:atp:arthur-gea",
-        "competitor:tennis:atp:stefanos-tsitsipas",
-        "competitor:tennis:atp:botic-van-de-zandschulp",
         "competitor:tennis:atp:zizou-bergs",
         "athlete:tennis:alex-de-minaur",
         "competitor:tennis:atp:alejandro-davidovich-fokina",
         "competitor:tennis:atp:alexander-zverev",
         "competitor:tennis:atp:tommy-paul",
         "competitor:tennis:atp:carlos-alcaraz",
-        "competitor:tennis:atp:felix-auger-aliassime",
         "competitor:tennis:atp:daniil-medvedev",
         "competitor:tennis:atp:rafael-jodar",
         "competitor:tennis:atp:casper-ruud",
@@ -16790,7 +16787,7 @@
         {
           "participantId": "competitor:tennis:atp:stefanos-tsitsipas",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -16892,7 +16889,7 @@
         {
           "participantId": "competitor:tennis:atp:botic-van-de-zandschulp",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -17120,7 +17117,7 @@
         {
           "participantId": "competitor:tennis:atp:felix-auger-aliassime",
           "draw": "mens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -17163,15 +17160,12 @@
       "participantsConfirmed": true,
       "sourceParticipantIds": [
         "competitor:tennis:atp:arthur-gea",
-        "competitor:tennis:atp:stefanos-tsitsipas",
-        "competitor:tennis:atp:botic-van-de-zandschulp",
         "competitor:tennis:atp:zizou-bergs",
         "athlete:tennis:alex-de-minaur",
         "competitor:tennis:atp:alejandro-davidovich-fokina",
         "competitor:tennis:atp:alexander-zverev",
         "competitor:tennis:atp:tommy-paul",
         "competitor:tennis:atp:carlos-alcaraz",
-        "competitor:tennis:atp:felix-auger-aliassime",
         "competitor:tennis:atp:daniil-medvedev",
         "competitor:tennis:atp:rafael-jodar",
         "competitor:tennis:atp:casper-ruud",
@@ -18944,19 +18938,14 @@
         "competitor:tennis:wta:catherine-mcnally",
         "competitor:tennis:wta:jasmine-paolini",
         "competitor:tennis:wta:maria-sakkari",
-        "competitor:tennis:wta:marie-bouzkova",
         "competitor:tennis:wta:mia-pohankova",
         "competitor:tennis:wta:leylah-fernandez",
-        "competitor:tennis:wta:lanlana-tararudee",
-        "competitor:tennis:wta:magdalena-frech",
         "competitor:tennis:wta:janice-tjen",
         "competitor:tennis:wta:guo-hanyu",
         "competitor:tennis:wta:nikola-bartunkova",
         "competitor:tennis:wta:yulia-putintseva",
         "competitor:tennis:wta:diana-shnaider",
-        "competitor:tennis:wta:shi-han",
         "competitor:tennis:wta:dayana-yastremska",
-        "competitor:tennis:wta:liudmila-samsonova",
         "competitor:tennis:wta:maja-chwalinska",
         "competitor:tennis:wta:katie-volynets",
         "competitor:tennis:wta:jelena-ostapenko",
@@ -18964,9 +18953,7 @@
         "competitor:tennis:wta:ashlyn-krueger",
         "competitor:tennis:wta:ann-li",
         "competitor:tennis:wta:elina-svitolina",
-        "competitor:tennis:wta:belinda-bencic",
         "competitor:tennis:wta:iga-swiatek",
-        "competitor:tennis:wta:aryna-sabalenka",
         "competitor:tennis:wta:karolina-muchova",
         "competitor:tennis:wta:jessica-pegula",
         "competitor:tennis:wta:iva-jovic"
@@ -19030,7 +19017,7 @@
         {
           "participantId": "competitor:tennis:wta:marie-bouzkova",
           "draw": "womens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -19078,7 +19065,7 @@
         {
           "participantId": "competitor:tennis:wta:lanlana-tararudee",
           "draw": "womens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -19090,7 +19077,7 @@
         {
           "participantId": "competitor:tennis:wta:magdalena-frech",
           "draw": "womens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -19162,7 +19149,7 @@
         {
           "participantId": "competitor:tennis:wta:shi-han",
           "draw": "womens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -19186,7 +19173,7 @@
         {
           "participantId": "competitor:tennis:wta:liudmila-samsonova",
           "draw": "womens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -19276,7 +19263,7 @@
         {
           "participantId": "competitor:tennis:wta:belinda-bencic",
           "draw": "womens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -19288,7 +19275,7 @@
         {
           "participantId": "competitor:tennis:wta:aryna-sabalenka",
           "draw": "womens-singles",
-          "active": true,
+          "active": false,
           "excluded": false
         },
         {
@@ -19316,19 +19303,14 @@
         "competitor:tennis:wta:catherine-mcnally",
         "competitor:tennis:wta:jasmine-paolini",
         "competitor:tennis:wta:maria-sakkari",
-        "competitor:tennis:wta:marie-bouzkova",
         "competitor:tennis:wta:mia-pohankova",
         "competitor:tennis:wta:leylah-fernandez",
-        "competitor:tennis:wta:lanlana-tararudee",
-        "competitor:tennis:wta:magdalena-frech",
         "competitor:tennis:wta:janice-tjen",
         "competitor:tennis:wta:guo-hanyu",
         "competitor:tennis:wta:nikola-bartunkova",
         "competitor:tennis:wta:yulia-putintseva",
         "competitor:tennis:wta:diana-shnaider",
-        "competitor:tennis:wta:shi-han",
         "competitor:tennis:wta:dayana-yastremska",
-        "competitor:tennis:wta:liudmila-samsonova",
         "competitor:tennis:wta:maja-chwalinska",
         "competitor:tennis:wta:katie-volynets",
         "competitor:tennis:wta:jelena-ostapenko",
@@ -19336,9 +19318,7 @@
         "competitor:tennis:wta:ashlyn-krueger",
         "competitor:tennis:wta:ann-li",
         "competitor:tennis:wta:elina-svitolina",
-        "competitor:tennis:wta:belinda-bencic",
         "competitor:tennis:wta:iga-swiatek",
-        "competitor:tennis:wta:aryna-sabalenka",
         "competitor:tennis:wta:karolina-muchova",
         "competitor:tennis:wta:jessica-pegula",
         "competitor:tennis:wta:iva-jovic"

@@ -55,7 +55,7 @@ mergeCanonicalSportKeys();
 const SPORT_KEY_PATTERN = /^[a-z0-9][a-z0-9._-]*$/;
 
 const ROUNDS = new Set(["all", "early", "knockout", "quarterfinal", "semifinal", "final"]);
-const SOURCE_TYPES = new Set(["official", "broadcaster", "explicitly-permitted", "reputable", "scraped", "community", "personal-calendar"]);
+const SOURCE_TYPES = new Set(["official", "broadcaster", "explicitly-permitted", "reputable", "trusted-reporting", "scraped", "community", "personal-calendar"]);
 const STANDARD_PRELOAD_DAYS = 92;
 const MARQUEE_ANNUAL_MONTHS = 12;
 

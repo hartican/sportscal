@@ -19,6 +19,7 @@ const matches = (record, expected) => [record?.id, record?.eventId, record?.cano
 // Reapplying reviewed pre-race copy must not leak its standings into completed
 // session defaults or erase valid participant identities supplied later.
 const {mergeRecord,normalizeCompletedTiming,hasCompletionBoundary}=require('./apply-current-card-evidence');
+const acceptedResults=require('./lib/accepted-result-projection');
 const {spoilerContractIssues}=require('./lib/storyline-card-rules');
 for(const override of evidence.fixtureOverrides.filter(row=>row.id?.startsWith('evt_f1_2026_bahrain_'))){
   const completed={...published.find(row=>row.id===override.id),status:'completed',score:'Verified classification',outcomeText:'Verified final classification',participantIds:['competitor:f1:retained-identity']};
@@ -48,7 +49,7 @@ for(const expected of evidence.resultOverrides){
     const scoreText=value=>record.key==='tennis'?String(value).replace(/,\s*(?=\d)/g,' '):value;
     assert.equal(scoreText(record.score), scoreText(expected.score), `${expected.id} result drifted`);
   }
-  if(record.startTimeUtc) assert(hasCompletionBoundary(record), `${expected.id} completion boundary is missing`);
+  if(record.startTimeUtc) assert(acceptedResults.isAcceptedResult(expected) ? acceptedResults.validateAcceptedProjection(record,expected) : hasCompletionBoundary(record), `${expected.id} completion boundary is missing`);
 }
 for(const group of evidence.broadcastOverrides){
   const seriesRecords = cricket.filter(item => group.ids.some(id => matches(item, { id, canonicalId:id })));

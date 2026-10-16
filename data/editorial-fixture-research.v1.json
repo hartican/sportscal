@@ -3512,107 +3512,6 @@
       ]
     },
     {
-      "id": "rugby-australia-new-zealand-2026-10-17",
-      "title": "Australia v New Zealand",
-      "hook": "Sydney's high-ball contest carries a selection dilemma: the Wallabies need Suaalii's aerial threat, but an injured midfield may need him too.",
-      "formCopy": "Ikitau and Petaia are ruled out, with Paisami suspended. Toole and Pritchard have joined the Wallabies squad, but call-ups are not an announced Sydney XV. Suaalii has been learning the wing role while covering centre when injuries intervene; his position for this Test remains unconfirmed. Australia are working on their response to New Zealand's pressure around the high ball. The All Blacks have also brought in injury cover, so neither side's final combination should be assumed.",
-      "closingCopy": "Suaalii describes playing for Australia as a childhood dream, but the privilege comes with unfamiliar work: learning a new position while being ready to move again. For supporters, versatility is reassuring only if it produces a settled connection with the players around him. Sydney gives the Wallabies a home crowd, not an answer to that problem. A clean catch, an organised chase and a centre pairing that understands each other are small acts through which belief becomes something more dependable.",
-      "synopsis": "The 17 October Test at Accor Stadium is Australia's last home appearance before the northern tour. The immediate contest is not just who kicks further: Australia's receivers must secure possession while New Zealand's chase pressures the catch and the next decision. Injuries make midfield communication another important test of preparation. Announced teams will resolve the positional options; squad additions are not promised debuts. Australian coverage is confirmed on Stan Sport.",
-      "sources": [
-        "https://www.rugby.com.au/news/we-know-wallabies-tweaking-game-plan-for-all-blacks-high-ball-battle-20261013",
-        "https://www.rugby.com.au/news/winging-it-suaalii-looks-for-stability-as-superstar-wallaby-reflects-on-position-switch-20261013",
-        "https://www.rugby.com.au/news/brumbies-duo-called-up-as-wallabies-confirm-ikitau-loss-for-second-bledisloe-cup-20261010",
-        "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125"
-      ],
-      "facts": [
-        {
-          "dimension": "matchup",
-          "statement": "The Wallabies are adjusting their response to New Zealand's pressure around the high ball.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Suaalii is learning wing while covering centre, and his Sydney position remains unannounced.",
-          "sourceIndexes": [
-            1
-          ]
-        },
-        {
-          "dimension": "consequence",
-          "statement": "Ikitau and Petaia are ruled out, Paisami is suspended, and Toole and Pritchard are squad additions rather than confirmed Sydney starters.",
-          "sourceIndexes": [
-            1,
-            2
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "The 17 October Accor Stadium Test is Australia's last home Test before the northern tour.",
-          "sourceIndexes": [
-            3
-          ]
-        }
-      ],
-      "researchedAt": "2026-10-13T23:57:53.941Z",
-      "researchDepth": 5
-    },
-    {
-      "id": "fixture:cricket:espn:1525660",
-      "title": "South Africa v Australia - Second Test",
-      "hook": "Renshaw's place is more than a vacancy to fill: Australia's returning batters make Gqeberha a test of selection trust as well as balance.",
-      "formCopy": "Inglis is back with the squad and has trained, but that is not confirmation of fitness or selection. Green may return as a batter only rather than a bowling option. Cummins favours retaining Renshaw at No.5 unless conditions make a compelling case for a move. Smith's further concussion assessment was pending in the 12 October report; no later clearance is asserted here. Kuhnemann remains a possible second spinner alongside Lyon, not an announced selection. Neither second-Test XI is confirmed.",
-      "closingCopy": "For Australian supporters, a returning name and a player making a role his own create different kinds of hope. Cummins' preference for Renshaw at No.5 gives that debate a captain's backing, without making the team sheet unconditional. Inglis and Green cannot be promised places before their availability is resolved. South Africa must weigh familiarity against the combination this ground demands. The emotional pull of loyalty matters, but five days ask whether the chosen eleven can turn that trust into sustained pressure.",
-      "synopsis": "The middle Test at St George's Park leaves one match still to come at Newlands. Gqeberha's recent spin history makes patience against slow bowling and the allocation of batting depth central questions, not a prediction of this pitch. A batter-only return for Green would not supply Australia with another seam-bowling option; a second specialist spinner would change the balance again. Fitness updates and announced teams must settle those choices. No earlier match outcome or series position is disclosed.",
-      "sources": [
-        "https://www.cricket.com.au/news/4591880/matthew-renshaw-first-test-south-africa-190-82-australia-kingsmead-positional-switch-number-five-opener-maddinson-cummins-green-cricketplus",
-        "https://www.cricket.com.au/news/4591082/steve-smith-anrich-nortje-head-concussion-check-protocol-south-africa-australia-first-test-kingsmead-durban-match-report-day-four-news-scores-video-highlights-toss",
-        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
-        "https://www.cricket.com.au/matches/series/CA%3A4568/south-africa-v-australia-tests-2026-men"
-      ],
-      "facts": [
-        {
-          "dimension": "form",
-          "statement": "Inglis has returned and trained; Green may return as a batter only, with fitness and selection not confirmed.",
-          "sourceIndexes": [
-            0,
-            1
-          ]
-        },
-        {
-          "dimension": "consequence",
-          "statement": "Cummins favours Renshaw at No.5 unless conditions give a compelling reason to move him.",
-          "sourceIndexes": [
-            0
-          ]
-        },
-        {
-          "dimension": "matchup",
-          "statement": "Kuhnemann is a second-spin option and Gqeberha's recent spin record informs the selection balance rather than predicting the pitch.",
-          "sourceIndexes": [
-            2
-          ]
-        },
-        {
-          "dimension": "path",
-          "statement": "The second Test is at St George's Park on 18-22 October, followed by the third Test at Newlands.",
-          "sourceIndexes": [
-            3
-          ]
-        },
-        {
-          "dimension": "form",
-          "statement": "Smith's further concussion assessment was pending in the 12 October report, without a later clearance established in this research.",
-          "sourceIndexes": [
-            1
-          ]
-        }
-      ],
-      "researchedAt": "2026-10-13T23:57:53.941Z",
-      "researchDepth": 5
-    },
-    {
       "id": "rlwc-australia-new-zealand-2026",
       "title": "Australia v New Zealand",
       "hook": "Storm partners become international rivals: Munster and Hughes bring shared habits to a World Cup opener that asks them to outthink each other.",
@@ -3809,6 +3708,566 @@
           "url": "https://www.atptour.com/en/tournaments/shanghai/5014/overview",
           "name": "Alexander Zverev v Alex de Minaur research source 4",
           "checkedAt": "2026-10-14T00:01:15.885Z"
+        }
+      ]
+    },
+    {
+      "id": "evt_wsl_2026_portugal",
+      "title": "MEO Rip Curl Pro Portugal — Men",
+      "hook": "Home wildcards meet a smaller knockout field and shifting sandbanks at Supertubos.",
+      "formCopy": "WSL's 15 October preview names Frederico Morais and Guilherme Ribeiro as the men's wildcards, with Ribeiro receiving his first CT wildcard. They join 22 postseason qualifiers. The published format gives the top eight seeds entry in Round 2; the opening round is head-to-head, not an old non-elimination warm-up. These confirmations do not establish the entire heat draw.",
+      "closingCopy": "A home wildcard is an invitation to compete, not a promised breakthrough. Ribeiro's first chance and Morais' presence give the Portuguese crowd identifiable people to follow within the larger title contest. At a shifting beachbreak, local familiarity still has to become the right wave choice at the right moment. That is the opportunity, not an assumed advantage or an invented expectation.",
+      "synopsis": "The official window is 16-25 October at Supertubos, Peniche. Atlantic swell, moving sandbanks and strong tides make adaptation part of the contest, while the reduced knockout format gives an early heat an immediate consequence. The window does not guarantee surfing on each day. No opening heat time, live state, withdrawal or current result is inferred from a scheduled first call.",
+      "sources": [
+        "https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main",
+        "https://www.worldsurfleague.com/posts/561899/pressure-meets-portugal-at-the-meo-rip-curl-pro-portugal-presented-by-corona-cero",
+        "https://www.worldsurfleague.com/posts/546281/2026-championship-tour-schedule-and-formats",
+        "https://www.worldsurfleague.com/posts/557079/world-surf-league-announces-cloud-9-philippines-as-new-stop-on-2026-championship-tour-schedule"
+      ],
+      "facts": [
+        {
+          "dimension": "path",
+          "statement": "WSL confirmsPortugal16-25October2026atSupertubos,Peniche,CTStop10.",
+          "sourceIndexes": [
+            0,
+            3
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "WSLdescribesshifting sandbanks, strong tides and Atlantic swells.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "MoraisandRibeiroaremen'swildcards; this is Ribeiro'sfirstCTwildcard.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "22qualifiers plus2wildcards formthe24-surfer postseasonfield,withthetop8seedsenteringRound2.",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Postseasonformat removesnoneliminationrounds and usesheadtoheadheats.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main",
+          "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.worldsurfleague.com/posts/561899/pressure-meets-portugal-at-the-meo-rip-curl-pro-portugal-presented-by-corona-cero",
+          "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.worldsurfleague.com/posts/546281/2026-championship-tour-schedule-and-formats",
+          "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.worldsurfleague.com/posts/557079/world-surf-league-announces-cloud-9-philippines-as-new-stop-on-2026-championship-tour-schedule",
+          "name": "MEO Rip Curl Pro Portugal — Men — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture-mlb-849817",
+      "title": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4",
+      "hook": "Caminero faces the club that traded him: this matchup puts two development stories on the same October stage.",
+      "formCopy": "Tampa Bay's Junior Caminero has a direct connection with Cleveland, the organisation that traded him in 2021. Across the diamond is Jose Ramirez, a friend and player he admires. Cleveland's own story includes first-round selections Gavin Williams, Chase DeLauter and Travis Bazzana. Those histories establish the people involved, not a confirmed Game 4 lineup or pitching assignment.",
+      "closingCopy": "A trade is usually judged in hindsight. Here it becomes something supporters can see in real time: a player Cleveland once held facing the club that helped introduce him to professional baseball. Friendship with Ramirez adds familiarity without making the contest less exacting. Neither connection needs an invented revenge motive to make a plate appearance worth watching.",
+      "synopsis": "Game 4 belongs to an American League Championship Series shaped by connected organisations and contrasting routes into the majors. Watch how each club creates opportunities rather than assuming the same players will decide every game. The official schedule retains a timing contingency tied to the National League series; no definitive revised clock or game-specific starter is asserted in this preview.",
+      "sources": [
+        "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+        "https://www.mlb.com/rays/news/junior-caminero-jose-ramirez-friendship-alcs-2026",
+        "https://www.mlb.com/news/gavin-williams-chase-delauter-travis-bazzana-guardians-2026-success"
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "Caminero was traded by Cleveland to Tampa Bay in November 2021.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Caminero and Ramirez are friends; the Tampa Bay third baseman admires Cleveland's veteran.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "MLB's current-season development feature traces Cleveland's 2026 success through first-round selections Gavin Williams, Chase DeLauter and Travis Bazzana.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The ALCS places two organisations with connected player-development stories on the route to the World Series.",
+          "sourceIndexes": [
+            0,
+            2
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/rays/news/junior-caminero-jose-ramirez-friendship-alcs-2026",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/news/gavin-williams-chase-delauter-travis-bazzana-guardians-2026-success",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 4 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture-mlb-849808",
+      "title": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5",
+      "hook": "If Game 5 is needed, a familiar October pairing asks a fresh question of Milwaukee's hitters and the champion Dodgers.",
+      "formCopy": "Los Angeles and Milwaukee met in the previous year's NLCS. The Dodgers entered 2026 as consecutive World Series champions; Milwaukee's current postseason reporting features Jake Bauers' patient approach and Jackson Chourio's place in the club's October history. These are participant references, not a confirmed Game 5 lineup, pitching assignment or series position.",
+      "closingCopy": "Repeating an opponent does not repeat a game. For supporters, the useful comparison is in the decisions: whether hitters stay disciplined, whether managers find the matchup they want and whether players can create a different contest from familiar names. That is enough narrative without turning last year's meeting into a prediction or assigning feelings to the players.",
+      "synopsis": "This fixture remains conditional. If the series reaches Game 5, its actual stakes, starters and availability must come from the next official announcements rather than being reverse-engineered from the game number. This preview offers result-neutral rematch context only; it does not imply Game 4 has finished or that either club needs one particular result.",
+      "sources": [
+        "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+        "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team"
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "Los Angeles entered this postseason as two-time defending champions.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Los Angeles and Milwaukee also met in the 2025 NLCS.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "MLB's reporting identifies Jake Bauers' patient plate appearances as part of Milwaukee's offensive approach.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The official schedule lists these clubs in the 2026 NLCS; later games remain conditional.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+          "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+          "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team",
+          "name": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture-mlb-849816",
+      "title": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5",
+      "hook": "Ramirez and Caminero turn a friendship across the diamond into a test of attention, not a manufactured grudge.",
+      "formCopy": "MLB's account of Jose Ramirez and Junior Caminero describes friendship and admiration between opposing third basemen. Cleveland also brings a development story involving Williams, DeLauter and Bazzana; Tampa Bay's Caminero once belonged to Cleveland's system. None of that confirms the Game 5 starters, lineup or either club's position when this game arrives.",
+      "closingCopy": "An October opponent does not have to be a stranger. The interest here is the contrast between a respected veteran and a younger player who looks up to him, now wearing different uniforms. Supporters can appreciate that shared history without pretending friendship predicts a pitch, a swing or a moment of restraint. Familiarity makes the people clearer; the contest still has to be played.",
+      "synopsis": "This preview keeps Game 5 separate from the events that precede it. No clinching scenario, bullpen rest advantage or current series tally is assumed. The sporting question is how Cleveland and Tampa Bay turn their developing talent into precise decisions under postseason pressure. Any later stakes or starting-pitcher announcement requires its own confirmed evidence.",
+      "sources": [
+        "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+        "https://www.mlb.com/rays/news/junior-caminero-jose-ramirez-friendship-alcs-2026",
+        "https://www.mlb.com/news/gavin-williams-chase-delauter-travis-bazzana-guardians-2026-success"
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "Caminero was traded by Cleveland to Tampa Bay in November 2021.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Caminero and Ramirez are friends; the Tampa Bay third baseman admires Cleveland's veteran.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "MLB's current-season development feature traces Cleveland's 2026 success through first-round selections Gavin Williams, Chase DeLauter and Travis Bazzana.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "The ALCS places two organisations with connected player-development stories on the route to the World Series.",
+          "sourceIndexes": [
+            0,
+            2
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.mlb.com/rays/news/junior-caminero-facing-team-that-traded-him-to-rays-in-2026-alcs",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/rays/news/junior-caminero-jose-ramirez-friendship-alcs-2026",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/news/gavin-williams-chase-delauter-travis-bazzana-guardians-2026-success",
+          "name": "Cleveland Guardians v Tampa Bay Rays — ALCS Game 5 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "fixture-mlb-849806",
+      "title": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6",
+      "hook": "A possible return to Milwaukee would put home support around a contest between patient at-bats and championship experience.",
+      "formCopy": "MLB's postseason reporting identifies Jake Bauers' patient plate appearances and Jackson Chourio's place in Milwaukee's club history. The Dodgers arrive in this postseason as the two-time defending champions. Neither that experience nor the clubs' 2025 NLCS meeting establishes the lineup, starters or balance of this potential Game 6.",
+      "closingCopy": "A home crowd can give an occasion its sound, but it cannot manufacture the extra pitch a hitter leaves alone or the contact that follows. If this game takes place, those small decisions are a more useful viewing thread than a generic promise of October drama. Milwaukee's named hitters and Los Angeles' established championship core give the meeting recognisable characters.",
+      "synopsis": "Game 6 is listed only if required; a published date is not confirmation that the series will return to Milwaukee. No outcome from an earlier game, elimination scenario or rest advantage is supplied here. A later official continuation decision and game-specific team news must settle those details before the conditional fixture becomes a confirmed occasion.",
+      "sources": [
+        "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+        "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team"
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "Los Angeles entered this postseason as two-time defending champions.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Los Angeles and Milwaukee also met in the 2025 NLCS.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "MLB's reporting identifies Jake Bauers' patient plate appearances as part of Milwaukee's offensive approach.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The official schedule lists these clubs in the 2026 NLCS; later games remain conditional.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+          "name": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+          "name": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team",
+          "name": "Milwaukee Brewers v Los Angeles Dodgers — NLCS Game 6 — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "evt_horse_racing_the_everest_2026",
+      "title": "The Everest",
+      "hook": "Ka Ying Rising's title defence meets a first Everest for Freedman's Ninja: two very different milestones over the same sprint.",
+      "formCopy": "ATC's published runners include defending champion Ka Ying Rising, former winner Giga Kick and Ninja. The draw places them in barriers 11, 12 and 3 respectively, with Tempted in one. Racing NSW's 15 October report names Tommy Berry for Ninja and identifies this as trainer Michael Freedman's first Everest runner. Published entries remain subject to later withdrawals and rider changes.",
+      "closingCopy": "Freedman's account of teaching Ninja to settle provides a specific human thread beside the champion's attempted repeat. Getting a horse to use its speed rather than spend it too early is an act of preparation, not a slogan about courage. The tenth running brings established title history and a trainer's first participation into one field without making either a prediction.",
+      "synopsis": "Royal Randwick's 1,200-metre weight-for-age contest has twelve starting places. The published draw gives viewers a way to follow how the field organises, not a guarantee of who leads or where a rider must go. Watch the balance between settling and acceleration; no race map, track bias, betting assessment or eventual finishing order is assumed.",
+      "sources": [
+        "https://www.australianturfclub.com.au/tab-everest-how-it-works/",
+        "https://www.racingnsw.com.au/news/latest-racing-news/freedman-confident-ninjas-not-making-up-everest-numbers/",
+        "https://www.australianturfclub.com.au/10th-running-of-tab-everest-hits-a-new-peak-on-historic-day-for-sydney-racing/",
+        "https://www.racingnsw.com.au/wp-content/uploads/Everest-Conditions-2026.pdf"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "ATC publishes twelve runners including Ka Ying Rising, Giga Kick and Ninja, with barriers11,12and3; Tempted hasone.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "The 2026 edition is the tenth running and Ka Ying Rising is attempting consecutive victories.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Racing NSW's15October report identifies Tommy Berry as Ninja's rider and discusses Freedman's emphasis on settling.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Ninja is Michael Freedman's first Everest runner.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "format",
+          "statement": "The official conditions specify1200metres, weightforage, three-year-oldsandolder and maximum12starters.",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ],
+      "sourceObservations": [
+        {
+          "url": "https://www.australianturfclub.com.au/tab-everest-how-it-works/",
+          "name": "The Everest — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.racingnsw.com.au/news/latest-racing-news/freedman-confident-ninjas-not-making-up-everest-numbers/",
+          "name": "The Everest — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.australianturfclub.com.au/10th-running-of-tab-everest-hits-a-new-peak-on-historic-day-for-sydney-racing/",
+          "name": "The Everest — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        },
+        {
+          "url": "https://www.racingnsw.com.au/wp-content/uploads/Everest-Conditions-2026.pdf",
+          "name": "The Everest — primary research",
+          "checkedAt": "2026-10-15T22:13:16.591Z"
+        }
+      ],
+      "researchedAt": "2026-10-15T22:13:16.591Z",
+      "researchDepth": 5
+    },
+    {
+      "id": "rugby-australia-new-zealand-2026-10-17",
+      "title": "Australia v New Zealand — Sydney",
+      "hook": "Suaalii is back at centre and Meredith takes the reins: Sydney asks whether Australia's new connections can withstand New Zealand's pressure.",
+      "formCopy": "Australia have named Isaac Henry and Joseph-Aukuso Suaalii in midfield, with Declan Meredith partnering Ryan Lonergan in the halves. Ben Donaldson is unavailable through injury. Harry Potter starts on the left wing; Lukhan Salakaia-Loto reaches his 50th Test. New Zealand have named George Bower, Fabian Holland and Josh Moorby to start, with Damian McKenzie at flyhalf and Beauden Barrett at fullback. These are announced selections, not projected combinations.",
+      "closingCopy": "Meredith's familiar connection with Lonergan gives Australia's reshuffle one established reference point. Outside them, Henry and Suaalii must turn a changed midfield into a shared understanding under pressure. That is the substance behind a home crowd's hope: decisions made together, not an individual rescue act. Salakaia-Loto's milestone gives the occasion another personal thread, while the possibility of a McLaughlin-Phillips debut places a new beginning alongside that experience.",
+      "synopsis": "The aerial contest remains an important tactical question at Accor Stadium, but Suaalii's move inside changes where Australia deploy their threat. Potter, Jorgensen and Wright must connect the catch with the next phase while the midfield organises around them. New Zealand's McKenzie-Barrett combination offers decision-making across the backline. This is Australia's final home Test before the northern tour; announced substitutes include uncapped Harry McLaughlin-Phillips, whose appearance is not guaranteed. Stan Sport carries the match in Australia.",
+      "sources": [
+        "https://www.rugby.com.au/wallabies/news/wallabies-team-confirmed-to-play-new-zealand-in-sydney-20261015",
+        "https://www.allblacks.com/news/all-blacks/all-blacks-team-named-to-play-australia-in-second-bledisloe-cup-test",
+        "https://www.rugby.com.au/news/we-know-wallabies-tweaking-game-plan-for-all-blacks-high-ball-battle-20261013"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Australia named Henry at inside centre, Suaalii outside him and Meredith alongside Lonergan; Donaldson is unavailable with an upper-leg injury.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Salakaia-Loto is named to play his 50th Test; McLaughlin-Phillips is an uncapped replacement.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "New Zealand named Bower, Holland and Moorby to start, with McKenzie at ten and Beauden Barrett at fifteen.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "The Wallabies have been working on the high-ball contest and the connected decisions after reception.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Sydney is Australia's final home Test of 2026 before their November northern fixtures.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The quad-header including the Wallabies is available on Stan Sport in Australia.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-15T22:10:19.416Z",
+      "researchDepth": 5,
+      "sourceObservations": [
+        {
+          "url": "https://www.rugby.com.au/wallabies/news/wallabies-team-confirmed-to-play-new-zealand-in-sydney-20261015",
+          "name": "Rugby Australia team announcement",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        },
+        {
+          "url": "https://www.allblacks.com/news/all-blacks/all-blacks-team-named-to-play-australia-in-second-bledisloe-cup-test",
+          "name": "New Zealand Rugby team announcement",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        },
+        {
+          "url": "https://www.rugby.com.au/news/we-know-wallabies-tweaking-game-plan-for-all-blacks-high-ball-battle-20261013",
+          "name": "Rugby Australia / AAP tactical reporting",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1525660",
+      "title": "South Africa v Australia — Second Test",
+      "hook": "South Africa reset their batting and keeping roles; Australia's question is whether flexibility can coexist with trust in Renshaw's place.",
+      "formCopy": "South Africa have replaced Tristan Stubbs with Matthew Breetzke in their squad and assigned Ryan Rickelton the gloves. Kyle Verreynne remains as wicketkeeping cover; a squad announcement does not settle the entire XI or batting order. Australia coach Andrew McDonald says the surface will guide selection. In his 15 October update, Green had not resumed batting, while Inglis had completed net sessions in his recovery from a broken finger. Neither is a confirmed selection.",
+      "closingCopy": "Renshaw's place is the point at which two reasonable ideas collide. A team can reward a batter's comfort in a role, or keep moving its pieces to meet the next conditions. McDonald remains open-minded; Steve Waugh has publicly argued for continuity. That disagreement gives Australian supporters something more tangible than a selection slogan to watch. South Africa's altered roles put a similar question to their own dressing room: can a change of responsibilities create a more dependable batting unit?",
+      "synopsis": "St George's Park hosts the middle Test. Rickelton taking the gloves changes South Africa's workload, but his batting position is unannounced. Breetzke offers another batting option, not a guaranteed place. Australia must weigh the surface, availability and balance without assuming an unfit all-rounder's overs. Sustained partnerships and disciplined pressure will matter across five days. Earlier results remain protected; Australian viewing is on Kayo and Fox Cricket.",
+      "sources": [
+        "https://supersport.com/cricket/news/4dc5ed81-4b33-42b8-8b64-a67d8bcfe0cb/stubbs-out-breetzke-in-as-proteas-announce-squad-for-second-test",
+        "https://www.thestar.com.my/sport/cricket/2026/10/15/cricket-australia-open-minded-about-batting-order-green-still-to-prove-fitness-for-second-test-coach",
+        "https://www.cricket.com.au/news/4591880/matthew-renshaw-first-test-south-africa-190-82-australia-kingsmead-positional-switch-number-five-opener-maddinson-cummins-green-cricketplus",
+        "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "CSA's 15 October squad replaced Stubbs with Breetzke; Rickelton will keep wicket with Verreynne retained as cover.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "McDonald said on 15 October that Green had not resumed batting and Inglis had completed net sessions following his broken finger.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "McDonald said the opposition and surface inform Australia's open-minded approach to batting order.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Steve Waugh argued for Renshaw to remain at number five rather than returning to the top of the order.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Cummins expressed a preference for Renshaw at five subject to the demands of the conditions.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The second Test is at St George's Park between Durban and Newlands; the series is on Kayo and Fox Cricket in Australia.",
+          "sourceIndexes": [
+            3
+          ]
+        }
+      ],
+      "researchedAt": "2026-10-15T22:10:19.416Z",
+      "researchDepth": 5,
+      "sourceObservations": [
+        {
+          "url": "https://supersport.com/cricket/news/4dc5ed81-4b33-42b8-8b64-a67d8bcfe0cb/stubbs-out-breetzke-in-as-proteas-announce-squad-for-second-test",
+          "name": "Cricket South Africa announcement via SuperSport",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        },
+        {
+          "url": "https://www.thestar.com.my/sport/cricket/2026/10/15/cricket-australia-open-minded-about-batting-order-green-still-to-prove-fitness-for-second-test-coach",
+          "name": "Reuters coach reporting",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        },
+        {
+          "url": "https://www.cricket.com.au/news/4591880/matthew-renshaw-first-test-south-africa-190-82-australia-kingsmead-positional-switch-number-five-opener-maddinson-cummins-green-cricketplus",
+          "name": "Cricket Australia selection reporting",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
+        },
+        {
+          "url": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+          "name": "Cricket Australia tour schedule",
+          "checkedAt": "2026-10-15T22:10:19.416Z"
         }
       ]
     }

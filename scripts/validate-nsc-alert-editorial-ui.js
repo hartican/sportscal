@@ -11,6 +11,18 @@ const html = require("./app-shell-test-utils").readCardApplicationSource();
 const preferences = fs.readFileSync(path.join(ROOT, "config/follow-first.js"), "utf8");
 const enrichment = fs.readFileSync(path.join(ROOT, "config/enrichment-engine.js"), "utf8");
 const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
+let applicationFunctions;
+function applicationFunction(name){
+  if(!applicationFunctions){
+    applicationFunctions=new Map();
+    const sources=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match=>match[1]);
+    sources.push(require('./app-shell-test-utils').readCardApplicationSource({includeHtml:false}));
+    for(const source of sources)for(const node of require('acorn').parse(source,{ecmaVersion:'latest'}).body)if(node.type==='FunctionDeclaration'){
+      assert(!applicationFunctions.has(node.id.name),'application function owner must remain unique: '+node.id.name);applicationFunctions.set(node.id.name,source.slice(node.start,node.end));
+    }
+  }
+  assert(applicationFunctions.has(name),'missing actual application function: '+name);return applicationFunctions.get(name);
+}
 
 function section(source, start, end){
   const startIndex = source.indexOf(start);
@@ -32,10 +44,10 @@ function assertOrder(source, markers, message){
 
 // Standard cards submit a one-tap rating; all Events feed surfaces omit inputs.
 const cardSummary=["buildNothingscorePeerResults","buildInlineCrowdRating"].map(require("./app-shell-test-utils").readCardFunction).join("\n");
-for(const marker of ["buildInlineCrowdRating", "inlineRatingRequests.has(id)", "pointsAwarded", "paint(chosen)", "Ratings unavailable", "Be the first to rate"]){assert(cardSummary.includes(marker), marker);}
-for(const tip of ["Your stakes rating out of five", "fixtureStakesLabel(value)"]){assert(cardSummary.includes(tip),tip);}
-for(const label of ["Low stakes","Mid stakes","High stakes","Huge stakes","Epic stakes"]){assert(html.includes(label),label);}
-assert(!section(html,"function buildMajorEventCard", "function buildTicketSaleCard").includes("buildNothingscoreSummary"),"Events cards omit rating inputs");
+for(const marker of ["buildInlineCrowdRating", "inlineRatingRequests.has(id)", "pointsAwarded", "paint(chosen)", "Ratings unavailable", "summary.hidden=!peers?.count"]){assert(cardSummary.includes(marker), marker);}
+for(const tip of ["'Your '+copy.name+' rating out of five", "const label=copy.labels?.[value-1]||copy.detail", "nothingscorePhaseCopy(phase)"]){assert(cardSummary.includes(tip),tip);}
+assert.deepEqual(require('../config/epic-classics').phaseCopy('heat').labels,["Low stakes","Mid stakes","High stakes","Huge stakes","Epic stakes"],"the actual phase-owned accessible controls retain all five agreed stakes labels");
+assert(!applicationFunction('buildDetailedMajorEventCard').includes("buildNothingscoreSummary"),"Events cards omit rating inputs");
 assert(cardSummary.includes("phase==='pulse'?'pulse':'submit'"),'all phases use the server-owned one-tap contract');
 assert(cardSummary.includes("prefers-reduced-motion: reduce"),'points animation respects reduced motion');
 assert(!cardSummary.includes('draftRating'),'one-tap ratings need no draft or separate Submit');
@@ -65,7 +77,7 @@ assertOrder(notificationSettings, [
 assert.equal((html.match(/Notification\.requestPermission\(\)/g) || []).length, 1, "browser permission must have one controlled request path");
 assert.match(notificationSettings, /blocked[\s\S]+browser or device Settings/i);
 assert.match(notificationSettings, /iPhone or iPad[\s\S]+Home Screen[\s\S]+reopen a guest room link/i);
-const chatAlertPrompt = section(html, "function buildChatAlertPrompt()", "function chatMessageById");
+const chatAlertPrompt = applicationFunction('buildChatAlertPrompt');
 assert.match(chatAlertPrompt, /Enable system alerts/);
 assertOrder(chatAlertPrompt, [
   'enable.addEventListener("click"',
@@ -73,12 +85,12 @@ assertOrder(chatAlertPrompt, [
   "ensurePushInstallation({ requestPermission:true })",
 ], "chat alert permission and audio user gesture");
 assert.match(html, /function openFixtureChats\(event\)\{\s+prepareChatAudio\(\)/, "fixture-room entry must resume audio from its opening gesture");
-const chatPushIdentitySync = section(html, "async function syncPermittedChatPushInstallation()", "async function notificationDiagnosticsCommand");
+const chatPushIdentitySync = applicationFunction('syncPermittedChatPushInstallation');
 assert.match(chatPushIdentitySync, /Notification\.permission !== "granted"/);
 assert.match(chatPushIdentitySync, /notifications\.enabled === false \|\| notifications\.chatAlertsEnabled === false/, "identity activation must preserve an explicit system/chat-alert opt-out");
 assert.match(chatPushIdentitySync, /ensurePushInstallation\(\{ requestPermission:false \}\)/, "an already-permitted chat identity must re-register without prompting");
 assert.doesNotMatch(chatPushIdentitySync, /PUSH_INSTALLATION_STORAGE_KEY|readStorage/, "identity rebinding must also recreate missing local installation credentials");
-const pushInstallation = section(html, "async function ensurePushInstallation", "async function disablePushInstallation");
+const pushInstallation = applicationFunction('ensurePushInstallation');
 assertOrder(pushInstallation, [
   "registration.pushManager.getSubscription()",
   "!storedCredentials",
@@ -86,22 +98,22 @@ assertOrder(pushInstallation, [
   "subscription = null",
   "registration.pushManager.subscribe",
 ], "missing installation credentials must replace the orphaned browser subscription without another permission prompt");
-const chatSessionSync = section(html, "function syncChatSessionState(previousOwnerId, nextOwnerId)", "function syncNothingscoreSessionState");
+const chatSessionSync = applicationFunction('syncChatSessionState');
 assert.match(chatSessionSync, /syncPermittedChatPushInstallation\(\)/, "account and restored guest identity activation must rebind push");
-const badge = section(html, "function updateUnreadAppBadge(unread)", "function chatConnection");
+const badge = applicationFunction('updateUnreadAppBadge');
 assert.match(badge, /badgesEnabled !== false/);
 assert.match(badge, /navigator\.setAppBadge\?\.\(Number\(unread\)\)/);
 assert.match(badge, /navigator\.clearAppBadge\?\.\(\)/);
 assert.match(worker, /payload\.kind === "chat"[\s\S]+setAppBadge/);
 
 // Narrative compatibility is independent from the optional v3 consequence.
-const narrativeGate = section(html, "function editorialNarrativeReadyForCard(narrative)", "function editorialNarrativeHookForDisplay");
+const narrativeGate = applicationFunction('editorialNarrativeReadyForCard');
 assert.match(narrativeGate, /ENRICHMENT_ENGINE\?\.editorialNarrativeReadyForCard/, "the shell must use the shared narrative compatibility predicate");
 assert.match(enrichment, /function editorialNarrativeReadyForCard\(narrative\)[\s\S]*editorial-narrative\\\.v\(\?:1\|2\|3\)/);
 assert.match(enrichment, /generationMode !== "researched"[\s\S]*factIds[\s\S]*sourceIds/, "researched editorial must require source provenance rather than a consequence backfill");
-const narrativeHook = section(html, "function editorialNarrativeHookForDisplay(record)", "function isValidatedEditorialCopy");
+const narrativeHook = applicationFunction('editorialNarrativeHookForDisplay');
 assert.match(narrativeHook, /editorialNarrativeReadyForCard\(narrative\)/);
-const consequence = section(html, "function editorialConsequenceForDisplay(record)", "function buildEventTimingStateChip");
+const consequence = applicationFunction('editorialConsequenceForDisplay');
 assert.match(consequence, /ENRICHMENT_ENGINE\?\.editorialConsequenceReadyForCard/, "only the optional consequence must use the stricter consequence predicate");
 assert.match(consequence, /if \(completed\) return isSpoilerVisible\(record\)/);
 assertOrder(consequence, [

@@ -1,0 +1,10 @@
+{
+  "weekend": {
+    "from": "2026-10-16",
+    "to": "2026-10-30"
+  },
+  "acceptedIds": [
+    "fixture:cricket:espn:1525660"
+  ],
+  "deferred": []
+}

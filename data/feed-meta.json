@@ -1,13 +1,14 @@
 {
-  "version": "weekend-editorial-20261014225703956-20261015002753206-20261015151900269-20261015153508147",
+  "version": "weekend-editorial-20261015232145190-20261016000956110-20261016051402398-20261016051503057",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-15T15:35:08.147Z",
+  "publishedAt": "2026-10-16T05:15:03.057Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
     "sailgp",
     "wrc",
     "nfl",
+    "motogp",
     "wsl",
     "masters",
     "giro",
@@ -32,17 +33,16 @@
     "football",
     "baseball",
     "supercars",
+    "horse-racing",
     "ski",
     "big-wave",
     "goodwood",
-    "downhill-mtb",
-    "motogp",
-    "horse-racing"
+    "downhill-mtb"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-10-15",
+    "basisDate": "2026-10-16",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -50,7 +50,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-03",
     "lastEventDate": "2027-10-10",
-    "daysAhead": 360,
+    "daysAhead": 359,
     "coversStandardPreloadWindow": true,
     "sports": {
       "dakar": {
@@ -72,6 +72,11 @@
         "count": 1,
         "firstEventDate": "2026-02-09",
         "lastEventDate": "2026-02-09"
+      },
+      "motogp": {
+        "count": 205,
+        "firstEventDate": "2026-02-27",
+        "lastEventDate": "2027-10-01"
       },
       "wsl": {
         "count": 12,
@@ -193,20 +198,15 @@
         "firstEventDate": "2026-10-11",
         "lastEventDate": "2026-10-11"
       },
-      "ski": {
-        "count": 4,
-        "firstEventDate": "2027-03-05",
-        "lastEventDate": "2027-03-20"
-      },
-      "motogp": {
-        "count": 205,
-        "firstEventDate": "2026-02-27",
-        "lastEventDate": "2027-10-01"
-      },
       "horse-racing": {
         "count": 9,
         "firstEventDate": "2026-10-17",
         "lastEventDate": "2027-03-27"
+      },
+      "ski": {
+        "count": 4,
+        "firstEventDate": "2027-03-05",
+        "lastEventDate": "2027-03-20"
       }
     }
   }
