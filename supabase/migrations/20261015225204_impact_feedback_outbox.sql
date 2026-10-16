@@ -135,6 +135,13 @@ declare o record;p record;f record;s public.nothingsports_user_state%rowtype;w p
  update private.impact_requests set expected_state=s.updated_at,verified_at=ts where user_id=p.user_id and event_id=any(p.eligible_ids) and status<>'suppressed';
  day:=(ts at time zone 'Australia/Sydney')::date;
  perform pg_advisory_xact_lock(hashtextextended('impact-day:'||p.user_id::text||':'||day::text,0));
+ -- An unstarted previous-day immediate cannot spend yesterday's allowance
+ -- today. Preserve its original digest date and never repeat a started send.
+ update private.impact_requests r set status='pending',batch_id=null from private.impact_batches b
+ where r.batch_id=b.id and b.user_id=p.user_id and b.kind='immediate' and b.sydney_day<day and r.status in('assigned','notified')
+ and not exists(select 1 from private.impact_deliveries d where d.batch_id=b.id and (d.delivery_started_at is not null or d.status in('sent','uncertain')));
+ update private.impact_deliveries d set status='suppressed' from private.impact_batches b
+ where d.batch_id=b.id and b.user_id=p.user_id and b.sydney_day<day and d.delivery_started_at is null and d.status in('pending','sending');
  if not exists(select 1 from private.impact_batches where user_id=p.user_id and sydney_day=day and kind='immediate') then
  select r.id into bid from private.impact_requests r where r.user_id=p.user_id and r.status='pending' and not r.launch_only and (r.admitted_at at time zone 'Australia/Sydney')::date=day and r.ready_at<=ts and r.expires_at>ts and private.impact_available(r,ts) order by ready_at,event_id limit 1 for update;
  if found then
@@ -156,7 +163,7 @@ end $$;
 
 create function private.impact_claim() returns jsonb language plpgsql security definer set search_path='' as $$
 declare result jsonb;begin
- with due as(select d.batch_id,d.installation_id from private.impact_deliveries d where (d.status='pending' or d.status='sending' and d.delivery_started_at is null and d.claimed_at<private.impact_now()-interval '10 minutes') and d.delivery_started_at is null and d.attempts<3 and exists(select 1 from private.impact_requests r where r.batch_id=d.batch_id and private.impact_available(r,private.impact_now())) order by d.batch_id,d.installation_id limit 2 for update of d skip locked), claimed as(update private.impact_deliveries d set status='sending',claim_token=gen_random_uuid(),claimed_at=private.impact_now(),attempts=attempts+1 from due where d.batch_id=due.batch_id and d.installation_id=due.installation_id returning d.*)
+ with due as(select d.batch_id,d.installation_id from private.impact_deliveries d join private.impact_batches b on b.id=d.batch_id where b.sydney_day=(private.impact_now() at time zone 'Australia/Sydney')::date and (d.status='pending' or d.status='sending' and d.delivery_started_at is null and d.claimed_at<private.impact_now()-interval '10 minutes') and d.delivery_started_at is null and d.attempts<3 and exists(select 1 from private.impact_requests r where r.batch_id=d.batch_id and private.impact_available(r,private.impact_now())) order by d.batch_id,d.installation_id limit 2 for update of d skip locked), claimed as(update private.impact_deliveries d set status='sending',claim_token=gen_random_uuid(),claimed_at=private.impact_now(),attempts=attempts+1 from due where d.batch_id=due.batch_id and d.installation_id=due.installation_id returning d.*)
  select coalesce(jsonb_agg(to_jsonb(c)),'[]') into result from claimed c;return result;
 end $$;
 create function private.impact_begin(batch uuid,installation uuid,token uuid) returns jsonb language plpgsql security definer set search_path='' as $$
@@ -165,6 +172,7 @@ declare d private.impact_deliveries%rowtype;b private.impact_batches%rowtype;ite
  if not found or d.status<>'sending' or d.claim_token is distinct from token or d.delivery_started_at is not null then return null;end if;
  select * into b from private.impact_batches where id=batch;
  if b.user_id is distinct from d.user_id then return null;end if;
+ if b.sydney_day is distinct from (private.impact_now() at time zone 'Australia/Sydney')::date then update private.impact_deliveries set status='suppressed' where batch_id=batch and installation_id=installation;return null;end if;
  if not exists(select 1 from public.nothingsports_push_installations where installation_id=installation and user_id=d.user_id and permission='granted' and live_ratings_enabled) then update private.impact_deliveries set status='suppressed' where batch_id=batch and installation_id=installation;return null;end if;
  select coalesce(jsonb_agg(jsonb_build_object('eventId',r.event_id,'title',w.title) order by r.ready_at,r.event_id),'[]') into items from private.impact_requests r join private.impact_watches w using(event_id) where r.batch_id=batch and private.impact_available(r,private.impact_now());
  if jsonb_array_length(items)=0 then update private.impact_deliveries set status='suppressed' where batch_id=batch and installation_id=installation;return null;end if;
