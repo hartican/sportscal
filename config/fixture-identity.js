@@ -157,7 +157,9 @@
   const SCORE_OBSERVATION_FIELDS=['homeScore','awayScore','scoreDisplay','score','sets','games','innings','rubbers','canonicalResultScoreline'];
   const observationTime=e=>e?.sourceCheckedAt||e?.canonicalSourceCheckedAt||null;
   const factTime=(e,kind)=>e?.[kind+'CheckedAt']||(e?.fixtureObservationSchema?null:observationTime(e));
-  const hasScore=e=>SCORE_OBSERVATION_FIELDS.some(k=>{const v=e?.[k];return Array.isArray(v)?v.length>0:v!=null&&v!==''&&(typeof v!=='object'||Object.keys(v).length>0);});
+  const populated=value=>value!=null&&value!==''&&(typeof value!=='object'||(Array.isArray(value)?value:Object.keys(value)).length>0);
+  const hasScore=e=>SCORE_OBSERVATION_FIELDS.some(k=>populated(e?.[k]));
+  const hasScoreFields=e=>e!=null&&SCORE_OBSERVATION_FIELDS.some(k=>Object.hasOwn(e,k));
   const settled=status=>/^(completed|finished|final|abandoned)$/i.test(status||'');
   function retainStatusObservation(base,event){
     event.status=base.status;event.statusCheckedAt=factTime(base,'status');
@@ -184,6 +186,25 @@
         if(base[key]!==undefined)event[key]=base[key];else delete event[key];
       }
       retainStatusObservation(base,event);
+      // A missing round or this source's literal matchup title is planning
+      // context. A different populated round must remain a contradiction.
+      const label=String(event.roundLabel||'').trim();
+      const matchup=String(base.name||'').split(/\s+[—–]\s+/)[0];
+      if(Number.isInteger(base.roundNumber)&&base.roundNumber>0&&event.roundNumber==null
+        &&(!label||label===base.roundLabel||label===matchup&&/\s+vs?\.?\s+/i.test(matchup))){
+        event.roundNumber=base.roundNumber;
+        if(base.roundLabel)event.roundLabel=base.roundLabel;
+      }
+      // Keep unchanged primary facts and provenance together. Contrary new
+      // context keeps its own receipt and cannot inherit the old provider.
+      // Compare effective identity, unit and venue/scheduling fields, including evidence
+      // aliases. Derived timeline sorting and collection/result clocks are separate.
+      const context=Object.keys({...base,...event}).filter(k=>/^(?:source(?:Url|Name|Type)|venue|court|city|location|date|endDate|displayDate|time(?!line)|startTime|endTime|actualStart|estimated|sessionStart|schedul|timing|round|competition|stage|season|gender|eventType|matchType|draw|sport|key|codeId)/.test(k));
+      const compatible=!context.some(k=>populated(event[k])&&(!populated(base[k])||JSON.stringify(event[k])!==JSON.stringify(base[k])));
+      if(compatible)for(const key of [...context,'sourceCheckedAt']){
+        if(base[key]===undefined)delete event[key];else event[key]=base[key];
+      }
+      else for(const key of ['sourceUrl','sourceName','sourceType','sourceCheckedAt'])event[key]??=null;
       event.scoreCheckedAt=factTime(base,'score');
       event.livePlayObservedAt=null;
       return;
@@ -408,5 +429,5 @@
     const horizon=new Date(Date.UTC(futureYear,month,Math.min(Number(parts.day),lastDay))).toISOString().slice(0,10);
     return (!/^\d{4}-\d{2}-\d{2}$/.test(end || "") || end >= cutoff) && (!/^\d{4}-\d{2}-\d{2}$/.test(start || "") || start<=horizon);
   }
-  return Object.freeze({canonicalParticipantId,canonicalFixtureId,fixtureAliases,sportKey, scheduleCode, normalizeCore, fromSchedule, followedScheduleCodes,mergeOverlays,estimateTimeline,retainedInActiveTimeline,consensusTagsForEvent});
+  return Object.freeze({canonicalParticipantId,canonicalFixtureId,fixtureAliases,sportKey, scheduleCode, normalizeCore, fromSchedule, followedScheduleCodes,mergeOverlays,hasScore,hasScoreFields,estimateTimeline,retainedInActiveTimeline,consensusTagsForEvent});
 });

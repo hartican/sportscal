@@ -107,6 +107,7 @@ function validateScheduleSourceSelection(){
  assert.equal(JSON.stringify(actions),actionsBefore);assert.equal(JSON.stringify([fixture,child]),before,'Selection cannot rewrite either source record');
 }
 validateScheduleSourceSelection();
+require('./validate-rlwc-retained-schedule')();
 async function validateSavedStatusOverlay(){
  const {createMatchCentreHandler}=require('../lib/match-centre-handler');
  const model=require('../config/match-centre');

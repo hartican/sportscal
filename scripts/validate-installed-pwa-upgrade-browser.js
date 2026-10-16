@@ -43,15 +43,35 @@ async function assertCachedFonts(page){
 async function assertCachedFixtureHighlights(page){
   const scheduleUrl=requiredShellScriptUrl('assets/js/follow-schedule-panel.js');
   const frozen=require('./fixtures/rlwc-schedule-alias-20261016.json');
-  const scheduleProof=await page.evaluate(async({url,version,frozen})=>{
+  const retained=require('./fixtures/rlwc-retained-live-merge-20261016.json');
+  const scheduleProof=await page.evaluate(async({url,version,frozen,retained})=>{
     const cache=await caches.open('nothingsport-shell-v'+version),response=await cache.match('/'+url);
     if(!response)throw Error('Missing exact cached Schedule module');
     const bytes=await response.arrayBuffer(),sha256=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(n=>n.toString(16).padStart(2,'0')).join('');
     await loadDeferredScript(url);
-    return {sha256,sourcePreferred:globalThis.inspectorSourcePreferred(frozen.fixture,frozen.staleCanonical)};
-  },{url:scheduleUrl,version:candidateVersion,frozen});
+    const previous=liveFixtureEvents,before=JSON.stringify(retained);
+    try{
+      liveFixtureEvents=retained.overlays;
+      const merged=liveScheduleFixtures([retained.source],{id:'sport:nrl',slug:'nrl'})[0];
+      liveFixtureEvents=retained.overlays.map(event=>event.id.startsWith('major-match:')?{...event,roundNumber:null,roundLabel:'Round 2'}:event);
+      const contrary=liveScheduleFixtures([retained.source],{id:'sport:nrl',slug:'nrl'})[0];
+      liveFixtureEvents=retained.overlays.map(event=>event.id.startsWith('major-match:')?{...event,sourceUrl:'https://example.invalid/controlled-provider',sourceCheckedAt:'2026-10-16T12:00:00Z'}:event);
+      const provenance=liveScheduleFixtures([retained.source],{id:'sport:nrl',slug:'nrl'})[0];
+      liveFixtureEvents=retained.overlays.map(event=>event.id.startsWith('major-match:')?{...event,venueCity:'Controlled contrary city',sourceCheckedAt:'2026-10-16T12:00:00Z'}:event);
+      const venue=liveScheduleFixtures([retained.source],{id:'sport:nrl',slug:'nrl'})[0];
+      return {sha256,sourcePreferred:globalThis.inspectorSourcePreferred(frozen.fixture,frozen.staleCanonical),retained:{sourcePreferred:globalThis.inspectorSourcePreferred(merged,retained.candidate),protectsResult:!globalThis.inspectorSourcePreferred(merged,{...retained.candidate,homeScore:0,awayScore:0,scoreFactObservedAt:'2026-10-16T12:00:00Z'}),protectsUnit:[{matchType:'women'},{stageType:'quarterfinals'},{round:'Grand Final'}].every(patch=>!globalThis.inspectorSourcePreferred(merged,{...retained.candidate,...patch})),protectsReceipt:!globalThis.inspectorSourcePreferred(merged,{...retained.candidate,resultSourceCheckedAt:'2026-10-16T12:00:00Z'}),protectsRound:contrary.roundLabel==='Round 2'&&NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing(contrary,Date.parse('2026-10-16T12:26:03Z'))?.providerId!=='rlwc',protectsVenue:venue.venueCity==='Controlled contrary city'&&venue.sourceCheckedAt==='2026-10-16T12:00:00Z',coherentProvenance:provenance.sourceUrl==='https://example.invalid/controlled-provider'&&provenance.sourceCheckedAt==='2026-10-16T12:00:00Z'&&provenance.sourceName===null,roundNumber:merged.roundNumber,roundLabel:merged.roundLabel,sourceCheckedAt:merged.sourceCheckedAt,url:NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing(merged,Date.parse('2026-10-16T12:26:03Z'))?.webUrl,unchanged:JSON.stringify(retained)===before}};
+    }finally{liveFixtureEvents=previous;}
+  },{url:scheduleUrl,version:candidateVersion,frozen,retained});
   assert.equal(scheduleProof.sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'assets/js/follow-schedule-panel.js'))).digest('hex'),'Upgrade/offline uses the exact new Schedule fact-selection module');
   assert(scheduleProof.sourcePreferred,'Cached Schedule logic retains the sourced final over its exact retained planning copy');
+  assert(scheduleProof.retained.sourcePreferred&&scheduleProof.retained.unchanged,'Cached actual merge and selection preserve source/input ownership');
+  assert(scheduleProof.retained.protectsResult,'The cached legacy guard cannot discard a newer populated result, including zero scores');
+  assert(scheduleProof.retained.protectsUnit&&scheduleProof.retained.protectsReceipt,'Cached source selection preserves conflicting match types and explicit result receipts');
+  assert(scheduleProof.retained.protectsRound,'Cached reconciliation preserves a contrary round label and rejects its reviewed official clip');
+  assert(scheduleProof.retained.protectsVenue,'Cached reconciliation preserves the actual observation for a changed venue alias');
+  assert(scheduleProof.retained.coherentProvenance,'Cached reconciliation cannot attach an older provider receipt to changed source facts');
+  for(const key of ['roundNumber','roundLabel','sourceCheckedAt'])assert.equal(scheduleProof.retained[key],retained.source[key],'Upgrade/offline preserves the published '+key+' through both saved live aliases');
+  assert.equal(scheduleProof.retained.url,'https://www.rlwc2026.com/videos/australia-v-new-zealand---round-1-2026','Upgraded/offline retained merge reaches the unchanged highlights guard');
   const golf=require('../data/code-inspector/golf.json').fixtures.find(e=>(e.name||'').startsWith('Minjee Lee /'));
   const missing=await page.evaluate(golf=>({venue:NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue({venue:'Venue TBD'}),time:NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel({displayTime:'Time TBC'}),highlights:NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing({...golf,status:'past'},Date.parse('2026-10-16T00:00:00Z'))}),golf);
   assert.equal(missing.venue,'','Cached unknown venue cannot become an organiser decision');assert.equal(missing.time,'Time TBD');assert.equal(missing.highlights,null,'Upgrade/offline cannot restore a highlights promise from a past display label');
