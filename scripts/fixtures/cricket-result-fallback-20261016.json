@@ -1,0 +1,223 @@
+{
+  "sourceSha": "419db41a29d2015726e56bb7941423d2087d6598",
+  "sourceFile": "data/events.json",
+  "sourceSha256": "53e22ad83730cabdcc25a7ec083bd95f297fecc8124641e3c11950611a326081",
+  "fixture": {
+    "sport": "Cricket",
+    "key": "cricket",
+    "name": "South Africa v Australia — First Test",
+    "date": "2026-10-09",
+    "time": "18:30",
+    "broadcaster": "Kayo Sports / Foxtel",
+    "expected": 7,
+    "venue": "Kingsmead, Durban",
+    "liveWindow": 8,
+    "id": "fixture:cricket:espn:1525659",
+    "eventId": "fixture:cricket:espn:1525659",
+    "displayTitleCompact": "South Africa v Australia — First Test",
+    "selectedSentence": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
+    "fullSpiel": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
+    "sourceName": "Cricket Australia",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+    "sourceCheckedAt": "2026-10-15T16:28:01.041Z",
+    "broadcastOptions": [],
+    "round": "all",
+    "narrativeType": "all",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "status": "completed",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Cricket — south africa persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:matchup",
+        "narrative:consequence",
+        "narrative:path"
+      ],
+      "sourceName": "Cricket Australia South Africa Test tour guide",
+      "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+      "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
+      "needsPreviewRefresh": false
+    },
+    "participants": [
+      {
+        "id": "team:cricket:south-africa",
+        "name": "South Africa",
+        "role": "home"
+      },
+      {
+        "id": "team:cricket:australia",
+        "name": "Australia",
+        "role": "away"
+      }
+    ],
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "recap",
+      "expectedSpectacle": 7,
+      "intensitySource": "computed",
+      "archetype": "international test",
+      "hookSpoilerOff": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
+      "hookSpoilerOn": "Australia won by 214 runs",
+      "synopsisSpoilerOff": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
+      "synopsisSpoilerOn": "Australia won by 214 runs",
+      "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+      "researchDepth": 5
+    },
+    "lastReviewedAt": "2026-09-30T22:50:31.966Z",
+    "sourceTrust": "unverified",
+    "startTimeUtc": "2026-10-09T07:30:00.000Z",
+    "sourceType": "trusted-reporting",
+    "competitionScope": "international",
+    "isInternational": true,
+    "participantIds": [
+      "team:cricket:south-africa",
+      "team:cricket:australia"
+    ],
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "representativeSportKey": "cricket",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:fixture-cricket-espn-1525659",
+      "researchTier": "marquee",
+      "hook": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
+      "synopsis": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
+      "threadIds": [
+        "thread:depth:cricket:south-africa"
+      ],
+      "factIds": [
+        "fact:depth:cricket:fixture-cricket-espn-1525659:1",
+        "fact:depth:cricket:fixture-cricket-espn-1525659:2",
+        "fact:depth:cricket:fixture-cricket-espn-1525659:3",
+        "fact:depth:cricket:fixture-cricket-espn-1525660:1"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:south-africa",
+        "source:depth:cricket:season",
+        "source:depth:cricket:test-workload"
+      ],
+      "dimensions": [
+        "history",
+        "matchup",
+        "consequence",
+        "path"
+      ],
+      "researchedAt": "2026-09-30T22:50:31.966Z",
+      "refreshAfter": "2026-10-09T07:30:00.000Z",
+      "generationMode": "researched",
+      "phase": "preview"
+    },
+    "format": "Test",
+    "matchFormat": "Test",
+    "endDate": "2026-10-13",
+    "numberOfDays": 5,
+    "timePrecision": "exact",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "broadcasterIds": [],
+    "broadcasts": [],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://kayosports.com.au/en-AU/schedule",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4568",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-09",
+          "2026-11-01",
+          "competition:cricket:espn:24203",
+          "",
+          "cricket",
+          null,
+          "test",
+          "fixture-cricket-espn-1525659",
+          [
+            "team:cricket:south-africa",
+            "team:cricket:australia"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "fixture",
+        "linkScope": "sport",
+        "webUrl": "https://www.foxtel.com.au/watch/cricket.html",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4568",
+        "verifiedAt": "2026-10-02T05:17:58.761Z",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "coverageWindow": [
+          "2026-10-09",
+          "2026-11-01",
+          "competition:cricket:espn:24203",
+          "",
+          "cricket",
+          null,
+          "test",
+          "fixture-cricket-espn-1525659",
+          [
+            "team:cricket:south-africa",
+            "team:cricket:australia"
+          ],
+          null,
+          [],
+          [
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "reviewId": "au-viewing-20261002"
+      }
+    ],
+    "canonicalEventId": "fixture:cricket:espn:1525659",
+    "sourceEventIds": [
+      "evt_87",
+      "fixture:cricket:espn:1525659",
+      "fixture-cricket-espn-1525659"
+    ],
+    "consensusTags": [],
+    "statusCheckedAt": "2026-10-15T22:30:00.464+00:00",
+    "competitionId": "competition:cricket:espn:24203",
+    "competitionName": "Australia tour of South Africa 2026/27",
+    "competitionProvenance": {
+      "sourceEventId": "fixture:cricket:espn:1525659",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+      "checkedAt": "2026-10-04T05:48:59.057Z"
+    },
+    "score": "Australia won by 214 runs",
+    "scoreDisplay": "Australia won by 214 runs",
+    "outcomeText": "Australia won by 214 runs",
+    "recapText": "Australia won by 214 runs",
+    "scoreCheckedAt": "2026-10-15T22:30:00.464+00:00",
+    "scoreFactObservedAt": "2026-10-13T22:02:01.52+00:00",
+    "statusFactObservedAt": "2026-10-13T22:02:01.52+00:00",
+    "firstConfirmedCompleteAt": "2026-10-13T11:28:12.334719+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "sourceRefs": [
+      "https://www.cricket.com.au/matches/series/CA%3A4568/"
+    ],
+    "endTimeUtc": null
+  }
+}
