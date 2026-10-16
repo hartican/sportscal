@@ -425,6 +425,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-nothingscore.js"],
   ["scripts/validate-impact-feedback.js"],
   ["scripts/validate-impact-dispatch.js"],
+  ["scripts/validate-reminder-dispatch-capacity.js"],
   ["scripts/validate-impact-inbox.js"],
   ["scripts/validate-accepted-result-projection.js"],
   ["scripts/validate-accepted-result-continuity.js"],
