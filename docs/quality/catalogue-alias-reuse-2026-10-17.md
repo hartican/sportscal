@@ -1,12 +1,12 @@
 # Reuse fixed fixture identity work — 17 October 2026
 
-Status: private performance experiment, not deployed. Baseline documentation main9337ea92; accepted appd10b419f/cache558. The previous turn delivered bounded timing and a local profile, so it was progress. The wider CTO goal remains active.
+Status: delivered at`d30d04b8e9e452a7ca9afebc5eeb5d93b04e050f`/app 559 on 17 October Sydney. [Normal production run](https://github.com/hartican/sportscal/actions/runs/38935851751) passed; READY/release SHA, three aliases and eight served hashes agree. Baseline documentation main9337ea92, prior accepted appd10b419f/cache558. The wider CTO goal remains active; this is not cold-loading or whole-sport certification.
 
 ## Evidence and scope
 
 The existing normal public release took5.08seconds: catalogue2.42seconds, snapshots1.83seconds. It was an empty quiet window, not cold-database or phone proof. One complete-catalogue local CPU profile identifies repeated static fixture-alias lookup as the largest individual application hotspot. The real shared helper repeatedly reconstructs and scans the same frozen reviewed mapping, including inside each normalised record’s reverse-alias scan.
 
-The new complete-input loop captures all6,417 catalogue records and108 actual handler responses covering all6,378 supported distinct identities, with source/network transport isolated and empty. It pins16October16:12UTC. Three fresh-process baseline medians are565.50ms catalogue and250.86ms representative lookup work. Running unchanged source again fails the predeclared15% catalogue/50% lookup improvement criteria, with complete byte agreement. This is a red-capable local performance comparison, not live-world/database equivalence.
+The new complete-input loop captures all 6,417 catalogue records and 108 actual handler responses covering all6,378 supported distinct identities, with source/network transport isolated and empty. It pins16October16:12UTC. Three fresh-process baseline medians are565.50ms catalogue and250.86ms representative lookup work. Running unchanged source again fails the predeclared15% catalogue/50% lookup improvement criteria, with complete byte agreement. This is a red-capable local performance comparison, not live-world/database equivalence.
 
 ## Required change
 
@@ -33,3 +33,13 @@ The final representation augments that private forward table before freezing it,
 Payload fit: move only the two redundant prefetch/official-OOP engineering comments from the downloaded page to the existing backend decision record. Executable code, source requirements, visible text and attribution remain exact. The remaining small overage is not permission to raise the startup limit.
 
 The consolidated identity-only final comparison retained byte agreement but measured13.68% catalogue improvement, below the15% local criterion. Do not relabel it passed. The profile also showed editorial-key/participant work: skip the first unused key computation when no ID projection exists. The extended collector pins both identity and editorial source bytes; repeat one paired baseline/candidate protocol after this actual code change, with no parallel build and unchanged criteria. Earlier captured protocols remain preserved asv1.
+
+## Final delivered acceptance
+
+The final paired three-process comparison pins both identity and editorial source bytes. All 6,417 complete catalogue records and 108 actual handler replies covering6,378 supported distinct IDs agree byte for byte. Local catalogue median772.05→476.55ms (38.28%) and lookup250.78→21.86ms (91.29%) pass the unchanged 15%/50% criteria. Baseline process timings vary substantially; against the earlier dated565.50ms baseline the final result is 15.73% lower. Do not promise either percentage for phones or cold servers. Isolated empty transport means live database-world equality is not established.
+
+All 220 final local commands passed in one frozen run. Both independent exact-diff source reviews are CLEAR/zero findings. The 431,409-byte startup passes the unchanged 431,441.4375cap with 8critical requests; shell/runtime/worker559 agree. Actual 558→559 Chromium/WebKit upgrade/offline and saved-choice rehearsals passed. Local and hosted current-clock native card tests each pass 32cases plus 8 compiled identity/date contexts. Their APIs/external transport are isolated and popup stubbed; no original tab, real account, actual footage or physical phone claim.
+
+The normal release’s list request completed in 4.71 seconds, including its body; handler work was 4.30 seconds, catalogue preparation 2.25 seconds and snapshot waiting 1.79 seconds. It checked 5 displayed and 5 selected fixtures. This single observation establishes neither a cold database nor a controlled comparison with the earlier release. No extra public match request, warming or retry was made. Production normal checks retain their bounded read-only inputs. No provider refresh/search, database/customer write, reminder replay, schedule change, new service, purchase or owner routine. Keep wider reader OFF, restored SQL and deadlines unchanged. Source, local, publication, normal production, hosted and physical evidence remain separate.
+
+Detailed receipt: `/Users/jackhartican/Documents/AI/Codex/catalogue-alias-reuse-20261017/delivery.md`. Preserve all private failures and observations; they are not deployed candidates. Programme approval remains0/18 families and 0/3 Football pilots.
