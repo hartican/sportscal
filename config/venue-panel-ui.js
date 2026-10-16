@@ -806,7 +806,7 @@ function buildNothingscorePending(ev,phase){
 function buildNothingscorePanel(ev,snapshot){
  const panel=document.createElement('section');panel.className='nsc-panel';panel.dataset.nscPanel=nothingscoreEventId(ev);
  const back=document.createElement('button');back.type='button';back.className='btn ghost';back.textContent='Back to rankings';back.onclick=()=>{activeNothingscoreContributionEvent=null;renderCrowdRankings();};
- const timing=document.createElement('p');timing.textContent=ev.startTimeUtc?new Date(ev.startTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney'}):'Time unavailable';
+ const timing=document.createElement('p');timing.textContent=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST()).fullSchedule;
  panel.append(back,timing,buildNothingscorePeerResults(ev,snapshot,{inDrawer:true}));
  const incentive=document.createElement('p');incentive.className='nsc-note';incentive.textContent='Earn 1 point for Heat, plus 19 when another Nothinger matches it live or afterwards.';panel.appendChild(incentive);
  return panel;
