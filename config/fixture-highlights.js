@@ -40,9 +40,12 @@
   }
   function searchQuery(event,now=Date.now()){return typeof require==='function'?require('../lib/fixture-highlight-query').searchQuery(event,now):null;}
   function publisherMatches(record,event,now=Date.now()){
-    const id=event?.canonicalEventId||event?.eventId||event?.id,start=Date.parse(event?.actualStartTimeUtc||event?.startTimeUtc||'');
+    const id=event?.canonicalEventId||event?.eventId||event?.id,actual=Date.parse(event?.actualStartTimeUtc||''),scheduled=Date.parse(event?.startTimeUtc||''),start=Number.isFinite(actual)?actual:scheduled;
     return Boolean(record&&completed(event)&&recent(event,now)&&id===record.fixtureId&&event.competitionId===record.competitionId&&event.date===record.date&&event.roundNumber===record.roundNumber
-      &&(!event.season||String(event.season)==='2026')&&!/women|female|wheelchair|junior|boys|girls/i.test([event.gender,event.eventType,event.matchType,event.drawType].join(' '))
+      &&[event.season,event.seasonLabel].every(value=>!value||String(value)==='2026')
+      &&[event.key,event.sportKey].every(value=>!value||['nrl','rugby-league'].includes(value))&&[event.codeId,event.sportDomainId].every(value=>!value||['sport:nrl','sport:rugby-league'].includes(value))
+      &&(!event.sport||/^(?:rugby league|nrl)$/i.test(event.sport))&&(!event.gender||/^(?:men|mens|men['’]s|male|m)$/i.test(event.gender))
+      &&!/women|female|wheelchair|junior|boys|girls|mixed|doubles/i.test([event.eventType,event.matchType,event.drawType].join(' '))
       &&Array.isArray(event.participantIds)&&Array.isArray(record.participantIds)&&JSON.stringify([...event.participantIds].sort())===JSON.stringify(record.participantIds)
       &&record.kind==='match-highlights'&&record.language==='en'&&record.sourceUrl==='https://www.rlwc2026.com/'&&/^https:\/\/www\.rlwc2026\.com\/videos\/[a-z0-9-]+$/.test(record.url)
       &&recentUpload(record.publishedAt,now)&&fresh(record.verifiedAt,now)&&Date.parse(record.verifiedAt)<=+now&&Date.parse(record.verifiedAt)>=Date.parse(record.publishedAt)
