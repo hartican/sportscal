@@ -11,7 +11,7 @@ function inspectorHasResultEvidence(event,identity){
 }
 function inspectorSourcePreferred(source,candidate){
  const id=candidate?.id,direct=id&&(id===source?.id||id===source?.canonicalEventId);
- const fields=['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType','matchType','drawType','draw','sportKey','codeId','sportDomainId','sport','actualStartTimeUtc'];
+ const fields=['roundNumber','roundLabel','round','stage','stageType','season','seasonLabel','gender','eventType','matchType','drawType','draw','sportKey','codeId','sportDomainId','sport','actualStartTimeUtc'];
  // Older exact pins used a competition family instead of its dated edition.
  // This supplies no sporting fact: only the source's explicit final can win.
  const family=direct&&typeof source.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(source.date)

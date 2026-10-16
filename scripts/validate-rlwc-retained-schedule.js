@@ -23,7 +23,7 @@ function validateRetainedSchedule(){
   const selected=context.buildCodeInspectorFixture(merged);
   assert.equal(highlights.viewing(selected,now)?.webUrl,expected,'The actual retained Schedule chain must keep the verified highlights action, including without Events');
   for(const key of ['roundNumber','roundLabel','competitionId','sourceCheckedAt','statusCheckedAt'])assert.equal(merged[key],frozen.source[key],key+' keeps its published final context and observation');
-  for(const patch of [{status:'live'},{status:'postponed'},{status:'completed'},{competitionId:'competition:other:2026'},{competitionId:'competition:rugby-league-world-cup:2025'},{date:'2026-10-16'},{startTimeUtc:'2026-10-15T10:05:00Z'},{participantIds:['team:nrl:kangaroos','team:nrl:other'],participantSlots:[]},{roundNumber:2},{roundLabel:'Round 2'},{stage:'quarterfinals'},{season:'2025'},{seasonLabel:'2025'},{gender:'women'},{eventType:'women'},{drawType:'mixed'},{matchType:'women'},{sportKey:'football'},{codeId:'sport:football'},{sportDomainId:'sport:football'},{sport:'Football'},{actualStartTimeUtc:'2026-10-16T00:00:00Z'},{actualStartTimeUtc:'invalid'},{canonicalEventId:'another-fixture'},{eventId:'another-fixture'}]){
+  for(const patch of [{status:'live'},{status:'postponed'},{status:'completed'},{competitionId:'competition:other:2026'},{competitionId:'competition:rugby-league-world-cup:2025'},{date:'2026-10-16'},{startTimeUtc:'2026-10-15T10:05:00Z'},{participantIds:['team:nrl:kangaroos','team:nrl:other'],participantSlots:[]},{roundNumber:2},{roundLabel:'Round 2'},{stage:'quarterfinals'},{stageType:'quarterfinals'},{round:'Grand Final'},{season:'2025'},{seasonLabel:'2025'},{gender:'women'},{eventType:'women'},{drawType:'mixed'},{matchType:'women'},{sportKey:'football'},{codeId:'sport:football'},{sportDomainId:'sport:football'},{sport:'Football'},{actualStartTimeUtc:'2026-10-16T00:00:00Z'},{actualStartTimeUtc:'invalid'},{canonicalEventId:'another-fixture'},{eventId:'another-fixture'}]){
    const candidate={...frozen.candidate,...patch};context.EVENTS=[candidate];
    assert.equal(context.buildCodeInspectorFixture(merged),candidate,'Active or contradictory retained evidence cannot borrow the published final: '+JSON.stringify(patch));
   }
@@ -69,6 +69,7 @@ function validateRetainedSchedule(){
   ...['scheduleEvidence','timingEvidence','actualStartEvidence','schedulingWindow'].map(key=>({[key]:{kind:'controlled-contrary-context'},sourceCheckedAt:later})),
   ...['actualStartTimeUtc','estimatedStartTimeUtc','estimatedEarliestStartTimeUtc','estimatedLatestStartTimeUtc','sessionStartTimeUtc'].map(key=>({[key]:'2026-10-15T10:05:00.000Z',sourceCheckedAt:later})),
   {endDate:'2026-10-16',sourceCheckedAt:later},{timingVerified:true,sourceCheckedAt:later},
+  ...['competitionId','competitionName','season','seasonLabel','gender','stage','stageType','eventType','matchType','drawType'].map(key=>({[key]:'Controlled contrary '+key,sourceCheckedAt:later})),
   {startTimeUtc:'2026-10-15T10:05:00.000Z',sourceCheckedAt:later},
   {timingProvenance:{kind:'controlled-contrary-source'},sourceCheckedAt:later},
   {sourceUrl:'https://example.invalid/unknown-receipt',sourceCheckedAt:null},

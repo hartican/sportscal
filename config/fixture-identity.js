@@ -197,14 +197,14 @@
       }
       // Keep unchanged primary facts and provenance together. Contrary new
       // context keeps its own receipt and cannot inherit the old provider.
-      // Compare the effective venue/scheduling field families, including evidence
+      // Compare effective identity, unit and venue/scheduling fields, including evidence
       // aliases. Derived timeline sorting and collection/result clocks are separate.
-      const context=Object.keys({...base,...event}).filter(k=>/^(?:source(?:Url|Name|Type)$|venue|court|city$|location$|date|endDate$|displayDateLabel$|time(?!line)|startTime|endTime|actualStart|estimated|sessionStart|schedul|timing|round)/.test(k));
+      const context=Object.keys({...base,...event}).filter(k=>/^(?:source(?:Url|Name|Type)|venue|court|city|location|date|endDate|displayDate|time(?!line)|startTime|endTime|actualStart|estimated|sessionStart|schedul|timing|round|competition|stage|season|gender|eventType|matchType|draw|sport|key|codeId)/.test(k));
       const compatible=!context.some(k=>populated(event[k])&&(!populated(base[k])||JSON.stringify(event[k])!==JSON.stringify(base[k])));
-      for(const key of compatible?[...context,'sourceCheckedAt']:['sourceUrl','sourceName','sourceType','sourceCheckedAt']){
-        if(compatible&&base[key]===undefined)delete event[key];
-        else event[key]=compatible?base[key]:event[key]??null;
+      if(compatible)for(const key of [...context,'sourceCheckedAt']){
+        if(base[key]===undefined)delete event[key];else event[key]=base[key];
       }
+      else for(const key of ['sourceUrl','sourceName','sourceType','sourceCheckedAt'])event[key]??=null;
       event.scoreCheckedAt=factTime(base,'score');
       event.livePlayObservedAt=null;
       return;
