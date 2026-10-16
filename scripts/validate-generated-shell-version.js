@@ -65,17 +65,24 @@ try{
  fs.writeFileSync(path.join(fixture,'service-worker.js'),'shell 1');
  fs.writeFileSync(path.join(fixture,'data/events.json'),'[]');fs.writeFileSync(path.join(fixture,'data/feed-meta.json'),'{"version":"old"}');
  fs.copyFileSync(path.join(__dirname,'update-sportscal-cards-and-release.sh'),path.join(fixture,'scripts/update-sportscal-cards-and-release.sh'));
+ // The real wrapper now writes its diagnostic on both success and failure.
+ // Keep its actual reporter dependencies in this isolated scheduled checkout.
+ fs.mkdirSync(path.join(fixture,'scripts/lib'),{recursive:true});
+ for(const file of ['refresh-report.js','lib/refresh-report.js'])fs.copyFileSync(path.join(__dirname,file),path.join(fixture,'scripts',file));
  fs.writeFileSync(path.join(fixture,'scripts/update-cards.js'),"require('fs').writeFileSync('data/events.json','[{\"id\":\"new\"}]');require('fs').writeFileSync('data/feed-meta.json','{\"version\":\"new\"}');\n");
  fs.writeFileSync(path.join(fixture,'scripts/redeploy-and-release.sh'),'#!/usr/bin/env bash\nset -euo pipefail\nprintf \'<meta name="app-shell-version" content="2">\' > index.html\nprintf "shell 2" > service-worker.js\ngit add data index.html service-worker.js\ngit commit --quiet -m "Simulated generated cache release"\ngit push --quiet origin HEAD:main\ngit fetch --quiet origin main\n',{mode:0o755});
  const curl=path.join(fixture,'bin/curl');
  fs.writeFileSync(curl,'#!'+process.execPath+'\n'+`const fs=require('fs'),path=require('path'),a=process.argv.slice(2),url=new URL(a.at(-1));let file=url.pathname==='/'?'index.html':url.pathname.slice(1);let bytes=fs.readFileSync(file);if(process.env.QA_MISMATCH===file)bytes=Buffer.from('incorrect deployment bytes');fs.writeFileSync(a[a.indexOf('-o')+1],bytes);fs.writeFileSync(a[a.indexOf('-D')+1],'HTTP/2 200\\r\\nETag: qa\\r\\n\\r\\n');\n`,{mode:0o755});
  runGit(['add','.']);runGit(['commit','--quiet','-m','Synthetic scheduled baseline']);const baseline=runGit(['rev-parse','HEAD']).toString().trim();runGit(['push','--quiet','origin','main']);
- const invoke=mismatch=>spawnSync('bash',['scripts/update-sportscal-cards-and-release.sh'],{cwd:fixture,encoding:'utf8',env:{...process.env,PATH:path.join(fixture,'bin')+path.delimiter+process.env.PATH,NODE_BIN:process.execPath,WEBSITE_URL:'https://qa.invalid',SKIP_RELEASE:'0',QUICK_RESULTS:'1',QA_MISMATCH:mismatch||''}});
+ const reportFile=path.join(fixture,'refresh-report.json');
+ const invoke=mismatch=>spawnSync('bash',['scripts/update-sportscal-cards-and-release.sh'],{cwd:fixture,encoding:'utf8',env:{...process.env,PATH:path.join(fixture,'bin')+path.delimiter+process.env.PATH,NODE_BIN:process.execPath,WEBSITE_URL:'https://qa.invalid',SKIP_RELEASE:'0',QUICK_RESULTS:'1',QA_MISMATCH:mismatch||'',REFRESH_REPORT:reportFile,GITHUB_STEP_SUMMARY:''}});
  const good=invoke();assert.equal(good.status,0,'an actual published cache-version advance must pass the scheduled wrapper:\n'+good.stdout+'\n'+good.stderr);
  assert.match(good.stdout,/app-shell-version=2/,'the shell version must be parsed from actual served HTML');assert.match(good.stdout,/Immutable live-content match: YES/);
+ assert.equal(JSON.parse(fs.readFileSync(reportFile)).publicationState,'published','the real diagnostic records the successful publication');
  for(const mismatch of ['index.html','service-worker.js']){
   runGit(['reset','--hard',baseline]);runGit(['push','--quiet','--force','origin','main']);runGit(['fetch','--quiet','origin','main']);
   const bad=invoke(mismatch);assert.notEqual(bad.status,0,'a mismatched '+mismatch+' must still reject the release');assert.match(bad.stderr,/live shell, feed metadata, events or service worker/);
+  assert.equal(JSON.parse(fs.readFileSync(reportFile)).publicationState,'blocked','a genuine served-byte mismatch remains a reported failure');
  }
  console.log('Generated shell: no-op, forward keys/worker, idempotence, inconsistent-input retention and release integration passed.');
 }finally{fs.rmSync(root,{recursive:true,force:true});}
