@@ -62,11 +62,18 @@ if(process.argv.includes('--published')){
  const schedule=require('../data/canonical/nbl-2026-27.json');
  const cards=require('../data/events.json');
  const expected=new Map(schedule.events.map(f=>[f.id,nblMatchContext(schedule.events,f,{season:schedule.seasonLabel,checkedAt:schedule.generatedAt,participants:schedule.participants})]));
+ const accepted=require('../data/canonical/current-card-evidence-2026.json').resultOverrides.filter(row=>row.acceptedResultProjection);
  assert.equal(expected.size,165);
  for(const fixtures of [Array.isArray(cards)?cards:cards.events,...['code-inspector','follow-schedule'].map(folder=>require(`../data/${folder}/nbl.json`).fixtures)]){
   const key=f=>f.canonicalEventId||f.id;
   const nbl=fixtures.filter(f=>expected.has(key(f)));assert.equal(nbl.length,165);
-  for(const f of nbl){assert.deepEqual(f.teamMatchContext,{...expected.get(key(f)),checkedAt:f.sourceCheckedAt});assert(Number.isFinite(Date.parse(f.sourceCheckedAt))&&Date.parse(f.sourceCheckedAt)<=Date.parse(schedule.generatedAt));assert.equal(f.teamMatchContext.checkedAt,f.sourceCheckedAt);assert.equal(f.season,schedule.seasonLabel);}
+  for(const f of nbl){
+   assert.deepEqual(f.teamMatchContext,expected.get(key(f)),'A later result check cannot renew the original pre-match context');
+   const proof=accepted.find(row=>row.acceptedResultProjection.aliases.some(id=>[f.id,f.canonicalEventId,...(f.sourceEventIds||[])].includes(id)));
+   if(proof)assert(require('./lib/accepted-result-projection').validateAcceptedProjection(f,proof));
+   else assert(Number.isFinite(Date.parse(f.sourceCheckedAt))&&Date.parse(f.sourceCheckedAt)<=Date.parse(schedule.generatedAt));
+   assert.equal(f.teamMatchContext.checkedAt,schedule.generatedAt);assert.equal(f.season,schedule.seasonLabel);
+  }
  }
 }
 console.log('NBL records/status: temporal boundaries, invalid results, deduplication, primary-to-persistence-to-Schedule freshness, terminal states and unchanged reruns passed.');

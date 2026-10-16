@@ -22,4 +22,14 @@ The private inbox opening rechecks current shared fixture and Feed state on dema
 
 New SQL/model/transport/browser gates: validate-impact-feedback.js, validate-impact-dispatch.js, validate-impact-inbox.js, validate-impact-browser.js. Preserve original notification, dispatch recovery, followed-rating, private inbox, erasure, Follow, spoiler/privacy, canonical-refresh, startup/cache and Chromium/WebKit installed-update/offline gates. An isolated old inbox test hit a same-clock grouping assertion once and passed standalone; retain both logs, without weakening its assertion. Final current-main and hosted checks remain Audit's release gate.
 
+## 16 October release integration
+
+Audit delegated the exclusive integration, database and publication lane to the Impact owner. The actual service migration is `20261016063213_impact_feedback_outbox.sql`; its private tables and wrappers were verified independently. Existing account choices, Follow migrations and timed-reminder ownership remain unchanged.
+
+Strict canonical gates also required the fifteen already reviewed final-result capsules and separately allocated official MLB 849818 and 849810 finals. The latter became due during final checks and was observed once at 07:27:29 UTC. Reconcile only those seventeen bound observations through the existing reviewed-fixture route, retaining source timestamps, ordered participants, aliases and genuine completion receipts. The MLB scheduled-start correction is not an actual-start or finish observation. The accepted-result writers and complete child projections retain the same identity/fact checks; the exact sixteen-ID contract runs in canonical and production gates.
+
+Existing declared editorial projections had metadata/root-copy drift. The bounded `--reviewed-fixtures --editorial-projections --ids=...` canonical path repairs those named copies without provider requests, new research dates, sporting changes, or changes to editorial locks/holds. Preserve the separately queued eight previews and three post-match articles for the following release; their source packet is not part of Impact. Unrelated cards and customer choices remain unchanged.
+
+Production rollout requires the full canonical command inventory, final-byte Chromium/WebKit installed-update/offline and Impact navigation/privacy checks, exact main/READY/alias/served-file receipts, and observation of the ordinary dispatcher. Operator outbox preparation, browser checks and provider acceptance are distinct from physical closed-app receipt.
+
 Record local checks, GitHub main, workflow, immutable READY, aliases/releaseGitSha, served bytes, hosted behaviour and database changes separately. Controlled browser or provider admission cannot prove an installed iPhone receipt.

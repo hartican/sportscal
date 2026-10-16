@@ -68,11 +68,15 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
-  for (const route of ['--broadcaster-review', '--venue-review', '--nations-finals']) {
+  for (const route of ['--broadcaster-review', '--venue-review', '--nations-finals', '--canonical-readiness']) {
     if (!argv.includes(route)) continue;
     const allowed = new Set([route, '--local-only', '-p']);
     if(route==='--nations-finals')allowed.add('--rebuild');
     if (argv.some(arg => !allowed.has(arg))) throw new Error(`${route === '--broadcaster-review' ? 'Broadcaster' : route==='--nations-finals'?'Nations finals':'Venue'} review cannot be combined with other refresh routes. No source steps ran.`);
+  }
+  if (argv.includes('--editorial-projections')) {
+    const allowed = new Set(['--reviewed-fixtures','--editorial-projections','--local-only','-p','--rebuild']);
+    if (!argv.includes('--reviewed-fixtures') || argv.filter(arg=>arg.startsWith('--ids=')).length!==1 || argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--ids='))) throw new Error('Editorial projection repair requires only --reviewed-fixtures --editorial-projections --ids= with optional local-only/rebuild flags. No source steps ran.');
   }
   if (argv.includes('--result-observations') && (!argv.includes('--reviewed-fixtures') || !argv.some(arg=>arg.startsWith('--ids=')) || argv.some(arg=>arg.startsWith('--restore-published=')))) {
     throw new Error('Result observations require --reviewed-fixtures with retained --ids= and no editorial restoration. No source steps ran.');
@@ -99,6 +103,9 @@ function buildBroadcasterReviewSteps() {
     ['scripts/scan-broadcaster-coverage.js', '--enforce-freshness'],
     ['scripts/scan-broadcaster-coverage.js', '--check', '--enforce-freshness'],
     ['scripts/validate-broadcaster-discovery.js'],
+    ['scripts/build-discovery-dashboard.js'],
+    ['scripts/build-discovery-dashboard.js','--check'],
+    ['scripts/validate-discovery-measurement.js'],
   ];
 }
 
@@ -416,6 +423,11 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-crowd-foresight.js"],
   ["scripts/validate-quick-results-cadence.js"],
   ["scripts/validate-nothingscore.js"],
+  ["scripts/validate-impact-feedback.js"],
+  ["scripts/validate-impact-dispatch.js"],
+  ["scripts/validate-impact-inbox.js"],
+  ["scripts/validate-accepted-result-projection.js"],
+  ["scripts/validate-accepted-result-continuity.js"],
   ["scripts/validate-nsc-alert-editorial-ui.js"],
   ["scripts/validate-calendar-rework.js"],
   ["scripts/validate-calendar-api.js"],
@@ -512,6 +524,12 @@ async function runMain() {
     for (const args of buildBroadcasterReviewSteps()) runStep(args);
     if (!options.localOnly) runStep(['scripts/redeploy-and-release.sh']);
     console.log('Reviewed viewing evidence updated through the canonical owner; no provider requests or fixture changes.');
+    return;
+  }
+  if(process.argv.includes('--canonical-readiness')){
+    for(const args of [['scripts/refresh-canonical-sports.js'],['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],['scripts/validate-canonical-sports.js'],['scripts/verify-pilot-readiness.js']])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Existing AFL/NRL fixture and standings owner checked readiness; no other source refresh ran.');
     return;
   }
   if(process.argv.includes('--calendar-notes')||process.argv.includes('--surf-calendar-notes')){
@@ -813,16 +831,18 @@ async function runMain() {
     if(baseline&&!ids)throw new Error('Published editorial repair requires --ids=');
     const scoped=Boolean(ids);
     const resultObservations=process.argv.includes('--result-observations');
+    const editorialProjections=process.argv.includes('--editorial-projections');
     if(resultObservations && (!ids || baseline))throw new Error('Result observations require retained --ids= without editorial restoration');
     let codes=[];
     if(scoped){
-      const known=new Set(JSON.parse(fs.readFileSync('data/code-inspector/manifest.json')).codes.map(code=>code.slug));
+      const manifest=JSON.parse(fs.readFileSync('data/code-inspector/manifest.json'));
       const events=JSON.parse(fs.readFileSync('data/events.json')).events;
-      codes=[...new Set(ids.slice(6).split(',').flatMap(id=>{
-        const event=events.find(event=>[event.id,event.canonicalEventId,...(event.sourceEventIds||[])].includes(id));if(!event)throw new Error('Unknown reviewed fixture '+id);
-        return [event.key,event.sportDomainId?.replace(/^sport:/,'')].filter(code=>known.has(code));
-      }))];
-      if(!codes.length)throw new Error('Editorial repair requires existing Code projections');
+      codes=require('./lib/reviewed-fixture-projection-codes').codesForReviewedFixtures(events,ids.slice(6).split(','),manifest,file=>JSON.parse(fs.readFileSync(file)));
+    }
+    if(editorialProjections){
+      const repaired=require('./apply-editorial-narratives').applyScopedFeed(ids.slice(6).split(','));
+      console.log(JSON.stringify(repaired));
+      if(!repaired.changed&&!process.argv.includes('--rebuild')){console.log('Declared editorial projections already agree; no publication or rebuild needed.');return;}
     }
     if(resultObservations){
       const repaired=require('./sync-canonical-fixtures-to-feed').applyRetainedResultObservations(ids.slice(6).split(','));
@@ -830,7 +850,7 @@ async function runMain() {
       if(!repaired.changed){console.log('Retained result observations already agree; no publication or rebuild needed.');return;}
     }
     for(const args of [
-      ...(!resultObservations?[['scripts/apply-current-card-evidence.js',...(baseline?[baseline,ids]:scoped?[ids]:[])]]:[]),
+      ...(!resultObservations&&!editorialProjections?[['scripts/apply-current-card-evidence.js',...(baseline?[baseline,ids]:scoped?[ids]:[])]]:[]),
       ...(!scoped?[['scripts/apply-national-team-identities.js','feeds/incoming/events.json']]:[]),
       ['scripts/publish-feed.js',scoped?'data/events.json':'feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
       ...(scoped?[['scripts/build-follow-fixtures.js']]:[]),

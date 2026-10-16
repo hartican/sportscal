@@ -137248,7 +137248,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
     "sourceName": "Cricket Australia",
     "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
-    "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
+    "sourceCheckedAt": "2026-10-15T16:28:01.041Z",
     "broadcastOptions": [],
     "round": "all",
     "narrativeType": "all",
@@ -137256,7 +137256,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": true,
     "briefingEligible": true,
     "catchupEligible": true,
-    "status": "upcoming",
+    "status": "completed",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Cricket — south africa persistent series",
@@ -137287,21 +137287,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
+      "arcStage": "recap",
       "expectedSpectacle": 7,
       "intensitySource": "computed",
       "archetype": "international test",
       "hookSpoilerOff": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
-      "hookSpoilerOn": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
+      "hookSpoilerOn": "Australia won by 214 runs",
       "synopsisSpoilerOff": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
-      "synopsisSpoilerOn": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
+      "synopsisSpoilerOn": "Australia won by 214 runs",
       "lastReviewedAt": "2026-09-30T22:50:31.966Z",
       "researchDepth": 5
     },
     "lastReviewedAt": "2026-09-30T22:50:31.966Z",
-    "sourceTrust": "verified",
+    "sourceTrust": "unverified",
     "startTimeUtc": "2026-10-09T07:30:00.000Z",
-    "sourceType": "official",
+    "sourceType": "trusted-reporting",
     "competitionScope": "international",
     "isInternational": true,
     "participantIds": [
@@ -137427,14 +137427,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "fixture-cricket-espn-1525659"
     ],
     "consensusTags": [],
-    "statusCheckedAt": "2026-09-27T14:15:33.925Z",
+    "statusCheckedAt": "2026-10-15T22:30:00.464+00:00",
     "competitionId": "competition:cricket:espn:24203",
     "competitionName": "Australia tour of South Africa 2026/27",
     "competitionProvenance": {
       "sourceEventId": "fixture:cricket:espn:1525659",
       "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
       "checkedAt": "2026-10-04T05:48:59.057Z"
-    }
+    },
+    "score": "Australia won by 214 runs",
+    "scoreDisplay": "Australia won by 214 runs",
+    "outcomeText": "Australia won by 214 runs",
+    "recapText": "Australia won by 214 runs",
+    "scoreCheckedAt": "2026-10-15T22:30:00.464+00:00",
+    "scoreFactObservedAt": "2026-10-13T22:02:01.52+00:00",
+    "statusFactObservedAt": "2026-10-13T22:02:01.52+00:00",
+    "firstConfirmedCompleteAt": "2026-10-13T11:28:12.334719+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "sourceRefs": [
+      "https://www.cricket.com.au/matches/series/CA%3A4568/"
+    ],
+    "endTimeUtc": null
   },
   {
     "id": "event-aflw-cd_m20262640901",
@@ -142195,20 +142208,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-    "selectedSentence": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
-    "fullSpiel": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
+    "selectedSentence": "New York Yankees v Tampa Bay Rays: ALDS 'A' Game 4, if needed, in the race for the American League Championship Series.",
+    "fullSpiel": "American League Division Series Game 4 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Yankee Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
-      "synopsisSpoilerOff": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
-      "hookSpoilerOn": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
-      "synopsisSpoilerOn": "ALDS 'A' Game 4 at Yankee Stadium. Check the official game page for updates.",
+      "hookSpoilerOff": "New York Yankees v Tampa Bay Rays: ALDS 'A' Game 4, if needed, in the race for the American League Championship Series.",
+      "synopsisSpoilerOff": "American League Division Series Game 4 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Yankee Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOn": "New York Yankees v Tampa Bay Rays: ALDS 'A' Game 4, if needed, in the race for the American League Championship Series.",
+      "synopsisSpoilerOn": "American League Division Series Game 4 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Yankee Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "New York Yankees v Tampa Bay Rays",
@@ -148189,20 +148204,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-    "selectedSentence": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-    "fullSpiel": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "selectedSentence": "Los Angeles Dodgers v Atlanta Braves: NLDS 'B' Game 5, if needed, in the race for the National League Championship Series.",
+    "fullSpiel": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "synopsisSpoilerOff": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "hookSpoilerOn": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "synopsisSpoilerOn": "NLDS 'B' Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "hookSpoilerOff": "Los Angeles Dodgers v Atlanta Braves: NLDS 'B' Game 5, if needed, in the race for the National League Championship Series.",
+      "synopsisSpoilerOff": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOn": "Los Angeles Dodgers v Atlanta Braves: NLDS 'B' Game 5, if needed, in the race for the National League Championship Series.",
+      "synopsisSpoilerOn": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Los Angeles Dodgers v Atlanta Braves",
@@ -148370,20 +148387,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-    "selectedSentence": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
-    "fullSpiel": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
+    "selectedSentence": "Milwaukee Brewers v San Diego Padres: NLDS 'A' Game 5, if needed, in the race for the National League Championship Series.",
+    "fullSpiel": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
-      "synopsisSpoilerOff": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
-      "hookSpoilerOn": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "NLDS 'A' Game 5 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOff": "Milwaukee Brewers v San Diego Padres: NLDS 'A' Game 5, if needed, in the race for the National League Championship Series.",
+      "synopsisSpoilerOff": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOn": "Milwaukee Brewers v San Diego Padres: NLDS 'A' Game 5, if needed, in the race for the National League Championship Series.",
+      "synopsisSpoilerOn": "National League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the National League Championship Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Milwaukee Brewers v San Diego Padres",
@@ -150244,32 +150263,46 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bathurst 1000 is complete. Reveal results for the outcome.",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:supercars-bathurst-1000-2026",
+      "projectionId": "projection:fixture-research:supercars-bathurst-1000-2026",
       "researchTier": "marquee",
-      "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
-      "synopsis": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+      "hook": "A rookie starts on pole: Zach Bates turns Bathurst's established order into a challenge for the full 1000 kilometres.",
+      "synopsis": "Sunday's 161 laps at Mount Panorama close the Enduro Cup before the championship Finals. Ford's approved engine adjustment applies to Bathurst only; Chevrolet's separate ballast revision is a different technical measure. Driver handovers, reliability and race management now matter more than qualifying headlines. The grid is confirmed, not the result: no finishing order or Sunday outcome is assumed.",
+      "formCopy": "Bates backed up Friday's record Gen3 qualifying lap by beating Brodie Kostecki in Saturday's Shootout. It is the first Bathurst pole for both the rookie and Matt Stone Racing. Kostecki starts alongside him; Anton De Pasquale is third. Broc Feeney, Cam Waters and Chaz Mostert missed the top ten, so several familiar contenders must build their challenge from further back.",
+      "closingCopy": "For Matt Stone Racing, the front row makes an underdog story tangible without making Sunday a fairytale already won. Kostecki remains the immediate benchmark beside Bates. Toyota's Bend 500 breakthrough still offers a reason for its supporters to believe, but Mostert's grid position asks the team to earn that belief over the distance. One exceptional lap and a complete endurance performance are different achievements.",
       "threadIds": [
-        "thread:bathurst2026:enduro"
+        "thread:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843"
       ],
       "factIds": [
-        "fact:bathurst2026:0",
-        "fact:bathurst2026:1",
-        "fact:bathurst2026:2",
-        "fact:bathurst2026:3"
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
+        "fact:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5"
       ],
       "sourceIds": [
-        "source:bathurst2026:0",
-        "source:bathurst2026:1",
-        "source:bathurst2026:2"
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:0",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:1",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:2",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:3",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:4",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:5",
+        "source:fixture-research:supercars-bathurst-1000-2026:revision-1aa4e36e61be0f01d73dd8556cef6f360974de3339da689ea47bfb2d68d8b843:6"
       ],
       "dimensions": [
-        "format",
-        "consequence",
-        "venue"
+        "form",
+        "history",
+        "matchup",
+        "path"
       ],
-      "researchedAt": "2026-09-24T01:50:44.155Z",
+      "researchedAt": "2026-10-10T09:56:08Z",
       "refreshAfter": "2026-10-11T00:30:00.000Z",
-      "generationMode": "researched"
+      "generationMode": "researched",
+      "resultResearchRequired": false,
+      "phase": "preview",
+      "resultSignature": "[\"completed\",\"Brodie Kostecki and Todd Hazelwood won the Bathurst 1000 for Shell V-Power Racing Team.\",\"1. Brodie Kostecki / Todd Hazelwood · 2. Will Brown / Scott Pye · 3. Zach Bates / Aaron Seton\",\"The official Race 30 classification records Kostecki and Hazelwood completing 161 laps in 5:54:04.749. Will Brown and Scott Pye finished second; Zach Bates and Aaron Seton finished third.\"]",
+      "hookSpoilerOn": "Brodie Kostecki and Todd Hazelwood won the Bathurst 1000 for Shell V-Power Racing Team.",
+      "synopsisSpoilerOn": "The official Race 30 classification records Kostecki and Hazelwood completing 161 laps in 5:54:04.749. Will Brown and Scott Pye finished second; Zach Bates and Aaron Seton finished third."
     },
     "replayEligible": true,
     "highlightEligible": true,
@@ -152979,20 +153012,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-06T04:12:36.040Z",
     "statusCheckedAt": "2026-10-06T04:12:36.040Z",
-    "selectedSentence": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
-    "fullSpiel": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+    "selectedSentence": "Tampa Bay Rays v New York Yankees: ALDS 'A' Game 5, if needed, in the race for the American League Championship Series.",
+    "fullSpiel": "American League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
-      "synopsisSpoilerOff": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
-      "hookSpoilerOn": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "ALDS 'A' Game 5 at Tropicana Field. Check the official game page for updates.",
+      "hookSpoilerOff": "Tampa Bay Rays v New York Yankees: ALDS 'A' Game 5, if needed, in the race for the American League Championship Series.",
+      "synopsisSpoilerOff": "American League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOn": "Tampa Bay Rays v New York Yankees: ALDS 'A' Game 5, if needed, in the race for the American League Championship Series.",
+      "synopsisSpoilerOn": "American League Division Series Game 5 is part of a best-of-five series. The first team to 3 wins advances to the American League Championship Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Tampa Bay Rays v New York Yankees",
@@ -153699,20 +153734,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-12T22:43:24.652Z",
     "statusCheckedAt": "2026-10-12T22:43:24.652Z",
-    "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Milwaukee Brewers v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
+    "fullSpiel": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "recap",
-      "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers in NLCS Game 1: the result is available to reveal.",
-      "synopsisSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Milwaukee Brewers defeated Los Angeles Dodgers in NLCS Game 1.",
+      "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Milwaukee Brewers 2–1 Los Angeles Dodgers",
       "synopsisSpoilerOn": "NLCS Game 1: Milwaukee Brewers 2–1 Los Angeles Dodgers. MLB reports this game as final.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
@@ -153762,9 +153799,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-10-11T02:39:29.237Z",
       "refreshAfter": null,
       "generationMode": "researched",
+      "resultResearchRequired": false,
       "phase": "preview",
-      "hookSpoilerOn": "Milwaukee Brewers defeated Los Angeles Dodgers in NLCS Game 1.",
-      "synopsisSpoilerOn": "Milwaukee Brewers defeated Los Angeles Dodgers in NLCS Game 1. NLCS Game 1: Milwaukee Brewers 2–1 Los Angeles Dodgers. MLB reports this game as final."
+      "resultSignature": "[\"completed\",\"Milwaukee Brewers 2–1 Los Angeles Dodgers\",\"Milwaukee Brewers 2–1 Los Angeles Dodgers\",\"NLCS Game 1: Milwaukee Brewers 2–1 Los Angeles Dodgers. MLB reports this game as final.\"]",
+      "hookSpoilerOn": "Milwaukee Brewers 2–1 Los Angeles Dodgers",
+      "synopsisSpoilerOn": "NLCS Game 1: Milwaukee Brewers 2–1 Los Angeles Dodgers. MLB reports this game as final."
     },
     "resultEditorialBranches": {
       "home": {
@@ -153800,7 +153839,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.mlb.com/gameday/849809",
     "resultSourceCheckedAt": "2026-10-12T22:43:24.652Z",
     "endTimeUtc": "2026-10-12T06:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "NLCS Game 1: the path to the World Series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:format",
+        "narrative:path",
+        "narrative:matchup"
+      ],
+      "sourceName": "MLB official game",
+      "sourceUrl": "https://www.mlb.com/gameday/849809",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "fixture-tennis-espn-atp-184932",
@@ -158174,20 +158227,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-13T20:59:25.934Z",
     "statusCheckedAt": "2026-10-13T20:59:25.934Z",
-    "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Milwaukee Brewers v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
+    "fullSpiel": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "recap",
-      "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers in NLCS Game 2: the result is available to reveal.",
-      "synopsisSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Milwaukee Brewers defeated Los Angeles Dodgers in NLCS Game 2.",
+      "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Milwaukee Brewers 7–4 Los Angeles Dodgers",
       "synopsisSpoilerOn": "NLCS Game 2: Milwaukee Brewers 7–4 Los Angeles Dodgers. MLB reports this game as final.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
@@ -158237,9 +158292,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-10-11T02:39:29.237Z",
       "refreshAfter": null,
       "generationMode": "researched",
+      "resultResearchRequired": false,
       "phase": "preview",
-      "hookSpoilerOn": "Milwaukee Brewers defeated Los Angeles Dodgers in NLCS Game 2.",
-      "synopsisSpoilerOn": "Milwaukee Brewers defeated Los Angeles Dodgers in NLCS Game 2. NLCS Game 2: Milwaukee Brewers 7–4 Los Angeles Dodgers. MLB reports this game as final."
+      "resultSignature": "[\"completed\",\"Milwaukee Brewers 7–4 Los Angeles Dodgers\",\"Milwaukee Brewers 7–4 Los Angeles Dodgers\",\"NLCS Game 2: Milwaukee Brewers 7–4 Los Angeles Dodgers. MLB reports this game as final.\"]",
+      "hookSpoilerOn": "Milwaukee Brewers 7–4 Los Angeles Dodgers",
+      "synopsisSpoilerOn": "NLCS Game 2: Milwaukee Brewers 7–4 Los Angeles Dodgers. MLB reports this game as final."
     },
     "resultEditorialBranches": {
       "home": {
@@ -158275,7 +158332,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "recapText": "NLCS Game 2: Milwaukee Brewers 7–4 Los Angeles Dodgers. MLB reports this game as final.",
     "winnerParticipantId": "team:mlb:158",
     "endTimeUtc": "2026-10-13T03:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "NLCS Game 2: the path to the World Series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:format",
+        "narrative:path",
+        "narrative:matchup"
+      ],
+      "sourceName": "MLB official game",
+      "sourceUrl": "https://www.mlb.com/gameday/849812",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "fixture-mlb-849820",
@@ -158357,20 +158428,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-13T20:59:25.934Z",
     "statusCheckedAt": "2026-10-13T20:59:25.934Z",
-    "selectedSentence": "Tampa Bay Rays v Cleveland Guardians is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Tampa Bay Rays v Cleveland Guardians is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
+    "fullSpiel": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "recap",
-      "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians in ALCS Game 1: the result is available to reveal.",
-      "synopsisSpoilerOff": "Tampa Bay Rays v Cleveland Guardians is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Cleveland Guardians defeated Tampa Bay Rays in ALCS Game 1.",
+      "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOff": "Tampa Bay Rays v Cleveland Guardians is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Tampa Bay Rays 3–7 Cleveland Guardians",
       "synopsisSpoilerOn": "ALCS Game 1: Tampa Bay Rays 3–7 Cleveland Guardians. MLB reports this game as final.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -158399,9 +158472,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-10-11T12:38:02.024Z",
       "refreshAfter": null,
       "generationMode": "researched",
+      "resultResearchRequired": false,
       "phase": "preview",
-      "hookSpoilerOn": "Cleveland Guardians defeated Tampa Bay Rays in ALCS Game 1.",
-      "synopsisSpoilerOn": "Cleveland Guardians defeated Tampa Bay Rays in ALCS Game 1. ALCS Game 1: Tampa Bay Rays 3–7 Cleveland Guardians. MLB reports this game as final."
+      "resultSignature": "[\"completed\",\"Tampa Bay Rays 3–7 Cleveland Guardians\",\"Tampa Bay Rays 3–7 Cleveland Guardians\",\"ALCS Game 1: Tampa Bay Rays 3–7 Cleveland Guardians. MLB reports this game as final.\"]",
+      "hookSpoilerOn": "Tampa Bay Rays 3–7 Cleveland Guardians",
+      "synopsisSpoilerOn": "ALCS Game 1: Tampa Bay Rays 3–7 Cleveland Guardians. MLB reports this game as final."
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Tampa Bay Rays v Cleveland Guardians",
@@ -158458,7 +158533,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceUrl": "https://www.mlb.com/gameday/849820",
     "resultSourceCheckedAt": "2026-10-13T20:59:25.934Z",
     "endTimeUtc": "2026-10-13T06:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "ALCS Game 1: the path to the World Series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:format",
+        "narrative:path",
+        "narrative:matchup"
+      ],
+      "sourceName": "MLB official game",
+      "sourceUrl": "https://www.mlb.com/gameday/849820",
+      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "fixture-tennis-espn-atp-184951",
@@ -161702,7 +161791,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeUtc": "2026-10-14T00:00:00.000Z",
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "venue": "Tropicana Field",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -161758,8 +161847,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.mlb.com/gameday/849813",
       "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
     ],
-    "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
-    "statusCheckedAt": "2026-10-11T12:38:02.024Z",
+    "sourceCheckedAt": "2026-10-14T04:26:01.278Z",
+    "statusCheckedAt": "2026-10-14T11:36:00.653+00:00",
     "selectedSentence": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
     "fullSpiel": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
@@ -161767,11 +161856,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
+      "arcStage": "recap",
       "hookSpoilerOff": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
       "synopsisSpoilerOff": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
-      "hookSpoilerOn": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+      "hookSpoilerOn": "Tampa Bay Rays 3–1 Cleveland Guardians",
+      "synopsisSpoilerOn": "ALCS Game 2: Tampa Bay Rays 3–1 Cleveland Guardians. MLB reports this game as final.",
       "expectedSpectacle": 1,
       "intensitySource": "computed"
     },
@@ -161861,7 +161950,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "fixture-mlb-849813"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "score": "Tampa Bay Rays 3–1 Cleveland Guardians",
+    "resultStatus": "official",
+    "outcomeText": "Tampa Bay Rays 3–1 Cleveland Guardians",
+    "recapText": "ALCS Game 2: Tampa Bay Rays 3–1 Cleveland Guardians. MLB reports this game as final.",
+    "homeScore": 3,
+    "awayScore": 1,
+    "winnerParticipantId": "team:mlb:139",
+    "resultSourceUrl": "https://www.mlb.com/gameday/849813",
+    "resultSourceCheckedAt": "2026-10-14T04:26:01.278Z",
+    "scoreCheckedAt": "2026-10-14T11:36:00.653+00:00",
+    "scoreFactObservedAt": "2026-10-14T02:16:00.869+00:00",
+    "statusFactObservedAt": "2026-10-14T02:52:01.35+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T02:52:07.050846+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "evt_nbl_2026_27_3706e834_58ad_11f1_8519_a362560fc147",
@@ -161957,10 +162061,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Kings v New Zealand Breakers is published in the official NBL27 schedule for Round 5 on 2026-10-14 at 19:30 Sydney time at AIS Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
+    "sourceCheckedAt": "2026-10-15T23:31:08.522Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "upcoming",
+    "status": "completed",
     "sportDomainId": "sport:basketball",
     "discoverySportId": "sport:nbl",
     "competitionId": "competition:nbl",
@@ -162008,12 +162112,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "stakes": 3,
       "intensity": 3,
       "intensitySource": "manual",
-      "arcStage": "preview",
+      "arcStage": "recap",
       "expectedSpectacle": 5,
       "hookSpoilerOff": "Sydney Kings v New Zealand Breakers is set for Round 5 on 2026-10-14, one game in the official 165-match NBL27 regular season.",
-      "hookSpoilerOn": "Sydney Kings v New Zealand Breakers is set for Round 5 on 2026-10-14, one game in the official 165-match NBL27 regular season.",
+      "hookSpoilerOn": "Sydney Kings 101, New Zealand Breakers 102",
       "synopsisSpoilerOff": "Sydney Kings v New Zealand Breakers is published in the official NBL27 schedule for Round 5 on 2026-10-14 at 19:30 Sydney time at AIS Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
-      "synopsisSpoilerOn": "Sydney Kings v New Zealand Breakers is published in the official NBL27 schedule for Round 5 on 2026-10-14 at 19:30 Sydney time at AIS Arena. The fixture keeps both clubs connected to the full 165-game regular-season path.",
+      "synopsisSpoilerOn": "Sydney Kings 101, New Zealand Breakers 102",
       "lastReviewedAt": "2026-10-01T17:38:41.192Z",
       "researchDepth": 2
     },
@@ -162060,7 +162164,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-11T12:37:53.829Z",
+    "statusCheckedAt": "2026-10-15T23:31:08.522Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -162068,7 +162172,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "consensusTags": [],
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "score": "101-102",
+    "scoreDisplay": "101-102",
+    "resultStatus": "official",
+    "outcomeText": "Sydney Kings 101, New Zealand Breakers 102",
+    "recapText": "Sydney Kings 101, New Zealand Breakers 102",
+    "homeScore": 101,
+    "awayScore": 102,
+    "winnerParticipantId": "team:nbl:new-zealand-breakers",
+    "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
+    "resultSourceCheckedAt": "2026-10-15T23:31:08.522Z",
+    "statusSourceUrl": "https://schedule.nbl.com.au/nbl",
+    "statusSourceName": "NBL official schedule",
+    "statusSourceType": "official",
+    "scoreCheckedAt": "2026-10-15T23:31:08.522Z",
+    "homeParticipantId": "team:nbl:sydney-kings",
+    "awayParticipantId": "team:nbl:new-zealand-breakers",
+    "sourceRefs": [
+      "https://schedule.nbl.com.au/nbl"
+    ],
+    "endTimeUtc": null
   },
   {
     "id": "fixture-mlb-849811",
@@ -162090,7 +162214,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "startTimeUtc": "2026-10-15T00:00:00.000Z",
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "venue": "UNIQLO Field at Dodger Stadium",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -162146,8 +162270,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.mlb.com/gameday/849811",
       "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
     ],
-    "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
-    "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+    "sourceCheckedAt": "2026-10-15T04:16:01.581Z",
+    "statusCheckedAt": "2026-10-15T11:58:00.738+00:00",
     "selectedSentence": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
     "fullSpiel": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
@@ -162155,11 +162279,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
+      "arcStage": "recap",
       "hookSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
       "synopsisSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "hookSpoilerOn": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "synopsisSpoilerOn": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "hookSpoilerOn": "Los Angeles Dodgers 2–6 Milwaukee Brewers",
+      "synopsisSpoilerOn": "NLCS Game 3: Los Angeles Dodgers 2–6 Milwaukee Brewers. MLB reports this game as final.",
       "expectedSpectacle": 1,
       "intensitySource": "computed"
     },
@@ -162249,7 +162373,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "spoilerSafe": "Los Angeles Dodgers v Milwaukee Brewers in NLCS Game 3: the result is available to reveal.",
         "revealed": "Los Angeles Dodgers and Milwaukee Brewers finished level in NLCS Game 3."
       }
-    }
+    },
+    "score": "Los Angeles Dodgers 2–6 Milwaukee Brewers",
+    "resultStatus": "official",
+    "outcomeText": "Los Angeles Dodgers 2–6 Milwaukee Brewers",
+    "recapText": "NLCS Game 3: Los Angeles Dodgers 2–6 Milwaukee Brewers. MLB reports this game as final.",
+    "homeScore": 2,
+    "awayScore": 6,
+    "winnerParticipantId": "team:mlb:158",
+    "resultSourceUrl": "https://www.mlb.com/gameday/849811",
+    "resultSourceCheckedAt": "2026-10-15T04:16:01.581Z",
+    "scoreCheckedAt": "2026-10-15T11:58:00.738+00:00",
+    "scoreFactObservedAt": "2026-10-15T03:06:00.826+00:00",
+    "statusFactObservedAt": "2026-10-15T03:14:00.764+00:00",
+    "firstConfirmedCompleteAt": "2026-10-15T03:14:05.374929+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "evt_nbl_2026_27_36fd506c_58ad_11f1_a57f_6d6fb61b331b",
@@ -162345,10 +162484,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Bullets v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 5 on 2026-10-15 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
     "sourceName": "NBL official schedule",
     "sourceUrl": "https://schedule.nbl.com.au/nbl",
-    "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
+    "sourceCheckedAt": "2026-10-15T23:31:08.522Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "upcoming",
+    "status": "completed",
     "sportDomainId": "sport:basketball",
     "discoverySportId": "sport:nbl",
     "competitionId": "competition:nbl",
@@ -162395,12 +162534,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "stakes": 3,
       "intensity": 3,
       "intensitySource": "manual",
-      "arcStage": "preview",
+      "arcStage": "recap",
       "expectedSpectacle": 5,
       "hookSpoilerOff": "Brisbane Bullets v South East Melbourne Phoenix is set for Round 5 on 2026-10-15, one game in the official 165-match NBL27 regular season.",
-      "hookSpoilerOn": "Brisbane Bullets v South East Melbourne Phoenix is set for Round 5 on 2026-10-15, one game in the official 165-match NBL27 regular season.",
+      "hookSpoilerOn": "Brisbane Bullets 115, South East Melbourne Phoenix 105",
       "synopsisSpoilerOff": "Brisbane Bullets v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 5 on 2026-10-15 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
-      "synopsisSpoilerOn": "Brisbane Bullets v South East Melbourne Phoenix is published in the official NBL27 schedule for Round 5 on 2026-10-15 at 19:30 Sydney time at Brisbane Entertainment Centre. The fixture keeps both clubs connected to the full 165-game regular-season path.",
+      "synopsisSpoilerOn": "Brisbane Bullets 115, South East Melbourne Phoenix 105",
       "lastReviewedAt": "2026-10-01T17:38:41.192Z",
       "researchDepth": 2
     },
@@ -162447,7 +162586,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched",
       "phase": "preview"
     },
-    "statusCheckedAt": "2026-10-11T12:37:53.829Z",
+    "statusCheckedAt": "2026-10-15T23:31:08.522Z",
     "participantCountryCodes": [],
     "broadcasts": [],
     "sourceEventIds": [
@@ -162455,7 +162594,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "consensusTags": [],
     "startTimeTbc": false,
-    "dateOnly": false
+    "dateOnly": false,
+    "score": "115-105",
+    "scoreDisplay": "115-105",
+    "resultStatus": "official",
+    "outcomeText": "Brisbane Bullets 115, South East Melbourne Phoenix 105",
+    "recapText": "Brisbane Bullets 115, South East Melbourne Phoenix 105",
+    "homeScore": 115,
+    "awayScore": 105,
+    "winnerParticipantId": "team:nbl:brisbane-bullets",
+    "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
+    "resultSourceCheckedAt": "2026-10-15T23:31:08.522Z",
+    "statusSourceUrl": "https://schedule.nbl.com.au/nbl",
+    "statusSourceName": "NBL official schedule",
+    "statusSourceType": "official",
+    "scoreCheckedAt": "2026-10-15T23:31:08.522Z",
+    "homeParticipantId": "team:nbl:brisbane-bullets",
+    "awayParticipantId": "team:nbl:south-east-melbourne-phoenix",
+    "sourceRefs": [
+      "https://schedule.nbl.com.au/nbl"
+    ],
+    "endTimeUtc": null
   },
   {
     "id": "rlwc-australia-new-zealand-2026",
@@ -162640,11 +162799,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "ALCS Game 3",
     "stage": "ALCS Game 3",
     "date": "2026-10-16",
-    "time": "09:00",
-    "startTimeUtc": "2026-10-15T22:00:00.000Z",
+    "time": "04:00",
+    "startTimeUtc": "2026-10-15T17:00:00.000Z",
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "venue": "Progressive Field",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -162700,8 +162859,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.mlb.com/gameday/849818",
       "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
     ],
-    "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
-    "statusCheckedAt": "2026-10-11T12:38:02.024Z",
+    "sourceCheckedAt": "2026-10-16T06:48:20.213Z",
+    "statusCheckedAt": "2026-10-16T06:48:20.213Z",
     "selectedSentence": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
     "fullSpiel": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
@@ -162709,11 +162868,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
+      "arcStage": "recap",
       "hookSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
       "synopsisSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
-      "hookSpoilerOn": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+      "hookSpoilerOn": "Cleveland Guardians 3–2 Tampa Bay Rays",
+      "synopsisSpoilerOn": "ALCS Game 3: Cleveland Guardians 3–2 Tampa Bay Rays. MLB reports this game as final.",
       "expectedSpectacle": 1,
       "intensitySource": "computed"
     },
@@ -162803,7 +162962,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "fixture-mlb-849818"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "score": "Cleveland Guardians 3–2 Tampa Bay Rays",
+    "resultStatus": "official",
+    "outcomeText": "Cleveland Guardians 3–2 Tampa Bay Rays",
+    "recapText": "ALCS Game 3: Cleveland Guardians 3–2 Tampa Bay Rays. MLB reports this game as final.",
+    "resultLabels": [
+      "Completed"
+    ],
+    "homeScore": 3,
+    "awayScore": 2,
+    "winnerParticipantId": "team:mlb:114",
+    "resultSourceUrl": "https://www.mlb.com/gameday/849818",
+    "resultSourceCheckedAt": "2026-10-16T06:48:20.213Z",
+    "statusSourceUrl": "https://www.mlb.com/gameday/849818",
+    "statusSourceName": "MLB",
+    "statusSourceType": "official",
+    "scoreCheckedAt": "2026-10-16T06:48:20.213Z",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "fixture-mlb-849810",
@@ -162821,11 +162998,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "NLCS Game 4",
     "stage": "NLCS Game 4",
     "date": "2026-10-16",
-    "time": "12:00",
-    "startTimeUtc": "2026-10-16T01:00:00.000Z",
+    "time": "11:00",
+    "startTimeUtc": "2026-10-16T00:00:00.000Z",
     "timePrecision": "exact",
     "scheduleStatus": "confirmed",
-    "status": "upcoming",
+    "status": "completed",
     "venue": "UNIQLO Field at Dodger Stadium",
     "cardKind": "fixture",
     "kind": "fixture",
@@ -162881,22 +163058,24 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://www.mlb.com/gameday/849810",
       "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
     ],
-    "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
-    "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-    "fullSpiel": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "sourceCheckedAt": "2026-10-16T07:27:29.485Z",
+    "statusCheckedAt": "2026-10-16T07:27:29.485Z",
+    "selectedSentence": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
+    "fullSpiel": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "arcStage": "preview",
-      "hookSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "synopsisSpoilerOff": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "hookSpoilerOn": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "synopsisSpoilerOn": "NLCS Game 4 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "arcStage": "recap",
+      "hookSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
+      "synopsisSpoilerOff": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
+      "hookSpoilerOn": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+      "synopsisSpoilerOn": "NLCS Game 4: Los Angeles Dodgers 4–6 Milwaukee Brewers. MLB reports this game as final.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
@@ -162984,7 +163163,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "spoilerSafe": "Los Angeles Dodgers v Milwaukee Brewers in NLCS Game 4: the result is available to reveal.",
         "revealed": "Los Angeles Dodgers and Milwaukee Brewers finished level in NLCS Game 4."
       }
-    }
+    },
+    "score": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+    "resultStatus": "official",
+    "outcomeText": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+    "recapText": "NLCS Game 4: Los Angeles Dodgers 4–6 Milwaukee Brewers. MLB reports this game as final.",
+    "resultLabels": [
+      "Completed"
+    ],
+    "homeScore": 4,
+    "awayScore": 6,
+    "winnerParticipantId": "team:mlb:158",
+    "resultSourceUrl": "https://www.mlb.com/gameday/849810",
+    "resultSourceCheckedAt": "2026-10-16T07:27:29.485Z",
+    "statusSourceUrl": "https://www.mlb.com/gameday/849810",
+    "statusSourceName": "MLB",
+    "statusSourceType": "official",
+    "scoreCheckedAt": "2026-10-16T07:27:29.485Z",
+    "scoreFactObservedAt": "2026-10-16T07:27:29.485Z",
+    "statusFactObservedAt": "2026-10-16T07:27:29.485Z",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "event-aflw-cd_m20262641001",
@@ -163511,20 +163710,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
-    "fullSpiel": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+    "selectedSentence": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 4, in the race for the World Series.",
+    "fullSpiel": "American League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
-      "synopsisSpoilerOff": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
-      "hookSpoilerOn": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "ALCS Game 4 at Progressive Field. Check the official game page for updates.",
+      "hookSpoilerOff": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 4, in the race for the World Series.",
+      "synopsisSpoilerOff": "American League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
+      "hookSpoilerOn": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 4, in the race for the World Series.",
+      "synopsisSpoilerOn": "American League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -165072,20 +165273,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-    "fullSpiel": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+    "selectedSentence": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 5, if needed, in the race for the World Series.",
+    "fullSpiel": "National League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "synopsisSpoilerOff": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "hookSpoilerOn": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
-      "synopsisSpoilerOn": "NLCS Game 5 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "hookSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 5, if needed, in the race for the World Series.",
+      "synopsisSpoilerOff": "National League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOn": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 5, if needed, in the race for the World Series.",
+      "synopsisSpoilerOn": "National League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
@@ -167096,20 +167299,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
-    "fullSpiel": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+    "selectedSentence": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 5, if needed, in the race for the World Series.",
+    "fullSpiel": "American League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
-      "synopsisSpoilerOff": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
-      "hookSpoilerOn": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "ALCS Game 5 at Progressive Field. Check the official game page for updates.",
+      "hookSpoilerOff": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 5, if needed, in the race for the World Series.",
+      "synopsisSpoilerOff": "American League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOn": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 5, if needed, in the race for the World Series.",
+      "synopsisSpoilerOn": "American League Championship Series Game 5 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -167939,20 +168144,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
-    "fullSpiel": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+    "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 6, if needed, in the race for the World Series.",
+    "fullSpiel": "National League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
-      "synopsisSpoilerOff": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
-      "hookSpoilerOn": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "NLCS Game 6 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 6, if needed, in the race for the World Series.",
+      "synopsisSpoilerOff": "National League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOn": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 6, if needed, in the race for the World Series.",
+      "synopsisSpoilerOn": "National League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
@@ -168286,20 +168493,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
-    "fullSpiel": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+    "selectedSentence": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 7, if needed, in the race for the World Series.",
+    "fullSpiel": "National League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
-      "synopsisSpoilerOff": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
-      "hookSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "NLCS Game 7 at American Family Field. Check the official game page for updates.",
+      "hookSpoilerOff": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 7, if needed, in the race for the World Series.",
+      "synopsisSpoilerOff": "National League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOn": "Milwaukee Brewers v Los Angeles Dodgers: NLCS Game 7, if needed, in the race for the World Series.",
+      "synopsisSpoilerOn": "National League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists American Family Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Milwaukee Brewers v Los Angeles Dodgers",
@@ -168467,20 +168676,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
-    "fullSpiel": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+    "selectedSentence": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 6, if needed, in the race for the World Series.",
+    "fullSpiel": "American League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
-      "synopsisSpoilerOff": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
-      "hookSpoilerOn": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "ALCS Game 6 at Tropicana Field. Check the official game page for updates.",
+      "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 6, if needed, in the race for the World Series.",
+      "synopsisSpoilerOff": "American League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOn": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 6, if needed, in the race for the World Series.",
+      "synopsisSpoilerOn": "American League Championship Series Game 6 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -168854,20 +169065,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
     "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-    "selectedSentence": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
-    "fullSpiel": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+    "selectedSentence": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 7, if needed, in the race for the World Series.",
+    "fullSpiel": "American League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
     "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
-      "synopsisSpoilerOff": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
-      "hookSpoilerOn": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
-      "synopsisSpoilerOn": "ALCS Game 7 at Tropicana Field. Check the official game page for updates.",
+      "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 7, if needed, in the race for the World Series.",
+      "synopsisSpoilerOff": "American League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
+      "hookSpoilerOn": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 7, if needed, in the race for the World Series.",
+      "synopsisSpoilerOn": "American League Championship Series Game 7 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue. This game is only played if earlier results leave the series undecided; its start time remains unconfirmed.",
       "expectedSpectacle": 1,
-      "intensitySource": "computed"
+      "intensitySource": "computed",
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T12:38:02.024Z"
     },
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
@@ -265736,8 +265949,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 17,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP Indonesia Grand Prix is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "MotoGP Indonesia Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "selectedSentence": "MotoGP Indonesia Grand Prix is complete. Reveal results for the outcome.",
+    "fullSpiel": "MotoGP Indonesia Grand Prix is complete. Reveal results for the outcome.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -265799,11 +266012,12 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "recap",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "MotoGP Indonesia Grand Prix is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "MotoGP Indonesia Grand Prix is complete.",
-      "synopsisSpoilerOff": "MotoGP Indonesia Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "MotoGP Indonesia Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "lastReviewedAt": "2026-10-11T13:40:40.662Z"
+      "hookSpoilerOff": "MotoGP Indonesia Grand Prix is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Marquez brings winning momentum to the one Sunday finish Mandalika has never given him; Martin brings a two-point lead.",
+      "synopsisSpoilerOff": "MotoGP Indonesia Grand Prix is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOn": "Marquez brings winning momentum to the one Sunday finish Mandalika has never given him; Martin brings a two-point lead.",
+      "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+      "researchDepth": 5
     },
     "lastReviewedAt": "2026-10-12T22:44:14.143Z",
     "statusCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -265819,15 +266033,59 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeBasis": "scheduled-live-window",
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Grand Prix",
+      "angle": "MotoGP Indonesia Grand Prix",
       "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
+        "event-specific",
+        "narrative:form",
+        "narrative:matchup",
+        "narrative:history",
+        "narrative:path"
       ],
-      "sourceName": "MotoGP official calendar and premier-class timetable",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
-      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+      "sourceName": "MotoGP Indonesia Grand Prix — official research 1",
+      "sourceUrl": "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
+      "sourceCheckedAt": "2026-10-09T00:20:09.386Z",
       "needsPreviewRefresh": false
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:evt-motogp-2026-indonesia",
+      "researchTier": "marquee",
+      "hook": "Marquez brings winning momentum to the one Sunday finish Mandalika has never given him; Martin brings a two-point lead.",
+      "synopsis": "The Grand Prix closes the Indonesia weekend after qualifying and the Sprint. Saturday can change the standings before Sunday begins, so the two-point gap describes arrival, not a promised race-day position. The longer race asks whether attacking pace can survive the whole distance.",
+      "formCopy": "Japan's double put the reigning champion almost level with Martin. Bezzecchi is 49 points behind his Aprilia teammate, close enough to keep the contest from becoming an exclusive duel.",
+      "closingCopy": "Martin knows he can win here, having done so in 2024. Marquez needs to turn speed into a finish at a venue associated with injuries and mechanical trouble. That contrast gives this championship chapter its own emotional weight.",
+      "threadIds": [
+        "thread:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:0",
+        "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:1",
+        "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:2",
+        "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:3",
+        "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:4",
+        "fact:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:5"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:0",
+        "source:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:1",
+        "source:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:2",
+        "source:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:3",
+        "source:fixture-research:evt_motogp_2026_indonesia:revision-236c583c3d41cf3e116958fd5c7c860e1e37d19acaf6b39d201a8007a0bfc674:4"
+      ],
+      "dimensions": [
+        "form",
+        "matchup",
+        "history",
+        "path"
+      ],
+      "researchedAt": "2026-10-09T00:20:09.386Z",
+      "refreshAfter": "2026-10-11T07:00:00.000Z",
+      "generationMode": "researched",
+      "resultResearchRequired": false,
+      "phase": "preview",
+      "resultSignature": "[\"completed\",\"\",\"\",\"\"]",
+      "hookSpoilerOn": "Marquez brings winning momentum to the one Sunday finish Mandalika has never given him; Martin brings a two-point lead.",
+      "synopsisSpoilerOn": ""
     }
   },
   {
@@ -266748,8 +267006,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 18,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "Grand Prix at Phillip Island.",
-    "fullSpiel": "The official MotoGP timetable confirms grand prix for the premier class at Phillip Island.",
+    "selectedSentence": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
+    "fullSpiel": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round. Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -266808,22 +267066,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Grand Prix at Phillip Island.",
-      "hookSpoilerOn": "Grand Prix at Phillip Island.",
-      "synopsisSpoilerOff": "The official MotoGP timetable confirms grand prix for the premier class at Phillip Island.",
-      "synopsisSpoilerOn": "The official MotoGP timetable confirms grand prix for the premier class at Phillip Island.",
-      "lastReviewedAt": "2026-10-11T13:40:40.662Z"
+      "hookSpoilerOff": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
+      "hookSpoilerOn": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
+      "synopsisSpoilerOff": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round. Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
+      "synopsisSpoilerOn": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round. Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
+      "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+      "researchDepth": 5
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Grand Prix",
+      "angle": "2026 MotoGP season — current path",
       "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
       ],
-      "sourceName": "MotoGP official calendar and premier-class timetable",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/australia/66961f05-2454-4455-9d65-f99c49d25b17",
-      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-10-01T17:37:45.716Z",
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-11T19:55:42.473Z",
@@ -266835,7 +267096,37 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_australia"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:evt-motogp-2026-australia",
+      "researchTier": "marquee",
+      "hook": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
+      "synopsis": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round. Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
+      "threadIds": [
+        "thread:rolling:motogp:2026"
+      ],
+      "factIds": [
+        "fact:rolling:event-motogp-2026-australia:schedule",
+        "fact:rolling:event-motogp-2026-australia:field",
+        "fact:rolling:event-motogp-2026-australia:viewing",
+        "fact:rolling:event-motogp-2026-australia:consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:motogp:motogp-calendar",
+        "source:rolling:motogp:motogp-riders",
+        "source:rolling:motogp:motogp-broadcast-au"
+      ],
+      "dimensions": [
+        "schedule",
+        "format",
+        "consequence"
+      ],
+      "researchedAt": "2026-10-01T17:38:41.192Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "phase": "preview"
+    }
   },
   {
     "id": "evt_motogp_2026_australia_practice_1",
@@ -267755,8 +268046,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 19,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "Grand Prix at Petronas Sepang International Circuit.",
-    "fullSpiel": "The official MotoGP timetable confirms grand prix for the premier class at Petronas Sepang International Circuit.",
+    "selectedSentence": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
+    "fullSpiel": "Sepang keeps the MotoGP field in the heat as the available championship points shrink. Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -267815,22 +268106,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Grand Prix at Petronas Sepang International Circuit.",
-      "hookSpoilerOn": "Grand Prix at Petronas Sepang International Circuit.",
-      "synopsisSpoilerOff": "The official MotoGP timetable confirms grand prix for the premier class at Petronas Sepang International Circuit.",
-      "synopsisSpoilerOn": "The official MotoGP timetable confirms grand prix for the premier class at Petronas Sepang International Circuit.",
-      "lastReviewedAt": "2026-10-11T13:40:40.662Z"
+      "hookSpoilerOff": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
+      "hookSpoilerOn": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
+      "synopsisSpoilerOff": "Sepang keeps the MotoGP field in the heat as the available championship points shrink. Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
+      "synopsisSpoilerOn": "Sepang keeps the MotoGP field in the heat as the available championship points shrink. Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
+      "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+      "researchDepth": 5
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Grand Prix",
+      "angle": "2026 MotoGP season — current path",
       "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
       ],
-      "sourceName": "MotoGP official calendar and premier-class timetable",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/malaysia/d1aedfce-d7c8-4d4a-9532-99c82547baad",
-      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-10-01T17:37:45.716Z",
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-11T19:55:42.473Z",
@@ -267842,7 +268136,37 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_malaysia"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:evt-motogp-2026-malaysia",
+      "researchTier": "marquee",
+      "hook": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
+      "synopsis": "Sepang keeps the MotoGP field in the heat as the available championship points shrink. Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
+      "threadIds": [
+        "thread:rolling:motogp:2026"
+      ],
+      "factIds": [
+        "fact:rolling:event-motogp-2026-malaysia:schedule",
+        "fact:rolling:event-motogp-2026-malaysia:field",
+        "fact:rolling:event-motogp-2026-malaysia:viewing",
+        "fact:rolling:event-motogp-2026-malaysia:consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:motogp:motogp-calendar",
+        "source:rolling:motogp:motogp-riders",
+        "source:rolling:motogp:motogp-broadcast-au"
+      ],
+      "dimensions": [
+        "schedule",
+        "format",
+        "consequence"
+      ],
+      "researchedAt": "2026-10-01T17:38:41.192Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "phase": "preview"
+    }
   },
   {
     "id": "evt_motogp_2026_malaysia_practice_1",
@@ -268762,8 +269086,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 20,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "Grand Prix at Lusail International Circuit.",
-    "fullSpiel": "The official MotoGP timetable confirms grand prix for the premier class at Lusail International Circuit.",
+    "selectedSentence": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
+    "fullSpiel": "Lusail's night race carries MotoGP into the final three rounds of 2026. Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -268822,22 +269146,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Grand Prix at Lusail International Circuit.",
-      "hookSpoilerOn": "Grand Prix at Lusail International Circuit.",
-      "synopsisSpoilerOff": "The official MotoGP timetable confirms grand prix for the premier class at Lusail International Circuit.",
-      "synopsisSpoilerOn": "The official MotoGP timetable confirms grand prix for the premier class at Lusail International Circuit.",
-      "lastReviewedAt": "2026-10-11T13:40:40.662Z"
+      "hookSpoilerOff": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
+      "hookSpoilerOn": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
+      "synopsisSpoilerOff": "Lusail's night race carries MotoGP into the final three rounds of 2026. Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
+      "synopsisSpoilerOn": "Lusail's night race carries MotoGP into the final three rounds of 2026. Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
+      "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+      "researchDepth": 5
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Grand Prix",
+      "angle": "2026 MotoGP season — current path",
       "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
       ],
-      "sourceName": "MotoGP official calendar and premier-class timetable",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/qatar/3f3d3f5e-851c-42d2-887a-8ce8b41fa908",
-      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-10-01T17:37:45.716Z",
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-11T19:55:42.473Z",
@@ -268849,7 +269176,37 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_qatar"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:evt-motogp-2026-qatar",
+      "researchTier": "marquee",
+      "hook": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
+      "synopsis": "Lusail's night race carries MotoGP into the final three rounds of 2026. Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
+      "threadIds": [
+        "thread:rolling:motogp:2026"
+      ],
+      "factIds": [
+        "fact:rolling:event-motogp-2026-qatar:schedule",
+        "fact:rolling:event-motogp-2026-qatar:field",
+        "fact:rolling:event-motogp-2026-qatar:viewing",
+        "fact:rolling:event-motogp-2026-qatar:consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:motogp:motogp-calendar",
+        "source:rolling:motogp:motogp-riders",
+        "source:rolling:motogp:motogp-broadcast-au"
+      ],
+      "dimensions": [
+        "schedule",
+        "format",
+        "consequence"
+      ],
+      "researchedAt": "2026-10-01T17:38:41.192Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "phase": "preview"
+    }
   },
   {
     "id": "evt_motogp_2026_qatar_practice_1",
@@ -269769,8 +270126,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 21,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "Grand Prix at Autódromo Internacional do Algarve.",
-    "fullSpiel": "The official MotoGP timetable confirms grand prix for the premier class at Autódromo Internacional do Algarve.",
+    "selectedSentence": "Portimão's elevation changes host MotoGP's penultimate round.",
+    "fullSpiel": "Portimão's elevation changes host MotoGP's penultimate round. Only Valencia remains after Portugal, so every point has immediate championship consequence.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -269829,22 +270186,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Grand Prix at Autódromo Internacional do Algarve.",
-      "hookSpoilerOn": "Grand Prix at Autódromo Internacional do Algarve.",
-      "synopsisSpoilerOff": "The official MotoGP timetable confirms grand prix for the premier class at Autódromo Internacional do Algarve.",
-      "synopsisSpoilerOn": "The official MotoGP timetable confirms grand prix for the premier class at Autódromo Internacional do Algarve.",
-      "lastReviewedAt": "2026-10-11T13:40:40.662Z"
+      "hookSpoilerOff": "Portimão's elevation changes host MotoGP's penultimate round.",
+      "hookSpoilerOn": "Portimão's elevation changes host MotoGP's penultimate round.",
+      "synopsisSpoilerOff": "Portimão's elevation changes host MotoGP's penultimate round. Only Valencia remains after Portugal, so every point has immediate championship consequence.",
+      "synopsisSpoilerOn": "Portimão's elevation changes host MotoGP's penultimate round. Only Valencia remains after Portugal, so every point has immediate championship consequence.",
+      "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+      "researchDepth": 5
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Grand Prix",
+      "angle": "2026 MotoGP season — current path",
       "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
       ],
-      "sourceName": "MotoGP official calendar and premier-class timetable",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/portugal/c7f7626b-807f-4a6f-813e-7ad2c68302a3",
-      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-10-01T17:37:45.716Z",
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-11T19:55:42.473Z",
@@ -269856,7 +270216,37 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_portugal"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:evt-motogp-2026-portugal",
+      "researchTier": "marquee",
+      "hook": "Portimão's elevation changes host MotoGP's penultimate round.",
+      "synopsis": "Portimão's elevation changes host MotoGP's penultimate round. Only Valencia remains after Portugal, so every point has immediate championship consequence.",
+      "threadIds": [
+        "thread:rolling:motogp:2026"
+      ],
+      "factIds": [
+        "fact:rolling:event-motogp-2026-portugal:schedule",
+        "fact:rolling:event-motogp-2026-portugal:field",
+        "fact:rolling:event-motogp-2026-portugal:viewing",
+        "fact:rolling:event-motogp-2026-portugal:consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:motogp:motogp-calendar",
+        "source:rolling:motogp:motogp-riders",
+        "source:rolling:motogp:motogp-broadcast-au"
+      ],
+      "dimensions": [
+        "schedule",
+        "format",
+        "consequence"
+      ],
+      "researchedAt": "2026-10-01T17:38:41.192Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "phase": "preview"
+    }
   },
   {
     "id": "evt_motogp_2026_portugal_practice_1",
@@ -270776,8 +271166,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 22,
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "Grand Prix at Circuit Ricardo Tormo.",
-    "fullSpiel": "The official MotoGP timetable confirms grand prix for the premier class at Circuit Ricardo Tormo.",
+    "selectedSentence": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
+    "fullSpiel": "Valencia closes the 2026 MotoGP season and settles any championship still alive. The compact stadium circuit is the last chance for a rider to change the final standings.",
     "sourceName": "MotoGP official calendar and premier-class timetable",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
     "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
@@ -270836,22 +271226,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensitySource": "computed",
       "arcStage": "preview",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Grand Prix at Circuit Ricardo Tormo.",
-      "hookSpoilerOn": "Grand Prix at Circuit Ricardo Tormo.",
-      "synopsisSpoilerOff": "The official MotoGP timetable confirms grand prix for the premier class at Circuit Ricardo Tormo.",
-      "synopsisSpoilerOn": "The official MotoGP timetable confirms grand prix for the premier class at Circuit Ricardo Tormo.",
-      "lastReviewedAt": "2026-10-11T13:40:40.662Z"
+      "hookSpoilerOff": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
+      "hookSpoilerOn": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
+      "synopsisSpoilerOff": "Valencia closes the 2026 MotoGP season and settles any championship still alive. The compact stadium circuit is the last chance for a rider to change the final standings.",
+      "synopsisSpoilerOn": "Valencia closes the 2026 MotoGP season and settles any championship still alive. The compact stadium circuit is the last chance for a rider to change the final standings.",
+      "lastReviewedAt": "2026-10-11T13:40:40.662Z",
+      "researchDepth": 5
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Grand Prix",
+      "angle": "2026 MotoGP season — current path",
       "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
       ],
-      "sourceName": "MotoGP official calendar and premier-class timetable",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/valencia/6ad2859f-51c4-459e-9714-338814e7537f",
-      "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-10-01T17:37:45.716Z",
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-10-11T19:55:42.473Z",
@@ -270863,7 +271256,37 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "evt_motogp_2026_valencia"
     ],
-    "consensusTags": []
+    "consensusTags": [],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:evt-motogp-2026-valencia",
+      "researchTier": "marquee",
+      "hook": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
+      "synopsis": "Valencia closes the 2026 MotoGP season and settles any championship still alive. The compact stadium circuit is the last chance for a rider to change the final standings.",
+      "threadIds": [
+        "thread:rolling:motogp:2026"
+      ],
+      "factIds": [
+        "fact:rolling:event-motogp-2026-valencia:schedule",
+        "fact:rolling:event-motogp-2026-valencia:field",
+        "fact:rolling:event-motogp-2026-valencia:viewing",
+        "fact:rolling:event-motogp-2026-valencia:consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:motogp:motogp-calendar",
+        "source:rolling:motogp:motogp-riders",
+        "source:rolling:motogp:motogp-broadcast-au"
+      ],
+      "dimensions": [
+        "schedule",
+        "format",
+        "consequence"
+      ],
+      "researchedAt": "2026-10-01T17:38:41.192Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "phase": "preview"
+    }
   },
   {
     "id": "evt_motogp_2026_valencia_practice_1",
@@ -277888,7 +278311,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "provisional",
     "timeTbc": false,
     "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -277924,8 +278347,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185349",
-    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
-    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "statusCheckedAt": "2026-10-15T23:28:03+00:00",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185349",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -278041,7 +278464,43 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "startTimeTbc": false,
     "selectedSentence": "",
-    "fullSpiel": ""
+    "fullSpiel": "",
+    "score": "6–2, 5–7, 6–2",
+    "scoreDisplay": "6–2, 5–7, 6–2",
+    "result": "6–2, 5–7, 6–2",
+    "resultStatus": "published",
+    "outcomeText": "Elina Svitolina won. 6–2, 5–7, 6–2",
+    "recapText": "ESPN reports Elina Svitolina as the winner of this round of 32 match. 6–2, 5–7, 6–2",
+    "sets": [
+      {
+        "away": 2,
+        "home": 6
+      },
+      {
+        "away": 7,
+        "home": 5
+      },
+      {
+        "away": 2,
+        "home": 6
+      }
+    ],
+    "resultLabels": [
+      "Completed"
+    ],
+    "winnerParticipantId": "competitor:tennis:wta:elina-svitolina",
+    "loserParticipantId": "competitor:tennis:wta:liudmila-samsonova",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:liudmila-samsonova"
+    ],
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185349",
+    "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+    "scoreFactObservedAt": "2026-10-14T05:20:04+00:00",
+    "statusFactObservedAt": "2026-10-14T05:20:04+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T05:20:05.068667+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "fixture-tennis-espn-wta-185352",
@@ -278081,7 +278540,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "provisional",
     "timeTbc": false,
     "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -278116,8 +278575,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185352",
-    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
-    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "statusCheckedAt": "2026-10-15T23:28:03+00:00",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185352",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -278233,7 +278692,39 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "startTimeTbc": false,
     "selectedSentence": "",
-    "fullSpiel": ""
+    "fullSpiel": "",
+    "score": "6–0, 7–5",
+    "scoreDisplay": "6–0, 7–5",
+    "result": "6–0, 7–5",
+    "resultStatus": "published",
+    "outcomeText": "Sonay Kartal won. 6–0, 7–5",
+    "recapText": "ESPN reports Sonay Kartal as the winner of this round of 32 match. 6–0, 7–5",
+    "sets": [
+      {
+        "away": 0,
+        "home": 6
+      },
+      {
+        "away": 5,
+        "home": 7
+      }
+    ],
+    "resultLabels": [
+      "Completed"
+    ],
+    "winnerParticipantId": "competitor:tennis:wta:sonay-kartal",
+    "loserParticipantId": "competitor:tennis:wta:belinda-bencic",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:belinda-bencic"
+    ],
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185352",
+    "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+    "scoreFactObservedAt": "2026-10-14T04:46:04+00:00",
+    "statusFactObservedAt": "2026-10-14T04:46:04+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T04:46:04.862356+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "fixture-tennis-espn-wta-185355",
@@ -278273,7 +278764,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "provisional",
     "timeTbc": false,
     "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -278309,8 +278800,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185355",
-    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
-    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "statusCheckedAt": "2026-10-15T23:28:03+00:00",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185355",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -278426,7 +278917,39 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "startTimeTbc": false,
     "selectedSentence": "",
-    "fullSpiel": ""
+    "fullSpiel": "",
+    "score": "2–6, 1–6",
+    "scoreDisplay": "2–6, 1–6",
+    "result": "2–6, 1–6",
+    "resultStatus": "published",
+    "outcomeText": "Iga Swiatek won. 2–6, 1–6",
+    "recapText": "ESPN reports Iga Swiatek as the winner of this round of 32 match. 2–6, 1–6",
+    "sets": [
+      {
+        "away": 6,
+        "home": 2
+      },
+      {
+        "away": 6,
+        "home": 1
+      }
+    ],
+    "resultLabels": [
+      "Completed"
+    ],
+    "winnerParticipantId": "competitor:tennis:wta:iga-swiatek",
+    "loserParticipantId": "competitor:tennis:wta:magdalena-frech",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:magdalena-frech"
+    ],
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185355",
+    "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+    "scoreFactObservedAt": "2026-10-14T04:56:06+00:00",
+    "statusFactObservedAt": "2026-10-14T04:56:06+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T04:56:06.682146+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "fixture-tennis-espn-wta-185358",
@@ -278466,7 +278989,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "provisional",
     "timeTbc": false,
     "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -278502,8 +279025,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
-    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
-    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "statusCheckedAt": "2026-10-15T23:28:03+00:00",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -278619,7 +279142,43 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "startTimeTbc": false,
     "selectedSentence": "",
-    "fullSpiel": ""
+    "fullSpiel": "",
+    "score": "6–1, 1–6, 1–6",
+    "scoreDisplay": "6–1, 1–6, 1–6",
+    "result": "6–1, 1–6, 1–6",
+    "resultStatus": "published",
+    "outcomeText": "Maja Chwalinska won. 6–1, 1–6, 1–6",
+    "recapText": "ESPN reports Maja Chwalinska as the winner of this round of 32 match. 6–1, 1–6, 1–6",
+    "sets": [
+      {
+        "away": 1,
+        "home": 6
+      },
+      {
+        "away": 6,
+        "home": 1
+      },
+      {
+        "away": 6,
+        "home": 1
+      }
+    ],
+    "resultLabels": [
+      "Completed"
+    ],
+    "winnerParticipantId": "competitor:tennis:wta:maja-chwalinska",
+    "loserParticipantId": "competitor:tennis:wta:marie-bouzkova",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:marie-bouzkova"
+    ],
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
+    "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+    "scoreFactObservedAt": "2026-10-14T05:08:03+00:00",
+    "statusFactObservedAt": "2026-10-14T05:08:03+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T05:08:03.868261+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "fixture-tennis-espn-wta-185345",
@@ -279554,7 +280113,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "provisional",
     "timeTbc": false,
     "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -279589,8 +280148,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185347",
-    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
-    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "statusCheckedAt": "2026-10-15T23:28:03+00:00",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185347",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -279706,7 +280265,39 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "startTimeTbc": false,
     "selectedSentence": "",
-    "fullSpiel": ""
+    "fullSpiel": "",
+    "score": "3–6, 4–6",
+    "scoreDisplay": "3–6, 4–6",
+    "result": "3–6, 4–6",
+    "resultStatus": "published",
+    "outcomeText": "Leylah Fernandez won. 3–6, 4–6",
+    "recapText": "ESPN reports Leylah Fernandez as the winner of this round of 32 match. 3–6, 4–6",
+    "sets": [
+      {
+        "away": 6,
+        "home": 3
+      },
+      {
+        "away": 6,
+        "home": 4
+      }
+    ],
+    "resultLabels": [
+      "Completed"
+    ],
+    "winnerParticipantId": "competitor:tennis:wta:leylah-fernandez",
+    "loserParticipantId": "competitor:tennis:wta:shi-han",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:shi-han"
+    ],
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185347",
+    "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+    "scoreFactObservedAt": "2026-10-14T15:50:05+00:00",
+    "statusFactObservedAt": "2026-10-14T15:50:05+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T15:50:05.905764+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "evt_horse_racing_melbourne_cup_2026",
@@ -283613,7 +284204,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "provisional",
     "timeTbc": false,
     "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -283647,8 +284238,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185354",
-    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
-    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "statusCheckedAt": "2026-10-15T23:28:03+00:00",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185354",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -283764,7 +284355,43 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "score": "2–6, 6–1, 6–1",
+    "scoreDisplay": "2–6, 6–1, 6–1",
+    "result": "2–6, 6–1, 6–1",
+    "resultStatus": "published",
+    "outcomeText": "Ashlyn Krueger won. 2–6, 6–1, 6–1",
+    "recapText": "ESPN reports Ashlyn Krueger as the winner of this round of 32 match. 2–6, 6–1, 6–1",
+    "sets": [
+      {
+        "away": 6,
+        "home": 2
+      },
+      {
+        "away": 1,
+        "home": 6
+      },
+      {
+        "away": 1,
+        "home": 6
+      }
+    ],
+    "resultLabels": [
+      "Completed"
+    ],
+    "winnerParticipantId": "competitor:tennis:wta:ashlyn-krueger",
+    "loserParticipantId": "competitor:tennis:wta:lanlana-tararudee",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:lanlana-tararudee"
+    ],
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185354",
+    "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+    "scoreFactObservedAt": "2026-10-14T12:52:04+00:00",
+    "statusFactObservedAt": "2026-10-14T12:52:04+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T12:52:04.795695+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "fixture-tennis-espn-wta-185357",
@@ -283804,7 +284431,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "provisional",
     "timeTbc": false,
     "scheduleNote": "Approximate start published by ESPN; may change. Official start not yet confirmed.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -283840,8 +284467,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceName": "ESPN",
     "sourceType": "reputable",
     "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185357",
-    "sourceCheckedAt": "2026-10-13T21:00:17.000Z",
-    "statusCheckedAt": "2026-10-13T21:00:17.000Z",
+    "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "statusCheckedAt": "2026-10-15T23:28:03+00:00",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185357",
     "statusSourceName": "ESPN",
     "sourceRefs": [
@@ -283957,7 +284584,45 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         ],
         "method": "published-schedule.v1"
       }
-    ]
+    ],
+    "score": "6–3, 4–6, 6–7",
+    "scoreDisplay": "6–3, 4–6, 6–7",
+    "result": "6–3, 4–6, 6–7",
+    "resultStatus": "published",
+    "outcomeText": "Ann Li won. 6–3, 4–6, 6–7",
+    "recapText": "ESPN reports Ann Li as the winner of this round of 32 match. 6–3, 4–6, 6–7",
+    "sets": [
+      {
+        "away": 3,
+        "home": 6
+      },
+      {
+        "away": 6,
+        "home": 4
+      },
+      {
+        "away": 7,
+        "home": 6,
+        "awayTiebreak": 7,
+        "homeTiebreak": 5
+      }
+    ],
+    "resultLabels": [
+      "Completed"
+    ],
+    "winnerParticipantId": "competitor:tennis:wta:ann-li",
+    "loserParticipantId": "competitor:tennis:wta:aryna-sabalenka",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:wta:aryna-sabalenka"
+    ],
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185357",
+    "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+    "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+    "scoreFactObservedAt": "2026-10-14T13:54:02+00:00",
+    "statusFactObservedAt": "2026-10-14T13:54:02+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T13:54:03.520301+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "fixture-tennis-espn-wta-185365",
@@ -288611,7 +289276,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "confirmed",
     "timeTbc": false,
     "scheduleNote": "14 October Stadium Court row 1: Botic van de Zandschulp v Rafael Jodar; Starts At 12:00",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -288644,16 +289309,17 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayParticipantId": "competitor:tennis:atp:rafael-jodar",
     "venue": "Stadium Court",
     "venueCity": "Shanghai",
-    "sourceName": "ATP Shanghai official order of play",
-    "sourceType": "official",
-    "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
-    "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184953",
+    "sourceCheckedAt": "2026-10-15T11:32:02.000Z",
+    "statusCheckedAt": "2026-10-15T23:12:01+00:00",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184953",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184953",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013",
+      "https://www.protennislive.com/posting/2026/5014/op.pdf"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -288751,7 +289417,45 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "clockAssociation": "Clock band directly attaches to this named row; no neighbouring row receives its clock."
     },
     "selectedSentence": "",
-    "fullSpiel": ""
+    "fullSpiel": "",
+    "score": "7–6, 4–6, 2–6",
+    "scoreDisplay": "7–6, 4–6, 2–6",
+    "result": "7–6, 4–6, 2–6",
+    "resultStatus": "published",
+    "outcomeText": "Rafael Jodar won. 7–6, 4–6, 2–6",
+    "recapText": "ESPN reports Rafael Jodar as the winner of this round of 16 match. 7–6, 4–6, 2–6",
+    "sets": [
+      {
+        "away": 6,
+        "home": 7,
+        "awayTiebreak": 4,
+        "homeTiebreak": 7
+      },
+      {
+        "away": 6,
+        "home": 4
+      },
+      {
+        "away": 6,
+        "home": 2
+      }
+    ],
+    "resultLabels": [
+      "Completed"
+    ],
+    "winnerParticipantId": "competitor:tennis:atp:rafael-jodar",
+    "loserParticipantId": "competitor:tennis:atp:botic-van-de-zandschulp",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:botic-van-de-zandschulp"
+    ],
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184953",
+    "resultSourceCheckedAt": "2026-10-15T11:32:02.000Z",
+    "scoreCheckedAt": "2026-10-15T23:12:01+00:00",
+    "scoreFactObservedAt": "2026-10-14T06:46:01+00:00",
+    "statusFactObservedAt": "2026-10-14T06:46:01+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T06:46:01.733241+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "fixture-tennis-espn-atp-184948",
@@ -288791,7 +289495,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "provisional",
     "timeTbc": false,
     "scheduleNote": "Approximate start from official court order; assumes 90-minute singles matches with a 30-minute allowance and 10-minute changeovers. Manual reminders use 15 minutes before the earliest time. Adjusts with verified preceding-match progress.",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -288824,16 +289528,17 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
     "venue": "Stadium Court",
     "venueCity": "Shanghai",
-    "sourceName": "ATP Shanghai official order of play",
-    "sourceType": "official",
-    "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
-    "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
-    "statusCheckedAt": "2026-10-13T10:19:23.000Z",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
+    "sourceCheckedAt": "2026-10-15T11:32:02.000Z",
+    "statusCheckedAt": "2026-10-15T23:12:01+00:00",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184948",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261013",
+      "https://www.protennislive.com/posting/2026/5014/op.pdf"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -288974,7 +289679,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "estimatedEarliestStartTimeUtc": "2026-10-14T05:10:00.000Z",
     "estimatedLatestStartTimeUtc": "2026-10-14T06:10:00.000Z",
     "selectedSentence": "",
-    "fullSpiel": ""
+    "fullSpiel": "",
+    "score": "5–2",
+    "scoreDisplay": "5–2",
+    "result": "5–2",
+    "resultStatus": "published",
+    "outcomeText": "Casper Ruud won. 5–2",
+    "recapText": "ESPN reports Casper Ruud as the winner of this round of 16 match. 5–2",
+    "sets": [
+      {
+        "away": 2,
+        "home": 5
+      }
+    ],
+    "resultLabels": [
+      "Retirement"
+    ],
+    "winnerParticipantId": "competitor:tennis:atp:casper-ruud",
+    "loserParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:felix-auger-aliassime"
+    ],
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
+    "resultSourceCheckedAt": "2026-10-15T11:32:02.000Z",
+    "scoreCheckedAt": "2026-10-15T23:12:01+00:00",
+    "scoreFactObservedAt": "2026-10-14T07:38:12+00:00",
+    "statusFactObservedAt": "2026-10-14T07:42:03+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T07:42:04.44723+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "fixture-tennis-espn-atp-184949",
@@ -289014,7 +289747,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "confirmed",
     "timeTbc": false,
     "scheduleNote": "14 October Stadium Court row 4: Daniil Medvedev v Stefanos Tsitsipas; Not Before 18:00",
-    "status": "scheduled",
+    "status": "completed",
     "cardKind": "fixture",
     "kind": "fixture",
     "contestUnit": "match",
@@ -289047,16 +289780,17 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
     "venue": "Stadium Court",
     "venueCity": "Shanghai",
-    "sourceName": "ATP Shanghai official order of play",
-    "sourceType": "official",
-    "sourceUrl": "https://www.protennislive.com/posting/2026/5014/op.pdf",
-    "sourceCheckedAt": "2026-10-13T13:29:55.629283+00:00",
-    "statusCheckedAt": "2026-10-14T01:09:46.000Z",
+    "sourceName": "ESPN",
+    "sourceType": "reputable",
+    "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
+    "sourceCheckedAt": "2026-10-15T11:32:02.000Z",
+    "statusCheckedAt": "2026-10-15T23:12:01+00:00",
     "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=184949",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261014"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20261014",
+      "https://www.protennislive.com/posting/2026/5014/op.pdf"
     ],
     "broadcaster": "beIN SPORTS",
     "viewingOptions": [
@@ -289166,7 +289900,39 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "clockAssociation": "Clock band directly attaches to this named row; no neighbouring row receives its clock."
     },
     "selectedSentence": "",
-    "fullSpiel": ""
+    "fullSpiel": "",
+    "score": "6–4, 7–5",
+    "scoreDisplay": "6–4, 7–5",
+    "result": "6–4, 7–5",
+    "resultStatus": "published",
+    "outcomeText": "Daniil Medvedev won. 6–4, 7–5",
+    "recapText": "ESPN reports Daniil Medvedev as the winner of this round of 16 match. 6–4, 7–5",
+    "sets": [
+      {
+        "away": 4,
+        "home": 6
+      },
+      {
+        "away": 5,
+        "home": 7
+      }
+    ],
+    "resultLabels": [
+      "Completed"
+    ],
+    "winnerParticipantId": "competitor:tennis:atp:daniil-medvedev",
+    "loserParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
+    "eliminatedParticipantIds": [
+      "competitor:tennis:atp:stefanos-tsitsipas"
+    ],
+    "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
+    "resultSourceCheckedAt": "2026-10-15T11:32:02.000Z",
+    "scoreCheckedAt": "2026-10-15T23:12:01+00:00",
+    "scoreFactObservedAt": "2026-10-14T11:38:05+00:00",
+    "statusFactObservedAt": "2026-10-14T11:38:05+00:00",
+    "firstConfirmedCompleteAt": "2026-10-14T11:38:06.229909+00:00",
+    "fixtureObservationSchema": "fixture-observations.v1",
+    "endTimeUtc": null
   },
   {
     "id": "fixture-tennis-espn-atp-184958",

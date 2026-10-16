@@ -229,6 +229,11 @@ jobs:
           node scripts/validate-card-lifecycle.js
           node scripts/validate-nothingscore-submissions.js
           node scripts/validate-live-rating-alerts.js
+          node scripts/validate-impact-feedback.js
+          node scripts/validate-impact-dispatch.js
+          node scripts/validate-impact-inbox.js
+          node scripts/validate-accepted-result-projection.js
+          node scripts/validate-accepted-result-continuity.js
           node scripts/validate-backend-efficiency.js
           node scripts/validate-notifications.js
           node scripts/validate-milestone-alerts.js

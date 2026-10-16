@@ -392,7 +392,9 @@
     // Structural schedule facts can be classified without inventing narrative.
     const round=String(event.round||event.roundLabel||event.stage||'').toLowerCase();
     const label=/^(?:grand |grand-)?final$/.test(round)?'Final':/quarter.?final|semi.?final|knockout|round of (?:16|32)/.test(round)?'Knockout':/round.?robin|group stage/.test(round)?'Round-Robin':null;
-    if(label&&urls.length)tags.push({label,confidence:.9,sourceUrls:[...new Set(urls)],method:'published-schedule.v1'});
+    // A later result source does not replace the original evidence for an
+    // unchanged schedule category. Expired/invalid tags were removed above.
+    if(label&&urls.length&&!tags.some(tag=>tag.label===label&&tag.method==='published-schedule.v1'))tags.push({label,confidence:.9,sourceUrls:[...new Set(urls)],method:'published-schedule.v1'});
     return [...new Map(tags.map(tag=>[tag.label,tag])).values()];
   }
   function retainedInActiveTimeline(event, now = new Date(), days = 7){

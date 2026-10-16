@@ -1,5 +1,21 @@
 # Update Sportscal cards
 
+## Bounded declared-projection repair - 16 October 2026
+
+If a release gate finds an already declared editorial projection missing from
+its existing Feed fixture, use the canonical owner rather than a general refresh:
+
+`node scripts/update-cards.js -p --local-only --reviewed-fixtures --editorial-projections --ids=EXACT_EXISTING_ID`
+
+This reapplies only existing reviewed source copy to the exact incoming/published
+fixture, preserving locks, protected originals, sporting facts, source clocks and
+later genuine editorial reviews. It uses the ordinary affected projection builders
+without new research, a rolling generator, provider reads or preference access.
+Unknown, ambiguous, protected or missing-source targets fail before any Feed write.
+Unchanged repairs are byte-idempotent and do not churn publication. Re-run intact
+source, spoiler, build and release gates; this option grants no private publication
+receipt or permission to bypass a failed gate.
+
 ## EPIC archive and post-match handoff — 14 October 2026
 
 Every card update preserves available Anticipation (heat), Ongoing (pulse) and Impact writing for genuine historical user fives or explicit NS fives. User-owned genuine fives latch personal classics; ordinary cards retire after seven Sydney calendar days while shared source facts, ratings, points and editorial backlog remain. See [the approved contract](plans/epic-fixture-archives-2026-10-14.md) and [adaptive owner extension](adaptive-editorial.md).
@@ -64,3 +80,7 @@ Concurrent commits to main are a recoverable integration condition, not a reason
 If the bounded recovery cannot finish, preserve the local work and staged private copy, report the exact conflict/failing stage and next action, and do not claim deployment. A genuine shared safety/release failure still stops release; a card-local failure defers only that card and its direct dependants.
 
 This rule adds no scheduler, provider request, automatic force-push or gate bypass. Apply it to canonical card releases and the existing adaptive/weekend editorial task.
+
+### Canonical readiness maintenance
+
+`node scripts/update-cards.js --canonical-readiness --local-only` runs the existing combined AFL/NRL fixture and standings loader once, rebuilds its generated runtime, and checks canonical/pilot readiness. It rejects mixed/offline routes; retained data cannot masquerade as a fresh source observation. This introduces no separate scheduler or ladders-only refresh. Broadcaster review also rebuilds/checks its dependent local discovery dashboard from the same retained source observations, without provider requests.
