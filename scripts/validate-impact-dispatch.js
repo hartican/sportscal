@@ -29,14 +29,35 @@ async function trial({failure=null,admit=true,remaining=27000}={}){
  const result=await impact.dispatch({now,request,budget:{remaining:()=>remaining},load:async ids=>{loads++;assert.deepEqual(ids,[fixture.id]);return [fixture];},send:async(_subscription,text)=>{active++;maxActive=Math.max(maxActive,active);try{sends++;const data=JSON.parse(text);assert.equal(data.url,'/?impactRequest='+encodeURIComponent(fixture.id));assert(!/24.22|winner|triggering|voter/i.test(data.body));await new Promise(resolve=>setTimeout(resolve,2));if(failure)throw failure;}finally{active--;}}});
  return {result,calls,finishes,loads,sends,maxActive};
 }
+async function reserveTrial(limitMs,inventoryMs=0){
+ let elapsed=0,begun=0,providerCalls=0,finished=0;const requestTimeouts=[];
+ const request=async(path,options={})=>{
+  requestTimeouts.push(options.timeoutMs);const name=path.split('/').at(-1);
+  const spend=ms=>{assert(ms<=options.timeoutMs,'A simulated fulfilled read stays inside its actual bounded request');elapsed+=ms;};
+  if(name==='nothingsports_impact_inventory'){spend(inventoryMs);return inventory;}
+  if(name==='nothingsports_impact_reconcile')return null;
+  if(name==='nothingsports_impact_claim'){spend(3000);return [{batch_id:'batch',installation_id:'phone',user_id:user,claim_token:'token'}];}
+  if(name==='nothingsports_impact_begin'){spend(2999);begun++;return {kind:'immediate',day:'2026-10-16',items:[{eventId:fixture.id,title:fixture.name}]};}
+  if(name==='nothingsports_begin_notification_send'){spend(2999);return {leaseId:'lease',subscription:{endpoint:'https://push.test'}};}
+  if(path.includes('nothingsports_notification_send_leases')){spend(2999);return null;}
+  if(name==='nothingsports_impact_finish'){spend(2999);finished++;return null;}
+  throw Error('Unexpected reserve request '+path);
+ };
+ const budget=require('../lib/reminder-dispatch-budget').budget({request,clock:()=>elapsed,limitMs});
+ const result=await impact.dispatch({now,request:budget.request,budget,load:async()=>[fixture],send:budget.send(async(_subscription,_payload,options)=>{assert.equal(options.timeout,3000);elapsed+=2999;providerCalls++;})});
+ assert(requestTimeouts.every(ms=>ms<=3000),'The original three-second request cap stays in effect');
+ return {result,begun,providerCalls,finished,elapsed,remaining:budget.remaining()};
+}
 (async()=>{
  const okay=await trial();assert.equal(okay.sends,2);assert.equal(okay.loads,1);assert(okay.maxActive<=2);assert(okay.finishes.every(r=>r.outcome==='sent'));
  for(const [failure,status]of [[{statusCode:503},'pending'],[{statusCode:429},'pending'],[new Error('ambiguous outcome'),'uncertain'],[{statusCode:410},'failed']]){const test=await trial({failure});assert(test.finishes.every(f=>f.outcome===status));if(failure.statusCode===410)assert.equal(test.calls.filter(c=>c.method==='DELETE').length,2);}
  assert.equal((await trial({admit:false})).sends,0,'Empty/retracted request never contacts a provider');
  const deferred=await trial({remaining:7999});assert.equal(deferred.calls.length,0);assert.equal(deferred.loads,0);assert.equal(deferred.result.deferred,'dispatch_deadline');
+ const short=await reserveTrial(12000,2999);assert.equal(short.result.deferred,'dispatch_deadline','Insufficient time defers before a provider-start receipt can be created');assert.equal(short.begun,0);assert.equal(short.providerCalls,0);
+ const reserved=await reserveTrial(18250);assert.equal(reserved.begun,1);assert.equal(reserved.providerCalls,1);assert.equal(reserved.finished,1);assert.equal(reserved.result.sent,1);assert(reserved.remaining>=250,'A claim plus all five bounded send steps retain final-recording headroom');
  let reads=0;assert.deepEqual(await impact.loadFixtures([fixture.id],{now,loadCatalogue:async()=>({resolve:()=>fixture}),api:{refreshEventSnapshots:async()=>reads++,eventFor:()=>null}}),[fixture]);assert.equal(reads,0,'Reuse existing shared completion rather than another fixture read');
  const digest=impact.payload({kind:'digest',day:'2026-10-16',items:[{title:'A'},{title:'B'}]},'group');assert.equal(digest.url,'/?impactInbox=2026-10-16');assert(!digest.body.includes(user));
  const multiple=Array.from({length:100},(_,i)=>({...fixture,id:fixture.id+'-'+i,eventId:fixture.id+'-'+i,canonicalEventId:fixture.id+'-'+i}));
  const before=performance.now();const full=impact.packets({accounts:Array.from({length:20},(_,i)=>({...account,userId:user.slice(0,-2)+String(i).padStart(2,'0')})),fixtures:multiple.map(e=>({eventId:e.id}))},multiple,now);const elapsed=performance.now()-before;assert.equal(full.packets.length,20);assert(elapsed<3000,'20accounts/100fixtures remain bounded within one database-read budget');
- console.log(JSON.stringify({passed:true,sharedAdmission:true,uncheckedRetention:true,providerOutcomes:true,twoWorkers:true,noExtraCatalogueReads:true,capacity:{accounts:20,fixtures:100,preparationMs:elapsed},realPush:false}));
+ console.log(JSON.stringify({passed:true,sharedAdmission:true,uncheckedRetention:true,providerOutcomes:true,twoWorkers:true,noExtraCatalogueReads:true,budget:{shortDefersBeforeStart:short.begun===0&&short.providerCalls===0,completeReservedSend:reserved.result.sent===1&&reserved.finished===1,finalHeadroomMs:reserved.remaining,requestLimitMs:3000,ownerLimitMs:27000},capacity:{accounts:20,fixtures:100,preparationMs:elapsed},realPush:false}));
 })().catch(e=>{console.error(e);process.exitCode=1;});
