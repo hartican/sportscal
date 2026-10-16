@@ -31,6 +31,20 @@ async function run(){
    let requests=0,measured=0,receipt;const transport=async(url,options)=>{requests++;assert(options.signal);assert(url.startsWith('https://nothingsport.vercel.app/api/match-centre?'));const selected=url.includes('?ids=');assert.equal(selected,requests===2);measured+=2551;return {status:200,headers:new Map([['Server-Timing',(selected?allTimings.split(', ').filter(field=>!/^(prepare|snapshot|merge);/.test(field)).join(', '):allTimings)+', secret;desc="'+secret+'"']]),json:async()=>({enabled:true,membershipStale:false,events:[],fixtures:empty?[]:[{id:fixture.id,sport:'nrl',homeParticipantId:fixture.homeParticipantId,awayParticipantId:fixture.awayParticipantId}]})};};
    await verify({fetchImpl:transport,timer:()=>measured,log:value=>{receipt=JSON.parse(value);}});assert.equal(requests,empty?1:2,'The normal release uses exactly its existing membership/selected request budget');assert.equal(receipt.reads.length,requests);assert(receipt.reads.every(read=>read.elapsedMs===2551&&(read.kind==='membership'?read.serverMs.snapshot===2500:!Object.hasOwn(read.serverMs,'snapshot'))));assert.equal(receipt.emptyQuietWindowAccepted,empty);assert.equal(receipt.displayed,empty?0:1);assert(!JSON.stringify(receipt).includes(secret)&&!JSON.stringify(receipt).includes(fixture.id),'Only constant phase names and numbers enter the release receipt');
   }
+  // Reproduce the real production path: snapshot failure returns HTTP200,
+  // membershipStale and no merge phase. The verifier must diagnose health first.
+  for(const retained of [false,true]){
+   const failed=createMatchCentreHandler({enabled:()=>true,clock:()=>now,timer:()=>elapsed,published:()=>[],snapshotRead:async()=>{elapsed+=3000;if(!retained)throw Error(secret);return {readAt:now-60000,stale:true,sources:[]};},request:async()=>{throw Error('Unexpected selected read');}});
+   elapsed=0;const degradedResponse=response();await failed({url:'/api/match-centre?membership=everything&limit=60'},degradedResponse);
+   assert.equal(degradedResponse.body.membershipStale,true);assert.equal(degradedResponse.headers['Cache-Control'],'no-store');
+   assert.equal(/merge;/.test(degradedResponse.headers['Server-Timing']),retained,'A thrown snapshot skips merge; a retained stale snapshot records it');
+   let requests=0,receipts=0;
+   await assert.rejects(verify({fetchImpl:async()=>{requests++;return {status:degradedResponse.code,headers:new Map(Object.entries(degradedResponse.headers)),json:async()=>degradedResponse.body};},timer:()=>0,log:()=>{receipts++;}}),error=>{
+    assert.match(error.message,/Shared fixture snapshot is degraded/,'The actual stale membership must be reported before a missing merge timing');
+    assert.match(error.message,/snapshot=3000ms/);assert(!error.message.includes(secret));assert(!error.message.includes('merge origin timing'));return true;
+   });
+   assert.equal(requests,1,'A degraded snapshot fails once without retry, warming or selected traffic');assert.equal(receipts,0,'A degraded snapshot cannot emit healthy release proof');
+  }
   let invalidReads=0;await assert.rejects(verify({fetchImpl:async()=>{invalidReads++;return {status:200,headers:new Map(),json:async()=>({enabled:true,membershipStale:false,events:[],fixtures:[]})};},timer:()=>0,log:()=>{}}),/origin timing/);assert.equal(invalidReads,1,'Missing origin evidence fails once without a retry');
   for(const missing of ['prepare','snapshot','merge']){
    let calls=0;const header=allTimings.split(', ').filter(field=>!field.startsWith(missing+';')).join(', ');

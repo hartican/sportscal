@@ -9,6 +9,9 @@ async function main({fetchImpl=globalThis.fetch,timer=()=>performance.now(),log=
  const reads=[],phases=['catalogue','prepare','snapshot','merge','selection','scores','projection','total'];
  const read=async(query,kind)=>{const started=timer(),response=await fetchImpl(origin+'/api/match-centre?'+query+'&releaseSmoke='+sha,{signal:AbortSignal.timeout(15000)});assert.equal(response.status,200,'Public Match Centre response');const body=await response.json(),elapsedMs=Math.max(0,timer()-started),serverMs={};
   for(const field of (response.headers.get('Server-Timing')||'').split(',')){const value=/^\s*([a-z]+);dur=(\d+(?:\.\d+)?)\s*$/.exec(field);if(value&&phases.includes(value[1])&&Number.isFinite(Number(value[2])))serverMs[value[1]]=Number(value[2]);}
+  // A failed snapshot never reaches merge. Report the actual degraded
+  // membership before checking healthy-path timing completeness.
+  if(kind==='membership'&&body.membershipStale===true)throw Error('Shared fixture snapshot is degraded; current Match Centre membership is not release proof'+(Object.hasOwn(serverMs,'snapshot')?' (snapshot='+serverMs.snapshot+'ms)':''));
   for(const name of ['catalogue','selection','scores','projection','total',...(kind==='membership'?['prepare','snapshot','merge']:[])])assert(Object.hasOwn(serverMs,name),'Measured public response must retain the '+name+' origin timing');
   reads.push({kind,elapsedMs:Number(elapsedMs.toFixed(2)),serverMs});return body;};
  const listing=await read('membership=everything&limit=60','membership');
