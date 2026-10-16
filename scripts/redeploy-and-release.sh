@@ -41,6 +41,7 @@ CARD_OUTPUT_FILES=(
   "data/event-overviews.v1.json"
   "data/tennis-feed-parents.v1.json"
   "data/tennis-journeys.v1.json"
+  "data/football"
   "data/follow-schedule"
   "data/tournament-horizon.v1.json"
   "data/major-events.v1.json"

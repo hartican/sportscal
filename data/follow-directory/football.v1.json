@@ -2680,6 +2680,42 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:football:adelaide-united",
+      "displayName": "Adelaide United",
+      "shortName": "Adelaide Utd",
+      "aliases": [
+        "Adelaide United",
+        "Adelaide Utd"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:adelaide-united",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "competitor:football:espn:229645",
       "displayName": "Ademola Lookman",
       "shortName": null,
@@ -7736,6 +7772,42 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:football:club:auckland-fc",
+      "displayName": "Auckland FC",
+      "shortName": "Auckland",
+      "aliases": [
+        "Auckland FC",
+        "Auckland"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:auckland-fc",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "competitor:football:espn:344518",
       "displayName": "Augustin Delbecque",
       "shortName": null,
@@ -9684,6 +9756,42 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:football:brisbane-roar",
+      "displayName": "Brisbane Roar",
+      "shortName": "Brisbane",
+      "aliases": [
+        "Brisbane Roar",
+        "Brisbane"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:brisbane-roar",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "competitor:football:espn:124091",
       "displayName": "Bruno Fernandes",
       "shortName": null,
@@ -10806,6 +10914,42 @@
         "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
         "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
         "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:football:club:central-coast-mariners",
+      "displayName": "Central Coast Mariners",
+      "shortName": "CC Mariners",
+      "aliases": [
+        "Central Coast Mariners",
+        "CC Mariners"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:central-coast-mariners",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -32432,6 +32576,42 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:football:club:macarthur-fc",
+      "displayName": "Macarthur FC",
+      "shortName": "Macarthur",
+      "aliases": [
+        "Macarthur FC",
+        "Macarthur"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:macarthur-fc",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "competitor:football:espn:290401",
       "displayName": "Mads Bidstrup",
       "shortName": null,
@@ -36084,6 +36264,78 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:football:club:melbourne-city-fc",
+      "displayName": "Melbourne City FC",
+      "shortName": "Melbourne City",
+      "aliases": [
+        "Melbourne City FC",
+        "Melbourne City"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:melbourne-city-fc",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:football:melbourne-victory",
+      "displayName": "Melbourne Victory",
+      "shortName": "Melbourne V",
+      "aliases": [
+        "Melbourne Victory",
+        "Melbourne V"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:melbourne-victory",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "competitor:football:espn:265923",
       "displayName": "Melvin Bard",
       "shortName": null,
@@ -38321,6 +38573,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "source:football:roster:3997"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:football:club:newcastle-jets",
+      "displayName": "Newcastle Jets",
+      "shortName": "Newcastle Jets",
+      "aliases": [
+        "Newcastle Jets"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:newcastle-jets",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -42146,6 +42433,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "source:football:roster:88"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:football:perth-glory",
+      "displayName": "Perth Glory",
+      "shortName": "Perth Glory",
+      "aliases": [
+        "Perth Glory"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:perth-glory",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -48124,6 +48446,41 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:football:sydney-fc",
+      "displayName": "Sydney FC",
+      "shortName": "Sydney FC",
+      "aliases": [
+        "Sydney FC"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:sydney-fc",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "competitor:football:espn:284769",
       "displayName": "Tajon Buchanan",
       "shortName": null,
@@ -50945,6 +51302,42 @@
       "currentTeamRank": 9
     },
     {
+      "id": "team:football:club:wellington-phoenix-fc",
+      "displayName": "Wellington Phoenix FC",
+      "shortName": "Wellington",
+      "aliases": [
+        "Wellington Phoenix FC",
+        "Wellington"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:club:wellington-phoenix-fc",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "team:football:club:werder-bremen",
       "displayName": "Werder Bremen",
       "shortName": "Bremen",
@@ -51013,6 +51406,42 @@
       "sourceCheckedAt": null,
       "sourceReviewAfter": null,
       "currentTeamRank": 6
+    },
+    {
+      "id": "team:football:western-sydney-wanderers",
+      "displayName": "Western Sydney Wanderers",
+      "shortName": "Western Sydney",
+      "aliases": [
+        "Western Sydney Wanderers",
+        "Western Sydney"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:a-leagues",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:football:western-sydney-wanderers",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:football:a-league-men:official",
+        "source:football:a-league-men:bootstrap"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:football:espn:168421",

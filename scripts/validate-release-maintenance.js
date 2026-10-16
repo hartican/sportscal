@@ -15,7 +15,7 @@ async function main(){
     const fetchImpl=async(url,options)=>{
       requests++;assert(options.signal instanceof AbortSignal);assert.equal(options.redirect,'error');
       if(fail || (rosterFailure&&url.endsWith('/roster')))return {ok:false,status:503};
-      const code=url.split('/soccer/')[1].split('/')[0],key=Object.keys({'premier-league':'eng.1',bundesliga:'ger.1','la-liga':'esp.1','serie-a':'ita.1','ligue-1':'fra.1'}).find(k=>({'premier-league':'eng.1',bundesliga:'ger.1','la-liga':'esp.1','serie-a':'ita.1','ligue-1':'fra.1'})[k]===code);
+      const code=url.split('/soccer/')[1].split('/')[0],key=Object.keys({'premier-league':'eng.1',bundesliga:'ger.1','la-liga':'esp.1','serie-a':'ita.1','ligue-1':'fra.1','a-league-men':'aus.1'}).find(k=>({'premier-league':'eng.1',bundesliga:'ger.1','la-liga':'esp.1','serie-a':'ita.1','ligue-1':'fra.1','a-league-men':'aus.1'})[k]===code);
       const league=original.leagues.find(l=>l.key===key),teams=original.teams.filter(t=>t.leagueId===league.id);
       const team=teams.find(t=>url.includes('/teams/'+t.externalIds.espn+'/roster'));
       const payload=team?{athletes:original.players.filter(p=>p.currentTeamId===team.id).map(p=>({id:p.externalIds.espn})).slice(missing?1:0)}:{sports:[{leagues:[{teams:teams.map(t=>({team:{id:t.externalIds.espn}}))}]}]};
@@ -26,7 +26,7 @@ async function main(){
     assert.equal((await maintenance.refreshDue({root,fetchImpl,offline:true})).state,'offline-retained');assert.equal(requests,0);
     fail=true;await assert.rejects(maintenance.refreshDue({root,fetchImpl}),/503/);assert.deepEqual(fs.readFileSync(path.join(root,file)),before,'failed source retains last-good bytes');
     fail=false;missing=true;const absent=await maintenance.refreshDue({root,fetchImpl});assert(absent.absent>0);assert(read(file).players.some(p=>p.rosterStatus==='unconfirmed'&&p.currentTeamStatus==='last-known'),'absence retains identity without inventing membership');reset();
-    missing=false;rosterFailure=true;reset();const partial=await maintenance.refreshDue({root,fetchImpl});assert.equal(partial.deferred.length,96);assert.deepEqual(read(file).players,original.players,'failed rosters retain original player facts and dates');rosterFailure=false;reset();requests=0;const result=await maintenance.refreshDue({root,fetchImpl});assert.equal(result.requests,101);assert.equal(requests,101);
+    missing=false;rosterFailure=true;reset();const partial=await maintenance.refreshDue({root,fetchImpl});assert.equal(partial.deferred.length,96);assert.deepEqual(read(file).players,original.players,'failed rosters retain original player facts and dates');rosterFailure=false;reset();requests=0;const result=await maintenance.refreshDue({root,fetchImpl});assert.equal(result.requests,102);assert.equal(requests,102);
     const verified=read(file);assert.deepEqual(verified.teams.map(t=>t.id),original.teams.map(t=>t.id));assert.deepEqual(verified.players.map(p=>p.id),original.players.map(p=>p.id));assert.deepEqual(verified.sources.filter(s=>original.sources.some(o=>o.id===s.id)&&!s.id.includes(':clubs-current')&&!s.id.startsWith('source:football:roster:')),original.sources.filter(s=>!s.id.includes(':clubs-current')&&!s.id.startsWith('source:football:roster:')),'unread official pages retain dates');
     requests=0;assert.equal((await maintenance.refreshDue({root,fetchImpl})).changed,false);assert.equal(requests,0,'repeat is source-free');
     const fixture=read('data/events.json').events.find(e=>e.id==='epl-2026-27-129016');assert(fixture);

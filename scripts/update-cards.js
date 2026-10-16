@@ -70,7 +70,7 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
-  for (const route of ['--broadcaster-review', '--venue-review', '--nations-finals', '--canonical-readiness']) {
+  for (const route of ['--a-league', '--broadcaster-review', '--venue-review', '--nations-finals', '--canonical-readiness']) {
     if (!argv.includes(route)) continue;
     const allowed = new Set([route, '--local-only', '-p']);
     if(route==='--nations-finals')allowed.add('--rebuild');
@@ -175,6 +175,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-country-flags.js"],
   ["scripts/validate-national-team-identities.js", "--assets-only"],
   ["scripts/refresh-football-directory.js", "--refresh-due"],
+  ["scripts/refresh-football-directory.js", "--refresh-a-league"],
   ["scripts/refresh-football-directory.js", "--prune-removed"],
   ["scripts/refresh-football-directory.js", "--check"],
   ["scripts/validate-football-directory.js"],
@@ -509,6 +510,22 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if(process.argv.includes('--a-league')){
+    const result=await require('./lib/a-league-schedule').refresh();console.log(JSON.stringify(result));
+    if(result.state==='deferred-retained')throw Error(result.error+'; retained last-good A-League schedule.');
+    for(const args of [
+      ['scripts/refresh-football-directory.js','--check'],
+      ['scripts/build-code-inspector.js','--codes=football'],
+      ['scripts/build-follow-directories.js','--codes=football'],
+      ['scripts/build-follow-directories.js','--codes=football','--check'],
+      ['scripts/build-app-shell-runtime.js'],['scripts/version-generated-shell.js'],
+      ['scripts/validate-a-league-schedule.js'],['scripts/validate-fixtures-contract.js'],
+      ['scripts/validate-follow-decisions.js'],['scripts/validate-follow-policy-parity.js'],
+      ['scripts/validate-backend-efficiency.js'],['scripts/validate-feed-performance.js']
+    ])runStep(args);
+    if(!options.localOnly)runStep(['scripts/redeploy-and-release.sh']);
+    return;
+  }
   if(process.argv.includes('--nations-finals')){
     const result=require('./apply-reviewed-nations-finals').publish();console.log(JSON.stringify(result));
     if(!result.changed&&!process.argv.includes('--rebuild')){console.log('Nations finals unchanged; no publication or source check.');return;}
