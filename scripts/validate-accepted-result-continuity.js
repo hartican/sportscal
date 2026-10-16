@@ -293,6 +293,12 @@ try {
   // Freeze the shared library once, so a concurrent helper edit cannot change
   // the implementation halfway through this red/green run.
   fs.cpSync(path.join(__dirname, 'lib'), path.join(root, 'scripts/lib'), {recursive: true});
+  // The reviewed calendar exception is a source dependency of the real writer,
+  // so freeze its captured input alongside the copied implementation.
+  const calendarFixture='fixtures/result-calendar-20261016.json';
+  fs.mkdirSync(path.join(root,'scripts/fixtures'),{recursive:true});
+  fs.copyFileSync(path.join(__dirname,calendarFixture),path.join(root,'scripts',calendarFixture));
+  for(const file of ['lib/accepted-result-calendar.js',calendarFixture])provenance.files['scripts/'+file]=digest(fs.readFileSync(path.join(root,'scripts',file)));
   if (referenceArgument) fs.copyFileSync(helperPath, path.join(root, 'scripts/lib/accepted-result-projection.js'));
   provenance.files['scripts/lib/accepted-result-projection.js'] = digest(
     fs.readFileSync(path.join(root, 'scripts/lib/accepted-result-projection.js')));
