@@ -22,7 +22,7 @@ const APP_SHELL = [
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=552",
   "/assets/js/impact-feedback-ui.js?v=552",
-  "/assets/js/settings-optional-ui.js?v=539",
+  "/assets/js/settings-optional-ui.js?v=552",
   "/assets/js/follow-navigation.js?v=522",
   "/assets/js/tournament-fixture-ui.js?v=533",
   "/assets/styles/notifications-inbox.css?v=280",
