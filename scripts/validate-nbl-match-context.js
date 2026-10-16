@@ -3,6 +3,9 @@ const assert=require('node:assert/strict');
 const {nblMatchContext}=require('./lib/nbl-match-context');
 function assertPublishedContext(fixture,expected){
  const observed=Date.parse(fixture.teamMatchContext?.checkedAt);
+ // The NBL owner emits literal UTC ISO receipts. Date.parse alone also
+ // accepts impossible calendar days by normalising them into another month.
+ assert(Number.isFinite(observed)&&new Date(observed).toISOString()===fixture.teamMatchContext.checkedAt,'NBL context needs a literal valid source receipt');
  assert(Number.isFinite(observed)&&observed<=Date.parse(expected.checkedAt)&&observed<=Date.parse(fixture.sourceCheckedAt),'NBL context retains a valid original observation, never a future or renewed receipt');
  assert.deepEqual({...fixture.teamMatchContext,checkedAt:expected.checkedAt},expected,'Published pre-match facts must agree with the complete current source; only an unchanged original observation may be older');
 }
@@ -89,6 +92,7 @@ if(process.argv.includes('--published')){
  assertPublishedContext(replay.events[0],current);
  for(const corrupt of [
   {...retained.teamMatchContext,checkedAt:'invalid'},
+  {...retained.teamMatchContext,checkedAt:'2026-02-30T00:00:00.000Z'},
   {...retained.teamMatchContext,checkedAt:new Date(Date.parse(retained.sourceCheckedAt)+1).toISOString()},
   {...retained.teamMatchContext,checkedAt:new Date(Date.parse(current.checkedAt)+1).toISOString()},
   {...retained.teamMatchContext,competitionId:'competition:other'},
