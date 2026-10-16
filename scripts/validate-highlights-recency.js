@@ -45,6 +45,10 @@ async function main() {
   assert.deepEqual(ranked.grants,['search','ordinary']);assert.equal(ranked.saved[0].published_at,snippet.publishedAt);assert.equal(ranked.saved[0].duration_seconds,300);
   const completionOnly={...match,date:null,startTimeUtc:null,actualStartTimeUtc:null,completedAt:'2026-10-14T19:00:00Z'};assert(contract.searchQuery(completionOnly,now));assert.equal((await controlled([dedicated]).resolver.resolve(completionOnly,now)).url,'https://www.youtube.com/watch?v=B8EO9eKy-mY','quality checks share the approved completion-calendar fallback rather than losing a valid match year');
   const fromFeed=controlled([reel,dedicated],{official:[{videoId:reel.id},{videoId:dedicated.id}]});assert.equal((await fromFeed.resolver.resolve(match,now)).url,'https://www.youtube.com/watch?v=B8EO9eKy-mY');assert.deepEqual(fromFeed.grants,['ordinary'],'recent official upload feeds avoid search quota entirely');
+  const translated=structuredClone(dedicated);delete translated.snippet.defaultAudioLanguage;translated.snippet.defaultLanguage='id';
+  const translatedFeed=controlled([translated],{official:[{videoId:translated.id}]});
+  assert.equal((await translatedFeed.resolver.resolve(match,now)).url,'https://www.youtube.com/watch?v=B8EO9eKy-mY','translated text alone cannot reject an otherwise eligible official clip');
+  assert.deepEqual(translatedFeed.grants,['ordinary'],'audio-language correction adds no search or metadata batch');
   for(const bad of [old,foreign,marathon,full,video('FUTURE12345',{publishedAt:new Date(+now+1).toISOString()}),video('MISSING1234',{publishedAt:undefined}),video('WRONGYEAR12',{title:snippet.title.replace('2026','2025')}),video('WRONGPLACE1',{title:snippet.title.replace('Shanghai','Paris')})])await assert.rejects(controlled([bad]).resolver.resolve(match,now),'unsuitable videos fail closed');
   // Search timestamps are insufficient: independently retrieved upload time can differ.
   await assert.rejects(controlled([old],{searched:[dedicated]}).resolver.resolve(match,now));
