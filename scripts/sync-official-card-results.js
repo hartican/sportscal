@@ -6,6 +6,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { storylineFor, spoilerSafeRootCopy } = require("./lib/storyline-card-rules");
 
+const acceptedResults=require('./lib/accepted-result-projection');
+
 const ROOT = path.resolve(__dirname, "..");
 const SNAPSHOT_PATH = path.join(ROOT, "data/canonical/official-card-results-2026.json");
 
@@ -17,11 +19,29 @@ function resultAliases(event){
 }
 
 function applyOfficialResults(events, snapshot){
-  const results = new Map((snapshot.results || []).flatMap(result => resultAliases(result).map(id => [id, result])));
+  const acceptedAliases=new Map();
+  for(const row of snapshot.results || [])if(acceptedResults.isAcceptedResult(row)){
+    acceptedResults.validateAcceptedResult(row);
+    for(const alias of resultAliases(row)){
+      if(acceptedAliases.has(alias)&&acceptedAliases.get(alias)!==row)throw new Error('Ambiguous accepted result alias: '+alias);
+      acceptedAliases.set(alias,row);
+    }
+  }
+  const results = new Map();
+  for(const row of snapshot.results || [])for(const alias of resultAliases(row)){
+    const prior=results.get(alias);
+    if(prior && prior!==row && (acceptedResults.isAcceptedResult(prior)||acceptedResults.isAcceptedResult(row)))throw new Error('Ambiguous accepted/legacy result alias: '+alias);
+    results.set(alias,row);
+  }
   let count = 0;
   const nextEvents = events.map(event => {
     const result = resultAliases(event).map(id => results.get(id)).find(Boolean);
     if (!result) return event;
+    if(acceptedResults.isAcceptedResult(result)){
+      const merged=acceptedResults.mergeAcceptedResult(event,result);
+      if(JSON.stringify(merged)!==JSON.stringify(event)) count+=1;
+      return merged;
+    }
     const next = {
       ...event,
       ...result,

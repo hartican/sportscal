@@ -1,6 +1,6 @@
 {
   "schemaVersion": "official-card-results.v1",
-  "feedVersion": "nothingsport-official-results-2026-09-15-v1",
+  "feedVersion": "weekend-editorial-20261015232145190-20261016000956110",
   "checkedAt": "2026-09-22T01:40:00.000Z",
   "results": [
     {
@@ -1047,6 +1047,788 @@
       "actualEndTimeUtc": null,
       "completedAt": null,
       "resultPublishedAt": null
+    },
+    {
+      "id": "fixture-cricket-espn-1525659",
+      "canonicalEventId": "fixture:cricket:espn:1525659",
+      "status": "completed",
+      "scoreDisplay": "Australia won by 214 runs",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4568/",
+      "sourceName": "Cricket Australia",
+      "sourceType": "trusted-reporting",
+      "sourceCheckedAt": "2026-10-15T16:28:01.041Z",
+      "scoreCheckedAt": "2026-10-15T22:30:00.464+00:00",
+      "statusCheckedAt": "2026-10-15T22:30:00.464+00:00",
+      "scoreFactObservedAt": "2026-10-13T22:02:01.52+00:00",
+      "statusFactObservedAt": "2026-10-13T22:02:01.52+00:00",
+      "firstConfirmedCompleteAt": "2026-10-13T11:28:12.334719+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "score": "Australia won by 214 runs",
+      "outcomeText": "Australia won by 214 runs",
+      "recapText": "Australia won by 214 runs",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture-cricket-espn-1525659",
+          "fixture:cricket:espn:1525659",
+          "evt_87"
+        ],
+        "participantIds": [
+          "team:cricket:south-africa",
+          "team:cricket:australia"
+        ],
+        "fixtureDate": "2026-10-09",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "bc0237411fc18dbc878476881f09a9e1ed4daa42533f202ba000eed5f9d1ed09"
+      }
+    },
+    {
+      "id": "fixture:mlb:849813",
+      "canonicalEventId": "fixture:mlb:849813",
+      "status": "completed",
+      "score": "Tampa Bay Rays 3–1 Cleveland Guardians",
+      "resultStatus": "official",
+      "outcomeText": "Tampa Bay Rays 3–1 Cleveland Guardians",
+      "recapText": "ALCS Game 2: Tampa Bay Rays 3–1 Cleveland Guardians. MLB reports this game as final.",
+      "homeScore": 3,
+      "awayScore": 1,
+      "winnerParticipantId": "team:mlb:139",
+      "sourceUrl": "https://www.mlb.com/gameday/849813",
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T04:26:01.278Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849813",
+      "resultSourceCheckedAt": "2026-10-14T04:26:01.278Z",
+      "scoreCheckedAt": "2026-10-14T11:36:00.653+00:00",
+      "statusCheckedAt": "2026-10-14T11:36:00.653+00:00",
+      "scoreFactObservedAt": "2026-10-14T02:16:00.869+00:00",
+      "statusFactObservedAt": "2026-10-14T02:52:01.35+00:00",
+      "firstConfirmedCompleteAt": "2026-10-14T02:52:07.050846+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture:mlb:849813"
+        ],
+        "participantIds": [
+          "team:mlb:139",
+          "team:mlb:114"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "baf01ff0a61386f72ebc99497c5a106da433186ee580e48ecaf4c935c380c724"
+      }
+    },
+    {
+      "id": "fixture-tennis-espn-wta-185349",
+      "canonicalEventId": "fixture:tennis:espn:wta:185349",
+      "status": "completed",
+      "score": "6–2, 5–7, 6–2",
+      "scoreDisplay": "6–2, 5–7, 6–2",
+      "result": "6–2, 5–7, 6–2",
+      "resultStatus": "published",
+      "outcomeText": "Elina Svitolina won. 6–2, 5–7, 6–2",
+      "recapText": "ESPN reports Elina Svitolina as the winner of this round of 32 match. 6–2, 5–7, 6–2",
+      "sets": [
+        {
+          "away": 2,
+          "home": 6
+        },
+        {
+          "away": 7,
+          "home": 5
+        },
+        {
+          "away": 2,
+          "home": 6
+        }
+      ],
+      "resultLabels": [
+        "Completed"
+      ],
+      "winnerParticipantId": "competitor:tennis:wta:elina-svitolina",
+      "loserParticipantId": "competitor:tennis:wta:liudmila-samsonova",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:wta:liudmila-samsonova"
+      ],
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185349",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185349",
+      "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185349",
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+      "statusCheckedAt": "2026-10-15T23:28:03+00:00",
+      "scoreFactObservedAt": "2026-10-14T05:20:04+00:00",
+      "statusFactObservedAt": "2026-10-14T05:20:04+00:00",
+      "firstConfirmedCompleteAt": "2026-10-14T05:20:05.068667+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture-tennis-espn-wta-185349",
+          "fixture:tennis:espn:wta:185349"
+        ],
+        "participantIds": [
+          "competitor:tennis:wta:elina-svitolina",
+          "competitor:tennis:wta:liudmila-samsonova"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "adbcfa82d5ba41d48e4c95ef85889da942ed69b238225d64b300184574d803b3"
+      }
+    },
+    {
+      "id": "fixture-tennis-espn-wta-185352",
+      "canonicalEventId": "fixture:tennis:espn:wta:185352",
+      "status": "completed",
+      "score": "6–0, 7–5",
+      "scoreDisplay": "6–0, 7–5",
+      "result": "6–0, 7–5",
+      "resultStatus": "published",
+      "outcomeText": "Sonay Kartal won. 6–0, 7–5",
+      "recapText": "ESPN reports Sonay Kartal as the winner of this round of 32 match. 6–0, 7–5",
+      "sets": [
+        {
+          "away": 0,
+          "home": 6
+        },
+        {
+          "away": 5,
+          "home": 7
+        }
+      ],
+      "resultLabels": [
+        "Completed"
+      ],
+      "winnerParticipantId": "competitor:tennis:wta:sonay-kartal",
+      "loserParticipantId": "competitor:tennis:wta:belinda-bencic",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:wta:belinda-bencic"
+      ],
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185352",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185352",
+      "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185352",
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+      "statusCheckedAt": "2026-10-15T23:28:03+00:00",
+      "scoreFactObservedAt": "2026-10-14T04:46:04+00:00",
+      "statusFactObservedAt": "2026-10-14T04:46:04+00:00",
+      "firstConfirmedCompleteAt": "2026-10-14T04:46:04.862356+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture-tennis-espn-wta-185352",
+          "fixture:tennis:espn:wta:185352"
+        ],
+        "participantIds": [
+          "competitor:tennis:wta:sonay-kartal",
+          "competitor:tennis:wta:belinda-bencic"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "03c769ec4bfec6657f5269149c41575bb8041fe617657f70a77f251ee956e5f4"
+      }
+    },
+    {
+      "id": "fixture-tennis-espn-wta-185355",
+      "canonicalEventId": "fixture:tennis:espn:wta:185355",
+      "status": "completed",
+      "score": "2–6, 1–6",
+      "scoreDisplay": "2–6, 1–6",
+      "result": "2–6, 1–6",
+      "resultStatus": "published",
+      "outcomeText": "Iga Swiatek won. 2–6, 1–6",
+      "recapText": "ESPN reports Iga Swiatek as the winner of this round of 32 match. 2–6, 1–6",
+      "sets": [
+        {
+          "away": 6,
+          "home": 2
+        },
+        {
+          "away": 6,
+          "home": 1
+        }
+      ],
+      "resultLabels": [
+        "Completed"
+      ],
+      "winnerParticipantId": "competitor:tennis:wta:iga-swiatek",
+      "loserParticipantId": "competitor:tennis:wta:magdalena-frech",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:wta:magdalena-frech"
+      ],
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185355",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185355",
+      "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185355",
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+      "statusCheckedAt": "2026-10-15T23:28:03+00:00",
+      "scoreFactObservedAt": "2026-10-14T04:56:06+00:00",
+      "statusFactObservedAt": "2026-10-14T04:56:06+00:00",
+      "firstConfirmedCompleteAt": "2026-10-14T04:56:06.682146+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture-tennis-espn-wta-185355",
+          "fixture:tennis:espn:wta:185355"
+        ],
+        "participantIds": [
+          "competitor:tennis:wta:magdalena-frech",
+          "competitor:tennis:wta:iga-swiatek"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "78c349ecc5225c3ebf69eda75f2f2d1622ac5a1cbd6b3bcc29b10d3a478ab4f1"
+      }
+    },
+    {
+      "id": "fixture-tennis-espn-wta-185358",
+      "canonicalEventId": "fixture:tennis:espn:wta:185358",
+      "status": "completed",
+      "score": "6–1, 1–6, 1–6",
+      "scoreDisplay": "6–1, 1–6, 1–6",
+      "result": "6–1, 1–6, 1–6",
+      "resultStatus": "published",
+      "outcomeText": "Maja Chwalinska won. 6–1, 1–6, 1–6",
+      "recapText": "ESPN reports Maja Chwalinska as the winner of this round of 32 match. 6–1, 1–6, 1–6",
+      "sets": [
+        {
+          "away": 1,
+          "home": 6
+        },
+        {
+          "away": 6,
+          "home": 1
+        },
+        {
+          "away": 6,
+          "home": 1
+        }
+      ],
+      "resultLabels": [
+        "Completed"
+      ],
+      "winnerParticipantId": "competitor:tennis:wta:maja-chwalinska",
+      "loserParticipantId": "competitor:tennis:wta:marie-bouzkova",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:wta:marie-bouzkova"
+      ],
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
+      "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185358",
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+      "statusCheckedAt": "2026-10-15T23:28:03+00:00",
+      "scoreFactObservedAt": "2026-10-14T05:08:03+00:00",
+      "statusFactObservedAt": "2026-10-14T05:08:03+00:00",
+      "firstConfirmedCompleteAt": "2026-10-14T05:08:03.868261+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture-tennis-espn-wta-185358",
+          "fixture:tennis:espn:wta:185358"
+        ],
+        "participantIds": [
+          "competitor:tennis:wta:marie-bouzkova",
+          "competitor:tennis:wta:maja-chwalinska"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "31907a0c6b6298bbe1e860ddf49c9f54c3cf964d178a96f6e7cb0aa02779a2c9"
+      }
+    },
+    {
+      "id": "fixture:tennis:espn:wta:185354",
+      "canonicalEventId": "fixture:tennis:espn:wta:185354",
+      "status": "completed",
+      "score": "2–6, 6–1, 6–1",
+      "scoreDisplay": "2–6, 6–1, 6–1",
+      "result": "2–6, 6–1, 6–1",
+      "resultStatus": "published",
+      "outcomeText": "Ashlyn Krueger won. 2–6, 6–1, 6–1",
+      "recapText": "ESPN reports Ashlyn Krueger as the winner of this round of 32 match. 2–6, 6–1, 6–1",
+      "sets": [
+        {
+          "away": 6,
+          "home": 2
+        },
+        {
+          "away": 1,
+          "home": 6
+        },
+        {
+          "away": 1,
+          "home": 6
+        }
+      ],
+      "resultLabels": [
+        "Completed"
+      ],
+      "winnerParticipantId": "competitor:tennis:wta:ashlyn-krueger",
+      "loserParticipantId": "competitor:tennis:wta:lanlana-tararudee",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:wta:lanlana-tararudee"
+      ],
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185354",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185354",
+      "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185354",
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+      "statusCheckedAt": "2026-10-15T23:28:03+00:00",
+      "scoreFactObservedAt": "2026-10-14T12:52:04+00:00",
+      "statusFactObservedAt": "2026-10-14T12:52:04+00:00",
+      "firstConfirmedCompleteAt": "2026-10-14T12:52:04.795695+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture:tennis:espn:wta:185354"
+        ],
+        "participantIds": [
+          "competitor:tennis:wta:ashlyn-krueger",
+          "competitor:tennis:wta:lanlana-tararudee"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "bfc3f0d2a07b8c9e47985703b465c462b460b2a6887086c137f29c7f16966f25"
+      }
+    },
+    {
+      "id": "evt_nbl_2026_27_3706e834_58ad_11f1_8519_a362560fc147",
+      "canonicalEventId": "event:nbl:2026-27:3706e834-58ad-11f1-8519-a362560fc147",
+      "status": "completed",
+      "score": "101-102",
+      "scoreDisplay": "101-102",
+      "resultStatus": "official",
+      "homeScore": 101,
+      "awayScore": 102,
+      "winnerParticipantId": "team:nbl:new-zealand-breakers",
+      "outcomeText": "Sydney Kings 101, New Zealand Breakers 102",
+      "recapText": "Sydney Kings 101, New Zealand Breakers 102",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceName": "NBL official schedule",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-15T23:31:08.522Z",
+      "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
+      "resultSourceCheckedAt": "2026-10-15T23:31:08.522Z",
+      "scoreCheckedAt": "2026-10-15T23:31:08.522Z",
+      "statusCheckedAt": "2026-10-15T23:31:08.522Z",
+      "statusSourceUrl": "https://schedule.nbl.com.au/nbl",
+      "statusSourceName": "NBL official schedule",
+      "statusSourceType": "official",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "evt_nbl_2026_27_3706e834_58ad_11f1_8519_a362560fc147",
+          "event:nbl:2026-27:3706e834-58ad-11f1-8519-a362560fc147"
+        ],
+        "participantIds": [
+          "team:nbl:sydney-kings",
+          "team:nbl:new-zealand-breakers"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "2b57297f6ea946ca8fce682afe731f33b15236ac3a9a1cacb89f60c98b0401cf",
+        "payloadSha256": "5a96a9d923153cf12e66d8a6e6b116925b4a56ddf91ffbe3a0b6d2eef522ab69"
+      }
+    },
+    {
+      "id": "fixture:tennis:espn:wta:185357",
+      "canonicalEventId": "fixture:tennis:espn:wta:185357",
+      "status": "completed",
+      "score": "6–3, 4–6, 6–7",
+      "scoreDisplay": "6–3, 4–6, 6–7",
+      "result": "6–3, 4–6, 6–7",
+      "resultStatus": "published",
+      "outcomeText": "Ann Li won. 6–3, 4–6, 6–7",
+      "recapText": "ESPN reports Ann Li as the winner of this round of 32 match. 6–3, 4–6, 6–7",
+      "sets": [
+        {
+          "away": 3,
+          "home": 6
+        },
+        {
+          "away": 6,
+          "home": 4
+        },
+        {
+          "away": 7,
+          "home": 6,
+          "awayTiebreak": 7,
+          "homeTiebreak": 5
+        }
+      ],
+      "resultLabels": [
+        "Completed"
+      ],
+      "winnerParticipantId": "competitor:tennis:wta:ann-li",
+      "loserParticipantId": "competitor:tennis:wta:aryna-sabalenka",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:wta:aryna-sabalenka"
+      ],
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185357",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185357",
+      "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185357",
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+      "statusCheckedAt": "2026-10-15T23:28:03+00:00",
+      "scoreFactObservedAt": "2026-10-14T13:54:02+00:00",
+      "statusFactObservedAt": "2026-10-14T13:54:02+00:00",
+      "firstConfirmedCompleteAt": "2026-10-14T13:54:03.520301+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture:tennis:espn:wta:185357"
+        ],
+        "participantIds": [
+          "competitor:tennis:wta:aryna-sabalenka",
+          "competitor:tennis:wta:ann-li"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "ed952e531eb54a48c64057faa45479ade55867b4484695e9d891ebdfedb00b3c"
+      }
+    },
+    {
+      "id": "fixture-tennis-espn-wta-185347",
+      "canonicalEventId": "fixture:tennis:espn:wta:185347",
+      "status": "completed",
+      "score": "3–6, 4–6",
+      "scoreDisplay": "3–6, 4–6",
+      "result": "3–6, 4–6",
+      "resultStatus": "published",
+      "outcomeText": "Leylah Fernandez won. 3–6, 4–6",
+      "recapText": "ESPN reports Leylah Fernandez as the winner of this round of 32 match. 3–6, 4–6",
+      "sets": [
+        {
+          "away": 6,
+          "home": 3
+        },
+        {
+          "away": 6,
+          "home": 4
+        }
+      ],
+      "resultLabels": [
+        "Completed"
+      ],
+      "winnerParticipantId": "competitor:tennis:wta:leylah-fernandez",
+      "loserParticipantId": "competitor:tennis:wta:shi-han",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:wta:shi-han"
+      ],
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185347",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185347",
+      "resultSourceCheckedAt": "2026-10-15T15:00:07.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=185347",
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "scoreCheckedAt": "2026-10-15T23:28:03+00:00",
+      "statusCheckedAt": "2026-10-15T23:28:03+00:00",
+      "scoreFactObservedAt": "2026-10-14T15:50:05+00:00",
+      "statusFactObservedAt": "2026-10-14T15:50:05+00:00",
+      "firstConfirmedCompleteAt": "2026-10-14T15:50:05.905764+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture-tennis-espn-wta-185347",
+          "fixture:tennis:espn:wta:185347"
+        ],
+        "participantIds": [
+          "competitor:tennis:wta:shi-han",
+          "competitor:tennis:wta:leylah-fernandez"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "006103b2cde18fad80ba4c57b5f8247baca771742aab3745f464e0280ea38a26"
+      }
+    },
+    {
+      "id": "fixture:mlb:849811",
+      "canonicalEventId": "fixture:mlb:849811",
+      "status": "completed",
+      "score": "Los Angeles Dodgers 2–6 Milwaukee Brewers",
+      "resultStatus": "official",
+      "outcomeText": "Los Angeles Dodgers 2–6 Milwaukee Brewers",
+      "recapText": "NLCS Game 3: Los Angeles Dodgers 2–6 Milwaukee Brewers. MLB reports this game as final.",
+      "homeScore": 2,
+      "awayScore": 6,
+      "winnerParticipantId": "team:mlb:158",
+      "sourceUrl": "https://www.mlb.com/gameday/849811",
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-15T04:16:01.581Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849811",
+      "resultSourceCheckedAt": "2026-10-15T04:16:01.581Z",
+      "scoreCheckedAt": "2026-10-15T11:58:00.738+00:00",
+      "statusCheckedAt": "2026-10-15T11:58:00.738+00:00",
+      "scoreFactObservedAt": "2026-10-15T03:06:00.826+00:00",
+      "statusFactObservedAt": "2026-10-15T03:14:00.764+00:00",
+      "firstConfirmedCompleteAt": "2026-10-15T03:14:05.374929+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture:mlb:849811"
+        ],
+        "participantIds": [
+          "team:mlb:119",
+          "team:mlb:158"
+        ],
+        "fixtureDate": "2026-10-15",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "939c90d42fb85d56a1b40030f010e426cb505a85504f95ba7d97483e1ece9933"
+      }
+    },
+    {
+      "id": "evt_nbl_2026_27_36fd506c_58ad_11f1_a57f_6d6fb61b331b",
+      "canonicalEventId": "event:nbl:2026-27:36fd506c-58ad-11f1-a57f-6d6fb61b331b",
+      "status": "completed",
+      "score": "115-105",
+      "scoreDisplay": "115-105",
+      "resultStatus": "official",
+      "homeScore": 115,
+      "awayScore": 105,
+      "winnerParticipantId": "team:nbl:brisbane-bullets",
+      "outcomeText": "Brisbane Bullets 115, South East Melbourne Phoenix 105",
+      "recapText": "Brisbane Bullets 115, South East Melbourne Phoenix 105",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceName": "NBL official schedule",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-15T23:31:08.522Z",
+      "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
+      "resultSourceCheckedAt": "2026-10-15T23:31:08.522Z",
+      "scoreCheckedAt": "2026-10-15T23:31:08.522Z",
+      "statusCheckedAt": "2026-10-15T23:31:08.522Z",
+      "statusSourceUrl": "https://schedule.nbl.com.au/nbl",
+      "statusSourceName": "NBL official schedule",
+      "statusSourceType": "official",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "evt_nbl_2026_27_36fd506c_58ad_11f1_a57f_6d6fb61b331b",
+          "event:nbl:2026-27:36fd506c-58ad-11f1-a57f-6d6fb61b331b"
+        ],
+        "participantIds": [
+          "team:nbl:brisbane-bullets",
+          "team:nbl:south-east-melbourne-phoenix"
+        ],
+        "fixtureDate": "2026-10-15",
+        "sourceSha256": "2b57297f6ea946ca8fce682afe731f33b15236ac3a9a1cacb89f60c98b0401cf",
+        "payloadSha256": "559e343ee8d6266f56e30b1ca7dfe3cbc0d9149e368ec5a9e1dd2eb50f5a615c"
+      }
+    },
+    {
+      "id": "fixture-tennis-espn-atp-184953",
+      "canonicalEventId": "fixture:tennis:espn:atp:184953",
+      "status": "completed",
+      "score": "7–6, 4–6, 2–6",
+      "scoreDisplay": "7–6, 4–6, 2–6",
+      "result": "7–6, 4–6, 2–6",
+      "resultStatus": "published",
+      "outcomeText": "Rafael Jodar won. 7–6, 4–6, 2–6",
+      "recapText": "ESPN reports Rafael Jodar as the winner of this round of 16 match. 7–6, 4–6, 2–6",
+      "sets": [
+        {
+          "away": 6,
+          "home": 7,
+          "awayTiebreak": 4,
+          "homeTiebreak": 7
+        },
+        {
+          "away": 6,
+          "home": 4
+        },
+        {
+          "away": 6,
+          "home": 2
+        }
+      ],
+      "resultLabels": [
+        "Completed"
+      ],
+      "winnerParticipantId": "competitor:tennis:atp:rafael-jodar",
+      "loserParticipantId": "competitor:tennis:atp:botic-van-de-zandschulp",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:atp:botic-van-de-zandschulp"
+      ],
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184953",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceCheckedAt": "2026-10-15T11:32:02.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184953",
+      "resultSourceCheckedAt": "2026-10-15T11:32:02.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184953",
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "scoreCheckedAt": "2026-10-15T23:12:01+00:00",
+      "statusCheckedAt": "2026-10-15T23:12:01+00:00",
+      "scoreFactObservedAt": "2026-10-14T06:46:01+00:00",
+      "statusFactObservedAt": "2026-10-14T06:46:01+00:00",
+      "firstConfirmedCompleteAt": "2026-10-14T06:46:01.733241+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture-tennis-espn-atp-184953",
+          "fixture:tennis:espn:atp:184953"
+        ],
+        "participantIds": [
+          "competitor:tennis:atp:botic-van-de-zandschulp",
+          "competitor:tennis:atp:rafael-jodar"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "db2d34354a94d2d0fb49e58150c5adec4afd0db1a123bc0374957489bd76b3ab"
+      }
+    },
+    {
+      "id": "fixture-tennis-espn-atp-184948",
+      "canonicalEventId": "fixture:tennis:espn:atp:184948",
+      "status": "completed",
+      "score": "5–2",
+      "scoreDisplay": "5–2",
+      "result": "5–2",
+      "resultStatus": "published",
+      "outcomeText": "Casper Ruud won. 5–2",
+      "recapText": "ESPN reports Casper Ruud as the winner of this round of 16 match. 5–2",
+      "sets": [
+        {
+          "away": 2,
+          "home": 5
+        }
+      ],
+      "resultLabels": [
+        "Retirement"
+      ],
+      "winnerParticipantId": "competitor:tennis:atp:casper-ruud",
+      "loserParticipantId": "competitor:tennis:atp:felix-auger-aliassime",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:atp:felix-auger-aliassime"
+      ],
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceCheckedAt": "2026-10-15T11:32:02.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
+      "resultSourceCheckedAt": "2026-10-15T11:32:02.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184948",
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "scoreCheckedAt": "2026-10-15T23:12:01+00:00",
+      "statusCheckedAt": "2026-10-15T23:12:01+00:00",
+      "scoreFactObservedAt": "2026-10-14T07:38:12+00:00",
+      "statusFactObservedAt": "2026-10-14T07:42:03+00:00",
+      "firstConfirmedCompleteAt": "2026-10-14T07:42:04.44723+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture-tennis-espn-atp-184948",
+          "fixture:tennis:espn:atp:184948"
+        ],
+        "participantIds": [
+          "competitor:tennis:atp:casper-ruud",
+          "competitor:tennis:atp:felix-auger-aliassime"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "90a43d5ec096138cfc37f857d5c23e8e1c9aba456157bbd777352916ed818f4c"
+      }
+    },
+    {
+      "id": "fixture-tennis-espn-atp-184949",
+      "canonicalEventId": "fixture:tennis:espn:atp:184949",
+      "status": "completed",
+      "score": "6–4, 7–5",
+      "scoreDisplay": "6–4, 7–5",
+      "result": "6–4, 7–5",
+      "resultStatus": "published",
+      "outcomeText": "Daniil Medvedev won. 6–4, 7–5",
+      "recapText": "ESPN reports Daniil Medvedev as the winner of this round of 16 match. 6–4, 7–5",
+      "sets": [
+        {
+          "away": 4,
+          "home": 6
+        },
+        {
+          "away": 5,
+          "home": 7
+        }
+      ],
+      "resultLabels": [
+        "Completed"
+      ],
+      "winnerParticipantId": "competitor:tennis:atp:daniil-medvedev",
+      "loserParticipantId": "competitor:tennis:atp:stefanos-tsitsipas",
+      "eliminatedParticipantIds": [
+        "competitor:tennis:atp:stefanos-tsitsipas"
+      ],
+      "sourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
+      "sourceName": "ESPN",
+      "sourceType": "reputable",
+      "sourceCheckedAt": "2026-10-15T11:32:02.000Z",
+      "resultSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
+      "resultSourceCheckedAt": "2026-10-15T11:32:02.000Z",
+      "statusSourceUrl": "https://www.espn.com/tennis/matchstats?gameId=184949",
+      "statusSourceName": "ESPN",
+      "statusSourceType": "reputable",
+      "scoreCheckedAt": "2026-10-15T23:12:01+00:00",
+      "statusCheckedAt": "2026-10-15T23:12:01+00:00",
+      "scoreFactObservedAt": "2026-10-14T11:38:05+00:00",
+      "statusFactObservedAt": "2026-10-14T11:38:05+00:00",
+      "firstConfirmedCompleteAt": "2026-10-14T11:38:06.229909+00:00",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture-tennis-espn-atp-184949",
+          "fixture:tennis:espn:atp:184949"
+        ],
+        "participantIds": [
+          "competitor:tennis:atp:daniil-medvedev",
+          "competitor:tennis:atp:stefanos-tsitsipas"
+        ],
+        "fixtureDate": "2026-10-14",
+        "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
+        "payloadSha256": "e4cc4d62a89de828098b379a34c7573a0de5973f762d167e74bbd3f6f0793a4d"
+      }
     }
   ]
 }

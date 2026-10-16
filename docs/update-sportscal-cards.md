@@ -99,3 +99,37 @@ Adaptive required-copy inventory uses the same inclusive 25-word hook and 80-wor
 ### Shared-renderer test recovery
 
 When an existing gate still inspects removed inline card code, bind it to the actual published module with `scripts/app-shell-test-utils.js`, including its exact runtime, manifest and offline URL checks. Inspect actual function owners with the existing Acorn-backed reader rather than slicing to a now-unrelated next function. Preserve privacy, spoiler, accessibility, layout values and source-authority assertions. CSS minification may change whitespace, not the required geometry. Resolve retired labels or discovery defaults against the dated approved decision record; never change application behaviour or weaken a guard merely to satisfy an obsolete test. Retain the original failure, run the repaired original gate, and continue the intact downstream chain without repeating provider ingestion or asking for routine approval.
+
+### Accepted-result projection recovery (16 October 2026)
+
+When the existing result-completeness gate finds a retained card whose accepted
+source observation is already a confirmed final, project that observation through
+`apply-current-card-evidence.js` and the existing official-results cache, not a
+parallel ingestion route. A reviewed `accepted-result-projection.v1` capsule binds
+the retained aliases, ordered canonical participants, fixture date, original source
+hash and exact result payload. Both persistent writers use the same strict merge.
+Reject ambiguous identities, conflicting finals, changed payloads and invalid
+source clocks before writing any surface. A newer accepted final is not reopened
+by an older observation. Untagged legacy reviewed evidence keeps its existing rules.
+
+Keep the actual source classification: ESPN is reputable reporting, Cricket
+Australia observations retain `trusted-reporting`, and official MLB/NBL results
+remain official. Never promote reporting to official/verified simply because it is
+replayed from the result cache. Preserve retirement labels, provisional/publication
+status, zero values, set and match-tiebreak data. Numeric home/away scores require
+the exact reviewed participant order; no name/date joins or guessed participants.
+
+Receipt/fact timestamps remain literal source timestamps. A later successful fetch
+is not a new sporting fact, fresh editorial review, physical finish or publication.
+For compatible completed observations retain the earliest explicit genuine
+completion receipt separately from the selected score/status tuple. Do not infer
+`actualEndTimeUtc`, `completedAt`, `resultPublishedAt` or a finish from `liveWindow`;
+unknown finish stays null and ordinary result checks continue. Original preview,
+Results-OFF copy, facts, viewing/media choices and review dates remain protected.
+
+Require the canonical provenance chain, including
+`validate-accepted-result-projection.js`, actual persistent selected-writer and
+ordinary cache replay tests, byte-stable unchanged reruns, both feed completeness
+and spoiler checks. Derived publication, fresh private controls and exact-SHA
+release/served/browser proof remain the serialized release owner's responsibility.
+An accepted source capsule is not itself proof of production publication.
