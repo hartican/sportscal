@@ -65,7 +65,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
   "/assets/js/app-shell-runtime.js?v=556",
-  "/assets/js/follow-schedule-panel.js?v=548",
+  "/assets/js/follow-schedule-panel.js?v=556",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
   "/config/cricket-innings.js?v=486",
@@ -99,7 +99,7 @@ const APP_SHELL = [
   "/config/marquee-campaigns.js",
   // Account sync is already in the required runtime; the owner console caches
   // its separate source after first use.
-  "/config/major-events.js?v=555",
+  "/config/major-events.js?v=556",
   "/config/event-overviews-ui.js?v=533",
   "/config/surface-category-ui.js?v=403",
   "/assets/styles/match-centre.css?v=507",
