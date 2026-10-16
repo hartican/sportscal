@@ -18,7 +18,7 @@ const valid=build(source,now);assert.equal(valid.standings.length,10);assert.equ
  const match=replay.matches.find(row=>row.id===fixture.providerId);
  assert.deepEqual(fixture.participantIds,proof.acceptedResultProjection.participantIds);
  Object.assign(match,{phase:'complete',home_score:proof.homeScore,away_score:proof.awayScore});
- const checkedAt=new Date(Date.parse(proof.sourceCheckedAt)+3600000).toISOString();
+ const checkedAt=new Date(Math.max(Date.parse(now),Date.parse(proof.sourceCheckedAt)+3600000)).toISOString();
  const parsed=build(replay,checkedAt,schedule.standings);
  const canonical=parsed.events.find(row=>row.id===fixture.id);
  const card=require('./sync-requested-sports-to-feed').cardForEvent(canonical,parsed,new Map(parsed.participants.map(row=>[row.id,row])));
