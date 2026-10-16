@@ -124,6 +124,8 @@ with recursive index_state as materialized (
 $function$;
 
 
+-- Retain all five existing integrity predicates as materialised keyset
+-- differences, including the original NULL shape and joined orphan semantics.
 CREATE OR REPLACE FUNCTION public.nothingsports_read_participant_fixture_bundle(p_sport_keys text[], p_known_sport_keys text[], p_participant_ids text[], p_required_ids text[] DEFAULT '{}'::text[])
  RETURNS jsonb
  LANGUAGE sql
@@ -220,8 +222,14 @@ do $guard$ declare f record;begin
  for f in select p.* from pg_proc p where p.oid in (
   'public.nothingsports_read_match_centre_fixture_bundle(text[])'::regprocedure,
   'public.nothingsports_read_participant_fixture_bundle(text[],text[],text[],text[])'::regprocedure) loop
-  if f.prosecdef or f.provolatile<>'s' or f.proconfig<>array['search_path=""']::text[] or
-     f.proacl::text<>'{postgres=X/postgres,service_role=X/postgres}' then
+  if f.prosecdef is distinct from false or f.provolatile is distinct from 's' or
+     f.proconfig is distinct from array['search_path=""']::text[] or
+     f.proacl::text is distinct from '{postgres=X/postgres,service_role=X/postgres}' or
+     f.proowner is distinct from 'postgres'::regrole or
+     f.prolang is distinct from (select oid from pg_language where lanname='sql') or
+     has_function_privilege('anon',f.oid,'EXECUTE') or
+     has_function_privilege('authenticated',f.oid,'EXECUTE') or
+     not has_function_privilege('service_role',f.oid,'EXECUTE') then
    raise exception 'Fixture reader service boundary changed; repair refused';
   end if;
  end loop;

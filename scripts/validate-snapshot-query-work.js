@@ -12,6 +12,14 @@ async function run(){
   await db.exec(definitions[0].replace('public.'+near+'(','public.qa_before_snapshot_near(')+';');
   await db.exec(definitions[1].replace('public.'+participant+'(','public.qa_before_snapshot_participant(')+';');
   const metadata=async()=>(await db.query("select p.proname,p.prosecdef,p.provolatile,p.proconfig,p.proacl::text acl from pg_proc p where p.oid=any(array['public.nothingsports_read_match_centre_fixture_bundle(text[])'::regprocedure,'public.nothingsports_read_participant_fixture_bundle(text[],text[],text[],text[])'::regprocedure]) order by p.proname")).rows;
+  // Function-definition hashes do not bind ACLs or inherited execution grants.
+  for(const mode of ['default-acl','inherited-anon','inherited-authenticated']){
+   await db.exec('begin');
+   if(mode==='default-acl')await db.exec('drop function public.'+near+'(text[]);'+definitions[0]+';');
+   else await db.exec('grant service_role to '+(mode==='inherited-anon'?'anon':'authenticated'));
+   assert.equal((await db.query("select md5(pg_get_functiondef('public.nothingsports_read_match_centre_fixture_bundle(text[])'::regprocedure)) h")).rows[0].h,'d98d88497311a8d06a31556004df30a2','Unsafe privileges can coexist with the exact baseline body hash');
+   await assert.rejects(db.exec(migration),/service boundary/,'The migration must reject '+mode);await db.exec('rollback');checks++;
+  }
   const before=await metadata();await db.exec('begin;'+migration+'commit;');assert.deepEqual(await metadata(),before,'Stable/invoker, empty search path and exact private grants remain unchanged');checks++;
   await db.exec('begin');await assert.rejects(db.exec(migration),/differ from reviewed baseline/);await db.exec('rollback');checks++;
   const now=(await db.query('select statement_timestamp() as t')).rows[0].t,clock=m=>new Date(Date.parse(now)+m*60000).toISOString(),today=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(now));
