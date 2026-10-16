@@ -1,5 +1,9 @@
 # Retained World Cup Schedule context — source preparation
 
+**Current delivery status — 17 October Sydney:** app/cache 558 is accepted on exact published `88d2e3b029a3d319ef2e60aa69c7256d6c82bbc7`. [Normal production run](https://github.com/hartican/sportscal/actions/runs/38919410289) passed. READY/release metadata, three aliases and eight served hashes match; final 220-command local lane, both actual 557-to-558 installed/offline and 32 local/32 hosted current-clock native cases pass. These are scoped application/component receipts. The original affected browser is not exposed to Root; original-tab recovery, actual footage, account playback and physical-iPhone acceptance remain open. Public match-list verification accepted an empty quiet window; it does not establish active score polling or dependable cold loading. Published sporting data/writing and the immutable publisher contract remain unchanged. [Full delivery evidence](/Users/jackhartican/Documents/AI/Codex/retained-context-safeguards-20261017/delivery.md).
+
+The dated preparation notes below preserve their original review stages; their private/provisional statements are superseded by this delivery status.
+
 The retained production 556 session received the current completed AUS–NZ calendar row and parsed the current Schedule caller/helper, but its normal grouped card still displayed the old scheduled clock and had no highlights action. No preferences, Follow choices, storage records or sporting facts were cleared to obtain a pass.
 
 Read-only fixture-argument captures identified two earlier planning overlays: the August primary row and its retained major-event alias. The shared merge kept the accepted final status but copied the major alias's null round number and matchup title over the published Round 1 context. The downstream caller then selected an older primary whose derived display state was `past` and whose competition reference named the family without its 2026 edition. Both paths are reproduced by `scripts/fixtures/rlwc-retained-live-merge-20261016.json`.
@@ -32,7 +36,7 @@ The complete source repair initially exceeded the frozen startup allowance by a 
 
 An independent Spec review found a retained `matchType: women` could be discarded before the unchanged publisher guard saw it. The captured caller regression failed on that case. The repair now also fences the publisher-recognised sport, match/draw and actual-start fields, declared event/canonical identities, and an explicit result-source receipt. Unknown populated context on the legacy replacement path remains a refusal. New cached-module controls cover the match type and result receipt. No media contract is widened.
 
-The first complete local 220-command run on ad7ecfb8 passed, but precedes this review correction and is retained only as that snapshot's evidence. Its installed/browser results also precede the correction. Final source review, source checks, actual557-to558 installed/offline rehearsals, native browser checks and complete release gates must bind to the corrected bytes before publication.
+The first complete local 220-command run on ad7ecfb8 passed, but precedes this review correction and is retained only as that snapshot's evidence. Its installed/browser results also precede the correction. Final source review, source checks, actual 557-to-558 installed/offline rehearsals, native browser checks and complete release gates must bind to the corrected bytes before publication.
 
 ## Effective venue and scheduling context — 17 October Sydney
 
