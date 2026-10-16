@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "weekend-editorial-20261015232145190",
-  "publishedAt": "2026-10-15T23:21:45.190Z",
+  "version": "weekend-editorial-20261014225703956",
+  "publishedAt": "2026-10-14T22:57:03.956Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -65653,8 +65653,8 @@
         "researchTier": "standard",
         "hook": "Dragons and Eels met in Round 27 with a late-season test of where both clubs finish; the outcome stays hidden here.",
         "synopsis": "Dragons and Eels arrived at Round 27 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-        "hookSpoilerOn": "Dragons defeated Eels 24-22.",
-        "synopsisSpoilerOn": "Dragons defeated Eels 24-22. The current table now has Dragons 17th on 16 points and Eels 13th on 24, keeping the result connected to the wider NRL path.",
+        "hookSpoilerOn": "Dragons defeated Eels in Round 27.",
+        "synopsisSpoilerOn": "Dragons defeated Eels in Round 27. Dragons v Eels finished 24-22 in Round 27, with Dragons winning by 2 points.",
         "threadIds": [
           "thread:rolling:team-nrl-330",
           "thread:rolling:team-nrl-328"
@@ -66129,8 +66129,8 @@
         "researchTier": "standard",
         "hook": "Panthers and Wests Tigers met in Round 27 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
         "synopsis": "Panthers and Wests Tigers arrived at Round 27 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-        "hookSpoilerOn": "Panthers defeated Wests Tigers 38-10.",
-        "synopsisSpoilerOn": "Panthers defeated Wests Tigers 38-10. The current table now has Panthers 1st on 42 points and Wests Tigers 15th on 22, keeping the result connected to the wider NRL path.",
+        "hookSpoilerOn": "Panthers defeated Wests Tigers in Round 27.",
+        "synopsisSpoilerOn": "Panthers defeated Wests Tigers in Round 27. Panthers v Wests Tigers finished 38-10 in Round 27, with Panthers winning by 28 points.",
         "threadIds": [
           "thread:rolling:team-nrl-329",
           "thread:rolling:team-nrl-334"
@@ -66812,21 +66812,7 @@
         "resultSignature": "[\"completed\",\"China defeated Czechia 74-70 after overtime.\",\"China 74-70 Czechia\",\"China beat Czechia 74-70 after overtime in the FIBA Women's Basketball World Cup group stage.\"]"
       },
       "endTimeUtc": "2026-09-06T15:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "epl-2026-27-128946",
@@ -68164,21 +68150,7 @@
         "resultSignature": "[\"completed\",\"Belgium won 76–64.\",\"Puerto Rico 64–76 Belgium\",\"Puerto Rico 64–76 Belgium in the World Cup group stage in Berlin.\"]"
       },
       "endTimeUtc": "2026-09-06T18:45:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_italy_usa",
@@ -68329,21 +68301,7 @@
         "resultSignature": "[\"completed\",\"USA won 55–52.\",\"Italy 52–55 USA\",\"Italy 52–55 USA in the World Cup group stage in Berlin.\"]"
       },
       "endTimeUtc": "2026-09-06T21:45:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_belgium_australia",
@@ -68377,8 +68335,8 @@
       "roundLabel": "Group stage",
       "stage": "group",
       "narrativeType": "all",
-      "selectedSentence": "Belgium v Australian Opals is complete. Reveal results for the outcome.",
-      "fullSpiel": "Belgium v Australian Opals is complete. Reveal results for the outcome.",
+      "selectedSentence": "Belgium v Australian Opals is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Belgium v Australian Opals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
       "sourceCheckedAt": "2026-10-11T12:37:26.931Z",
@@ -68449,9 +68407,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "Belgium v Australian Opals is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Belgium v Australian Opals is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Belgium won 80–68.",
-        "synopsisSpoilerOff": "Belgium v Australian Opals is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Belgium v Australian Opals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Belgium 80–68 Australian Opals in the World Cup group stage in Berlin.",
         "lastReviewedAt": "2026-09-08T14:06:42.638Z",
         "researchDepth": 2
@@ -68555,20 +68513,6 @@
         "tier": 5,
         "resultSignature": "7dc168e979102d4f87c4623ad082e327519cf0b855096f68a5ccf22654b4a905",
         "factsSignature": "[\"completed\",\"Belgium won 80–68.\",\"Belgium 80–68 Australian Opals\",null,null,null]"
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
       }
     },
     {
@@ -68720,21 +68664,7 @@
         "resultSignature": "[\"completed\",\"Puerto Rico won 75–71.\",\"Puerto Rico 75–71 Türkiye\",\"Puerto Rico 75–71 Türkiye in the World Cup group stage in Berlin.\"]"
       },
       "endTimeUtc": "2026-09-07T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_hungary_korea",
@@ -68885,21 +68815,7 @@
         "resultSignature": "[\"completed\",\"Hungary won 82–73.\",\"Hungary 82–73 Korea\",\"Hungary 82–73 Korea in the World Cup group stage in Berlin.\"]"
       },
       "endTimeUtc": "2026-09-07T15:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_nigeria_france",
@@ -69050,21 +68966,7 @@
         "resultSignature": "[\"completed\",\"France won 111–56.\",\"Nigeria 56–111 France\",\"Nigeria 56–111 France in the World Cup group stage in Berlin.\"]"
       },
       "endTimeUtc": "2026-09-07T15:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture-us-open-2026-official-wd-4301",
@@ -69453,21 +69355,7 @@
         "resultSignature": "[\"completed\",\"Germany won 83–58.\",\"Germany 83–58 Mali\",\"Germany 83–58 Mali in the World Cup group stage in Berlin.\"]"
       },
       "endTimeUtc": "2026-09-07T18:50:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_japan_spain",
@@ -69618,21 +69506,7 @@
         "resultSignature": "[\"completed\",\"Spain won 79–59.\",\"Japan 59–79 Spain\",\"Japan 59–79 Spain in the World Cup group stage in Berlin.\"]"
       },
       "endTimeUtc": "2026-09-07T18:50:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_italy_china",
@@ -69783,21 +69657,7 @@
         "resultSignature": "[\"completed\",\"China won 71–51.\",\"Italy 51–71 China\",\"Italy 51–71 China in the World Cup group stage in Berlin.\"]"
       },
       "endTimeUtc": "2026-09-07T21:45:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_usa_czechia",
@@ -69948,21 +69808,7 @@
         "resultSignature": "[\"completed\",\"USA won 105–64.\",\"USA 105–64 Czechia\",\"USA 105–64 Czechia in the World Cup group stage in Berlin.\"]"
       },
       "endTimeUtc": "2026-09-07T21:45:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_vuelta_2026_stage_16",
@@ -70154,9 +70000,9 @@
       "liveWindow": 3,
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Frances Tiafoe defeated Alex Michelsen in five sets.",
-        "synopsisSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Tiafoe recovered from two sets down to win the US Open quarterfinal 5-7, 3-6, 7-5, 6-3, 7-6(6).",
         "arcStage": "recap",
         "intensity": 5,
@@ -70184,8 +70030,8 @@
           "method": "published-schedule.v1"
         }
       ],
-      "selectedSentence": "Frances Tiafoe v Alex Michelsen is complete. Reveal results for the outcome.",
-      "fullSpiel": "Frances Tiafoe v Alex Michelsen is complete. Reveal results for the outcome.",
+      "selectedSentence": "Frances Tiafoe v Alex Michelsen is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Frances Tiafoe v Alex Michelsen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "lastReviewedAt": "2026-09-22T01:40:00.000Z",
       "editorialNarrative": {
@@ -70219,9 +70065,9 @@
         "generationMode": "researched",
         "resultResearchRequired": true,
         "phase": "preview",
-        "resultSignature": "[\"completed\",\"Frances Tiafoe defeated Alex Michelsen in five sets.\",\"Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen\",\"Tiafoe recovered from two sets down to win the US Open quarterfinal 5-7, 3-6, 7-5, 6-3, 7-6(6).\"]",
-        "hookSpoilerOn": "Frances Tiafoe defeated Alex Michelsen in five sets.",
-        "synopsisSpoilerOn": "Tiafoe recovered from two sets down to win the US Open quarterfinal 5-7, 3-6, 7-5, 6-3, 7-6(6)."
+        "resultSignature": "[\"completed\",\"Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen\",\"Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen\",\"Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen\"]",
+        "hookSpoilerOn": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen",
+        "synopsisSpoilerOn": "Frances Tiafoe 5-7 3-6 7-5 6-3 7(10)-6(6) Alex Michelsen"
       },
       "sourceEventIds": [
         "fixture:us-open-2026:official:ms:1503",
@@ -70273,22 +70119,7 @@
         }
       ],
       "scoreCheckedAt": "2026-10-11T12:36:43.421Z",
-      "statusCheckedAt": "2026-10-11T12:36:43.421Z",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Frances Tiafoe v Alex Michelsen",
-        "contextSignals": [
-          "event-specific",
-          "narrative:matchup",
-          "narrative:history",
-          "narrative:path",
-          "narrative:schedule"
-        ],
-        "sourceName": "Frances Tiafoe v Alex Michelsen — official research 1",
-        "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-        "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "statusCheckedAt": "2026-10-11T12:36:43.421Z"
     },
     {
       "id": "fixture-us-open-2026-official-ws-2501",
@@ -70393,9 +70224,9 @@
       "liveWindow": 3,
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Aryna Sabalenka defeated Linda Noskova in three sets.",
-        "synopsisSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Sabalenka reached the US Open semifinals with a 7-6(1), 3-6, 7-6(7) quarterfinal win.",
         "arcStage": "recap",
         "intensity": 5,
@@ -70423,8 +70254,8 @@
           "method": "published-schedule.v1"
         }
       ],
-      "selectedSentence": "Aryna Sabalenka v Linda Noskova is complete. Reveal results for the outcome.",
-      "fullSpiel": "Aryna Sabalenka v Linda Noskova is complete. Reveal results for the outcome.",
+      "selectedSentence": "Aryna Sabalenka v Linda Noskova is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Aryna Sabalenka v Linda Noskova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "lastReviewedAt": "2026-09-22T01:40:00.000Z",
       "editorialNarrative": {
@@ -70458,9 +70289,9 @@
         "generationMode": "researched",
         "resultResearchRequired": true,
         "phase": "preview",
-        "resultSignature": "[\"completed\",\"Aryna Sabalenka defeated Linda Noskova in three sets.\",\"Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova\",\"Sabalenka reached the US Open semifinals with a 7-6(1), 3-6, 7-6(7) quarterfinal win.\"]",
-        "hookSpoilerOn": "Aryna Sabalenka defeated Linda Noskova in three sets.",
-        "synopsisSpoilerOn": "Sabalenka reached the US Open semifinals with a 7-6(1), 3-6, 7-6(7) quarterfinal win."
+        "resultSignature": "[\"completed\",\"Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova\",\"Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova\",\"Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova\"]",
+        "hookSpoilerOn": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova",
+        "synopsisSpoilerOn": "Aryna Sabalenka 7(7)-6(1) 3-6 7(10)-6(7) Linda Noskova"
       },
       "sourceEventIds": [
         "fixture:us-open-2026:official:ws:2501",
@@ -70507,22 +70338,7 @@
       "scoreCheckedAt": "2026-10-11T12:36:43.421Z",
       "statusCheckedAt": "2026-10-11T12:36:43.421Z",
       "startTimeTbc": false,
-      "dateOnly": false,
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Aryna Sabalenka v Linda Noskova",
-        "contextSignals": [
-          "event-specific",
-          "narrative:path",
-          "narrative:matchup",
-          "narrative:consequence",
-          "narrative:schedule"
-        ],
-        "sourceName": "Aryna Sabalenka v Linda Noskova — official research 1",
-        "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-        "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "dateOnly": false
     },
     {
       "id": "evt_fiba_women_2026_qualification_day_1",
@@ -70556,8 +70372,8 @@
       "roundLabel": "Qualification to quarterfinals",
       "stage": "qualification",
       "narrativeType": "all",
-      "selectedSentence": "FIBA Women's World Cup — qualification day 1 is complete. Reveal results for the outcome.",
-      "fullSpiel": "FIBA Women's World Cup — qualification day 1 is complete. Reveal results for the outcome.",
+      "selectedSentence": "FIBA Women's World Cup — qualification day 1 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's World Cup — qualification day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "FIBA",
       "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -70582,9 +70398,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Australia and China advanced to the quarterfinals.",
-        "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Australia edged Italy 82-80 and China defeated Puerto Rico 75-72 in qualification games.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 5
@@ -70635,21 +70451,7 @@
         "synopsisSpoilerOn": "Australia edged Italy 82-80 and China defeated Puerto Rico 75-72 in qualification games."
       },
       "endTimeUtc": "2026-09-08T18:45:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture-us-open-2026-official-ms-1504",
@@ -70754,9 +70556,9 @@
       "liveWindow": 3,
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Ben Shelton defeated Carlos Alcaraz in five sets.",
-        "synopsisSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Shelton ended Alcaraz's title defence with a 6-7(5), 6-1, 6-3, 1-6, 7-6(7) quarterfinal win.",
         "arcStage": "recap",
         "intensity": 5,
@@ -70784,8 +70586,8 @@
           "method": "published-schedule.v1"
         }
       ],
-      "selectedSentence": "Ben Shelton v Carlos Alcaraz is complete. Reveal results for the outcome.",
-      "fullSpiel": "Ben Shelton v Carlos Alcaraz is complete. Reveal results for the outcome.",
+      "selectedSentence": "Ben Shelton v Carlos Alcaraz is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Ben Shelton v Carlos Alcaraz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "lastReviewedAt": "2026-09-22T01:40:00.000Z",
       "editorialNarrative": {
@@ -70819,9 +70621,9 @@
         "generationMode": "researched",
         "resultResearchRequired": true,
         "phase": "preview",
-        "resultSignature": "[\"completed\",\"Ben Shelton defeated Carlos Alcaraz in five sets.\",\"Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz\",\"Shelton ended Alcaraz's title defence with a 6-7(5), 6-1, 6-3, 1-6, 7-6(7) quarterfinal win.\"]",
-        "hookSpoilerOn": "Ben Shelton defeated Carlos Alcaraz in five sets.",
-        "synopsisSpoilerOn": "Shelton ended Alcaraz's title defence with a 6-7(5), 6-1, 6-3, 1-6, 7-6(7) quarterfinal win."
+        "resultSignature": "[\"completed\",\"Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz\",\"Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz\",\"Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz\"]",
+        "hookSpoilerOn": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz",
+        "synopsisSpoilerOn": "Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz"
       },
       "sourceEventIds": [
         "fixture:us-open-2026:official:ms:1504",
@@ -70917,21 +70719,6 @@
         "tier": 5,
         "resultSignature": "8e75db9ab15ae286c0ebcad52bb6bd722b3566ac65a4bee58ca420d94a73c850",
         "factsSignature": "[\"completed\",\"Ben Shelton defeated Carlos Alcaraz in five sets.\",\"Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz\",\"Ben Shelton 6(5)-7(7) 6-1 6-3 1-6 7(10)-6(7) Carlos Alcaraz\",null,null]"
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Ben Shelton v Carlos Alcaraz",
-        "contextSignals": [
-          "event-specific",
-          "narrative:matchup",
-          "narrative:form",
-          "narrative:history",
-          "narrative:schedule"
-        ],
-        "sourceName": "Ben Shelton v Carlos Alcaraz — official research 1",
-        "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-        "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-        "needsPreviewRefresh": false
       }
     },
     {
@@ -71037,9 +70824,9 @@
       "liveWindow": 3,
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "Jessica Pegula v Emma Navarro is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Jessica Pegula v Emma Navarro is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Jessica Pegula defeated Emma Navarro in three sets.",
-        "synopsisSpoilerOff": "Jessica Pegula v Emma Navarro is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Jessica Pegula v Emma Navarro is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Pegula recovered from a set down to win the US Open quarterfinal 3-6, 6-4, 6-3.",
         "arcStage": "recap",
         "intensity": 5,
@@ -71067,8 +70854,8 @@
           "method": "published-schedule.v1"
         }
       ],
-      "selectedSentence": "Jessica Pegula v Emma Navarro is complete. Reveal results for the outcome.",
-      "fullSpiel": "Jessica Pegula v Emma Navarro is complete. Reveal results for the outcome.",
+      "selectedSentence": "Jessica Pegula v Emma Navarro is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Jessica Pegula v Emma Navarro is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "lastReviewedAt": "2026-09-22T01:40:00.000Z",
       "editorialNarrative": {
@@ -71104,9 +70891,9 @@
         "generationMode": "researched",
         "resultResearchRequired": true,
         "phase": "preview",
-        "resultSignature": "[\"completed\",\"Jessica Pegula defeated Emma Navarro in three sets.\",\"Jessica Pegula 3-6 6-4 6-3 Emma Navarro\",\"Pegula recovered from a set down to win the US Open quarterfinal 3-6, 6-4, 6-3.\"]",
-        "hookSpoilerOn": "Jessica Pegula defeated Emma Navarro in three sets.",
-        "synopsisSpoilerOn": "Pegula recovered from a set down to win the US Open quarterfinal 3-6, 6-4, 6-3."
+        "resultSignature": "[\"completed\",\"Jessica Pegula 3-6 6-4 6-3 Emma Navarro\",\"Jessica Pegula 3-6 6-4 6-3 Emma Navarro\",\"Jessica Pegula 3-6 6-4 6-3 Emma Navarro\"]",
+        "hookSpoilerOn": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro",
+        "synopsisSpoilerOn": "Jessica Pegula 3-6 6-4 6-3 Emma Navarro"
       },
       "sourceEventIds": [
         "fixture:us-open-2026:official:ws:2502",
@@ -71153,23 +70940,7 @@
       "scoreCheckedAt": "2026-10-11T12:36:43.421Z",
       "statusCheckedAt": "2026-10-11T12:36:43.421Z",
       "startTimeTbc": false,
-      "dateOnly": false,
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Jessica Pegula v Emma Navarro",
-        "contextSignals": [
-          "event-specific",
-          "narrative:matchup",
-          "narrative:history",
-          "narrative:consequence",
-          "narrative:path",
-          "narrative:schedule"
-        ],
-        "sourceName": "Jessica Pegula v Emma Navarro — official research 1",
-        "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-        "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "dateOnly": false
     },
     {
       "id": "evt_vuelta_2026_stage_17",
@@ -71978,8 +71749,8 @@
       "roundLabel": "Qualification to quarterfinals",
       "stage": "qualification",
       "narrativeType": "all",
-      "selectedSentence": "FIBA Women's World Cup — qualification day 2 is complete. Reveal results for the outcome.",
-      "fullSpiel": "FIBA Women's World Cup — qualification day 2 is complete. Reveal results for the outcome.",
+      "selectedSentence": "FIBA Women's World Cup — qualification day 2 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's World Cup — qualification day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "FIBA",
       "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -72004,9 +71775,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Germany and Hungary advanced to the quarterfinals.",
-        "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Germany defeated Korea 94-56 and Hungary beat Japan 84-63 in qualification games.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 5
@@ -72057,21 +71828,7 @@
         "synopsisSpoilerOn": "Germany defeated Korea 94-56 and Hungary beat Japan 84-63 in qualification games."
       },
       "endTimeUtc": "2026-09-09T18:45:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_quarterfinals",
@@ -72105,8 +71862,8 @@
       "roundLabel": "Quarterfinals",
       "stage": "quarterfinal",
       "narrativeType": "all",
-      "selectedSentence": "FIBA Women's World Cup — quarterfinals is complete. Reveal results for the outcome.",
-      "fullSpiel": "FIBA Women's World Cup — quarterfinals is complete. Reveal results for the outcome.",
+      "selectedSentence": "FIBA Women's World Cup — quarterfinals is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's World Cup — quarterfinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "FIBA",
       "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -72131,9 +71888,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Spain, Germany, France and USA reached the semifinals.",
-        "synopsisSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Spain, Germany, France and USA won the four World Cup quarterfinals in Berlin.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "archetype": "elimination",
@@ -72185,21 +71942,7 @@
         "synopsisSpoilerOn": "Spain, Germany, France and USA won the four World Cup quarterfinals in Berlin."
       },
       "endTimeUtc": "2026-09-10T19:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nrlw_2026_round_11_roosters_bulldogs",
@@ -72236,8 +71979,8 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. Reveal results for the outcome.",
-      "fullSpiel": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. Reveal results for the outcome.",
+      "selectedSentence": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NRL",
       "sourceUrl": "https://www.nrl.com/news/2026/09/10/thursday-night-footy-roosters-v-bulldogs/",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -72292,9 +72035,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs 42-12.",
-        "synopsisSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "The Roosters completed an unbeaten regular season with a 42-12 Round 11 win.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
@@ -72346,21 +72089,7 @@
         "synopsisSpoilerOn": "The Roosters completed an unbeaten regular season with a 42-12 Round 11 win."
       },
       "endTimeUtc": "2026-09-10T12:45:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_vuelta_2026_stage_18",
@@ -72484,8 +72213,8 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Wests Tigers v Canberra Raiders is complete. Reveal results for the outcome.",
-      "fullSpiel": "Wests Tigers v Canberra Raiders is complete. Reveal results for the outcome.",
+      "selectedSentence": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NRL",
       "sourceUrl": "https://www.nrl.com/news/2026/09/08/nrlw-team-lists-round-11/",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -72540,9 +72269,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "Wests Tigers v Canberra Raiders is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Canberra Raiders defeated Wests Tigers 22-10.",
-        "synopsisSpoilerOff": "Wests Tigers v Canberra Raiders is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Canberra closed Round 11 with a 22-10 win over Wests Tigers.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
@@ -72594,21 +72323,7 @@
         "synopsisSpoilerOn": "Canberra closed Round 11 with a 22-10 win over Wests Tigers."
       },
       "endTimeUtc": "2026-09-11T10:40:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_motogp_2026_san_marino_practice_1",
@@ -72785,8 +72500,8 @@
         "resultResearchRequired": false,
         "phase": "preview",
         "resultSignature": "[\"completed\",\"Knights defeated Rabbitohs 20-10.\",\"Rabbitohs 10-20 Knights\",\"Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win.\"]",
-        "hookSpoilerOn": "Knights defeated Rabbitohs 20-10.",
-        "synopsisSpoilerOn": "Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win."
+        "hookSpoilerOn": "Knights defeated Rabbitohs in Elimination Final.",
+        "synopsisSpoilerOn": "Knights defeated Rabbitohs in Elimination Final. Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win."
       },
       "storyline": {
         "stakes": 5,
@@ -73022,8 +72737,8 @@
           "name": "Winner of EF1"
         }
       ],
-      "selectedSentence": "Fremantle v Geelong Cats is complete. Reveal results for the outcome.",
-      "fullSpiel": "Fremantle v Geelong Cats is complete. Reveal results for the outcome.",
+      "selectedSentence": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
+      "fullSpiel": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
       "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
@@ -73064,9 +72779,9 @@
       "sourceTrust": "verified",
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "Fremantle v Geelong Cats is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
         "hookSpoilerOn": "Fremantle defeated Geelong Cats 120-106.",
-        "synopsisSpoilerOff": "Fremantle v Geelong Cats is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
         "synopsisSpoilerOn": "Fremantle defeated Geelong Cats 120-106. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
         "arcStage": "recap",
         "intensity": 5,
@@ -73081,8 +72796,8 @@
         "researchTier": "marquee",
         "hook": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
         "synopsis": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
-        "hookSpoilerOn": "Fremantle defeated Geelong Cats 120-106.",
-        "synopsisSpoilerOn": "Fremantle defeated Geelong Cats 120-106. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+        "hookSpoilerOn": "Fremantle defeated Geelong Cats in Semi Finals.",
+        "synopsisSpoilerOn": "Fremantle defeated Geelong Cats in Semi Finals. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points.",
         "threadIds": [
           "thread:depth:afl:finals"
         ],
@@ -73855,8 +73570,8 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Parramatta Eels v North Queensland Cowboys is complete. Reveal results for the outcome.",
-      "fullSpiel": "Parramatta Eels v North Queensland Cowboys is complete. Reveal results for the outcome.",
+      "selectedSentence": "Parramatta Eels v North Queensland Cowboys is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Parramatta Eels v North Queensland Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NRL",
       "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -73911,9 +73626,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 7,
-        "hookSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Parramatta Eels defeated North Queensland Cowboys 33-28.",
-        "synopsisSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Parramatta overturned a 22-6 deficit and sealed a 33-28 Round 11 win.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
@@ -73965,21 +73680,7 @@
         "synopsisSpoilerOn": "Parramatta overturned a 22-6 deficit and sealed a 33-28 Round 11 win."
       },
       "endTimeUtc": "2026-09-12T05:00:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640501",
@@ -74475,8 +74176,8 @@
         "resultResearchRequired": false,
         "phase": "preview",
         "resultSignature": "[\"completed\",\"Dolphins defeated Warriors 26-16.\",\"Warriors 16-26 Dolphins\",\"The Dolphins came from behind to win 26-16 and advance to a preliminary final.\"]",
-        "hookSpoilerOn": "Dolphins defeated Warriors 26-16.",
-        "synopsisSpoilerOn": "The Dolphins came from behind to win 26-16 and advance to a preliminary final."
+        "hookSpoilerOn": "Dolphins defeated Warriors in Qualifying Final.",
+        "synopsisSpoilerOn": "Dolphins defeated Warriors in Qualifying Final. The Dolphins came from behind to win 26-16 and advance to a preliminary final."
       },
       "storyline": {
         "stakes": 5,
@@ -74858,8 +74559,8 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. Reveal results for the outcome.",
-      "fullSpiel": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. Reveal results for the outcome.",
+      "selectedSentence": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NRL",
       "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -74914,9 +74615,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons 16-8.",
-        "synopsisSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Cronulla finished the regular season with a 16-8 Round 11 win.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
@@ -74968,21 +74669,7 @@
         "synopsisSpoilerOn": "Cronulla finished the regular season with a 16-8 Round 11 win."
       },
       "endTimeUtc": "2026-09-12T10:10:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_motogp_2026_san_marino_practice_2",
@@ -75384,8 +75071,8 @@
           "name": "Winner of EF2"
         }
       ],
-      "selectedSentence": "Brisbane Lions v Adelaide Crows is complete. Reveal results for the outcome.",
-      "fullSpiel": "Brisbane Lions v Adelaide Crows is complete. Reveal results for the outcome.",
+      "selectedSentence": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
+      "fullSpiel": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
       "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
       "sourceCheckedAt": "2026-09-30T22:50:31.966Z",
@@ -75426,9 +75113,9 @@
       "sourceTrust": "verified",
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "Brisbane Lions v Adelaide Crows is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
         "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91.",
-        "synopsisSpoilerOff": "Brisbane Lions v Adelaide Crows is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
         "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
         "arcStage": "recap",
         "intensity": 5,
@@ -75443,8 +75130,8 @@
         "researchTier": "marquee",
         "hook": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
         "synopsis": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
-        "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91.",
-        "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows 144-91. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+        "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows in Semi Finals.",
+        "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows in Semi Finals. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points.",
         "threadIds": [
           "thread:depth:afl:finals"
         ],
@@ -75734,8 +75421,8 @@
         "resultResearchRequired": false,
         "phase": "preview",
         "resultSignature": "[\"completed\",\"Sharks defeated Cowboys 26-16.\",\"Sharks 26-16 Cowboys\",\"Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win.\"]",
-        "hookSpoilerOn": "Sharks defeated Cowboys 26-16.",
-        "synopsisSpoilerOn": "Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win."
+        "hookSpoilerOn": "Sharks defeated Cowboys in Elimination Final.",
+        "synopsisSpoilerOn": "Sharks defeated Cowboys in Elimination Final. Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win."
       },
       "storyline": {
         "stakes": 5,
@@ -77146,8 +76833,8 @@
       "roundLabel": "Semifinals",
       "stage": "semifinal",
       "narrativeType": "all",
-      "selectedSentence": "FIBA Women's World Cup — semifinals is complete. Reveal results for the outcome.",
-      "fullSpiel": "FIBA Women's World Cup — semifinals is complete. Reveal results for the outcome.",
+      "selectedSentence": "FIBA Women's World Cup — semifinals is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's World Cup — semifinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "FIBA",
       "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-semi-finals",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -77172,9 +76859,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 10,
-        "hookSpoilerOff": "FIBA Women's World Cup — semifinals is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "FIBA Women's World Cup — semifinals is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "USA and France reached the World Cup final.",
-        "synopsisSpoilerOff": "FIBA Women's World Cup — semifinals is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "FIBA Women's World Cup — semifinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "USA defeated Spain 76-66 and France beat Germany 86-64 in the semifinals.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "archetype": "elimination",
@@ -77226,21 +76913,7 @@
         "synopsisSpoilerOn": "USA defeated Spain 76-66 and France beat Germany 86-64 in the semifinals."
       },
       "endTimeUtc": "2026-09-12T22:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "epl-2026-27-128962",
@@ -77597,8 +77270,8 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Brisbane Broncos v New Zealand Warriors is complete. Reveal results for the outcome.",
-      "fullSpiel": "Brisbane Broncos v New Zealand Warriors is complete. Reveal results for the outcome.",
+      "selectedSentence": "Brisbane Broncos v New Zealand Warriors is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Brisbane Broncos v New Zealand Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NRL",
       "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -77654,9 +77327,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Brisbane Broncos defeated New Zealand Warriors 52-18.",
-        "synopsisSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Brisbane scored seven second-half tries in a 52-18 Round 11 win.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
@@ -77708,21 +77381,7 @@
         "synopsisSpoilerOn": "Brisbane scored seven second-half tries in a 52-18 Round 11 win."
       },
       "endTimeUtc": "2026-09-13T05:00:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640505",
@@ -78061,8 +77720,8 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Newcastle Knights v Gold Coast Titans is complete. Reveal results for the outcome.",
-      "fullSpiel": "Newcastle Knights v Gold Coast Titans is complete. Reveal results for the outcome.",
+      "selectedSentence": "Newcastle Knights v Gold Coast Titans is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Newcastle Knights v Gold Coast Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NRL",
       "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -78117,9 +77776,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Gold Coast Titans defeated Newcastle Knights 32-20.",
-        "synopsisSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Gold Coast extended its winning run to ten matches with a 32-20 Round 11 victory.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
@@ -78171,21 +77830,7 @@
         "synopsisSpoilerOn": "Gold Coast extended its winning run to ten matches with a 32-20 Round 11 victory."
       },
       "endTimeUtc": "2026-09-13T06:45:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-27T13:44:57.475Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640507",
@@ -78529,8 +78174,8 @@
         "resultResearchRequired": false,
         "phase": "preview",
         "resultSignature": "[\"completed\",\"Panthers defeated Roosters 19-12.\",\"Panthers 19-12 Roosters\",\"Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final.\"]",
-        "hookSpoilerOn": "Panthers defeated Roosters 19-12.",
-        "synopsisSpoilerOn": "Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final."
+        "hookSpoilerOn": "Panthers defeated Roosters in Qualifying Final.",
+        "synopsisSpoilerOn": "Panthers defeated Roosters in Qualifying Final. Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final."
       },
       "storyline": {
         "stakes": 5,
@@ -79142,16 +78787,14 @@
       ],
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "2026 MotoGP season — current path",
+        "angle": "Grand Prix",
         "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
+          "official-schedule",
+          "Grand Prix"
         ],
-        "sourceName": "MotoGP 2026 calendar",
-        "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-        "sourceCheckedAt": "2026-10-01T17:37:45.716Z",
+        "sourceName": "MotoGP official calendar and premier-class timetable",
+        "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/san-marino/537f71f7-25ea-4cb2-a259-70b0da576cc6",
+        "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
         "needsPreviewRefresh": false
       }
     },
@@ -79567,8 +79210,8 @@
       "roundLabel": "Third-place game",
       "stage": "medal",
       "narrativeType": "all",
-      "selectedSentence": "FIBA Women's World Cup — bronze medal game is complete. Reveal results for the outcome.",
-      "fullSpiel": "FIBA Women's World Cup — bronze medal game is complete. Reveal results for the outcome.",
+      "selectedSentence": "FIBA Women's World Cup — bronze medal game is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's World Cup — bronze medal game is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "FIBA",
       "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -79593,9 +79236,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Spain defeated Germany 81-58 to win bronze.",
-        "synopsisSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Spain secured the World Cup bronze medal with an 81-58 win over hosts Germany.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 5
@@ -79647,21 +79290,7 @@
         "synopsisSpoilerOn": "Spain secured the World Cup bronze medal with an 81-58 win over hosts Germany."
       },
       "endTimeUtc": "2026-09-13T17:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "epl-2026-27-128960",
@@ -79855,8 +79484,8 @@
       "roundLabel": "Final",
       "stage": "final",
       "narrativeType": "all",
-      "selectedSentence": "FIBA Women's Basketball World Cup final is complete. Reveal results for the outcome.",
-      "fullSpiel": "FIBA Women's Basketball World Cup final is complete. Reveal results for the outcome.",
+      "selectedSentence": "FIBA Women's Basketball World Cup final is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's Basketball World Cup final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "FIBA",
       "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
       "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
@@ -79881,9 +79510,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 10,
-        "hookSpoilerOff": "FIBA Women's Basketball World Cup final is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "FIBA Women's Basketball World Cup final is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "USA defeated France 97-79 to win the World Cup.",
-        "synopsisSpoilerOff": "FIBA Women's Basketball World Cup final is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "FIBA Women's Basketball World Cup final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "USA won a fifth consecutive and 12th overall Women's World Cup title with a 97-79 final victory.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "archetype": "championship decider",
@@ -79936,21 +79565,7 @@
         "synopsisSpoilerOn": "USA won a fifth consecutive and 12th overall Women's World Cup title with a 97-79 final victory."
       },
       "endTimeUtc": "2026-09-13T21:00:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "epl-2026-27-128958",
@@ -82658,21 +82273,7 @@
         "resultSignature": "[\"completed\",\"Melbourne United 95, Adelaide 36ers 97\",\"95-97\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-19T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "major-match-nrl-finals-2026-semi-final-1",
@@ -82715,8 +82316,8 @@
         "resultResearchRequired": false,
         "phase": "preview",
         "resultSignature": "[\"completed\",\"Sydney Roosters defeated Cronulla-Sutherland Sharks 46-10.\",\"46-10\",\"The Roosters advanced to a preliminary final against the Dolphins after scoring five second-half tries.\"]",
-        "hookSpoilerOn": "Sydney Roosters defeated Cronulla-Sutherland Sharks 46-10.",
-        "synopsisSpoilerOn": "The Roosters advanced to a preliminary final against the Dolphins after scoring five second-half tries."
+        "hookSpoilerOn": "Sydney Roosters defeated Cronulla-Sutherland Sharks in Semi Final.",
+        "synopsisSpoilerOn": "Sydney Roosters defeated Cronulla-Sutherland Sharks in Semi Final. The Roosters advanced to a preliminary final against the Dolphins after scoring five second-half tries."
       },
       "storyline": {
         "stakes": 5,
@@ -83244,21 +82845,7 @@
         "resultSignature": "[\"completed\",\"Perth Wildcats 79, South East Melbourne Phoenix 100\",\"79-100\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-19T14:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_motogp_2026_austria_sprint",
@@ -84735,21 +84322,7 @@
         "resultSignature": "[\"completed\",\"New Zealand Breakers 95, Illawarra Hawks 81\",\"95-81\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-20T08:00:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640608",
@@ -84917,8 +84490,8 @@
         "researchTier": "marquee",
         "hook": "Eden Park’s knockout afternoon tested Newcastle against the Warriors in front of a record New Zealand rugby league crowd.",
         "synopsis": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
-        "hookSpoilerOn": "Newcastle Knights defeated New Zealand Warriors 12–10.",
-        "synopsisSpoilerOn": "Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
+        "hookSpoilerOn": "Newcastle Knights defeated New Zealand Warriors in Semi Final.",
+        "synopsisSpoilerOn": "Newcastle Knights defeated New Zealand Warriors in Semi Final. Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
         "threadIds": [
           "thread:fixture-research:major-match-nrl-finals-2026-semi-final-2:revision-c7f2497eb773fcf4b4b0df7d8b03a205382b28ba9eadf3fa6698d395a09e415b"
         ],
@@ -85308,21 +84881,7 @@
         "resultSignature": "[\"completed\",\"Sydney Kings 111, Cairns Taipans 90\",\"111-90\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-20T10:00:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640609",
@@ -85665,8 +85224,8 @@
       "roundNumber": 15,
       "stage": "Grand Prix",
       "narrativeType": "all",
-      "selectedSentence": "MotoGP Austria Grand Prix is complete. Reveal results for the outcome.",
-      "fullSpiel": "MotoGP Austria Grand Prix is complete. Reveal results for the outcome.",
+      "selectedSentence": "MotoGP Austria Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "MotoGP Austria Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "MotoGP official race classification",
       "sourceUrl": "https://stats.motogp.com/en/gp-results",
       "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
@@ -85728,9 +85287,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "MotoGP Austria Grand Prix is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "MotoGP Austria Grand Prix is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Pedro Acosta won the Austrian MotoGP race.",
-        "synopsisSpoilerOff": "MotoGP Austria Grand Prix is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "MotoGP Austria Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Acosta completed the race in 42 minutes 16.996 seconds, ahead of Jorge Martin and Marco Bezzecchi.",
         "lastReviewedAt": "2026-09-17T23:22:14.102Z",
         "researchDepth": 5
@@ -85786,22 +85345,7 @@
       "sourceRefs": [
         "https://www.motogp.com/en/calendar/2026/event/austria/1d659e29-247a-402c-ba1e-33fa14670cbe",
         "https://stats.motogp.com/en/gp-results"
-      ],
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "MotoGP Austrian Grand Prix",
-        "contextSignals": [
-          "event-specific",
-          "narrative:matchup",
-          "narrative:form",
-          "narrative:path",
-          "narrative:schedule"
-        ],
-        "sourceName": "MotoGP Austrian Grand Prix — official research 1",
-        "sourceUrl": "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413",
-        "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
-        "needsPreviewRefresh": false
-      }
+      ]
     },
     {
       "id": "epl-2026-27-128963",
@@ -86835,21 +86379,7 @@
         "resultSignature": "[\"completed\",\"Tasmania JackJumpers 96, South East Melbourne Phoenix 91\",\"96-91\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-21T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nbl_2026_27_36e7aa3c_58ad_11f1_b88d_1138b8cb68ba",
@@ -87061,21 +86591,7 @@
         "resultSignature": "[\"completed\",\"Brisbane Bullets 88, New Zealand Breakers 85\",\"88-85\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-22T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nbl_2026_27_36e0818b_58ad_11f1_89d2_fb9d3a8baf78",
@@ -87286,21 +86802,7 @@
         "resultSignature": "[\"completed\",\"Cairns Taipans 93, Tasmania JackJumpers 87\",\"93-87\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-23T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_f1_2026_azerbaijan_practice_1",
@@ -87780,21 +87282,7 @@
         "resultSignature": "[\"completed\",\"South East Melbourne Phoenix 61, Melbourne United 86\",\"61-86\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-24T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nbl_2026_27_36e93c3b_58ad_11f1_8215_c5dc2cf09b1f",
@@ -88005,21 +87493,7 @@
         "resultSignature": "[\"completed\",\"Perth Wildcats 98, Adelaide 36ers 97\",\"98-97\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-24T14:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_f1_2026_azerbaijan_practice_2",
@@ -89505,21 +88979,7 @@
         "resultSignature": "[\"completed\",\"Brisbane Bullets 103, Illawarra Hawks 95\",\"103-95\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-25T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "major-match-nrl-finals-2026-preliminary-final-2",
@@ -89536,8 +88996,8 @@
         "researchTier": "marquee",
         "hook": "Suncorp's preliminary final put the Dolphins' first finals campaign against the Roosters' established September experience.",
         "synopsis": "The key matchups centred on Isaiya Katoa and Kodi Nikorima against Sam Walker and Daly Cherry-Evans, with Hamiso Tabuai-Fidow and James Tedesco directing the backlines. This review examines the contest without revealing which side progressed.",
-        "hookSpoilerOn": "Roosters defeated Dolphins 36-20 to reach the Grand Final.",
-        "synopsisSpoilerOn": "Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage.",
+        "hookSpoilerOn": "Roosters defeated Dolphins in Preliminary Final.",
+        "synopsisSpoilerOn": "Roosters defeated Dolphins in Preliminary Final. Sam Walker returned from injury as the Roosters booked their first decider since 2019. Mark Nawaqanitawase scored twice and ran for 329 metres; the Dolphins finished their first finals campaign at the preliminary-final stage.",
         "threadIds": [
           "thread:fixture-research:major-match:nrl-finals-2026:preliminary-final-2:revision-3e9372c7bd51d534056594ae036a9087de33d0e4173cbda3ada53a989e47beb5"
         ],
@@ -89862,8 +89322,8 @@
         "researchTier": "marquee",
         "hook": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
         "synopsis": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
-        "hookSpoilerOn": "Socceroos and Brazil drew 1-1 in Townsville.",
-        "synopsisSpoilerOn": "Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench.",
+        "hookSpoilerOn": "Socceroos and Brazil finished level in International friendly.",
+        "synopsisSpoilerOn": "Socceroos and Brazil finished level in International friendly. Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench.",
         "threadIds": [
           "thread:fixture-research:football-australia-brazil-2026-09-25:revision-ff6bf3c2fd6f93171ab2cbcd0a3c1dee598a9c5527e3b04168b771720a5d356a"
         ],
@@ -90383,8 +89843,8 @@
         "researchTier": "marquee",
         "hook": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
         "synopsis": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
-        "hookSpoilerOn": "Brisbane Lions defeated Fremantle 96-89.",
-        "synopsisSpoilerOn": "Brisbane Lions defeated Fremantle 96-89. Fremantle v Brisbane Lions finished 89-96 in Grand Final, with Brisbane Lions winning by 7 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+        "hookSpoilerOn": "Brisbane Lions defeated Fremantle in the Grand Final.",
+        "synopsisSpoilerOn": "Brisbane Lions defeated Fremantle in the Grand Final. Fremantle v Brisbane Lions finished 89-96 in Grand Final, with Brisbane Lions winning by 7 points.",
         "threadIds": [
           "thread:depth:afl:finals"
         ],
@@ -91336,21 +90796,7 @@
         "resultSignature": "[\"completed\",\"Perth Wildcats 97, New Zealand Breakers 93\",\"97-93\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-26T14:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640706",
@@ -92188,8 +91634,8 @@
         "resultResearchRequired": false,
         "phase": "preview",
         "resultSignature": "[\"completed\",\"Knights defeated Panthers 22-14.\",\"Panthers 14-22 Knights\",\"Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium.\"]",
-        "hookSpoilerOn": "Knights defeated Panthers 22-14.",
-        "synopsisSpoilerOn": "Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium."
+        "hookSpoilerOn": "Knights defeated Panthers in Preliminary Final.",
+        "synopsisSpoilerOn": "Knights defeated Panthers in Preliminary Final. Newcastle Knights defeated Penrith Panthers 22-14 in the preliminary final at Accor Stadium."
       },
       "storyline": {
         "stakes": 5,
@@ -92592,8 +92038,8 @@
       "roundNumber": 2,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Sydney Kings v Illawarra Hawks — Round 2 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Sydney Kings v Illawarra Hawks — Round 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Sydney Kings v Illawarra Hawks is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Sydney Kings v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -92669,9 +92115,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Sydney Kings v Illawarra Hawks — Round 2 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Sydney Kings v Illawarra Hawks is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Sydney Kings 121, Illawarra Hawks 100",
-        "synopsisSpoilerOff": "Sydney Kings v Illawarra Hawks — Round 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Sydney Kings v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-04T05:51:53.694Z",
         "researchDepth": 2
@@ -92711,21 +92157,7 @@
         "resultSignature": "[\"completed\",\"Sydney Kings 121, Illawarra Hawks 100\",\"121-100\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-27T11:00:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "rugby-australia-south-africa-2026-09-27",
@@ -93032,8 +92464,8 @@
         "resultResearchRequired": false,
         "phase": "preview",
         "resultSignature": "[\"completed\",\"Brazil defeated Australia 4-2.\",\"Australia 2-4 Brazil\",\"Brazil defeated Australia 4-2 in their second September friendly.\"]",
-        "hookSpoilerOn": "Brazil defeated Australia 4-2.",
-        "synopsisSpoilerOn": "Brazil defeated Australia 4-2 in their second September friendly."
+        "hookSpoilerOn": "Brazil defeated Socceroos in International friendly.",
+        "synopsisSpoilerOn": "Brazil defeated Socceroos in International friendly. Brazil defeated Australia 4-2 in their second September friendly."
       },
       "resultEditorialBranches": {
         "home": {
@@ -93657,8 +93089,8 @@
       "roundNumber": 3,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "New Zealand Breakers v Cairns Taipans — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "New Zealand Breakers v Cairns Taipans — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "New Zealand Breakers v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "New Zealand Breakers v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -93735,9 +93167,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "New Zealand Breakers v Cairns Taipans — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "New Zealand Breakers v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "New Zealand Breakers 98, Cairns Taipans 75",
-        "synopsisSpoilerOff": "New Zealand Breakers v Cairns Taipans — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "New Zealand Breakers v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-04T05:51:53.694Z",
         "researchDepth": 2
@@ -93777,21 +93209,7 @@
         "resultSignature": "[\"completed\",\"New Zealand Breakers 98, Cairns Taipans 75\",\"98-75\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-30T10:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nbl_2026_27_3718a994_58ad_11f1_add9_d98e318e0a1e",
@@ -93883,8 +93301,8 @@
       "roundNumber": 3,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Sydney Kings v Brisbane Bullets — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Sydney Kings v Brisbane Bullets — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Sydney Kings v Brisbane Bullets is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Sydney Kings v Brisbane Bullets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -93960,9 +93378,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Sydney Kings v Brisbane Bullets — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Sydney Kings v Brisbane Bullets is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Sydney Kings 93, Brisbane Bullets 78",
-        "synopsisSpoilerOff": "Sydney Kings v Brisbane Bullets — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Sydney Kings v Brisbane Bullets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-04T05:51:53.694Z",
         "researchDepth": 2
@@ -94002,21 +93420,7 @@
         "resultSignature": "[\"completed\",\"Sydney Kings 93, Brisbane Bullets 78\",\"93-78\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-09-30T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture-tennis-espn-atp-183447",
@@ -98845,8 +98249,8 @@
       "roundNumber": 3,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Tasmania JackJumpers v Melbourne United — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Tasmania JackJumpers v Melbourne United — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Tasmania JackJumpers v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Tasmania JackJumpers v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -98922,9 +98326,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Tasmania JackJumpers v Melbourne United — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Tasmania JackJumpers v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Tasmania JackJumpers 84, Melbourne United 82",
-        "synopsisSpoilerOff": "Tasmania JackJumpers v Melbourne United — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Tasmania JackJumpers v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-04T05:51:53.694Z",
         "researchDepth": 2
@@ -98964,21 +98368,7 @@
         "resultSignature": "[\"completed\",\"Tasmania JackJumpers 84, Melbourne United 82\",\"84-82\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-01T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture-tennis-espn-atp-183438",
@@ -105950,8 +105340,8 @@
       "roundNumber": 3,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Illawarra Hawks v Adelaide 36ers — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Illawarra Hawks v Adelaide 36ers — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Illawarra Hawks v Adelaide 36ers is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Illawarra Hawks v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -106027,9 +105417,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Illawarra Hawks v Adelaide 36ers — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Illawarra Hawks v Adelaide 36ers is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Illawarra Hawks 114, Adelaide 36ers 92",
-        "synopsisSpoilerOff": "Illawarra Hawks v Adelaide 36ers — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Illawarra Hawks v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-04T05:51:53.694Z",
         "researchDepth": 2
@@ -106069,21 +105459,7 @@
         "resultSignature": "[\"completed\",\"Illawarra Hawks 114, Adelaide 36ers 92\",\"114-92\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-02T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_nbl_2026_27_3724384a_58ad_11f1_bbdc_6d6f61141df2",
@@ -106175,8 +105551,8 @@
       "roundNumber": 3,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Perth Wildcats v South East Melbourne Phoenix — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Perth Wildcats v South East Melbourne Phoenix — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Perth Wildcats v South East Melbourne Phoenix is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Perth Wildcats v South East Melbourne Phoenix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -106252,9 +105628,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Perth Wildcats v South East Melbourne Phoenix — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Perth Wildcats v South East Melbourne Phoenix is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Perth Wildcats 92, South East Melbourne Phoenix 88",
-        "synopsisSpoilerOff": "Perth Wildcats v South East Melbourne Phoenix — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Perth Wildcats v South East Melbourne Phoenix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-04T05:51:53.694Z",
         "researchDepth": 2
@@ -106294,21 +105670,7 @@
         "resultSignature": "[\"completed\",\"Perth Wildcats 92, South East Melbourne Phoenix 88\",\"92-88\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-02T14:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture-tennis-espn-atp-183439",
@@ -111134,8 +110496,8 @@
       "roundNumber": 3,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Brisbane Bullets v Tasmania JackJumpers — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Brisbane Bullets v Tasmania JackJumpers — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Brisbane Bullets v Tasmania JackJumpers is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Brisbane Bullets v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -111211,9 +110573,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Brisbane Bullets v Tasmania JackJumpers — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Brisbane Bullets v Tasmania JackJumpers is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Brisbane Bullets 99, Tasmania JackJumpers 109",
-        "synopsisSpoilerOff": "Brisbane Bullets v Tasmania JackJumpers — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Brisbane Bullets v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-04T05:51:53.694Z",
         "researchDepth": 2
@@ -111253,21 +110615,7 @@
         "resultSignature": "[\"completed\",\"Brisbane Bullets 99, Tasmania JackJumpers 109\",\"99-109\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-03T10:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_f1_2026_bahrain_qualifying",
@@ -112131,8 +111479,8 @@
       "roundNumber": 3,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Melbourne United v Cairns Taipans — Round 3 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Melbourne United v Cairns Taipans — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Melbourne United v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Melbourne United v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -112208,9 +111556,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Melbourne United v Cairns Taipans — Round 3 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Melbourne United v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Melbourne United 95, Cairns Taipans 107",
-        "synopsisSpoilerOff": "Melbourne United v Cairns Taipans — Round 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Melbourne United v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-04T05:51:53.694Z",
         "researchDepth": 2
@@ -112250,21 +111598,7 @@
         "resultSignature": "[\"completed\",\"Melbourne United 95, Cairns Taipans 107\",\"95-107\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-03T12:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture-tennis-espn-atp-183444",
@@ -116289,8 +115623,8 @@
       "roundNumber": 3,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "South East Melbourne Phoenix v Illawarra Hawks is complete. Reveal results for the outcome.",
-      "fullSpiel": "South East Melbourne Phoenix v Illawarra Hawks is complete. Reveal results for the outcome.",
+      "selectedSentence": "South East Melbourne Phoenix v Illawarra Hawks is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "South East Melbourne Phoenix v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -116366,9 +115700,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "South East Melbourne Phoenix v Illawarra Hawks is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "South East Melbourne Phoenix v Illawarra Hawks is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "South East Melbourne Phoenix 113, Illawarra Hawks 96",
-        "synopsisSpoilerOff": "South East Melbourne Phoenix v Illawarra Hawks is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "South East Melbourne Phoenix v Illawarra Hawks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-01T17:38:41.192Z",
         "researchDepth": 2
@@ -116407,21 +115741,7 @@
         "synopsisSpoilerOn": "Official NBL result."
       },
       "endTimeUtc": "2026-10-04T07:00:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640808",
@@ -116633,8 +115953,8 @@
       "roundNumber": 16,
       "stage": "Grand Prix",
       "narrativeType": "all",
-      "selectedSentence": "MotoGP Japan Grand Prix is complete. Reveal results for the outcome.",
-      "fullSpiel": "MotoGP Japan Grand Prix is complete. Reveal results for the outcome.",
+      "selectedSentence": "MotoGP Japan Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "MotoGP Japan Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "MotoGP official race report",
       "sourceUrl": "https://www.motogp.com/pt/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007",
       "sourceCheckedAt": "2026-10-04T08:35:52.000Z",
@@ -116696,9 +116016,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "MotoGP Japan Grand Prix is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "MotoGP Japan Grand Prix is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Marc Marquez won the Japanese MotoGP race.",
-        "synopsisSpoilerOff": "MotoGP Japan Grand Prix is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "MotoGP Japan Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Marc Marquez finished ahead of Jorge Martin and Marco Bezzecchi at Motegi. Official race report.",
         "lastReviewedAt": "2026-10-01T23:21:33.194Z",
         "researchDepth": 5
@@ -116757,23 +116077,7 @@
       "sourceRefs": [
         "https://www.motogp.com/en/calendar/2026/event/japan/a87453f0-3ed0-4469-993a-1486af92d879",
         "https://www.motogp.com/pt/news/2026/10/04/two-points-in-it-marc-marquez-doubles-up-at-motegi-to-reel-in-on-martin/1145007"
-      ],
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "MotoGP Japanese Grand Prix",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:matchup",
-          "narrative:schedule",
-          "narrative:venue",
-          "narrative:format"
-        ],
-        "sourceName": "MotoGP Japanese Grand Prix — official research 1",
-        "sourceUrl": "https://www.motogp.com/es/news/2026/09/28/vorschau-der-titelkampf-spitzt-sich-zu-wir-fliegen-nach-motegi/1095167",
-        "sourceCheckedAt": "2026-10-01T23:21:33.194Z",
-        "needsPreviewRefresh": false
-      }
+      ]
     },
     {
       "id": "evt_nrlw_2026_grand_final",
@@ -117057,8 +116361,8 @@
       "roundNumber": 3,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Adelaide 36ers v New Zealand Breakers is complete. Reveal results for the outcome.",
-      "fullSpiel": "Adelaide 36ers v New Zealand Breakers is complete. Reveal results for the outcome.",
+      "selectedSentence": "Adelaide 36ers v New Zealand Breakers is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Adelaide 36ers v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -117135,9 +116439,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Adelaide 36ers v New Zealand Breakers is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Adelaide 36ers v New Zealand Breakers is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Adelaide 36ers 72, New Zealand Breakers 88",
-        "synopsisSpoilerOff": "Adelaide 36ers v New Zealand Breakers is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Adelaide 36ers v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-01T17:38:41.192Z",
         "researchDepth": 2
@@ -117176,21 +116480,7 @@
         "synopsisSpoilerOn": "Official NBL result."
       },
       "endTimeUtc": "2026-10-04T09:00:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640809",
@@ -122682,8 +121972,8 @@
       "roundNumber": 4,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Adelaide 36ers v Melbourne United — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Adelaide 36ers v Melbourne United — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Adelaide 36ers v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Adelaide 36ers v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -122759,9 +122049,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Adelaide 36ers v Melbourne United — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Adelaide 36ers v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Adelaide 36ers 91, Melbourne United 96",
-        "synopsisSpoilerOff": "Adelaide 36ers v Melbourne United — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Adelaide 36ers v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-11T12:40:11.243Z",
         "researchDepth": 2
@@ -122801,21 +122091,7 @@
         "resultSignature": "[\"completed\",\"Adelaide 36ers 91, Melbourne United 96\",\"91-96\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-07T11:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture-tennis-espn-atp-184839",
@@ -125658,8 +124934,8 @@
       "roundNumber": 4,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Cairns Taipans v Brisbane Bullets — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Cairns Taipans v Brisbane Bullets — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Cairns Taipans v Brisbane Bullets is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Cairns Taipans v Brisbane Bullets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -125735,9 +125011,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Cairns Taipans v Brisbane Bullets — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Cairns Taipans v Brisbane Bullets is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Cairns Taipans 97, Brisbane Bullets 91",
-        "synopsisSpoilerOff": "Cairns Taipans v Brisbane Bullets — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Cairns Taipans v Brisbane Bullets is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-11T12:40:11.243Z",
         "researchDepth": 2
@@ -125777,21 +125053,7 @@
         "resultSignature": "[\"completed\",\"Cairns Taipans 97, Brisbane Bullets 91\",\"97-91\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-08T11:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture-tennis-espn-atp-184841",
@@ -130246,8 +129508,8 @@
       "roundNumber": 4,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Illawarra Hawks v Tasmania JackJumpers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Illawarra Hawks v Tasmania JackJumpers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Illawarra Hawks v Tasmania JackJumpers is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Illawarra Hawks v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -130323,9 +129585,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Illawarra Hawks v Tasmania JackJumpers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Illawarra Hawks v Tasmania JackJumpers is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Illawarra Hawks 112, Tasmania JackJumpers 122",
-        "synopsisSpoilerOff": "Illawarra Hawks v Tasmania JackJumpers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Illawarra Hawks v Tasmania JackJumpers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-11T12:40:11.243Z",
         "researchDepth": 2
@@ -130365,21 +129627,7 @@
         "resultSignature": "[\"completed\",\"Illawarra Hawks 112, Tasmania JackJumpers 122\",\"112-122\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-09T11:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_f1_2026_singapore_sprint_qualifying",
@@ -133917,17 +133165,14 @@
       ],
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "MotoGP Indonesia - Qualifying",
+        "angle": "Qualifying (Q1 + Q2)",
         "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:matchup",
-          "narrative:history",
-          "narrative:path"
+          "official-schedule",
+          "Qualifying (Q1 + Q2)"
         ],
-        "sourceName": "MotoGP Indonesia - Qualifying — official research 1",
-        "sourceUrl": "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
-        "sourceCheckedAt": "2026-10-09T00:20:09.386Z",
+        "sourceName": "MotoGP official calendar and premier-class timetable",
+        "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+        "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
         "needsPreviewRefresh": false
       }
     },
@@ -134588,17 +133833,14 @@
       ],
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "MotoGP Indonesia - Sprint",
+        "angle": "Sprint",
         "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:matchup",
-          "narrative:history",
-          "narrative:path"
+          "official-schedule",
+          "Sprint"
         ],
-        "sourceName": "MotoGP Indonesia - Sprint — official research 1",
-        "sourceUrl": "https://www.motogp.com/en/news/2026/10/07/time-schedule-pertamina-grand-prix-of-indonesia/1171110",
-        "sourceCheckedAt": "2026-10-09T00:20:09.386Z",
+        "sourceName": "MotoGP official calendar and premier-class timetable",
+        "sourceUrl": "https://www.motogp.com/en/calendar/2026/event/indonesia/877c27e8-70e0-4847-bacf-2290d7cc903c",
+        "sourceCheckedAt": "2026-10-11T13:40:40.662Z",
         "needsPreviewRefresh": false
       }
     },
@@ -134855,8 +134097,8 @@
       "roundNumber": 4,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "South East Melbourne Phoenix v Melbourne United — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "South East Melbourne Phoenix v Melbourne United — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "South East Melbourne Phoenix v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "South East Melbourne Phoenix v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -134932,9 +134174,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "South East Melbourne Phoenix v Melbourne United — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "South East Melbourne Phoenix v Melbourne United is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "South East Melbourne Phoenix 99, Melbourne United 104",
-        "synopsisSpoilerOff": "South East Melbourne Phoenix v Melbourne United — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "South East Melbourne Phoenix v Melbourne United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-11T12:40:11.243Z",
         "researchDepth": 2
@@ -134974,21 +134216,7 @@
         "resultSignature": "[\"completed\",\"South East Melbourne Phoenix 99, Melbourne United 104\",\"99-104\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-10T11:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_f1_2026_singapore_sprint",
@@ -135823,8 +135051,8 @@
       "roundNumber": 4,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Perth Wildcats v New Zealand Breakers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Perth Wildcats v New Zealand Breakers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Perth Wildcats v New Zealand Breakers is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Perth Wildcats v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -135901,9 +135129,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Perth Wildcats v New Zealand Breakers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Perth Wildcats v New Zealand Breakers is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Perth Wildcats 100, New Zealand Breakers 84",
-        "synopsisSpoilerOff": "Perth Wildcats v New Zealand Breakers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Perth Wildcats v New Zealand Breakers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-11T12:40:11.243Z",
         "researchDepth": 2
@@ -135943,21 +135171,7 @@
         "resultSignature": "[\"completed\",\"Perth Wildcats 100, New Zealand Breakers 84\",\"100-84\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-10T13:30:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "epl-2026-27-128973",
@@ -141696,8 +140910,8 @@
       "roundNumber": 4,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Sydney Kings v Adelaide 36ers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Sydney Kings v Adelaide 36ers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Sydney Kings v Adelaide 36ers is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Sydney Kings v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -141773,9 +140987,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Sydney Kings v Adelaide 36ers — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Sydney Kings v Adelaide 36ers is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Sydney Kings 78, Adelaide 36ers 84",
-        "synopsisSpoilerOff": "Sydney Kings v Adelaide 36ers — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Sydney Kings v Adelaide 36ers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-11T12:40:11.243Z",
         "researchDepth": 2
@@ -141815,21 +141029,7 @@
         "resultSignature": "[\"completed\",\"Sydney Kings 78, Adelaide 36ers 84\",\"78-84\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-11T07:00:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "event-aflw-cd_m20262640909",
@@ -142076,8 +141276,8 @@
       "roundNumber": 4,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Illawarra Hawks v Cairns Taipans — Round 4 is complete; the key moments are protected until you choose to reveal them.",
-      "fullSpiel": "Illawarra Hawks v Cairns Taipans — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "selectedSentence": "Illawarra Hawks v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Illawarra Hawks v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NBL official schedule",
       "sourceUrl": "https://schedule.nbl.com.au/nbl",
       "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
@@ -142153,9 +141353,9 @@
         "intensitySource": "computed",
         "arcStage": "recap",
         "expectedSpectacle": 5,
-        "hookSpoilerOff": "Illawarra Hawks v Cairns Taipans — Round 4 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOff": "Illawarra Hawks v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Illawarra Hawks 100, Cairns Taipans 110",
-        "synopsisSpoilerOff": "Illawarra Hawks v Cairns Taipans — Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "Illawarra Hawks v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Official NBL result.",
         "lastReviewedAt": "2026-10-11T12:40:11.243Z",
         "researchDepth": 2
@@ -142195,21 +141395,7 @@
         "resultSignature": "[\"completed\",\"Illawarra Hawks 100, Cairns Taipans 110\",\"100-110\",\"Official NBL result.\"]"
       },
       "endTimeUtc": "2026-10-11T09:00:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026–27 NBL season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "NBL official schedule",
-        "sourceUrl": "https://schedule.nbl.com.au/nbl",
-        "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
-        "needsPreviewRefresh": false
-      }
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_motogp_2026_indonesia",
@@ -142435,8 +141621,8 @@
       "roundLabel": "Race",
       "stage": "Race",
       "narrativeType": "all",
-      "selectedSentence": "Singapore’s first Sprint weekend culminates in Sunday’s Grand Prix after competitive running on all three days.",
-      "fullSpiel": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
+      "selectedSentence": "Singapore GP · Race is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Singapore GP · Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Formula 1 official session results",
       "sourceUrl": "https://www.formula1.com/en/results/2026/races/1296/singapore/race-result",
       "sourceCheckedAt": "2026-10-11T19:54:46.043Z",
@@ -142460,10 +141646,10 @@
         "intensity": 4,
         "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "Singapore’s first Sprint weekend culminates in Sunday’s Grand Prix after competitive running on all three days.",
+        "hookSpoilerOff": "Singapore GP · Race is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Max Verstappen won Singapore GP · Race.",
-        "synopsisSpoilerOff": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
-        "synopsisSpoilerOn": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
+        "synopsisSpoilerOff": "Singapore GP · Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Max Verstappen won Singapore GP · Race. 1. Max Verstappen (Red Bull Racing); 2. Charles Leclerc (Ferrari); 3. Kimi Antonelli (Mercedes).",
         "intensitySource": "computed",
         "researchDepth": 5,
         "lastReviewedAt": "2026-10-11T12:40:11.243Z"
@@ -142475,7 +141661,7 @@
         "researchTier": "marquee",
         "hook": "Singapore’s first Sprint weekend culminates in Sunday’s Grand Prix after competitive running on all three days.",
         "synopsis": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
-        "hookSpoilerOn": "Max Verstappen won Singapore GP · Race.",
+        "hookSpoilerOn": "Singapore’s first Sprint weekend culminates in Sunday’s Grand Prix after competitive running on all three days.",
         "synopsisSpoilerOn": "Marina Bay joins the Sprint calendar for the first time on 9–11 October. That is a new challenge at this street circuit: the teams have one practice session before competitive running, with Sprint qualifying on Friday and the Sprint and Grand Prix qualifying on Saturday.",
         "threadIds": [
           "thread:rolling:f1-title"
@@ -142499,9 +141685,7 @@
         "researchedAt": "2026-10-11T12:40:11.243Z",
         "refreshAfter": null,
         "generationMode": "researched",
-        "resultResearchRequired": false,
-        "phase": "recap",
-        "resultSignature": "[\"completed\",\"Max Verstappen won Singapore GP · Race.\",\"1. Max Verstappen · 2. Charles Leclerc · 3. Kimi Antonelli\",\"Max Verstappen won Singapore GP · Race. 1. Max Verstappen (Red Bull Racing); 2. Charles Leclerc (Ferrari); 3. Kimi Antonelli (Mercedes).\"]"
+        "phase": "preview"
       },
       "resultStatus": "official",
       "resultSourceUrl": "https://www.formula1.com/en/results/2026/races/1296/singapore/race-result",
@@ -142960,21 +142144,7 @@
           "countryCode": "BR"
         }
       ],
-      "participantsConfirmed": true,
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 Formula 1 title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:schedule",
-          "narrative:consequence"
-        ],
-        "sourceName": "Formula 1 current driver standings",
-        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-10-11T12:37:25.402Z",
-        "needsPreviewRefresh": false
-      }
+      "participantsConfirmed": true
     },
     {
       "id": "fixture-tennis-espn-atp-184930",
@@ -143803,8 +142973,8 @@
       "competitionName": "Premier League",
       "season": "2026/27",
       "narrativeType": "regular-season-fixture",
-      "selectedSentence": "Crystal Palace v Nottingham Forest is complete. Reveal results for the outcome.",
-      "fullSpiel": "Crystal Palace v Nottingham Forest is complete. Reveal results for the outcome.",
+      "selectedSentence": "Crystal Palace v Nottingham Forest is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Crystal Palace v Nottingham Forest is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Premier League official fixture schedule",
       "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-11T19:54:46.043Z",
@@ -143856,18 +143026,14 @@
         "researchedAt": "2026-09-30T22:50:31.966Z",
         "refreshAfter": "2026-10-11T13:00:00.000Z",
         "generationMode": "researched",
-        "resultResearchRequired": false,
-        "phase": "preview",
-        "resultSignature": "[\"completed\",\"Crystal Palace defeated Nottingham Forest 3-1.\",\"Crystal Palace 3-1 Nottingham Forest\",\"Crystal Palace completed a 2-goal win in Premier League Matchweek 6.\"]",
-        "hookSpoilerOn": "Crystal Palace defeated Nottingham Forest 3-1.",
-        "synopsisSpoilerOn": "Crystal Palace completed a 2-goal win in Premier League Matchweek 6."
+        "phase": "preview"
       },
       "storyline": {
         "researchDepth": 2,
         "arcStage": "recap",
-        "hookSpoilerOff": "Crystal Palace v Nottingham Forest is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Crystal Palace v Nottingham Forest is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Crystal Palace defeated Nottingham Forest 3-1.",
-        "synopsisSpoilerOff": "Crystal Palace v Nottingham Forest is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Crystal Palace v Nottingham Forest is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Crystal Palace completed a 2-goal win in Premier League Matchweek 6.",
         "lastReviewedAt": "2026-09-30T22:50:31.966Z",
         "stakes": 3,
@@ -143882,20 +143048,7 @@
       "awayScore": 1,
       "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "resultSourceCheckedAt": "2026-10-11T19:54:46.043Z",
-      "scoreCheckedAt": "2026-10-11T19:54:46.043Z",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Crystal Palace — 2026/27 identity under pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:matchup"
-        ],
-        "sourceName": "Premier League current 2026/27 table",
-        "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-        "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-        "needsPreviewRefresh": false
-      }
+      "scoreCheckedAt": "2026-10-11T19:54:46.043Z"
     },
     {
       "id": "epl-2026-27-128978",
@@ -143966,8 +143119,8 @@
       "competitionName": "Premier League",
       "season": "2026/27",
       "narrativeType": "regular-season-fixture",
-      "selectedSentence": "Hull City v Everton is complete. Reveal results for the outcome.",
-      "fullSpiel": "Hull City v Everton is complete. Reveal results for the outcome.",
+      "selectedSentence": "Hull City v Everton is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Hull City v Everton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Premier League official fixture schedule",
       "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-11T19:54:46.043Z",
@@ -144020,18 +143173,14 @@
         "researchedAt": "2026-09-30T22:50:31.966Z",
         "refreshAfter": "2026-10-11T13:00:00.000Z",
         "generationMode": "researched",
-        "resultResearchRequired": false,
-        "phase": "preview",
-        "resultSignature": "[\"completed\",\"Hull City drew Everton 2-2.\",\"Hull City 2-2 Everton\",\"Hull City and Everton shared the points after a 2-2 draw.\"]",
-        "hookSpoilerOn": "Hull City drew Everton 2-2.",
-        "synopsisSpoilerOn": "Hull City and Everton shared the points after a 2-2 draw."
+        "phase": "preview"
       },
       "storyline": {
         "researchDepth": 2,
         "arcStage": "recap",
-        "hookSpoilerOff": "Hull City v Everton is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Hull City v Everton is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Hull City drew Everton 2-2.",
-        "synopsisSpoilerOff": "Hull City v Everton is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Hull City v Everton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Hull City and Everton shared the points after a 2-2 draw.",
         "lastReviewedAt": "2026-09-30T22:50:31.966Z",
         "stakes": 3,
@@ -144046,21 +143195,7 @@
       "awayScore": 2,
       "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "resultSourceCheckedAt": "2026-10-11T19:54:46.043Z",
-      "scoreCheckedAt": "2026-10-11T19:54:46.043Z",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Hull City — 2026/27 identity under pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:history",
-          "narrative:form",
-          "narrative:matchup"
-        ],
-        "sourceName": "Premier League current 2026/27 table",
-        "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-        "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-        "needsPreviewRefresh": false
-      }
+      "scoreCheckedAt": "2026-10-11T19:54:46.043Z"
     },
     {
       "id": "epl-2026-27-128980",
@@ -144131,8 +143266,8 @@
       "competitionName": "Premier League",
       "season": "2026/27",
       "narrativeType": "regular-season-fixture",
-      "selectedSentence": "Liverpool v Manchester City is complete. Reveal results for the outcome.",
-      "fullSpiel": "Liverpool v Manchester City is complete. Reveal results for the outcome.",
+      "selectedSentence": "Liverpool v Manchester City is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Liverpool v Manchester City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Premier League official fixture schedule",
       "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-11T19:54:46.043Z",
@@ -144185,18 +143320,14 @@
         "researchedAt": "2026-09-30T22:50:31.966Z",
         "refreshAfter": "2026-10-11T15:30:00.000Z",
         "generationMode": "researched",
-        "resultResearchRequired": false,
-        "phase": "preview",
-        "resultSignature": "[\"completed\",\"Manchester City defeated Liverpool 3-0.\",\"Liverpool 0-3 Manchester City\",\"Manchester City completed a 3-goal win in Premier League Matchweek 6.\"]",
-        "hookSpoilerOn": "Manchester City defeated Liverpool 3-0.",
-        "synopsisSpoilerOn": "Manchester City completed a 3-goal win in Premier League Matchweek 6."
+        "phase": "preview"
       },
       "storyline": {
         "researchDepth": 2,
         "arcStage": "recap",
-        "hookSpoilerOff": "Liverpool v Manchester City is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Liverpool v Manchester City is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Manchester City defeated Liverpool 3-0.",
-        "synopsisSpoilerOff": "Liverpool v Manchester City is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Liverpool v Manchester City is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Manchester City completed a 3-goal win in Premier League Matchweek 6.",
         "lastReviewedAt": "2026-09-30T22:50:31.966Z",
         "stakes": 3,
@@ -144211,21 +143342,7 @@
       "awayScore": 3,
       "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "resultSourceCheckedAt": "2026-10-11T19:54:46.043Z",
-      "scoreCheckedAt": "2026-10-11T19:54:46.043Z",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Liverpool — 2026/27 identity under pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:history",
-          "narrative:form",
-          "narrative:matchup"
-        ],
-        "sourceName": "Premier League current 2026/27 table",
-        "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-        "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-        "needsPreviewRefresh": false
-      }
+      "scoreCheckedAt": "2026-10-11T19:54:46.043Z"
     },
     {
       "id": "fixture:mlb:849809",
@@ -147357,8 +146474,8 @@
       "competitionName": "Premier League",
       "season": "2026/27",
       "narrativeType": "regular-season-fixture",
-      "selectedSentence": "Coventry City v Newcastle United is complete. Reveal results for the outcome.",
-      "fullSpiel": "Coventry City v Newcastle United is complete. Reveal results for the outcome.",
+      "selectedSentence": "Coventry City v Newcastle United is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Coventry City v Newcastle United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Premier League official fixture schedule",
       "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "sourceCheckedAt": "2026-10-12T22:43:24.652Z",
@@ -147411,18 +146528,14 @@
         "researchedAt": "2026-09-30T22:50:31.966Z",
         "refreshAfter": "2026-10-12T19:00:00.000Z",
         "generationMode": "researched",
-        "resultResearchRequired": false,
-        "phase": "preview",
-        "resultSignature": "[\"completed\",\"Coventry City defeated Newcastle United 4-1.\",\"Coventry City 4-1 Newcastle United\",\"Coventry City completed a 3-goal win in Premier League Matchweek 6.\"]",
-        "hookSpoilerOn": "Coventry City defeated Newcastle United 4-1.",
-        "synopsisSpoilerOn": "Coventry City completed a 3-goal win in Premier League Matchweek 6."
+        "phase": "preview"
       },
       "storyline": {
         "researchDepth": 2,
         "arcStage": "recap",
-        "hookSpoilerOff": "Coventry City v Newcastle United is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Coventry City v Newcastle United is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Coventry City defeated Newcastle United 4-1.",
-        "synopsisSpoilerOff": "Coventry City v Newcastle United is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Coventry City v Newcastle United is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Coventry City completed a 3-goal win in Premier League Matchweek 6.",
         "lastReviewedAt": "2026-09-30T22:50:31.966Z",
         "stakes": 3,
@@ -147437,21 +146550,7 @@
       "awayScore": 1,
       "resultSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
       "resultSourceCheckedAt": "2026-10-12T22:43:24.652Z",
-      "scoreCheckedAt": "2026-10-12T22:43:24.652Z",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Coventry City — 2026/27 identity under pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:history",
-          "narrative:form",
-          "narrative:matchup"
-        ],
-        "sourceName": "Premier League current 2026/27 table",
-        "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-        "sourceCheckedAt": "2026-10-11T12:36:41.401Z",
-        "needsPreviewRefresh": false
-      }
+      "scoreCheckedAt": "2026-10-12T22:43:24.652Z"
     },
     {
       "id": "fixture:mlb:849812",
@@ -150488,22 +149587,20 @@
       ],
       "sourceCheckedAt": "2026-10-14T04:26:01.278Z",
       "statusCheckedAt": "2026-10-14T11:36:00.653+00:00",
-      "selectedSentence": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 2, in the race for the World Series.",
-      "fullSpiel": "American League Championship Series Game 2 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue.",
+      "selectedSentence": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+      "fullSpiel": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
       "lastReviewedAt": "2026-10-13T21:00:24.820Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "Tampa Bay Rays v Cleveland Guardians: ALCS Game 2, in the race for the World Series.",
-        "synopsisSpoilerOff": "American League Championship Series Game 2 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Tropicana Field as the venue.",
+        "hookSpoilerOff": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALCS Game 2 at Tropicana Field. Check the official game page for updates.",
         "hookSpoilerOn": "Tampa Bay Rays 3–1 Cleveland Guardians",
         "synopsisSpoilerOn": "ALCS Game 2: Tampa Bay Rays 3–1 Cleveland Guardians. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed",
-        "researchDepth": 2,
-        "lastReviewedAt": "2026-10-11T12:38:02.024Z"
+        "intensitySource": "computed"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Tampa Bay Rays v Cleveland Guardians",
@@ -151550,12 +150647,12 @@
       "statusSourceName": "NBL official schedule",
       "statusSourceType": "official",
       "scoreCheckedAt": "2026-10-15T23:31:08.522Z",
+      "homeParticipantId": "team:nbl:sydney-kings",
+      "awayParticipantId": "team:nbl:new-zealand-breakers",
       "sourceRefs": [
         "https://schedule.nbl.com.au/nbl"
       ],
-      "endTimeUtc": null,
-      "homeParticipantId": "team:nbl:sydney-kings",
-      "awayParticipantId": "team:nbl:new-zealand-breakers"
+      "endTimeUtc": null
     },
     {
       "id": "fixture:tennis:espn:wta:185357",
@@ -152795,22 +151892,20 @@
       ],
       "sourceCheckedAt": "2026-10-15T04:16:01.581Z",
       "statusCheckedAt": "2026-10-15T11:58:00.738+00:00",
-      "selectedSentence": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 3, in the race for the World Series.",
-      "fullSpiel": "National League Championship Series Game 3 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
+      "selectedSentence": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+      "fullSpiel": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
       "lastReviewedAt": "2026-10-13T21:00:24.820Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "hookSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 3, in the race for the World Series.",
-        "synopsisSpoilerOff": "National League Championship Series Game 3 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
+        "hookSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
+        "synopsisSpoilerOff": "NLCS Game 3 at UNIQLO Field at Dodger Stadium. Check the official game page for updates.",
         "hookSpoilerOn": "Los Angeles Dodgers 2–6 Milwaukee Brewers",
         "synopsisSpoilerOn": "NLCS Game 3: Los Angeles Dodgers 2–6 Milwaukee Brewers. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed",
-        "researchDepth": 2,
-        "lastReviewedAt": "2026-10-11T02:39:29.237Z"
+        "intensitySource": "computed"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
@@ -153117,12 +152212,12 @@
       "statusSourceName": "NBL official schedule",
       "statusSourceType": "official",
       "scoreCheckedAt": "2026-10-15T23:31:08.522Z",
+      "homeParticipantId": "team:nbl:brisbane-bullets",
+      "awayParticipantId": "team:nbl:south-east-melbourne-phoenix",
       "sourceRefs": [
         "https://schedule.nbl.com.au/nbl"
       ],
-      "endTimeUtc": null,
-      "homeParticipantId": "team:nbl:brisbane-bullets",
-      "awayParticipantId": "team:nbl:south-east-melbourne-phoenix"
+      "endTimeUtc": null
     },
     {
       "id": "rlwc-australia-new-zealand-2026",
@@ -153144,8 +152239,8 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "match",
-      "selectedSentence": "Australia v New Zealand is complete. Reveal results for the outcome.",
-      "fullSpiel": "Australia v New Zealand is complete. Reveal results for the outcome.",
+      "selectedSentence": "Australia v New Zealand — Rugby League World Cup is complete. Reveal results for the outcome.",
+      "fullSpiel": "Australia v New Zealand — Rugby League World Cup is complete. Reveal results for the outcome.",
       "sourceName": "NRL official match centre",
       "sourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
       "sourceCheckedAt": "2026-10-15T14:24:33.442807+00:00",
@@ -153169,9 +152264,9 @@
         "intensity": 5,
         "arcStage": "recap",
         "expectedSpectacle": 10,
-        "hookSpoilerOff": "Australia v New Zealand is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Australia v New Zealand — Rugby League World Cup is complete. Reveal results for the outcome.",
         "hookSpoilerOn": "Australia defeated New Zealand 24–22.",
-        "synopsisSpoilerOff": "Australia v New Zealand is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOff": "Australia v New Zealand — Rugby League World Cup is complete. Reveal results for the outcome.",
         "synopsisSpoilerOn": "The official NRL match centre records a 24–22 full-time result at Allianz Stadium in the World Cup opener.",
         "intensitySource": "computed",
         "lastReviewedAt": "2026-10-14T22:39:08.467Z",
@@ -153246,11 +152341,7 @@
         "researchedAt": "2026-10-14T22:39:08.467Z",
         "refreshAfter": "2026-10-15T09:05:00.000Z",
         "generationMode": "researched",
-        "resultResearchRequired": false,
-        "phase": "preview",
-        "resultSignature": "[\"completed\",\"Australia defeated New Zealand 24–22.\",\"Australia 24–22 New Zealand\",\"The official NRL match centre records a 24–22 full-time result at Allianz Stadium in the World Cup opener.\"]",
-        "hookSpoilerOn": "Australia defeated New Zealand 24–22.",
-        "synopsisSpoilerOn": "The official NRL match centre records a 24–22 full-time result at Allianz Stadium in the World Cup opener."
+        "phase": "preview"
       },
       "competitionId": "competition:rugby-league-world-cup:2026",
       "competitionName": "Rugby League World Cup",
@@ -153663,11 +152754,11 @@
       "roundLabel": "ALCS Game 3",
       "stage": "ALCS Game 3",
       "date": "2026-10-16",
-      "time": "09:00",
-      "startTimeUtc": "2026-10-15T22:00:00.000Z",
+      "time": "04:00",
+      "startTimeUtc": "2026-10-15T17:00:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "venue": "Progressive Field",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -153723,24 +152814,22 @@
         "https://www.mlb.com/gameday/849818",
         "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-04&endDate=2026-10-25&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-11T12:38:02.024Z",
-      "statusCheckedAt": "2026-10-11T12:38:02.024Z",
-      "selectedSentence": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 3, in the race for the World Series.",
-      "fullSpiel": "American League Championship Series Game 3 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
+      "sourceCheckedAt": "2026-10-16T06:48:20.213Z",
+      "statusCheckedAt": "2026-10-16T06:48:20.213Z",
+      "selectedSentence": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+      "fullSpiel": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
       "lastReviewedAt": "2026-10-13T21:00:24.820Z",
       "stakesScore": 4,
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 3, in the race for the World Series.",
-        "synopsisSpoilerOff": "American League Championship Series Game 3 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
-        "hookSpoilerOn": "Cleveland Guardians v Tampa Bay Rays: ALCS Game 3, in the race for the World Series.",
-        "synopsisSpoilerOn": "American League Championship Series Game 3 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists Progressive Field as the venue.",
+        "arcStage": "recap",
+        "hookSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+        "synopsisSpoilerOff": "ALCS Game 3 at Progressive Field. Check the official game page for updates.",
+        "hookSpoilerOn": "Cleveland Guardians 3–2 Tampa Bay Rays",
+        "synopsisSpoilerOn": "ALCS Game 3: Cleveland Guardians 3–2 Tampa Bay Rays. MLB reports this game as final.",
         "expectedSpectacle": 1,
-        "intensitySource": "computed",
-        "researchDepth": 2,
-        "lastReviewedAt": "2026-10-11T12:38:02.024Z"
+        "intensitySource": "computed"
       },
       "sourceTrust": "verified",
       "displayTitleCompact": "Cleveland Guardians v Tampa Bay Rays",
@@ -153819,7 +152908,25 @@
           "spoilerSafe": "Cleveland Guardians v Tampa Bay Rays in ALCS Game 3: the result is available to reveal.",
           "revealed": "Cleveland Guardians and Tampa Bay Rays finished level in ALCS Game 3."
         }
-      }
+      },
+      "score": "Cleveland Guardians 3–2 Tampa Bay Rays",
+      "resultStatus": "official",
+      "outcomeText": "Cleveland Guardians 3–2 Tampa Bay Rays",
+      "recapText": "ALCS Game 3: Cleveland Guardians 3–2 Tampa Bay Rays. MLB reports this game as final.",
+      "resultLabels": [
+        "Completed"
+      ],
+      "homeScore": 3,
+      "awayScore": 2,
+      "winnerParticipantId": "team:mlb:114",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849818",
+      "resultSourceCheckedAt": "2026-10-16T06:48:20.213Z",
+      "statusSourceUrl": "https://www.mlb.com/gameday/849818",
+      "statusSourceName": "MLB",
+      "statusSourceType": "official",
+      "scoreCheckedAt": "2026-10-16T06:48:20.213Z",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "endTimeUtc": null
     },
     {
       "id": "fixture:mlb:849810",
@@ -153837,11 +152944,11 @@
       "roundLabel": "NLCS Game 4",
       "stage": "NLCS Game 4",
       "date": "2026-10-16",
-      "time": "12:00",
-      "startTimeUtc": "2026-10-16T01:00:00.000Z",
+      "time": "11:00",
+      "startTimeUtc": "2026-10-16T00:00:00.000Z",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "venue": "UNIQLO Field at Dodger Stadium",
       "cardKind": "fixture",
       "kind": "fixture",
@@ -153897,8 +153004,8 @@
         "https://www.mlb.com/gameday/849810",
         "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-02&endDate=2026-10-23&hydrate=team"
       ],
-      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
-      "statusCheckedAt": "2026-10-09T06:52:22.809Z",
+      "sourceCheckedAt": "2026-10-16T07:27:29.485Z",
+      "statusCheckedAt": "2026-10-16T07:27:29.485Z",
       "selectedSentence": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
       "fullSpiel": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
       "lastReviewedAt": "2026-10-13T21:00:24.820Z",
@@ -153906,11 +153013,11 @@
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "hookSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
         "synopsisSpoilerOff": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
-        "hookSpoilerOn": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
-        "synopsisSpoilerOn": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
+        "hookSpoilerOn": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+        "synopsisSpoilerOn": "NLCS Game 4: Los Angeles Dodgers 4–6 Milwaukee Brewers. MLB reports this game as final.",
         "expectedSpectacle": 1,
         "intensitySource": "computed",
         "researchDepth": 2,
@@ -153993,7 +153100,27 @@
           "spoilerSafe": "Los Angeles Dodgers v Milwaukee Brewers in NLCS Game 4: the result is available to reveal.",
           "revealed": "Los Angeles Dodgers and Milwaukee Brewers finished level in NLCS Game 4."
         }
-      }
+      },
+      "score": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+      "resultStatus": "official",
+      "outcomeText": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+      "recapText": "NLCS Game 4: Los Angeles Dodgers 4–6 Milwaukee Brewers. MLB reports this game as final.",
+      "resultLabels": [
+        "Completed"
+      ],
+      "homeScore": 4,
+      "awayScore": 6,
+      "winnerParticipantId": "team:mlb:158",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849810",
+      "resultSourceCheckedAt": "2026-10-16T07:27:29.485Z",
+      "statusSourceUrl": "https://www.mlb.com/gameday/849810",
+      "statusSourceName": "MLB",
+      "statusSourceType": "official",
+      "scoreCheckedAt": "2026-10-16T07:27:29.485Z",
+      "scoreFactObservedAt": "2026-10-16T07:27:29.485Z",
+      "statusFactObservedAt": "2026-10-16T07:27:29.485Z",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "endTimeUtc": null
     },
     {
       "id": "event-aflw-cd_m20262641001",
@@ -245086,11 +244213,7 @@
         "researchedAt": "2026-10-11T03:06:32.411Z",
         "refreshAfter": "2026-10-11T11:30:00.000Z",
         "generationMode": "researched",
-        "resultResearchRequired": false,
-        "phase": "preview",
-        "resultSignature": "[\"completed\",\"Zheng Qinwen won. 7–5, 6–4\",\"7–5, 6–4\",\"ESPN reports Zheng Qinwen as the winner of this final match. 7–5, 6–4\"]",
-        "hookSpoilerOn": "Zheng Qinwen won. 7–5, 6–4",
-        "synopsisSpoilerOn": "ESPN reports Zheng Qinwen as the winner of this final match. 7–5, 6–4"
+        "phase": "preview"
       },
       "sets": [
         {
@@ -245127,30 +244250,13 @@
         "arcStage": "recap",
         "expectedSpectacle": 1,
         "intensitySource": "computed",
-        "hookSpoilerOff": "Zheng Qinwen v Mirra Andreeva is complete. Reveal results for the outcome.",
-        "synopsisSpoilerOff": "Zheng Qinwen v Mirra Andreeva is complete. Reveal results for the outcome.",
+        "hookSpoilerOff": "Zheng Qinwen v Mirra Andreeva is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Zheng Qinwen v Mirra Andreeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "hookSpoilerOn": "Zheng Qinwen won. 7–5, 6–4",
-        "synopsisSpoilerOn": "ESPN reports Zheng Qinwen as the winner of this final match. 7–5, 6–4",
-        "researchDepth": 5,
-        "lastReviewedAt": "2026-10-11T03:06:32.411Z"
+        "synopsisSpoilerOn": "ESPN reports Zheng Qinwen as the winner of this final match. 7–5, 6–4"
       },
-      "selectedSentence": "Zheng Qinwen v Mirra Andreeva is complete. Reveal results for the outcome.",
-      "fullSpiel": "Zheng Qinwen v Mirra Andreeva is complete. Reveal results for the outcome.",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Qinwen Zheng v Mirra Andreeva — China Open final",
-        "contextSignals": [
-          "event-specific",
-          "narrative:history",
-          "narrative:form",
-          "narrative:matchup",
-          "narrative:schedule"
-        ],
-        "sourceName": "WTA official Beijing final preview",
-        "sourceUrl": "https://www.wtatennis.com/news/4589836/mirra-andreeva-vs-zheng-qinwen-everything-to-know-about-china-open-beijing-final",
-        "sourceCheckedAt": "2026-10-11T03:04:23.039Z",
-        "needsPreviewRefresh": false
-      }
+      "selectedSentence": "Zheng Qinwen v Mirra Andreeva is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Zheng Qinwen v Mirra Andreeva is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here."
     },
     {
       "id": "fixture-tennis-espn-atp-184929",
@@ -246296,11 +245402,7 @@
         "researchedAt": "2026-10-12T22:50:31.088Z",
         "refreshAfter": null,
         "generationMode": "researched",
-        "resultResearchRequired": false,
-        "phase": "preview",
-        "resultSignature": "[\"completed\",\"Alex De Minaur won. 6–3, 6–4\",\"6–3, 6–4\",\"ESPN reports Alex De Minaur as the winner of this round of 16 match. 6–3, 6–4\"]",
-        "hookSpoilerOn": "Alex De Minaur won. 6–3, 6–4",
-        "synopsisSpoilerOn": "ESPN reports Alex De Minaur as the winner of this round of 16 match. 6–3, 6–4"
+        "phase": "preview"
       },
       "lastReviewedAt": "2026-10-12T22:50:31.088Z",
       "sets": [
@@ -246361,32 +245463,6 @@
         ],
         "verified": true,
         "meaning": "publisher-post-match-startDate"
-      },
-      "selectedSentence": "Alex De Minaur v Karen Khachanov is complete. Reveal results for the outcome.",
-      "fullSpiel": "Alex De Minaur v Karen Khachanov is complete. Reveal results for the outcome.",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Alex de Minaur v Karen Khachanov - Shanghai round of 16",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:path",
-          "narrative:history",
-          "narrative:consequence"
-        ],
-        "sourceName": "Alex de Minaur v Karen Khachanov - Shanghai round of 16 — official research 1",
-        "sourceUrl": "https://www.tennis.com.au/fan-zone/news/2026/10/11/de-minaur-wins-again-to-reach-shanghai-masters-fourth-round",
-        "sourceCheckedAt": "2026-10-12T22:50:31.088Z",
-        "needsPreviewRefresh": false
-      },
-      "storyline": {
-        "researchDepth": 5,
-        "arcStage": "recap",
-        "hookSpoilerOff": "Alex De Minaur v Karen Khachanov is complete. Reveal results for the outcome.",
-        "hookSpoilerOn": "Alex De Minaur won. 6–3, 6–4",
-        "synopsisSpoilerOff": "Alex De Minaur v Karen Khachanov is complete. Reveal results for the outcome.",
-        "synopsisSpoilerOn": "ESPN reports Alex De Minaur as the winner of this round of 16 match. 6–3, 6–4",
-        "lastReviewedAt": "2026-10-12T22:50:31.088Z"
       }
     },
     {

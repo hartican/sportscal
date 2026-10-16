@@ -63,6 +63,12 @@ async function main(){
     }
     const languageUnknown=item(event,{duration:'PT20M'});delete languageUnknown.snippet.defaultAudioLanguage;
     assert(selection.select([languageUnknown],event,now),'unknown language is not invented; exact 20-minute boundary allowed');
+    const translated=structuredClone(languageUnknown);translated.snippet.defaultLanguage='id';
+    assert(selection.select([translated],event,now),family+' translated title metadata does not declare non-English audio');
+    translated.snippet.defaultAudioLanguage='en';
+    assert(selection.select([translated],event,now),family+' English audio remains eligible with translated title metadata');
+    translated.snippet.defaultAudioLanguage='id';translated.snippet.defaultLanguage='en';
+    assert.equal(selection.select([translated],event,now),null,family+' English title metadata cannot override declared non-English audio');
     assert.equal(selection.select([item(event,{duration:'PT20M1S'})],event,now),null,'duration above boundary rejected');
     const requested=[];
     const feed=channel=>'<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/"><author><uri>https://www.youtube.com/channel/'+channel.id+'</uri></author><entry><yt:videoId>'+official.id+'</yt:videoId><yt:channelId>'+channel.id+'</yt:channelId><title><![CDATA['+official.snippet.title+']]></title><link rel="alternate" href="https://www.youtube.com/watch?v='+official.id+'"/><published>'+official.snippet.publishedAt+'</published><media:description></media:description></entry></feed>';

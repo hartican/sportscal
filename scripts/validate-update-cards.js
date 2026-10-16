@@ -8,6 +8,7 @@ const { spawnSync } = require("node:child_process");
 const { buildBroadcasterReviewSteps, buildVenueReviewSteps, buildQuickSteps, buildSteps, parseOptions } = require("./update-cards");
 const { projectionSteps: quickProjectionSteps } = require("./quick-results");
 require('./validate-reviewed-fixture-projections');
+require('./validate-editorial-projection-repair');
 
 // The actual retained-tennis projection must refresh both gender directories.
 const tennisProjectionRoot=fs.mkdtempSync(path.join(os.tmpdir(),'ns-tennis-projection-route-'));
@@ -28,6 +29,17 @@ const releaseStep = "scripts/redeploy-and-release.sh";
 const defaultSteps = buildSteps(parseOptions([], {}));
 const localSteps = buildSteps(parseOptions(["-p", "--local-only"], {}));
 const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" }));
+assert.equal(parseOptions(['--canonical-readiness','--local-only'],{}).localOnly,true);
+assert.throws(()=>parseOptions(['--canonical-readiness','--quick'],{}),/cannot be combined/,'Canonical readiness cannot broaden into another refresh');
+assert.throws(()=>parseOptions(['--canonical-readiness','--offline'],{}),/cannot be combined/,'A retained snapshot cannot impersonate a new source check');
+const readinessRoot=fs.mkdtempSync(path.join(os.tmpdir(),'ns-canonical-readiness-route-'));
+try{
+ const hook=path.join(readinessRoot,'preload.cjs');
+ fs.writeFileSync(hook,"const cp=require('node:child_process'),seen=[];cp.spawnSync=(command,args)=>{seen.push(args[0]);return {status:0};};process.on('exit',()=>process.stdout.write('READINESS_ROUTE '+JSON.stringify(seen)+'\\n'));\n");
+ const result=spawnSync(process.execPath,['--require',hook,path.join(__dirname,'update-cards.js'),'--canonical-readiness','--local-only'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8'});
+ assert.equal(result.status,0,result.stderr);
+ assert.deepEqual(JSON.parse(result.stdout.match(/READINESS_ROUTE (\[[^\n]+\])/)[1]),['scripts/refresh-canonical-sports.js','scripts/build-app-shell-runtime.js','scripts/version-generated-shell.js','scripts/validate-canonical-sports.js','scripts/verify-pilot-readiness.js'],'Readiness uses the existing combined fixture/standings owner once, with no other source or deployment');
+}finally{fs.rmSync(readinessRoot,{recursive:true,force:true});}
 const dismissalChecks = localSteps.map((step,index)=>step[0]==='scripts/validate-card-dismissal-learning.js'?index:-1).filter(index=>index>=0);
 assert.equal(dismissalChecks.length,2,'the inexpensive contract precheck must retain the post-refresh dismissal check');
 assert(dismissalChecks[0]<localSteps.findIndex(step=>step[0]==='scripts/refresh-pga-schedule.js'),'broken controls must stop before provider work');
@@ -51,7 +63,7 @@ try{
 for (const step of buildBroadcasterReviewSteps()) {
   assert(localSteps.some(existing => JSON.stringify(existing) === JSON.stringify(step)), 'viewing review must reuse the exact checks in the full canonical owner');
 }
-assert.equal(buildBroadcasterReviewSteps().length, 3, 'viewing review must not request providers or publish fixture facts');
+assert.equal(buildBroadcasterReviewSteps().length, 6, 'viewing review must rebuild and check its dependent local dashboard without provider requests or fixture publication');
 for (const script of ['scripts/validate-source-and-venues.js', 'scripts/validate-feed-performance.js']) {
   assert(buildVenueReviewSteps().some(step => step[0] === script) && localSteps.some(step => step[0] === script), 'venue review reuses the full owner checks');
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "official-card-results.v1",
-  "feedVersion": "weekend-editorial-20261015232145190-20261016000956110",
+  "feedVersion": "nothingsport-official-results-2026-09-15-v1",
   "checkedAt": "2026-09-22T01:40:00.000Z",
   "results": [
     {
@@ -1828,6 +1828,108 @@
         "fixtureDate": "2026-10-14",
         "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
         "payloadSha256": "e4cc4d62a89de828098b379a34c7573a0de5973f762d167e74bbd3f6f0793a4d"
+      }
+    },
+    {
+      "id": "fixture:mlb:849818",
+      "canonicalEventId": "fixture:mlb:849818",
+      "sourceEventIds": [
+        "fixture:mlb:849818",
+        "fixture-mlb-849818"
+      ],
+      "participantIds": [
+        "team:mlb:114",
+        "team:mlb:139"
+      ],
+      "date": "2026-10-16",
+      "status": "completed",
+      "score": "Cleveland Guardians 3–2 Tampa Bay Rays",
+      "resultStatus": "official",
+      "outcomeText": "Cleveland Guardians 3–2 Tampa Bay Rays",
+      "recapText": "ALCS Game 3: Cleveland Guardians 3–2 Tampa Bay Rays. MLB reports this game as final.",
+      "resultLabels": [
+        "Completed"
+      ],
+      "homeScore": 3,
+      "awayScore": 2,
+      "winnerParticipantId": "team:mlb:114",
+      "sourceUrl": "https://www.mlb.com/gameday/849818",
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-16T06:48:20.213Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849818",
+      "resultSourceCheckedAt": "2026-10-16T06:48:20.213Z",
+      "statusSourceUrl": "https://www.mlb.com/gameday/849818",
+      "statusSourceName": "MLB",
+      "statusSourceType": "official",
+      "scoreCheckedAt": "2026-10-16T06:48:20.213Z",
+      "statusCheckedAt": "2026-10-16T06:48:20.213Z",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture:mlb:849818",
+          "fixture-mlb-849818"
+        ],
+        "participantIds": [
+          "team:mlb:114",
+          "team:mlb:139"
+        ],
+        "fixtureDate": "2026-10-16",
+        "sourceSha256": "01f538a82e149232552b31e68d7b2187909de378b2ca49a9b8c2b8dd635d1e0a",
+        "payloadSha256": "1dcacc5463f4c863a3283bc43821d716e12485cc14351947f44becf41aff0ede"
+      }
+    },
+    {
+      "id": "fixture:mlb:849810",
+      "canonicalEventId": "fixture:mlb:849810",
+      "sourceEventIds": [
+        "fixture:mlb:849810",
+        "fixture-mlb-849810"
+      ],
+      "participantIds": [
+        "team:mlb:119",
+        "team:mlb:158"
+      ],
+      "date": "2026-10-16",
+      "status": "completed",
+      "score": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+      "resultStatus": "official",
+      "outcomeText": "Los Angeles Dodgers 4–6 Milwaukee Brewers",
+      "recapText": "NLCS Game 4: Los Angeles Dodgers 4–6 Milwaukee Brewers. MLB reports this game as final.",
+      "resultLabels": [
+        "Completed"
+      ],
+      "homeScore": 4,
+      "awayScore": 6,
+      "winnerParticipantId": "team:mlb:158",
+      "sourceUrl": "https://www.mlb.com/gameday/849810",
+      "sourceName": "MLB",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-16T07:27:29.485Z",
+      "resultSourceUrl": "https://www.mlb.com/gameday/849810",
+      "resultSourceCheckedAt": "2026-10-16T07:27:29.485Z",
+      "statusSourceUrl": "https://www.mlb.com/gameday/849810",
+      "statusSourceName": "MLB",
+      "statusSourceType": "official",
+      "scoreCheckedAt": "2026-10-16T07:27:29.485Z",
+      "statusCheckedAt": "2026-10-16T07:27:29.485Z",
+      "scoreFactObservedAt": "2026-10-16T07:27:29.485Z",
+      "statusFactObservedAt": "2026-10-16T07:27:29.485Z",
+      "fixtureObservationSchema": "fixture-observations.v1",
+      "acceptedResultProjection": {
+        "schemaVersion": "accepted-result-projection.v1",
+        "aliases": [
+          "fixture:mlb:849810",
+          "fixture-mlb-849810"
+        ],
+        "participantIds": [
+          "team:mlb:119",
+          "team:mlb:158"
+        ],
+        "fixtureDate": "2026-10-16",
+        "sourceSha256": "495248e00db43d5b6141d3222810aff43323bd5b994c5d70d2b2540aa390a8a0",
+        "payloadSha256": "258e2be564b1d0158670985a07e563349e83b0192ebc55f17e62055692c0d920"
       }
     }
   ]

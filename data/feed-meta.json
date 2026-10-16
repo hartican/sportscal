@@ -1,14 +1,13 @@
 {
-  "version": "weekend-editorial-20261015232145190-20261016000956110-20261016051402398-20261016051503057-20261016055555115-20261016071419724",
+  "version": "weekend-editorial-20261014225703956-20261015002753206-20261015151900269-20261015153508147-20261016064444382-20261016071346380-20261016071450401-20261016071637809-20261016071805825-20261016072859682-20261016075506306",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-16T07:14:19.724Z",
+  "publishedAt": "2026-10-16T07:55:06.306Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
     "sailgp",
     "wrc",
     "nfl",
-    "motogp",
     "wsl",
     "masters",
     "giro",
@@ -33,11 +32,12 @@
     "football",
     "baseball",
     "supercars",
-    "horse-racing",
     "ski",
     "big-wave",
     "goodwood",
-    "downhill-mtb"
+    "downhill-mtb",
+    "motogp",
+    "horse-racing"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -72,11 +72,6 @@
         "count": 1,
         "firstEventDate": "2026-02-09",
         "lastEventDate": "2026-02-09"
-      },
-      "motogp": {
-        "count": 205,
-        "firstEventDate": "2026-02-27",
-        "lastEventDate": "2027-10-01"
       },
       "wsl": {
         "count": 12,
@@ -198,15 +193,20 @@
         "firstEventDate": "2026-10-11",
         "lastEventDate": "2026-10-11"
       },
-      "horse-racing": {
-        "count": 9,
-        "firstEventDate": "2026-10-17",
-        "lastEventDate": "2027-03-27"
-      },
       "ski": {
         "count": 4,
         "firstEventDate": "2027-03-05",
         "lastEventDate": "2027-03-20"
+      },
+      "motogp": {
+        "count": 205,
+        "firstEventDate": "2026-02-27",
+        "lastEventDate": "2027-10-01"
+      },
+      "horse-racing": {
+        "count": 9,
+        "firstEventDate": "2026-10-17",
+        "lastEventDate": "2027-03-27"
       }
     }
   }

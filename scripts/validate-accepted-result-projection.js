@@ -31,6 +31,8 @@ const expectedIds = [
   'evt_nbl_2026_27_36fd506c_58ad_11f1_a57f_6d6fb61b331b',
   'fixture-tennis-espn-atp-184953', 'fixture-tennis-espn-atp-184948',
   'fixture-tennis-espn-atp-184949',
+  'fixture:mlb:849818',
+  'fixture:mlb:849810',
 ];
 const protectedKeys = ['id', 'eventId', 'canonicalEventId', 'date', 'time',
   'startTimeUtc', 'participantIds', 'participants', 'venue', 'lastReviewedAt',
@@ -382,8 +384,8 @@ if (evidenceArgument || fs.existsSync(evidenceFile)) {
   actualRows = rows.filter(row => Object.hasOwn(row, 'acceptedResultProjection'));
 }
 if (evidenceArgument || actualRows.length) {
-  assert.equal(actualRows.length, 15, 'The accepted publication packet must contain exactly 15 tagged rows');
-  same(actualRows.map(row => row.id).sort(), [...expectedIds].sort(), 'Exact retained 15-ID membership');
+  assert.equal(actualRows.length, expectedIds.length, 'The accepted publication packet must contain exactly the reviewed tagged rows');
+  same(actualRows.map(row => row.id).sort(), [...expectedIds].sort(), 'Exact retained 17-ID membership');
   for (const row of actualRows) checkRow(row);
   const find = suffix => actualRows.find(row => aliases(row).some(id => id.endsWith(suffix)));
   // The canonical publisher normalises an accepted result after either writer.
@@ -543,5 +545,5 @@ for (const stamp of [retirement.statusFactObservedAt, '2026-10-14T07:43:00.000Z'
 same([...projectionFailures, ...winnerConflictFailures], [],
   'Independent projection validation, completion receipts and alias/final conflicts must fail closed');
 console.log('Accepted-result projection: proof/source/binding rejection, retirement, zero, raw metadata, exact clocks, stale/conflicting finals and isolated selected/official CLI byte replay passed.');
-console.log(actualRows.length ? 'Actual tagged 15-ID evidence covered.'
-  : 'Compiled tagged 15-ID evidence not present; constructed contract cases covered only.');
+console.log(actualRows.length ? 'Actual tagged 17-ID evidence covered.'
+  : 'Compiled tagged 17-ID evidence not present; constructed contract cases covered only.');

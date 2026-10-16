@@ -102,7 +102,9 @@ assert.equal(courtAudit.contexts.length, 2);
 const shanghaiCourt7 = venues.resolve("Court 7", { key: "tennis", tournamentId: "tournament:tennis:atp-shanghai-2026" });
 assert.equal(shanghaiCourt7.reviewDisposition, "court_identity_pending_review", "the formerly hidden Shanghai outer-court context stays unresolved");
 assert.notEqual(shanghaiCourt7.id, venues.resolve("Court 7", { key: "tennis", eventSeriesId: "event-series:us-open" }).id, "Shanghai and New York courts must not share identity");
-const wuhanVenueInputs = require('./fixtures/wuhan-venue-contexts-20261011.json').records;
+const wuhanCourt3=feed.events.find(event=>[event.id,event.canonicalEventId,...(event.sourceEventIds||[])].includes('fixture:tennis:espn:wta:185358'));
+assert.equal(wuhanCourt3?.venue,'Court 3','Retain the actual published court label without attesting its physical identity');
+const wuhanVenueInputs = [...require('./fixtures/wuhan-venue-contexts-20261011.json').records,wuhanCourt3];
 for (const event of wuhanVenueInputs) {
   const court = venues.resolve(event.venue, event);
   assert.equal(court.audited, false, 'A publisher label cannot attest a physical court');
@@ -116,7 +118,7 @@ for (const event of wuhanVenueInputs) {
 const wuhanVenueAudit = venues.audit(wuhanVenueInputs);
 assert.deepEqual(wuhanVenueAudit.unclassified, []);
 assert.equal(wuhanVenueAudit.audited, 0);
-assert.equal(wuhanVenueAudit.pending.length, 3);
+assert.equal(wuhanVenueAudit.pending.length, 4);
 const retainedWuhanCourts=require('./fixtures/wuhan-venue-contexts-20261016.json');
 assert.equal(retainedWuhanCourts.sourceGitSha,'4e7bc82e5f2c333efbca06c28c866b3258847d82');
 assert.match(retainedWuhanCourts.sourceFeedSha256,/^[a-f0-9]{64}$/);

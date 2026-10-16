@@ -36,6 +36,21 @@ and retain explicit evidence for any necessary projection-gap repair. No gate,
 source authority, private hold, budget, provider or release rule is bypassed.
 The mandatory projection-identity gate includes the real file-writer
 `validate-editorial-reconciliation.js` regression.
+## Bounded declared-projection repair - 16 October 2026
+
+If a release gate finds an already declared editorial projection missing from
+its existing Feed fixture, use the canonical owner rather than a general refresh:
+
+`node scripts/update-cards.js -p --local-only --reviewed-fixtures --editorial-projections --ids=EXACT_EXISTING_ID`
+
+This reapplies only existing reviewed source copy to the exact incoming/published
+fixture, preserving locks, protected originals, sporting facts, source clocks and
+later genuine editorial reviews. It uses the ordinary affected projection builders
+without new research, a rolling generator, provider reads or preference access.
+Unknown, ambiguous, protected or missing-source targets fail before any Feed write.
+Unchanged repairs are byte-idempotent and do not churn publication. Re-run intact
+source, spoiler, build and release gates; this option grants no private publication
+receipt or permission to bypass a failed gate.
 
 ## EPIC archive and post-match handoff — 14 October 2026
 
@@ -159,3 +174,6 @@ score display, outcome, provenance or classification from an older observation.
 Completion/publication labels follow the status tuple. Numeric side aliases are
 added only when the chosen score tuple actually contains the numeric score pair.
 Sparse-retained regressions exercise both persistent writers and unchanged reruns.
+### Canonical readiness maintenance
+
+`node scripts/update-cards.js --canonical-readiness --local-only` runs the existing combined AFL/NRL fixture and standings loader once, rebuilds its generated runtime, and checks canonical/pilot readiness. It rejects mixed/offline routes; retained data cannot masquerade as a fresh source observation. This introduces no separate scheduler or ladders-only refresh. Broadcaster review also rebuilds/checks its dependent local discovery dashboard from the same retained source observations, without provider requests.

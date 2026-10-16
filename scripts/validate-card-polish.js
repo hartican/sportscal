@@ -8,7 +8,11 @@ const results = require("../config/card-results.js");
 const ticketing = require("../config/ticketing.js");
 const venues = require("../config/venue-registry.js");
 
-const html = fs.readFileSync("index.html", "utf8");
+const html = require("./app-shell-test-utils").readCardApplicationSource();
+// Match exact CSS selectors and values independently of released minification.
+const inlineStyles = [...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/g)].map(match => match[1]).join('\n');
+const normaliseCss = value => value.replace(/\s+/g, ' ').replace(/\s*([{}:;,])\s*/g, '$1').trim();
+const cssIncludes = fragment => normaliseCss(inlineStyles).includes(normaliseCss(fragment));
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const foundation = fs.readFileSync("assets/styles/nothingsport-foundation.css", "utf8");
 const eventCardSource = html.slice(html.indexOf("function buildEventCard(ev"), html.indexOf("function jointTournamentIsActive"));
@@ -71,19 +75,23 @@ assert.equal(ticketing.resolve({ eventId: "event-nrl-129992601" }, { surface: "f
 assert(html.includes("LOCALITY_COORDINATES") && html.includes("eventLocationLabel(ev)") && html.includes("distanceKm(selectedCoordinates, fixtureCoordinates)"), "radius-based location matching must survive canonical venue display names");
 
 assert( /className\s*=\s*soloIdentity\s*\?\s*['"]event-hero-mark['"]\s*:\s*['"]event-icon['"]/.test(html), "non-matchup cards must use the centred logo-led treatment");
-assert(html.includes(".event-hero-mark{") && html.includes("width:88px;") && html.includes("height:90px;"), "desktop fixture identities must use the compact 88 by 90 pixel frame");
-assert(html.includes(".event-hero-mark{ width:74px; height:70px; margin-bottom:7px; padding:4px; }"), "mobile fixture identities must use the compact 74 by 70 pixel frame");
-assert(html.includes(".event-card.is-logo-led-event .event-top-row{ display:block; position:relative; }") && html.includes("margin:0 auto 8px"), "single-logo cards must centre their full text stack with compact reserved clearance");
-assert(html.includes(".major-event-logo{ display:grid; place-items:center; width:88px; height:90px; margin:0 auto 8px; padding:4px; }") && html.includes(".major-event-logo{ width:74px; height:70px; margin-bottom:7px; }") && html.includes(".event-hero-mark{ width:74px; height:70px; margin-bottom:7px; padding:4px; }"), "Fixtures and Events must share compact desktop and mobile logo treatment");
+assert(cssIncludes(".event-hero-mark{") && cssIncludes("width:88px;") && cssIncludes("height:90px;"), "desktop fixture identities must use the compact 88 by 90 pixel frame");
+assert(cssIncludes(".event-hero-mark{ width:74px; height:70px; margin-bottom:7px; padding:4px; }"), "mobile fixture identities must use the compact 74 by 70 pixel frame");
+assert(cssIncludes(".event-card.is-logo-led-event .event-top-row{ display:block; position:relative; }") && cssIncludes("margin:0 auto 8px"), "single-logo cards must centre their full text stack with compact reserved clearance");
+assert(cssIncludes(".major-event-logo{ display:grid; place-items:center; width:88px; height:90px; margin:0 auto 8px; padding:4px; }") && cssIncludes(".major-event-logo{ width:74px; height:70px; margin-bottom:7px; }") && cssIncludes(".event-hero-mark{ width:74px; height:70px; margin-bottom:7px; padding:4px; }"), "Fixtures and Events must share compact desktop and mobile logo treatment");
 assert(foundation.includes(".event-card-secondary-actions{") && foundation.includes("grid-template-columns:repeat(auto-fit,minmax(138px,1fr))") && !eventCardSource.includes("card-expand-control"), "expanded secondary actions must share one responsive row while traffic-light Expand remains the only disclosure");
-assert(html.includes("-webkit-line-clamp:2") && html.includes("white-space:normal"), "long names must wrap to two lines");
+assert(cssIncludes("-webkit-line-clamp:2") && cssIncludes("white-space:normal"), "long names must wrap to two lines");
 const vm=require('node:vm'),stateSource=html.match(/function cardStateForEvent\(ev\)\{([\s\S]*?)\n\}/)[0];
 const context={calendarChoice:{active:false},activeTab:'feed',cardViewStates:{},userPreferences:{feedCompact:false}};vm.createContext(context);vm.runInContext(stateSource,context);
 assert.equal(context.cardStateForEvent({id:'major'}),'selected');context.userPreferences.feedCompact=true;assert.equal(context.cardStateForEvent({eventId:'fixture'}),'compact');context.cardViewStates.fixture='opened';assert.equal(context.cardStateForEvent({eventId:'fixture'}),'opened');context.calendarChoice.active=true;assert.equal(context.cardStateForEvent({eventId:'fixture'}),'compact');
 assert(html.includes('state === "selected" ? "is-selected"') && html.includes('state === "opened" ? "is-opened"') && html.includes("renderMajorState(nextCardState(cardStateForEvent(record)),options)") && html.includes("mutateWithScrollContinuity"), "full Events cards share card-state cycling and anchored updates");
-assert(html.includes("if(isMinimised || state==='compact')")&&html.includes("card.appendChild(summary);return card;"), "compact Events cards return the shared compact summary before rich content");
-assert(html.includes("--ticket-action-bg: #00677b") && html.includes("--ticket-action-text: #ffffff") && html.includes("background:var(--ticket-action-bg); color:var(--ticket-action-text)"), "day-mode Events ticket actions must use the high-contrast action palette");
-assert(html.includes("--events-text-accent: #006f85") && html.includes("color:var(--events-text-accent)"), "day-mode Events editorial links must use the dedicated high-contrast text accent");
+const majorCardSource = require("./app-shell-test-utils").readCardFunction('buildDetailedMajorEventCard');
+const mountRowSource = require("./app-shell-test-utils").readCardFunction('mountMinimisedCard');
+assert.match(majorCardSource, /if\(isMinimised \|\| state==='compact'\)\{\s*return mountMinimisedCard\(card,/, "compact Events cards must return the actual shared minimised renderer");
+assert(majorCardSource.indexOf('return mountMinimisedCard(card,') < majorCardSource.indexOf('const ticketRow ='), "compact Events cards return before rich ticket/provider content");
+assert(mountRowSource.includes('const summary=buildCompactCardSummary(ev);') && mountRowSource.includes('card.append(summary);') && mountRowSource.includes('return card;'), "the actual minimised mount retains the shared summary and returns its card");
+assert(cssIncludes("--ticket-action-bg: #00677b") && cssIncludes("--ticket-action-text: #ffffff") && cssIncludes("background:var(--ticket-action-bg); color:var(--ticket-action-text)"), "day-mode Events ticket actions must use the high-contrast action palette");
+assert(cssIncludes("--events-text-accent: #006f85") && cssIncludes("color:var(--events-text-accent)"), "day-mode Events editorial links must use the dedicated high-contrast text accent");
 const settingsUi = fs.readFileSync('config/fantasy-deadline-ui.js', 'utf8');
 assert(settingsUi.includes('id="startupSportsGrid"') && settingsUi.includes("Choose at least one") && settingsUi.includes('if (!sports.size)'), "startup sport choices must remain lightweight and require one selection in their deferred UI module");
 assert.equal(userStateSchema.$defs.eventAction.properties.addedToFixtures.type, "boolean");
