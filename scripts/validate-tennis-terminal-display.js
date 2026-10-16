@@ -18,4 +18,12 @@ for(const label of ['RET','Retired','Retirement'])assert.equal(model.tennisSets(
 assert.equal(model.tennisSets({...unknown,scoreDisplay:'5–2 RET'},unknown.name,{score:'5–2 RET'}).status,'RET','existing inline publisher status survives');
 const normal={...unknown,scoreDisplay:'6–4, 7–6(5)',resultLabels:['Completed']};
 assert.equal(model.tennisSets(normal,normal.name,{score:normal.scoreDisplay}).status,null);
+const points={...unknown,scoreDisplay:'7–6',sets:[{home:7,away:6,homeTiebreak:7,awayTiebreak:4}]};
+const pointsBefore=JSON.stringify(points);
+assert.deepEqual(model.tennisSets(points,points.name,{score:points.scoreDisplay}).sets[0].scores.map(s=>s.tieBreak),[7,4],'separate source-provided tie-break points remain visible');
+assert.equal(JSON.stringify(points),pointsBefore);
+assert.deepEqual(model.tennisSets({...points,scoreDisplay:'Second Player 6–7 First Player'},points.name,{score:points.scoreDisplay}).sets[0].scores.map(s=>s.tieBreak),[7,4],'winner-first source prose cannot reverse point ownership');
+assert.deepEqual(model.tennisSets({...points,sets:[{home:6,away:4,homeTiebreak:7,awayTiebreak:4}]},points.name,{score:points.scoreDisplay}).sets[0].scores.map(s=>s.tieBreak),[null,null],'another games tuple cannot lend its point evidence');
+assert.deepEqual(model.tennisSets({...points,sets:[{home:7,away:6,homeTiebreak:7,awayTiebreak:0}]},points.name,{score:points.scoreDisplay}).sets[0].scores.map(s=>s.tieBreak),[7,0],'a sourced zero survives');
+assert.deepEqual(model.tennisSets({...points,scoreDisplay:'7(8)–6(6)'},points.name,{score:'7(8)–6(6)'}).sets[0].scores.map(s=>s.tieBreak),[8,6],'existing explicit inline points are not silently overwritten');
 console.log('Tennis terminal display: retained 5–2 retirement, explicit source labels, no inferred retirement, normal sets and immutable evidence passed.');

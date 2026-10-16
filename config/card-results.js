@@ -92,6 +92,15 @@
     }
     if(!sets.length)return null;
     if(sets.length===1&&sets[0].label!=='Match TB'&&Math.max(...sets[0].scores.map(s=>s.games))<6&&!/^RET(?:IRED|IREMENT)?$/i.test(status||''))return null;
+    sets.forEach((set,index)=>{
+      const source=event.sets?.[index];
+      if(!source||source.home===source.away)return;
+      const home=set.scores[0].games===source.home&&set.scores[1].games===source.away?0:set.scores[1].games===source.home&&set.scores[0].games===source.away?1:null;
+      if(home===null)return;
+      for(const [side,points] of [[home,source.homeTiebreak],[1-home,source.awayTiebreak]]){
+        if(set.scores[side].tieBreak===null&&Number.isInteger(points)&&points>=0)set.scores[side].tieBreak=points;
+      }
+    });
     const labels=globalThis.NOTHINGSPORTS_FIXTURE_LABELS || (typeof require==='function'?require('./fixture-labels'):null);
     const sourceTitle=names.join(' v ');
     const reverseDisplay=labels && (event.matchupSides?.length===2 ? labels.australianFirst(event.matchupSides,event)[0]!==event.matchupSides[0] : labels.matchupTitle(event,sourceTitle)!==sourceTitle);
