@@ -129,6 +129,7 @@ module.exports = async function notificationDispatchHandler(request, response){
     const api={...nsc,rows:(t,p)=>nsc.rows(t,p,serviceRequest),identityMaps:ids=>nsc.identityMaps(ids,serviceRequest),refreshEventSnapshots:ids=>nsc.refreshEventSnapshots(ids,{request:serviceRequest})};
     const otherOptions={now,api,request:serviceRequest,send:dispatchBudget.send(webpush.sendNotification.bind(webpush))};
     const deferred={checked:0,sent:0,failed:0,deferred:'dispatch_deadline'};
+    const impactRequests=dispatchBudget.remaining()>8000?await require('../lib/impact-feedback').dispatch({...otherOptions,budget:dispatchBudget,loadCatalogue}).catch(error=>dispatchBudget.remaining()<250||error.code==='dispatch_deadline'?deferred:{error:'impact_request_dispatch_failed'}):deferred;
     const liveRatings=dispatchBudget.remaining()>5000?await require('../lib/live-rating-alerts').dispatch(otherOptions).catch(()=>({error:'live_rating_dispatch_failed'})):deferred;
     const socialRewards=dispatchBudget.remaining()>5000?await require('../lib/social-reward-alerts').dispatch(otherOptions).catch(()=>({error:'social_reward_dispatch_failed'})):deferred;
     const ownerPosts=dispatchBudget.remaining()>5000?await require('../lib/comms-post-alerts').dispatch({now,request:serviceRequest,send:dispatchBudget.send(webpush.sendNotification.bind(webpush))}).catch(()=>({error:'owner_post_dispatch_failed'})):deferred;
@@ -138,14 +139,14 @@ module.exports = async function notificationDispatchHandler(request, response){
     const completedAt = new Date().toISOString();
     await recordDispatchHealth({
       last_completed_at:completedAt,
-      ...(failed === 0 && !yearReviews.error && !yearReviews.failed && !ownerPosts.error && !ownerPosts.failed && !contentRefresh.error && !liveRatings.error && !liveRatings.failed && !socialRewards.error && !socialRewards.failed && !milestones.error && !milestones.failed ? { last_success_at:completedAt } : {}),
+      ...(failed === 0 && !impactRequests.error && !impactRequests.failed && !yearReviews.error && !yearReviews.failed && !ownerPosts.error && !ownerPosts.failed && !contentRefresh.error && !liveRatings.error && !liveRatings.failed && !socialRewards.error && !socialRewards.failed && !milestones.error && !milestones.failed ? { last_success_at:completedAt } : {}),
       checked_count:(reminders || []).length,
       claimed_count:claimed.length,
-      sent_count:sent + (yearReviews.sent || 0) + (ownerPosts.sent || 0) + (liveRatings.sent || 0) + (socialRewards.sent || 0) + (milestones.sent || 0),
-      failed_count:failed + (yearReviews.failed || 0) + (yearReviews.error ? 1 : 0) + (contentRefresh.error?1:0) + (ownerPosts.failed||0) + (ownerPosts.error?1:0) + (liveRatings.failed || 0) + (socialRewards.failed || 0) + (liveRatings.error ? 1 : 0) + (socialRewards.error ? 1 : 0) + (milestones.error ? 1 : 0) + (milestones.failed || 0),
-      last_error:yearReviews.error || ownerPosts.error || contentRefresh.error || liveRatings.error || socialRewards.error || milestones.error || (failed ? `${failed} notification delivery${failed === 1 ? "" : "ies"} failed in the latest run.` : null),
+      sent_count:sent + (impactRequests.sent || 0) + (yearReviews.sent || 0) + (ownerPosts.sent || 0) + (liveRatings.sent || 0) + (socialRewards.sent || 0) + (milestones.sent || 0),
+      failed_count:failed + (impactRequests.failed || 0) + (impactRequests.error ? 1 : 0) + (yearReviews.failed || 0) + (yearReviews.error ? 1 : 0) + (contentRefresh.error?1:0) + (ownerPosts.failed||0) + (ownerPosts.error?1:0) + (liveRatings.failed || 0) + (socialRewards.failed || 0) + (liveRatings.error ? 1 : 0) + (socialRewards.error ? 1 : 0) + (milestones.error ? 1 : 0) + (milestones.failed || 0),
+      last_error:impactRequests.error || yearReviews.error || ownerPosts.error || contentRefresh.error || liveRatings.error || socialRewards.error || milestones.error || (failed ? `${failed} notification delivery${failed === 1 ? "" : "ies"} failed in the latest run.` : null),
     }).catch(() => null);
-    response.status(contentRefresh.error || liveRatings.error || socialRewards.error || ownerPosts.error || milestones.error || yearReviews.error ? 503 : 200).json({ automaticChecks, scheduleChecks, contentRefresh, ownerPosts, liveRatings, socialRewards, milestones, yearReviews, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
+    response.status(impactRequests.error || contentRefresh.error || liveRatings.error || socialRewards.error || ownerPosts.error || milestones.error || yearReviews.error ? 503 : 200).json({ automaticChecks, scheduleChecks, impactRequests, contentRefresh, ownerPosts, liveRatings, socialRewards, milestones, yearReviews, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
   }catch(error){
     const safeCode=code=>/^[a-zA-Z0-9_]{1,64}$/.test(code||"")?code:undefined;
     console.error("Notification dispatch failed",{stage,code:safeCode(error?.payload?.code)||"notification_dispatch_failed",upstreamCode:safeCode(error?.upstreamCode)});

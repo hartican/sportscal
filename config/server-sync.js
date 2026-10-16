@@ -598,8 +598,8 @@
           body:JSON.stringify({ meta }),
         });
       },
-      async inboxRequest({cursor = '',summary = false} = {}, seen = null){
-        const query=new URLSearchParams();if(cursor)query.set('cursor',cursor);if(summary)query.set('summary','1');
+      async inboxRequest({cursor = '',summary = false,impact = false,eventId = '',digestDay = ''} = {}, seen = null){
+        const query=new URLSearchParams();if(cursor)query.set('cursor',cursor);if(summary)query.set('summary','1');if(impact)query.set('impact','1');if(eventId)query.set('eventId',eventId);if(digestDay)query.set('digestDay',digestDay);
         return authenticatedRequest(`/api/inbox?${query}`,seen?{method:'POST',body:JSON.stringify({seen})}:{});
       },
       async notificationCommand(command, { authenticated = true } = {}){
