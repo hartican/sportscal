@@ -65,6 +65,10 @@ function validateRetainedSchedule(){
  for(const patch of [
   {sourceUrl:'https://example.invalid/changed-provider',sourceName:'Different provider',venue:'Different venue',sourceCheckedAt:later},
   {venue:'Different venue',sourceCheckedAt:later},
+  ...['venueName','venueCity','venueOfficialName','venueDisplayName','city','location','court','courtId','displayDateLabel'].map(key=>({[key]:'Controlled contrary '+key,sourceCheckedAt:later})),
+  ...['scheduleEvidence','timingEvidence','actualStartEvidence','schedulingWindow'].map(key=>({[key]:{kind:'controlled-contrary-context'},sourceCheckedAt:later})),
+  ...['actualStartTimeUtc','estimatedStartTimeUtc','estimatedEarliestStartTimeUtc','estimatedLatestStartTimeUtc','sessionStartTimeUtc'].map(key=>({[key]:'2026-10-15T10:05:00.000Z',sourceCheckedAt:later})),
+  {endDate:'2026-10-16',sourceCheckedAt:later},{timingVerified:true,sourceCheckedAt:later},
   {startTimeUtc:'2026-10-15T10:05:00.000Z',sourceCheckedAt:later},
   {timingProvenance:{kind:'controlled-contrary-source'},sourceCheckedAt:later},
   {sourceUrl:'https://example.invalid/unknown-receipt',sourceCheckedAt:null},

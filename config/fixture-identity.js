@@ -197,7 +197,9 @@
       }
       // Keep unchanged primary facts and provenance together. Contrary new
       // context keeps its own receipt and cannot inherit the old provider.
-      const context=['sourceUrl','sourceName','sourceType','venue','date','time','startTimeUtc','endTimeUtc','timePrecision','schedulePrecision','scheduleStatus','timeTbc','startTimeTbc','dateOnly','scheduleNote','scheduleSourceUrl','timingProvenance','roundNumber','roundLabel'];
+      // Compare the effective venue/scheduling field families, including evidence
+      // aliases. Derived timeline sorting and collection/result clocks are separate.
+      const context=Object.keys({...base,...event}).filter(k=>/^(?:source(?:Url|Name|Type)$|venue|court|city$|location$|date|endDate$|displayDateLabel$|time(?!line)|startTime|endTime|actualStart|estimated|sessionStart|schedul|timing|round)/.test(k));
       const compatible=!context.some(k=>populated(event[k])&&(!populated(base[k])||JSON.stringify(event[k])!==JSON.stringify(base[k])));
       for(const key of compatible?[...context,'sourceCheckedAt']:['sourceUrl','sourceName','sourceType','sourceCheckedAt']){
         if(compatible&&base[key]===undefined)delete event[key];
