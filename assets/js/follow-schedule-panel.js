@@ -31,7 +31,7 @@ function inspectorSourcePreferred(source,candidate){
  const registry=globalThis.NOTHINGSPORTS_SPORT_DOMAIN_REGISTRY||(typeof module==='object'&&module.exports&&typeof require==='function'?require('../../config/sport-domain-registry'):null);
  const domain=registry?.byKey?.[source.key];
  const labels=[domain?.label,domain?.selectorLabel].filter(Boolean).map(value=>value.trim().toLowerCase());
- const agrees=k=>source[k]===candidate[k]||k==='sport'&&labels.length>0&&[source[k],candidate[k]].every(value=>typeof value==='string'&&labels.includes(value.trim().toLowerCase()));
+ const agrees=k=>source[k]===candidate[k]||legacy&&k==='sport'&&labels.length>0&&[source[k],candidate[k]].every(value=>typeof value==='string'&&labels.includes(value.trim().toLowerCase()));
  return Boolean(key&&key===identity(candidate)&&!fields.some(k=>source[k]!=null&&candidate[k]!=null&&!agrees(k))
   &&(!legacy||!fields.some(k=>candidate[k]!=null&&(source[k]==null||!agrees(k)))));
 }

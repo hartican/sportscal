@@ -35,6 +35,13 @@ function validateRetainedSchedule(){
    assert.equal(context.buildCodeInspectorFixture(live.source),candidate,'Label compatibility preserves existing result/identity fences: '+JSON.stringify(patch));
   }
  }
+
+ // The new compatibility path is confined to scoreless legacy planning copies.
+ // Ordinary same-edition scheduled/upcoming selection keeps its prior rule.
+ for(const status of ['scheduled','upcoming'])for(const patch of [{},{gender:'women'},{matchType:'women'}]){
+  const candidate={...live.candidate,status,competitionId:live.source.competitionId,...patch};context.EVENTS=[candidate];
+  assert.equal(context.buildCodeInspectorFixture(live.source),candidate,'Label compatibility cannot widen ordinary same-edition '+status+' precedence');
+ }
  assert.equal(JSON.stringify(live),liveBefore,'Actual public fixture inputs are not rewritten');
  const missingRegistry={NOTHINGSPORTS_FIXTURE_IDENTITY:identity};vm.createContext(missingRegistry);vm.runInContext(fs.readFileSync(path.join(root,'assets/js/follow-schedule-panel.js'),'utf8'),missingRegistry);
  assert.equal(missingRegistry.inspectorSourcePreferred(live.source,live.candidate),false,'An unavailable label registry cannot infer sport compatibility');
