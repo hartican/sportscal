@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "highlight-native-cancellation-replay.v1",
+  "sourceSnapshot": "9337ea92f7bfb463b42a3125691dac65a96de268",
+  "sourceCatalogueSha256": "d13eae2bb85e17d689d5fbae863aec3ccb167f8623df9c5fa8211cc81ba1022d",
+  "scope": "Exact public catalogue fixture from the prior accepted-data snapshot; all data files are byte-identical between9337ea92 and94fa5ec5. Historical15October cancellation replay, not new current source evidence. No fixture/fact/clock fabricated.",
+  "fixture": {
+    "id": "evt_nbl_2026_27_36fb1b72_58ad_11f1_a2a4_7da015763581",
+    "eventId": "evt_nbl_2026_27_36fb1b72_58ad_11f1_a2a4_7da015763581",
+    "canonicalEventId": "event:nbl:2026-27:36fb1b72-58ad-11f1-a2a4-7da015763581",
+    "sport": "NBL",
+    "key": "nba",
+    "name": "Illawarra Hawks v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Cairns Taipans",
+    "date": "2026-10-11",
+    "time": "17:00",
+    "startTimeUtc": "2026-10-11T06:00:00.000Z",
+    "timeTbc": false,
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "viewingOptions": [
+      {
+        "providerId": "disney",
+        "rightsScope": "fixture",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "sourceUrl": "https://schedule.nbl.com.au/nbl",
+        "verifiedAt": "2026-10-11T12:37:53.829Z",
+        "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
+        "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
+      },
+      {
+        "providerId": "kayo",
+        "rightsScope": "fixture",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "sourceUrl": "https://schedule.nbl.com.au/nbl",
+        "verifiedAt": "2026-10-11T12:37:53.829Z",
+        "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
+        "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
+      },
+      {
+        "providerId": "foxtel",
+        "rightsScope": "fixture",
+        "territory": "AU",
+        "liveOrReplay": "live",
+        "sourceUrl": "https://schedule.nbl.com.au/nbl",
+        "verifiedAt": "2026-10-11T12:37:53.829Z",
+        "rightsSourceUrl": "https://www.nbl.com.au/news/how-to-watch-the-hungry-jacks-nbl27-season",
+        "rightsCheckedAt": "2026-09-27T17:28:49.660Z"
+      }
+    ],
+    "teamMatchContext": {
+      "schemaVersion": "nbl-match-context.v1",
+      "competitionId": "competition:nbl",
+      "season": "2026-27",
+      "checkedAt": "2026-10-11T12:37:53.829Z",
+      "beforeKickoff": "2026-10-11T06:00:00.000Z",
+      "teams": [
+        {
+          "participantId": "team:nbl:illawarra-hawks",
+          "name": "Illawarra Hawks",
+          "played": 6,
+          "won": 1,
+          "lost": 5
+        },
+        {
+          "participantId": "team:nbl:cairns-taipans",
+          "name": "Cairns Taipans",
+          "played": 6,
+          "won": 3,
+          "lost": 3
+        }
+      ]
+    },
+    "season": "2026-27",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 4",
+    "roundNumber": 4,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks v Cairns Taipans is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Illawarra Hawks v Cairns Taipans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "computed",
+      "arcStage": "recap",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks v Cairns Taipans \u2014 Round 4 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Illawarra Hawks 100, Cairns Taipans 110",
+      "synopsisSpoilerOff": "Illawarra Hawks v Cairns Taipans \u2014 Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Official NBL result.",
+      "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+      "researchDepth": 2
+    },
+    "lastReviewedAt": "2026-10-11T12:40:11.243Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:evt-nbl-2026-27-36fb1b72-58ad-11f1-a2a4-7da015763581",
+      "researchTier": "standard",
+      "hook": "Illawarra Hawks v Cairns Taipans \u2014 Round 4 is complete; the key moments are protected until you choose to reveal them.",
+      "synopsis": "Illawarra Hawks v Cairns Taipans \u2014 Round 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "hookSpoilerOn": "Illawarra Hawks 100, Cairns Taipans 110",
+      "synopsisSpoilerOn": "Official NBL result.",
+      "threadIds": [
+        "thread:rolling:nbl:2026-27"
+      ],
+      "factIds": [
+        "fact:rolling:event-nbl-2026-27-36fb1b72-58ad-11f1-a2a4-7da015763581:schedule",
+        "fact:rolling:event-nbl-2026-27-36fb1b72-58ad-11f1-a2a4-7da015763581:field",
+        "fact:rolling:event-nbl-2026-27-36fb1b72-58ad-11f1-a2a4-7da015763581:viewing",
+        "fact:rolling:event-nbl-2026-27-36fb1b72-58ad-11f1-a2a4-7da015763581:consequence",
+        "fact:rolling:event-nbl-2026-27-36fb1b72-58ad-11f1-a2a4-7da015763581:result"
+      ],
+      "sourceIds": [
+        "source:rolling:nbl:nbl27-schedule"
+      ],
+      "dimensions": [
+        "schedule",
+        "format",
+        "consequence"
+      ],
+      "researchedAt": "2026-10-11T12:40:11.243Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "resultResearchRequired": false,
+      "phase": "recap",
+      "resultSignature": "[\"completed\",\"Illawarra Hawks 100, Cairns Taipans 110\",\"100-110\",\"Official NBL result.\"]"
+    },
+    "statusCheckedAt": "2026-10-11T12:37:53.829Z",
+    "participantCountryCodes": [],
+    "broadcasts": [],
+    "sourceEventIds": [
+      "evt_nbl_2026_27_36fb1b72_58ad_11f1_a2a4_7da015763581"
+    ],
+    "consensusTags": [],
+    "startTimeTbc": false,
+    "dateOnly": false,
+    "resultStatus": "official",
+    "resultSourceUrl": "https://schedule.nbl.com.au/nbl",
+    "resultSourceCheckedAt": "2026-10-11T12:37:53.829Z",
+    "scoreCheckedAt": "2026-10-11T12:37:53.829Z",
+    "homeScore": 100,
+    "awayScore": 110,
+    "homeParticipantId": "team:nbl:illawarra-hawks",
+    "awayParticipantId": "team:nbl:cairns-taipans",
+    "score": "100-110",
+    "outcomeText": "Illawarra Hawks 100, Cairns Taipans 110",
+    "recapText": "Official NBL result.",
+    "resultLabels": [
+      "Round 4",
+      "100-110",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Cairns Taipans",
+      "summary": "Illawarra Hawks 100, Cairns Taipans 110"
+    },
+    "endTimeUtc": "2026-10-11T09:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "2026\u201327 NBL season \u2014 current path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-10-11T12:37:53.829Z",
+      "needsPreviewRefresh": false
+    }
+  }
+}
