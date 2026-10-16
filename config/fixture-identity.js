@@ -7,6 +7,7 @@
 
   const KEY_ALIASES = Object.freeze({"rugby-union":"rugby",basketball:"nba","multi-sport":"cwg",rally:"wrc","fiba-womens-world-cup":"fiba-women"});
   const SYDNEY_PARTS=new Intl.DateTimeFormat("en-CA",{timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"});
+  let SYDNEY_DATE;
   function sportKey(event, fallback = ""){
     const competition = String(event?.competitionId || "").toLowerCase();
     if (/^competition:wrc(?:[-:]|$)/.test(competition) || event?.competitionFamilyId === "family:world-rally-championship") return "wrc";
@@ -34,10 +35,17 @@
   // Reviewed exact provider identities; no name-based inference. Evidence and
   // durable-reference preflight: docs/quality/cricket-provider-identities.md.
   const PARTICIPANT_ALIASES=Object.freeze({'team:cricket:espn-1116':'team:cricket:ca-50','team:cricket:espn-924':'team:cricket:ca-40','team:cricket:ca-1466':'team:cricket:espn-1075499','team:rugby:wr-2342':'team:rugby:brumbies','team:rugby:wr-2343':'team:rugby:reds','team:rugby:wr-2587':'team:rugby:force','team:rugby:wr-1143':'team:rugby:waratahs'});
-  const FIXTURE_ALIASES=Object.freeze({'event:lemans:2026:start':'evt_79','event:lemans:2026:finish':'evt_80','evt_87':'fixture:cricket:espn:1525659','evt_88':'fixture:cricket:espn:1525660','evt_89':'fixture:cricket:espn:1525661','fixture:cricket:espn:1513451':'fixture:cricket:CA:39484','fixture:cricket:CA:40593':'fixture:cricket:espn:1525658','fixture:rugby:wr:ac4f516c-300d-4f4b-85ea-514f0be5ddf6':'rugby-new-zealand-australia-2026-10-10','fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945':'rugby-australia-south-africa-2026-09-27','fixture-rugby-wr-e826488f-b2e2-42f0-8649-1bafd6567945':'rugby-australia-south-africa-2026-09-27','fixture:rugby:ra:949625':'rugby-australia-south-africa-2026-09-27','fixture-rugby-ra-949625':'rugby-australia-south-africa-2026-09-27','fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8':'rugby-australia-new-zealand-2026-10-17','fixture-rugby-wr-e3cbae12-66b3-4835-b1ce-4014b63055c8':'rugby-australia-new-zealand-2026-10-17','fixture:rugby:ra:949627':'rugby-australia-new-zealand-2026-10-17','fixture-rugby-ra-949627':'rugby-australia-new-zealand-2026-10-17'});
+  const FIXTURE_ALIASES={'event:lemans:2026:start':'evt_79','event:lemans:2026:finish':'evt_80','evt_87':'fixture:cricket:espn:1525659','evt_88':'fixture:cricket:espn:1525660','evt_89':'fixture:cricket:espn:1525661','fixture:cricket:espn:1513451':'fixture:cricket:CA:39484','fixture:cricket:CA:40593':'fixture:cricket:espn:1525658','fixture:rugby:wr:ac4f516c-300d-4f4b-85ea-514f0be5ddf6':'rugby-new-zealand-australia-2026-10-10','fixture:rugby:wr:e826488f-b2e2-42f0-8649-1bafd6567945':'rugby-australia-south-africa-2026-09-27','fixture-rugby-wr-e826488f-b2e2-42f0-8649-1bafd6567945':'rugby-australia-south-africa-2026-09-27','fixture:rugby:ra:949625':'rugby-australia-south-africa-2026-09-27','fixture-rugby-ra-949625':'rugby-australia-south-africa-2026-09-27','fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8':'rugby-australia-new-zealand-2026-10-17','fixture-rugby-wr-e3cbae12-66b3-4835-b1ce-4014b63055c8':'rugby-australia-new-zealand-2026-10-17','fixture:rugby:ra:949627':'rugby-australia-new-zealand-2026-10-17','fixture-rugby-ra-949627':'rugby-australia-new-zealand-2026-10-17'};
+  // Reuse only this fixed reviewed mapping; sporting facts remain per record.
+  const FIXTURE_TARGETS=new Map();
+  for(const [alias,target] of Object.entries(FIXTURE_ALIASES)){
+    FIXTURE_ALIASES[target.replace(/:/g,'-')] ||= target;
+    FIXTURE_TARGETS.set(target,[...(FIXTURE_TARGETS.get(target)||[]),alias]);
+  }
+  Object.freeze(FIXTURE_ALIASES);
   function canonicalParticipantId(id){const key=PARTICIPANT_ALIASES[String(id||'')]||String(id||'');const cricket=globalThis.NOTHINGSPORTS_CRICKET_COVERAGE||(typeof require==='function'?require('./cricket-coverage'):null);return cricket?.canonical(key)||key;}
-  function canonicalFixtureId(id){const key=String(id||'');return FIXTURE_ALIASES[key]||Object.values(FIXTURE_ALIASES).find(k=>k.replace(/:/g,'-')===key)||key;}
-  function fixtureAliases(id){const key=canonicalFixtureId(id);return [key,...(Object.values(FIXTURE_ALIASES).includes(key)?[key.replace(/:/g,'-')]:[]),...Object.keys(FIXTURE_ALIASES).filter(alias=>canonicalFixtureId(alias)===key)];}
+  function canonicalFixtureId(id){const key=String(id||'');return FIXTURE_ALIASES[key]||key;}
+  function fixtureAliases(id){const key=canonicalFixtureId(id);return [key,...(FIXTURE_TARGETS.get(key)?[key.replace(/:/g,'-')]:[]),...(FIXTURE_TARGETS.get(key)||[])];}
 
   function normalizeCore(event){
     let value = event && typeof event === "object" && !Array.isArray(event) ? event : {};
@@ -59,7 +67,7 @@
     normalized.date = text(value.date) || text(value.startDate);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(normalized.date)){
       const instant = new Date(value.startTimeUtc || value.timelineSortTimeUtc || value.sessionStartTimeUtc || "");
-      normalized.date = Number.isFinite(+instant) ? new Intl.DateTimeFormat("en-CA",{timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit"}).format(instant) : "";
+      normalized.date = Number.isFinite(+instant) ? (SYDNEY_DATE ||= new Intl.DateTimeFormat("en-CA",{timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit"})).format(instant) : "";
     }
     normalized.time = text(value.time) || null;
     const exact = new Date(value.startTimeUtc || "");
@@ -88,16 +96,16 @@
     for (const key of ["storyline", "calendarTemplate"]){
       if (value[key] && (typeof value[key] !== "object" || Array.isArray(value[key]))) normalized[key] = null;
     }
+    const originalId=normalized.id;
+    normalized.id=canonicalFixtureId(originalId);
     // Only the reviewed fixture pair is consolidated here. Team Follow aliases
     // do not implicitly merge every historic fixture or its durable actions.
-    if(normalized.key==='cricket'&&canonicalFixtureId(normalized.id)==='fixture:cricket:CA:39484'){
+    if(normalized.key==='cricket'&&normalized.id==='fixture:cricket:CA:39484'){
       if(Array.isArray(normalized.innings))normalized.innings=normalized.innings.map(i=>({...i,...(i.participantId?{participantId:canonicalParticipantId(i.participantId)}:{})}));
     }
-    const originalId=normalized.id;
-    normalized.id=canonicalFixtureId(normalized.id);
-    if(originalId!==normalized.id||Object.values(FIXTURE_ALIASES).includes(normalized.id)){normalized.eventId=normalized.id;normalized.canonicalEventId=normalized.id;}
+    if(originalId!==normalized.id||FIXTURE_TARGETS.get(normalized.id)){normalized.eventId=normalized.id;normalized.canonicalEventId=normalized.id;}
     else normalized.canonicalEventId=value.canonicalEventId||normalized.eventId;
-    normalized.sourceEventIds=[...new Set([...(value.sourceEventIds||[]),originalId,normalized.id,...Object.keys(FIXTURE_ALIASES).filter(id=>canonicalFixtureId(id)===normalized.id)])];
+    normalized.sourceEventIds=[...new Set([...(value.sourceEventIds||[]),originalId,normalized.id,...(FIXTURE_TARGETS.get(normalized.id)||[])])];
     normalized.participantIds=normalized.participantIds.map(canonicalParticipantId);
     normalized.participants=normalized.participants.map((p,index)=>({...p,id:canonicalParticipantId(p.id||reviewedFacts.participantIds?.[index])}));
     normalized.participantSlots=normalized.participantSlots.map(p=>({...p,participantId:canonicalParticipantId(p.participantId)}));
@@ -257,7 +265,7 @@
 
   function reconcileReviewedFixtureAliases(events){
     let result=events;
-    for(const target of new Set(Object.values(FIXTURE_ALIASES))){
+    for(const target of FIXTURE_TARGETS.keys()){
       const matches=result.filter(e=>canonicalFixtureId(e?.id||e?.eventId)===target);
       if(!matches.length)continue;
       const [merged]=mergeOverlays([],matches);
@@ -282,7 +290,7 @@
     const ordered=[...(updates||[]).filter(event=>!event.enrichmentOnly),...(updates||[]).filter(event=>event.enrichmentOnly)];
     for(const update of ordered){
       const reviewedId=canonicalFixtureId(update?.id||update?.eventId);
-      const event = {...(Object.values(FIXTURE_ALIASES).includes(reviewedId)||(globalThis.NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS||(typeof require==='function'?require('./reviewed-fixture-repairs'):null))?.facts(reviewedId)?normalizeCore(update):update)};
+      const event = {...(FIXTURE_TARGETS.get(reviewedId)||(globalThis.NOTHINGSPORTS_REVIEWED_FIXTURE_REPAIRS||(typeof require==='function'?require('./reviewed-fixture-repairs'):null))?.facts(reviewedId)?normalizeCore(update):update)};
       const ids=aliases(event);if(!ids.length)continue;
       const key=semanticKey(event),match=ids.map(id=>indexes.get(id)).find(index=>index!==undefined)??(key?semanticIndexes.get(key):undefined),index=match??result.length;
       const base=result[index];

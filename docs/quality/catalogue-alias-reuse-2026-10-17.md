@@ -1,0 +1,35 @@
+# Reuse fixed fixture identity work — 17 October 2026
+
+Status: private performance experiment, not deployed. Baseline documentation main9337ea92; accepted appd10b419f/cache558. The previous turn delivered bounded timing and a local profile, so it was progress. The wider CTO goal remains active.
+
+## Evidence and scope
+
+The existing normal public release took5.08seconds: catalogue2.42seconds, snapshots1.83seconds. It was an empty quiet window, not cold-database or phone proof. One complete-catalogue local CPU profile identifies repeated static fixture-alias lookup as the largest individual application hotspot. The real shared helper repeatedly reconstructs and scans the same frozen reviewed mapping, including inside each normalised record’s reverse-alias scan.
+
+The new complete-input loop captures all6,417 catalogue records and108 actual handler responses covering all6,378 supported distinct identities, with source/network transport isolated and empty. It pins16October16:12UTC. Three fresh-process baseline medians are565.50ms catalogue and250.86ms representative lookup work. Running unchanged source again fails the predeclared15% catalogue/50% lookup improvement criteria, with complete byte agreement. This is a red-capable local performance comparison, not live-world/database equivalence.
+
+## Required change
+
+- Prepare collapsed compatibility keys and the reverse-alias lookup once from the existing reviewed table, then freeze the single forward lookup, inside the existing shared identity module. No new module owner, dependency, source, data cache, refresh, provider request, SQL, scheduler, timeout or customer-state change.
+- Preserve every current explicit identity, collapsed-colon compatibility, first-declared collision precedence, one-hop resolution, unknown-ID behaviour, reverse-alias order and existing duplicate compatibility tokens. Explicit aliases still win. Returned arrays must not expose internal mutable lists.
+- Reuse the same target membership and reverse lists in normalisation and existing merger decisions. Never cache sporting facts, source observations or date-window eligibility. Existing results, zero scores, null withdrawals, conflicting fields, retained IDs and saved actions remain unchanged.
+- Reuse the identical Sydney date-only formatter after its first need, with the same explicit instant and options on every call. One local native-delegated constructor observation counted292 identical date-only constructors in full catalogue preparation; store formatting machinery only, never a formatted sporting value. Preserve unknown dates, original instants/checks and DST/leap-day behaviour.
+- In the existing server editorial resolver, calculate its initial fixture key only for a record with a matched ID projection; the key was unused when that projection was absent. Keep both later binding passes and all source/copy/lock behaviour unchanged.
+- Complete captured catalogue and all selected-handler responses must agree byte for byte at pinned clocks; retain the existing broader handler and shared identity/Follow/result gates. Unit regressions cover meaningful compatibility boundaries, including controlled collision/one-hop inputs.
+- Measure the same complete fresh local inputs after the change. Require a material gain, without claiming local timing as phone/cold-production certification. If it is not useful, do not ship a cosmetic refactor.
+- Shared browser bytes must stay inside the existing431,441.4375gzip/critical-request limits without raising them. Generate shared/inline runtime paths together, advance shell/cache version for changed UI bytes, and run cache, both-engine upgrade/offline and affected browser acceptance.
+- Collect bounded independent Spec and Standards review findings before the final full verification. Publish only the scoped passing snapshot to main; use the normal exact-SHA production workflow and its existing public measurement. No warming, extra smoke requests or retries to obtain a pass.
+
+## Value and acceptance
+
+Business value: reduce repeated work when opening matches without removing product features or creating owner choices. Effort: one shared-helper repair and risk-proportionate acceptance, followed by the existing release. New cash:A$0; model/runner costs unmeasured. Owner time:no new routine or permission question. Dependencies: complete output agreement, existing startup budget, unchanged policy and normal production acceptance. Act because real phase evidence points to this boundary; defer any broader database or architecture change until new evidence justifies it.
+
+Evidence: `/Users/jackhartican/Documents/AI/Codex/catalogue-alias-reuse-20261017`. Preserve the red observation, exact-source comparisons, failed candidates and final receipts separately. Whole-programme approval remains0/18 families and0/3 Football pilots; no physical-phone, source permission or launch certification is added by this local experiment.
+
+The first alias-only candidate preserved all bytes and reduced lookup work91%, but its full-catalogue median improved12.9%, below the15% local criterion. A candidate target-presence precheck is withdrawn: its benchmark overlapped a CPU-heavy build and cannot attribute speed; its added shared code also contributed to a startup-budget failure. Do not call either a passed final candidate. Preserve those observations. The revised scope keeps one fixed lookup and the existing identical date-only formatter, without the precheck.
+
+The final representation augments that private forward table before freezing it, rather than storing an additional copy. Reverse lists come from the original entries captured before augmentation. This consolidates fixed lookup machinery and avoids downloading a duplicate helper structure; no published fact or match membership changes. Reuse the once-resolved record ID for its existing reviewed-innings check as well.
+
+Payload fit: move only the two redundant prefetch/official-OOP engineering comments from the downloaded page to the existing backend decision record. Executable code, source requirements, visible text and attribution remain exact. The remaining small overage is not permission to raise the startup limit.
+
+The consolidated identity-only final comparison retained byte agreement but measured13.68% catalogue improvement, below the15% local criterion. Do not relabel it passed. The profile also showed editorial-key/participant work: skip the first unused key computation when no ID projection exists. The extended collector pins both identity and editorial source bytes; repeat one paired baseline/candidate protocol after this actual code change, with no parallel build and unchanged criteria. Earlier captured protocols remain preserved asv1.
