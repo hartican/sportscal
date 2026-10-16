@@ -1382,6 +1382,10 @@ The user's exhausted-allowance repair extends the existing service-only media ca
 
 A deliberate cold lookup may inspect at most fifty uploads from each of four reviewed official channel playlists, reserved from the existing ordinary bucket, before using general search. Current full metadata still establishes identity, actual upload, duration, language and Australian availability. This can work at90/90 searches without enlarging the allowance. Preserve90/500 global caps, scheduled50subset, two searches/pass, existing source cadence, three-second database/twenty-second route deadlines and one scheduler/publisher. No client polling, customer state or sporting fact changes. Additive migration precedes application; quota/cache-preserving rollback and permissions are tested. Production migration, normal exact-SHA release and bounded actual media proof remain with Audit. [Evidence, requirements and acceptance](quality/highlights-budget-2026-10-16.md).
 
+## 16 October 2026 — distinguish highlights text and audio language
+
+The shared metadata selector uses YouTube's defaultAudioLanguage to reject declared non-English audio. Its defaultLanguage field describes title/description text and cannot establish the spoken track; absent audio metadata remains unknown. Both deliberate lookup and the existing scheduled source use this same selector helper. The correction preserves the existing policy/hash, eligible positive cache, failed-lookup cooldowns, provider call counts, 90/500/50 limits, deadlines and sole release/DB owner. It does not certify that a real unresolved clip has English commentary. Primary field definitions: [YouTube video snippet](https://developers.google.com/youtube/data/reference/rest/v3/videos#snippet.defaultAudioLanguage). Deterministic cross-sport and resolver regressions use injected metadata and spend no production quota.
+
 
 ### 2026-10-16 — Shared effective calculated clock
 
