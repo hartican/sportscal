@@ -8243,26 +8243,6 @@ function codeInspectorGlyph(code){
   return aliases[code.slug] || `sport:${code.slug}`;
 }
 
-function codeInspectorIdentityEvent(code){
-  const aliases = {
-    "rugby-union": "rugby",
-    "multi-sport": "multi-sport",
-  };
-  const key = aliases[code.slug] || code.slug;
-  return { key, name: code.label, sport: code.label };
-}
-
-function renderCodeInspectorIdentity(identity, code, { eager = false } = {}){
-  const event = codeInspectorIdentityEvent(code);
-  renderEventIdentityMark(identity, event, sportMetaForEvent(event));
-  prepareCodeInspectorIdentity(identity, code.label, { eager });
-}
-
-function codeInspectorSportColor(code){
-  const aliases = { "rugby-union": "rugby", "american-football": "nfl", "multi-sport": "multi" };
-  return SPORT_META[aliases[code.slug] || code.slug]?.color || "var(--accent)";
-}
-
 function codeInspectorCodeIsFollowed(codeId, preferences = userPreferences){
   return selectedPreferenceDomainIds(preferences)
     .map(canonicalDomainIdForPreferenceDomain)
@@ -8276,20 +8256,6 @@ function recordCodeAffinity(codeId, type){
     type,
     occurredAt:new Date().toISOString(),
   }));
-}
-
-function prepareCodeInspectorIdentity(identity, label, { eager = false } = {}){
-  identity.querySelectorAll("img").forEach(image => {
-    image.loading = eager ? "eager" : "lazy";
-    image.decoding = "async";
-    if (image.classList.contains("event-brand-logo")) return;
-    image.addEventListener("error", () => {
-      const fallback = document.createElement("span");
-      fallback.className = "code-inspector-identity-fallback";
-      fallback.textContent = String(label || "?").split(/\s+/).slice(0, 2).map(word => word[0]).join("").toUpperCase();
-      identity.replaceChildren(fallback);
-    }, { once: true });
-  });
 }
 
 async function loadCodeInspectorManifest(){
@@ -8784,17 +8750,6 @@ function setCodeInspectorFixtureAdded(fixture, enabled){
   });
   recordEventFeedAction(snapshot, enabled ? "added_to_fixtures" : "removed_from_fixtures", { surface:"standings_fixtures", recommendationClass:"direct" });
   return true;
-}
-
-function codeInspectorParticipantMark(slot, fixture){
-  const direct = slot.participantId ? CARD_IDENTITIES?.participantMarks?.[slot.participantId] : null;
-  if (direct) return direct;
-  if (slot.logoUrl) return { label:slot.label, url:slot.logoUrl, logo:{ primary:slot.logoUrl, dark:slot.logoUrl } };
-  const event = { key:codeInspectorFixtureSportKey(fixture), name:slot.label || fixture.name, participantIds:[slot.participantId].filter(Boolean) };
-  return CARD_IDENTITIES?.participantMarksForEvent?.(event, cardIdentityParticipants(), slot.label || fixture.name)?.[0]?.mark
-    || (TEAM_FOLLOW_CATALOGUE?.teamsById?.[slot.participantId]?.countryCode
-      ? { label:slot.label, countryCode:TEAM_FOLLOW_CATALOGUE.teamsById[slot.participantId].countryCode }
-      : null);
 }
 
 function buildCodeInspectorFixture(fixture){

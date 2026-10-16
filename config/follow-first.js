@@ -831,6 +831,20 @@
 
   const viewingDay = new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'});
   function viewingIdentity(event){return [event.season,event.sportId,event.sportDomainId,event.taxonomySportId].map(value=>value==null?null:String(value));}
+  function viewingIdentityMatches(event,scope){
+    const stored=scope[11],current=viewingIdentity(event);
+    if(current.every((value,index)=>value===stored[index]))return true;
+    // Only added presentation classifications may differ. Known source values,
+    // season and domain remain exact; missing current fields cannot borrow proof.
+    if(current.some((value,index)=>value!==stored[index]&&(stored[index]!==null||index!==1&&index!==3)))return false;
+    const compat=root.NOTHINGSPORTS_EVENT_TAXONOMY_COMPAT || (typeof require==='function'?require('./event-taxonomy-compat'):null);
+    const original={key:scope[4],competitionId:scope[2],season:stored[0],sportId:stored[1],sportDomainId:stored[2],taxonomySportId:stored[3]};
+    const expected=viewingIdentity(compat?.enrichEvent(original)||original);
+    // Displayed taxonomy can veto a conflict, never supply positive evidence.
+    const displayedSport=compat?.resolveEvent(event)?.sportId;
+    if(expected[3]&&displayedSport&&displayedSport!==expected[3])return false;
+    return current.every((value,index)=>value===stored[index]||value===expected[index]);
+  }
   function stanContext(event){return JSON.stringify([event.canonicalEventId||event.id||event.eventId,event.competitionId,event.season||event.footballMatchContext?.season,event.date,event.actualStartTimeUtc||event.startTimeUtc,event.roundNumber||event.roundLabel||event.round,event.status,(event.participants||[]).map(p=>[p.name,p.role])]);}
   function reviewedWindowAllows(event,option){
     if(option.reviewId!=='au-viewing-20261002')return true;
@@ -840,7 +854,7 @@
     const isoDay=value=>/^\d{4}-\d{2}-\d{2}$/.test(value),equal=(left,right)=>JSON.stringify(left)===JSON.stringify(right);
     if(!Array.isArray(scope)||scope.length!==12||!isoDay(scope[0])||!isoDay(scope[1])
       ||![2,4,5,6,9].every(index=>nullableString(scope[index]))||typeof scope[3]!=='string'
-      ||typeof scope[7]!=='string'||!(scope[8]===null||strings(scope[8]))||!strings(scope[10])||!Array.isArray(scope[11])||scope[11].length!==4||!scope[11].every(nullableString)||!equal(scope[11],viewingIdentity(event))
+      ||typeof scope[7]!=='string'||!(scope[8]===null||strings(scope[8]))||!strings(scope[10])||!Array.isArray(scope[11])||scope[11].length!==4||!scope[11].every(nullableString)||!viewingIdentityMatches(event,scope)
       ||event.representedTours!=null&&!Array.isArray(event.representedTours)||scope[8]&&!strings(event.participantIds||[]))return false;
     let excludedDraw;try{excludedDraw=scope[5]?new RegExp(scope[5],'i'):null;}catch{return false;}
     const at=Date.parse(event.startTimeUtc||event.startsAt||event.date||''),date=Number.isFinite(at)?(event.startTimeUtc||event.startsAt?viewingDay.format(new Date(at)):event.date):null;
