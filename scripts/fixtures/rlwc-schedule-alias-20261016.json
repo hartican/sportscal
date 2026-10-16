@@ -1,0 +1,172 @@
+{
+  "provenance": {
+    "sourceGitSha": "3d8911fd44f31272f624d67d3f0e996bf8c3af96",
+    "capturedAt": "2026-10-16T09:46:20.370406+00:00",
+    "sourceFiles": [
+      "data/major-events.v1.json",
+      "data/code-inspector/nrl.json"
+    ],
+    "scope": "Dated public-source regression; editorial copy omitted because this tests fact selection, not writing. No source clock or sporting fact changed."
+  },
+  "parent": {
+    "id": "major-event:rlwc-2026",
+    "competitionId": "competition:rugby-league-world-cup:2026",
+    "sportKey": "nrl",
+    "sportLabel": "Rugby league",
+    "venue": "Multiple venues",
+    "sources": [
+      {
+        "name": "RLWC 2026 official draw",
+        "url": "https://www.rlwc2026.com/draws-and-pools",
+        "checkedAt": "2026-08-23T06:00:00.000Z"
+      },
+      {
+        "name": "Ticketmaster RLWC 2026 fixture listing",
+        "url": "https://www.ticketmaster.com.au/rugby-league-world-cup-2026-tickets/artist/1167790",
+        "checkedAt": "2026-08-23T06:00:00.000Z"
+      },
+      {
+        "name": "RLWC 2026 \u2014 fixtures and tournament scale",
+        "url": "https://www.rlwc2026.com/news/2026-rugby-league-world-cup-fixtures-announced",
+        "checkedAt": "2026-08-29T23:56:41.761Z"
+      },
+      {
+        "name": "RLWC 2026 \u2014 competition rules",
+        "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
+        "checkedAt": "2026-08-29T23:56:41.761Z"
+      },
+      {
+        "name": "NRL \u2014 Kiwis' 2026 World Cup opener context",
+        "url": "https://www.nrl.com/news/2026/05/07/kiwis-unveil-plan-to-rewrite-record-books-in-world-cup-opener/",
+        "checkedAt": "2026-08-29T23:56:41.761Z"
+      },
+      {
+        "name": "NRL \u2014 Australia and New Zealand World Cup build",
+        "url": "https://www.nrl.com/news/2026/04/15/six-months-to-go-kiwis-gearing-up-for-kangaroos-showdown/",
+        "checkedAt": "2026-08-29T23:56:41.761Z"
+      }
+    ],
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ]
+  },
+  "child": {
+    "id": "major-match:rlwc-2026:australia-new-zealand",
+    "name": "Australia v New Zealand",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nrl:kangaroos",
+      "team:nrl:kiwis"
+    ],
+    "startTimeUtc": "2026-10-15T09:05:00.000Z",
+    "venue": "Allianz Stadium",
+    "stakesScore": 5,
+    "participants": [
+      {
+        "name": "Australia",
+        "role": "home"
+      },
+      {
+        "name": "New Zealand",
+        "role": "away"
+      }
+    ],
+    "summary": "The opening men's pool match in Sydney."
+  },
+  "fixture": {
+    "id": "rlwc-australia-new-zealand-2026",
+    "sourceEventIds": [
+      "rlwc-australia-new-zealand-2026",
+      "major-match:rlwc-2026:australia-new-zealand"
+    ],
+    "codeId": "sport:nrl",
+    "key": "nrl",
+    "statusCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "scoreCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "competitionId": "competition:rugby-league-world-cup:2026",
+    "name": "Australia v New Zealand \u2014 Rugby League World Cup",
+    "date": "2026-10-15",
+    "time": "20:05",
+    "timePrecision": "exact",
+    "startTimeUtc": "2026-10-15T09:05:00.000Z",
+    "roundNumber": 1,
+    "canonicalEventId": "rlwc-australia-new-zealand-2026",
+    "firstConfirmedCompleteAt": "2026-10-15T14:24:33.442807+00:00",
+    "resultSourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
+    "resultSourceCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "narrativeType": "match",
+    "competitionName": "Rugby League World Cup",
+    "sourceName": "NRL official match centre",
+    "sourceType": "official",
+    "sourceCheckedAt": "2026-10-15T14:24:33.442807+00:00",
+    "homeScore": 24,
+    "awayScore": 22,
+    "score": "Australia 24\u201322 New Zealand",
+    "outcomeText": "Australia defeated New Zealand 24\u201322.",
+    "recapText": "The official NRL match centre records a 24\u201322 full-time result at Allianz Stadium in the World Cup opener.",
+    "consensusTags": [],
+    "venue": "Allianz Stadium, Sydney",
+    "status": "completed",
+    "scheduleStatus": "confirmed",
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrl:kangaroos",
+        "label": "Australian Kangaroos",
+        "logoUrl": "assets/identities/national/rugby-league/kangaroos.svg"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrl:kiwis",
+        "label": "New Zealand Kiwis",
+        "logoUrl": "assets/identities/national/rugby-league/kiwis.svg"
+      }
+    ],
+    "participantIds": [
+      "team:nrl:kangaroos",
+      "team:nrl:kiwis"
+    ],
+    "participants": [
+      {
+        "name": "Australia",
+        "role": "home",
+        "id": ""
+      },
+      {
+        "name": "New Zealand",
+        "role": "away",
+        "id": ""
+      }
+    ],
+    "participantCountryCodes": [],
+    "detailsExpectedAt": null,
+    "schedulingWindow": {
+      "startsOn": "2026-10-15",
+      "endsOn": "2026-11-15",
+      "timeZone": "Australia/Sydney"
+    },
+    "resultStatus": "official",
+    "roundLabel": "Rugby League World Cup Round 1",
+    "stage": "finals",
+    "groupOrder": 5000,
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "expected": 10,
+    "broadcaster": "Seven / 7plus Sport",
+    "viewingOptions": [],
+    "sourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
+    "ticketUrl": null,
+    "sourceCoverage": "published-feed"
+  }
+}
