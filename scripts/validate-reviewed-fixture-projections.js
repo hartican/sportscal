@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),{spawnSync}=require('node:child_process');
-const {codesForReviewedFixtures}=require('./lib/reviewed-fixture-projection-codes');
+const {aliases,codesForReviewedFixtures}=require('./lib/reviewed-fixture-projection-codes');
 const selected={id:'reviewed-regression-fixture',canonicalEventId:'event:nbl:regression',key:'nba',sportDomainId:'sport:basketball',sourceEventIds:['provider:regression']};
 const manifest={codes:['basketball','nbl','tennis'].map(slug=>({slug,chunkPath:'data/code-inspector/'+slug+'.json'}))};
 const chunks={
@@ -36,6 +36,21 @@ const api=require('./lib/accepted-result-projection'),{normalizeFixture}=require
 const evidence=require('../data/canonical/current-card-evidence-2026.json'),feed=require('../data/events.json');
 const rows=evidence.resultOverrides.filter(row=>api.isAcceptedResult(row)&&row.id.startsWith('evt_nbl_2026_27_'));
 assert.equal(rows.length,2,'both retained NBL result capsules must be covered');
+const accepted=evidence.resultOverrides.filter(api.isAcceptedResult);
+assert.equal(accepted.length,15,'every retained accepted result must be covered');
+for(const row of accepted){
+  const tokens=new Set(row.acceptedResultProjection.aliases);
+  const records=feed.events.filter(event=>aliases(event).some(id=>tokens.has(id)));
+  assert.equal(records.length,1,'an accepted result has one exact published fixture');
+  const projected=normalizeFixture(records[0],records[0].sportDomainId);
+  api.validateAcceptedProjection(projected,row);
+  for(const key of ['scoreFactObservedAt','statusFactObservedAt','fixtureObservationSchema']){
+    if(!Object.hasOwn(row,key))continue;
+    assert.equal(projected[key],row[key],'result projection preserves literal '+key);
+    const missing={...projected};delete missing[key];
+    assert.throws(()=>api.validateAcceptedProjection(missing,row),'a dropped observation field must fail strict validation: '+key);
+  }
+}
 for(const row of rows){
   const record=feed.events.find(event=>event.id===row.id);assert(record,'retained NBL public fixture required');
   const projected=normalizeFixture(record,'sport:nbl');
@@ -67,4 +82,4 @@ try{
   const before=fs.readFileSync(input);run();
   assert(fs.readFileSync(input).equals(before),'an unchanged official-result replay retains exact bytes and revision');
 }finally{fs.rmSync(versionRoot,{recursive:true,force:true});}
-console.log('Reviewed fixture child projections: exact aliases, ambiguous rejection, canonical NBL dispatch, strict original final provenance and actual Feed revision/idempotence passed.');
+console.log('Reviewed fixture child projections: exact aliases, ambiguous rejection, canonical NBL dispatch, all 15 strict result/observation tuples and actual Feed revision/idempotence passed.');

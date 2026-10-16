@@ -277,7 +277,7 @@ function normalizeFixture(event, codeId, extra = {}){
     codeId,
     key,
     ...(Array.isArray(event.innings)&&event.innings.length?{innings:event.innings}:{}),
-    ...Object.fromEntries(["livePlayObservedAt","actualStartTimeUtc","statusCheckedAt","statusSourceName","statusSourceType","scoreCheckedAt","sets","format","marqueeClassification","sportDomainId","preferenceDomainId","discoverySportId","sessionType","cardKind"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(["livePlayObservedAt","actualStartTimeUtc","statusCheckedAt","statusSourceName","statusSourceType","scoreCheckedAt","scoreFactObservedAt","statusFactObservedAt","fixtureObservationSchema","sets","format","marqueeClassification","sportDomainId","preferenceDomainId","discoverySportId","sessionType","cardKind"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...(event.published === false ? {published:false} : {}),
     ...(event.calendarNote?{calendarNote:event.calendarNote,dateStatus:event.dateStatus,timePrecision:event.timePrecision,startTimeTbc:true,fullSpiel:event.fullSpiel,selectedSentence:event.selectedSentence,sourceTrust:event.sourceTrust}:{}),
     ...(event.identityRef ? {identityRef:event.identityRef} : {}),
