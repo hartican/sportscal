@@ -55,9 +55,10 @@
   const racingSlot=card.querySelector('.fixture-racing-details');if(racingSlot&&globalThis.NOTHINGSPORTS_RACING_DETAILS)globalThis.NOTHINGSPORTS_RACING_DETAILS.mount(racingSlot,event,{visible:()=>event.key==='horse-racing'||(typeof isSpoilerVisible==='function'?isSpoilerVisible(event):options.resultsOn),resultsVisible:()=>typeof isSpoilerVisible==='function'?isSpoilerVisible(event):options.resultsOn,followed:entry=>cardIdentityParticipants().some(p=>entry.drivers?.includes(p.displayName||p.name)&&cachedParticipantFollow(p.id).followed)});
   card.querySelector('.feed-live-score')?.remove();
   if(event.key==='horse-racing'&&card.classList.contains('is-opened'))return;
-  if(event.key==='cricket')card.querySelector('.card-result-line')?.remove();
+  const value=presentation(event,options);
+  if(event.key==='cricket'){if(!options.resultsOn||value)card.querySelector('.card-result-line')?.remove();}
   else if(card.querySelector('.card-result-line'))return;
-  const value=presentation(event,options);if(!value)return;
+  if(!value)return;
   if(!document.querySelector('[data-feed-score-style]')){const style=document.createElement('style');style.dataset.feedScoreStyle='';style.textContent='.feed-live-score{grid-column:1/-1;padding:8px 12px;margin:0;font-size:.76rem;line-height:1.5;overflow-wrap:anywhere}.feed-live-score small{display:block;color:var(--text-dim);font-size:.66rem}';document.head.append(style);}
   const row=document.createElement('div');row.className='feed-live-score';row.dataset.fixtureScoreId=model.id(event);
   const score=document.createElement(event.key==='cricket'?'button':'strong');score.textContent=value.summary||value.text;

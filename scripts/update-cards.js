@@ -49,6 +49,7 @@ function resumeSteps(steps, argv){
 
 function runStep(args) {
   const command = args[0];
+  require('./lib/refresh-report').update({lastStep:command,stage:'refresh'});
   // Canonical standings changed before this first shell-backed validator.
   if(["scripts/validate-country-flags.js","scripts/validate-card-polish.js"].includes(command))runStep(["scripts/build-app-shell-runtime.js"]);
   const isNodeScript = command.endsWith(".js");
@@ -59,6 +60,7 @@ function runStep(args) {
 
   console.log(`\n> ${display}`);
   const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(command))for(const key of ["FOOTBALL_DATA_API_TOKEN","FOOTBALL_DATA_RUN_DIR","FOOTBALL_DATA_REPORT","GOLF_SOURCE_RUN_ID","GOLF_SOURCE_REPORT","WRC_SOURCE_FAILURE_REPORT"])delete env[key];
+  if(/^scripts\/validate-/.test(command))delete env.REFRESH_REPORT;
   const result = spawnSync(runner, commandArgs, { stdio: "inherit",env });
   if (result.status !== 0) {
     const error = new Error(`${display} failed with exit code ${result.status || 1}`);
@@ -291,6 +293,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/lib/reviewed-calendar-notes.js"],
   ["scripts/refresh-fixture-highlights.js"],
   ["scripts/epic-editorial.js", "--apply"],
+  ["scripts/reconcile-fixture-results.js"],
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"],
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
@@ -393,6 +396,8 @@ function buildSteps({ localOnly = false } = {}) {
   ), discoverCanonicalFixtureBundles()),
   ["scripts/verify-marquee-coverage.js", "data/canonical/australian-marquee-events-2026.json", "data/events.json"],
   ["scripts/validate-result-completeness-timing.js"],
+  ["scripts/validate-fixture-result-reconciliation.js"],
+  ["scripts/validate-deployment-tracking.js"],
   ["scripts/apply-current-card-evidence.js", "--check"],
   ["scripts/validate-current-card-coverage.js"],
   ["scripts/verify-result-completeness.js", "feeds/incoming/events.json"],
@@ -1060,9 +1065,14 @@ async function runMain() {
     console.log("Local-only update selected: refresh and validation will run without commit, push, or deployment.");
   }
   try {
-    for (const args of steps) {
-      runStep(args);
-    }
+    const releaseIndex=steps.findIndex(args=>args[0]==='scripts/redeploy-and-release.sh');
+    const refreshSteps=releaseIndex<0?steps:steps.slice(0,releaseIndex);
+    const execute=async()=>{for(const args of refreshSteps)runStep(args);};
+    if(quick)await execute();
+    else await require('./quick-results').atomicRefresh({},{refreshOperation:execute});
+    // A failure after publication must not restore pre-release working bytes.
+    if(releaseIndex>=0)try{for(const args of steps.slice(releaseIndex))runStep(args);}
+    catch(error){error.publicationStarted=true;throw error;}
 
     if(quick){console.log("Quick results refresh complete.");return;}
     console.log(`\nCards, ladders and standings update complete${options.localOnly ? " (local only)" : ""}: canonical ranking data refreshed and validated, followed fixtures recomputed from the current server snapshot, curated previews applied, fixture research queued, and both feeds passed editorial, spoiler and schema QA.`);
@@ -1076,6 +1086,8 @@ async function runMain() {
 async function main(){
   // Validate mode before creating diagnostic state or starting any source step.
   parseOptions();
+  process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
+  require('./lib/refresh-report').update({mode:process.argv.includes('--quick')?'quick':'full',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[]});
   const prior=process.env.FOOTBALL_DATA_RUN_DIR;
   const directory=prior||fs.mkdtempSync(path.join(os.tmpdir(),'ns-football-backup-'));
   process.env.FOOTBALL_DATA_RUN_DIR=directory;
@@ -1085,7 +1097,13 @@ async function main(){
   try{
     require('../lib/golf-source-observations').create({mode:process.argv.includes('--offline')?'offline':process.argv.includes('--quick')?'quick':'full'}).save();
     if(!process.argv.includes('--offline'))require('./lib/football-data-backup').record({state:'invocation',mode:process.argv.includes('--quick')?'quick':process.argv.includes('--european-football')?'european-football':'full'},{directory});
-    return await runMain();
+    const result=await runMain();
+    require('./lib/refresh-report').update({publicationState:'validated',stage:'validated'});
+    return result;
+  }catch(error){
+    require('./lib/refresh-report').update({publicationState:error.publicationStarted?'blocked-after-publication':'blocked-rolled-back',stage:'failed',blockingError:error.message});
+    console.error(`Refresh diagnostics: ${process.env.REFRESH_REPORT}`);
+    throw error;
   }finally{
     try{if(!process.argv.includes('--offline')){const file=path.join(directory,'budget.json');require('./lib/football-data-backup').record({state:'budget',calls:fs.existsSync(file)?JSON.parse(fs.readFileSync(file)).calls:0},{directory});}}
     finally{

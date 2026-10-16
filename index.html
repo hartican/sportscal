@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="555">
+<meta name="app-shell-version" content="558">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=555" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=558" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2009,7 +2009,7 @@ header.top,#calendarControls,#mainContent,.app-footer,#jumpTodayBtn{animation:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=555"></script>
+<script src="assets/js/app-shell-runtime.js?v=558"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -2984,7 +2984,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-    moduleScriptUrl: "config/major-events.js?v=533",
+    moduleScriptUrl: "config/major-events.js?v=556",
   url: "data/major-events.v1.json",
 });
 
@@ -5599,7 +5599,7 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 }
 
 let feedScoreUiLoading=null;
-function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=523').catch(error=>{feedScoreUiLoading=null;throw error;});}
+function ensureFeedScoreUi(){return feedScoreUiLoading ||= loadDeferredScript('config/feed-live-score-loader.js?v=556').catch(error=>{feedScoreUiLoading=null;throw error;});}
 function installFeedLiveScore(card,event){
   if(globalThis.NOTHINGSPORTS_FEED_SCORE_UI){globalThis.NOTHINGSPORTS_FEED_SCORE_UI.install(card,event);return;}
   const owner=serverSyncClient?.sessionSubject()||'public',tab=activeTab;
@@ -8243,26 +8243,6 @@ function codeInspectorGlyph(code){
   return aliases[code.slug] || `sport:${code.slug}`;
 }
 
-function codeInspectorIdentityEvent(code){
-  const aliases = {
-    "rugby-union": "rugby",
-    "multi-sport": "multi-sport",
-  };
-  const key = aliases[code.slug] || code.slug;
-  return { key, name: code.label, sport: code.label };
-}
-
-function renderCodeInspectorIdentity(identity, code, { eager = false } = {}){
-  const event = codeInspectorIdentityEvent(code);
-  renderEventIdentityMark(identity, event, sportMetaForEvent(event));
-  prepareCodeInspectorIdentity(identity, code.label, { eager });
-}
-
-function codeInspectorSportColor(code){
-  const aliases = { "rugby-union": "rugby", "american-football": "nfl", "multi-sport": "multi" };
-  return SPORT_META[aliases[code.slug] || code.slug]?.color || "var(--accent)";
-}
-
 function codeInspectorCodeIsFollowed(codeId, preferences = userPreferences){
   return selectedPreferenceDomainIds(preferences)
     .map(canonicalDomainIdForPreferenceDomain)
@@ -8276,20 +8256,6 @@ function recordCodeAffinity(codeId, type){
     type,
     occurredAt:new Date().toISOString(),
   }));
-}
-
-function prepareCodeInspectorIdentity(identity, label, { eager = false } = {}){
-  identity.querySelectorAll("img").forEach(image => {
-    image.loading = eager ? "eager" : "lazy";
-    image.decoding = "async";
-    if (image.classList.contains("event-brand-logo")) return;
-    image.addEventListener("error", () => {
-      const fallback = document.createElement("span");
-      fallback.className = "code-inspector-identity-fallback";
-      fallback.textContent = String(label || "?").split(/\s+/).slice(0, 2).map(word => word[0]).join("").toUpperCase();
-      identity.replaceChildren(fallback);
-    }, { once: true });
-  });
 }
 
 async function loadCodeInspectorManifest(){
@@ -8786,20 +8752,10 @@ function setCodeInspectorFixtureAdded(fixture, enabled){
   return true;
 }
 
-function codeInspectorParticipantMark(slot, fixture){
-  const direct = slot.participantId ? CARD_IDENTITIES?.participantMarks?.[slot.participantId] : null;
-  if (direct) return direct;
-  if (slot.logoUrl) return { label:slot.label, url:slot.logoUrl, logo:{ primary:slot.logoUrl, dark:slot.logoUrl } };
-  const event = { key:codeInspectorFixtureSportKey(fixture), name:slot.label || fixture.name, participantIds:[slot.participantId].filter(Boolean) };
-  return CARD_IDENTITIES?.participantMarksForEvent?.(event, cardIdentityParticipants(), slot.label || fixture.name)?.[0]?.mark
-    || (TEAM_FOLLOW_CATALOGUE?.teamsById?.[slot.participantId]?.countryCode
-      ? { label:slot.label, countryCode:TEAM_FOLLOW_CATALOGUE.teamsById[slot.participantId].countryCode }
-      : null);
-}
-
 function buildCodeInspectorFixture(fixture){
   const slots=fixture.participantSlots || [];
-  const canonical=canonicalFeedFixtureForInspector(fixture);
+  let canonical=canonicalFeedFixtureForInspector(fixture);
+  if(globalThis.inspectorSourcePreferred?.(fixture,canonical))canonical=null;
   const event=fixture.calendarNote&&canonical?.sourceTrust!=='verified'?{...canonical,...fixture}:canonical || {...fixture,id:fixture.id,eventId:fixture.id,key:codeInspectorFixtureSportKey(fixture),
     participantIds:slots.map(slot=>slot.participantId).filter(Boolean),
     participants:slots.map(slot=>({id:slot.participantId,name:slot.label,displayName:slot.label,logoUrl:slot.logoUrl})),
@@ -8847,7 +8803,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=548').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=556').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){

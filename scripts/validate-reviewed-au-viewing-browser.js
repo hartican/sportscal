@@ -19,15 +19,18 @@ const aflwOnly=process.argv.includes('--aflw');
   const rugby=await load('rugby-union'),cricket=await load('cricket'),golf=await load('golf'),hockey=await load('ice-hockey');
   return [rugby.find(f=>f.id==='rugby-australia-south-africa-2026-09-27'),rugby.find(f=>f.id==='rugby-new-zealand-australia-2026-10-10'),rugby.find(f=>f.id.includes('e492d961')),rugby.find(f=>f.competitionName==='Top 14 2027'),...['1525659','1525660','1525661','1525658'].map(id=>cricket.find(f=>f.id==='fixture:cricket:espn:'+id)),...['fixture:golf:lpga:2026068','fixture:golf:lpga:2026070','fixture:golf:lpga:2026063','fixture:golf:lpga:2026076','fixture:golf:pga:H2026166'].map(id=>golf.find(f=>f.id===id)),...['fixture:nhl:2026020035','fixture:nhl:2026020001','fixture:nhl:2026010063'].map(id=>hockey.find(f=>f.id===id))];
  },aflwOnly);assert(fixtures.every(Boolean));
+ // Component checks must not compete with the app-owned Feed redraw target.
+ // Keep the ordinary Schedule navigation and popup checks below unchanged.
+ await page.evaluate(()=>{const host=document.createElement('section');host.id='reviewedViewingTest';host.className=document.getElementById('listView').className;document.querySelector('main').append(host);});
  for(const mode of ['feed','schedule'])for(const show of [false,true])for(const width of [320,390,768,1280])for(const fixture of fixtures){
   await page.setViewportSize({width,height:844});
   const rendered=await page.evaluate(({fixture,mode,show})=>{
    activeTab=mode==='feed'?'feed':'follow';activeInspectorCodeId=null;userPreferences.showSpoilers=show;userPreferences.feedCompact=false;
-   const f={...fixture,eventId:fixture.id};setCardState(f,'opened');const card=mode==='feed'?buildEventCard(f):buildCodeInspectorFixture(fixture);card.style.contentVisibility='visible';document.getElementById('listView').replaceChildren(card);scrollTo(0,0);
+   const f={...fixture,eventId:fixture.id};setCardState(f,'opened');const card=mode==='feed'?buildEventCard(f):buildCodeInspectorFixture(fixture);card.style.contentVisibility='visible';document.getElementById('reviewedViewingTest').replaceChildren(card);scrollTo(0,0);
    return {marker:card.classList.contains('tournament-start-marker'),options:FOLLOW_FIRST.viewingOptions(f).map(o=>({id:o.providerId,url:o.url,label:o.label,paid:o.paid,accessType:o.accessType,replay:o.liveOrReplay==='replay',rightsScope:o.rightsScope,replayVerified:o.replayVerified}))};
   },{fixture,mode,show});
   const expected=rendered.options,presented=rendered.marker?[]:expected.filter(o=>!o.replay||o.replayVerified);
-  const card=page.locator('#listView .event-card');await card.scrollIntoViewIfNeeded();
+  const card=page.locator('#reviewedViewingTest .event-card');await card.scrollIntoViewIfNeeded();
   const links=await card.locator('.fixture-providers a').evaluateAll(links=>links.map(a=>({href:a.getAttribute('href'),label:a.getAttribute('aria-label')})));
   assert.equal(links.length,presented.length,`${fixture.id}/${mode}: actual visible provider actions`);
   for(let i=0;i<links.length;i++){assert.equal(links[i].href,presented[i].url);const access={free:'Free',subscription:'Subscription',ppv:'Pay-per-view',included:'Included in plan'}[presented[i].accessType]||'Check cost';assert.equal(links[i].label,`${presented[i].replay?'Replay':'Watch'} on ${presented[i].label} · ${access}`);}
@@ -65,6 +68,7 @@ const aflwOnly=process.argv.includes('--aflw');
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);assert(!overflow,`${fixture.id}/${mode}/${width}: mobile layout`);
   observations.push({id:fixture.id,mode,show,width,providers:expected.map(o=>o.id),shownProviders:presented.map(o=>o.id),feedCalendarMarker:rendered.marker,overflow});
  }
+ await page.evaluate(()=>document.getElementById('reviewedViewingTest').remove());
  if(aflwOnly){
   await page.locator('#startupLaunch').waitFor({state:'hidden'});
   await page.evaluate(fixture=>openCodeInspector('sport:aflw',{focusFixture:fixture}),fixtures[0]);

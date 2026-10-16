@@ -48,6 +48,65 @@ try{
  const once=files.map(file=>fs.readFileSync(path.join(tmp,file)));applySelectedResults([id],{root:tmp});
  files.forEach((file,i)=>assert(fs.readFileSync(path.join(tmp,file)).equals(once[i]),'Repeated reviewed publication is byte-stable'));
 }finally{fs.rmSync(tmp,{recursive:true,force:true});}
+function validateScheduleSourceSelection(){
+ const vm=require('node:vm'),major=require('../config/major-events');
+ const frozen=require('./fixtures/rlwc-schedule-alias-20261016.json'),fixture=frozen.fixture;
+ const child=major.fixtureFromSubEvent(frozen.child,frozen.parent),html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+ const extract=(start,end)=>html.slice(html.indexOf(start),html.indexOf(end));
+ const source=extract('function canonicalFeedFixtureForInspector(','function codeInspectorFixtureSnapshot(')
+  +extract('function inspectorFixtureIsResult(','function inspectorFixtureMatchesTab(')
+  +extract('function buildCodeInspectorFixture(','function appendSchedulePin(');
+ const context={inspectorSourcePreferred:require('../assets/js/follow-schedule-panel').inspectorSourcePreferred,EVENTS:[],activeEvents:[child],MAJOR_EVENTS:major,codeInspectorFixtureSportKey:require('../config/fixture-identity').sportKey,buildEventCard:event=>event};
+ vm.createContext(context);vm.runInContext(source,context);
+ const before=JSON.stringify([fixture,child]),card=context.buildCodeInspectorFixture(fixture);
+ assert.equal(card.canonicalEventId,fixture.canonicalEventId,'Native Schedule caller must retain the exact completed source instead of a scheduled semantic major-child copy');
+ assert(['completed','finished','final'].includes(card.status));assert.equal(card.homeScore,24);assert.equal(card.awayScore,22);
+ for(const key of ['id','sourceEventIds','date','startTimeUtc','statusCheckedAt','scoreCheckedAt','resultSourceCheckedAt','roundNumber','competitionId'])assert.deepEqual(card[key],fixture[key],key+' keeps the source value');
+ const highlights=require('../config/fixture-highlights'),now=new Date('2026-10-16T09:00:00Z');
+ assert.equal(highlights.viewing(card,now)?.providerId,'rlwc','Full source context reaches the unchanged publisher guard');
+ for(const patch of [{sourceEventIds:[]},{sourceEventIds:'major-match:rlwc-2026:australia-new-zealand'},{competitionId:'competition:other:2026'},{key:'rugby'}]){
+  context.activeEvents=[child];const unchanged=context.buildCodeInspectorFixture({...fixture,...patch});
+  assert.equal(unchanged.id,child.id,'Unbound or conflicting source context cannot use the new alias path');
+ }
+ for(const key of ['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType']){
+  const known=fixture[key]??'controlled-known';
+  context.activeEvents=[{...child,[key]:typeof known==='number'?known+1:known+'-contradiction'}];
+  assert.equal(context.buildCodeInspectorFixture({...fixture,[key]:known}).id,child.id,'A known '+key+' contradiction prevents alias hydration');
+  context.activeEvents=[{...child,[key]:null}];
+  assert.equal(context.buildCodeInspectorFixture({...fixture,[key]:known}).id,fixture.id,'An absent '+key+' is not a contradiction');
+ }
+ context.activeEvents=[{...child,status:'completed',score:'An existing final'}];assert.equal(context.buildCodeInspectorFixture(fixture).score,'An existing final','Existing completed canonical results retain precedence');
+ context.activeEvents=[child];context.EVENTS=[{...fixture,eventId:fixture.id}];assert.equal(context.buildCodeInspectorFixture(fixture),context.EVENTS[0],'Loaded canonical fixture keeps its existing priority');
+ context.EVENTS=[];const zero=context.buildCodeInspectorFixture({...fixture,homeScore:0});assert.equal(zero.homeScore,0,'A controlled zero score is not treated as absent');
+ for(const patch of [{roundNumber:2},{season:'2025'},{gender:'women'},{date:'2026-10-16'},{startTimeUtc:'2026-10-16T09:05:00Z'},{participantIds:['team:nrl:kangaroos','team:nrl:other'],participantSlots:[]}])assert.notEqual(highlights.viewing(context.buildCodeInspectorFixture({...fixture,...patch}),now)?.providerId,'rlwc','Existing publisher fences remain unchanged for '+JSON.stringify(patch));
+ // The real selected snapshot retains an exact canonical August planning row.
+ // Exercise the actual Schedule caller, including when Events was never loaded.
+ for(const loadedMajor of [major,null]){
+  context.MAJOR_EVENTS=loadedMajor;context.EVENTS=[frozen.staleCanonical];context.activeEvents=[];
+  const beforePrior=JSON.stringify(frozen.staleCanonical),retained=context.buildCodeInspectorFixture(fixture);
+  assert(['completed','finished','final'].includes(retained.status),'A retained exact canonical planning row cannot reopen the sourced Schedule final');
+  assert.equal(retained.homeScore,24);assert.equal(retained.awayScore,22);
+  for(const key of ['id','sourceEventIds','date','startTimeUtc','statusCheckedAt','scoreCheckedAt','resultSourceCheckedAt','roundNumber','competitionId'])assert.deepEqual(retained[key],fixture[key],key+' retains exact final source provenance');
+  assert.equal(JSON.stringify(frozen.staleCanonical),beforePrior,'The old retained row is not rewritten');
+ }
+ for(const patch of [{competitionId:'competition:other:2026'},{key:'rugby'},{date:'2026-10-16'},{startTimeUtc:'invalid'},{participantIds:['team:nrl:kangaroos','team:nrl:other']},{participantIds:'invalid'},{status:'live'},{status:'postponed'},{status:'completed'}]){
+  const candidate={...frozen.staleCanonical,...patch};context.EVENTS=[candidate];context.activeEvents=[];
+  assert.equal(context.buildCodeInspectorFixture(fixture),candidate,'The exact source path cannot override conflicting or active sporting evidence '+JSON.stringify(patch));
+ }
+ for(const key of ['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType']){
+  const known=fixture[key]??'controlled-known',candidate={...frozen.staleCanonical,[key]:typeof known==='number'?known+1:known+'-contradiction'};
+  context.EVENTS=[candidate];context.activeEvents=[];
+  assert.equal(context.buildCodeInspectorFixture({...fixture,[key]:known}),candidate,'Exact canonical context also rejects a known '+key+' contradiction');
+ }
+ context.EVENTS=[frozen.staleCanonical];context.activeEvents=[];
+ for(const patch of [{sourceEventIds:[]},{sourceEventIds:fixture.id},{status:'upcoming'},{competitionId:null}])assert.equal(context.buildCodeInspectorFixture({...fixture,...patch}),frozen.staleCanonical,'Missing source evidence cannot take precedence '+JSON.stringify(patch));
+ context.MAJOR_EVENTS=major;context.EVENTS=[];context.activeEvents=[child];
+ const actions={[child.id]:{saved:true,isMinimised:true,reminderRequested:false,showSpoilers:false}};
+ const actionsBefore=JSON.stringify(actions),identity=require('../config/event-action-identity');
+ assert.deepEqual(identity.resolveAction(card,actions).action,actions[child.id],'Existing major-child saved choices still resolve through the source alias');
+ assert.equal(JSON.stringify(actions),actionsBefore);assert.equal(JSON.stringify([fixture,child]),before,'Selection cannot rewrite either source record');
+}
+validateScheduleSourceSelection();
 async function validateSavedStatusOverlay(){
  const {createMatchCentreHandler}=require('../lib/match-centre-handler');
  const model=require('../config/match-centre');

@@ -1,3 +1,17 @@
+// Fact selection belongs to Schedule, which is loaded before these cards render.
+// An exact retained identity may omit context; known contradictions still reject.
+function inspectorSourcePreferred(source,candidate){
+ const id=candidate?.id,direct=id&&(id===source?.id||id===source?.canonicalEventId);
+ if(!source||typeof id!=='string'||(!direct&&!id.startsWith('major-match:'))
+  ||!Array.isArray(source.sourceEventIds)||!source.sourceEventIds.includes(id)
+  ||!source.key||source.key!==candidate.key||!source.competitionId
+  ||(candidate.competitionId?source.competitionId!==candidate.competitionId:!direct)||source.date!==candidate.date
+  ||!['completed','finished','final'].includes(String(source.status||'').toLowerCase())||!['scheduled','upcoming'].includes(candidate.status))return false;
+ const identity=e=>{const ids=[...new Set([...(Array.isArray(e.participantIds)?e.participantIds:[]),...(Array.isArray(e.participantSlots)?e.participantSlots:[]).map(s=>s?.participantId),e.homeParticipantId,e.awayParticipantId].map(id=>String(id||'').trim()).filter(Boolean))].sort(),start=Date.parse(e.startTimeUtc||e.timelineSortTimeUtc||'');return ids.length>=2&&Number.isFinite(start)?JSON.stringify([start,ids]):'';};
+ const key=identity(source);
+ return Boolean(key&&key===identity(candidate)&&!['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType'].some(k=>source[k]!=null&&candidate[k]!=null&&source[k]!==candidate[k]));
+}
+
 // The source calendar owns chronological round order; views never create follows.
 function footballRoundPlan(fixtures,today){
  const key=f=>JSON.stringify([f.competitionId||f.competitionName,f.season||f.seasonLabel||String(f.date).slice(0,4),f.stageType||f.stage,f.roundLabel||f.round||f.stage||f.date]);
@@ -260,4 +274,4 @@ function followScheduleScopeMatches(f){
   return true;
 }
 
-if(typeof module==='object'&&module.exports)module.exports={footballRoundPlan};
+if(typeof module==='object'&&module.exports)module.exports={footballRoundPlan,inspectorSourcePreferred};

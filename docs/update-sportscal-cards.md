@@ -181,3 +181,17 @@ Sparse-retained regressions exercise both persistent writers and unchanged rerun
 ### Generated runtime version after concurrent integration
 
 After integrating current `origin/main`, run `node scripts/version-generated-shell.js` before sealing the release. The canonical versioner compares with accepted main when it is included in `HEAD` or the pending merge, not merely with an already committed local runtime. Different runtime bytes must never reuse main's numeric shell version. Keep HTML, worker, runtime URLs and `app-version.json` aligned, then run the generated-shell/cache contracts and installed-update checks. This is bounded local recovery, not authority to reset a checkout, overwrite unrelated edits, or bypass release gates.
+
+### Structured result and post-match display proof
+
+Verify tennis scores against rendered participant rows and ordered set cells, including supplied tie-break points; raw source score prose is not the display contract. Preserve separately sourced terminal labels such as `resultLabels: ["Retirement"]` even when the score string is only `5-2`. A partial score alone must never infer retirement, completion or a winner. Check Results OFF/ON and retain all raw result/source observations unchanged. For post-match articles, verify the visible Hook and article body; factual research building blocks remain separate evidence, not additional required verbatim article paragraphs. Handle the normal Results confirmation in disposable browser tests rather than mistaking its default dismissal for a failed toggle. Keep genuine card-local display failures distinct from test-harness assumptions and preserve independently published updates.
+
+Permanent presentation regressions use provenance-bound retained fixtures in `scripts/fixtures`, not the presence of an ordinary live Feed row. Seven-day retirement must not erase evidence or turn a valid presentation test into a whole-run missing-fixture blocker.
+
+### Delayed score enhancement and sparse confirmed results
+
+A visible result must survive the existing lazy score enhancer loading after the card. A confirmed cricket winner and margin can be valid without detailed innings. If the enhancer has no replacement presentation, retain the existing sourced result instead of deleting it. Results OFF, strict policy and explicit hiding still take precedence; never invent innings, a winner, a new observation clock or completion evidence to fill the gap.
+
+The normal feed-score unit gate includes the frozen, provenance-bound Australia v South Africa First Test regression. The existing browser suite tests the fully loaded enhancer, repeated installation, both Results states and unchanged source facts on Chromium/WebKit and mobile/desktop layouts. Immediate pre-enhancement HTML alone is not proof of the final visible result. Keep controlled component proof separate from ordinary authenticated and physical-device journeys.
+
+When this lazy path changes, version both the loader and loaded module, their shell references and service-worker cache entries. Publish a fresh aligned app/worker boundary for bytes already served, including a READY candidate whose final shared gate failed. Do not reuse that candidate's cache URL. Retain intact startup, spoiler, shared-membership and serialized exact-SHA release gates; a READY/byte proof alone is not a completed release.

@@ -8,7 +8,7 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
  const page=await browser.newPage({serviceWorkers:'block',viewport:{width,height:844},locale:'en-AU',timezoneId:'Australia/Sydney'});await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
  await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:24,onboardingComplete:true,selectedSelectorEntityIds:['sport:tennis'],followedSports:['tennis'],showSpoilers:true,fantasyDeadlines:{enabled:false}})));
  await page.goto(process.env.QA_BASE_URL||'http://127.0.0.1:'+server.address().port,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>typeof userPreferences==='object'&&!startupCoordinator.isHydrating()&&startupFeedState.phase==='ready'&&!remoteFeedRefreshInFlight&&followedScheduleLoads.size===0);await page.locator('#startupLaunch').waitFor({state:'hidden'});
- const result=await page.evaluate(async()=>{
+ const result=await page.evaluate(async capturedCricket=>{
   await loadDeferredScript('config/match-centre.js?v=435');await loadDeferredScript('config/feed-live-scores.js?v=437');await ensureFeedScoreUi();activeTab='feed';userPreferences.showSpoilers=true;userPreferences.fantasyDeadlines.enabled=false;
   const savedQueue=queueLiveFixtureSnapshot;queueLiveFixtureSnapshot=()=>{};if(liveFixtureRefresh)await liveFixtureRefresh;
   const date=new Date().toISOString(),event={id:'qa:feed-score',key:'tennis',name:'First v Second',date:date.slice(0,10),time:'20:00',startTimeUtc:date,status:'live',scoreCheckedAt:date,sets:[{home:6,away:4}],games:{home:2,away:1}};
@@ -54,8 +54,17 @@ const pw=require(process.env.PLAYWRIGHT_MODULE||'playwright'),root=path.resolve(
   NOTHINGSPORTS_FEED_LIVE_SCORES.install(scoreHost,{...oldFinal,stale:true},{resultsOn:true});const explicitFailure=scoreHost.textContent.includes('Update needed');
   NOTHINGSPORTS_FEED_LIVE_SCORES.install(scoreHost,{...corrected,status:'live',scoreCheckedAt:new Date(Date.now()+86400000).toISOString()},{resultsOn:true});const futureDateHidden=!scoreHost.querySelector('time')&&scoreHost.textContent.includes('Awaiting source update');
   NOTHINGSPORTS_FEED_LIVE_SCORES.install(scoreHost,{...corrected,scoreCheckedAt:null},{resultsOn:true});const missingFinalDate=scoreHost.textContent.includes('Source date unavailable')&&!scoreHost.textContent.includes('Update needed');
-  scoreHost.remove();feedCardSlots.delete(event.id);host.remove();queueLiveFixtureSnapshot=savedQueue;return {compact,normal,hidden,expanded,localHide,localShow,strictHide,updated,sportingRequest,snapshotUpdated,fantasyOff:!userPreferences.fantasyDeadlines.enabled,finalCorrection,correctedSpoilerSafe,unknownDegraded,settledFinals,settledPrivacy,pilotCompacts,crossYear,explicitFailure,futureDateHidden,missingFinalDate};
- });if(Object.values(result).some(value=>value!==true))console.log(JSON.stringify({engine,width,...result}));for(const [key,value] of Object.entries(result))assert.equal(value,true,key);console.log(JSON.stringify({engine,width,...result}));
+  const cricketBefore=JSON.stringify(capturedCricket);userPreferences.showSpoilers=true;userPreferences.feedControls.spoilers='results_visible';
+  setCardState(capturedCricket,'opened');host.replaceChildren(buildEventCard(capturedCricket));
+  const cricketCard=host.querySelector('.event-card'),cricketLine=cricketCard.querySelector('.card-result-line');
+  NOTHINGSPORTS_FEED_LIVE_SCORES.install(cricketCard,capturedCricket,{resultsOn:true});
+  NOTHINGSPORTS_FEED_LIVE_SCORES.install(cricketCard,capturedCricket,{resultsOn:true});
+  const cricketOutcomeRetained=Boolean(cricketLine)&&cricketCard.querySelector('.card-result-line')===cricketLine&&cricketCard.innerText.includes(capturedCricket.outcomeText)&&NOTHINGSPORTS_FEED_LIVE_SCORES.presentation(capturedCricket,{resultsOn:true})===null;
+  NOTHINGSPORTS_FEED_LIVE_SCORES.install(cricketCard,capturedCricket,{resultsOn:false});
+  const cricketOutcomeHidden=!cricketCard.innerText.includes(capturedCricket.outcomeText)&&!cricketCard.querySelector('.card-result-line,.feed-live-score');
+  const cricketEvidenceUnchanged=JSON.stringify(capturedCricket)===cricketBefore;
+  scoreHost.remove();feedCardSlots.delete(event.id);host.remove();queueLiveFixtureSnapshot=savedQueue;return {compact,normal,hidden,expanded,localHide,localShow,strictHide,updated,sportingRequest,snapshotUpdated,fantasyOff:!userPreferences.fantasyDeadlines.enabled,finalCorrection,correctedSpoilerSafe,unknownDegraded,settledFinals,settledPrivacy,pilotCompacts,crossYear,explicitFailure,futureDateHidden,missingFinalDate,cricketOutcomeRetained,cricketOutcomeHidden,cricketEvidenceUnchanged};
+ },require('./fixtures/cricket-result-fallback-20261016.json').fixture);if(Object.values(result).some(value=>value!==true))console.log(JSON.stringify({engine,width,...result}));for(const [key,value] of Object.entries(result))assert.equal(value,true,key);console.log(JSON.stringify({engine,width,...result}));
  const reviewed=require('../feeds/provider-exports/tennis/participant-fixtures-reviewed.v1.json').events.filter(e=>e.status==='completed');
  const realResults=await page.evaluate(fixtures=>{
   const saved=JSON.stringify(userPreferences),rows=[];

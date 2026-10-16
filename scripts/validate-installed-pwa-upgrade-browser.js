@@ -41,6 +41,17 @@ async function assertCachedFonts(page){
   for(const file of ['assets/fonts/dm-sans-latin.woff2','assets/fonts/dm-sans-latin-ext.woff2']){const digest=await page.evaluate(async file=>{const response=await caches.match('/'+file);if(!response)throw Error('Missing cached font: '+file);const bytes=await response.arrayBuffer();return [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(b=>b.toString(16).padStart(2,'0')).join('');},file);assert.equal(digest,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),'Bundled font survives upgrade/offline exactly');}
 }
 async function assertCachedFixtureHighlights(page){
+  const scheduleUrl=requiredShellScriptUrl('assets/js/follow-schedule-panel.js');
+  const frozen=require('./fixtures/rlwc-schedule-alias-20261016.json');
+  const scheduleProof=await page.evaluate(async({url,version,frozen})=>{
+    const cache=await caches.open('nothingsport-shell-v'+version),response=await cache.match('/'+url);
+    if(!response)throw Error('Missing exact cached Schedule module');
+    const bytes=await response.arrayBuffer(),sha256=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(n=>n.toString(16).padStart(2,'0')).join('');
+    await loadDeferredScript(url);
+    return {sha256,sourcePreferred:globalThis.inspectorSourcePreferred(frozen.fixture,frozen.staleCanonical)};
+  },{url:scheduleUrl,version:candidateVersion,frozen});
+  assert.equal(scheduleProof.sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'assets/js/follow-schedule-panel.js'))).digest('hex'),'Upgrade/offline uses the exact new Schedule fact-selection module');
+  assert(scheduleProof.sourcePreferred,'Cached Schedule logic retains the sourced final over its exact retained planning copy');
   const golf=require('../data/code-inspector/golf.json').fixtures.find(e=>(e.name||'').startsWith('Minjee Lee /'));
   const missing=await page.evaluate(golf=>({venue:NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue({venue:'Venue TBD'}),time:NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel({displayTime:'Time TBC'}),highlights:NOTHINGSPORTS_FIXTURE_HIGHLIGHTS.viewing({...golf,status:'past'},Date.parse('2026-10-16T00:00:00Z'))}),golf);
   assert.equal(missing.venue,'','Cached unknown venue cannot become an organiser decision');assert.equal(missing.time,'Time TBD');assert.equal(missing.highlights,null,'Upgrade/offline cannot restore a highlights promise from a past display label');

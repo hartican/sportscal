@@ -1,4 +1,5 @@
 'use strict';
+require('./validate-tennis-terminal-display');
 // Exercises the retained publication boundary, not a source-fetch rehearsal.
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
 const {validate,apply}=require('./apply-reviewed-participant-fixtures'),doc={...validate(),pairingCorrections:[],wuhanPairingUpdates:[]},policy=require('../config/fixture-reminder-policy'),model=require('../config/athletes');
