@@ -99,7 +99,7 @@ const APP_SHELL = [
   "/config/marquee-campaigns.js",
   // Account sync is already in the required runtime; the owner console caches
   // its separate source after first use.
-  "/config/major-events.js?v=533",
+  "/config/major-events.js?v=555",
   "/config/event-overviews-ui.js?v=533",
   "/config/surface-category-ui.js?v=403",
   "/assets/styles/match-centre.css?v=507",

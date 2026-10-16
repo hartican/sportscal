@@ -2984,7 +2984,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-    moduleScriptUrl: "config/major-events.js?v=533",
+    moduleScriptUrl: "config/major-events.js?v=555",
   url: "data/major-events.v1.json",
 });
 
@@ -8800,13 +8800,7 @@ function codeInspectorParticipantMark(slot, fixture){
 function buildCodeInspectorFixture(fixture){
   const slots=fixture.participantSlots || [];
   let canonical=canonicalFeedFixtureForInspector(fixture);
-  // An exact sourced final outranks its old scheduled tournament projection.
-  if(canonical?.id?.startsWith('major-match:')&&Array.isArray(fixture.sourceEventIds)&&fixture.sourceEventIds.includes(canonical.id)
-    &&fixture.key&&fixture.key===canonical.key&&fixture.competitionId&&fixture.competitionId===canonical.competitionId&&fixture.date===canonical.date
-    &&inspectorFixtureIsResult(fixture)&&['scheduled','upcoming'].includes(canonical.status)){
-    const identity=MAJOR_EVENTS?.fixtureSemanticKey?.(fixture);
-    if(identity&&identity===MAJOR_EVENTS.fixtureSemanticKey(canonical)&&!['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType'].some(key=>fixture[key]!=null&&canonical[key]!=null&&fixture[key]!==canonical[key]))canonical=null;
-  }
+  if(MAJOR_EVENTS?.scheduleSourcePreferred?.(fixture,canonical))canonical=null;
   const event=fixture.calendarNote&&canonical?.sourceTrust!=='verified'?{...canonical,...fixture}:canonical || {...fixture,id:fixture.id,eventId:fixture.id,key:codeInspectorFixtureSportKey(fixture),
     participantIds:slots.map(slot=>slot.participantId).filter(Boolean),
     participants:slots.map(slot=>({id:slot.participantId,name:slot.label,displayName:slot.label,logoUrl:slot.logoUrl})),

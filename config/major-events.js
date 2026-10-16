@@ -336,6 +336,18 @@
     ].map(value => String(value || "").trim()).filter(Boolean)));
   }
 
+  // Prefer an already sourced final over its older scheduled tournament copy.
+  // Keep this with the lazy Events identity owner, outside the startup script.
+  function scheduleSourcePreferred(source, candidate){
+    if (!source || !candidate?.id?.startsWith('major-match:')
+      || !Array.isArray(source.sourceEventIds) || !source.sourceEventIds.includes(candidate.id)
+      || !source.key || source.key !== candidate.key || !source.competitionId || source.competitionId !== candidate.competitionId || source.date !== candidate.date
+      || !['completed','finished','final'].includes(String(source.status || '').toLowerCase()) || !['scheduled','upcoming'].includes(candidate.status)) return false;
+    const identity=fixtureSemanticKey(source);
+    return Boolean(identity && identity === fixtureSemanticKey(candidate)
+      && !['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType'].some(key=>source[key]!=null&&candidate[key]!=null&&source[key]!==candidate[key]));
+  }
+
   function normalizedFixtureId(value){
     return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
   }
@@ -731,5 +743,5 @@
     return next;
   }
 
-  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followedSportKeys, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMatchesFollow, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureSemanticKey, fixtureAliasIds, editorialRecordForSubEvent, editorialFixtureFromSubEvent, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument, validateDocumentDetailed, usableDocument, reconcileLifecycle });
+  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followedSportKeys, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMatchesFollow, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureSemanticKey, fixtureAliasIds, scheduleSourcePreferred, editorialRecordForSubEvent, editorialFixtureFromSubEvent, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument, validateDocumentDetailed, usableDocument, reconcileLifecycle });
 });

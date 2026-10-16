@@ -68,7 +68,13 @@ function validateScheduleSourceSelection(){
   context.activeEvents=[child];const unchanged=context.buildCodeInspectorFixture({...fixture,...patch});
   assert.equal(unchanged.id,child.id,'Unbound or conflicting source context cannot use the new alias path');
  }
- context.activeEvents=[{...child,roundNumber:2}];assert.equal(context.buildCodeInspectorFixture(fixture).id,child.id,'A known round contradiction prevents alias hydration');
+ for(const key of ['roundNumber','roundLabel','stage','season','seasonLabel','gender','eventType']){
+  const known=fixture[key]??'controlled-known';
+  context.activeEvents=[{...child,[key]:typeof known==='number'?known+1:known+'-contradiction'}];
+  assert.equal(context.buildCodeInspectorFixture({...fixture,[key]:known}).id,child.id,'A known '+key+' contradiction prevents alias hydration');
+  context.activeEvents=[{...child,[key]:null}];
+  assert.equal(context.buildCodeInspectorFixture({...fixture,[key]:known}).id,fixture.id,'An absent '+key+' is not a contradiction');
+ }
  context.activeEvents=[{...child,status:'completed',score:'An existing final'}];assert.equal(context.buildCodeInspectorFixture(fixture).score,'An existing final','Existing completed canonical results retain precedence');
  context.activeEvents=[child];context.EVENTS=[{...fixture,eventId:fixture.id}];assert.equal(context.buildCodeInspectorFixture(fixture),context.EVENTS[0],'Loaded canonical fixture keeps its existing priority');
  context.EVENTS=[];const zero=context.buildCodeInspectorFixture({...fixture,homeScore:0});assert.equal(zero.homeScore,0,'A controlled zero score is not treated as absent');

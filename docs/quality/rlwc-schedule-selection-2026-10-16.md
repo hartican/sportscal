@@ -13,3 +13,16 @@ The existing `validate-rlwc-result-fallback.js` gate first reproduces the actual
 Business value: the existing match shows its sourced final and can expose its already reviewed official highlights destination. New cash commitment: A$0; existing assistant/runner costs remain unpriced. New owner decision or routine: none. Scope is one selection boundary, with no source/data/provider/database/scheduler/Follow/admission/reminder/media-policy change. Acceptance requires the original failed observation, meaningful source and native browser checks, unchanged budgets and the publishing owner's exact combined release proof. Football, whole-sport and physical-phone certification remain separate.
 
 Detailed local evidence: `/Users/jackhartican/Documents/AI/Codex/rlwc-schedule-facts-20261016`.
+
+
+## Startup-size follow-up
+
+The combined37e1b77e release was stopped before deployment by normal workflow38885658217:431,595 compressed critical bytes against the unchanged426,115-byte baseline, or1.2860% growth above the1.25% cap. No limit or baseline was changed.
+
+Move the exact alias/result/context decision into the existing lazy, already cached `config/major-events.js` identity owner. The actual Schedule caller invokes that predicate; all seven known-field contradiction checks, explicit alias, sport/competition/date, participant/start identity and terminal-result conditions remain. Keep the constructor and media rules unchanged. The existing module URL and its worker cache entry both move to555; this adds no module or startup request, changes no sporting record and reserves no separate app version. Readable source remains in the module.
+
+On Node24.21.0 the exact combined source now measures431,385 compressed critical bytes, saving210 and returning growth to1.2367553%, within the intact1.25% limit. Critical requests remain eight. The unchanged145-asset/3MiB precache gate also passes. The comparison concerns critical code bytes, not measured phone timing, total transfer, tokens or cash savings.
+
+Five affected source/cache gates pass. The result regression now tests every known contradiction and missing-value case. Eight local Chromium/WebKit browser cases pass again on the extracted guard, covering ordinary Schedule navigation and the controlled stale-child case with Results OFF/ON. A Chromium554-to555 installed/offline rehearsal additionally verifies the complete exact cached module hash and exercises its guard; the publishing owner must still repeat the actual final combined Chromium/WebKit matrix and normal release/hosted proof. No production delivery is claimed here.
+
+Receipts: `/Users/jackhartican/Documents/AI/Codex/rlwc-startup-compression-20261016`. The earlier source test's helper reused its native JSON/screenshot output names during this follow-up. Its original pass log and recorded receipt hash remain historical evidence; the new follow-up receipt is saved in this separate folder and is not relabelled as the earlier file.
