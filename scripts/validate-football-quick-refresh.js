@@ -3,6 +3,25 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
 const {refreshPremierLeagueTable,projectionSteps,retainedFeedProjectionSteps,patchKnown,retainReviewedResultEditorial}=require('./quick-results');
 const root=path.resolve(__dirname,'..'),directory=fs.mkdtempSync(path.join(os.tmpdir(),'ns-football-quick-'));
+// The actual two-pass evidence writer adds an empty participant array to this
+// published final. That representation cannot discard its reviewed copy at
+// the next enrichment/publication boundary.
+{
+ const cp=require('node:child_process'),rules=require('./lib/storyline-card-rules');
+ const original=JSON.parse(cp.execFileSync('git',['show','d30d04b8e9e452a7ca9afebc5eeb5d93b04e050f:data/events.json'],{maxBuffer:32*1024*1024})).events.find(event=>event.id==='supercars-bathurst-1000-2026');
+ assert.equal(original.participants,undefined);
+ const generic={...original,participants:[],storyline:rules.storylineFor(original)};
+ const safe=rules.spoilerSafeRootCopy(generic);generic.selectedSentence=safe.hook;generic.fullSpiel=safe.synopsis;delete generic.editorialPreview;
+ const retained=retainReviewedResultEditorial([generic],[original])[0];
+ assert.equal(retained.selectedSentence,original.selectedSentence,'An empty participant representation cannot erase reviewed final copy');
+ for(const key of ['selectedSentence','fullSpiel','editorialPreview','lastReviewedAt'])assert.deepEqual(retained[key],original[key]);
+ assert.deepEqual(retained.editorialNarrative,original.editorialNarrative);
+ const newer={...generic,editorialNarrative:{...generic.editorialNarrative,hook:'Controlled later reviewed writing',researchedAt:'2026-10-11T12:00:00.000Z'}};
+ assert.deepEqual(retainReviewedResultEditorial([newer],[original])[0],newer,'Genuine later reviewed writing remains eligible');
+ for(const change of [{participants:null},{participantIds:['changed']},{teamMatchContext:{changed:true}},{standingsContext:{changed:true}},{score:'Controlled corrected score'}]){
+  const changed={...generic,...change};assert.deepEqual(retainReviewedResultEditorial([changed],[original])[0],changed,'A genuine or explicitly unknown fact still invalidates the old copy');
+ }
+}
 // Actual settled primary facts must not become 100 Feed updates after a check.
 const final=require('../feeds/incoming/events.json').events.find(e=>e.key==='premier-league'&&e.status==='completed');
 assert(final?.scoreCheckedAt&&final.resultSourceCheckedAt,'real sourced completed EPL regression');

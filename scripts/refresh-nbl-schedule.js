@@ -38,11 +38,13 @@ function build(payload,checkedAt=new Date().toISOString(),previousStandings=[]){
   if(teamFor(match.home).id===teamFor(match.away).id)throw Error('NBL fixture cannot match a club against itself');
   if(match.phase==='complete'&&(start>=Date.parse(checkedAt)||![match.home_score,match.away_score].every(n=>Number.isSafeInteger(n)&&n>=0)||match.home_score===match.away_score))throw Error('NBL completed fixture needs a past kickoff and decisive scores');
  }
- const events=matches.map(match=>{const home=teamFor(match.home),away=teamFor(match.away),start=new Date(match.starts_at_ms),local=localParts(start);return{
+ const events=matches.map(match=>{const home=teamFor(match.home),away=teamFor(match.away),start=new Date(match.starts_at_ms),local=localParts(start);
+ const finalScoreline=match.phase==='complete'?`${home.displayName} ${match.home_score}, ${away.displayName} ${match.away_score}`:undefined;
+ return{
   id:`event:nbl:2026-27:${match.id}`,sportKey:"nbl",codeId:"sport:nbl",competitionId:"competition:nbl",season:"2026-27",name:`${home.displayName} v ${away.displayName}`,
   date:local.date,time:local.time,startTimeUtc:start.toISOString(),venue:match.venue_name||"Venue TBC",round:"all",roundLabel:`Round ${match.round_label}`,roundNumber:Number(match.round_label)||null,stage:"regular season",expected:5,
   participantIds:[home.id,away.id],sourceId:"nbl27-schedule",broadcastSourceId:"nbl27-schedule",status:match.phase==="complete"?"completed":match.phase==="live"?"live":"upcoming",
-  result:match.phase==="complete"&&Number.isSafeInteger(match.home_score)&&Number.isSafeInteger(match.away_score)&&match.home_score>=0&&match.away_score>=0&&match.home_score!==match.away_score?{status:"official",homeScore:match.home_score,awayScore:match.away_score,score:`${match.home_score}-${match.away_score}`,winnerParticipantId:Number(match.home_score)>Number(match.away_score)?home.id:away.id,outcomeText:`${home.displayName} ${match.home_score}, ${away.displayName} ${match.away_score}`,recapText:"Official NBL result.",sourceId:"nbl27-schedule",checkedAt}:undefined,
+  result:match.phase==="complete"&&Number.isSafeInteger(match.home_score)&&Number.isSafeInteger(match.away_score)&&match.home_score>=0&&match.away_score>=0&&match.home_score!==match.away_score?{status:"official",homeScore:match.home_score,awayScore:match.away_score,score:`${match.home_score}-${match.away_score}`,winnerParticipantId:Number(match.home_score)>Number(match.away_score)?home.id:away.id,outcomeText:finalScoreline,recapText:finalScoreline,sourceId:"nbl27-schedule",checkedAt}:undefined,
   viewingOptions:viewingFor(match,checkedAt),
   hook:`${home.displayName} face ${away.displayName} in NBL27.`,context:`Official NBL27 Round ${match.round_label} fixture.`,providerId:match.id,
  };});

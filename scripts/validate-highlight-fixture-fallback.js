@@ -38,7 +38,16 @@ async function main(){
  assert.equal((await replay({id:'fixture:controlled:unknown'})).res.code,404,'unknown identity does not borrow another fixture');
  assert.equal((await replay({id:actual[4].id})).res.code,302,'accepted native alias resolves the same fixture');
  const canonicalNbl={id:ids[4],status:'cancelled',fixtureObservationSchema:'compact-fixture-observation.v1',statusFactObservedAt:'2026-10-15T07:00:00Z',highlights:null};
- const aliasConflict=await replay({id:actual[4].id,live:[canonicalNbl]});assert.equal(aliasConflict.res.code,404,'native request respects cancellation under canonical fixture alias');assert.equal(aliasConflict.resolved.length,0);
+ // This is the historical 15 October contradiction, not a cancellation newer
+ // than every future primary check. Keep its actual pre-cancellation packet.
+ const historicalNbl=require('./fixtures/highlight-native-cancellation-20261015.json').fixture;
+ assert.equal(historicalNbl.id,actual[4].id,'Captured native identity is unchanged');
+ assert(fixtureMatches(historicalNbl,new Set([ids[4]])),'Captured fixture owns the canonical alias');
+ assert(Date.parse(historicalNbl.statusCheckedAt)<Date.parse(canonicalNbl.statusFactObservedAt)&&Date.parse(canonicalNbl.statusFactObservedAt)<+now,'Historical cancellation must genuinely follow the captured final and precede validation');
+ const historicalUnchanged=JSON.stringify(historicalNbl);
+ const historicalAllowed=await replay({id:historicalNbl.id,fallback:[historicalNbl]});assert.equal(historicalAllowed.res.code,302,'The captured fixture is eligible at the historical clock before adding the cancellation');assert.equal(historicalAllowed.resolved.length,1);
+ const aliasConflict=await replay({id:historicalNbl.id,fallback:[historicalNbl],live:[canonicalNbl]});assert.equal(aliasConflict.res.code,404,'native request respects cancellation under canonical fixture alias');assert.equal(aliasConflict.resolved.length,0);
+ assert.equal(JSON.stringify(historicalNbl),historicalUnchanged,'Historical sporting facts and receipts are immutable');
  const aliasWithdrawal=await replay({id:actual[4].id,live:[{...canonicalNbl,status:'scheduled',statusFactObservedAt:null,statusCheckedAt:null}]});assert.equal(aliasWithdrawal.res.code,302);assert.equal(aliasWithdrawal.resolved[0].highlights,null,'native request retains canonical explicit media withdrawal');
  const mediaOnlyWithdrawal=await replay({id:actual[4].id,live:[{id:ids[4],enrichmentOnly:true,highlightsOnly:true,highlights:null}]});assert.equal(mediaOnlyWithdrawal.res.code,302);assert.equal(mediaOnlyWithdrawal.resolved[0].highlights,null,'missing-target media-only withdrawal survives after fallback gains a base fixture');
  const malformed=await replay({id:ids[0]+','+ids[1]});assert.equal(malformed.res.code,400);assert.equal(malformed.fallbackReads,0,'multi-ID highlight input is rejected before fallback loading');

@@ -8,6 +8,30 @@ for(const f of schedule.events.filter(f=>f.status==='completed'))for(let i=0;i<2
 const source={leaguePath:'nbl',year:2026,fallback:false,offset:0,total:165,seasons_meta:[{id:'season-test',name:'NBL27',season_type:'regular',match_count:165}],matches:schedule.events.map(f=>({id:f.providerId,season_id:'season-test',season_type:'regular',starts_at_ms:Date.parse(f.startTimeUtc),round_label:String(f.roundNumber),phase:f.status==='completed'?'complete':f.status==='live'?'live':'upcoming',home:{...counts.get(f.participantIds[0])},away:{...counts.get(f.participantIds[1])},home_score:f.result?.homeScore,away_score:f.result?.awayScore}))};
 const now=schedule.generatedAt;
 const valid=build(source,now);assert.equal(valid.standings.length,10);assert.equal(valid.standingsStatus,'current');
+// The actual scoped refresh must remain compatible with an already accepted
+// official final. Replay its recorded identity and score through the provider
+// parser, Feed adapter, patcher and accepted-result publication gate.
+{
+ const proof=require('../data/canonical/current-card-evidence-2026.json').resultOverrides.find(row=>row.id==='evt_nbl_2026_27_3706e834_58ad_11f1_8519_a362560fc147');
+ const retained=require('../data/events.json').events.find(row=>row.id===proof.id);
+ const replay=structuredClone(source),fixture=schedule.events.find(row=>row.id===proof.canonicalEventId);
+ const match=replay.matches.find(row=>row.id===fixture.providerId);
+ assert.deepEqual(fixture.participantIds,proof.acceptedResultProjection.participantIds);
+ Object.assign(match,{phase:'complete',home_score:proof.homeScore,away_score:proof.awayScore});
+ const checkedAt=new Date(Math.max(Date.parse(now),Date.parse(proof.sourceCheckedAt)+3600000)).toISOString();
+ const parsed=build(replay,checkedAt,schedule.standings);
+ const canonical=parsed.events.find(row=>row.id===fixture.id);
+ const card=require('./sync-requested-sports-to-feed').cardForEvent(canonical,parsed,new Map(parsed.participants.map(row=>[row.id,row])));
+ const patched=require('./lib/known-fixture-patch').patchKnown([retained],[card]).events[0];
+ require('./lib/accepted-result-projection').validateAcceptedProjection(patched,proof);
+ assert.equal(patched.recapText,proof.recapText,'A verified final remains factual rather than generic');
+ assert.equal(patched.scoreCheckedAt,retained.scoreCheckedAt,'Same final retains its original score observation');
+ assert.equal(patched.resultSourceCheckedAt,retained.resultSourceCheckedAt);
+ assert.equal(patched.id,retained.id);
+ assert.equal(patched.canonicalEventId,retained.canonicalEventId);
+ assert.deepEqual(patched.storyline,retained.storyline);
+ assert.deepEqual(patched.editorialNarrative,retained.editorialNarrative);
+}
 // Exercise the same adapter, published-record patch and display model used by
 // quick refresh. A corrected final cannot inherit the preceding score date.
 {

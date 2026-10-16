@@ -1,6 +1,14 @@
 'use strict';
 const assert=require('node:assert/strict');
 const {nblMatchContext}=require('./lib/nbl-match-context');
+function assertPublishedContext(fixture,expected){
+ const observed=Date.parse(fixture.teamMatchContext?.checkedAt);
+ // The NBL owner emits literal UTC ISO receipts. Date.parse alone also
+ // accepts impossible calendar days by normalising them into another month.
+ assert(Number.isFinite(observed)&&new Date(observed).toISOString()===fixture.teamMatchContext.checkedAt,'NBL context needs a literal valid source receipt');
+ assert(Number.isFinite(observed)&&observed<=Date.parse(expected.checkedAt)&&observed<=Date.parse(fixture.sourceCheckedAt),'NBL context retains a valid original observation, never a future or renewed receipt');
+ assert.deepEqual({...fixture.teamMatchContext,checkedAt:expected.checkedAt},expected,'Published pre-match facts must agree with the complete current source; only an unchanged original observation may be older');
+}
 const participants=[{id:'a',displayName:'Alpha'},{id:'b',displayName:'Beta'},{id:'c',displayName:'Gamma'}];
 const options={season:'2026-27',checkedAt:'2026-09-27T12:00:00Z',participants};
 const make=(id,start,ids,scores,extra={})=>({id,competitionId:'competition:nbl',season:'2026-27',stage:'regular season',status:'completed',startTimeUtc:start,participantIds:ids,result:{status:'official',homeScore:scores[0],awayScore:scores[1]},...extra});
@@ -68,12 +76,30 @@ if(process.argv.includes('--published')){
   const key=f=>f.canonicalEventId||f.id;
   const nbl=fixtures.filter(f=>expected.has(key(f)));assert.equal(nbl.length,165);
   for(const f of nbl){
-   assert.deepEqual(f.teamMatchContext,expected.get(key(f)),'A later result check cannot renew the original pre-match context');
+   assertPublishedContext(f,expected.get(key(f)));
    const proof=accepted.find(row=>row.acceptedResultProjection.aliases.some(id=>[f.id,f.canonicalEventId,...(f.sourceEventIds||[])].includes(id)));
    if(proof)assert(require('./lib/accepted-result-projection').validateAcceptedProjection(f,proof));
    else assert(Number.isFinite(Date.parse(f.sourceCheckedAt))&&Date.parse(f.sourceCheckedAt)<=Date.parse(schedule.generatedAt));
-   assert.equal(f.teamMatchContext.checkedAt,schedule.generatedAt);assert.equal(f.season,schedule.seasonLabel);
+   assert.equal(f.season,schedule.seasonLabel);
   }
  }
+ // The actual retained Sydney/NZ final has unchanged pre-match facts with an
+ // older original context receipt. The real patcher intentionally keeps it.
+ const {retained,current}=require('./fixtures/nbl-retained-context-20261017.json');
+ const replay=patchKnown([retained],[{...retained,teamMatchContext:current}]);
+ assert.equal(replay.count,0,'A check date alone must not create a publication');
+ assert.deepEqual(replay.events,[retained],'Original pre-match facts and receipt remain exact');
+ assertPublishedContext(replay.events[0],current);
+ for(const corrupt of [
+  {...retained.teamMatchContext,checkedAt:'invalid'},
+  {...retained.teamMatchContext,checkedAt:'2026-02-30T00:00:00.000Z'},
+  {...retained.teamMatchContext,checkedAt:new Date(Date.parse(retained.sourceCheckedAt)+1).toISOString()},
+  {...retained.teamMatchContext,checkedAt:new Date(Date.parse(current.checkedAt)+1).toISOString()},
+  {...retained.teamMatchContext,competitionId:'competition:other'},
+  {...retained.teamMatchContext,season:'2025-26'},
+  {...retained.teamMatchContext,beforeKickoff:'2026-01-01T00:00:00Z'},
+  {...retained.teamMatchContext,teams:retained.teamMatchContext.teams.map((t,i)=>i?t:{...t,participantId:'team:nbl:unknown'})},
+  {...retained.teamMatchContext,teams:retained.teamMatchContext.teams.map((t,i)=>i? t:{...t,played:t.played+1,won:t.won+1})},
+ ])assert.throws(()=>assertPublishedContext({...retained,teamMatchContext:corrupt},current),'Changed facts or invalid/later observations cannot pass as an unchanged replay');
 }
 console.log('NBL records/status: temporal boundaries, invalid results, deduplication, primary-to-persistence-to-Schedule freshness, terminal states and unchanged reruns passed.');

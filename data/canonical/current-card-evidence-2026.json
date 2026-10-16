@@ -1309,8 +1309,13 @@
         "hookSpoilerOff": "Irankunda's attacking role and Australia's response to Brazil's technical quality frame the Townsville review.",
         "synopsisSpoilerOff": "The opening match of the Queensland series put Tony Popovic's side against Brazil before their Brisbane meeting. This review focuses on Australia's attacking intent, the midfield changes and Marcus Younis's international debut; the decisive moments remain in the revealed recap.",
         "hookSpoilerOn": "Socceroos and Brazil drew 1-1 in Townsville.",
-        "synopsisSpoilerOn": "Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench."
-      }
+        "synopsisSpoilerOn": "Nestory Irankunda's 68th-minute free kick put Australia ahead, but Rayan headed in Brazil's equaliser in stoppage time. Australia's front-foot approach created chances throughout, while Marcus Younis made his international debut off the bench.",
+        "expectedSpectacle": 8,
+        "intensitySource": "computed",
+        "researchDepth": 5,
+        "lastReviewedAt": "2026-09-27T06:35:07.891Z"
+      },
+      "resultPublishedAt": null
     },
     {
       "id": "major-match:nrl-finals-2026:preliminary-final-2",
