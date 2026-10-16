@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Bounded Match Centre request timing — 17 October 2026 Sydney
+
+The public Match Centre route bypasses the existing personalised Feed timing path. Measure its fixed preparation/read/projection phases with a monotonic diagnostic timer, leaving sporting clocks and response bodies unchanged. Add Server-Timing metadata and one aggregate-only warning for valid slow (at least 2 seconds) or degraded origin responses; healthy faster responses stay quiet and logger failure cannot affect delivery. The threshold is observational, not a new timeout. No fixture/account IDs, query/source content, scores, dates, errors or credentials enter logs. Public cached headers may describe earlier origin work; origin time excludes platform startup, encoding and network.
+
+The existing release checker records elapsed-through-body and recognised numeric origin timings on its same one-or-two read budget. Keep quiet-window acceptance honest and retain the stale/selected identity/scorecard gates. No extra requests, retries, source/DB/scheduler/customer change, browser asset, service or owner routine. Final live measurements are evidence to guide the next loading repair, not a claim that instrumentation fixes it. [Contract and limits](quality/match-centre-timing-2026-10-17.md).
+
 ## Match Centre trials retain the original reader — 16 October 2026 Sydney
 
 The normal result/first-page release reached production but failed its final public current-data check. Two guarded database trials preserved complete captured outputs and permissions, yet each failed an actual three-second full-response check. Both were restored exactly; the active near reader remains MD5 `d98d88497311a8d06a31556004df30a2`, with its original SQL, empty search path and service-only invoker grants. Keep both real migration/rollback pairs in history and cover their final restored state in the existing regression gate.
