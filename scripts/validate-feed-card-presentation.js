@@ -33,7 +33,7 @@ try{
 }finally{fs.rmSync(dir,{recursive:true,force:true});}
 for(const status of ['live','completed','postponed','cancelled'])assert(t.presentation({...fixture,status},now).primary===t.presentation({...fixture,status},now).status);
 assert.equal(t.presentation({...fixture,date:'2026-09-25',timePrecision:'follows'},now).primary,'FOLLOWS PRIOR MATCH');
-assert.equal(t.presentation({...fixture,timeTbc:true},now).primary,'TIME UNAVAILABLE');
+assert.equal(t.presentation({...fixture,timeTbc:true},now).primary,'TIME TBD');
 assert.equal(t.presentation({...fixture,timePrecision:'estimated'},now).primary,'APPROX. 7:50 PM');
 const parent={cardType:'golf_tournament',dateOnly:true,date:'2026-09-23',endDate:'2026-09-27',status:'live'};
 assert.equal(t.tournamentPhase(parent).label,'In progress');
