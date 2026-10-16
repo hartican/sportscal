@@ -280339,7 +280339,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Round of 32",
     "stage": "Round of 32",
     "name": "Shi Han v Leylah Fernandez",
-    "date": "2026-10-14",
+    "date": "2026-10-15",
     "time": "23:30",
     "startTimeUtc": null,
     "estimatedStartTimeUtc": "2026-10-14T12:30:00.000Z",
@@ -280388,7 +280388,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185347",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261016"
     ],
     "broadcaster": "Stan Sport / beIN SPORTS",
     "viewingOptions": [
@@ -280531,7 +280532,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusFactObservedAt": "2026-10-14T15:50:05+00:00",
     "firstConfirmedCompleteAt": "2026-10-14T15:50:05.905764+00:00",
     "fixtureObservationSchema": "fixture-observations.v1",
-    "endTimeUtc": null
+    "endTimeUtc": null,
+    "actualStartTimeUtc": "2026-10-14T14:10:00.000Z",
+    "actualStartEvidence": {
+      "kind": "publisher-reported-match-start",
+      "fixtureId": "fixture:tennis:espn:wta:185347",
+      "startsAt": "2026-10-14T14:10:00.000Z",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014",
+      "checkedAt": "2026-10-16T11:58:17.547Z",
+      "participantIds": [
+        "competitor:tennis:wta:shi-han",
+        "competitor:tennis:wta:leylah-fernandez"
+      ],
+      "verified": true,
+      "meaning": "publisher-post-match-startDate"
+    }
   },
   {
     "id": "evt_horse_racing_melbourne_cup_2026",

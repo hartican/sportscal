@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-16T07:55:06.306Z",
+  "generatedAt": "2026-10-16T12:09:55.084Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
@@ -179,7 +179,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-16T07:14:50.401Z",
+      "freshAt": "2026-10-16T12:09:55.084Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {

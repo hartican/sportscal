@@ -1574,9 +1574,14 @@
           "competitor:tennis:wta:shi-han",
           "competitor:tennis:wta:leylah-fernandez"
         ],
-        "fixtureDate": "2026-10-14",
+        "fixtureDate": "2026-10-15",
         "sourceSha256": "32b585cff85e1e4ce882e3921b355392f47f67feda480a578972548c9cd57e43",
-        "payloadSha256": "006103b2cde18fad80ba4c57b5f8247baca771742aab3745f464e0280ea38a26"
+        "payloadSha256": "006103b2cde18fad80ba4c57b5f8247baca771742aab3745f464e0280ea38a26",
+        "fixtureDateCorrection": {
+          "receiptId": "espn-wta-185347-20261016",
+          "sourceSha256": "3d69537f50ca58634494d8fb69d9992d8c2a61ab711ffee06d8110e33d305095",
+          "priorDate": "2026-10-14"
+        }
       }
     },
     {

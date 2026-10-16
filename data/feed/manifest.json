@@ -1,7 +1,7 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "weekend-editorial-20261014225703956-20261015002753206-20261015151900269-20261015153508147-20261016064444382-20261016071346380-20261016071450401-20261016071637809-20261016071805825-20261016072859682-20261016075506306",
-  "sourcePublishedAt": "2026-10-16T07:55:06.306Z",
+  "sourceVersion": "weekend-editorial-20261014225703956-20261015002753206-20261015151900269-20261015153508147-20261016064444382-20261016071346380-20261016071450401-20261016071637809-20261016071805825-20261016072859682-20261016075506306-20261016120955084",
+  "sourcePublishedAt": "2026-10-16T12:09:55.084Z",
   "pageSize": 20,
   "retentionDays": 14,
   "inputEventCount": 1845,
@@ -264,13 +264,13 @@
       "path": "data/feed/page-037.json",
       "eventCount": 20,
       "firstEventId": "event:motogp:2027:portugal:qualifying",
-      "lastEventId": "fixture:tennis:espn:wta:185349"
+      "lastEventId": "fixture:mlb:849813"
     },
     {
       "index": 37,
       "path": "data/feed/page-038.json",
       "eventCount": 20,
-      "firstEventId": "fixture:tennis:espn:wta:185352",
+      "firstEventId": "fixture:tennis:espn:wta:185349",
       "lastEventId": "event:premier-league:128976"
     },
     {
