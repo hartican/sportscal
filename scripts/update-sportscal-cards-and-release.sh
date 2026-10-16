@@ -6,6 +6,18 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WEBSITE_URL="${WEBSITE_URL:-https://nothingsport.vercel.app}"
 NODE_BIN="${NODE_BIN:-node}"
 PROJECT_ROOT="$(pwd)"
+export REFRESH_REPORT="${REFRESH_REPORT:-${RUNNER_TEMP:-/tmp}/ns-refresh-${GITHUB_RUN_ID:-local}-$$.json}"
+finish_refresh_report() {
+  local status=$?
+  trap - EXIT
+  if [[ "$status" == "0" ]]; then
+    "$NODE_BIN" scripts/refresh-report.js complete "${REFRESH_FINAL_STATE:-published}" "$status"
+  else
+    "$NODE_BIN" scripts/refresh-report.js failed blocked "$status" || true
+  fi
+  exit "$status"
+}
+trap finish_refresh_report EXIT
 
 read_feed_meta_fields() {
   local json_path="$1"
@@ -222,6 +234,7 @@ if [[ "$LOCAL_EVENTS_HASH_BEFORE" != "$LOCAL_EVENTS_HASH_AFTER" ]] || \
 fi
 
 if [[ "${SKIP_RELEASE:-0}" == "1" ]]; then
+  REFRESH_FINAL_STATE=validated-local-only
   DATA_UPDATED_ON_WEBSITE="SKIPPED (SKIP_RELEASE=1)"
   BROWSER_HOME_STATUS="skipped"
   BROWSER_HOME_APP_SHELL="skipped"
@@ -240,9 +253,11 @@ if [[ "${SKIP_RELEASE:-0}" == "1" ]]; then
   RELEASE_CONTENT_MATCH="SKIPPED"
 else
   if git diff --quiet -- data feeds; then
+    REFRESH_FINAL_STATE=unchanged
     echo "Canonical refresh found no content changes; no deployment required."
     exit 0
   fi
+  "$NODE_BIN" scripts/refresh-report.js publication publishing
   ./scripts/redeploy-and-release.sh "${RELEASE_COMMIT_MESSAGE:-Automated card refresh and redeploy}"
 
   # The release may advance generated cache keys after refresh. Pin the exact

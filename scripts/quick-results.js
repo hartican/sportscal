@@ -41,7 +41,7 @@ function run(file,...args){
   const p='feeds/incoming/events.json',d=read(p),events=require('./lib/editorial-publication').reconcileFullPreviews(d.events,read('data/editorial-knowledge.v1.json'));
   if(JSON.stringify(events)!==JSON.stringify(d.events))write(p,{...d,events});
  }
- const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit',env});if(result.status!==0)throw new Error(`${file} failed`);}
+ const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];if(/^scripts\/validate-/.test(file))delete env.REFRESH_REPORT;const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit',env});if(result.status!==0)throw new Error(`${file} failed`);}
 async function refreshNflResults(options={}){
  const facts=require('./lib/nfl-results'),filePath=options.filePath||'data/canonical/american-football-directory.v1.json';
  const result=await facts.refreshFile({filePath,fetchJson:json,...options});let projectionNeedsRepair=true;
@@ -53,7 +53,7 @@ async function refreshNflResults(options={}){
 function projectionSteps(changes,{rebuild=false}={}){
  if(!changes.length&&!rebuild)return [];
  const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL')||change==='Current card evidence');
- const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Editorial preview maintenance|Tennis highlights|Stan Football programmes|Current tennis|MLB|NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Reconciled fixture results|Editorial preview maintenance|Tennis highlights|Stan Football programmes|Current tennis|MLB|NBL|Premier League|F1|Official results|Known finals|Current card evidence|Skiing calendar review|Surf calendar notes|Reviewed calendar notes)/.test(change));
  const codes=new Set();
  if(changes.some(change=>change.startsWith('Known finals NRL')))codes.add('nrl');
  if(changes.some(change=>change.startsWith('Known finals WRC')))['wrc','motorsport'].forEach(code=>codes.add(code));
@@ -281,7 +281,11 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  if(highlights.stanFailed)failures.push('Stan Football programme metadata unavailable; retained dated source receipts');
  const previewMaintenance=require('./update-sport-editorial-depth').repairMissing({reference:now});
  if(previewMaintenance.changed)changes.push('Editorial preview maintenance');
- runProjectionSteps(projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});
+ require('./lib/refresh-report').update({stage:'result-reconciliation',sourceFailures:failures});
+ const reconciliation=require('./lib/reconcile-fixture-results').reconcileFiles({now});
+ if(reconciliation.changed.length)changes.push('Reconciled fixture results');
+ require('./lib/refresh-report').update({stage:'projections',sourceFailures:failures,reconciledResults:reconciliation.changed});
+ runProjectionSteps(changes.length&&changes.every(change=>change==='Reconciled fixture results')?retainedFeedProjectionSteps(changes):projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}),{editorialBaseline});
  run('scripts/validate-football-directory.js');
  run('scripts/validate-editorial-sport-depth.js');
  run('scripts/build-tennis-feed-parents.js');
