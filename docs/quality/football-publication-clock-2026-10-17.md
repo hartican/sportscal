@@ -1,5 +1,9 @@
 # Correct an unsupported archived Football publication date — 17 October 2026
 
+**Current status:** delivered in app/cache 560 at `0430e8a71e4f7f671772121bd0db4ca361bdaabc`. Earlier preparation and failure notes below are retained as history.
+
+## Preparation history
+
 Status: private canonical correction, awaiting the unchanged release gates. Baseline main `94fa5ec53e1adef7dd89e6aa488f6ef5e01803a4`; accepted app/cache559. This is an archival friendly outside the668 Football pilot matches. Full approval remains0/3 Football pilots and0/18 families.
 
 The completed25September Socceroos–Brazil friendly retained a result-publication date of22September, before its match. The separate official score observation is27September06:35:07.891UTC. No retained evidence establishes the true publication instant. Mark publication unknown; preserve the verified1–1 score, participants, match appointment, source references, original observation and reviewed writing. A result observation is not an invented publication or finish time.
@@ -13,3 +17,7 @@ Existing projections omit optional unknown fields, while full Feed documents ret
 Business value: remove misleading provenance and prevent future reuse of an impossible publication clock. Effort: one bounded data correction and normal release. New cash:A$0; assistant/runner cost unmeasured. Owner time:none. Dependencies: existing canonical writer and release acceptance. Acceptance: only the unsupported publication changes; original score, all source clocks, IDs, saved activity, writing and other records stay exact. Act now because the defect is verified; actual publication, physical playback, rights and whole-sport certification remain unknown/open.
 
 Evidence: `/Users/jackhartican/Documents/AI/Codex/football-publication-clock-20261017`, including red/green scoped-writer rehearsal, exact projection and full-catalogue comparisons and canonical command log. Two observer assumptions were corrected separately: optional unknown fields can be omitted in projections, and native undefined properties are omitted by JSON transport. Neither required changing product schemas or weakening a release gate. No new independent source-review verdict is claimed for this low-impact data-only correction.
+
+## Release acceptance
+
+Delivered acceptance: `0430e8a71e4f7f671772121bd0db4ca361bdaabc`, app/cache 560, [normal production run](https://github.com/hartican/sportscal/actions/runs/38958614199). Both source reviews are CLEAR within their source scope. The final frozen 220-command local run, actual 559→560 Chromium/WebKit installed/offline rehearsals, affected local/hosted rendering, READY SHA, three aliases and 14 served hashes pass. Full record/source proof is in `/Users/jackhartican/Documents/AI/Codex/editorial-refresh-continuity-20261017`. Earlier private/held statuses above are dated checkpoints, superseded by this acceptance. No new provider check, DB/customer write, replayed reminder, scheduler or subscription. Physical playback, rights, independent recovery and whole-sport approval remain open.

@@ -1,5 +1,9 @@
 # Current result release — 17 October 2026
 
+**Current status:** delivered in app/cache 560 at `0430e8a71e4f7f671772121bd0db4ca361bdaabc`. Earlier preparation and failure notes below are retained as history.
+
+## Preparation history
+
 Private app/cache560 candidate, not deployed. The archived Football publication-clock correction is committed locally at3d78e575 but unpublished. Its first normal220-command local block stopped at the existing AFL/NRL readiness check: Melbourne–Richmond's16October AFLW result was overdue at the genuine current Feed assembly clock. No check, clock, deadline, source date or acceptance condition was relaxed. Preserve the failed receipt; no production dispatch occurred.
 
 The official AFLW match page8961 confirms Melbourne14.10(94),Richmond5.2(32),FullTime. One existing `update-cards --canonical-readiness --local-only -p` run refreshed the existing AFL/AFLW/NRL fixture/standing owner. All539canonical IDs remain. The new AFLW final and current tables pass actual readiness. This did not repeat the closed full-input/database capture or refresh Football/media. Source clocks reflect this actual check; the original Football observations remain unchanged.
@@ -19,3 +23,7 @@ Evidence: `/Users/jackhartican/Documents/AI/Codex/football-publication-clock-202
 Checkpoint: the corrected scoped NBL owner passes and retains all165season IDs plus10currenttable rows, with its exact complete public response captured. The subsequent offline owner passes result completeness but regresses8 reviewed narratives and adds115unrelated plain recap fields; this broad candidate is held. Both independent axes returned incomplete verdicts. No new main publication/deployment. Exact generated diff/source packets are preserved before reverting only these private generated edits to clean local5b180e15. The next repair must reuse saved inputs and protect existing reviewed copy before any further source allocation or final freeze. Evidence: the parent checkpoint.md and held-generated-candidate/checkpoint.json.
 
 Later repair checkpoint: the [existing writing boundary is repaired](editorial-refresh-continuity-2026-10-17.md) and both complete source reviews are CLEAR for aa5a9459. Replaying the complete original source/projection sequence from saved packets succeeds with no provider refetch. Every original Feed ID and reviewed narrative/research date survives; all8prior losses are closed, the115unrelated Tennis recap additions are absent, and the explicit neutral fallback makes no recap promise. Normal generated-shell preparation creates560. The earlier failed/held receipts remain historical evidence. Final frozen contracts, installed559→560 rehearsal and production acceptance remain pending.
+
+## Release acceptance
+
+Delivered acceptance: `0430e8a71e4f7f671772121bd0db4ca361bdaabc`, app/cache 560, [normal production run](https://github.com/hartican/sportscal/actions/runs/38958614199). Both source reviews are CLEAR within their source scope. The final frozen 220-command local run, actual 559→560 Chromium/WebKit installed/offline rehearsals, affected local/hosted rendering, READY SHA, three aliases and 14 served hashes pass. Full record/source proof is in `/Users/jackhartican/Documents/AI/Codex/editorial-refresh-continuity-20261017`. Earlier private/held statuses above are dated checkpoints, superseded by this acceptance. No new provider check, DB/customer write, replayed reminder, scheduler or subscription. Physical playback, rights, independent recovery and whole-sport approval remain open.
