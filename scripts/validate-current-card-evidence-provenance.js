@@ -1,6 +1,7 @@
 "use strict";
 require('./validate-reviewed-result-publication');
 require('./validate-accepted-result-projection');
+require('./validate-accepted-result-continuity');
 require('./validate-storyline-state-retention');
 require('./validate-canonical-raw-identities');
 const assert = require("node:assert/strict");

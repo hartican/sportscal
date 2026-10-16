@@ -133,3 +133,13 @@ ordinary cache replay tests, byte-stable unchanged reruns, both feed completenes
 and spoiler checks. Derived publication, fresh private controls and exact-SHA
 release/served/browser proof remain the serialized release owner's responsibility.
 An accepted source capsule is not itself proof of production publication.
+
+Score and status observations are separate tuples: compare each original fact
+clock independently and use receipt clocks only when neither candidate has that
+fact clock. A newer status must not replace a newer score with older score data.
+A newer retained tuple must not discard an earlier compatible explicit completion
+receipt. Calendar validation rejects impossible dates/times/offsets, not merely
+strings accepted and normalised by JavaScript. Result identities must belong to
+the bound participants; winner/loser/eliminated identities and numeric home/away
+score sides must agree. The persistent continuity regression covers both writers
+and verifies that invalid capsules write none of their retained surfaces.
