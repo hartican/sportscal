@@ -816,13 +816,9 @@ async function runMain() {
     if(resultObservations && (!ids || baseline))throw new Error('Result observations require retained --ids= without editorial restoration');
     let codes=[];
     if(scoped){
-      const known=new Set(JSON.parse(fs.readFileSync('data/code-inspector/manifest.json')).codes.map(code=>code.slug));
+      const manifest=JSON.parse(fs.readFileSync('data/code-inspector/manifest.json'));
       const events=JSON.parse(fs.readFileSync('data/events.json')).events;
-      codes=[...new Set(ids.slice(6).split(',').flatMap(id=>{
-        const event=events.find(event=>[event.id,event.canonicalEventId,...(event.sourceEventIds||[])].includes(id));if(!event)throw new Error('Unknown reviewed fixture '+id);
-        return [event.key,event.sportDomainId?.replace(/^sport:/,'')].filter(code=>known.has(code));
-      }))];
-      if(!codes.length)throw new Error('Editorial repair requires existing Code projections');
+      codes=require('./lib/reviewed-fixture-projection-codes').codesForReviewedFixtures(events,ids.slice(6).split(','),manifest,file=>JSON.parse(fs.readFileSync(file)));
     }
     if(resultObservations){
       const repaired=require('./sync-canonical-fixtures-to-feed').applyRetainedResultObservations(ids.slice(6).split(','));

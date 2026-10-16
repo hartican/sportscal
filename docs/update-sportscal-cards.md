@@ -1,5 +1,15 @@
 # Update Sportscal cards
 
+## Exact child projection completeness - 16 October 2026
+
+Scoped reviewed-fixture updates rebuild every existing Code and Schedule child
+carrying the selected exact canonical/provider aliases, not only its broad sport
+key. In particular NBL results must reach both Basketball and NBL. Preserve the
+original status publisher name/class with its observation clocks. Validate every
+reachable result copy with the unchanged accepted-result contract; a correct Feed
+alone is not a complete update. The normal update-cards gate includes the real
+scoped-dispatch and strict NBL provenance regressions, with no provider reads.
+
 ## Preservation-first editorial reconciliation - 16 October 2026
 
 Recover staged writing through the existing canonical editorial owner without

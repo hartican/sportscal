@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-16T05:15:03.057Z",
+  "generatedAt": "2026-10-16T05:55:55.115Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
@@ -23,7 +23,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-16T05:15:03.057Z",
+      "freshAt": "2026-10-16T05:55:55.115Z",
       "chunkPath": "data/code-inspector/baseball.json"
     },
     {
@@ -179,7 +179,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-16T05:15:03.057Z",
+      "freshAt": "2026-10-16T05:55:55.115Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -215,7 +215,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-16T05:15:03.057Z",
+      "freshAt": "2026-10-16T05:55:55.115Z",
       "chunkPath": "data/code-inspector/cricket.json"
     },
     {
@@ -227,7 +227,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-16T05:15:03.057Z",
+      "freshAt": "2026-10-16T05:55:55.115Z",
       "chunkPath": "data/code-inspector/basketball.json"
     },
     {
@@ -239,7 +239,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-10-15T23:23:10.565Z",
+      "freshAt": "2026-10-16T05:55:55.115Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/nbl.json"
     },
