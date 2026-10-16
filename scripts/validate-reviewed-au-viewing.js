@@ -6,6 +6,12 @@ const rugby=require('../data/follow-schedule/rugby-union.json').fixtures,cricket
 const providers=f=>follow.viewingOptions(review(f)).map(p=>p.providerId);
 const aflwFinal=require('../data/canonical/afl-nrl-2026.json').events.find(f=>f.id==='event:aflw:cd_m20262641601');assert(aflwFinal);
 const viewedAflw=review(aflwFinal),aflwOptions=follow.viewingOptions(viewedAflw);
+// Actual shell-551 source binding: an older installed client or retained data
+// must not lose valid choices while the shell and dataset update separately.
+const legacyAflw=structuredClone(viewedAflw),legacyAflwIdentity=[null,null,'sport:afl',null];
+for(const option of legacyAflw.viewingOptions)option.coverageWindow[11]=[...legacyAflwIdentity];
+assert.deepEqual(follow.viewingOptions(legacyAflw).map(o=>o.providerId),['seven','kayo','foxtel'],'The new client retains valid last-good viewing evidence from the prior shell');
+assert.deepEqual(viewedAflw.viewingOptions[0].coverageWindow[11],legacyAflwIdentity,'The producer preserves the original wire identity for older installed clients');
 assert.deepEqual(aflwOptions.map(p=>p.providerId),['seven','kayo','foxtel'],'The exact AFLW final keeps free access first and its separately announced paid options');
 assert.equal(aflwOptions[0].webUrl,'https://7plus.com.au/aflw','Use the provider AFLW destination, not its general homepage');
 assert.equal(aflwOptions[0].accessType,'free');
@@ -13,6 +19,23 @@ for(const option of aflwOptions){assert.equal(option.rightsScope,'fixture');asse
 const withoutViewing=({viewingOptions,broadcaster,broadcastOptions,broadcasterIds,...rest})=>rest;
 assert.deepEqual(withoutViewing(viewedAflw),withoutViewing(aflwFinal),'Viewing cannot create a clock, finalist, host, result or reminder');
 assert.deepEqual(review(viewedAflw),viewedAflw,'An unchanged review is idempotent');
+// The publisher binds source evidence before the browser adds sport taxonomy.
+// That ordinary enrichment must preserve the exact reviewed viewing options.
+const fixtureIdentity=require('../config/fixture-identity'),taxonomyCompat=require('../config/event-taxonomy-compat');
+const originalViewedAflw=JSON.stringify(viewedAflw);
+const normalizedAflw=taxonomyCompat.enrichEvent(fixtureIdentity.normalizeCore(viewedAflw));
+assert.deepEqual(follow.viewingOptions(normalizedAflw),aflwOptions,'Ordinary canonical/taxonomy enrichment retains all reviewed AFLW options and their original evidence');
+assert(!follow.viewingOptions({...normalizedAflw,taxonomyNodeId:'sport:rugby-union'}).some(o=>['kayo','foxtel'].includes(o.providerId)),'A conflicting explicit sport node cannot use the newly accepted presentation-enrichment path');
+const richBoundAflw=review(normalizedAflw);
+assert(!follow.viewingOptions({...richBoundAflw,sportId:null,taxonomySportId:null}).some(o=>['kayo','foxtel'].includes(o.providerId)),'Removing known bound identity fields cannot borrow replacement authority from presentation metadata');
+const keyedLegacyAflw=review({...aflwFinal,key:'aflw'});
+for(const partial of [{sportId:'aflw'},{taxonomySportId:'sport:australian-football'}])assert.deepEqual(follow.viewingOptions({...keyedLegacyAflw,...partial}).map(o=>o.providerId),['seven','kayo','foxtel'],'Adding either source-derived missing classification alone retains valid older evidence');
+assert(!follow.viewingOptions({...legacyAflw,sportId:'aflw'}).some(o=>['kayo','foxtel'].includes(o.providerId)),'An unrecorded legacy key cannot be borrowed from the displayed classification');
+assert.equal(JSON.stringify(viewedAflw),originalViewedAflw,'Identity derivation does not mutate retained facts');
+for(const mutation of [{sportId:'rugby'},{sportDomainId:'sport:rugby-union'},{taxonomySportId:'sport:rugby-union'},{season:'wrong-edition'},{taxonomyNodeId:'sport:rugby-union',taxonomySportId:'sport:rugby-union'}]){
+ assert(!follow.viewingOptions({...viewedAflw,...mutation}).some(o=>['kayo','foxtel'].includes(o.providerId)),'Explicit contradictory identity cannot acquire the reviewed paid options');
+ assert(!follow.viewingOptions({...normalizedAflw,...mutation}).some(o=>['kayo','foxtel'].includes(o.providerId)),'A presentation update cannot lend its contradictory taxonomy to the retained source binding');
+}
 for(const mutation of [{id:'another-aflw-final',eventId:'another',canonicalEventId:'another',sourceEventIds:[]},{competitionId:'competition:afl'},{roundLabel:'Preliminary Final'},{date:'2026-11-28'},{date:'2026-11-26'},{date:null},{date:'2026-11-31'},{startTimeUtc:'2026-11-27T13:00:00Z',date:'2026-11-27'}]){
  const changed=review({...aflwFinal,...mutation});assert(!(changed.viewingOptions||[]).some(o=>o.reviewId==='au-viewing-20261002'),'Another identity, stage or Australian day cannot inherit this final review');
 }

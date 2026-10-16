@@ -26,7 +26,10 @@ assert(html.includes('inspectorReturnState')&&html.includes('popstate'),'dedicat
 assert(html.includes('follow-more-trigger')&&html.includes('follow-more-dialog')&&html.includes('rankedFollowGridSports')&&html.includes('.slice(0,7)'),'Follow ranks up to seven followed sports and keeps the remainder in More');
 assert(!html.includes('open.textContent = "Inspect"'),'sport icons replace Inspect');
 for(const label of ['Schedule','My athletes & teams','Major Events','Ladder','Standings'])assert(html.includes(label));
-assert(html.includes('renderCodeInspectorIdentity')&&html.includes('codeInspectorParticipantMark'),'Schedule reuses canonical identities');
+// Schedule uses the actual shared card renderer. Legacy unused drawing names
+// could satisfy the old assertion without establishing any rendered identity.
+const sharedIdentitySource=require('./app-shell-test-utils').readCardFunction('buildMatchupIdentity');
+assert(sharedIdentitySource.includes('matchupIdentityMatches(ev, displayTitle)'), 'The shared card identity renderer resolves canonical participants');
 assert(html.includes("return buildEventCard(event,{mode:'schedule',inspectorFixture:fixture})")&&html.includes('cardViewStates'),'Schedule fixtures share independent card expansion state');
 assert(html.includes("pin.textContent=automatic?'In Feed':added?'Remove from Feed':'Add to Feed'")&&html.includes('manualPin:true'),'concrete fixture pins remain available');
 assert(html.includes('inspectorAlwaysShowsAllFixtures'),'Schedule can browse all fixtures independently of follows');
