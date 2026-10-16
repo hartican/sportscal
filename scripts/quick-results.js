@@ -41,7 +41,14 @@ function run(file,...args){
   const p='feeds/incoming/events.json',d=read(p),events=require('./lib/editorial-publication').reconcileFullPreviews(d.events,read('data/editorial-knowledge.v1.json'));
   if(JSON.stringify(events)!==JSON.stringify(d.events))write(p,{...d,events});
  }
- const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];if(/^scripts\/validate-/.test(file))delete env.REFRESH_REPORT;const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit',env});if(result.status!==0)throw new Error(`${file} failed`);}
+ const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];if(/^scripts\/validate-/.test(file))delete env.REFRESH_REPORT;
+ const result=spawnSync(process.execPath,[file,...args],{stdio:['inherit','inherit','pipe'],env});
+ if(result.stderr?.length)process.stderr.write(result.stderr);
+ if(result.status!==0){
+  const message=`${file} failed`;
+  const error=new Error(message);error.refreshFailure={step:file,detail:result.error?.message||result.stderr?.toString().trim()||message};throw error;
+ }
+}
 async function refreshNflResults(options={}){
  const facts=require('./lib/nfl-results'),filePath=options.filePath||'data/canonical/american-football-directory.v1.json';
  const result=await facts.refreshFile({filePath,fetchJson:json,...options});let projectionNeedsRepair=true;
@@ -307,7 +314,7 @@ async function atomicRefresh(options,{refreshOperation=refresh}={}){
  const files=new Map();function collect(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const name=dir+'/'+entry.name;if(entry.isDirectory())collect(name);else if(/\.(json|js)$/.test(name))files.set(name,fs.readFileSync(name));}}
  const runtime='assets/js/app-shell-runtime.js',runtimeBefore=fs.existsSync(runtime)?fs.readFileSync(runtime):null;
  collect('data');collect('feeds');
- try{return await refreshOperation(options);}catch(error){const after=new Map(files);files.clear();collect('data');collect('feeds');for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);for(const [name,content] of after)fs.writeFileSync(name,content);if(runtimeBefore)fs.writeFileSync(runtime,runtimeBefore);else if(fs.existsSync(runtime))fs.unlinkSync(runtime);if(process.env.QUICK_RESULTS_REPORT){let report={mode:'quick',aiCalls:0};try{report=read(process.env.QUICK_RESULTS_REPORT);}catch{}fs.mkdirSync(require('node:path').dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,{...report,publicationState:'blocked-rolled-back',blockingError:error.message});}throw error;}
+ try{return await refreshOperation(options);}catch(error){require('./lib/refresh-report').failure(error.message,error.refreshFailure);const after=new Map(files);files.clear();collect('data');collect('feeds');for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);for(const [name,content] of after)fs.writeFileSync(name,content);if(runtimeBefore)fs.writeFileSync(runtime,runtimeBefore);else if(fs.existsSync(runtime))fs.unlinkSync(runtime);if(process.env.QUICK_RESULTS_REPORT){let report={mode:'quick',aiCalls:0};try{report=read(process.env.QUICK_RESULTS_REPORT);}catch{}fs.mkdirSync(require('node:path').dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,{...report,publicationState:'blocked-rolled-back',blockingError:error.message});}throw error;}
 }
 if(require.main===module)atomicRefresh({offline:process.argv.includes('--offline'),source:process.argv.find(arg=>arg.startsWith('--source='))?.slice(9)}).then(result=>{if(process.argv.some(arg=>arg.startsWith('--source=')))console.log(JSON.stringify(result));}).catch(error=>{console.error(error.message);process.exitCode=1;});
 async function text(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{accept:'text/html','user-agent':'nothingSport canonical refresh/1.0'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.text();}

@@ -16,6 +16,11 @@ function check(events){
  const report=require('./lib/refresh-report');const previous=process.env.NS_TEST_SECRET;process.env.NS_TEST_SECRET='controlled-secret-12345';
  try{const safe=report.update({sourceFailures:['controlled-secret-12345 https://example.com/results?token=private'],stage:'failed'},{file:diagnosticPath});assert(!JSON.stringify(safe).includes('controlled-secret-12345'));assert(!JSON.stringify(safe).includes('token='));}
  finally{if(previous===undefined)delete process.env.NS_TEST_SECRET;else process.env.NS_TEST_SECRET=previous;}
+ report.failure('inner calendar rejection',{file:diagnosticPath,step:'scripts/apply-current-card-evidence.js',detail:'fixture:tennis:espn:wta:185347: Accepted result fixture date mismatch'});
+ const nested=report.failure('quick-results.js failed with exit code 1',{file:diagnosticPath,step:'scripts/quick-results.js'});
+ assert.equal(nested.failedStep,'scripts/apply-current-card-evidence.js');assert.match(nested.blockingError,/185347/);assert.equal(nested.failureChain.length,2);
+ assert.equal(report.sanitise('https://github.com/hartican/sportscal/actions/runs/12/job/77?token=private#step:5'),'https://github.com/hartican/sportscal/actions/runs/12/job/77#step:5');
+ assert(!report.sanitise('https://github.com/hartican/sportscal/actions/runs/12/job/77#secret').includes('#secret'));
  const owner=require('./lib/reconcile-fixture-results');
  const apply=(cards=[receipt.card],fixtures=[receipt.result],aliases=receipt.aliasRecords)=>owner.reconcile(cards,fixtures,{aliasRecords:aliases,now});
  const next=apply();assert.equal(next.changed.length,1);assert.equal(next.events[0].status,'completed');assert.equal(check(next.events).status,0);
@@ -36,6 +41,13 @@ function check(events){
  const quick=require('./quick-results');
  fs.mkdirSync(path.join(root,'assets/js'),{recursive:true});fs.writeFileSync(path.join(root,'assets/js/app-shell-runtime.js'),'original-runtime');
  const cwd=process.cwd();process.chdir(root);try{
+  const priorReport=process.env.REFRESH_REPORT;process.env.REFRESH_REPORT=path.join(directory,'child-failure.json');
+  fs.mkdirSync('scripts',{recursive:true});fs.writeFileSync('scripts/apply-current-card-evidence.js',"console.error('AssertionError: fixture:tennis:espn:wta:185347: Accepted result fixture date mismatch');process.exit(1);\n");
+  try{
+   await assert.rejects(quick.atomicRefresh({},{refreshOperation:async()=>quick.runProjectionSteps([['scripts/apply-current-card-evidence.js']])}),/failed/);
+   const childFailure=JSON.parse(fs.readFileSync(process.env.REFRESH_REPORT));
+   assert.equal(childFailure.failedStep,'scripts/apply-current-card-evidence.js');assert.match(childFailure.blockingError,/185347/);
+  }finally{if(priorReport===undefined)delete process.env.REFRESH_REPORT;else process.env.REFRESH_REPORT=priorReport;}
   await assert.rejects(quick.atomicRefresh({},{refreshOperation:async()=>{fs.writeFileSync('data/events.json','broken');fs.writeFileSync('data/new-candidate.json','{}');fs.writeFileSync('assets/js/app-shell-runtime.js','broken-runtime');throw Error('forced post-projection gate failure');}}),/forced/);
   assert(fs.readFileSync('data/events.json').equals(bytes));assert(!fs.existsSync('data/new-candidate.json'));assert.equal(fs.readFileSync('assets/js/app-shell-runtime.js','utf8'),'original-runtime');
  }finally{process.chdir(cwd);}

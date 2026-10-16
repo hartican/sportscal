@@ -61,10 +61,12 @@ function runStep(args) {
   console.log(`\n> ${display}`);
   const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(command))for(const key of ["FOOTBALL_DATA_API_TOKEN","FOOTBALL_DATA_RUN_DIR","FOOTBALL_DATA_REPORT","GOLF_SOURCE_RUN_ID","GOLF_SOURCE_REPORT","WRC_SOURCE_FAILURE_REPORT"])delete env[key];
   if(/^scripts\/validate-/.test(command))delete env.REFRESH_REPORT;
-  const result = spawnSync(runner, commandArgs, { stdio: "inherit",env });
+  const result = spawnSync(runner, commandArgs, { stdio: ["inherit","inherit","pipe"],env });
+  if(result.stderr?.length)process.stderr.write(result.stderr);
   if (result.status !== 0) {
     const error = new Error(`${display} failed with exit code ${result.status || 1}`);
     error.exitCode = result.status || 1;
+    error.refreshFailure={step:command,detail:result.error?.message||result.stderr?.toString().trim()||error.message};
     throw error;
   }
 }
@@ -1070,7 +1072,7 @@ async function main(){
   // Validate mode before creating diagnostic state or starting any source step.
   parseOptions();
   process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
-  require('./lib/refresh-report').update({mode:process.argv.includes('--quick')?'quick':'full',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[]});
+  require('./lib/refresh-report').update({mode:process.argv.includes('--quick')?'quick':'full',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[],blockingError:null,failedStep:null,failureChain:[]});
   const prior=process.env.FOOTBALL_DATA_RUN_DIR;
   const directory=prior||fs.mkdtempSync(path.join(os.tmpdir(),'ns-football-backup-'));
   process.env.FOOTBALL_DATA_RUN_DIR=directory;
@@ -1084,7 +1086,8 @@ async function main(){
     require('./lib/refresh-report').update({publicationState:'validated',stage:'validated'});
     return result;
   }catch(error){
-    require('./lib/refresh-report').update({publicationState:error.publicationStarted?'blocked-after-publication':'blocked-rolled-back',stage:'failed',blockingError:error.message});
+    require('./lib/refresh-report').failure(error.message,error.refreshFailure);
+    require('./lib/refresh-report').update({publicationState:error.publicationStarted?'blocked-after-publication':'blocked-rolled-back',stage:'failed'});
     console.error(`Refresh diagnostics: ${process.env.REFRESH_REPORT}`);
     throw error;
   }finally{

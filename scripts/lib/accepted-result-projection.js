@@ -71,6 +71,7 @@ function validateAcceptedResult(row){
   assert.match(proof.fixtureDate || "",/^\d{4}-\d{2}-\d{2}$/,"Accepted result needs a retained fixture date");
   const [year,month,day]=proof.fixtureDate.split('-').map(Number);
   assert(validDay(year,month,day),'Accepted result fixture date is impossible');
+  require('./accepted-result-calendar').validate(row);
   validateIdentities(row,proof);
   const url = new URL(row.sourceUrl);
   assert.equal(url.protocol,"https:");
@@ -108,7 +109,8 @@ function mergeAcceptedResult(record,row){
   const proof = row.acceptedResultProjection;
   assert(aliases(record).some(id=>proof.aliases.includes(id)),"Accepted result identity mismatch");
   assert.deepEqual(record.participantIds,proof.participantIds,"Accepted result participant identity/order mismatch");
-  assert.equal(record.date,proof.fixtureDate,"Accepted result fixture date mismatch");
+  record=require('./accepted-result-calendar').apply(record,row);
+  assert.equal(record.date,proof.fixtureDate,`${row.id}: Accepted result fixture date mismatch`);
   const oldScore = record.score ?? record.scoreDisplay;
   const hasFinal=record.status==='completed'&&oldScore!==undefined&&oldScore!==null&&oldScore!=='';
   const retainScore=hasFinal&&newerTuple(record,row,'score');

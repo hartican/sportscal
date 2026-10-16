@@ -526,6 +526,31 @@ function persistentCli(rows) {
 }
 persistentCli([retirement, cricket, nbl, scalarZero]);
 if (actualRows.length) persistentCli(actualRows);
+// Exact failed incremental integration: a played match crossed Sydney midnight.
+// Only the captured, explicitly reviewed correction can rebind its date.
+if(actualRows.length){
+ const row=actualRows.find(row=>row.id==='fixture-tennis-espn-wta-185347');
+ const receipt=require('./fixtures/result-calendar-20261016.json');
+ const tennis=require('../lib/tennis-scoreboard');
+ const fixture=tennis.parse(receipt.payload,{tour:'wta',checkedAt:receipt.checkedAt,now:new Date(receipt.checkedAt),catalogue:receipt.catalogue,requestUrl:receipt.sourceUrl}).fixtures[0];
+ const old={...seed(row),date:receipt.priorDate};
+ const unreviewed=clone(row);delete unreviewed.acceptedResultProjection.fixtureDateCorrection;
+ unreviewed.acceptedResultProjection.fixtureDate=receipt.priorDate;
+ assert.throws(()=>api.mergeAcceptedResult({...old,date:fixture.date},unreviewed),/fixture date mismatch/,'Unexplained provider date changes still reject');
+ const corrected=api.mergeAcceptedResult(old,row);
+ assert.equal(corrected.date,'2026-10-15');assert.equal(corrected.actualStartTimeUtc,'2026-10-14T14:10:00.000Z');
+ assert.equal(corrected.actualStartEvidence.checkedAt,receipt.checkedAt);
+ for(const key of fields.filter(key=>key.endsWith('At')))if(Object.hasOwn(row,key))same(corrected[key],row[key],'Calendar review cannot renew '+key);
+ same(api.mergeAcceptedResult(corrected,row),corrected,'Date correction repeats without renewing any observation');
+ api.validateAcceptedProjection(corrected,row);
+ for(const change of [{date:'2026-10-16'},{participantIds:[...old.participantIds].reverse()},{startTimeUtc:'2026-10-14T03:00:00.000Z'},{actualStartTimeUtc:'2026-10-14T14:11:00.000Z'}])assert.throws(()=>api.mergeAcceptedResult({...old,...change},row));
+ for(const change of [{priorDate:'2026-10-13'},{sourceSha256:'0'.repeat(64)},{receiptId:'unreviewed'}]){
+  const bad=clone(row);Object.assign(bad.acceptedResultProjection.fixtureDateCorrection,change);assert.throws(()=>api.mergeAcceptedResult(old,bad));
+ }
+ const updated=tennis.merge([corrected],[fixture],{now:new Date(receipt.checkedAt)})[0];
+ assert.equal(updated.date,row.acceptedResultProjection.fixtureDate);api.mergeAcceptedResult(updated,row);
+ console.log('Captured midnight calendar correction: original result clocks, strict identity/date/source binding and repeated canonical handoff passed.');
+}
 const winnerConflictFailures = [];
 for (const stamp of [retirement.statusFactObservedAt, '2026-10-14T07:43:00.000Z']) {
   const row = tag({...untagged, winnerParticipantId: felix, loserParticipantId: ruud,
