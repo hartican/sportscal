@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 // Invoked by update-cards --quick. Canonical adapters own source facts and any accompanying current standings.
-const fs=require('node:fs'),{spawnSync}=require('node:child_process');
+const fs=require('node:fs');
 const tennis=require('./refresh-us-open-events');
 const pl=require('./refresh-premier-league-cards');
 const officialResults=require('./sync-official-card-results');
@@ -43,11 +43,11 @@ function run(file,...args){
   if(JSON.stringify(events)!==JSON.stringify(d.events))write(p,{...d,events});
  }
  const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(file))for(const key of ['FOOTBALL_DATA_API_TOKEN','FOOTBALL_DATA_RUN_DIR','FOOTBALL_DATA_REPORT','GOLF_SOURCE_REPORT','GOLF_SOURCE_RUN_ID'])delete env[key];if(/^scripts\/validate-/.test(file))delete env.REFRESH_REPORT;
- const result=spawnSync(process.execPath,[file,...args],{stdio:['inherit','inherit','pipe'],env});
+ const result=require('./lib/refresh-child').run(process.execPath,[file,...args],{env});
  if(result.stderr?.length)process.stderr.write(result.stderr);
  if(result.status!==0){
   const message=`${file} failed`;
-  const error=new Error(message);error.refreshFailure={step:file,detail:result.error?.message||result.stderr?.toString().trim()||message};throw error;
+  const error=new Error(message);error.refreshFailure={step:file,detail:require('./lib/refresh-report').diagnosticTail(result.error?.message||result.stderr?.toString()||message)};throw error;
  }
 }
 async function refreshNflResults(options={}){

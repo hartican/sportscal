@@ -1,10 +1,12 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path');
-function sanitise(value){
- if(typeof value==='string'){
+function redactString(value){
   for(const [key,secret]of Object.entries(process.env))if(/TOKEN|SECRET|PASSWORD|SERVICE_ROLE|API_KEY/.test(key)&&secret.length>=8)value=value.split(secret).join('[redacted]');
-  return value.replace(/https?:\/\/[^\s"<>]+/g,raw=>{try{const url=new URL(raw);url.username='';url.password='';url.search='';if(!(url.hostname==='github.com'&&/^\/hartican\/sportscal\/actions\/runs\/\d+\/job\/\d+$/.test(url.pathname)&&/^#step:\d+(?::\d+)?$/.test(url.hash)))url.hash='';return url.href;}catch{return '[invalid-url]';}}).replace(/(?:gh[pousr]_|sb_secret_)[A-Za-z0-9_-]+/g,'[redacted]').slice(0,1500);
- }
+  return value.replace(/https?:\/\/[^\s"<>]+/g,raw=>{try{const url=new URL(raw);url.username='';url.password='';url.search='';if(!(url.hostname==='github.com'&&/^\/hartican\/sportscal\/actions\/runs\/\d+\/job\/\d+$/.test(url.pathname)&&/^#step:\d+(?::\d+)?$/.test(url.hash)))url.hash='';return url.href;}catch{return '[invalid-url]';}}).replace(/(?:gh[pousr]_|sb_secret_)[A-Za-z0-9_-]+/g,'[redacted]');
+}
+function diagnosticTail(value){return redactString(String(value||'')).trim().slice(-1400);}
+function sanitise(value){
+ if(typeof value==='string')return redactString(value).slice(0,1500);
  if(Array.isArray(value))return value.slice(0,1000).map(sanitise);
  if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).filter(([key])=>!/^token|secret|password|authorization$/i.test(key)).map(([key,item])=>[key,sanitise(item)]));
  return value;
@@ -24,4 +26,4 @@ function failure(message,{file=process.env.REFRESH_REPORT,step,detail}={}){
   blockingError:previous.blockingError||cause,
   failureChain:[...(previous.failureChain||[]),{step:step||previous.lastStep,message:cause}]},{file});
 }
-module.exports={update,failure,sanitise};
+module.exports={update,failure,sanitise,diagnosticTail};

@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Refresh child diagnostics — 17 October 2026 Sydney
+
+The synchronous full and incremental owners spool each child's stderr to a private temporary file rather than a bounded child pipe that can terminate a successful noisy process. The spool uses temporary disk until the child exits; retain at most its final64KiB in memory, explicitly disclose omitted output, and remove the private file after success, failure, spawn error or timeout. Preserve the actual child status and existing deadlines. Redact failure text before retaining its final1,400characters for the existing sanitised report. This changes no source, result, identity, spoiler, rollback, scheduler, provider budget or publication rule. The existing reconciliation gate runs real full/quick wrapper tests with a1.2MB successful child, nonzero failure, private permissions, diagnostic bounds/redaction and cleanup; pinned pre-fix wrappers reproduce ENOBUFS.
+
 ## Reuse fixed catalogue identity work — 17 October 2026 Sydney
 
 The observed public Match Centre read spends substantial preparation time in the complete catalogue. Prepare collapsed fixture aliases and reverse identity lists once in the existing shared identity owner, freeze the forward table after setup, and reuse an identical Sydney date-only formatter after its first need. Reuse a record’s resolved ID in its existing reviewed-innings check. Do not cache sporting facts, dates, eligibility or source observations; retain exact IDs, alias order/precedence, unknowns, scores, withdrawals and saved actions. No query, source, provider, account, scheduler, timeout or owner-routine change. Complete-output, browser/cache/startup and normal exact-SHA release evidence are required separately. [Scope and local observations](quality/catalogue-alias-reuse-2026-10-17.md).

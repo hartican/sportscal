@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const { spawnSync } = require("child_process");
 const crypto = require("node:crypto");
 const fs = require("node:fs");
 const os = require("node:os");
@@ -61,12 +60,12 @@ function runStep(args) {
   console.log(`\n> ${display}`);
   const env={...process.env};if(/^scripts\/(?:validate-|audit-|qa-|verify-)/.test(command))for(const key of ["FOOTBALL_DATA_API_TOKEN","FOOTBALL_DATA_RUN_DIR","FOOTBALL_DATA_REPORT","GOLF_SOURCE_RUN_ID","GOLF_SOURCE_REPORT","WRC_SOURCE_FAILURE_REPORT"])delete env[key];
   if(/^scripts\/validate-/.test(command))delete env.REFRESH_REPORT;
-  const result = spawnSync(runner, commandArgs, { stdio: ["inherit","inherit","pipe"],env });
+  const result = require('./lib/refresh-child').run(runner, commandArgs, {env});
   if(result.stderr?.length)process.stderr.write(result.stderr);
   if (result.status !== 0) {
     const error = new Error(`${display} failed with exit code ${result.status || 1}`);
     error.exitCode = result.status || 1;
-    error.refreshFailure={step:command,detail:result.error?.message||result.stderr?.toString().trim()||error.message};
+    error.refreshFailure={step:command,detail:require('./lib/refresh-report').diagnosticTail(result.error?.message||result.stderr?.toString()||error.message)};
     throw error;
   }
 }
