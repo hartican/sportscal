@@ -110,7 +110,7 @@ const APP_SHELL = [
   "/config/feed-live-scores.js?v=533",
   "/config/feed-live-score-loader.js?v=523",
   "/config/athletes.js?v=471",
-  "/assets/js/athletes-ui.js?v=529",
+  "/assets/js/athletes-ui.js?v=551",
   // Profile UI caches after first use; optional detail stays out of shell budget.
   "/config/football-directory.js",
   "/config/joint-tennis-tournament.js",

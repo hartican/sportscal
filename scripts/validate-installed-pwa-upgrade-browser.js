@@ -83,7 +83,7 @@ async function assertCachedStageCalendarPolicy(page){
 async function assertCachedAflwFinalDate(page){
   const id='event:aflw:cd_m20262641601',expected=require('../data/code-inspector/aflw.json').fixtures.find(f=>f.id===id);
   const result=await page.evaluate(async id=>{const fixture=(await(await fetch('/data/code-inspector/aflw.json')).json()).fixtures.find(f=>f.id===id);return {fixture,label:NOTHINGSPORTS_CARD_TIMING.dateOnlyLabel(fixture)};},id);
-  assert.deepEqual(result.fixture,expected,'Updated/offline Schedule keeps the exact reviewed date and original primary facts');assert.equal(result.label,'Time unavailable');assert.equal(result.fixture.startTimeUtc,null);assert.equal(result.fixture.time,null);
+  assert.deepEqual(result.fixture,expected,'Updated/offline Schedule keeps the exact reviewed date and original primary facts');assert.equal(result.label,'Time TBD');assert.equal(result.fixture.startTimeUtc,null);assert.equal(result.fixture.time,null);
 }
 async function assertCachedMultidayRetention(page){
   const raw=require('../data/code-inspector/cricket.json').fixtures.find(f=>f.id==='evt_91');
@@ -117,7 +117,7 @@ async function assertCachedReviewedCalendarNotes(page){
   },{legacy,mtb,rugby});
   assert.equal(result.checks.length,api.ids.length*2,'Every retained reviewed identity must have current and actual archived/offline evidence');assert(result.preferencesPreserved);
   for(const id of api.ids){assert.equal(result.checks.filter(c=>c.id===id).length,2);assert(result.checks.some(c=>c.id===id&&c.origin==='archived-baseline'));}
-  for(const check of result.checks){assert(check.noClock&&check.unchanged);assert(check.hasWindow?/15–18 July 2027.*UK dates.*Sydney time unavailable/s.test(check.text):/DATE UNAVAILABLE.*TIME UNAVAILABLE/s.test(check.text));assert(!/22 JAN|7 FEB|7:00 PM|2:00 AM|10 JUL|5 NOV|10:00 AM|8:00 AM|28 NOV|Watch via Stan Sport|Tap to rate|Remind/.test(check.text),'An upgraded/offline cache cannot restore unsupported seed claims');}
+  for(const check of result.checks){assert(check.noClock&&check.unchanged);assert(check.hasWindow?/15–18 July 2027.*UK dates.*Sydney time unavailable/s.test(check.text):/DATE UNAVAILABLE.*TIME TBD/s.test(check.text));assert(!/22 JAN|7 FEB|7:00 PM|2:00 AM|10 JUL|5 NOV|10:00 AM|8:00 AM|28 NOV|Watch via Stan Sport|Tap to rate|Remind/.test(check.text),'An upgraded/offline cache cannot restore unsupported seed claims');}
 }
 async function assertCachedMinimisedRows(page){
   const result=await page.evaluate(async()=>{
