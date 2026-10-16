@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "weekend-editorial-20261014225703956-20261015002753206-20261015151900269-20261015153508147-20261016064444382-20261016071346380-20261016071450401-20261016071637809-20261016071805825-20261016072859682-20261016075506306",
-  "publishedAt": "2026-10-16T07:55:06.306Z",
+  "version": "weekend-editorial-20261014225703956-20261015002753206-20261015151900269-20261015153508147-20261016064444382-20261016071346380-20261016071450401-20261016071637809-20261016071805825-20261016072859682-20261016075506306-20261016180757470",
+  "publishedAt": "2026-10-16T18:07:57.470Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -84652,7 +84652,7 @@
       "resultSourceCheckedAt": "2026-09-27T06:35:07.891Z",
       "endTimeUtc": "2026-09-25T12:30:00.000Z",
       "endTimeBasis": "scheduled-live-window",
-      "resultPublishedAt": "2026-09-22T01:40:00.000Z",
+      "resultPublishedAt": null,
       "resultLabels": [
         "International friendly",
         "Socceroos 1-1 Brazil",

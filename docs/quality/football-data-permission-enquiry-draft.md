@@ -1,20 +1,30 @@
 # Football-data.org permission enquiry — prepared, unsent
 
-Prepared 2 October 2026. Recommended recipient: `daniel@football-data.org`, published on the current [pricing page](https://www.football-data.org/pricing). This requests clarification only, with no subscription, purchase or source change. Owner authorisation and a reply email are required before sending.
+Prepared-scope update: 17 October 2026 Sydney. **Not sent. Explicit owner authorisation is required before external contact.** Contact route rechecked against the official pages below. No purchase, subscription, source change or commercial permission is implied.
 
-Subject: Free delayed backup — Australian trial and later sponsorship permission
+Destination: daniel@football-data.org (https://www.football-data.org/pricing). Use the content/data enquiry route for Football DataCo, not media accreditation.
+
+Subject: Nothing Sport: free delayed backup, trial and later sponsorship permission
 
 Hi Daniel,
 
-I'm building Nothing Sport, a small Australian sports discovery app at https://nothingsport.vercel.app. We use the free API as a delayed backup for existing 2026/27 EPL and Champions League league-phase fixtures, retaining our primary sources. Only a validated new final score can fill a primary-source outage; it isn't presented as live data. Requests come from one daily refresh, only when needed, within the free limit. The API key stays private and your required attribution is visible.
+I’m building Nothing Sport (https://nothingsport.vercel.app), a small Australian sports-discovery app. Your free API is our delayed backup for existing 2026/27 EPL and Champions League league-phase fixtures. We retain primary sources and only fill a validated new final score during an outage; this is not presented as live data.
 
-Could you confirm whether this free use is permitted for a small invited trial and, later, a clearly labelled sponsor placement? Your April 2015 post mentions non-commercial free use; the current free pricing and published terms don't clearly settle that distinction.
+Requests use our existing central refresh only when needed, within the free limit. The key is private and required attribution is visible.
 
-Please also confirm whether cached final-score facts and their provenance may remain in cards, calendar exports and saved activity history, and what must be removed if the account is cancelled. We use three production aliases for the same application; please confirm whether the single-application/domain condition permits that. We aren't requesting logo, photo or video rights, or agreeing to a paid plan.
+Could you confirm whether this free use is permitted for an invited trial and later clearly labelled, gambling-free sponsorship? May cached final facts and provenance remain in cards, calendar exports and saved activity history, and what must be removed after cancellation?
+
+The same application has three aliases: nothingsport.vercel.app, nothingsports.vercel.app and sportscal-harticans-projects.vercel.app. Please confirm whether the single-application/domain condition allows this.
+
+We are not requesting logo, photo or video rights, or agreeing to a paid plan.
 
 Thanks,
 Jack
 
 ## Acceptance and limits
 
-Keep any answer with its exact trial, commercial, territorial, alias, caching/export and retention scope. Pricing alone is not commercial-use clearance. No answer leaves this provider's commercial gate open. Any paid offer returns to the owner and is deferred under the no-subscription instruction. Do not send credentials or account details in the enquiry.
+Keep any response with its exact product, data, trial/commercial, territory, alias, caching/export and retention scope. An accessible endpoint, attribution, general reply or free pricing is not NS-specific commercial clearance. Any paid offer returns to the owner under the existing no-subscription instruction. Credentials and customer information are excluded. Do not infer artwork or playback rights from a data permission.
+
+Sources checked 17 October: [www.football-data.org](https://www.football-data.org/pricing), [www.football-data.org](https://www.football-data.org/about).
+
+This replaces the longer prepared body; earlier versions remain in Git history. The question now asks the exact current scope without an outdated crest inventory or an exclusive once-daily claim. No message has been sent and no approval is inferred.

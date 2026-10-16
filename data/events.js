@@ -84648,7 +84648,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultSourceCheckedAt": "2026-09-27T06:35:07.891Z",
     "endTimeUtc": "2026-09-25T12:30:00.000Z",
     "endTimeBasis": "scheduled-live-window",
-    "resultPublishedAt": "2026-09-22T01:40:00.000Z",
+    "resultPublishedAt": null,
     "resultLabels": [
       "International friendly",
       "Socceroos 1-1 Brazil",
