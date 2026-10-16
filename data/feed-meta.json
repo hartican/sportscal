@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20261015232145190-20261015232310565",
+  "version": "weekend-editorial-20261015232145190-20261016000956110",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-15T23:23:10.565Z",
+  "publishedAt": "2026-10-16T00:09:56.110Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",
@@ -42,7 +42,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-10-15",
+    "basisDate": "2026-10-16",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -50,7 +50,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-03",
     "lastEventDate": "2027-10-10",
-    "daysAhead": 360,
+    "daysAhead": 359,
     "coversStandardPreloadWindow": true,
     "sports": {
       "dakar": {

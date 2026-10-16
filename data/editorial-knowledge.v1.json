@@ -61718,34 +61718,29 @@
         "fixture-mlb-849810",
         "fixture:mlb:849810"
       ],
-      "researchDepth": 5,
-      "hook": "Milwaukee's bullpen plan makes Game 4 a sequence of decisions against the defending champions, not a single starting-pitcher duel.",
-      "synopsis": "This is a rematch with its own immediate tactical identity. Drohan's opening role should not be mistaken for a promised long outing, and patience at the plate is an observation to watch rather than a forecast of runs. The official Game 4 start is earlier than the saved card clock; editorial must stop at the official first pitch. Earlier series outcomes remain undisclosed.",
-      "formCopy": "Milwaukee have announced Shane Drohan to open a bullpen game. That is a Game 4 plan, not a projection for later fixtures. MLB's reporting also highlights Jake Bauers' patient at-bats. Los Angeles are the two-time defending champions, and these clubs met in the 2025 NLCS. No opposing starter or late fitness clearance is invented here.",
-      "closingCopy": "A bullpen game spreads responsibility. Its interest lies in the handovers: when a manager changes the matchup, whether a hitter can make that decision arrive earlier, and how the next reliever responds. For Milwaukee supporters, that offers a collective route through a meeting with an established champion. For Los Angeles, the task is to keep making sound choices as the pitcher changes.",
+      "researchDepth": 2,
+      "hook": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
+      "synopsis": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
       "threadIds": [
-        "thread:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0"
+        "thread:mlb-context:849810"
       ],
       "factIds": [
-        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:0",
-        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:1",
-        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:2",
-        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:3",
-        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:4"
+        "fact:mlb-context:849810:format",
+        "fact:mlb-context:849810:path",
+        "fact:mlb-context:849810:fixture"
       ],
       "sourceIds": [
-        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:0",
-        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:1",
-        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:2"
+        "source:mlb-fixture:849810",
+        "source:mlb-postseason-rules:2026",
+        "source:mlb-postseason-path:2026"
       ],
-      "researchedAt": "2026-10-15T22:13:16.591Z",
-      "editorialPhase": "preview",
-      "refreshAfter": "2026-10-16T01:00:00.000Z",
+      "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-10-15T22:13:16.591Z"
-      }
+        "reviewedAt": "2026-10-11T02:39:29.237Z"
+      },
+      "researchedAt": "2026-10-11T02:39:29.237Z"
     },
     {
       "id": "projection:fixture-research:evt_wsl_2026_portugal",

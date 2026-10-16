@@ -6,7 +6,6 @@
   "acceptedIds": [
     "fixture:cricket:espn:1525660",
     "rugby-australia-new-zealand-2026-10-17",
-    "fixture-mlb-849810",
     "evt_wsl_2026_portugal",
     "fixture-mlb-849817",
     "fixture-mlb-849808",
@@ -31,6 +30,16 @@
         "https://www.racingvictoria.com.au/racing/international-resources"
       ],
       "nextAction": "Retain last-known preview; obtain current official final declarations and inspection outcomes before a contestant-led rewrite."
+    },
+    {
+      "id": "fixture-mlb-849810",
+      "reason": "Production publication was not proven before confirmed pre-match cutoff; retain unpublished research and publish independent cards",
+      "sources": [
+        "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+        "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-15&endDate=2026-10-18&hydrate=team"
+      ],
+      "nextAction": "Retain prior published preview and unpublished sourced draft; use verified ongoing/post-match workflow after kickoff, without retrospectively publishing a new preview."
     }
   ]
 }

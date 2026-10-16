@@ -190128,22 +190128,22 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
     "statusCheckedAt": "2026-10-09T06:52:22.809Z",
-    "selectedSentence": "Milwaukee's bullpen plan makes Game 4 a sequence of decisions against the defending champions, not a single starting-pitcher duel.",
-    "fullSpiel": "This is a rematch with its own immediate tactical identity. Drohan's opening role should not be mistaken for a promised long outing, and patience at the plate is an observation to watch rather than a forecast of runs. The official Game 4 start is earlier than the saved card clock; editorial must stop at the official first pitch. Earlier series outcomes remain undisclosed.",
-    "lastReviewedAt": "2026-10-15T22:13:16.591Z",
+    "selectedSentence": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
+    "fullSpiel": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
+    "lastReviewedAt": "2026-10-13T21:00:24.820Z",
     "stakesScore": 4,
     "storyline": {
       "stakes": 4,
       "intensity": 4,
       "arcStage": "preview",
-      "hookSpoilerOff": "Milwaukee's bullpen plan makes Game 4 a sequence of decisions against the defending champions, not a single starting-pitcher duel.",
-      "synopsisSpoilerOff": "This is a rematch with its own immediate tactical identity. Drohan's opening role should not be mistaken for a promised long outing, and patience at the plate is an observation to watch rather than a forecast of runs. The official Game 4 start is earlier than the saved card clock; editorial must stop at the official first pitch. Earlier series outcomes remain undisclosed.",
-      "hookSpoilerOn": "Milwaukee's bullpen plan makes Game 4 a sequence of decisions against the defending champions, not a single starting-pitcher duel.",
-      "synopsisSpoilerOn": "This is a rematch with its own immediate tactical identity. Drohan's opening role should not be mistaken for a promised long outing, and patience at the plate is an observation to watch rather than a forecast of runs. The official Game 4 start is earlier than the saved card clock; editorial must stop at the official first pitch. Earlier series outcomes remain undisclosed.",
+      "hookSpoilerOff": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
+      "synopsisSpoilerOff": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
+      "hookSpoilerOn": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
+      "synopsisSpoilerOn": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
       "expectedSpectacle": 1,
       "intensitySource": "computed",
-      "researchDepth": 5,
-      "lastReviewedAt": "2026-10-15T22:13:16.591Z"
+      "researchDepth": 2,
+      "lastReviewedAt": "2026-10-11T02:39:29.237Z"
     },
     "sourceTrust": "verified",
     "displayTitleCompact": "Los Angeles Dodgers v Milwaukee Brewers",
@@ -190169,50 +190169,44 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:mlb-context:849810",
-      "researchTier": "marquee",
-      "hook": "Milwaukee's bullpen plan makes Game 4 a sequence of decisions against the defending champions, not a single starting-pitcher duel.",
-      "synopsis": "This is a rematch with its own immediate tactical identity. Drohan's opening role should not be mistaken for a promised long outing, and patience at the plate is an observation to watch rather than a forecast of runs. The official Game 4 start is earlier than the saved card clock; editorial must stop at the official first pitch. Earlier series outcomes remain undisclosed.",
-      "formCopy": "Milwaukee have announced Shane Drohan to open a bullpen game. That is a Game 4 plan, not a projection for later fixtures. MLB's reporting also highlights Jake Bauers' patient at-bats. Los Angeles are the two-time defending champions, and these clubs met in the 2025 NLCS. No opposing starter or late fitness clearance is invented here.",
-      "closingCopy": "A bullpen game spreads responsibility. Its interest lies in the handovers: when a manager changes the matchup, whether a hitter can make that decision arrive earlier, and how the next reliever responds. For Milwaukee supporters, that offers a collective route through a meeting with an established champion. For Los Angeles, the task is to keep making sound choices as the pitcher changes.",
+      "researchTier": "standard",
+      "hook": "Los Angeles Dodgers v Milwaukee Brewers: NLCS Game 4, in the race for the World Series.",
+      "synopsis": "National League Championship Series Game 4 is part of a best-of-seven series. The first team to 4 wins advances to the World Series. MLB lists UNIQLO Field at Dodger Stadium as the venue.",
       "threadIds": [
-        "thread:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0"
+        "thread:mlb-context:849810"
       ],
       "factIds": [
-        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:0",
-        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:1",
-        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:2",
-        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:3",
-        "fact:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:4"
+        "fact:mlb-context:849810:format",
+        "fact:mlb-context:849810:path",
+        "fact:mlb-context:849810:fixture"
       ],
       "sourceIds": [
-        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:0",
-        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:1",
-        "source:fixture-research:fixture-mlb-849810:revision-3138df809e5fcbc75248c0592fab7887dacba5df6890ef679c7a379ebef5aac0:2"
+        "source:mlb-fixture:849810",
+        "source:mlb-postseason-rules:2026",
+        "source:mlb-postseason-path:2026"
       ],
       "dimensions": [
-        "history",
-        "form",
+        "format",
         "path",
         "matchup"
       ],
-      "researchedAt": "2026-10-15T22:13:16.591Z",
-      "refreshAfter": "2026-10-16T01:00:00.000Z",
+      "researchedAt": "2026-10-11T02:39:29.237Z",
+      "refreshAfter": null,
       "generationMode": "researched",
       "phase": "preview"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 4",
+      "angle": "NLCS Game 4: the path to the World Series",
       "contextSignals": [
         "event-specific",
-        "narrative:history",
-        "narrative:form",
+        "narrative:format",
         "narrative:path",
         "narrative:matchup"
       ],
-      "sourceName": "Los Angeles Dodgers v Milwaukee Brewers — NLCS Game 4 — primary research",
-      "sourceUrl": "https://www.mlb.com/brewers/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-      "sourceCheckedAt": "2026-10-15T22:13:16.591Z",
+      "sourceName": "MLB official game",
+      "sourceUrl": "https://www.mlb.com/gameday/849810",
+      "sourceCheckedAt": "2026-10-09T06:52:22.809Z",
       "needsPreviewRefresh": false
     },
     "resultEditorialBranches": {
