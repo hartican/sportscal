@@ -277,7 +277,13 @@ assert.deepEqual(bootstrap[fixture.id].editorialNarrative, curatedOpener.editori
 const vm = require("node:vm");
 const pinContext = vm.createContext({NOTHINGSPORTS_PINNED_FIXTURE_EDITORIAL:bootstrap});
 vm.runInContext(html.slice(html.indexOf("function fxAliases("), html.indexOf("const COMPETITION_CLASSIFICATION")) + ";globalThis.repair=FEED_FIXTURE_RECONCILIATION.repairSavedFixture;", pinContext);
-const oldPin = {...fixture,manualPin:true,editorialNarrative:drawnMatch.editorialNarrative};
+const legacyStatusPin = {...fixture,manualPin:true,editorialNarrative:drawnMatch.editorialNarrative};
+if (legacyStatusPin.status !== curatedOpener.status){
+  assert.equal(pinContext.repair(legacyStatusPin,[]).fixture,legacyStatusPin,"an editorial-only bootstrap must not invent a completed status for a retained scheduled pin");
+}
+// This is a controlled compatible-status copy test, not a rewrite of the
+// retained pin's source status. The real scheduled/completed mismatch is above.
+const oldPin = {...legacyStatusPin,status:curatedOpener.status};
 const oldPinBefore = JSON.stringify(oldPin);
 const coldPin = pinContext.repair(oldPin,[]).fixture;
 assert.deepEqual(JSON.parse(JSON.stringify(coldPin.editorialNarrative)),curatedOpener.editorialNarrative,"actual first-render consumer adopts current reviewed copy before canonical hydration");
@@ -293,7 +299,7 @@ const newerSavedResearchTime=new Date(bootstrapResearchTime+60*60*1000).toISOStr
 // Both reviews are synthetic past observations for this ordering regression.
 // A future-dated saved review is intentionally not authoritative at runtime.
 vm.runInContext('Date.now=()=>'+JSON.stringify(bootstrapResearchTime+2*60*60*1000),pinContext);
-for(const changed of [{...oldPin,startTimeUtc:"2026-10-16T09:05:00Z"},{...oldPin,participantIds:["team:nrl:kangaroos","team:nrl:other"]},{...oldPin,key:"rugby-union"},{...oldPin,status:"completed"},{...oldPin,editorialNarrative:{...oldPin.editorialNarrative,researchedAt:newerSavedResearchTime,hook:"A newer reviewed saved preview remains authoritative."}}]){
+for(const changed of [{...oldPin,startTimeUtc:"2026-10-16T09:05:00Z"},{...oldPin,participantIds:["team:nrl:kangaroos","team:nrl:other"]},{...oldPin,key:"rugby-union"},{...oldPin,status:oldPin.status==='completed'?'scheduled':'completed'},{...oldPin,editorialNarrative:{...oldPin.editorialNarrative,researchedAt:newerSavedResearchTime,hook:"A newer reviewed saved preview remains authoritative."}}]){
   assert.equal(pinContext.repair(changed,[]).fixture,changed,"changed fixture facts/status and newer reviewed copy reject the older bootstrap");
 }
 const shared = require("../config/feed-fixture-reconciliation");
