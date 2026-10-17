@@ -52,6 +52,6 @@ function check(events){
   assert(fs.readFileSync('data/events.json').equals(bytes));assert(!fs.existsSync('data/new-candidate.json'));assert.equal(fs.readFileSync('assets/js/app-shell-runtime.js','utf8'),'original-runtime');
  }finally{process.chdir(cwd);}
  const steps=require('./update-cards').buildSteps({localOnly:true});assert(steps.some(s=>s[0]==='scripts/reconcile-fixture-results.js'),'full owner must reconcile');
- require('./validate-refresh-child-output')();
+ await require('./validate-refresh-rollback-diagnostics')();
  console.log('Result hand-off: captured final, recorded aliases, retained-only cards, honest clocks, conflicts, spoiler protection and stable repeated publication passed.');
 }finally{fs.rmSync(directory,{recursive:true,force:true});}})().catch(error=>{console.error(error);process.exitCode=1;});

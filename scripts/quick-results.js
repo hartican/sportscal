@@ -7,6 +7,13 @@ const pl=require('./refresh-premier-league-cards');
 const officialResults=require('./sync-official-card-results');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
+function writeQuickFailureReport(report){
+ if(!process.env.QUICK_RESULTS_REPORT)return;
+ try{
+  fs.mkdirSync(require('node:path').dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});
+  write(process.env.QUICK_RESULTS_REPORT,report);
+ }catch(error){console.warn(`::warning::Quick failure report unavailable: ${require('./lib/refresh-report').sanitise(error.message)}`);}
+}
 const {storylineFor,spoilerSafeRootCopy,spoilerContractIssues}=require('./lib/storyline-card-rules');
 const {KEYS,semantic,patchKnown}=require('./lib/known-fixture-patch');
 function retainReviewedResultEditorial(events,previous){
@@ -170,7 +177,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
   if(source==='football'&&!offline)return refreshFootball({now});
   if(source==='nhl'&&!offline){
    let nhl;
-   try{nhl=await refreshNhl();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`NHL: ${error.message}`],aiCalls:0};if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);console.log(JSON.stringify(report));throw error;}
+   try{nhl=await refreshNhl();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`NHL: ${error.message}`],aiCalls:0};writeQuickFailureReport(report);console.log(JSON.stringify(report));throw error;}
    const changes=nhl.changed||nhl.projectionNeedsRepair?[`NHL results and standings ${nhl.finals}`]:[];
    runProjectionSteps(projectionSteps(changes));
    const report={mode:'quick',source,checkedAt:nhl.checkedAt,changed:changes,failures:[],nhl,aiCalls:0};
@@ -179,7 +186,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
   }
   if(source==='chl'&&!offline){
    let chl;
-   try{chl=await refreshChl();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`CHL: ${error.message}`],aiCalls:0};if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);console.log(JSON.stringify(report));throw error;}
+   try{chl=await refreshChl();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`CHL: ${error.message}`],aiCalls:0};writeQuickFailureReport(report);console.log(JSON.stringify(report));throw error;}
    const changes=chl.changed||chl.projectionNeedsRepair?[`CHL results and club records ${chl.finals}`]:[];
    runProjectionSteps(projectionSteps(changes));
    const report={mode:'quick',source,checkedAt:chl.checkedAt,changed:changes,failures:[],chl,aiCalls:0};
@@ -187,7 +194,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
    return report;
   }
   if(source==='nfl'&&!offline){
-   let nfl;try{nfl=await refreshNflResults();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`NFL: ${error.message}`],aiCalls:0};if(process.env.QUICK_RESULTS_REPORT)write(process.env.QUICK_RESULTS_REPORT,report);console.log(JSON.stringify(report));throw error;}
+   let nfl;try{nfl=await refreshNflResults();}catch(error){const report={mode:'quick',source,checkedAt:new Date().toISOString(),changed:[],failures:[`NFL: ${error.message}`],aiCalls:0};writeQuickFailureReport(report);console.log(JSON.stringify(report));throw error;}
    const changes=nfl.changed||nfl.projectionNeedsRepair?['NFL current-season source check']:[],failures=[];let nflStandings=null;
    try{nflStandings=await refreshNflStandings();if(nflStandings.changed)changes.push(`NFL standings ${nflStandings.rows}`);}catch(error){failures.push(`NFL standings: ${error.message}`);}
    runProjectionSteps(projectionSteps(changes));
@@ -317,7 +324,21 @@ async function atomicRefresh(options,{refreshOperation=refresh}={}){
  const files=new Map();function collect(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const name=dir+'/'+entry.name;if(entry.isDirectory())collect(name);else if(/\.(json|js)$/.test(name))files.set(name,fs.readFileSync(name));}}
  const runtime='assets/js/app-shell-runtime.js',runtimeBefore=fs.existsSync(runtime)?fs.readFileSync(runtime):null;
  collect('data');collect('feeds');
- try{return await refreshOperation(options);}catch(error){require('./lib/refresh-report').failure(error.message,error.refreshFailure);const after=new Map(files);files.clear();collect('data');collect('feeds');for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);for(const [name,content] of after)fs.writeFileSync(name,content);if(runtimeBefore)fs.writeFileSync(runtime,runtimeBefore);else if(fs.existsSync(runtime))fs.unlinkSync(runtime);if(process.env.QUICK_RESULTS_REPORT){let report={mode:'quick',aiCalls:0};try{report=read(process.env.QUICK_RESULTS_REPORT);}catch{}fs.mkdirSync(require('node:path').dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,{...report,publicationState:'blocked-rolled-back',blockingError:error.message});}throw error;}
+ try{return await refreshOperation(options);}catch(error){
+  // Restore the entire candidate before any fallible diagnostic IO. A broken
+  // report must neither skip rollback nor replace the original refresh error.
+  const after=new Map(files);files.clear();collect('data');collect('feeds');
+  for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);
+  for(const [name,content] of after)fs.writeFileSync(name,content);
+  if(runtimeBefore)fs.writeFileSync(runtime,runtimeBefore);else if(fs.existsSync(runtime))fs.unlinkSync(runtime);
+  try{require('./lib/refresh-report').failure(error.message,error.refreshFailure);}
+  catch(diagnosticError){console.warn(`::warning::Canonical failure report unavailable: ${require('./lib/refresh-report').sanitise(diagnosticError.message)}`);}
+  if(process.env.QUICK_RESULTS_REPORT){
+   let report={mode:'quick',aiCalls:0};try{report=read(process.env.QUICK_RESULTS_REPORT);}catch{}
+   writeQuickFailureReport({...report,publicationState:'blocked-rolled-back',blockingError:error.message});
+  }
+  throw error;
+ }
 }
 if(require.main===module)atomicRefresh({offline:process.argv.includes('--offline'),source:process.argv.find(arg=>arg.startsWith('--source='))?.slice(9)}).then(result=>{if(process.argv.some(arg=>arg.startsWith('--source=')))console.log(JSON.stringify(result));}).catch(error=>{console.error(error.message);process.exitCode=1;});
 async function text(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{accept:'text/html','user-agent':'nothingSport canonical refresh/1.0'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.text();}

@@ -1102,8 +1102,10 @@ async function main(){
     require('./lib/refresh-report').update({publicationState:'validated',stage:'validated'});
     return result;
   }catch(error){
-    require('./lib/refresh-report').failure(error.message,error.refreshFailure);
-    require('./lib/refresh-report').update({publicationState:error.publicationStarted?'blocked-after-publication':'blocked-rolled-back',stage:'failed'});
+    try{
+      require('./lib/refresh-report').failure(error.message,error.refreshFailure);
+      require('./lib/refresh-report').update({publicationState:error.publicationStarted?'blocked-after-publication':'blocked-rolled-back',stage:'failed'});
+    }catch(diagnosticError){console.warn(`::warning::Canonical failure report unavailable: ${require('./lib/refresh-report').sanitise(diagnosticError.message)}`);}
     console.error(`Refresh diagnostics: ${process.env.REFRESH_REPORT}`);
     throw error;
   }finally{
