@@ -6,6 +6,8 @@ async function run(){
  try{
   const names=fs.readdirSync('supabase/migrations').filter(n=>n.endsWith('_bound_fixture_snapshot_query_work.sql'));assert.equal(names.length,1);
   const migration=fs.readFileSync('supabase/migrations/'+names[0],'utf8');
+  const finalNames=fs.readdirSync('supabase/migrations').filter(n=>n.endsWith('_defer_match_fixture_payload.sql'));assert.equal(finalNames.length,1);
+  const finalMigration=fs.readFileSync('supabase/migrations/'+finalNames[0],'utf8');
   const signatures=[near+'(text[])',participant+'(text[],text[],text[],text[])'];
   const definitions=[];
   for(const signature of signatures){const row=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[signature])).rows[0];definitions.push(row.definition);}
@@ -20,7 +22,16 @@ async function run(){
    assert.equal((await db.query("select md5(pg_get_functiondef('public.nothingsports_read_match_centre_fixture_bundle(text[])'::regprocedure)) h")).rows[0].h,'d98d88497311a8d06a31556004df30a2','Unsafe privileges can coexist with the exact baseline body hash');
    await assert.rejects(db.exec(migration),/service boundary/,'The migration must reject '+mode);await db.exec('rollback');checks++;
   }
-  const before=await metadata();await db.exec('begin;'+migration+'commit;');assert.deepEqual(await metadata(),before,'Stable/invoker, empty search path and exact private grants remain unchanged');checks++;
+  const before=await metadata();await db.exec('begin;'+migration+'commit;');
+  const firstNear=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[signatures[0]])).rows[0].definition;
+  for(const mode of ['default-acl','inherited-anon','inherited-authenticated']){
+   await db.exec('begin');
+   if(mode==='default-acl')await db.exec('drop function public.'+near+'(text[]);'+firstNear+';');
+   else await db.exec('grant service_role to '+(mode==='inherited-anon'?'anon':'authenticated'));
+   await assert.rejects(db.exec(finalMigration),/service boundary/,'Late projection must reject '+mode);await db.exec('rollback');checks++;
+  }
+  await db.exec('begin;'+finalMigration+'commit;');assert.deepEqual(await metadata(),before,'Stable/invoker, empty search path and exact private grants remain unchanged');checks++;
+  await db.exec('begin');await assert.rejects(db.exec(finalMigration),/differ from reviewed first repair/);await db.exec('rollback');checks++;
   await db.exec('begin');await assert.rejects(db.exec(migration),/differ from reviewed baseline/);await db.exec('rollback');checks++;
   const now=(await db.query('select statement_timestamp() as t')).rows[0].t,clock=m=>new Date(Date.parse(now)+m*60000).toISOString(),today=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(now));
   const base={key:'football',date:today,status:'upcoming',startTimeUtc:clock(120),sourceCheckedAt:clock(-30),homeParticipantId:'home',awayParticipantId:'away',participantIds:['home','away'],originalNested:{unknown:[0,null,false,'retained']}};
@@ -49,6 +60,26 @@ async function run(){
   for(const patch of [{status:null,startTimeUtc:null,date:null,schedulingWindow:null},{status:'live',homeScore:0,awayScore:0},{status:'completed',statusCheckedAt:clock(-20),date:'2020-01-01'},{status:'upcoming',startTimeUtc:'invalid',endDate:'unknown'}]){
    await db.query("insert into public.nothingsports_live_scores(source_id,fixture_id,score,content_hash) values('query-work','date-only',$1::jsonb,'changed') on conflict(source_id,fixture_id) do update set score=excluded.score",[JSON.stringify(patch)]);await equal('Score/null/date override');
   }
+  const hasNear=async fixtureId=>(await db.query('select public.'+near+"('{}') body")).rows[0].body.rows.some(r=>r.fixture_id===fixtureId);
+  // Completion selection must preserve presence/null rules while decoding
+  // only the raw fields needed by a completed fixture.
+  for(const field of ['actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt']){
+   const fixtureId='completion:'+field;
+   await insert('query-work',[{...base,id:fixtureId,status:'completed',homeParticipantId:fixtureId+':h',awayParticipantId:fixtureId+':a',participantIds:[],[field]:'unconfirmed',unmodifiedPayload:{original:[null,false,0,{nested:'retained'}]}}]);
+   await equal('Malformed completion remains conservatively included');assert(await hasNear(fixtureId));checks++;
+   await db.query("insert into public.nothingsports_live_scores(source_id,fixture_id,score,content_hash) values('query-work',$1,$2::jsonb,'null-clock')",[fixtureId,JSON.stringify({[field]:null})]);
+   await equal('Explicit score-null suppresses its base completion field');assert(!await hasNear(fixtureId));checks++;
+  }
+  await insert('query-work',[{...base,id:'recent-completion',status:'completed',homeParticipantId:'recent:h',awayParticipantId:'recent:a',participantIds:[]}]);
+  await db.query("insert into public.nothingsports_live_scores(source_id,fixture_id,score,content_hash,first_completed_at) values('query-work','recent-completion','{}','recent',$1)",[clock(-20)]);
+  await equal('Recent first completion is sufficient without other marks');assert(await hasNear('recent-completion'));checks++;
+  await insert('query-work',[{...base,id:'both-status-checks',status:'completed',statusCheckedAt:'unconfirmed',homeParticipantId:'checks:h',awayParticipantId:'checks:a',participantIds:[]}]);
+  await db.query("insert into public.nothingsports_live_scores(source_id,fixture_id,score,content_hash) values('query-work','both-status-checks','{\"statusCheckedAt\":null}','checks')");
+  await equal('Both raw status-check marks remain independent');assert(await hasNear('both-status-checks'));checks++;
+  await insert('query-work',[{...base,id:'irrelevant-completion',actualEndTimeUtc:{unknown:true},homeParticipantId:'irrelevant:h',awayParticipantId:'irrelevant:a',participantIds:[]}]);
+  await equal('Non-final completion fields cannot admit a future fixture');assert(!await hasNear('irrelevant-completion'));checks++;
+  await db.query("insert into public.nothingsports_live_scores(source_id,fixture_id,score,content_hash) values('query-work','irrelevant-completion','{\"status\":\"completed\",\"actualEndTimeUtc\":0}','non-text')");
+  await equal('Non-text final completion remains conservatively included');assert(await hasNear('irrelevant-completion'));checks++;
   const corruptions=[
    "delete from nothingsports_fixture_read_private.fixture_tokens where source_id='query-work' and fixture_id='live' and kind=1",
    "insert into nothingsports_fixture_read_private.fixture_tokens(source_id,fixture_id,kind,token) values('query-work','live',1,'extra-token')",
