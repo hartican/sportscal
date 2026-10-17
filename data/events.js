@@ -281713,7 +281713,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Round of 32",
     "stage": "Round of 32",
     "name": "Shi Han v Leylah Fernandez",
-    "date": "2026-10-14",
+    "date": "2026-10-15",
     "time": "23:30",
     "startTimeUtc": null,
     "estimatedStartTimeUtc": "2026-10-14T12:30:00.000Z",
@@ -281762,7 +281762,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "statusSourceName": "ESPN",
     "sourceRefs": [
       "https://www.espn.com/tennis/matchstats?gameId=185347",
-      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013"
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261013",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261016"
     ],
     "broadcaster": "Stan Sport / beIN SPORTS",
     "viewingOptions": [
@@ -281916,6 +281917,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Shi Han v Leylah Fernandez is complete. Results stay hidden until you choose to reveal them.",
       "hookSpoilerOn": "Leylah Fernandez won. 3–6, 4–6",
       "synopsisSpoilerOn": "ESPN reports Leylah Fernandez as the winner of this round of 32 match. 3–6, 4–6"
+    },
+    "actualStartTimeUtc": "2026-10-14T14:10:00.000Z",
+    "actualStartEvidence": {
+      "kind": "publisher-reported-match-start",
+      "fixtureId": "fixture:tennis:espn:wta:185347",
+      "startsAt": "2026-10-14T14:10:00.000Z",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20261014",
+      "checkedAt": "2026-10-16T11:58:17.547Z",
+      "participantIds": [
+        "competitor:tennis:wta:shi-han",
+        "competitor:tennis:wta:leylah-fernandez"
+      ],
+      "verified": true,
+      "meaning": "publisher-post-match-startDate"
     }
   },
   {
