@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const LEAGUES={'premier-league':'eng.1',bundesliga:'ger.1','la-liga':'esp.1','serie-a':'ita.1','ligue-1':'fra.1'};
+const LEAGUES={'premier-league':'eng.1',bundesliga:'ger.1','la-liga':'esp.1','serie-a':'ita.1','ligue-1':'fra.1','a-league-men':'aus.1'};
 const DAY=86400000,REFRESH_AFTER=30*DAY;
 async function refreshDue({root=path.resolve(__dirname,'../..'),now=new Date(),offline=false,fetchImpl=fetch}={}){
   const file=path.join(root,'data/canonical/football-directory.v1.json'),directory=JSON.parse(fs.readFileSync(file,'utf8'));
@@ -16,7 +16,7 @@ async function refreshDue({root=path.resolve(__dirname,'../..'),now=new Date(),o
     receipts.push(receipt);return {payload,receipt};
   }
   const setSource=source=>{const i=next.sources.findIndex(s=>s.id===source.id);if(i<0)next.sources.push(source);else next.sources[i]=source;};
-  // All five complete club sets are required before publishing the directory.
+  // All approved complete club sets are required before publishing the directory.
   for(const league of next.leagues){
     const code=LEAGUES[league.key];if(!code)throw Error('Unapproved football directory league');
     const url=`https://site.api.espn.com/apis/site/v2/sports/soccer/${code}/teams?limit=100`,{payload,receipt}=await read(url);
@@ -25,7 +25,7 @@ async function refreshDue({root=path.resolve(__dirname,'../..'),now=new Date(),o
     const sourceId=`source:football:${league.key}:clubs-current`;
     setSource({id:sourceId,provider:'ESPN public club list',url,sourceType:'reputable',checkedAt:receipt.checkedAt});
     league.sourceRefs=[...new Set([...league.sourceRefs,sourceId])];
-    for(const team of retained){team.sourceRefs=[...new Set([...team.sourceRefs,sourceId])];jobs.push({team,code});}
+    for(const team of retained){team.sourceRefs=[...new Set([...team.sourceRefs,sourceId])];if(next.players.some(player=>player.currentTeamId===team.id))jobs.push({team,code});}
   }
   let cursor=0;
   await Promise.all(Array.from({length:6},async()=>{

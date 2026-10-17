@@ -70,7 +70,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  if(changes.includes('Reviewed calendar notes'))['surf','motorsport','rugby-union'].forEach(code=>codes.add(code));
  for(const change of changes)if(change.startsWith('Live coverage '))codes.add(change.slice('Live coverage '.length));
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
- if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
+ if(changes.some(change=>change.startsWith('Premier League')||change.startsWith('A-League')))codes.add('football');
  if(changes.includes('Stan Football programmes'))['football','champions-league'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('EPL standings')))codes.add('football');
  if(changes.some(change=>change.startsWith('European Football')))['football','champions-league'].forEach(code=>codes.add(code));
@@ -214,6 +214,8 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  let footballDirectory;
  try{footballDirectory=await require('./lib/football-directory-maintenance').refreshDue({now,offline});if(footballDirectory.changed)changes.push('Football directory maintenance');for(const gap of footballDirectory.deferred||[])failures.push(`Football roster ${gap.teamId}: ${gap.message}`);}
  catch(error){failures.push(`Football directory: ${error.message}`);}
+ let aLeague;
+ if(!offline)try{aLeague=await require('./lib/a-league-schedule').refresh({now});if(aLeague.changed)changes.push('A-League schedule');if(aLeague.state==='deferred-retained')failures.push('A-League: '+aLeague.error);}catch(error){failures.push('A-League: '+error.message);}
  const hydration=await require('./refresh-tournament-hydration').refresh({now,offline});
  if(hydration.changed.length)changes.push('Tournament hydration');
  if(!offline)try{
@@ -298,7 +300,7 @@ async function refresh({now=new Date(),offline=false,source=null}={}){
  run('scripts/validate-editorial-sport-depth.js');
  run('scripts/build-tennis-feed-parents.js');
  run('scripts/build-tournament-horizon.js');
- const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,footballDirectory,previewMaintenance,liveCoverage,nflStandings,chl,nhl,finalResults,tennisCurrent,aiCalls:0,publicationState:'candidate'};
+ const report={mode:'quick',checkedAt:now.toISOString(),changed:changes,failures,footballDirectory,aLeague,previewMaintenance,liveCoverage,nflStandings,chl,nhl,finalResults,tennisCurrent,aiCalls:0,publicationState:'candidate'};
  // Keep exception evidence outside the rolled-back data surfaces even when
  // result completeness blocks this candidate before publication.
  if(process.env.QUICK_RESULTS_REPORT){const path=require('node:path');fs.mkdirSync(path.dirname(process.env.QUICK_RESULTS_REPORT),{recursive:true});write(process.env.QUICK_RESULTS_REPORT,report);}

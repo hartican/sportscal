@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-10-16T21:01:27.651Z",
+  "generatedAt": "2026-10-16T19:08:49.214Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/horse-racing.json",
@@ -179,7 +179,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-16T21:01:27.651Z",
+      "freshAt": "2026-10-16T19:08:49.214Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -187,11 +187,11 @@
       "id": "sport:football",
       "slug": "football",
       "label": "Football",
-      "fixtureCount": 690,
+      "fixtureCount": 846,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-10-16T18:07:57.470Z",
+      "freshAt": "2026-10-16T19:08:49.214Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {

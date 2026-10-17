@@ -90,24 +90,24 @@ function createFeedHandler({load=feedDependencies,authenticate=()=>require('../l
         const savedScope=scopeCache.get(scopeKey);
         if(savedScope)profileScope=JSON.parse(savedScope.body);
         else{
-          t=performance.now();resolved=d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,participantId,copyEvents:false});mark('resolve',performance.now()-t);
+          t=performance.now();resolved=await d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,participantId,copyEvents:false,cooperative:true});mark('resolve',performance.now()-t);
           profileScope=require('../lib/profile-fixture-requirements').requirements({userState,participantId,events:resolved.events,participants:[...d.canonicalSportContext.participants,...resolved.participants]});
           // Published requirements stay fixed within this immutable build. Do
           // not repeat calendar construction before a warm response-cache hit.
           scopeCache.set(scopeKey,{body:JSON.stringify(profileScope),etag:'',expiresAt:Infinity});
         }
       }
-      t=performance.now();const snapshot=await d.readLiveSnapshots(matchCentreOnly?{scope:'match-centre',preserveIds}:profileScope||undefined).catch(()=>null);mark('live',performance.now()-t);
+      t=performance.now();const snapshot=await d.readLiveSnapshots(matchCentreOnly?{scope:'match-centre',preserveIds,interactive:true}:profileScope?{...profileScope,interactive:true}:undefined).catch(()=>null);mark('live',performance.now()-t);
       const now=clock();
       const {SERVER_FEED_BUILD_VERSION,SERVER_FEED_SCHEMA_VERSION,eventFeed}=d;
       const key=digest({matchCentreOnly,athletesOnly,participantId,userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});
       const hit=cache.get(key,+now);
       if(hit){response.setHeader('X-Feed-Cache','HIT');return send(hit,request.headers?.['if-none-match']===hit.etag?304:200);}
-      if(!resolved){t=performance.now();resolved=d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,participantId:athletesOnly?participantId:null,copyEvents:false});mark('resolve',performance.now()-t);}
+      if(!resolved){t=performance.now();resolved=await d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,participantId:athletesOnly?participantId:null,copyEvents:false,cooperative:true});mark('resolve',performance.now()-t);}
       const participants=new Map(d.canonicalSportContext.participants.map(p=>[p.id,p]));
       resolved.participants.forEach(p=>participants.set(p.id,{...participants.get(p.id),...p}));
       const events=d.overlaySnapshots(resolved.events,snapshot?.sources,{now,stale:!snapshot||snapshot.stale===true}).map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
-      const feed=d.buildServerFeed({matchCentreOnly,athletesOnly,participantId,events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false});
+      const feed=await d.buildServerFeed({matchCentreOnly,athletesOnly,participantId,events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false,cooperative:true});
       if(matchCentreOnly)feed.membershipStale=!snapshot||snapshot.stale===true;
       feed.fixtureSnapshotStale=!snapshot||snapshot.stale===true;
       if(athletesOnly&&cursor===0)feed.athletes=require('../lib/athletes').projection({participants:[...participants.values()],preferences:userState.preferences,events});

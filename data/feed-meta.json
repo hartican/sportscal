@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20261016190849214-20261016210127651",
+  "version": "nothingsport-official-results-2026-09-15-v1-20261016190849214",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-10-16T21:01:27.651Z",
+  "publishedAt": "2026-10-16T19:08:49.214Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "dakar",

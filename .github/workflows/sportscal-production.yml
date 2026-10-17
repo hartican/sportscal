@@ -67,6 +67,7 @@ jobs:
           node scripts/validate-tennis-scoreboard.js
           node scripts/validate-tennis-match-centre-live.js
           node scripts/validate-match-centre.js
+          node scripts/validate-snapshot-query-work.js
           node scripts/validate-match-centre-details.js
           node scripts/validate-racing-details.js
           node scripts/validate-horse-racing.js
@@ -131,6 +132,8 @@ jobs:
           node scripts/validate-hobby-feed-client.js
           node scripts/validate-hobby-deployments.js
           node scripts/validate-server-feed.js
+          node scripts/validate-feed-action-lookup.js
+          node scripts/validate-feed-request-cooperation.js
           node scripts/validate-follow-policy-parity.js
           node scripts/validate-f1-parent-feed.js
           node scripts/validate-notification-dispatch-recovery.js
@@ -237,6 +240,7 @@ jobs:
           node scripts/validate-accepted-result-projection.js
           node scripts/validate-accepted-result-continuity.js
           node scripts/validate-backend-efficiency.js
+          node scripts/validate-interactive-snapshot-budget.js
           node scripts/validate-notifications.js
           node scripts/validate-milestone-alerts.js
           node scripts/validate-milestone-source-budget.js

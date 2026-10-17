@@ -61,9 +61,9 @@ async function run(){
  await db.query("update public.nothingsports_fixture_sources set discovery_report=$1::jsonb where source_id='fantasy'",[JSON.stringify({_fixtureObservations:{known:{s:observed,t:observed}}})]);
  const plan=requirements({userState:state([]),participantId:'team:football:epl:1',events:[{id:'moved',participantIds:['team:football:epl:1']},{id:'alias-seed',participantIds:['team:football:epl:1']}]});
  check('whole Football family',()=>{assert(plan.sportKeys.includes('premier-league'));assert(plan.sportKeys.includes('football'));assert(plan.sportKeys.includes('fifa'));});
- const calls=[];
- const store=createSnapshotStore({request:async(route,{body,timeoutMs})=>{
-  assert.equal(timeoutMs,3000);calls.push({route,body});const name=route.split('/').at(-1);
+ const calls=[];let expectedReadBudget=3000;
+ const store=createSnapshotStore({timer:()=>0,request:async(route,{body,timeoutMs})=>{
+  assert.equal(timeoutMs,expectedReadBudget);calls.push({route,body});const name=route.split('/').at(-1);
   if(name==='nothingsports_read_fixture_source_health')return (await db.query('select * from public.nothingsports_read_fixture_source_health()')).rows;
   if(name==='nothingsports_read_participant_fixture_bundle')return (await db.query('select public.nothingsports_read_participant_fixture_bundle($1,$2,$3,$4) as value',[body.p_sport_keys,body.p_known_sport_keys,body.p_participant_ids,body.p_required_ids])).rows[0].value;
   if(name==='nothingsports_read_current_fixture_bundle')return (await db.query('select public.nothingsports_read_current_fixture_bundle(null) as value')).rows[0].value;
@@ -120,7 +120,7 @@ async function run(){
  for(const [participantId,prefs] of [['team:football:epl:1',state([]).preferences],['competitor:tennis:atp:alex-de-minaur',state([]).preferences],[null,state(['team:football:epl:1','competitor:tennis:atp:alex-de-minaur']).preferences]]){
   const results=[];
   for(const mode of ['global','scoped']){
-   const handler=unit.exports.createFeedHandler({clock,load:()=>({...dependencies,readLiveSnapshots:async scope=>({sources:await store.read(mode==='global'?{}:scope),revision:'same-comparison',readAt:Date.now(),stale:false})})});
+   const handler=unit.exports.createFeedHandler({clock,load:()=>({...dependencies,readLiveSnapshots:async scope=>{expectedReadBudget=mode==='global'?3000:5000;if(mode!=='global')assert.equal(scope.interactive,true);return {sources:await store.read(mode==='global'?{}:scope),revision:'same-comparison',readAt:Date.now(),stale:false};}})});
    const res=response();await handler({url:'/api/feed?scope=athletes&limit=50'+(participantId?'&participantId='+participantId:''),method:'POST',headers:{},body:{preferences:prefs,eventUserState:{}}},res);assert.equal(res.statusCode,200);results.push(res.body);
   }
   // Build at a stable instant: the response's generation time is presentation metadata.

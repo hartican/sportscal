@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v560";
-const SHELL_VERSION = "560";
+const CACHE_NAME = "nothingsport-shell-v564";
+const SHELL_VERSION = "564";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -64,8 +64,8 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=560",
-  "/assets/js/follow-schedule-panel.js?v=558",
+  "/assets/js/app-shell-runtime.js?v=564",
+  "/assets/js/follow-schedule-panel.js?v=562",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
   "/config/cricket-innings.js?v=486",
@@ -106,12 +106,12 @@ const APP_SHELL = [
   "/config/match-centre.js?v=528",
   // An upgrading page can receive this deferred module from its old worker.
   // Own it in the new cache before activation removes that old cache.
-  "/assets/js/match-centre-ui.js?v=539",
+  "/assets/js/match-centre-ui.js?v=563",
   "/assets/js/milestone-alerts-ui.js?v=535",
   "/config/feed-live-scores.js?v=556",
   "/config/feed-live-score-loader.js?v=556",
   "/config/athletes.js?v=471",
-  "/assets/js/athletes-ui.js?v=551",
+  "/assets/js/athletes-ui.js?v=563",
   // Profile UI caches after first use; optional detail stays out of shell budget.
   "/config/football-directory.js",
   "/config/joint-tennis-tournament.js",

@@ -153,7 +153,7 @@ const footballParticipants = footballDirectory.teams.map(team => ({
   shortName:team.shortName || team.displayName,
   metadata:{ titleAliases:team.aliases || [team.displayName] },
 }));
-assert.equal(footballParticipants.length, 96, "all five active football leagues must remain available to the identity resolver");
+assert.equal(footballParticipants.length, 108, "all six active football leagues must remain available to the identity resolver");
 footballParticipants.forEach(team => {
   const resolved = identities.participantMarksForEvent({ key:footballDirectory.leagues.find(league => league.id === team.leagueId)?.key, participantIds:[team.id] }, footballParticipants, team.displayName);
   assert.equal(resolved.length, 1, `missing directory crest for ${team.displayName}`);

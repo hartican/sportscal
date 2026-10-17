@@ -1,6 +1,14 @@
 # Restore the intended notification hosting limit
 
-17 October 2026 Sydney. Small configuration repair; production acceptance is recorded below after the normal release.
+17 October 2026 Sydney. Small configuration repair, accepted in production.
+
+## Accepted production proof
+
+Exact main snapshot `fb7d695cb40d4cdc124c5137bb1a49fc487c2117` passed [normal run 38970209671](https://github.com/hartican/sportscal/actions/runs/38970209671), including every required safety, private-input and public release gate. Fresh READY deployment `dpl_4s7oxqMWxPrgUse2DyEqpQdBYrYi`, release metadata and three aliases agree; five core served hashes match. Fresh deployment configuration explicitly retains both notification properties and matches every other published function setting. App/cache remains 560 with identical UI/data/handler bytes; previous app560 browser and upgrade/offline evidence is retained within its exact boundary. The required complete production workflow ran once; targeted local checks avoided a duplicate full local replay and unchanged browser rehearsal. No gate changed.
+
+The normal list request took 4.75 seconds, with five displayed and five selected fixtures; its selected read took 387 ms. This ordinary observation is not a controlled comparison, cold-server or timed-phone proof. The existing normal release supplied its bounded reads; no warming or retry was added.
+
+Evidence: `release-summary.json`, `public-match-timings.json`, normal `pipeline/` artifacts and private `production-run.log` in the output folder below. A timed 30-second termination, actual push receipt, effective old fallback and any cost or latency saving were not measured. Whole-sport certification and the retained World Cup profile failure remain open.
 
 ## Finding and scope
 
@@ -14,7 +22,7 @@ Merge the two declarations so the existing notification route keeps both its req
 
 The existing notification validator now parses the actual deployment configuration and requires both properties. It failed before the repair (`undefined !== 30`) and passes afterward, including its existing mocked registration, cancellation, permissions and dispatch scenarios. No real notification is sent. A parsed configuration comparison confirms the restored duration is the only effective hosting change.
 
-All six final app560 UI inputs match the accepted frozen release exactly. Reuse its upgrade/offline and affected browser evidence within that byte-identical boundary. Do not repeat phone checks or change the cache version for this hosting-only repair. The normal serialized production workflow must run all required gates on the published snapshot and accept the new deployment/configuration before this is labelled delivered.
+All six final app560 UI inputs match the accepted frozen release exactly. Reuse its upgrade/offline and affected browser evidence within that byte-identical boundary. Do not repeat phone checks or change the cache version for this hosting-only repair. The normal serialized production workflow ran all required gates on the published snapshot and accepted the new deployment/configuration, as recorded above.
 
 Local evidence: `/Users/jackhartican/Documents/AI/Codex/notification-function-budget-20261017/` (`regression-before.log`, `regression-after.log`, `local-change-proof.json`, `deployment-config-before.json`).
 
