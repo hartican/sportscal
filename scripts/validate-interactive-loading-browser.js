@@ -9,6 +9,8 @@ async function run(){
   try{for(const theme of ['day','night']){
    const page=await browser.newPage({viewport:{width:390,height:844},hasTouch:true,serviceWorkers:'block'});
    const errors=[];page.on('pageerror',e=>errors.push(e.message));
+   let releaseWarm;const warmGate=new Promise(resolve=>{releaseWarm=resolve;});
+   await page.route('**/config/startup-view-cache.js*',async route=>{await warmGate;await route.continue();});
    await page.addInitScript(theme=>localStorage.setItem('ns_preferences_v1',JSON.stringify({version:24,onboardingComplete:true,theme,showSpoilers:true,selectedSelectorEntityIds:['sport:nrl'],followedSports:['nrl'],fantasyDeadlines:{enabled:false}})),theme);
    const fixture={id:'fixture:nrl:qa-loading',key:'nrl',sport:'NRL',name:'Broncos v Storm',status:'live',startTimeUtc:new Date(Date.now()-3600000).toISOString(),statusCheckedAt:new Date().toISOString(),sourceCheckedAt:new Date().toISOString(),homeParticipantId:'team:nrl:broncos',awayParticipantId:'team:nrl:storm',participantIds:['team:nrl:broncos','team:nrl:storm'],participants:[{id:'team:nrl:broncos',name:'Broncos'},{id:'team:nrl:storm',name:'Storm'}]};
    fixture.date=new Date(Date.now()+11*3600000).toISOString().slice(0,10);
@@ -41,6 +43,12 @@ async function run(){
    await new Promise(resolve=>setTimeout(resolve,4000));assert(memberRelease);memberHold=false;memberRelease();
    await page.locator('.match-centre-card').waitFor();await status.waitFor({state:'hidden'});
    const before=await page.locator('.mc-score-cell').allTextContents();assert(before.includes('12')&&before.includes('6'));
+   // Idle warm-up and an earlier direct open must execute the same UI once.
+   // A second version reinitialises private view/expansion/refresh state.
+   await page.evaluate(()=>{void loadDeferredStartupContext();});releaseWarm();await page.evaluate(()=>loadDeferredStartupContext());
+   const uiUrls=await page.evaluate(async()=>{const reads=[...loadDeferredScript.requests].filter(([url])=>new URL(url).pathname==='/assets/js/match-centre-ui.js');await Promise.all(reads.map(([,promise])=>promise));return reads.map(([url])=>new URL(url).pathname+new URL(url).search);});
+   assert.equal(new Set(uiUrls).size,1,'Idle warm-up and direct navigation must share one Match Centre UI version');
+   assert.equal(await page.getByRole('tab',{name:'Everything',exact:true}).getAttribute('aria-selected'),'true','Warm-up cannot reset the chosen view');
    await page.clock.install();memberHold=true;memberRelease=null;
    await page.getByRole('button',{name:'Refresh Match Centre',exact:true}).click();await status.waitFor();
    assert.match(await status.innerText(),/Existing scores stay visible/);assert.deepEqual(await page.locator('.mc-score-cell').allTextContents(),before);

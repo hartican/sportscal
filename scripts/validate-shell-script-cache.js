@@ -9,6 +9,11 @@ for(const src of scripts){const url=new URL(src,'https://example.test/');assert(
 const follow=fs.readFileSync('assets/js/follow-presentation-ui.js','utf8');
 const navigation=follow.match(/loadDeferredScript\('([^']*follow-navigation\.js\?v=\d+)'\)/)?.[1];
 assert(navigation&&cached.has('/'+navigation),'First Follow open must use the exact cached navigation dependency: '+navigation);
+const warm=fs.readFileSync('config/startup-view-cache.js','utf8');
+const centreUrls=[index,warm].flatMap(source=>[...source.matchAll(/loadDeferredScript\(['"](assets\/js\/match-centre-ui\.js\?v=\d+)['"]\)/g)].map(match=>match[1]));
+assert.equal(centreUrls.length,2,'Direct navigation and idle warm-up both declare their Match Centre dependency');
+assert.equal(new Set(centreUrls).size,1,'Idle warm-up must not execute a second Match Centre UI version and reset private state');
+assert(cached.has('/'+centreUrls[0]),'Both Match Centre entry paths use the exact installed cached module');
 let milestoneLoaders=0;
 for(const directory of ['config','assets/js'])for(const file of fs.readdirSync(directory,{recursive:true}).filter(file=>file.endsWith('.js'))){
  const source=fs.readFileSync(directory+'/'+file,'utf8');
