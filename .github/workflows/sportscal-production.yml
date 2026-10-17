@@ -132,6 +132,8 @@ jobs:
           node scripts/validate-hobby-feed-client.js
           node scripts/validate-hobby-deployments.js
           node scripts/validate-server-feed.js
+          node scripts/validate-feed-action-lookup.js
+          node scripts/validate-feed-request-cooperation.js
           node scripts/validate-follow-policy-parity.js
           node scripts/validate-f1-parent-feed.js
           node scripts/validate-notification-dispatch-recovery.js

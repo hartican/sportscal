@@ -73,8 +73,11 @@
 
   function resolveAction(event, actions){
     const source = actions && typeof actions === "object" && !Array.isArray(actions) ? actions : {};
+    return resolveMatchedAction(event,source,matchingKeys(event,source));
+  }
+
+  function resolveMatchedAction(event,source,matchedKeys){
     const key = stableKey(event);
-    const matchedKeys = matchingKeys(event, source);
     const selectedKey = matchedKeys
       .map((matchedKey, index) => ({
         key: matchedKey,
@@ -93,6 +96,25 @@
       matchedKey: selectedKey,
       matchedKeys,
       action: selectedKey ? (()=>{const selected=source[selectedKey],purged=matchedKeys.map(k=>source[k]).find(a=>a.isPurged);return purged?{...selected,isPurged:true,purgedAt:purged.purgedAt}:selected;})() : null,
+    };
+  }
+
+  // One immutable request snapshot. Mutable browser callers keep resolveAction.
+  function createActionResolver(actions){
+    const source=actions&&typeof actions==='object'&&!Array.isArray(actions)?actions:{};
+    const aliases=new Map(),order=new Map();
+    for(const [key,action] of Object.entries(source)){
+      if(!action||typeof action!=='object'||Array.isArray(action))continue;
+      order.set(key,order.size);
+      for(const alias of aliasesForStoredAction(key,action)){
+        if(!aliases.has(alias))aliases.set(alias,[]);
+        aliases.get(alias).push(key);
+      }
+    }
+    return event=>{
+      const keys=new Set();
+      for(const alias of aliasesForEvent(event))for(const key of aliases.get(alias)||[])keys.add(key);
+      return resolveMatchedAction(event,source,[...keys].sort((a,b)=>order.get(a)-order.get(b)));
     };
   }
 
@@ -157,6 +179,7 @@
       return resolveAction(event, actions).action || {};
     },
     aliasesForEvent,
+    createActionResolver,
     matchingKeys,
     migrateActions,
     resolveAction,
