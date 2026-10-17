@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="562">
+<meta name="app-shell-version" content="563">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=562" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=563" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -136,6 +136,10 @@ to{opacity:1;transform:translateY(0) scale(1);}
 .header-hydration-slot{position:relative;height:44px;flex:0 0 72px;}
 #headerProgressRing,.header-date-badge{position:absolute;inset:0;}
 #headerProgressRing{display:grid;place-items:center;z-index:2;pointer-events:none;transform:translateZ(0);}
+.read-loading-status{display:flex;align-items:center;gap:.55em;color:var(--text-dim);font-size:.8rem;line-height:1.4}
+.read-loading-status::before{content:"";inline-size:.9em;block-size:.9em;flex:0 0 .9em;border:2px solid currentColor;border-inline-end-color:transparent;border-radius:50%;animation:read-status-spin .8s linear infinite}
+@keyframes read-status-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.read-loading-status::before{animation:none}}
 .loading-indicator-overlay{position:absolute;inset:0;display:grid;place-items:center;contain:layout paint;}
 .header-hydration-slot > [hidden]{display:none !important;}
 .header-date-badge{display:flex;min-width:72px;min-height:44px;flex-direction:column;align-items:center;justify-content:center;color:var(--text);font:950 .72rem/.95 'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:.055em;text-transform:uppercase;}
@@ -2009,7 +2013,7 @@ header.top,#calendarControls,#mainContent,.app-footer,#jumpTodayBtn{animation:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=562"></script>
+<script src="assets/js/app-shell-runtime.js?v=563"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -3356,7 +3360,7 @@ async function loadAthletes(){
   if((activeTab!=='follow'||followHomeView!=='favourites'))return;
   if(globalThis.NOTHINGSPORTS_ATHLETES_UI){globalThis.NOTHINGSPORTS_ATHLETES_UI.start();return;}
   const panel=document.getElementById('listView');renderFollowHomeLoading(panel);
-  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/athletes.js?v=471'),loadDeferredScript('config/participant-directory.js?v=512')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=551')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
+  loadAthletes.pending ||= Promise.all([loadDeferredScript('config/athletes.js?v=471'),loadDeferredScript('config/participant-directory.js?v=512')]).then(()=>loadDeferredScript('assets/js/athletes-ui.js?v=563')).then(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))globalThis.NOTHINGSPORTS_ATHLETES_UI.start();}).catch(()=>{if((activeTab==='follow'&&followHomeView==='favourites'))renderFollowHomeLoading(panel,true);}).finally(()=>{loadAthletes.pending=null;});
   return loadAthletes.pending;
 }
 async function openAthleteProfile(id,label,sportKey,trigger){
@@ -3364,7 +3368,7 @@ async function openAthleteProfile(id,label,sportKey,trigger){
   const route=location.href,tab=activeTab,view=followHomeView;
   const request=openAthleteProfile.request=(openAthleteProfile.request||0)+1;
   await Promise.all([loadDeferredScript('config/athletes.js?v=471'),loadDeferredScript('config/participant-directory.js?v=512')]);
-  await loadDeferredScript('assets/js/athletes-ui.js?v=551');
+  await loadDeferredScript('assets/js/athletes-ui.js?v=563');
   if(request===openAthleteProfile.request&&location.href===route&&activeTab===tab&&followHomeView===view&&owner===(serverSyncClient?.sessionSubject()||'public'))globalThis.NOTHINGSPORTS_ATHLETES_UI.open(id,label,sportKey,trigger);
 }
 
@@ -12501,7 +12505,7 @@ async function loadMatchCentre(){
   const panel=document.getElementById('listView');
   if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return;}
   panel.className='match-centre';panel.textContent='Loading Match Centre…';
-  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=528'),loadDeferredScript('config/score-details.js?v=527'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=539')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
+  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=528'),loadDeferredScript('config/score-details.js?v=527'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=563')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
 }
 function renderTeamsAndPlayersDirectory(container){
   if(typeof globalThis.renderTeamsAndPlayersDirectoryLoaded==='function')return globalThis.renderTeamsAndPlayersDirectoryLoaded(container);

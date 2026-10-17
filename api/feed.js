@@ -97,7 +97,7 @@ function createFeedHandler({load=feedDependencies,authenticate=()=>require('../l
           scopeCache.set(scopeKey,{body:JSON.stringify(profileScope),etag:'',expiresAt:Infinity});
         }
       }
-      t=performance.now();const snapshot=await d.readLiveSnapshots(matchCentreOnly?{scope:'match-centre',preserveIds}:profileScope||undefined).catch(()=>null);mark('live',performance.now()-t);
+      t=performance.now();const snapshot=await d.readLiveSnapshots(matchCentreOnly?{scope:'match-centre',preserveIds,interactive:true}:profileScope?{...profileScope,interactive:true}:undefined).catch(()=>null);mark('live',performance.now()-t);
       const now=clock();
       const {SERVER_FEED_BUILD_VERSION,SERVER_FEED_SCHEMA_VERSION,eventFeed}=d;
       const key=digest({matchCentreOnly,athletesOnly,participantId,userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});

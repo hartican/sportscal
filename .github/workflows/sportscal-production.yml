@@ -238,6 +238,7 @@ jobs:
           node scripts/validate-accepted-result-projection.js
           node scripts/validate-accepted-result-continuity.js
           node scripts/validate-backend-efficiency.js
+          node scripts/validate-interactive-snapshot-budget.js
           node scripts/validate-notifications.js
           node scripts/validate-milestone-alerts.js
           node scripts/validate-milestone-source-budget.js
