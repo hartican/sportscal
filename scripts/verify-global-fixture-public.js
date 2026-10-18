@@ -14,24 +14,25 @@ async function main({fetchImpl=globalThis.fetch,timer=()=>performance.now(),cloc
  try{response=await fetchImpl(url.href,{method:'GET',headers:{'Cache-Control':'no-cache'},cache:'no-store',signal:AbortSignal.timeout(15000)});}
  catch{throw Error('Public global fixture request did not complete');}
  try{text=await response.text();}
- catch{throw Error('Public global fixture body did not complete (HTTP '+response.status+')');}
+ catch{throw Error('Public global fixture body did not complete (HTTP '+(Number.isInteger(response.status)?response.status:'invalid')+')');}
  const elapsedMs=Math.max(0,timer()-started),finishedAt=clock();
- assert.equal(response.status,200,'Public global fixture response HTTP status');
+ assert(response.status===200,'Public global fixture response HTTP status must be 200');
  let body;try{body=JSON.parse(text);}catch{throw Error('Public global fixture response was not valid JSON');}
  // A saved fallback can have a valid history/schema. Diagnose degradation first.
  if(body?.stale===true)throw Error('Global fixture snapshot is degraded; saved membership is not live release proof');
- assert.equal(body?.stale,false,'Global fixture snapshot must explicitly be healthy');
- assert.equal(body.schemaVersion,'athlete-participation-live.v1','Expected public participation projection');
+ // Boolean assertions keep response-controlled values out of CLI diagnostics.
+ assert(body?.stale===false,'Global fixture snapshot must explicitly be healthy');
+ assert(body.schemaVersion==='athlete-participation-live.v1','Expected public participation projection');
  assert(Array.isArray(body.history),'Public participation history must be an array');
- assert.equal(typeof body.revision,'string','Global fixture revision must be present');
+ assert(typeof body.revision==='string','Global fixture revision must be present');
  assert(body.revision.length>0,'Global fixture revision cannot be empty');
- assert.equal(body.maxAgeSeconds,30,'Healthy global snapshot retains its existing cache budget');
- const generated=Date.parse(body.generatedAt);
+ assert(body.maxAgeSeconds===30,'Healthy global snapshot retains its existing cache budget');
+ const generated=typeof body.generatedAt==='string'?Date.parse(body.generatedAt):NaN;
  assert(Number.isFinite(generated),'Global fixture response needs a valid generation time');
  // This is response-generation freshness, not a new sporting observation clock.
  assert(generated>=startedAt-5000&&generated<=finishedAt+5000,'Global fixture response generation must belong to this request');
  const result={schemaVersion:'global-fixture-public-release.v1',sha,healthyGlobalSnapshot:true,history:body.history.length,
-  elapsedThroughBodyMs:Number(elapsedMs.toFixed(2)),generatedAt:body.generatedAt,
+  elapsedThroughBodyMs:Number(elapsedMs.toFixed(2)),generatedAt:new Date(generated).toISOString(),
   limits:'One public global read via existing participation projection; no account or provider lookup. Elapsed includes catalogue/merge/network, not isolated SQL time. Snapshot cache remains30s; repeated fresh rounds and physical-device proof are separate.'};
  log(JSON.stringify(result));return result;
 }

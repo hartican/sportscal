@@ -21,19 +21,28 @@ async function probe({body=healthy,status=200,textFailure,fetchFailure,raw,clock
  const cases=[
   [{body:{stale:true}},/Global fixture snapshot is degraded/],
   [{body:{...healthy,stale:undefined}},/explicitly be healthy/],
+  [{body:{...healthy,stale:'PRIVATE_STALE'}},/explicitly be healthy/],
   [{status:503,raw:'<html>PRIVATE_ERROR<\/html>'},/HTTP status/],
   [{raw:'PRIVATE_NOT_JSON'},/not valid JSON/],
   [{textFailure:true},/body did not complete \(HTTP 200\)/],
   [{fetchFailure:true},/request did not complete/],
-  [{body:{...healthy,schemaVersion:'wrong'}},/participation projection/],
+  [{body:{...healthy,schemaVersion:'PRIVATE_SCHEMA'}},/participation projection/],
   [{body:{...healthy,history:null}},/history must be an array/],
   [{body:{...healthy,revision:''}},/cannot be empty/],
   [{body:{...healthy,maxAgeSeconds:300}},/cache budget/],
+  [{body:{...healthy,maxAgeSeconds:'PRIVATE_CACHE'}},/cache budget/],
   [{body:{...healthy,generatedAt:'unknown'}},/valid generation time/],
   [{body:{...healthy,generatedAt:new Date(stamp-60000).toISOString()}},/belong to this request/],
   [{body:{...healthy,generatedAt:new Date(stamp+60000).toISOString()}},/belong to this request/],
  ];
  for(const [options,message] of cases){const test=await probe(options);await assert.rejects(test.task,error=>message.test(error.message)&&!error.message.includes('PRIVATE_'));assert.equal(test.counts().requests,1,'Failure never retries');assert.equal(test.counts().logs,0);}
+ // Date.parse permits comments; successful receipts must emit only a normalised
+ // instant, never the provider-controlled date string or revision/history.
+ let safeLog='';
+ const permissiveDate='18 Oct 2026 00:00:00 GMT (PRIVATE_DATE)';
+ assert.equal(Date.parse(permissiveDate),stamp);
+ await main({sha,clock:()=>stamp,timer:()=>100,log:value=>{safeLog=value;},fetchImpl:async()=>({status:200,text:async()=>JSON.stringify({...healthy,generatedAt:permissiveDate,revision:'PRIVATE_REVISION',history:[{note:'PRIVATE_HISTORY'}]})})});
+ assert(!safeLog.includes('PRIVATE_'),'Healthy aggregate receipts cannot echo response-controlled strings');
  // Exercise the existing actual route: athlete history still reads ids:[] and
  // propagates global degradation. No new public route or test-only app flag.
  const {createLiveFixtureHandler}=require('../lib/live-fixture-handler');
