@@ -28,6 +28,7 @@ function item(event,{id='FIXTURE0001',channelId='unreviewed',title:heading=title
 }
 const matches=(event,patch)=>selection.contextMatches(asVideo(item(event,patch)),event,now);
 async function main(){
+  require('./validate-rugby-highlight-editions');
   // This assertion fails on the pre-expansion selector: F1 was always scored as
   // an unreviewed source even on its own official channel.
   const first=item(fixtures.f1,{channelId:'UCB_qr75-ydFVKSF9Dmo6izg'});
