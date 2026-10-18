@@ -25,3 +25,12 @@ Initial Standards review is clear. Spec review found one missing mixed actual-ha
 Independent Spec/Standards review, normal cloud gates, exact published SHA/READY/aliases/served-byte verification and public acceptance are required before delivery. At this source checkpoint publication is pending. No manual reminder send or live account/database probe is part of acceptance.
 
 Evidence: `/Users/jackhartican/Documents/AI/Codex/nothingsport-operations-20261018/reminder-review/`. The later real-source Football timeout is a separate closed verification attempt; it does not establish reminder causality. Wider global Feed loading, genuine scheduled refresh success, physical-phone delivery and current original-profile playback remain open.
+
+
+## Accepted production delivery
+
+Published/deployed `0c287cedb6ef028c2944fd56ddea82b4ab4a1496`, app/cache 564. [Normal workflow 39120544113](https://github.com/hartican/sportscal/actions/runs/39120544113) passed all 225 safety commands, public membership/selected acceptance and seven security routes. READY `dpl_DETRjw2KZk1mxRKv4DFamoDsrt9W`, production alias, three aliases and ten served hashes match the exact SHA. Fresh served data retains 12 A-League clubs/156 fixtures and the original Tennis calendar.
+
+Earlier `f65baf60` supplied the 16 spaced fresh reads and eight hosted A-League cases; relevant runtime/data/browser inputs are unchanged. These are retained dated evidence, not new executions or phone/delivery proof. No manual reminder send, account write or new production database probe was used for this release. The exact fixture-read cause, wider global Feed, current original-profile/playback and physical-phone evidence remain open.
+
+Full Markdown/HTML and machine receipts: `/Users/jackhartican/Documents/AI/Codex/nothingsport-reminder-delivery-20261018/`. Source review retains the initial P2 gap and both final clear closures. The next stale-score/global diagnosis is separate and cannot retroactively establish this module's latency or notification reliability.
