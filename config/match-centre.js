@@ -158,16 +158,20 @@
   if(!final(e)&&!interrupted(e)&&!['live','in-progress','in_progress','ongoing','abandoned','cancelled','canceled'].includes(e.status))return {home:null,away:null};
   const pair=pairedScore(e);return {home:pair?Number(pair.home.score):null,away:pair?Number(pair.away.score):null};
  }
- // Score, status and freshness belong to a single source observation.
+ // Keep the independent score/status clocks through status-only receipts.
  function observation(prior,next){
   if(!prior)return next;
   const stamp=x=>Date.parse(x.observationCheckedAt||x.statusCheckedAt||x.scoreCheckedAt||x.checkedAt||'');
   const settled=e=>final(e)||/^(abandoned|cancelled|canceled)$/.test(e.status||'');
   if(settled(prior)&&!settled(next)||Number.isFinite(stamp(prior))&&(!Number.isFinite(stamp(next))||stamp(next)<stamp(prior)))return {...prior,stale:true};
   const hasScore=s=>s&&(s.home!=null||s.away!=null||s.innings?.length||s.sets?.length||s.games||s.golf||s.racing||s.classification?.length);
+  const sameIdentity=id(prior)&&id(prior)===id(next)&&['sport','homeParticipantId','awayParticipantId'].every(key=>prior[key]==null||next[key]==null||prior[key]===next[key]);
+  const scoreAt=Date.parse(next.scoreCheckedAt||''),priorScoreAt=Date.parse(prior.scoreCheckedAt||'');
+  const newerScoreReceipt=Number.isFinite(scoreAt)&&(!Number.isFinite(priorScoreAt)||scoreAt>priorScoreAt);
   // An interruption-only receipt cannot erase the last score or renew its
-  // observation clock. Resume updates can likewise arrive before scores do.
-  if((unexpected(prior)||unexpected(next))&&!hasScore(next.score)&&hasScore(prior.score))return {...next,score:prior.score,scoreCheckedAt:prior.scoreCheckedAt||null,checkedAt:prior.checkedAt||null,stale:true};
+  // observation clock. Carry that specific retention across repeated resumed
+  // play receipts; a new score receipt (including a clear) ends the chain.
+  if(sameIdentity&&(unexpected(prior)||unexpected(next)||prior.interruptionScoreRetained===true)&&!hasScore(next.score)&&!newerScoreReceipt&&hasScore(prior.score))return {...next,score:prior.score,scoreCheckedAt:prior.scoreCheckedAt||null,checkedAt:prior.checkedAt||null,stale:true,interruptionScoreRetained:true};
   return {...next};
  }
  function compact(e,{checkedAt=null,stale=false,rubbers=false,racing=false}={}){

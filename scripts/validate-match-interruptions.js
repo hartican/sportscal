@@ -51,6 +51,44 @@ async function run(){
  assert.deepEqual(merged.score,original.score,'An interruption-only update retains a 0/0 innings');
  assert.equal(merged.scoreCheckedAt,old);assert.equal(merged.statusCheckedAt,stamp);assert.equal(merged.stale,true,'Retaining a score never renews its clock');
  assert.deepEqual(model.observation(merged,{...missing,status:'live',statusCheckedAt:'2026-10-18T10:01:00Z'}).score,original.score,'A scoreless resumed-play update retains the last innings');
+ // Match the selected-poll caller: its saved observation becomes the prior
+ // for every subsequent receipt, including repeated scoreless live updates.
+ const retainedSequences=[
+  {home:0,away:0},
+  {home:12,away:9},
+  {innings:[{participantId:'controlled:home',runs:0,wickets:0,overs:'0.0'}]},
+  {sets:[{home:0,away:0}],games:{home:0,away:0}}
+ ];
+ for(const score of retainedSequences){
+  const start={id:'controlled:resumption',sport:'controlled',homeParticipantId:'controlled:home',awayParticipantId:'controlled:away',status:'suspended',score,scoreCheckedAt:old,checkedAt:old,statusCheckedAt:stamp};
+  const receipt=at=>({id:start.id,sport:start.sport,homeParticipantId:start.homeParticipantId,awayParticipantId:start.awayParticipantId,status:'live',score:{home:null,away:null},scoreCheckedAt:null,checkedAt:at,statusCheckedAt:at});
+  let saved=start;
+  for(const at of ['2026-10-18T10:01:00Z','2026-10-18T10:02:00Z','2026-10-18T10:03:00Z']){
+   saved=model.observation(saved,receipt(at));
+   assert.deepEqual(saved.score,score,'Every consecutive scoreless resumption receipt retains the last score');
+   assert.equal(saved.scoreCheckedAt,old);assert.equal(saved.checkedAt,old);assert.equal(saved.statusCheckedAt,at);assert.equal(saved.status,'live');assert.equal(saved.stale,true);
+  }
+  const older=model.observation(saved,receipt('2026-10-18T10:02:30Z'));
+  assert.deepEqual(older.score,score);assert.equal(older.statusCheckedAt,saved.statusCheckedAt,'An out-of-order receipt cannot renew status or score clocks');
+  const freshAt='2026-10-18T10:04:00Z',freshScore={home:1,away:0},fresh=model.observation(saved,{...receipt(freshAt),score:freshScore,scoreCheckedAt:freshAt});
+  assert.deepEqual(fresh.score,freshScore);assert.equal(fresh.scoreCheckedAt,freshAt);assert.equal(fresh.interruptionScoreRetained,undefined,'Genuine new scores end the retention chain');
+  const nextEmpty=receipt('2026-10-18T10:05:00Z');
+  assert.deepEqual(model.observation(fresh,nextEmpty),nextEmpty,'Ordinary live receipts do not become an unconditional score union');
+  const clear={...receipt(freshAt),scoreCheckedAt:freshAt};
+  assert.deepEqual(model.observation(saved,clear),clear,'A newer explicit score receipt may clear the score');
+  assert.deepEqual(model.observation(start,clear),clear,'Explicit clears also win directly during resumption');
+  const partial={...receipt(freshAt),score:{home:0,away:null},scoreCheckedAt:freshAt};
+  assert.deepEqual(model.observation(saved,partial),partial,'A supplied partial score is not combined with an older side');
+  assert.equal(model.observation(saved,{...receipt(freshAt),scoreCheckedAt:old}).scoreCheckedAt,old,'An unchanged old score clock is not a new clear');
+  for(const changed of [{id:'controlled:another-fixture'},{homeParticipantId:'controlled:new-home'},{awayParticipantId:'controlled:new-away'},{sport:'another-sport'}]){
+   const next={...receipt(freshAt),...changed};assert.deepEqual(model.observation(saved,next),next,'Retained scores cannot cross a fixture/side/sport correction');
+   assert.deepEqual(model.observation(start,next),next,'The first interruption receipt also respects identity');
+  }
+  for(const status of ['completed','abandoned','cancelled']){
+   const terminal={...saved,status},result=model.observation(terminal,receipt(freshAt));
+   assert.equal(result.status,status);assert.deepEqual(result.score,score);assert.equal(result.scoreCheckedAt,old,'Terminal observations retain their original score clock');
+  }
+ }
  const resumed=model.compact({...fixture,status:'live',statusText:null,statusCheckedAt:'2026-10-18T10:02:00Z',scoreCheckedAt:'2026-10-18T10:02:00Z',innings:[{...fixture.innings[0],runs:1}]});
  assert.equal(model.observation(merged,resumed).score.innings[0].runs,1);assert.equal(model.interruption(resumed),null);
  assert.deepEqual(model.observation(resumed,missing).score,resumed.score,'Older interruption receipts cannot replace newer play');
@@ -82,7 +120,7 @@ async function run(){
   assert.equal(reply.body.fixtures[0].score.innings[0].runs,0);assert.equal(reply.body.fixtures[0].scoreCheckedAt,old);assert(selectedReads<=1);
  }
  for(const [value,interval] of [[fixture,120000],[suspended,1800000],[confirmed,1800000]])assert.equal(model.interval(value,now),interval,'Cadence remains unchanged in the allocated first pass');
- console.log(JSON.stringify({constructed:true,providerRainHistory:false,retainedFixture:retained.id,enumeratedCases:scenarios,apiReads:reads,scoreClocksPreserved:true,cadenceUnchanged:true}));
+ console.log(JSON.stringify({constructed:true,providerRainHistory:false,retainedFixture:retained.id,enumeratedCases:scenarios,repeatedResumptionScoreShapes:retainedSequences.length,scorelessReceiptsPerShape:3,apiReads:reads,scoreClocksPreserved:true,cadenceUnchanged:true}));
 }
 if(require.main===module)run().catch(error=>{console.error(error);process.exitCode=1;});
 module.exports={run,fixture,now};
