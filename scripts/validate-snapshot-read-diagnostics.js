@@ -40,6 +40,7 @@ console.warn=(...args)=>warnings.push(args);
  }finally{console.warn=warn;}
  await validateGlobalTiming();
  await validateDefaultGlobalEnablement();
+ await validateLoggerRejections();
  await require('./validate-supabase-response-deadline')({offline:process.argv.includes('--offline')});
 })().catch(e=>{console.error(e);process.exitCode=1});
 
@@ -119,4 +120,28 @@ async function validateDefaultGlobalEnablement(){
   globalThis.fetch=oldFetch;console.warn=oldWarn;
   for(const name of names)previous[name]===undefined?delete process.env[name]:process.env[name]=previous[name];
  }
+}
+
+async function validateLoggerRejections(){
+ const {SupabaseRequestError}=require('../lib/supabase-server');
+ const failure=new SupabaseRequestError('PRIVATE_LOG_FAILURE',{status:504,payload:{code:'supabase_timeout',message:'PRIVATE_PAYLOAD'}});
+ const warnings=[],unhandled=[],old=console.warn;let time=0,calls=0,fail=false;
+ const onUnhandled=reason=>unhandled.push(reason);
+ process.on('unhandledRejection',onUnhandled);
+ console.warn=(label,json)=>{warnings.push([label,JSON.parse(json)]);return Promise.reject(Error('PRIVATE_LOGGER_REJECTION'));};
+ const store=createSnapshotStore({diagnostics:true,timer:()=>time,request:async path=>{
+  calls++;time+=1100;
+  if(path.endsWith('source_health'))return [{source_id:'PRIVATE_SOURCE',revision:1}];
+  if(fail)throw failure;
+  return {schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[{source_id:'PRIVATE_SOURCE',fixture:{...fixture,id:'PRIVATE_FIXTURE'}}]};
+ }});
+ try{
+  const result=await store.read();assert.equal(result[0].fixtures[0].id,'PRIVATE_FIXTURE','Rejected slow logger cannot replace successful facts');
+  fail=true;await assert.rejects(store.read(),error=>error===failure,'Rejected failure logger cannot replace the original typed error');
+  await new Promise(setImmediate);await new Promise(setImmediate);
+  assert.equal(warnings.length,2);assert.equal(warnings[0][1].event,'fixture_snapshot_read_slow');assert.equal(warnings[1][1].event,'fixture_snapshot_read_failed');
+  assert.equal(calls,4,'Logger rejection adds no fetch or retry');assert(!JSON.stringify(warnings).includes('PRIVATE_'),'Safe warnings contain no private fixture/source/error/logger text');
+  assert.equal(unhandled.length,0,'Rejected reader loggers must not produce unhandled rejection');
+ }finally{console.warn=old;process.removeListener('unhandledRejection',onUnhandled);}
+ console.log('Reader logger rejections: actual slow success and typed global failure unchanged, no unhandled rejection/private text, original4mocked calls passed.');
 }
