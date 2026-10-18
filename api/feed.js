@@ -103,18 +103,33 @@ function createFeedHandler({load=feedDependencies,authenticate=()=>require('../l
       const key=digest({matchCentreOnly,athletesOnly,participantId,userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});
       const hit=cache.get(key,+now);
       if(hit){response.setHeader('X-Feed-Cache','HIT');return send(hit,request.headers?.['if-none-match']===hit.etag?304:200);}
-      if(!resolved){t=performance.now();resolved=await d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,participantId:athletesOnly?participantId:null,copyEvents:false,cooperative:true});mark('resolve',performance.now()-t);}
-      const participants=new Map(d.canonicalSportContext.participants.map(p=>[p.id,p]));
-      resolved.participants.forEach(p=>participants.set(p.id,{...participants.get(p.id),...p}));
-      const events=d.overlaySnapshots(resolved.events,snapshot?.sources,{now,stale:!snapshot||snapshot.stale===true}).map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
-      const feed=await d.buildServerFeed({matchCentreOnly,athletesOnly,participantId,events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false,cooperative:true});
-      if(matchCentreOnly)feed.membershipStale=!snapshot||snapshot.stale===true;
-      feed.fixtureSnapshotStale=!snapshot||snapshot.stale===true;
-      if(athletesOnly&&cursor===0)feed.athletes=require('../lib/athletes').projection({participants:[...participants.values()],preferences:userState.preferences,events});
-      t=performance.now();const body=JSON.stringify(feed);mark('serialize',performance.now()-t);
-      const entry={body,etag:`"${digest([key,feed.generatedAt]).slice(0,24)}"`,expiresAt:expiry(events,now,d)};
-      cache.set(key,entry);response.setHeader('X-Feed-Cache','MISS');
-      if(process.env.VERCEL)console.log(JSON.stringify({event:'feed_timing',phases:timings,cards:feed.events.length,bytes:Buffer.byteLength(body)}));
+      const buildEntry=async()=>{
+        if(!resolved){t=performance.now();resolved=await d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,participantId:athletesOnly?participantId:null,copyEvents:false,cooperative:true});mark('resolve',performance.now()-t);}
+        const participants=new Map(d.canonicalSportContext.participants.map(p=>[p.id,p]));
+        resolved.participants.forEach(p=>participants.set(p.id,{...participants.get(p.id),...p}));
+        const events=d.overlaySnapshots(resolved.events,snapshot?.sources,{now,stale:!snapshot||snapshot.stale===true}).map(require('../lib/reviewed-au-viewing').reviewedAuViewing);
+        const feed=await d.buildServerFeed({matchCentreOnly,athletesOnly,participantId,events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false,cooperative:true});
+        if(matchCentreOnly)feed.membershipStale=!snapshot||snapshot.stale===true;
+        feed.fixtureSnapshotStale=!snapshot||snapshot.stale===true;
+        if(athletesOnly&&cursor===0)feed.athletes=require('../lib/athletes').projection({participants:[...participants.values()],preferences:userState.preferences,events});
+        t=performance.now();const body=JSON.stringify(feed);mark('serialize',performance.now()-t);
+        const entry={body,etag:`"${digest([key,feed.generatedAt]).slice(0,24)}"`,expiresAt:expiry(events,now,d)};
+        cache.set(key,entry);
+        if(process.env.VERCEL)console.log(JSON.stringify({event:'feed_timing',phases:timings,cards:feed.events.length,bytes:Buffer.byteLength(body)}));
+        return entry;
+      };
+      let entry;
+      // A follower can arrive after the builder's event/day boundary. Recheck
+      // every shared result against its own captured clock. At most two shared
+      // results are accepted as candidates; a still-expired result then gets a
+      // caller-owned build, rather than an unbounded chain of joined promises.
+      for(let sharedAttempts=0;sharedAttempts<2;sharedAttempts++){
+        entry=await cache.pendingEntry(key,buildEntry);
+        if(entry.expiresAt>+now)break;
+        cache.delete(key);
+      }
+      if(entry.expiresAt<=+now)entry=await buildEntry();
+      response.setHeader('X-Feed-Cache','MISS');
       return send(entry,200);
     }catch(error){
       const outgoing=(authDependencies||require('../lib/supabase-server')).publicError(error);
