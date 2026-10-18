@@ -271,6 +271,7 @@ jobs:
           node scripts/validate-compact-scores-database.js
           node scripts/validate-fixture-history-retention.js
           node scripts/validate-live-fixture-api.js
+          node scripts/validate-global-fixture-public.js
           node scripts/validate-laver-cup.js
       - name: Verify shared fixture publication input
         env:
@@ -288,6 +289,7 @@ jobs:
           node scripts/verify-production-release.js
           node scripts/verify-match-centre-public.js
           node scripts/validate-security-headers.js https://nothingsport.vercel.app
+          node scripts/verify-global-fixture-public.js
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         if: always()
         with:
