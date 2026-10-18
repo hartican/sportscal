@@ -6,8 +6,9 @@ const schema=require('./fixtures/bledisloe-identity-schema.json');
 const canonical='rugby-australia-new-zealand-2026-10-17',old='fixture:rugby:wr:e3cbae12-66b3-4835-b1ce-4014b63055c8',ra='fixture:rugby:ra:949627';
 const user='11111111-1111-4111-8111-111111111111',peer='22222222-2222-4222-8222-222222222222',install='33333333-3333-4333-8333-333333333333';
 const migrationSource=fs.readFileSync('supabase/migrations/'+fs.readdirSync('supabase/migrations').find(x=>x.endsWith('_bledisloe_future_identity_reconciliation.sql')),'utf8');
-// Freeze only the disposable fixture's cutover guard; the deployed migration
-// always uses the real clock. Also exercise its closing boundary below.
+// Pin the disposable fixture's cutover guard, and scope the historical rating
+// clock below. The deployed migration/functions always retain their real clock.
+// Both cutover and rating closing boundaries are exercised explicitly.
 const guard="if clock_timestamp()>='2026-10-17T05:00:00Z'::timestamptz";
 assert(migrationSource.includes(guard));
 const migration=migrationSource.replace(guard,"if '2026-10-02T12:00:00Z'::timestamptz>='2026-10-17T05:00:00Z'::timestamptz");
@@ -82,12 +83,35 @@ async function rejectScenario(db,sql,params,pattern,before){await db.exec('begin
  reminder=after.nothingsports_reminders[0];assert.equal(after.nothingsports_reminders.length,1);assert.equal(Date.parse(reminder.starts_at),Date.parse('2026-10-17T05:00:00Z'));assert.equal(Date.parse(reminder.remind_at),Date.parse('2026-10-17T04:45:00Z'));assert.equal(reminder.dispatched_at,null);assert.equal(reminder.delivery_started_at,null);assert.equal(reminder.schedule_state,'ready');
  assert.equal((await db.query('select count(*)::integer n from rehearsal_side_effects')).rows[0].n,0);assert.equal((await db.query("select count(*)::integer n from pg_trigger where not tgisinternal and tgenabled='D'")).rows[0].n,0);
  await db.exec('begin');await db.exec(migration);await db.exec('commit');assert.deepEqual(await snapshot(db),after,'unchanged rerun');
+ const aliases=[canonical,old,old.replace(/:/g,'-'),ra,ra.replace(/:/g,'-')];
+ const rateSignature='public.nothingsports_rate_v2(uuid,text,text,integer,timestamptz,timestamptz,text,text,text)';
+ const rateDefinition=(await db.query('select pg_get_functiondef($1::regprocedure) definition',[rateSignature])).rows[0].definition;
+ assert.equal(rateDefinition.split('clock_timestamp()').length,2,'Review the disposable rating clock seam if its source changes');
+ // Only this in-memory captured function gets an injectable clock; no schema
+ // fixture or production migration is edited. Restore its exact definition.
+ const ratingClock="coalesce(nullif(pg_catalog.current_setting('sportscal.rehearsal_rating_time',true),'')::timestamptz,pg_catalog.clock_timestamp())";
+ await db.exec(rateDefinition.replace('clock_timestamp()',ratingClock));
+ const rate=(id)=>db.query("select nothingsports_rate_v2($1,$2,'heat',3,'2026-10-17T04:45:00Z','2026-10-17T07:45:00Z','scheduled','rugby','men') result",[user,id]);
+ try{
+ await db.query("select set_config('sportscal.rehearsal_rating_time',$1,false)",['2026-10-17T04:59:59.999Z']);
  await db.exec('set role service_role');assert.equal((await db.query('select nothingsports_bledisloe_identity_ready() ready')).rows[0].ready,true);
- for(const id of [canonical,old,old.replace(/:/g,'-'),ra,ra.replace(/:/g,'-')]){
+ for(const id of aliases){
   assert.equal((await db.query("select nothingsports_nsc_award_points($1,$2,'heat_rating',1) n",[user,id])).rows[0].n,0);
-  const result=(await db.query("select nothingsports_rate_v2($1,$2,'heat',3,'2026-10-17T04:45:00Z','2026-10-17T07:45:00Z','scheduled','rugby','men') result",[user,id])).rows[0].result;assert.equal(result.eventId,canonical);assert.equal(result.pointsAwarded,0);
+  const result=(await rate(id)).rows[0].result;assert.equal(result.eventId,canonical);assert.equal(result.pointsAwarded,0);
   const receipt=(await db.query("select * from nothingsports_nsc_submit_rating($1,$2,'heat',3,'{}')",[user,id])).rows[0];assert(receipt.replayed);assert.equal(receipt.event_id,canonical);
  }
+ const beforeLate=await snapshot(db);
+ for(const clock of ['2026-10-17T05:00:00Z','2026-10-17T08:00:00Z']){
+  await db.query("select set_config('sportscal.rehearsal_rating_time',$1,false)",[clock]);
+  for(const id of aliases)await assert.rejects(rate(id),/phase_action_mismatch/,'A late Heat replay must still fail at and after kickoff');
+  assert.deepEqual(await snapshot(db),beforeLate,'Rejected late replay cannot alter activity, credits or saved state');
+ }
+ }finally{
+  await db.exec('reset role');await db.exec(rateDefinition);
+  assert.equal((await db.query('select pg_get_functiondef($1::regprocedure) definition',[rateSignature])).rows[0].definition,rateDefinition,'Restore the exact real-clock function after the historical replay');
+  await db.query("select set_config('sportscal.rehearsal_rating_time','',false)");
+ }
+ await db.exec('set role service_role');
  assert.equal((await db.query('select sum(points)::integer n from nothingsports_nsc_points')).rows[0].n,2);assert.equal(Date.parse((await db.query('select starts_at from nothingsports_score_fixtures')).rows[0].starts_at),Date.parse('2026-10-17T05:00:00Z'));
  const saved=(await db.query('select updated_at from nothingsports_user_state where user_id=$1',[user])).rows[0];
  const packet={user_id:user,expected_updated:saved.updated_at,items:[{fixture_id:old,aliases:[old],choice:'on',enabled:true,title:'Bledisloe',starts_at:'2026-10-17T05:45:00Z',precision:'exact'}]};
