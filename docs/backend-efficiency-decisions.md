@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Ordinary global Feed read measurements — 18 October 2026
+
+The trusted default live-snapshot reader may measure its existing global null-ID source-health/current-bundle pair, without extra requests, response cloning or body rereads. The factory remains opt-in; selected, near and participant reads retain their existing behaviour. Emit bounded allowlisted monotonic fetch/header/body/parse and leg/validation/projection metadata only on failure or a global read of at least two seconds. Fast success stays quiet. Logger throws and rejected returned promises cannot change facts or errors.
+
+Missing milestones and incomplete bytes stay unknown. Byte counts describe decoded UTF-8 text, not compressed wire or partial bytes; transport timing does not prove SQL execution or cancellation completion. Preserve complete membership, original freshness, last-good/stale flags, caches, existing retries/legacy compatibility, three-second global/default/selected and five-second trusted interactive budgets. No schema, source, scheduler, account or client change. Existing transport/socket and actual-reader/cache regressions plus independent review precede normal release. This is diagnostic preparation for an evidence-backed repair, not a demonstrated speed gain or a cure for sporting interruptions. [Evidence and limits](quality/global-feed-read-diagnostics-2026-10-18.md).
+
 ## Honest reminder phase diagnostics and partial outcomes — 18 October 2026
 
 The existing reminder owner may record fixed phase, allowlisted error code, HTTP status, elapsed time and remaining budget for failed or slow reconciliation and Impact operations. Never include recipients, IDs, paths, payloads, subscriptions, credentials or arbitrary upstream messages. Logging failure must not change delivery. Reuse existing requests, the three-second request bound, 27-second owner budget, two workers, admission/erasure fences and uncertain-send protection.
