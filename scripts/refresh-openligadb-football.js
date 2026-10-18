@@ -54,7 +54,7 @@ async function refresh({outputPath=DEFAULT_OUTPUT,fetchImpl=fetch,now=new Date()
   }
   // Never publish an empty/incomplete first import or erase a last-good season.
   if(retained.size!==2)throw new Error(`OpenLigaDB first import incomplete: ${failures.map(f=>f.league).join(', ')}`);
-  if(failures.length&&previous)return {payload:previous,failures,primaryFailures,wrote:backupChanged,resultRepairs:[]};
+  if(failures.length&&previous&&!primaryAccepted.length)return {payload:previous,failures,primaryFailures,wrote:backupChanged,resultRepairs:[]};
   const leagues=[...retained.values()];const payload={schemaVersion:'openligadb-football-public.v1',licence:'https://opendatacommons.org/licenses/odbl/1-0/',
     attribution:'Contains information from OpenLigaDB, made available under the Open Database License (ODbL). NS normalized fixture facts and identity mappings are provided with this dataset under ODbL.',
     identityMapping:registry.teams,

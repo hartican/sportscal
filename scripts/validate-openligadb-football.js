@@ -117,6 +117,21 @@ const identities=require('../config/card-identities');const unmappedArtwork=publ
     assert.deepEqual(compareIds(payload.events.filter(e=>e.competitionId===definition.competitionId).map(e=>e.id.split(':').at(-1))),compareIds(accepted),'fixtures and events share exactly one admission decision');
    }
   }
+  // A transport failure keeps only that competition's last-good snapshot;
+  // it must not suppress an independently validated peer competition update.
+  for(const failedLeague of Object.keys(COMPETITIONS)){
+   const peerLeague=Object.keys(COMPETITIONS).find(key=>key!==failedLeague),partialPath=path.join(dir,'transport-'+failedLeague+'.json');
+   const baseline=await refresh({...args,outputPath:partialPath,fetchImpl:fetchFor(packets)});
+   const input=structuredClone(packets);input[peerLeague][1].matchResults[0].pointsTeam1=2;
+   const partial=await refresh({...args,now:new Date(+args.now+3600000),outputPath:partialPath,fetchImpl:async url=>url.includes('/'+failedLeague+'/2026')?{ok:false,status:503}:fetchFor(input)(url)});
+   const failedId=COMPETITIONS[failedLeague].competitionId,peerId=COMPETITIONS[peerLeague].competitionId;
+   assert.deepEqual(partial.failures,[{league:failedLeague,message:'HTTP 503'}]);assert.deepEqual(partial.primaryFailures,partial.failures,'transport failure remains explicit, including after peer success');
+   assert.deepEqual(partial.payload.leagues.find(l=>l.competitionId===failedId),baseline.payload.leagues.find(l=>l.competitionId===failedId),'failed competition retains all facts and original individual/collection clocks');
+   for(const key of ['events','standings'])assert.deepEqual(partial.payload[key].filter(row=>row.competitionId===failedId),baseline.payload[key].filter(row=>row.competitionId===failedId),'failed competition derived output and clocks remain unchanged');
+   assert.equal(partial.payload.leagues.find(l=>l.competitionId===peerId).fixtures.find(f=>f.providerFixtureId==='2').result.homeScore,2,'an HTTP failure cannot discard an independently valid peer update');
+   assert.equal(partial.payload.events.find(e=>e.competitionId===peerId&&e.id.endsWith(':2')).homeScore,2,'derived event preserves the same peer update');
+   assert.deepEqual(JSON.parse(fs.readFileSync(partialPath,'utf8')),partial.payload,'scoped partial success persists the admitted candidate');accounting(partial.payload,input);
+  }
   let isolationCases=0;
   for(const scenario of require('./fixtures/openligadb-result-isolation-20261018.json').cases){
    const input=structuredClone(packets),bad=input.uel2026[0],peer=input.uel2026[1];
@@ -179,9 +194,20 @@ const identities=require('../config/card-identities');const unmappedArtwork=publ
    process.chdir(atomicRoot);const input=structuredClone(packets);input.uel2026.pop();
    await assert.rejects(require(cwd+'/scripts/quick-results').atomicRefresh({},{refreshOperation:async()=>{for(const name of Object.keys(originals))fs.writeFileSync(name,'candidate');fs.writeFileSync('data/new.json','{}');await refresh({...args,outputPath:structuralPath,fetchImpl:fetchFor(input)});}}),/OpenLigaDB rejected/);
    for(const [name,value]of Object.entries(originals))assert.equal(fs.readFileSync(name,'utf8'),value);assert(!fs.existsSync('data/new.json'));
+   const transportOutput=path.resolve('data/football.json');fs.writeFileSync(transportOutput,JSON.stringify(baseline));const transportBefore=fs.readFileSync(transportOutput),dataFiles=fs.readdirSync('data').sort();
+   const transportInput=structuredClone(packets);transportInput.uel2026[1].matchResults[0].pointsTeam1=2;
+   const transportFailure=new Error('OpenLigaDB scoped source failed: HTTP 503');
+   await assert.rejects(require(cwd+'/scripts/quick-results').atomicRefresh({},{refreshOperation:async()=>{
+    for(const name of Object.keys(originals))fs.writeFileSync(name,'transport-candidate');fs.writeFileSync('data/transport-new.json','{}');
+    const result=await refresh({...args,now:new Date(+args.now+3600000),outputPath:transportOutput,fetchImpl:async url=>url.includes('/ucl/')?{ok:false,status:503}:fetchFor(transportInput)(url)});
+    assert.equal(result.payload.events.find(e=>e.competitionId===COMPETITIONS.uel2026.competitionId&&e.id.endsWith(':2')).homeScore,2,'source candidate contains the valid peer correction before outer rollback');
+    assert.equal(result.failures.length,1,'canonical source failure is still reported');throw transportFailure;
+   }}),error=>error===transportFailure,'the outer canonical wrapper still rejects the reported source failure');
+   assert(fs.readFileSync(transportOutput).equals(transportBefore));for(const [name,value]of Object.entries(originals))assert.equal(fs.readFileSync(name,'utf8'),value);assert.deepEqual(fs.readdirSync('data').sort(),dataFiles,'canonical rollback removes new provider/runtime candidates and restores original bytes');
+
   }finally{process.chdir(cwd);}
   console.log(`OpenLiga result isolation: ${isolationCases} constructed missing/ambiguous/invalid-score cases cover actual refresh, last-good clocks, explicit omissions, RAW identity reconciliation, events, partial tables, healed0-0, repeat stability and structural/atomic rollback.`);
-  console.log('Refresh recovery: atomic first import, scoped IDs, partial/total failure retention and unchanged failed-source freshness passed.');
+  console.log('Refresh recovery: atomic first import, scoped IDs, bidirectional HTTP partial success, original failed-source facts/clocks and outer canonical rollback passed.');
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 })().catch(error=>{console.error(error);process.exitCode=1;});
 
