@@ -3,6 +3,7 @@
 "use strict";
 
 require('./validate-rlwc-result-fallback');
+require('./validate-editorial-provider-identities');
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");

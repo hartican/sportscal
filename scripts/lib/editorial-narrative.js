@@ -1,5 +1,7 @@
 "use strict";
 
+const eplIdentities = require("../../lib/epl-provider-identities");
+
 const GENERIC_COPY = /\b(?:exact matchup|date tbc|time tbc|schedule copy|main context and watch details|season narrowing|coming up, with the main context)\b/i;
 const ID_PATTERN = /^[a-z0-9][a-z0-9:._-]*$/;
 const ISO_DATE_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
@@ -252,8 +254,12 @@ function indexesFor(document){
 }
 
 function projectionTargetIds(record){
-  const ids = unique([record?.id, record?.eventId, record?.canonicalEventId,...(record?.sourceEventIds||[])].flatMap(value=>require('../../config/fixture-identity').fixtureAliases(value)).map(value => String(value || "")).filter(Boolean));
-  return unique([record?.id,record?.eventId,record?.canonicalEventId,...ids,...ids.map(id=>id.replace(/:/g,'-'))].map(value=>String(value||'')).filter(Boolean));
+  // Primary and retained published copies can carry different compatibility
+  // IDs. Use the existing competition/season/side-verified provider binding
+  // for lookup only; never rewrite the original fixture or its observations.
+  const fixture = eplIdentities.withAliases(record);
+  const ids = unique([fixture?.id, fixture?.eventId, fixture?.canonicalEventId,...(fixture?.sourceEventIds||[])].flatMap(value=>require('../../config/fixture-identity').fixtureAliases(value)).map(value => String(value || "")).filter(Boolean));
+  return unique([fixture?.id,fixture?.eventId,fixture?.canonicalEventId,...ids,...ids.map(id=>id.replace(/:/g,'-'))].map(value=>String(value||'')).filter(Boolean));
 }
 function projectionRecordIndex(records){
   const index=new Map();
