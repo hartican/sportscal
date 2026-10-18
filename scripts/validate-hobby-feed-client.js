@@ -17,7 +17,23 @@ async function main(){
   const fresh=client.loadFeed();await tick();assert.equal(requests.at(-1).options.headers['If-None-Match'],undefined);resolvers.shift()(result({events:['new']}));assert.deepEqual(await fresh,{events:['new']});
   const failed=client.loadFeed().catch(e=>e);await tick();resolvers.shift()(result({error:'unavailable'},503));assert.equal((await failed).status,503);
   const retry=client.loadFeed();await tick();resolvers.shift()(result({events:['retry']}));await retry;
+  const malformed=client.loadFeed();await tick();const requestCount=requests.length;
+  resolvers.shift()({...result(null),headers:{get:()=> '"malformed"'},json:async()=>{throw Error('PRIVATE_BODY_READ');}});
+  await assert.rejects(malformed,error=>error.code==='server_response_invalid'&&!error.message.includes('PRIVATE_'),'a failed successful-response body is not an empty Feed');
+  assert.equal(requests.length,requestCount,'body failure never starts an automatic retry');
+  const unavailable=client.loadFeed();await tick();
+  resolvers.shift()({...result(null,503),json:async()=>{throw Error('PRIVATE_ERROR_PAGE');}});
+  await assert.rejects(unavailable,error=>error.status===503&&error.code==='server_sync_request_failed'&&!error.message.includes('PRIVATE_'),'a non-JSON error page preserves its HTTP failure');
+  const retained=client.loadFeed();await tick();assert.equal(requests.at(-1).options.headers['If-None-Match'],'"etag"','failed body cannot replace last-good ETag/payload');
+  resolvers.shift()(result(null,304));assert.deepEqual(await retained,{events:['retry']});
+  let abortedRequests=0;
+  const deadlineStorage={getItem:key=>key===sync.SESSION_STORAGE_KEY?JSON.stringify({accessToken:jwt('alice'),refreshToken:'refresh',expiresAt:Date.now()+3600000}):null,setItem(){},removeItem(){}};
+  const deadlineClient=sync.createClient({storage:deadlineStorage,persistentStorage:{getItem:()=>null},requestTimeoutMs:10,fetchImpl:async(_url,options)=>{
+    abortedRequests++;return {...result(null),json:()=>new Promise((_resolve,reject)=>options.signal.addEventListener('abort',()=>reject(Error('PRIVATE_BODY_ABORT')),{once:true}))};
+  }});
+  await assert.rejects(deadlineClient.loadFeed(),error=>error.code==='request_timeout'&&!error.message.includes('PRIVATE_'),'the existing whole-response deadline remains an honest timeout');
+  assert.equal(abortedRequests,1);
   const signedOut=client.loadFeed().catch(e=>e);await tick();client.clearSession();resolvers.shift()(result({events:['alice']}));assert.equal((await signedOut).code,'feed_request_superseded');
-  console.log('Feed client: one overlapping request, conditional 304, invalidation, stale response rejection, retry and sign-out isolation passed');
+  console.log('Feed client: shared request, 304, invalidation, stale response, failed-body retention/deadline and sign-out isolation passed');
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});

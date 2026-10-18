@@ -222,7 +222,16 @@
       });
       if(response.status===304 && cachedPayload!==undefined)return cachedPayload;
       if(response.ok && responseType === "blob")return response.blob();
-      const payload = await response.json().catch(() => ({}));
+      const payload = await response.json().catch(error => {
+        // A cut-off successful body is not an empty valid response. Let the
+        // existing cancellation/deadline handler classify aborted reads.
+        if (controller.signal.aborted || externalSignal?.aborted) throw error;
+        if (response.ok) throw Object.assign(new Error("The server response could not be read. Your local copy is still available."), {
+          code:"server_response_invalid",
+        });
+        // Preserve HTTP/auth error handling when an error page is not JSON.
+        return {};
+      });
       if (!response.ok){
         const error = new Error(payload.error || "Server sync request failed.");
         error.status = response.status;
