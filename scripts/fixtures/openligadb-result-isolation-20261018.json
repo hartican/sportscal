@@ -1,0 +1,13 @@
+{
+  "kind": "constructed-provider-result-contract",
+  "basis": "39056708897 retained diagnostics; no raw offending response or actual bad match ID was captured",
+  "failedRun": 39056708897,
+  "cases": [
+    {"name": "missing-full-time", "finished": true, "results": []},
+    {"name": "ambiguous-full-time", "finished": true, "results": [{"resultTypeID": 2, "resultTypeKind": "After90Minutes", "pointsTeam1": 1, "pointsTeam2": 0}, {"resultTypeID": 2, "resultTypeKind": "After90Minutes", "pointsTeam1": 2, "pointsTeam2": 0}]},
+    {"name": "wrong-final-kind", "finished": true, "results": [{"resultTypeID": 2, "resultTypeKind": "AfterExtraTime", "pointsTeam1": 1, "pointsTeam2": 0}]},
+    {"name": "negative-score", "finished": true, "results": [{"resultTypeID": 2, "resultTypeKind": "After90Minutes", "pointsTeam1": -1, "pointsTeam2": 0}]},
+    {"name": "noninteger-score", "finished": true, "results": [{"resultTypeID": 2, "resultTypeKind": "After90Minutes", "pointsTeam1": 1, "pointsTeam2": 0.5}]},
+    {"name": "unfinished-with-final", "finished": false, "results": [{"resultTypeID": 2, "resultTypeKind": "After90Minutes", "pointsTeam1": 1, "pointsTeam2": 0}]}
+  ]
+}

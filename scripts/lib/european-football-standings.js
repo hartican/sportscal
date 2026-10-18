@@ -3,6 +3,8 @@
 // Interim rules: UEFA 2026/27 Article 18, explanations dated 11/18 September.
 const interim=['ladderPoints','pointsDifference','pointsFor','awayGoals','won','awayWins'];
 function deriveStandings(league){
+ const repairs=league.resultIsolation?.repairs||[];
+ if(repairs.length)require('./openligadb-football').assertResultAdmission(league);
  const teams=new Map(league.teams.map(t=>[t.participantId,{participantId:t.participantId,displayName:t.name,played:0,won:0,drawn:0,lost:0,pointsFor:0,pointsAgainst:0,pointsDifference:0,ladderPoints:0,awayGoals:0,awayWins:0,opponents:[]} ]));
  const complete=league.fixtures.filter(f=>f.status==='completed');
  for(const f of league.fixtures){
@@ -19,7 +21,7 @@ function deriveStandings(league){
    if(isAway)team.awayGoals+=scored;
   }
  }
- const final=league.fixtures.length===144&&complete.length===144;
+ const final=!repairs.length&&league.fixtures.length===144&&complete.length===144;
  const keys=final?[...interim,'opponentPoints','opponentGoalDifference','opponentGoals']:interim;
  const rows=[...teams.values()];
  for(const team of rows){for(const [field,target] of [['opponentPoints','ladderPoints'],['opponentGoalDifference','pointsDifference'],['opponentGoals','pointsFor']])team[field]=team.opponents.reduce((n,id)=>n+teams.get(id)[target],0);}
@@ -33,7 +35,8 @@ function deriveStandings(league){
   return {...stats,rank:final&&tied?null:rank,sharedRank:!final&&tied,sortOrder:index+1,rankPending:final&&tied,
    competitionId:league.competitionId,competitionName:league.competitionName,season:league.season,asOf:league.checkedAt,sourceUrl:league.source.url,
    derived:true,provisional:true,sourceAttribution:{provider:'OpenLigaDB',licence:'ODbL',datasetUrl:'/data/providers/openligadb/football-2026-27.json'},
-   tableNote:final?'Derived from community results. Final tied positions require disciplinary and coefficient verification; no qualification is confirmed.':'Provisional table derived from community results. Equal ranks remain tied; alphabetical display uses NS club names. No qualification is confirmed.'};
+   ...(repairs.length?{partial:true,resultRepairCount:repairs.length,omittedFixtureCount:repairs.filter(r=>r.disposition==='omitted').length}:{}),
+   tableNote:repairs.length?`Partial provisional table from community results: ${repairs.length} match result(s) need repair; ${repairs.filter(r=>r.disposition==='retained').length} earlier validated result(s) retained and ${repairs.filter(r=>r.disposition==='omitted').length} fixture(s) explicitly omitted. No qualification is confirmed.`:final?'Derived from community results. Final tied positions require disciplinary and coefficient verification; no qualification is confirmed.':'Provisional table derived from community results. Equal ranks remain tied; alphabetical display uses NS club names. No qualification is confirmed.'};
  });
 }
 module.exports={deriveStandings};

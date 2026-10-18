@@ -9,9 +9,29 @@ for(const league of published.leagues){
  assert.equal(rows.reduce((n,r)=>n+r.pointsFor,0),rows.reduce((n,r)=>n+r.pointsAgainst,0));
  assert(rows.every(r=>r.played===r.won+r.drawn+r.lost&&r.ladderPoints===r.won*3+r.drawn));
  assert.deepEqual(deriveStandings({...league,fixtures:[...league.fixtures].reverse(),teams:[...league.teams].reverse()}),rows,'provider order does not change ranking');
- const pending=structuredClone(league);pending.fixtures.forEach(f=>{f.status='unknown';f.result=null;});assert(deriveStandings(pending).every(r=>r.played===0&&r.rank===1&&r.sharedRank),'elapsed matches do not fabricate points');
- const finals=structuredClone(league);finals.fixtures.forEach(f=>{f.status='completed';f.result={homeScore:0,awayScore:0};});assert(deriveStandings(finals).every(r=>r.rankPending&&r.rank===null),'discipline/coefficient ties cannot invent final positions');
+ const pending=structuredClone(league);delete pending.resultIsolation;pending.fixtures.forEach(f=>{f.status='unknown';f.result=null;});assert(deriveStandings(pending).every(r=>r.played===0&&r.rank===1&&r.sharedRank),'elapsed matches do not fabricate points');
+ const finals=structuredClone(league);finals.fixtures.forEach(f=>{f.status='completed';f.result={homeScore:0,awayScore:0};});assert(deriveStandings(finals).every(r=>league.resultIsolation?r.partial&&!r.rankPending:r.rankPending&&r.rank===null),'omitted/retained results cannot activate final positions; discipline/coefficient ties remain pending');
  const bad=structuredClone(league);bad.fixtures[0].status='completed';bad.fixtures[0].result=null;assert.throws(()=>deriveStandings(bad),/scores/);
+ // Constructed complete table input: any already omitted raw identities are
+ // restored with synthetic0-0 solely for this arithmetic control, never saved.
+ const reference=structuredClone(league);reference.fixtures=require('./lib/openligadb-football').rawScheduleFixtures(reference).map(f=>f.status==='completed'?f:{...f,status:'completed',result:{homeScore:0,awayScore:0}});delete reference.resultIsolation;
+ const referenceRows=deriveStandings(reference);
+ const omitted=structuredClone(reference),held=omitted.fixtures.find(f=>f.status==='completed');assert(held);
+ const rawFixture={...held,status:'unknown',result:null};
+ omitted.fixtures=omitted.fixtures.filter(f=>f.providerFixtureId!==held.providerFixtureId);
+ const repair={providerFixtureId:held.providerFixtureId,code:'ambiguous-full-time',reason:'finished fixture lacks an unambiguous full-time result',disposition:'omitted',resultEvidence:{matchIsFinished:true,matchResults:[]},rawFixture};
+ omitted.resultIsolation={rawFixtureIds:reference.fixtures.map(f=>f.providerFixtureId),repairs:[repair]};
+ const partialRows=deriveStandings(omitted);
+ assert.equal(partialRows.reduce((n,r)=>n+r.played,0),referenceRows.reduce((n,r)=>n+r.played,0)-2,'omitted result contributes no played fixture');
+ assert.equal(partialRows.reduce((n,r)=>n+r.pointsFor,0),referenceRows.reduce((n,r)=>n+r.pointsFor,0)-held.result.homeScore-held.result.awayScore,'no invented score contributes to the table');
+ assert(partialRows.every(r=>r.partial&&r.provisional&&r.resultRepairCount===1&&r.omittedFixtureCount===1&&/Partial/.test(r.tableNote)));
+ const retained=structuredClone(reference),kept=retained.fixtures.find(f=>f.providerFixtureId===held.providerFixtureId);
+ kept.sourceCheckedAt ||= retained.checkedAt;kept.scoreCheckedAt ||= retained.checkedAt;
+ retained.resultIsolation={rawFixtureIds:reference.fixtures.map(f=>f.providerFixtureId),repairs:[{...repair,disposition:'retained',retainedSourceCheckedAt:kept.sourceCheckedAt,retainedScoreCheckedAt:kept.scoreCheckedAt}]};
+ const retainedRows=deriveStandings(retained);
+ const arithmetic=rows=>rows.map(r=>[r.participantId,r.played,r.pointsFor,r.pointsAgainst,r.ladderPoints]).sort((a,b)=>a[0].localeCompare(b[0]));
+ assert.deepEqual(arithmetic(retainedRows),arithmetic(referenceRows),'last-good results retain real arithmetic while partial tables use only provisional tie rules');
+ assert(retainedRows.every(r=>r.partial&&r.provisional&&r.omittedFixtureCount===0&&/earlier validated/.test(r.tableNote)));
 }
 const sample={competitionId:'test',competitionName:'Test',season:'2026/27',checkedAt:'2026-09-27T00:00:00Z',source:{url:'https://example.test'},teams:['A','B','C','D'].map(name=>({participantId:name,name})),fixtures:[{participants:[{participantId:'A'},{participantId:'C'}],status:'completed',result:{homeScore:2,awayScore:0}},{participants:[{participantId:'D'},{participantId:'B'}],status:'completed',result:{homeScore:0,awayScore:2}}]};
 const rows=deriveStandings(sample);assert.equal(rows[0].participantId,'B','away goals separate otherwise equal winning totals');assert.equal(rows[1].participantId,'A');
@@ -25,7 +45,7 @@ function finalSeason(reference){
   participants:[{participantId:teams[home].participantId},{participantId:teams[(home+step)%36].participantId}],
   status:'completed',result:{homeScore:0,awayScore:0},
  });
- return {...reference,teams,fixtures};
+ const {resultIsolation,...base}=reference;return {...base,teams,fixtures};
 }
 function targetScores(league,id,homeScores,awayScores){
  const home=league.fixtures.filter(f=>f.participants[0].participantId===id);

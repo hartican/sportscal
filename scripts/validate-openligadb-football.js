@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict');
-const {normalizeLeague,resolveLeagueIdentities,COMPETITIONS}=require('./lib/openligadb-football');
+const {normalizeLeague,resolveLeagueIdentities,assertResultAdmission,COMPETITIONS}=require('./lib/openligadb-football');
 const options={league:'ucl',checkedAt:'2026-09-27T12:00:00Z'};
 function fixtureSet(league='ucl'){
   return Array.from({length:8},(_,round)=>Array.from({length:18},(_,i)=>{
@@ -22,8 +22,9 @@ rejects(x=>x[0].leagueSeason=2025,/season/);rejects(x=>x[0].leagueId=6000,/compe
 rejects(x=>x[0].matchDateTimeUTC='2026-10-01T19:00:00',/UTC kickoff/);
 rejects(x=>x[0].matchDateTimeUTC='2026-09-31T19:00:00Z',/UTC kickoff/);
 rejects(x=>x[0].team2=x[0].team1,/twice|itself/);
-rejects(x=>x[0].matchIsFinished=true,/full-time result/);
-rejects(x=>x[0].matchResults=[{resultTypeID:2}],/unfinished fixture/);
+const invalidFinal=fixtureSet();Object.assign(invalidFinal[0],{matchDateTimeUTC:'2026-09-08T16:45:00Z',matchIsFinished:true});
+const quarantined=normalizeLeague(invalidFinal,options);assert.equal(quarantined.fixtures.length,143);assert.match(quarantined.resultIsolation.repairs[0].reason,/full-time result/);
+const premature=fixtureSet();premature[0].matchResults=[{resultTypeID:2}];assert.match(normalizeLeague(premature,options).resultIsolation.repairs[0].reason,/unfinished fixture/);
 rejects(x=>{x[0].matchIsFinished=true;x[0].matchResults=[{resultTypeID:2,resultTypeKind:'After90Minutes',pointsTeam1:1,pointsTeam2:0}];},/future fixture/);
 const completed=fixtureSet();Object.assign(completed[0],{matchDateTimeUTC:'2026-09-08T16:45:00Z',matchIsFinished:true,matchResults:[{resultTypeID:1,pointsTeam1:0,pointsTeam2:0},{resultTypeID:2,resultTypeKind:'After90Minutes',pointsTeam1:2,pointsTeam2:3}]});
 assert.deepEqual(normalizeLeague(completed,options).fixtures[0].result,{homeScore:2,awayScore:3},'half-time scores never replace full time');
@@ -65,20 +66,26 @@ function europeanFeed(entityFollows){
  return feed.events.filter(e=>e.sourceAttribution?.provider==='OpenLigaDB');
 }
 assert.equal(europeanFeed([]).length,0,'broad Football alone does not opt into club fixtures');
+const published=require('../data/providers/openligadb/football-2026-27.json');
 const liverpool=europeanFeed([{participantId:'team:football:epl:10',followLevel:'follow'}]);
-assert.equal(liverpool.length,7,'existing Liverpool follow admits all seven remaining UCL league matches');
+const liverpoolOmissions=published.leagues.flatMap(l=>l.resultIsolation?.repairs||[]).filter(r=>r.disposition==='omitted'&&r.rawFixture.participants.some(p=>p.participantId==='team:football:epl:10')&&Date.parse(r.rawFixture.startTimeUtc)>=Date.parse('2026-09-27T00:00:00Z')).length;
+assert.equal(liverpool.length,7-liverpoolOmissions,'existing Liverpool follow preserves its seven dated fixtures except individually documented source omissions');
 assert(liverpool.every(e=>e.participantIds.includes('team:football:epl:10')));
 assert(liverpool.every(e=>e.footballMatchContext?.teams.length===2),'Personalised Feed preserves the same source-backed context');
 assert.equal(europeanFeed([{participantId:'team:football:epl:10',followLevel:'mute'}]).length,0);
-const published=require('../data/providers/openligadb/football-2026-27.json');
 const rights=require('../config/follow-first');
 for(const competition of Object.values(COMPETITIONS)){
- const events=published.events.filter(e=>e.competitionId===competition.competitionId);assert.equal(events.length,144);
+ const league=published.leagues.find(l=>l.competitionId===competition.competitionId);assertResultAdmission(league);
+ const events=published.events.filter(e=>e.competitionId===competition.competitionId);assert.equal(events.length,league.fixtures.length);
+ assert.deepEqual(events.map(e=>e.id.split(':').at(-1)),league.fixtures.map(f=>f.providerFixtureId),'published events contain exactly the admitted fixture identities');
  assert(events.every(e=>e.participantIds.length===2&&e.sourceType==='community'&&e.sourceAttribution));
- assert.deepEqual(rights.viewingOptions(events.find(e=>e.status==='upcoming')).map(o=>o.providerId),['stan']);
+ const rightsCase=events.find(e=>e.status==='upcoming')||{key:'football',competitionId:competition.competitionId,status:'upcoming'};
+ assert.deepEqual(rights.viewingOptions(rightsCase).map(o=>o.providerId),['stan']);
 }
-const september=published.events.find(e=>e.startTimeUtc==='2026-09-08T16:45:00.000Z');assert.equal(september.time,'02:45');assert.equal(september.date,'2026-09-09');
-const october=published.events.find(e=>e.startTimeUtc==='2026-10-13T16:45:00.000Z');assert.equal(october.time,'03:45');assert.equal(october.date,'2026-10-14');
+// Fixed Sydney/DST controls do not depend on a current match being quarantined.
+const timingCase=utc=>require('../config/fixture-identity').normalizeCore({id:'controlled-dst',key:'football',startTimeUtc:utc,timePrecision:'exact'});
+const september=timingCase('2026-09-08T16:45:00.000Z');assert.equal(september.time,'02:45');assert.equal(september.date,'2026-09-09');
+const october=timingCase('2026-10-13T16:45:00.000Z');assert.equal(october.time,'03:45');assert.equal(october.date,'2026-10-14');
 console.log('Published UEFA facts: 288 fixtures, Australian viewing, Sydney DST conversion and existing Follow consent passed.');
 
 const ics=require('../config/calendar-export').buildIcs(liverpool).replace(/\r\n /g,'');assert(ics.includes('Data from OpenLigaDB under ODbL:'));assert(ics.includes('/data/providers/openligadb/football-2026-27.json'),'calendar exports retain source and licence attribution');
@@ -94,9 +101,86 @@ const identities=require('../config/card-identities');const unmappedArtwork=publ
   const initial=await refresh({...args,fetchImpl:fetchGood});assert.equal(initial.payload.events.length,288);assert.equal(new Set(initial.payload.events.map(e=>e.id)).size,288,'competitions never share fixture IDs');
   const before=fs.readFileSync(outputPath,'utf8');
   const failed=await refresh({...args,fetchImpl:async()=>{throw new Error('offline')}});assert.equal(failed.failures.length,2);assert.equal(fs.readFileSync(outputPath,'utf8'),before,'total failure leaves last-good bytes and freshness untouched');
-  const partial=await refresh({...args,fetchImpl:async url=>url.includes('/ucl/')?fetchGood(url):{ok:true,json:async()=>[]}});assert.equal(partial.failures.length,1);assert.equal(partial.payload.events.length,288,'partial season never replaces complete retained data');
+  await assert.rejects(refresh({...args,fetchImpl:async url=>url.includes('/ucl/')?fetchGood(url):{ok:true,json:async()=>[]}}),/144/);assert.equal(fs.readFileSync(outputPath,'utf8'),before,'malformed raw season is fatal before any partial file is written');
   await assert.rejects(refresh({...args,outputPath:path.join(dir,'empty.json'),fetchImpl:async()=>({ok:false,status:503})}),/first import incomplete/);
   assert(!fs.existsSync(path.join(dir,'empty.json')),'failed first import is not published');
+  const packets=Object.fromEntries(Object.keys(COMPETITIONS).map(league=>[league,fixtureSet(league)]));
+  for(const rows of Object.values(packets))for(const row of rows.slice(0,2))Object.assign(row,{matchDateTimeUTC:'2026-09-08T16:45:00Z',matchIsFinished:true,matchResults:[{resultTypeID:2,resultTypeKind:'After90Minutes',pointsTeam1:1,pointsTeam2:0}]});
+  const fetchFor=input=>async url=>({ok:true,json:async()=>structuredClone(input[url.includes('/ucl/')?'ucl':'uel2026'])});
+  const compareIds=rows=>[...rows].sort((a,b)=>a.localeCompare(b));
+  function accounting(payload,input){
+   for(const [shortcut,definition] of Object.entries(COMPETITIONS)){
+    const league=payload.leagues.find(l=>l.competitionId===definition.competitionId);assertResultAdmission(league);
+    const accepted=league.fixtures.map(f=>f.providerFixtureId),omitted=(league.resultIsolation?.repairs||[]).filter(r=>r.disposition==='omitted').map(r=>r.providerFixtureId),raw=input[shortcut].map(r=>String(r.matchID));
+    assert.equal(new Set([...accepted,...omitted]).size,raw.length,'accepted and explicit omissions are unique/disjoint');
+    assert.deepEqual(compareIds([...accepted,...omitted]),compareIds(raw),'compare against the complete RAW packet, not a filtered candidate');
+    assert.deepEqual(compareIds(payload.events.filter(e=>e.competitionId===definition.competitionId).map(e=>e.id.split(':').at(-1))),compareIds(accepted),'fixtures and events share exactly one admission decision');
+   }
+  }
+  let isolationCases=0;
+  for(const scenario of require('./fixtures/openligadb-result-isolation-20261018.json').cases){
+   const input=structuredClone(packets),bad=input.uel2026[0],peer=input.uel2026[1];
+   Object.assign(bad,{matchIsFinished:scenario.finished,matchResults:scenario.results});peer.matchResults[0].pointsTeam1=2;
+   const freshPath=path.join(dir,scenario.name+'-new.json'),retainedPath=path.join(dir,scenario.name+'-prior.json');
+   const first=await refresh({...args,outputPath:freshPath,fetchImpl:fetchFor(input)});accounting(first.payload,input);
+   const league=first.payload.leagues.find(l=>l.competitionId===COMPETITIONS.uel2026.competitionId);
+   assert.equal(first.failures.length,0);assert.equal(first.payload.events.length,287);assert.equal(league.fixtures.length,143);assert.equal(first.resultRepairs.length,1);assert.equal(first.resultRepairs[0].disposition,'omitted');
+   assert(!first.payload.events.some(e=>e.competitionId===league.competitionId&&e.id.endsWith(':1')),'untrusted result cannot leak through event derivation');
+   assert(first.payload.standings.filter(r=>r.competitionId===league.competitionId).every(r=>r.partial&&r.provisional&&r.omittedFixtureCount===1&&/Partial/.test(r.tableNote)));
+   for(const mutate of [l=>l.fixtures.pop(),l=>l.fixtures.push(structuredClone(l.fixtures[0])),l=>l.fixtures.push(structuredClone(l.resultIsolation.repairs[0].rawFixture)),l=>l.resultIsolation.repairs[0].reason='unexplained',l=>l.resultIsolation.repairs[0].resultEvidence={matchIsFinished:true,matchResults:[{resultTypeID:2,resultTypeKind:'After90Minutes',pointsTeam1:0,pointsTeam2:0}]}]){
+    const damaged=structuredClone(league);mutate(damaged);assert.throws(()=>require('./refresh-openligadb-football').eventsForLeague(damaged),/OpenLigaDB rejected/,'missing, duplicate, reintroduced or unexplained omissions remain fatal');
+   }
+   const prior=await refresh({...args,outputPath:retainedPath,fetchImpl:fetchFor(packets)}),old=prior.payload.leagues.find(l=>l.competitionId===league.competitionId).fixtures.find(f=>f.providerFixtureId==='1');
+   const later=new Date(+args.now+3600000),retained=await refresh({...args,now:later,outputPath:retainedPath,fetchImpl:fetchFor(input)});accounting(retained.payload,input);
+   const next=retained.payload.leagues.find(l=>l.competitionId===league.competitionId),kept=next.fixtures.find(f=>f.providerFixtureId==='1');
+   assert.deepEqual(kept,old,'eligible last-good fixture/result/identity/calendar and all literal observation fields are retained');
+   assert.equal(next.fixtures.find(f=>f.providerFixtureId==='2').result.homeScore,2);
+   assert.equal(retained.payload.events.find(e=>e.competitionId===league.competitionId&&e.id.endsWith(':2')).homeScore,2);
+   assert.equal(retained.resultRepairs[0].disposition,'retained');assert(retained.payload.standings.filter(r=>r.competitionId===league.competitionId).every(r=>r.partial&&r.provisional&&r.omittedFixtureCount===0&&!r.rankPending));
+   const repeated=await refresh({...args,now:new Date(+later+3600000),outputPath:retainedPath,fetchImpl:fetchFor(input)});
+   assert.deepEqual(repeated.payload.leagues.map(l=>l.fixtures),retained.payload.leagues.map(l=>l.fixtures),'repeated failure preserves every fixture/result field and original clock');
+   const withoutBuildClock=events=>events.map(e=>({...e,footballMatchContext:{...e.footballMatchContext,checkedAt:null}}));
+   assert.deepEqual(withoutBuildClock(repeated.payload.events),withoutBuildClock(retained.payload.events),'only the derived context collection clock advances, never fixture/result observations');
+   const repairedInput=structuredClone(input);Object.assign(repairedInput.uel2026[0],{matchIsFinished:true,matchResults:[{resultTypeID:2,resultTypeKind:'After90Minutes',pointsTeam1:0,pointsTeam2:0}]});
+   const healed=await refresh({...args,now:later,outputPath:freshPath,fetchImpl:fetchFor(repairedInput)});accounting(healed.payload,repairedInput);
+   assert.equal(healed.payload.events.length,288);assert.equal(healed.resultRepairs.length,0);assert(!healed.payload.leagues.find(l=>l.competitionId===league.competitionId).resultIsolation);assert.equal(healed.payload.events.find(e=>e.competitionId===league.competitionId&&e.id.endsWith(':1')).homeScore,0,'valid0-0 is never quarantined or fabricated');
+   isolationCases++;
+  }
+  // A prior result is eligible only with the same provenance/calendar and
+  // genuine original clocks. An old score alone cannot justify a fallback.
+  const fallbackPath=path.join(dir,'ineligible-prior.json');
+  const baseline=(await refresh({...args,outputPath:fallbackPath,fetchImpl:fetchFor(packets)})).payload;
+  const invalidResultInput=structuredClone(packets);invalidResultInput.uel2026[0].matchResults=[];
+  const ineligible=[
+   l=>{l.source.url='https://example.invalid/other-source';},
+   l=>{l.fixtures.find(f=>f.providerFixtureId==='1').startTimeUtc='2026-09-16T21:00:00Z';},
+   l=>{l.fixtures.find(f=>f.providerFixtureId==='1').roundNumber=2;},
+   l=>{l.fixtures.find(f=>f.providerFixtureId==='1').sourceCheckedAt='not-an-observation';},
+   l=>{l.fixtures.find(f=>f.providerFixtureId==='1').scoreCheckedAt='2028-01-01T00:00:00Z';},
+   l=>{l.fixtures.find(f=>f.providerFixtureId==='1').scoreCheckedAt='2025-01-01T00:00:00Z';},
+  ];
+  for(const mutate of ineligible){
+   const prior=structuredClone(baseline);mutate(prior.leagues.find(l=>l.competitionId===COMPETITIONS.uel2026.competitionId));fs.writeFileSync(fallbackPath,JSON.stringify(prior));
+   const result=await refresh({...args,now:new Date(+args.now+3600000),outputPath:fallbackPath,fetchImpl:fetchFor(invalidResultInput)});accounting(result.payload,invalidResultInput);
+   assert.equal(result.resultRepairs[0].disposition,'omitted','ineligible earlier evidence cannot supply a retained result');assert.equal(result.payload.events.length,287);
+  }
+  fs.writeFileSync(fallbackPath,JSON.stringify(baseline));const originalBytes=fs.readFileSync(fallbackPath),unexpected=new TypeError('controlled parser programming failure');
+  await assert.rejects(refresh({...args,outputPath:fallbackPath,fetchImpl:async()=>({ok:true,json:async()=>{throw unexpected;}})}),error=>error===unexpected,'unexpected parsing/programming failures remain fatal');
+  assert(fs.readFileSync(fallbackPath).equals(originalBytes),'a programming failure cannot publish or substitute retained output');
+  const structuralPath=path.join(dir,'structural.json');await refresh({...args,outputPath:structuralPath,fetchImpl:fetchFor(packets)});const structuralBefore=fs.readFileSync(structuralPath);
+  for(const mutate of [x=>x.uel2026.pop(),x=>x.uel2026[2].matchID=x.uel2026[1].matchID,x=>x.uel2026[2].leagueSeason=2025,x=>x.uel2026[2].matchDateTimeUTC='bad',x=>x.uel2026[2].team1.teamName='Different club',x=>x.uel2026[2].matchResults=null,x=>x.uel2026[2]=null,x=>{[x.uel2026[0].matchID,x.uel2026[1].matchID]=[x.uel2026[1].matchID,x.uel2026[0].matchID];}]){
+   const input=structuredClone(packets);input.uel2026[0].matchResults=[];mutate(input);
+   const files=fs.readdirSync(dir).sort();await assert.rejects(refresh({...args,now:new Date(+args.now+3600000),outputPath:structuralPath,fetchImpl:fetchFor(input)}),/OpenLigaDB rejected/);
+   assert(fs.readFileSync(structuralPath).equals(structuralBefore));assert.deepEqual(fs.readdirSync(dir).sort(),files,'structural failure writes no partial/temporary file');
+  }
+  const atomicRoot=path.join(dir,'atomic');for(const name of ['data','feeds','assets/js'])fs.mkdirSync(path.join(atomicRoot,name),{recursive:true});
+  const originals={'data/facts.json':'accepted-data','feeds/events.json':'accepted-feed','assets/js/app-shell-runtime.js':'accepted-runtime'};for(const [name,value]of Object.entries(originals))fs.writeFileSync(path.join(atomicRoot,name),value);
+  const cwd=process.cwd();try{
+   process.chdir(atomicRoot);const input=structuredClone(packets);input.uel2026.pop();
+   await assert.rejects(require(cwd+'/scripts/quick-results').atomicRefresh({},{refreshOperation:async()=>{for(const name of Object.keys(originals))fs.writeFileSync(name,'candidate');fs.writeFileSync('data/new.json','{}');await refresh({...args,outputPath:structuralPath,fetchImpl:fetchFor(input)});}}),/OpenLigaDB rejected/);
+   for(const [name,value]of Object.entries(originals))assert.equal(fs.readFileSync(name,'utf8'),value);assert(!fs.existsSync('data/new.json'));
+  }finally{process.chdir(cwd);}
+  console.log(`OpenLiga result isolation: ${isolationCases} constructed missing/ambiguous/invalid-score cases cover actual refresh, last-good clocks, explicit omissions, RAW identity reconciliation, events, partial tables, healed0-0, repeat stability and structural/atomic rollback.`);
   console.log('Refresh recovery: atomic first import, scoped IDs, partial/total failure retention and unchanged failed-source freshness passed.');
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 })().catch(error=>{console.error(error);process.exitCode=1;});
