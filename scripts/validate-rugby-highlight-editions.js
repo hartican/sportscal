@@ -24,6 +24,10 @@ for(const heading of [
 ])assert.equal(selected(heading),null,'conflicting or unsuitable context rejected: '+heading);
 assert.equal(selected(title,{...event,competitionName:'Pro D2 2027'}),null,'next-year label must match this actual source competition');
 assert.equal(selected(title,{...event,seasonLabel:'2025/26'}),null,'explicit conflicting sourced season cannot be replaced by a label inference');
+for(const field of ['season','seasonLabel']){
+  for(const value of [2025,'2025','2028','2025/26 2026/27'])assert.equal(selected(title,{...event,[field]:value}),null,'conflicting explicit season remains authoritative: '+field+' '+value);
+  for(const value of [2026,'2026',2027,'2027','2026/27'])assert(selected(title,{...event,[field]:value}),'compatible calendar/end-year season remains eligible: '+field+' '+value);
+}
 for(const patch of [
   {snippet:{publishedAt:new Date(+now-7*86400000-1).toISOString()}},
   {snippet:{publishedAt:new Date(+now+1).toISOString()}},
