@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## Historical identity rehearsals retain explicit clocks — 18 October 2026
+
+A disposable historical pre-match replay must not depend on the current wall clock still predating its fixture. Inject time only into the in-memory captured rating function at an asserted single seam; retain its actual phase/identity logic, test all declared aliases just before canonical kickoff and at kickoff/end, reject late changes without mutation, and restore the exact original function/role. Production migrations, captured schema and real clocks remain unchanged. Keep the original failed gate and normal release requirements.
+
 ## Isolate specifically invalid community match results — 18 October 2026
 
 A complete, structurally valid OpenLigaDB league-phase response may contain a specifically invalid individual result. Quarantine only typed missing/ambiguous/invalid scores after the whole raw schedule, dates, participants and identities validate. Accept fixtures plus named omissions only when they reconcile exactly to the raw144 identity inventory. Retain an earlier completed fixture only with matching provenance, identity/calendar and valid original observations; otherwise explicitly omit it pending repair. Both fixture facts and derived cards use the same admission guard. Mark affected standings partial/provisional and preserve community/ODbL attribution. Structural/parser/identity defects remain fatal; unrecovered transport errors keep explicit failures and the existing outer atomic rollback. Preserve independently valid peer competition progress in the scoped partial candidate. No new provider, scheduler, request allowance, retry, credential or customer write. Constructed local proof is separate from later credentialed/natural-source acceptance.
