@@ -39,6 +39,7 @@ console.warn=(...args)=>warnings.push(args);
   console.warn=warn;console.log('Snapshot read diagnosis passed: safe phase/status/timing, no retries, original errors and last-good facts preserved.');
  }finally{console.warn=warn;}
  await validateGlobalTiming();
+ await validateDefaultGlobalEnablement();
  await require('./validate-supabase-response-deadline')({offline:process.argv.includes('--offline')});
 })().catch(e=>{console.error(e);process.exitCode=1});
 
@@ -87,4 +88,35 @@ async function validateGlobalTiming(){
   await assert.rejects(legacy.read());assert.equal(legacyCalls,3,'Only original400/404compatibility fallback');assert.equal(warnings[0].phase,'legacy-read');assert.equal(warnings[0].timings.legs['legacy-read'].outcome,'error');assert(!JSON.stringify(warnings).includes('PRIVATE_'));
   console.log('Global timing: separate parallel legs, safe aggregates, validation/projection, fast quiet, opt-in-only, unchanged scopes and logger isolation passed.');
  }finally{console.warn=old;}
+}
+
+async function validateDefaultGlobalEnablement(){
+ const names=['SUPABASE_URL','SUPABASE_PUBLISHABLE_KEY','SUPABASE_SECRET_KEY','SUPABASE_SERVICE_ROLE_KEY'];
+ const previous=Object.fromEntries(names.map(name=>[name,process.env[name]]));
+ const oldFetch=globalThis.fetch,oldWarn=console.warn,entries=[];let calls=0;
+ try{
+  Object.assign(process.env,{SUPABASE_URL:'https://default-diagnostic.invalid',SUPABASE_PUBLISHABLE_KEY:'PRIVATE_DEFAULT_KEY',SUPABASE_SECRET_KEY:'PRIVATE_DEFAULT_KEY',SUPABASE_SERVICE_ROLE_KEY:'PRIVATE_DEFAULT_KEY'});
+  globalThis.fetch=async url=>{
+   calls++;
+   const healthy=String(url).endsWith('nothingsports_read_fixture_source_health');
+   return {ok:healthy,status:healthy?200:504,text:async()=>JSON.stringify(healthy?health:{code:'supabase_timeout',message:'PRIVATE_DEFAULT_FAILURE'})};
+  };
+  console.warn=(_label,value)=>entries.push(JSON.parse(value));
+  const cases=[{}, {ids:['diagnostic:default-selected']}, {scope:'match-centre',interactive:true}, {scope:'participants',sportKeys:['tennis'],knownSportKeys:['tennis'],participantIds:['athlete:default-controlled'],interactive:true}];
+  for(const [index,options]of cases.entries()){
+   entries.length=0;const before=calls;
+   // A previous last-good cache may turn the same failure into a stale return.
+   // Either outcome must retain the same measured source failure.
+   await readLiveSnapshots({...options,maxAgeMs:0,now:Date.now()}).catch(()=>null);
+   assert.equal(calls-before,2,'Default diagnostics adds no HTTP request');
+   assert.equal(entries.length,1);assert.equal(entries[0].phase,'fixture-bundle');
+   assert.equal(Boolean(entries[0].timings),index===0,'Trusted default opts in only to global null-ID reads');
+   if(index===0){assert(entries[0].timings.legs['fixture-bundle'].transport.some(e=>e.phase==='headers'));assert(entries[0].timings.legs['fixture-bundle'].transport.some(e=>e.outcome==='http-error'));}
+   assert(!JSON.stringify(entries).includes('PRIVATE_'),'Default global diagnostic remains content-free');
+  }
+  console.log('Default global timing enabled: exact existing pair, private/selected/interactive scopes unchanged, safe failure metadata.');
+ }finally{
+  globalThis.fetch=oldFetch;console.warn=oldWarn;
+  for(const name of names)previous[name]===undefined?delete process.env[name]:process.env[name]=previous[name];
+ }
 }
