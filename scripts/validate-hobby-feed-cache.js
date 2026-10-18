@@ -6,6 +6,7 @@ const {createFeedHandler,expiry}=require('../api/feed');
 const pipeline=require('../lib/server-feed-pipeline');
 function response(){return {headers:{},setHeader(k,v){this.headers[k]=v;},status(n){this.statusCode=n;return this;},json(body){this.body=body;return this;},end(){this.ended=true;return this;}};}
 async function main(){
+  await validateGlobalStaleScoreFallback();
   let builds=0,auth=0,stateVersion=1,user='alice',revision='r1',allowed=true,now=new Date('2026-09-15T03:00:00Z');
   const data={...pipeline,contextualEvents:[],canonicalSportContext:{participants:[]},eventFeed:{events:[],version:'v1',publishedAt:'2026-09-15T00:00:00Z'},bearerToken:()=>'',authenticatedUser:async()=>{auth++;if(!allowed)throw new Error('unauthorised');return{id:user};},loadUserState:async()=>({version:stateVersion}),readLiveSnapshots:async()=>({revision,sources:[]}),resolveUserFollowFixtures:()=>({events:[],participants:[],sourceVersion:'s1'}),overlaySnapshots:x=>x,buildServerFeed:({now})=>{builds++;return{events:[],generatedAt:now.toISOString(),owner:user,stateVersion};},publicError:()=>({status:401,body:{error:'unauthorised'}})};
   const handler=createFeedHandler({load:()=>data,authenticate:()=>data,clock:()=>now});
@@ -230,3 +231,44 @@ async function main(){
   console.log('Feed cache: private auth/state/revision isolation, TTL, midnight/start expiry, LRU/bytes, lazy routing and immutable inputs passed');
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});
+
+async function validateGlobalStaleScoreFallback(){
+ const live=require('../lib/live-fixtures'),{SupabaseRequestError}=require('../lib/supabase-server');
+const id='fixture:nrl:controlled-stale-score';
+const initial=Date.parse('2026-10-18T10:50:00Z');let now=initial,mode='timeout';
+const base={id,eventId:id,canonicalEventId:id,name:'Controlled Home v Controlled Away',key:'nrl',sport:'rugby-league',competitionId:'competition:nrl',date:'2026-10-18',startTimeUtc:'2026-10-18T10:00:00Z',status:'live',homeParticipantId:'team:nrl:controlled-home',awayParticipantId:'team:nrl:controlled-away',participantIds:['team:nrl:controlled-home','team:nrl:controlled-away'],homeScore:6,awayScore:4,score:{home:6,away:4},fixtureObservationSchema:'fixture-observations.v1',scoreCheckedAt:'2026-10-18T10:20:00Z',scoreFactObservedAt:'2026-10-18T10:20:00Z',statusCheckedAt:'2026-10-18T10:20:00Z',statusFactObservedAt:'2026-10-18T10:20:00Z',sourceCheckedAt:'2026-10-18T10:20:00Z',sourceUrl:'https://constructed.invalid/fixture',isKnockout:true};
+const current={...base,homeScore:10,awayScore:8,score:{home:10,away:8},scoreCheckedAt:'2026-10-18T10:40:00Z',scoreFactObservedAt:'2026-10-18T10:40:00Z',sourceCheckedAt:'2026-10-18T10:40:00Z'};
+const recovered={...current,homeScore:12,score:{home:12,away:8},scoreCheckedAt:'2026-10-18T10:52:00Z',scoreFactObservedAt:'2026-10-18T10:52:00Z',sourceCheckedAt:'2026-10-18T10:52:00Z'};
+const original=JSON.stringify([base,current,recovered]);
+const requestCalls=[],reads=[],warnings=[];let builds=0;
+const store=live.createSnapshotStore({request:async(p,o)=>{
+ assert.equal(o.timeoutMs,3000);assert.equal(o.method,'POST');requestCalls.push({phase:p.endsWith('source_health')?'health':'bundle',mode});
+ if(p.endsWith('source_health')){assert.deepEqual(o.body,{});return [{source_id:'controlled-source',revision:mode==='recovered'?2:1,checked_at:mode==='recovered'?recovered.sourceCheckedAt:current.sourceCheckedAt}];}
+ assert(p.endsWith('nothingsports_read_current_fixture_bundle'));assert.deepEqual(o.body,{p_fixture_ids:null});
+ if(mode==='timeout')throw new SupabaseRequestError('Constructed timeout',{status:504,payload:{code:'supabase_timeout'}});
+ return {schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[{source_id:'controlled-source',fixture_id:id,fixture:mode==='recovered'?recovered:current}]};
+}});
+const data={...pipeline,eventFeed:{events:[base],version:'constructed-stale-v1',publishedAt:'2026-10-18T10:20:00Z'},contextualEvents:[base],canonicalSportContext:{participants:[]},resolveUserFollowFixtures:async({events})=>({events,participants:[]}),overlaySnapshots:live.overlaySnapshots,
+ readLiveSnapshots:async options=>{assert.equal(options,undefined,'Ordinary Feed retains global/default scope');const snapshot=await live.readLiveSnapshots({store,scope:'global',interactive:false,now,maxAgeMs:0});reads.push({stale:snapshot.stale,readAt:snapshot.readAt,revision:snapshot.revision});return snapshot;},
+ buildServerFeed:async args=>{builds++;return pipeline.buildServerFeed(args);}};
+const state={preferences:{version:27,selectedSelectorEntityIds:['sport:nrl'],followedSports:['nrl'],preferenceGraph:{domainPreferences:[{sportDomainId:'sport:nrl',enabled:true}],entityFollows:[]}},event_user_state:{},updated_at:'2026-10-18T10:00:00Z'},stateBefore=JSON.stringify(state);
+const auth={bearerToken:()=>'',authenticatedUser:async()=>({id:'controlled-user'}),loadUserState:async()=>state,publicError:()=>({status:500,body:{error:'Controlled failure'}})};
+const handler=createFeedHandler({load:()=>data,authenticate:()=>auth,clock:()=>new Date(now)});
+const response=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},status(n){this.code=n;return this;},json(body){this.body=body;return this;},end(){this.ended=true;}});
+async function run(label){const res=response();await handler({method:'GET',url:'/api/feed?limit=20',headers:{}},res);assert.equal(res.code,200,label);const event=res.body.events.find(e=>e.id===id);assert(event,'Constructed fixture missing; returned IDs: '+JSON.stringify(res.body.events.map(e=>[e.id,e.eventId])));return {res,event,summary:{label,status:res.code,cache:res.headers['X-Feed-Cache'],snapshotStale:res.body.fixtureSnapshotStale,generatedAt:res.body.generatedAt,score:event.score,homeScore:event.homeScore,awayScore:event.awayScore,scoreCheckedAt:event.scoreCheckedAt,scoreFactObservedAt:event.scoreFactObservedAt,statusCheckedAt:event.statusCheckedAt,sourceCheckedAt:event.sourceCheckedAt}};}
+await (async()=>{
+ const originalWarn=console.warn;console.warn=(...args)=>warnings.push(args);
+ try{
+  const cold=await run('cold published fallback');assert.equal(cold.res.body.fixtureSnapshotStale,true);assert.equal(cold.event.homeScore,6);assert.equal(cold.event.scoreCheckedAt,base.scoreCheckedAt);
+  mode='fresh';now+=1000;const fresh=await run('healthy current overlay');assert.equal(fresh.res.body.fixtureSnapshotStale,false);assert.equal(fresh.event.homeScore,10);assert.equal(fresh.event.scoreCheckedAt,current.scoreCheckedAt);const seed=reads.at(-1);
+  mode='timeout';now+=31001;const stale=await run('failed refresh retains last-good snapshot');assert.equal(stale.res.body.fixtureSnapshotStale,true);assert.equal(stale.event.homeScore,10);assert.equal(stale.event.scoreCheckedAt,current.scoreCheckedAt);assert.equal(reads.at(-1).readAt,seed.readAt);
+  now+=1000;const cached=await run('same stale response cache hit');assert.equal(cached.res.headers['X-Feed-Cache'],'HIT');assert.equal(cached.res.body.fixtureSnapshotStale,true);assert.equal(cached.event.homeScore,10);assert.equal(cached.event.scoreCheckedAt,current.scoreCheckedAt);assert.equal(cached.res.body.generatedAt,stale.res.body.generatedAt);
+  mode='recovered';now=Date.parse('2026-10-18T10:53:00Z');const recovery=await run('genuine later constructed observation');assert.equal(recovery.res.body.fixtureSnapshotStale,false);assert.equal(recovery.event.homeScore,12);assert.equal(recovery.event.scoreCheckedAt,recovered.scoreCheckedAt);
+  for(const [result,expected]of [[cold,base],[fresh,current],[stale,current],[cached,current],[recovery,recovered]]){for(const key of ['homeScore','awayScore','scoreCheckedAt','scoreFactObservedAt','statusCheckedAt','statusFactObservedAt','sourceCheckedAt'])assert.equal(result.event[key],expected[key],'Original score/observation field '+key);}
+  assert.equal(JSON.stringify([base,current,recovered]),original);assert.equal(JSON.stringify(state),stateBefore);assert.equal(requestCalls.length,10,'Exactly original two mocked reads per handler request; no extra or retry');assert.equal(builds,4,'Stale response cache hit reuses composition but still attempts current snapshot pair');
+  const diagnostics=warnings.map(w=>JSON.parse(w[1]));assert.equal(diagnostics.length,3);assert(diagnostics.every(d=>d.scope==='global'&&d.phase==='fixture-bundle'&&d.status===504&&d.code==='supabase_timeout'&&d.deadlineMs===3000));
+  console.warn=originalWarn;console.log('Actual global Feed fallback: published/last-good/cached stale/recovery score and original receipt truth passed;10mocked calls,4builds.');
+ }finally{console.warn=originalWarn;}
+})();
+
+}

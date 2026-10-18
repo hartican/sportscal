@@ -38,5 +38,53 @@ console.warn=(...args)=>warnings.push(args);
   console.warn=()=>{throw Error('logger unavailable');};await assert.rejects(cached.read({scope:'match-centre'}),e=>e.status===504,'logging cannot replace or hide the original read failure');
   console.warn=warn;console.log('Snapshot read diagnosis passed: safe phase/status/timing, no retries, original errors and last-good facts preserved.');
  }finally{console.warn=warn;}
- await require('./validate-supabase-response-deadline')();
+ await validateGlobalTiming();
+ await require('./validate-supabase-response-deadline')({offline:process.argv.includes('--offline')});
 })().catch(e=>{console.error(e);process.exitCode=1});
+
+
+async function validateGlobalTiming(){
+ const {supabaseRequest}=require('../lib/supabase-server');
+ const source=[{source_id:'PRIVATE_SOURCE',revision:1,checked_at:'2026-10-18T00:00:00Z'}];
+ const globalBundle={schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[{source_id:'PRIVATE_SOURCE',fixture_id:'PRIVATE_FIXTURE',fixture:{...fixture,id:'PRIVATE_FIXTURE'}}]};
+ const warnings=[],old=console.warn;let time=0,fail=false,calls=0;
+ const request=async(path,options)=>{calls++;time+=1;return supabaseRequest(path,{...options,environment:{SUPABASE_URL:'https://private.invalid',SUPABASE_PUBLISHABLE_KEY:'PRIVATE_KEY'},fetchImpl:async()=>{
+  if(fail&&!path.endsWith('source_health'))throw Error('PRIVATE_NETWORK_MESSAGE');
+  return {ok:true,status:200,text:async()=>JSON.stringify(path.endsWith('source_health')?source:globalBundle)};
+ }});};
+ console.warn=(...args)=>warnings.push(JSON.parse(args[1]));
+ try{
+  const store=createSnapshotStore({request,timer:()=>time,diagnostics:true});
+  await store.read();assert.equal(warnings.length,0,'Fast opt-in global success stays quiet');
+  const slow=createSnapshotStore({request:async(...args)=>{const value=await request(...args);time+=2100;return value;},timer:()=>time,diagnostics:true});
+  const output=await slow.read();assert.equal(output[0].fixtures.length,1);assert.equal(warnings.length,1);const entry=warnings.pop();assert.equal(entry.event,'fixture_snapshot_read_slow');assert.equal(entry.scope,'global');assert.equal(entry.phase,'complete');assert.equal(entry.deadlineMs,3000);assert(entry.timings.validationMs>=0&&entry.timings.projectionMs>=0);
+  assert.deepEqual(Object.keys(entry.timings.legs).sort(),['fixture-bundle','source-health']);for(const leg of Object.values(entry.timings.legs)){assert.equal(leg.outcome,'success');assert(leg.transport.some(e=>e.phase==='text-ready'));}
+  assert(!JSON.stringify(entry).includes('PRIVATE_'));
+  fail=true;await assert.rejects(store.read());assert.equal(warnings.length,1);assert.equal(warnings[0].phase,'fixture-bundle');assert(warnings[0].timings.legs['fixture-bundle'].transport.some(e=>e.phase==='error'));assert.equal(warnings[0].timings.projectionMs,null,'Unentered projection stays unknown');
+  assert(!JSON.stringify(warnings).includes('PRIVATE_'));
+  fail=false;warnings.length=0;
+  const near=createSnapshotStore({request:async(path,o)=>{assert.equal(o.onTiming,undefined,'Opt-in remains global-only');return path.endsWith('source_health')?source:{...globalBundle,scope:'match-centre'};},diagnostics:true});await near.read({scope:'match-centre'});assert.equal(warnings.length,0);
+  const normal=createSnapshotStore({request:async(path,o)=>{assert.equal(o.onTiming,undefined);return path.endsWith('source_health')?source:globalBundle;}});await normal.read();
+  console.warn=()=>{throw Error('PRIVATE_LOGGER');};await slow.read();
+  assert.equal(calls,8,'Only the original two RPCs per exercised global read');
+  console.warn=(...args)=>warnings.push(JSON.parse(args[1]));warnings.length=0;
+  for(const scope of ['selected','participants','interactive-near']){
+   const untouched=createSnapshotStore({diagnostics:true,request:async(path,o)=>{
+    assert.equal(o.onTiming,undefined,'Selected/profile reads must not opt into global timing');
+    assert.equal(o.timeoutMs,scope==='selected'?3000:5000,'Trusted5s and selected3s split remains');
+    if(path.endsWith('source_health'))return source;
+    if(scope==='interactive-near')return {...globalBundle,scope:'match-centre'};
+    return scope==='selected'?globalBundle.rows:{...globalBundle,scope:'participants',sportKeys:['tennis'],knownSportKeys:['tennis'],participantIds:['athlete:controlled'],requiredIds:[]};
+   },timer:()=>0});
+   await untouched.read(scope==='interactive-near'?{scope:'match-centre',interactive:true}:scope==='selected'?{ids:['controlled']}:{scope:'participants',sportKeys:['tennis'],knownSportKeys:['tennis'],participantIds:['athlete:controlled'],interactive:true});
+  }
+  let releaseHealth;
+  const pending=createSnapshotStore({diagnostics:true,request:async(path)=>path.endsWith('source_health')?new Promise(resolve=>{releaseHealth=resolve;}):Promise.reject(remoteError())});
+  await assert.rejects(pending.read());const partial=warnings.pop();assert.equal(partial.timings.legs['source-health'].outcome,null,'Unfinished sibling outcome stays unknown');assert.equal(partial.timings.legs['source-health'].elapsedMs,null);assert.deepEqual(partial.timings.legs['source-health'].transport,[]);releaseHealth(source);
+  const invalid=createSnapshotStore({diagnostics:true,request:async path=>path.endsWith('source_health')?source:{...globalBundle,complete:false}});await assert.rejects(invalid.read());const bad=warnings.pop();assert.equal(bad.phase,'validation');assert(bad.timings.validationMs>=0);assert.equal(bad.timings.projectionMs,null);
+  warnings.length=0;let legacyCalls=0;
+  const legacy=createSnapshotStore({diagnostics:true,request:async(path,o)=>{legacyCalls++;if(path.includes('/rpc/'))throw Object.assign(Error('PRIVATE_LEGACY'),{status:404});assert.equal(typeof o.onTiming,'function');o.onTiming({phase:'headers',elapsedMs:1,status:200,bytes:null,token:'PRIVATE_TOKEN'});throw Object.assign(Error('PRIVATE_BODY'),{status:502});}});
+  await assert.rejects(legacy.read());assert.equal(legacyCalls,3,'Only original400/404compatibility fallback');assert.equal(warnings[0].phase,'legacy-read');assert.equal(warnings[0].timings.legs['legacy-read'].outcome,'error');assert(!JSON.stringify(warnings).includes('PRIVATE_'));
+  console.log('Global timing: separate parallel legs, safe aggregates, validation/projection, fast quiet, opt-in-only, unchanged scopes and logger isolation passed.');
+ }finally{console.warn=old;}
+}
