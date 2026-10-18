@@ -10,6 +10,23 @@ function bearer(request){
 }
 
 const CLAIM_STALE_MS = 10 * 60 * 1000;
+const {performance}=require('node:perf_hooks');
+
+function reconciliationRequest(budget,{clock=()=>performance.now(),diagnostic=detail=>console.warn('Reminder reconciliation degraded',detail)}={}){
+  const phases={nothingsports_reminder_accounts:'account_inventory',nothingsports_read_fixture_source_health:'fixture_source_health',nothingsports_read_reminder_fixture_bundle:'fixture_bundle',nothingsports_reconcile_reminder_accounts:'account_persistence',nothingsports_reminder_schedule_candidates:'schedule_inventory',nothingsports_reconcile_reminder_schedules:'schedule_persistence'};
+  return async(path,options)=>{
+    const phase=phases[path.slice('/rest/v1/rpc/'.length)];
+    if(!path.startsWith('/rest/v1/rpc/')||!phase)return budget.request(path,options);
+    const started=clock();let failure;
+    try{return await budget.request(path,options);}catch(error){failure=error;throw error;}finally{
+      const elapsedMs=Math.max(0,Math.round(clock()-started));
+      if(failure||elapsedMs>=2000){
+        const code=failure?.payload?.code||failure?.code,status=Number(failure?.status);
+        try{diagnostic({phase,outcome:failure?'failed':'slow',code:['supabase_timeout','dispatch_deadline','57014','55P03','42501','PGRST202'].includes(code)?code:failure?'reminder_phase_failed':undefined,status:Number.isInteger(status)&&status>=400&&status<=599?status:undefined,elapsedMs,remainingMs:Math.max(0,Math.round(budget.remaining()))});}catch(_error){}
+      }
+    }
+  };
+}
 
 async function patchClaimedReminder(id, claimedAt, body, serviceRequest=supabaseServiceRequest){
   return serviceRequest(`/rest/v1/nothingsports_reminders?id=eq.${encodeURIComponent(id)}&claimed_at=eq.${encodeURIComponent(claimedAt)}`, {
@@ -56,7 +73,7 @@ module.exports = async function notificationDispatchHandler(request, response){
     }
     const now = new Date();
     const dispatchBudget=require("../lib/reminder-dispatch-budget").budget({request:supabaseServiceRequest});
-    const serviceRequest=dispatchBudget.request;
+    const serviceRequest=reconciliationRequest(dispatchBudget);
     await recordDispatchHealth({ last_started_at:now.toISOString(), last_error:null }).catch(() => null);
     if (supabaseMaintenanceMode()){
       await recordDispatchHealth({ last_completed_at:new Date().toISOString(), last_error:"supabase_maintenance" }).catch(() => null);
@@ -129,7 +146,13 @@ module.exports = async function notificationDispatchHandler(request, response){
     const api={...nsc,rows:(t,p)=>nsc.rows(t,p,serviceRequest),identityMaps:ids=>nsc.identityMaps(ids,serviceRequest),refreshEventSnapshots:ids=>nsc.refreshEventSnapshots(ids,{request:serviceRequest})};
     const otherOptions={now,api,request:serviceRequest,send:dispatchBudget.send(webpush.sendNotification.bind(webpush))};
     const deferred={checked:0,sent:0,failed:0,deferred:'dispatch_deadline'};
-    const impactRequests=dispatchBudget.remaining()>8000?await require('../lib/impact-feedback').dispatch({...otherOptions,budget:dispatchBudget,loadCatalogue}).catch(error=>dispatchBudget.remaining()<250||error.code==='dispatch_deadline'?deferred:{error:'impact_request_dispatch_failed'}):deferred;
+    const impactDiagnostic=detail=>{try{console.warn('Impact dispatch degraded',detail);}catch(_error){}};
+    const impactStarted=performance.now();
+    const impactRequests=dispatchBudget.remaining()>8000?await require('../lib/impact-feedback').dispatch({...otherOptions,budget:dispatchBudget,loadCatalogue,diagnostic:impactDiagnostic}).catch(error=>{
+      impactDiagnostic({phase:'dispatch',outcome:'failed',code:'impact_dispatch_failed',elapsedMs:Math.round(performance.now()-impactStarted),remainingMs:Math.max(0,Math.round(dispatchBudget.remaining()))});
+      return error?.code==='dispatch_deadline'?deferred:{error:'impact_request_dispatch_failed'};
+    }):deferred;
+    const impactError=impactRequests.error||(impactRequests.failed?'impact_request_dispatch_failed':null);
     const liveRatings=dispatchBudget.remaining()>5000?await require('../lib/live-rating-alerts').dispatch(otherOptions).catch(()=>({error:'live_rating_dispatch_failed'})):deferred;
     const socialRewards=dispatchBudget.remaining()>5000?await require('../lib/social-reward-alerts').dispatch(otherOptions).catch(()=>({error:'social_reward_dispatch_failed'})):deferred;
     const ownerPosts=dispatchBudget.remaining()>5000?await require('../lib/comms-post-alerts').dispatch({now,request:serviceRequest,send:dispatchBudget.send(webpush.sendNotification.bind(webpush))}).catch(()=>({error:'owner_post_dispatch_failed'})):deferred;
@@ -139,14 +162,14 @@ module.exports = async function notificationDispatchHandler(request, response){
     const completedAt = new Date().toISOString();
     await recordDispatchHealth({
       last_completed_at:completedAt,
-      ...(failed === 0 && !impactRequests.error && !impactRequests.failed && !yearReviews.error && !yearReviews.failed && !ownerPosts.error && !ownerPosts.failed && !contentRefresh.error && !liveRatings.error && !liveRatings.failed && !socialRewards.error && !socialRewards.failed && !milestones.error && !milestones.failed ? { last_success_at:completedAt } : {}),
+      ...(failed === 0 && !impactError && !yearReviews.error && !yearReviews.failed && !ownerPosts.error && !ownerPosts.failed && !contentRefresh.error && !liveRatings.error && !liveRatings.failed && !socialRewards.error && !socialRewards.failed && !milestones.error && !milestones.failed ? { last_success_at:completedAt } : {}),
       checked_count:(reminders || []).length,
       claimed_count:claimed.length,
       sent_count:sent + (impactRequests.sent || 0) + (yearReviews.sent || 0) + (ownerPosts.sent || 0) + (liveRatings.sent || 0) + (socialRewards.sent || 0) + (milestones.sent || 0),
-      failed_count:failed + (impactRequests.failed || 0) + (impactRequests.error ? 1 : 0) + (yearReviews.failed || 0) + (yearReviews.error ? 1 : 0) + (contentRefresh.error?1:0) + (ownerPosts.failed||0) + (ownerPosts.error?1:0) + (liveRatings.failed || 0) + (socialRewards.failed || 0) + (liveRatings.error ? 1 : 0) + (socialRewards.error ? 1 : 0) + (milestones.error ? 1 : 0) + (milestones.failed || 0),
-      last_error:impactRequests.error || yearReviews.error || ownerPosts.error || contentRefresh.error || liveRatings.error || socialRewards.error || milestones.error || (failed ? `${failed} notification delivery${failed === 1 ? "" : "ies"} failed in the latest run.` : null),
+      failed_count:failed + Math.max(impactRequests.failed || 0,impactError ? 1 : 0) + (yearReviews.failed || 0) + (yearReviews.error ? 1 : 0) + (contentRefresh.error?1:0) + (ownerPosts.failed||0) + (ownerPosts.error?1:0) + (liveRatings.failed || 0) + (socialRewards.failed || 0) + (liveRatings.error ? 1 : 0) + (socialRewards.error ? 1 : 0) + (milestones.error ? 1 : 0) + (milestones.failed || 0),
+      last_error:impactError || yearReviews.error || ownerPosts.error || contentRefresh.error || liveRatings.error || socialRewards.error || milestones.error || (failed ? `${failed} notification delivery${failed === 1 ? "" : "ies"} failed in the latest run.` : null),
     }).catch(() => null);
-    response.status(impactRequests.error || contentRefresh.error || liveRatings.error || socialRewards.error || ownerPosts.error || milestones.error || yearReviews.error ? 503 : 200).json({ automaticChecks, scheduleChecks, impactRequests, contentRefresh, ownerPosts, liveRatings, socialRewards, milestones, yearReviews, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
+    response.status(impactError || contentRefresh.error || liveRatings.error || socialRewards.error || ownerPosts.error || milestones.error || yearReviews.error ? 503 : 200).json({ automaticChecks, scheduleChecks, impactRequests, contentRefresh, ownerPosts, liveRatings, socialRewards, milestones, yearReviews, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
   }catch(error){
     const safeCode=code=>/^[a-zA-Z0-9_]{1,64}$/.test(code||"")?code:undefined;
     console.error("Notification dispatch failed",{stage,code:safeCode(error?.payload?.code)||"notification_dispatch_failed",upstreamCode:safeCode(error?.upstreamCode)});
@@ -156,4 +179,4 @@ module.exports = async function notificationDispatchHandler(request, response){
   }
 };
 
-module.exports._test = { CLAIM_STALE_MS, notificationPayload, recordDispatchHealth };
+module.exports._test = { CLAIM_STALE_MS, notificationPayload, recordDispatchHealth, reconciliationRequest };

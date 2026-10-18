@@ -74,7 +74,76 @@ async function selectedLoaderBoundary(){
  const originalNow=Date.now;try{Date.now=()=>originalNow()+31000;assert.equal((await stale.load()).length,0,'A stale retained snapshot is display data, not a fresh Impact check');}finally{Date.now=originalNow;}
  assert.equal(nsc.eventFor(stale.ids[0]).status,'completed','Retain last-good display data without qualifying it from a failed request');
 }
+async function failureBoundary(){
+ const {SupabaseRequestError}=require('../lib/supabase-server');
+ for(const fail of ['inventory','load_fixtures','prepare','reconcile','claim','begin','notification_admission','provider','provider_receipt','finish']){
+  let elapsed=0,sends=0;const diagnostics=[],finishes=[],claims=[{batch_id:'private-batch',installation_id:'private-phone',user_id:user,claim_token:'private-token'}];
+  const failure=()=>{elapsed+=3000;throw new SupabaseRequestError('private upstream body',{status:504,payload:{code:'supabase_timeout',message:'private upstream body'}});};
+  const request=async(path,o={})=>{
+   const phase=path.includes('notification_send_leases')?'provider_receipt':path.endsWith('begin_notification_send')?'notification_admission':path.split('nothingsports_impact_')[1];
+   if(phase==='finish')finishes.push(o.body.outcome);
+   if(phase===fail)return failure();
+   if(phase==='inventory')return inventory;
+   if(phase==='claim')return claims;
+   if(phase==='begin')return {kind:'immediate',items:[{eventId:fixture.id,title:'Private sporting fixture'}]};
+   if(phase==='notification_admission')return {leaseId:'private-lease',subscription:{endpoint:'https://private.test'}};
+   return null;
+  };
+  const result=await impact.dispatch({now,request,clock:()=>elapsed,budget:{remaining:()=>27000-elapsed},diagnostic:d=>diagnostics.push(d),load:async()=>{if(fail==='load_fixtures')return failure();return fail==='prepare'?[fixture,fixture]:[fixture];},send:async()=>{sends++;if(fail==='provider')throw Error('private uncertain provider');}});
+  assert.equal(result.error,'impact_request_dispatch_failed',fail+' is visible rather than a generic rejection or silent success');
+  assert.equal(result.checked,['inventory','load_fixtures','prepare','reconcile','claim'].includes(fail)?0:1);
+  assert.equal(result.sent,fail==='finish'?1:0,'A completed guarded send survives a final Impact receipt failure');
+  assert.equal(sends,['provider','provider_receipt','finish'].includes(fail)?1:0);
+  assert.equal(result.failed,result.checked?1:0,'Count each failed claim once, separately from phase failures');
+  assert(diagnostics.some(d=>d.phase===fail&&d.outcome==='failed'),fail+' has a precise phase');
+  assert(diagnostics.every(d=>Number.isFinite(d.elapsedMs)&&Number.isFinite(d.remainingMs)));
+  assert(!/private|11111111|184950|https|claim_token/.test(JSON.stringify(diagnostics)),'Only fixed phases/codes and numeric timings may leave the boundary');
+  if(['begin','provider','provider_receipt','finish'].includes(fail))assert.deepEqual(finishes,[fail==='finish'?'sent':'uncertain'],'Uncertain delivery is never released for blind retry');
+  if(fail==='notification_admission')assert.deepEqual(finishes,['pending'],'Proven no-contact admission failure can retain existing retry');
+ }
+ const result=await impact.dispatch({now,diagnostic:()=>{throw Error('logger failure');},request:async()=>{throw Error('private failure');},load:async()=>[fixture]});
+ assert.equal(result.error,'impact_request_dispatch_failed','A broken diagnostic sink cannot change failure handling');
+ const deferred=await impact.dispatch({now,request:async()=>{throw Object.assign(Error('No request started'),{code:'dispatch_deadline'});}});
+ assert.equal(deferred.deferred,'dispatch_deadline');assert.equal(deferred.error,undefined,'Budget exhaustion before any claim retains ordinary deferral');
+}
+async function partialWorkerBoundary(){
+ const claims=['receipt-fails','peer-succeeds'].map(installation_id=>({batch_id:'batch',installation_id,user_id:user,claim_token:'token'}));
+ for(const providerFails of [false,true]){
+  let elapsed=0,sends=0;const finishes=[],diagnostics=[];
+  const request=async(path,o={})=>{
+   const name=path.split('/').at(-1);
+   if(name==='nothingsports_impact_inventory')return inventory;
+   if(name==='nothingsports_impact_claim')return claims;
+   if(name==='nothingsports_impact_begin')return {kind:'immediate',items:[{eventId:fixture.id,title:fixture.name}]};
+   if(name==='nothingsports_begin_notification_send')return {leaseId:o.body.target_installation,subscription:{endpoint:o.body.target_installation}};
+   if(name==='nothingsports_impact_finish'){finishes.push(o.body);if(o.body.installation==='receipt-fails')throw Error('private receipt error');}
+   return null;
+  };
+  const result=await impact.dispatch({now,request,load:async()=>[fixture],clock:()=>elapsed,diagnostic:d=>diagnostics.push(d),send:async subscription=>{sends++;await Promise.resolve();if(providerFails&&subscription.endpoint==='receipt-fails')throw Error('unknown provider outcome');}});
+  assert.equal(sends,2,'A failing peer cannot stop the other claimed delivery');
+  assert.equal(result.sent,providerFails?1:2);assert.equal(result.failed,1,'Provider plus receipt failure on one claim counts once');assert.equal(result.checked,2);
+  assert.equal(result.error,'impact_request_dispatch_failed');
+  assert.equal(finishes.find(f=>f.installation==='receipt-fails').outcome,providerFails?'uncertain':'sent');
+  assert.equal(finishes.find(f=>f.installation==='peer-succeeds').outcome,'sent');
+  assert(diagnostics.some(d=>d.phase==='finish'));
+ }
+ let elapsed=0,receipts=0;
+ const diagnostics=[];
+ const result=await impact.dispatch({now,clock:()=>elapsed,budget:{remaining:()=>27000-elapsed},diagnostic:d=>diagnostics.push(d),load:async()=>[fixture],request:async(path)=>{
+  if(path.endsWith('impact_inventory'))return inventory;
+  if(path.endsWith('impact_claim'))return [claims[0]];
+  if(path.endsWith('impact_begin'))return {kind:'immediate',items:[{eventId:fixture.id,title:fixture.name}]};
+  if(path.endsWith('begin_notification_send'))return {leaseId:'lease',subscription:{endpoint:'synthetic'}};
+  if(path.includes('notification_send_leases')){elapsed=26900;return null;}
+  if(path.endsWith('impact_finish'))receipts++;
+  return null;
+ },send:async()=>{}});
+ assert.equal(result.sent,1);assert.equal(result.failed,1);assert.equal(receipts,0,'No final RPC starts after usable budget exhaustion');
+ assert(diagnostics.some(d=>d.phase==='finish'&&d.code==='dispatch_deadline'),'An unrecorded final receipt cannot masquerade as successful completion');
+}
 (async()=>{
+ await failureBoundary();
+ await partialWorkerBoundary();
  await selectedLoaderBoundary();
  const okay=await trial();assert.equal(okay.sends,2);assert.equal(okay.loads,1);assert(okay.maxActive<=2);assert(okay.finishes.every(r=>r.outcome==='sent'));
  for(const [failure,status]of [[{statusCode:503},'pending'],[{statusCode:429},'pending'],[new Error('ambiguous outcome'),'uncertain'],[{statusCode:410},'failed']]){const test=await trial({failure});assert(test.finishes.every(f=>f.outcome===status));if(failure.statusCode===410)assert.equal(test.calls.filter(c=>c.method==='DELETE').length,2);}

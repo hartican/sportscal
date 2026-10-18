@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Honest reminder phase diagnostics and partial outcomes — 18 October 2026
+
+The existing reminder owner may record fixed phase, allowlisted error code, HTTP status, elapsed time and remaining budget for failed or slow reconciliation and Impact operations. Never include recipients, IDs, paths, payloads, subscriptions, credentials or arbitrary upstream messages. Logging failure must not change delivery. Reuse existing requests, the three-second request bound, 27-second owner budget, two workers, admission/erasure fences and uncertain-send protection.
+
+Preserve completed guarded-send totals when the later Impact receipt fails. Count a failed claim once, keep degraded status visible, and retain ordinary pre-claim budget deferral. An Impact begin failure must produce a scheduler-visible failure and recorded last error. These diagnostics do not establish the cause of a production fixture-read timeout or prove real notification receipt. No new query, retry, scheduler, provider, consent, account write path or purchase. Local constructed regressions and the normal production release remain separate evidence.
+
 ## Historical identity rehearsals retain explicit clocks — 18 October 2026
 
 A disposable historical pre-match replay must not depend on the current wall clock still predating its fixture. Inject time only into the in-memory captured rating function at an asserted single seam; retain its actual phase/identity logic, test all declared aliases just before canonical kickoff and at kickoff/end, reject late changes without mutation, and restore the exact original function/role. Production migrations, captured schema and real clocks remain unchanged. Keep the original failed gate and normal release requirements.
