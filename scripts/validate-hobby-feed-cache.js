@@ -148,6 +148,34 @@ async function main(){
   releasePending();await Promise.all([firstPending,secondPending]);
   assert.equal(expiry([{startTimeUtc:'2026-09-15T03:00:05Z'}],new Date('2026-09-15T03:00:00Z'),pipeline),Date.parse('2026-09-15T03:00:05Z'));
   assert.equal(expiry([],new Date('2026-09-15T13:59:59Z'),pipeline),Date.parse('2026-09-15T14:00:00Z'),'Sydney midnight expires cache');
+  // The actual lifecycle calendar conversion must run once per fixture. Its
+  // archive boundary is exactly one millisecond before the expiry boundary.
+  const lifecycle=require('../config/card-lifecycle');
+  const datedExpiryEvent={id:'single-expiry',date:'2026-11-01',key:'afl',status:'scheduled'};
+  const originalParts=Intl.DateTimeFormat.prototype.formatToParts;
+  let calendarPasses=0,emptyPasses,singleLifecyclePasses,feedExpiryPasses;
+  try{
+    Intl.DateTimeFormat.prototype.formatToParts=function(...args){calendarPasses++;return originalParts.apply(this,args);};
+    expiry([],now,pipeline);emptyPasses=calendarPasses;
+    calendarPasses=0;lifecycle.expiresAtForEvent(datedExpiryEvent);singleLifecyclePasses=calendarPasses;
+    calendarPasses=0;expiry([datedExpiryEvent],now,pipeline);feedExpiryPasses=calendarPasses;
+  }finally{Intl.DateTimeFormat.prototype.formatToParts=originalParts;}
+  assert(singleLifecyclePasses>0,'The regression must exercise real Sydney calendar conversion');
+  assert.equal(feedExpiryPasses,emptyPasses+singleLifecyclePasses,'Feed expiry performs one lifecycle calculation per fixture');
+  // The optimisation relies on the actual lifecycle contract, including null
+  // deadlines. Pin both archive and expiry instants rather than a longer TTL.
+  for(const event of [datedExpiryEvent,{...datedExpiryEvent,status:'suspended'},{...datedExpiryEvent,status:'postponed'},
+    {...datedExpiryEvent,date:'unknown'},
+    {...datedExpiryEvent,status:'completed',firstConfirmedCompleteAt:'2026-10-18T03:00:00Z',date:'2026-10-18'},
+    {...datedExpiryEvent,status:'live',statusCheckedAt:new Date().toISOString(),statusSourceUrl:'https://example.test/fixture'}]){
+    const actualExpiry=lifecycle.expiresAtForEvent(event),actualArchive=lifecycle.archivesAtForEvent(event);
+    assert.equal(actualArchive?.getTime()??null,actualExpiry?+actualExpiry-1:null,'Keep the shared lifecycle archive/expiry relation');
+  }
+  for(const iso of ['2026-04-04T15:59:59Z','2026-04-04T16:00:01Z','2026-10-03T15:59:59Z','2026-10-03T16:00:01Z']){
+    const reference=new Date(iso);
+    assert.equal(expiry([{startTimeUtc:new Date(+reference+999).toISOString()}],reference,pipeline),+reference+999,'DST boundaries retain exact fixture deadline');
+    assert.equal(expiry([{startTimeUtc:iso}],reference,pipeline),+reference+1,'An exact boundary still permits only the next millisecond');
+  }
   for(const snapshot of [null,{revision:'r',sources:[],stale:true},{revision:'r',sources:[],stale:false}]){
     const followed=createFeedHandler({load:()=>({...data,readLiveSnapshots:async()=>snapshot}),clock:()=>now});
     const result=response();await followed({method:'POST',url:'/api/feed?scope=match-centre',body:{preferences:{}},headers:{}},result);

@@ -28,7 +28,11 @@ function expiry(events,now,pipeline){
   if(midnight)deadline=Math.min(deadline,+midnight);
   const lifecycle=require('../config/card-lifecycle');
   for(const event of events){
-    for(const value of [event.startTimeUtc,event.endTimeUtc,pipeline.eventEnd(event),lifecycle.archivesAtForEvent(event),lifecycle.expiresAtForEvent(event)]){
+    // archivesAtForEvent is expiresAtForEvent minus one millisecond. Calculate
+    // that shared lifecycle deadline once rather than repeat its calendar work.
+    const lifecycleExpiry=lifecycle.expiresAtForEvent(event);
+    const lifecycleArchive=lifecycleExpiry?new Date(+lifecycleExpiry-1):null;
+    for(const value of [event.startTimeUtc,event.endTimeUtc,pipeline.eventEnd(event),lifecycleArchive,lifecycleExpiry]){
       const time=+new Date(value||'');
       if(time>+now)deadline=Math.min(deadline,time);
       if(time===+now)deadline=Math.min(deadline,time+1);
