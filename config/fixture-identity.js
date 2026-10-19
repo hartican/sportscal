@@ -413,11 +413,28 @@
     return (events || []).map(event=>output.get(event)||event);
   }
 
+  // Reviewed men's Sydney derby only; never infer rivalries from city names.
+  function isSydneyDerby(event){
+    if(event.competitionId!=='competition:a-leagues')return false;
+    const pair=['team:football:sydney-fc','team:football:western-sydney-wanderers'];
+    const matches=ids=>ids.length===2&&new Set(ids).size===2&&ids.every(id=>pair.includes(id));
+    const ids=Array.isArray(event.participantIds)?event.participantIds.filter(Boolean):[];
+    const sides=[event.homeParticipantId,event.awayParticipantId].filter(Boolean);
+    if(ids.length)return matches(ids)&&(!sides.length||matches(sides));
+    if(sides.length)return matches(sides);
+    const participants=Array.isArray(event.participants)?event.participants:[];
+    if(participants.some(p=>p.id||p.participantId))return matches(participants.map(p=>p.id||p.participantId));
+    // Exact aliases retained in the current canonical club directory.
+    const aliases={'sydney fc':pair[0],'western sydney wanderers':pair[1],'western sydney':pair[1]};
+    return matches(participants.map(p=>aliases[String(p.name||p.displayName||'').trim().toLowerCase()]));
+  }
+
   function consensusTagsForEvent(event){
     const array=value=>Array.isArray(value)?value:[];
     const allowed=new Set(['Rivalry','Derby','Round-Robin','Knockout','Final','Record Chase']);
     const urls=[event.sourceUrl,...array(event.sourceUrls),...array(event.sources).map(source=>source?.url)].filter(url=>typeof url==='string'&&/^https:\/\//.test(url));
     const tags=[...array(event.consensusTags),...array(event.editorialPreview?.consensusTags)].filter(tag=>tag&&allowed.has(tag.label)&&Number(tag.confidence)>=.6&&(!tag.expiresAt||Date.parse(tag.expiresAt)>Date.now())&&array(tag.sourceUrls).some(url=>/^https:\/\//.test(url)));
+    if(urls.length&&isSydneyDerby(event)&&!tags.some(tag=>tag.label==='Derby'))tags.push({label:'Derby',confidence:.9,sourceUrls:[...new Set([...urls,'https://aleagues.com.au/news/aleague-men-2026-2027-fixture-list-revealed-key-dates-fixture-information/'])],method:'reviewed-participant-pair.v1'});
     // Structural schedule facts can be classified without inventing narrative.
     const round=String(event.round||event.roundLabel||event.stage||'').toLowerCase();
     const label=/^(?:grand |grand-)?final$/.test(round)?'Final':/quarter.?final|semi.?final|knockout|round of (?:16|32)/.test(round)?'Knockout':/round.?robin|group stage/.test(round)?'Round-Robin':null;
