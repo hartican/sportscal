@@ -8,7 +8,7 @@ const timing=require('../config/card-timing'),{refreshInterval,refreshDueSources
 const retained=require('../data/code-inspector/cricket.json').fixtures.find(e=>e.id==='fixture:cricket:espn:1525660');
 assert(retained,'The agreed Second Test regression identity exists');
 const now=Date.parse('2026-10-18T10:00:00Z'),stamp=new Date(now).toISOString(),old=new Date(now-60000).toISOString();
-const fixture={...retained,status:'live',statusText:null,statusCheckedAt:old,scoreCheckedAt:old,sourceCheckedAt:old,startTimeUtc:'2026-10-18T07:30:00Z',actualStartTimeUtc:'2026-10-18T07:30:00Z',innings:[{participantId:retained.homeParticipantId||retained.participantIds[0],runs:0,wickets:0,overs:'0.0'}]};
+const fixture={...retained,status:'live',statusText:null,statusCheckedAt:old,scoreCheckedAt:old,sourceCheckedAt:old,startTimeUtc:'2026-10-18T08:00:00Z',actualStartTimeUtc:'2026-10-18T08:00:00Z',innings:[{participantId:retained.homeParticipantId||retained.participantIds[0],runs:0,wickets:0,overs:'0.0'}]};
 const response=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},status(code){this.code=code;return this;},json(body){this.body=body;return this;}});
 async function run(){
  const sandbox={Date,Intl,URL};require('node:vm').runInNewContext(require('node:fs').readFileSync(require.resolve('../config/card-timing'),'utf8'),sandbox);
@@ -115,12 +115,16 @@ async function run(){
   if(status!=='postponed')assert.equal(model.observation(model.compact(e),resumed).status,status,'Terminal statuses resist stale live resurrection');scenarios++;
  }
  let reads=0,readOptions;
+ // Construct the provider-keyed interruption, not an unconditionally returned
+ // public-ID row: score storage addresses and action identities are distinct.
+ const scoreAddress='fixture:cricket:CA:39991';
  const handler=createMatchCentreHandler({enabled:()=>true,clock:()=>now,published:()=>[fixture],request:async(_path,options)=>{
   reads++;readOptions=options;
-  return [{fixture:{...suspended,sourceCheckedAt:stamp,scoreCheckedAt:null,innings:[]},checked_at:stamp}];
+  return options.body.p_fixture_ids.includes(scoreAddress)?[{fixture:{...suspended,id:scoreAddress,eventId:scoreAddress,canonicalEventId:scoreAddress,sourceEventIds:[scoreAddress],sourceCheckedAt:stamp,scoreCheckedAt:null,innings:[]},checked_at:stamp}]:[];
  }});
  const r=response();await handler({url:'/api/match-centre?ids='+fixture.id},r);
- assert.equal(r.code,200);assert.equal(reads,1,'Reconciliation adds no read or retry');assert.equal(readOptions.timeoutMs,3000);assert(readOptions.body.p_fixture_ids.includes(fixture.id));assert(readOptions.body.p_fixture_ids.length<=60);
+ assert.equal(r.code,200);assert.equal(reads,1,'Reconciliation adds no read or retry');assert.equal(readOptions.timeoutMs,3000);assert(readOptions.body.p_fixture_ids.includes(scoreAddress));assert(readOptions.body.p_fixture_ids.length<=60);
+ assert.equal(r.body.fixtures[0].id,fixture.id,'Provider storage lookup preserves the public action identity');
  assert.equal(r.body.fixtures[0].status,'suspended');assert.equal(r.body.fixtures[0].statusText,'Rain delay');
  assert.equal(r.body.fixtures[0].score.innings[0].runs,0);assert.equal(r.body.fixtures[0].scoreCheckedAt,old);
  assert.equal(r.body.fixtures[0].statusCheckedAt,stamp);assert.equal(r.body.fixtures[0].stale,false,'The retained score remains within its existing freshness window');
