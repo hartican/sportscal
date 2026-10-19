@@ -474,6 +474,7 @@ function codeFixtures(code){
   const golf = code.id === "sport:golf" ? require("./refresh-pga-schedule").fixtures(require("../data/canonical/pga-tour-schedule.json")) : [];
   const aLeague = code.id === "sport:football" ? require("../data/football/fixtures/a-league-men.json").events : [];
   const championship=code.id==='sport:football'?require('../data/football/fixtures/australian-championship.json').events:[];
+  const retainedDiamonds=code.id==='sport:netball'?require('../data/follow-sources/official.v1.json').events.filter(event=>event.key==='netball'&&event.sportDomainId==='sport:netball'&&event.competitionId==='competition:constellation-cup-2026'):[];
   const teamTennis=code.id==='sport:tennis'?require('../data/canonical/tennis-team-contests.v1.json').fixtures:[];
   const programme = require("../lib/competition-fixtures").fixtures().filter(event => eventMatchesCode(event,code));
   const published = [...teamTennis,...feed.events].filter(event => eventMatchesCode(event, code)&&!obsoleteProgramme(event));
@@ -496,7 +497,7 @@ function codeFixtures(code){
           ? canonicalWrc.events || []
         : [];
   const sourced=fixtureIdentity.mergeOverlays([...crossDisciplineFixtures,...openLiga.events,...(coverage.events || [])],require('../data/discovery/enrichment.v1.json').events).filter(event=>eventMatchesCode(event,code));
-  return require('../lib/fixture-highlights').applyCached(mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme, ...golf, ...aLeague,...championship], code.id, new Set([...canonical,...sourced,...golf,...aLeague,...championship])).map(enrichFixtureEditorial).map(require('../lib/reviewed-au-viewing').reviewedAuViewing));
+  return require('../lib/fixture-highlights').applyCached(mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme, ...golf, ...aLeague,...championship,...retainedDiamonds], code.id, new Set([...canonical,...sourced,...golf,...aLeague,...championship,...retainedDiamonds])).map(enrichFixtureEditorial).map(require('../lib/reviewed-au-viewing').reviewedAuViewing));
 }
 
 function groupingMode(fixtures){
