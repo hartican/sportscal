@@ -121,10 +121,11 @@ const html = fs.readFileSync("index.html", "utf8");
 const shellVersion = html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1];
 const workerVersion = serviceWorker.match(/const CACHE_NAME = "nothingsport-shell-v(\d+)"/)?.[1];
 assert.equal(shellVersion, workerVersion, "HTML and service-worker shell versions must stay synchronized");
+for (const file of ["config/sport-hierarchy.js", "config/event-taxonomy-compat.js", "config/preference-taxonomy.js"]) {
+  require('./app-shell-test-utils').assertShellModule(html, file);
+  assert(!serviceWorker.includes(`"/${file}"`), `${file} must remain available through the exact required runtime without a duplicate install request`);
+}
 [
-  "/config/sport-hierarchy.js",
-  "/config/event-taxonomy-compat.js",
-  "/config/preference-taxonomy.js",
   "/config/tennis-coverage.js",
   "/schemas/sport-hierarchy.schema.json",
   "/schemas/catalog-event.schema.json",

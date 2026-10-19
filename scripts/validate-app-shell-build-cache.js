@@ -32,9 +32,10 @@ try {
   }
   const moduleRoot = path.dirname(path.dirname(require.resolve("terser/package.json")));
   fs.symlinkSync(moduleRoot, path.join(temporary, "node_modules"), "dir");
-  ["config", "scripts/lib", "data/canonical", "scripts/build-app-shell-runtime.js", "scripts/build-deferred-sports-ui.js", "assets/js/match-centre-ui.source.js", "assets/js/match-centre-ui.js", "assets/js/milestone-alerts-ui.source.js", "assets/js/milestone-alerts-ui.js",
+  ["config", "scripts/lib", "lib/epl-provider-identities.js", "data/canonical", "scripts/build-app-shell-runtime.js", "scripts/build-deferred-sports-ui.js", "assets/js/match-centre-ui.source.js", "assets/js/match-centre-ui.js", "assets/js/milestone-alerts-ui.source.js", "assets/js/milestone-alerts-ui.js",
     "data/events.json", "data/major-events.v1.json", "data/editorial-knowledge.v1.json",
-    "assets/js/app-shell-runtime.js", "assets/js/calendar-sync-ui.js", "assets/js/calendar-sync-ui.source.js"]
+    "assets/js/app-shell-runtime.js", "assets/js/calendar-sync-ui.js", "assets/js/calendar-sync-ui.source.js",
+    "assets/js/account-awareness-ui.js", "assets/js/account-indicator-app.js", "assets/js/account-awareness-runtime.js"]
     .concat(["assets/js/app-update.js", "assets/js/app-update.source.js", "assets/js/notifications-inbox.js", "assets/js/notifications-inbox.source.js"])
     .forEach(copy);
   require("../config/app-shell-modules.json").filter(file => !file.startsWith("config/")).forEach(copy);
@@ -62,6 +63,13 @@ try {
   fs.writeFileSync(path.join(temporary, "assets/js/app-shell-runtime.js"), original);
   const valid = cp.spawnSync(process.execPath, ["scripts/build-app-shell-runtime.js", "--check"], { cwd: temporary, encoding: "utf8" });
   assert.equal(valid.status, 0, valid.stderr);
+  const accountInput = path.join(temporary, "assets/js/account-awareness-ui.js");
+  const originalAccountInput = fs.readFileSync(accountInput, "utf8");
+  fs.writeFileSync(accountInput, originalAccountInput + "\nglobalThis.NOTHINGSPORTS_ACCOUNT_BUILD_PROBE=1;\n");
+  const staleAccount = cp.spawnSync(process.execPath, ["scripts/build-app-shell-runtime.js", "--check"], {cwd:temporary, encoding:"utf8"});
+  assert.notEqual(staleAccount.status, 0, "account source changes must invalidate the deferred generated bundle");
+  assert.match(staleAccount.stderr, /Deferred sports UI is stale: assets\/js\/account-awareness-runtime\.js/);
+  fs.writeFileSync(accountInput, originalAccountInput);
   const leaf = path.join(temporary, "assets/js/app-update.source.js");
   const originalLeaf = fs.readFileSync(leaf, "utf8");
   fs.writeFileSync(leaf, originalLeaf + "\nglobalThis.NOTHINGSPORTS_STARTUP_LEAF_PROBE=1;\n");

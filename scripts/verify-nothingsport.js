@@ -410,7 +410,7 @@ assert(html.includes(`<meta name="app-shell-version" content="${shellVersion}">`
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/privacy.html"') && serviceWorkerSource.includes('"/terms.html"'), "legal documents must be available in the installed offline shell");
 assertShellModule(html, "config/team-follow-catalogue.js");
-assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
+for (const file of ["config/sport-hierarchy.js", "config/event-taxonomy-compat.js", "config/preference-taxonomy.js"]) assert(!serviceWorkerSource.includes(`"/${file}"`), "Bundled taxonomy must not add duplicate standalone install requests: " + file);
 assertShellModule(html, "config/sport-hierarchy.js");
 assertShellModule(html, "config/event-taxonomy-compat.js");
 assertShellModule(html, "config/preference-taxonomy.js");

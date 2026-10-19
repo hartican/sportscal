@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v567";
-const SHELL_VERSION = "567";
+const CACHE_NAME = "nothingsport-shell-v568";
+const SHELL_VERSION = "568";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -64,7 +64,8 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=567",
+  "/assets/js/app-shell-runtime.js?v=568",
+  "/assets/js/account-awareness-runtime.js?v=568",
   "/assets/js/follow-schedule-panel.js?v=562",
   "/assets/js/fixture-navigation.js?v=535",
   "/assets/js/notification-navigation.js?v=534",
@@ -81,9 +82,8 @@ const APP_SHELL = [
   "/assets/styles/card-clarity.css?v=536",
   "/config/follow-directory-worker.js?v=512",
   "/config/calendar-selection.js",
-  "/config/sport-hierarchy.js",
-  "/config/event-taxonomy-compat.js",
-  "/config/preference-taxonomy.js",
+  // Hierarchy and both taxonomy adapters already execute in the required
+  // app-shell runtime. Do not install second standalone copies of them.
   "/config/follow-summary.js?v=397",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",

@@ -44,6 +44,7 @@ function sourceFingerprint(){
   // Runtime measurements explicitly bypass SW. Bind the executed/rendered UI
   // bytes; the separate startup-budget/lifecycle suites validate the worker.
   const files=["config/feed-live-score-loader.js","config/startup-view-cache.js","config/golf-score-details.js","index.html","assets/js/app-update.js","assets/js/app-shell-runtime.js","assets/styles/nothingsport-foundation.css","config/athlete-profile-ui.js","styles/follow-feed-rework.css","assets/js/athletes-ui.js","assets/js/follow-navigation.js","assets/js/follow-presentation-ui.js","assets/js/participant-search-ui.js","assets/js/match-centre-ui.js","assets/js/match-centre-ui.source.js","assets/js/milestone-alerts-ui.js","assets/js/milestone-alerts-ui.source.js","assets/js/notification-navigation.js","config/milestone-preferences.js","assets/styles/match-centre.css","config/participant-directory.js","config/match-centre.js","config/tennis-journeys.js","config/follow-directory-worker.js","data/follow-directory/search.v1.json","config/fantasy-deadline-ui.js","assets/js/settings-optional-ui.js"];
+  files.push("assets/js/account-awareness-runtime.js");
   const hash=crypto.createHash("sha256");
   files.forEach(file=>hash.update(file).update(fs.readFileSync(path.join(ROOT,file))));
   return hash.digest("hex");

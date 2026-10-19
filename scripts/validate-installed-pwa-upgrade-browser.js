@@ -10,6 +10,31 @@ const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright'
 const {assertFollowPickerJourney}=require('./validate-follow-presentation-browser');
 const {assertDirectoryDefaults}=require('./validate-recognised-follow-teams-browser');
 const root = path.resolve(__dirname,'..');
+async function assertCachedBundledTaxonomy(page){
+  const result=await page.evaluate(()=>({nodes:NOTHINGSPORTS_SPORT_HIERARCHY.nodes,
+    version:NOTHINGSPORTS_SPORT_HIERARCHY.schemaVersion,
+    compatibility:typeof NOTHINGSPORTS_EVENT_TAXONOMY_COMPAT.enrichEvent,
+    translation:typeof NOTHINGSPORTS_PREFERENCE_TAXONOMY.translateSelection,
+    translationVersion:NOTHINGSPORTS_PREFERENCE_TAXONOMY.TAXONOMY_VERSION}));
+  assert.deepEqual(result.nodes,JSON.parse(JSON.stringify(require('../config/sport-hierarchy').nodes)),'All taxonomy nodes execute from the exact cached runtime after upgrade and offline restart');
+  assert.equal(result.compatibility,'function');assert.equal(result.translation,'function');
+  assert.equal(result.translationVersion,result.version,'The cached preference translator uses the same complete hierarchy');
+  const url=requiredShellScriptUrl('assets/js/app-shell-runtime.js');
+  const cached=await page.evaluate(async({url,version})=>{const cache=await caches.open('nothingsport-shell-v'+version);return (await cache.match('/'+url))?.text();},{url,version:candidateVersion});
+  assert.equal(cached,fs.readFileSync(path.join(root,'assets/js/app-shell-runtime.js'),'utf8'),'The candidate required cache owns the complete bundled taxonomy bytes');
+}
+async function assertCachedAccountIndicator(page){
+  const url=requiredShellScriptUrl('assets/js/account-awareness-runtime.js');
+  const cached=await page.evaluate(async({url,version})=>{const cache=await caches.open('nothingsport-shell-v'+version);return (await cache.match('/'+url))?.text();},{url,version:candidateVersion});
+  assert.equal(cached,fs.readFileSync(path.join(root,'assets/js/account-awareness-runtime.js'),'utf8'),'The exact account helper survives the upgrade and offline restart in the candidate cache');
+  await page.evaluate(()=>ensureAccountIndicator());
+  const button=page.locator('#accountIndicator .account-awareness-control');
+  await button.waitFor({state:'visible'});
+  assert((await button.locator('.account-awareness-label').innerText()).trim(),'Account status remains visible after upgrade and offline restart');
+  const urls=await page.evaluate(()=>[...loadDeferredScript.requests.keys()].filter(url=>new URL(url,location.href).pathname==='/assets/js/account-awareness-runtime.js'));
+  assert.equal(urls.length,1,'The installed app loads one combined account helper');
+  assert.equal(new URL(urls[0],page.url()).pathname+new URL(urls[0],page.url()).search,'/'+url,'The executed account helper matches the required offline-cache URL');
+}
 function requiredShellScriptUrl(file){
   const worker=fs.readFileSync(path.join(root,'service-worker.js'),'utf8');
   const urls=[...worker.matchAll(/"\/([^"?]+\.js\?v=\d+)"/g)].map(match=>match[1]).filter(url=>url.split('?')[0]===file);
@@ -607,6 +632,7 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),calendarUi),fs.readFileSync(path.join(root,'assets/js/calendar-sync-ui.js'),'utf8'),'Calendar UI is available from the exact upgraded offline cache');
     const stylesheet=fs.readFileSync(path.join(root,'index.html'),'utf8').match(/href="(styles\/follow-feed-rework\.css\?v=\d+)"/)[1];
     assert.equal(await upgraded.evaluate(url=>caches.match('/'+url).then(r=>r?.text()),stylesheet),fs.readFileSync(path.join(root,'styles/follow-feed-rework.css'),'utf8'),'Upgraded cache must contain the exact versioned card stylesheet');
+    await assertCachedAccountIndicator(upgraded);await assertCachedBundledTaxonomy(upgraded);
 
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'cached old runtime cannot conceal current source observations and shared/pending ranks');
     let profileCacheVerified=false;
@@ -673,6 +699,7 @@ const server=http.createServer((req,res)=>{
     assert.equal(await upgraded.locator('meta[name="app-shell-version"]').getAttribute('content'),candidateVersion,'Offline navigation uses the validated current shell');
     await upgraded.waitForFunction(()=>Array.isArray(globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS));
     assert.deepEqual(await upgraded.evaluate(()=>globalThis.NOTHINGSPORTS_FEED_CARD_STANDINGS.map(({competitionId,snapshotTimeUtc,entries})=>({competitionId,snapshotTimeUtc,entries}))),expectedStandings,'offline restart retains the upgraded source observations and all positions');
+    await assertCachedAccountIndicator(upgraded);await assertCachedBundledTaxonomy(upgraded);
     await assertOwnerSourcesClosed();
     await assertCachedFootballStatus(upgraded);
     await assertCachedCanonicalResults(upgraded);await assertCachedFixtureHighlights(upgraded);
