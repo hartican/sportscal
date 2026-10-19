@@ -3,10 +3,52 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'..');
 const server=http.createServer((req,res)=>{try{const name=decodeURIComponent(new URL(req.url,'http://localhost').pathname);const file=path.join(root,name==='/'?'index.html':name);if(!file.startsWith(root+'/'))throw Error();res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.png':'image/png','.svg':'image/svg+xml'})[path.extname(file)]||'application/octet-stream');res.end(fs.readFileSync(file));}catch{res.statusCode=404;res.end();}});
+async function settingsMenuStateAfterLazyLoad(browser){
+ const url='http://127.0.0.1:'+server.address().port;
+ let optionalSource=null;
+ if(process.env.SETTINGS_MENU_QA_SOURCE==='1'){
+  // Exercise the real optional builder in memory; never write generated assets.
+  const write=fs.writeFileSync;
+  try{fs.writeFileSync=(file,body)=>{assert.equal(file,path.join(root,'assets/js/settings-optional-ui.js'));optionalSource=body;};require('./build-fantasy-ui');}
+  finally{fs.writeFileSync=write;}
+ }
+ const context=await browser.newContext({viewport:{width:390,height:900},serviceWorkers:'block'}),page=await context.newPage();
+ const errors=[],requests=[];let release;const gate=new Promise(resolve=>release=resolve);
+ page.on('pageerror',error=>errors.push(error.message));
+ try{
+  await context.route('**/*',async route=>{
+   const request=route.request(),target=new URL(request.url());
+   if(target.origin!==url)return route.abort('blockedbyclient');
+   if(target.pathname==='/assets/js/settings-optional-ui.js'){
+    requests.push(target.pathname);await gate;
+    return optionalSource===null?route.continue():route.fulfill({contentType:'application/javascript',body:optionalSource});
+   }
+   if(target.pathname.startsWith('/api/'))return route.fulfill({status:200,json:target.pathname==='/api/auth'?{configured:false}:{}});
+   return route.continue();
+  });
+  await page.goto(url,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>typeof userPreferences!=='undefined'&&!startupCoordinator.isHydrating());
+  await page.waitForTimeout(500);
+  await page.evaluate(()=>{const next=clonePreferences(userPreferences);next.onboardingComplete=true;savePreferences(next,{viewOnly:true});serverPersistence={...serverPersistence,state:'signedOut',user:null};userPreferences.fantasyDeadlines={...userPreferences.fantasyDeadlines,enabled:false};openSettings({section:'main'});});
+  await page.waitForFunction(()=>settingsSection==='main'&&fantasyUiLoading!==null&&!globalThis.NOTHINGSPORTS_ARCHIVE_SETTINGS_UI);
+  await page.evaluate(()=>{serverPersistence={...serverPersistence,state:'signedIn',user:{email:'current@example.invalid'}};userPreferences.fantasyDeadlines={...userPreferences.fantasyDeadlines,enabled:true,gameByCompetition:{'competition:premier-league':'fpl-classic'}};});
+  release();
+  const account=page.locator('[data-settings-section="account"] .settings-menu-copy > span'),fantasy=page.locator('[data-settings-section="fantasy"] .settings-menu-copy > span');
+  await account.waitFor();assert.equal(await account.innerText(),'current@example.invalid · synced');assert.equal(await fantasy.innerText(),'FPL');
+  await page.evaluate(()=>{serverPersistence={...serverPersistence,state:'signedOut',user:null};userPreferences.fantasyDeadlines={...userPreferences.fantasyDeadlines,enabled:false};renderSettingsScreen();});
+  await page.waitForFunction(()=>document.querySelector('[data-settings-section="fantasy"] .settings-menu-copy > span')?.textContent==='Off');
+  assert.equal(await account.innerText(),'Sign in to sync across devices');
+  await page.evaluate(()=>{serverPersistence={...serverPersistence,state:'syncing',user:{email:'replacement@example.invalid'}};userPreferences.fantasyDeadlines={...userPreferences.fantasyDeadlines,enabled:true,gameByCompetition:{}};renderSettingsScreen();});
+  await page.waitForFunction(()=>document.querySelector('[data-settings-section="fantasy"] .settings-menu-copy > span')?.textContent==='Choose a game');
+  assert.equal(await account.innerText(),'replacement@example.invalid · syncing');
+  assert.equal(requests.length,1,'menu rerenders reuse the existing optional loader');assert.deepEqual(errors,[]);
+  console.log(JSON.stringify({passed:true,menu:'actual mounted Settings menu',stateAtRender:'changed before lazy release and twice after load',optionalRequests:requests.length,sourceBuildInMemory:optionalSource!==null,errors,scope:'isolated local synthetic state/API and disposable local preferences; no real account/profile mutation'}));
+ }finally{release();await context.close();}
+}
 async function main(){
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch({headless:true});
  let releaseUi;const uiGate=new Promise(r=>{releaseUi=r;});
  try{
+  if(process.env.SETTINGS_MENU_QA_ONLY==='1'){await settingsMenuStateAfterLazyLoad(browser);return;}
   const context=await browser.newContext({viewport:{width:390,height:900},serviceWorkers:'block'}),page=await context.newPage();
   const requests=[],errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.route('**/assets/js/settings-optional-ui.js*',async route=>{await uiGate;await route.continue();});

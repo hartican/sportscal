@@ -1,5 +1,20 @@
 (function(root){
 'use strict';
+function accountSettingsSummary(){
+  const email = serverPersistence.user?.email || "";
+  if (serverPersistence.state === "checking") return "Checking server sync";
+  if (serverPersistence.state === "local") return "Local only · this device";
+  if (serverPersistence.state === "signedOut") return "Sign in to sync across devices";
+  if (serverPersistence.state === "requesting") return "Signing in";
+  if (serverPersistence.state === "syncing") return `${email || "Signed in"} · syncing`;
+  if (serverPersistence.state === "signedIn") return `${email || "Signed in"} · synced`;
+  return email ? `${email} · local copy active` : "Local copy active";
+}
+
+function fantasySettingsSummary(){
+  const p=userPreferences.fantasyDeadlines;
+  return p.enabled?(p.gameByCompetition['competition:premier-league']==='fpl-classic'?'FPL':'Choose a game'):'Off';
+}
 function renderSettingsMenu(body){
   const hiddenCount = dismissedEventEntries().length;
   body.innerHTML = `<div class="settings-menu">

@@ -14111,27 +14111,6 @@ function openLegalDocument(documentKey){
   openSettings({ section });
 }
 
-function accountSettingsSummary(){
-  const email = serverPersistence.user?.email || "";
-  if (serverPersistence.state === "checking") return "Checking server sync";
-  if (serverPersistence.state === "local") return "Local only · this device";
-  if (serverPersistence.state === "signedOut") return "Sign in to sync across devices";
-  if (serverPersistence.state === "requesting") return "Signing in";
-  if (serverPersistence.state === "syncing") return `${email || "Signed in"} · syncing`;
-  if (serverPersistence.state === "signedIn") return `${email || "Signed in"} · synced`;
-  return email ? `${email} · local copy active` : "Local copy active";
-}
-
-function pilotMeasurementSummary(){
-  const pilot = pilotMeasurementPreferences();
-  if (!serverPersistence.user) return "Sign in to participate in product measurement";
-  if (!pilot.enabled || !pilot.participationStartedAt) return "Measurement off";
-  const { surveyId } = currentWeeklyPulseSurvey();
-  return PRODUCT_EVENTS.weeklyPulseComplete(pilot, { surveyId })
-    ? "Measurement on · current pulse complete"
-    : "Measurement on · current pulse ready";
-}
-
 function accountSyncTimeLabel(value){
   const parsed = new Date(value || "");
   if (Number.isNaN(parsed.getTime())) return "Not synced yet";
@@ -14819,10 +14798,6 @@ function renderFeedbackSettings(body){
   updateFeedbackPreview();
 }
 
-function fantasySettingsSummary(){
-  const p=userPreferences.fantasyDeadlines;
-  return p.enabled?(p.gameByCompetition['competition:premier-league']==='fpl-classic'?'FPL':'Choose a game'):'Off';
-}
 function saveFantasySetting(next){globalThis.NOTHINGSPORTS_FANTASY_UI?.save(next);}
 function renderFantasySettings(body){
   body.textContent='Loading fantasy settings…';
