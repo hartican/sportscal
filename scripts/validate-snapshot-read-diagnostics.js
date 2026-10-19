@@ -52,7 +52,7 @@ async function validateGlobalTiming(){
  const warnings=[],old=console.warn;let time=0,fail=false,calls=0;
  const request=async(path,options)=>{calls++;time+=1;return supabaseRequest(path,{...options,environment:{SUPABASE_URL:'https://private.invalid',SUPABASE_PUBLISHABLE_KEY:'PRIVATE_KEY'},fetchImpl:async()=>{
   if(fail&&!path.endsWith('source_health'))throw Error('PRIVATE_NETWORK_MESSAGE');
-  return {ok:true,status:200,text:async()=>JSON.stringify(path.endsWith('source_health')?source:globalBundle)};
+  return {ok:true,status:200,text:async()=>JSON.stringify(path.endsWith('source_health')?source:[globalBundle])};
  }});};
  console.warn=(...args)=>warnings.push(JSON.parse(args[1]));
  try{
@@ -66,7 +66,7 @@ async function validateGlobalTiming(){
   assert(!JSON.stringify(warnings).includes('PRIVATE_'));
   fail=false;warnings.length=0;
   const near=createSnapshotStore({request:async(path,o)=>{assert.equal(o.onTiming,undefined,'Opt-in remains global-only');return path.endsWith('source_health')?source:{...globalBundle,scope:'match-centre'};},diagnostics:true});await near.read({scope:'match-centre'});assert.equal(warnings.length,0);
-  const normal=createSnapshotStore({request:async(path,o)=>{assert.equal(o.onTiming,undefined);return path.endsWith('source_health')?source:globalBundle;}});await normal.read();
+  const normal=createSnapshotStore({request:async(path,o)=>{assert.equal(o.onTiming,undefined);return path.endsWith('source_health')?source:[globalBundle];}});await normal.read();
   console.warn=()=>{throw Error('PRIVATE_LOGGER');};await slow.read();
   assert.equal(calls,8,'Only the original two RPCs per exercised global read');
   console.warn=(...args)=>warnings.push(JSON.parse(args[1]));warnings.length=0;
@@ -83,10 +83,10 @@ async function validateGlobalTiming(){
   let releaseHealth;
   const pending=createSnapshotStore({diagnostics:true,request:async(path)=>path.endsWith('source_health')?new Promise(resolve=>{releaseHealth=resolve;}):Promise.reject(remoteError())});
   await assert.rejects(pending.read());const partial=warnings.pop();assert.equal(partial.timings.legs['source-health'].outcome,null,'Unfinished sibling outcome stays unknown');assert.equal(partial.timings.legs['source-health'].elapsedMs,null);assert.deepEqual(partial.timings.legs['source-health'].transport,[]);releaseHealth(source);
-  const invalid=createSnapshotStore({diagnostics:true,request:async path=>path.endsWith('source_health')?source:{...globalBundle,complete:false}});await assert.rejects(invalid.read());const bad=warnings.pop();assert.equal(bad.phase,'validation');assert(bad.timings.validationMs>=0);assert.equal(bad.timings.projectionMs,null);
+  const invalid=createSnapshotStore({diagnostics:true,request:async path=>path.endsWith('source_health')?source:[{...globalBundle,complete:false}]});await assert.rejects(invalid.read());const bad=warnings.pop();assert.equal(bad.phase,'validation');assert(bad.timings.validationMs>=0);assert.equal(bad.timings.projectionMs,null);
   for(const status of [400,404]){
    warnings.length=0;let jsonCalls=0;const missing=Object.assign(Error('PRIVATE_LEGACY'),{status,payload:{details:'PRIVATE_BODY'}});
-   const required=createSnapshotStore({diagnostics:true,request:async(path,o)=>{jsonCalls++;assert.equal(o.timeoutMs,3000);assert.equal(o.method,'POST');assert.equal(typeof o.onTiming,'function');if(path.endsWith('source_health'))return source;assert(path.endsWith('nothingsports_read_current_fixture_bundle_json'),'No legacy table request');o.onTiming({phase:'error',elapsedMs:1,status,bytes:null,token:'PRIVATE_TOKEN'});throw missing;}});
+   const required=createSnapshotStore({diagnostics:true,request:async(path,o)=>{jsonCalls++;assert.equal(o.timeoutMs,3000);assert.equal(o.method,'POST');assert.equal(typeof o.onTiming,'function');if(path.endsWith('source_health'))return source;assert(path.endsWith('nothingsports_read_current_fixture_bundle_json_rows'),'No legacy table request');o.onTiming({phase:'error',elapsedMs:1,status,bytes:null,token:'PRIVATE_TOKEN'});throw missing;}});
    await assert.rejects(required.read(),e=>e===missing);assert.equal(jsonCalls,2,'Missing required JSON RPC cannot fall back to legacy');assert.equal(warnings.length,1);assert.equal(warnings[0].phase,'fixture-bundle');assert.equal(warnings[0].status,status);assert.equal(warnings[0].timings.legs['fixture-bundle'].outcome,'error');assert.equal(warnings[0].timings.legs['legacy-read'],undefined);assert(!JSON.stringify(warnings).includes('PRIVATE_'));
   }
   console.log('Global timing: separate parallel legs, required JSON RPC fail-closed, safe aggregates, validation/projection, fast quiet, opt-in-only, unchanged scopes and logger isolation passed.');
@@ -135,7 +135,7 @@ async function validateLoggerRejections(){
   calls++;time+=1100;
   if(path.endsWith('source_health'))return [{source_id:'PRIVATE_SOURCE',revision:1}];
   if(fail)throw failure;
-  return {schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[{source_id:'PRIVATE_SOURCE',fixture:{...fixture,id:'PRIVATE_FIXTURE'}}]};
+  return [{schemaVersion:'current-fixture-bundle.v1',complete:true,rows:[{source_id:'PRIVATE_SOURCE',fixture:{...fixture,id:'PRIVATE_FIXTURE'}}]}];
  }});
  try{
   const result=await store.read();assert.equal(result[0].fixtures[0].id,'PRIVATE_FIXTURE','Rejected slow logger cannot replace successful facts');

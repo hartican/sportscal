@@ -55,9 +55,30 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   assert.deepEqual(await retainedContracts(),beforeRetainedContracts,'All existing readers/helpers retain exact definitions and ACLs');
   assert.equal(originalAttributes.provolatile,'s');assert.equal(originalAttributes.prosecdef,false);assert.equal(originalAttributes.lanname,'sql');assert.deepEqual(originalAttributes.proconfig,['search_path=""']);
   await db.exec('begin;');await assert.rejects(db.exec(aggregationMigration),/already exists/,'Migration cannot replay against an already changed reader');await db.exec('rollback;');
+  const rowSignature='public.nothingsports_read_current_fixture_bundle_json_rows(text[])';
+  const rowMigration=fs.readFileSync('supabase/migrations/20261019021027_add_global_fixture_json_rows_reader.sql','utf8');
+  const oldRowDependencies=async()=>(await db.query("select jsonb_object_agg(p.oid::text,jsonb_build_object('definition',pg_get_functiondef(p.oid),'acl',p.proacl::text)) contracts from pg_proc p where p.pronamespace='public'::regnamespace and p.proname like 'nothingsports_%' and p.proname<>'nothingsports_read_current_fixture_bundle_json_rows'")).rows[0].contracts;
+  const beforeRowDependencies=await oldRowDependencies();
+  for(const mutation of [
+   'alter function public.nothingsports_read_current_fixture_bundle(text[]) security definer',
+   'alter function public.nothingsports_read_current_fixture_bundle_json(text[]) immutable',
+   'alter function public.nothingsports_project_fixture_observations(jsonb,jsonb,jsonb,timestamptz) immutable',
+   'grant execute on function public.nothingsports_read_current_fixture_bundle_json(text[]) to anon',
+   'revoke execute on function public.nothingsports_read_current_fixture_bundle_json(text[]) from service_role',
+   "create function public.nothingsports_read_current_fixture_bundle_json_rows(p_fixture_ids text) returns setof json language sql as $$ select '{}'::json $$",
+   'create role qa_unexpected_json_row_grantee;alter default privileges grant execute on functions to qa_unexpected_json_row_grantee'
+  ]){
+   await db.exec('begin;'+mutation+';');await assert.rejects(db.exec(rowMigration),/differ from reviewed baseline|permissions differ|already exists/);await db.exec('rollback;');assert.deepEqual(await oldRowDependencies(),beforeRowDependencies);
+  }
+  await db.exec('begin;'+rowMigration+'commit;');assert.deepEqual(await oldRowDependencies(),beforeRowDependencies,'Old JSONB/JSON/near/selected/helper contracts and ACLs remain byte-identical');
+  const rowContract=(await db.query(`select p.provolatile,p.prosecdef,p.proparallel,p.proleakproof,p.proconfig,p.proacl::text as acl,l.lanname,p.prorettype::regtype::text as returns,p.proretset,p.prorows,pg_get_function_arguments(p.oid) args,md5(pg_get_functiondef(p.oid)) digest from pg_proc p join pg_language l on l.oid=p.prolang where p.oid=$1::regprocedure`,[rowSignature])).rows[0];
+  const {returns:rowReturn,proretset,prorows,args,digest:rowDigest,...rowAttributes}=rowContract;
+  assert.equal(rowReturn,'json');assert.equal(proretset,true);assert.equal(prorows,1);assert.deepEqual(rowAttributes,originalAttributes);assert.equal(args,(await db.query('select pg_get_function_arguments($1::regprocedure) args',[wireSignature])).rows[0].args);
+  await db.exec('begin;');await assert.rejects(db.exec(rowMigration),/already exists/);await db.exec('rollback;');
   const aggregationEquivalent=async(ids,expectedCount,expectedComplete=true)=>{
-   const r=(await db.query(`with old as materialized(select public.qa_reference_global_aggregation($1::text[]) v), current as materialized(select public.nothingsports_read_current_fixture_bundle_json($1::text[])::jsonb v)
-    select old.v=current.v as same,jsonb_array_length(current.v->'rows') as n,current.v->'complete'='true'::jsonb as complete,current.v->>'schemaVersion' as schema from old,current`,[ids])).rows[0];
+   const r=(await db.query(`with old as materialized(select public.qa_reference_global_aggregation($1::text[]) v), current as materialized(select public.nothingsports_read_current_fixture_bundle_json($1::text[])::jsonb v), emitted as materialized(select value from public.nothingsports_read_current_fixture_bundle_json_rows($1::text[]) t(value)), payload as materialized(select json_agg(value) wire,count(*) row_count from emitted)
+    select old.v=current.v and old.v=(payload.wire::jsonb->0) as same,payload.row_count,json_array_length(payload.wire) array_length,jsonb_array_length(current.v->'rows') as n,current.v->'complete'='true'::jsonb as complete,current.v->>'schemaVersion' as schema from old,current,payload`,[ids])).rows[0];
+   assert.equal(r.row_count,1,'SETOF reader emits exactly one row even with empty fixture membership');assert.equal(r.array_length,1);
    assert.equal(r.same,true,'Whole ordered JSONB output equals the original current reader, including exact numerics');assert.equal(r.schema,'current-fixture-bundle.v1');
    if(expectedCount!==undefined){assert.equal(r.n,expectedCount);assert.equal(r.complete,expectedComplete);}
   };
@@ -73,10 +94,10 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   await db.query("insert into public.nothingsports_live_scores(source_id,fixture_id,score,content_hash,first_completed_at) values('z-current','large-parent',$1::jsonb,'score',$2::timestamptz)",[JSON.stringify({id:'large-parent',status:'completed',homeScore:2,scoreCheckedAt:factAt,statusCheckedAt:factAt}),factAt]);
   await db.query("update public.nothingsports_fixture_sources set discovery_report=jsonb_build_object('_fixtureObservations',jsonb_build_object('large-parent',jsonb_build_object('s',$1::text,'t',$1::text))) where source_id='z-current'",[receiptAt]);
   await db.exec('set role service_role');let calls=[];
-  const request=async(route,{body})=>{calls.push(route);const name=route.split('/').at(-1),parameter=body.p_membership_ids!==undefined?body.p_membership_ids:body.p_fixture_ids,rows=(await db.query(`select * from public.${name}(${parameter!==undefined?'$1':''})`,parameter!==undefined?[parameter]:[])).rows;return (name.endsWith('_fixture_bundle')||name.endsWith('_fixture_bundle_json'))?rows[0][name]:rows.slice(0,1000);};
+  const request=async(route,{body})=>{calls.push(route);const name=route.split('/').at(-1),parameter=body.p_membership_ids!==undefined?body.p_membership_ids:body.p_fixture_ids,rows=(await db.query(`select * from public.${name}(${parameter!==undefined?'$1':''})`,parameter!==undefined?[parameter]:[])).rows;return name==='nothingsports_read_current_fixture_bundle_json_rows'?rows.map(row=>row[name]):(name.endsWith('_fixture_bundle')||name.endsWith('_fixture_bundle_json'))?rows[0][name]:rows.slice(0,1000);};
   const store=createSnapshotStore({request}),global=await store.read(),all=global.flatMap(s=>s.fixtures);
-  assert(calls.some(r=>r.endsWith('nothingsports_read_current_fixture_bundle_json')),'Unselected store uses the new JSON RPC');
-  const originalStore=createSnapshotStore({request:async(route,options)=>request(route.replace('nothingsports_read_current_fixture_bundle_json','nothingsports_read_current_fixture_bundle'),options)});
+  assert(calls.some(r=>r.endsWith('nothingsports_read_current_fixture_bundle_json_rows')),'Unselected store uses the new JSON RPC');
+  const originalStore=createSnapshotStore({request:async(route,options)=>route.endsWith('nothingsports_read_current_fixture_bundle_json_rows')?[await request(route.replace('nothingsports_read_current_fixture_bundle_json_rows','nothingsports_read_current_fixture_bundle'),options)]:request(route,options)});
   const normalizedOriginal=await originalStore.read();assert.deepEqual(global,normalizedOriginal,'JSON wire and JSONB wire normalize to identical source records and original observations');
   const {contentHash}=require('../lib/live-fixtures');assert.equal(contentHash(global),contentHash(normalizedOriginal),'Object-key order cannot change normalized content hashes');calls.splice(2);
 
@@ -182,6 +203,13 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   await db.exec('set role service_role;');await aggregationEquivalent(null,5001,false);await db.exec('reset role;');
   assert.deepEqual(await globalAttributes(),originalAttributes);
   console.log(JSON.stringify({schemaVersion:'global-aggregation-regression.v1',readerMd5:(await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[wireSignature])).rows[0].digest,projectorMd5:(await db.query("select md5(pg_get_functiondef('public.nothingsports_project_fixture_observations(jsonb,jsonb,jsonb,timestamptz)'::regprocedure)) digest")).rows[0].digest,exactNumericComparison:'PostgreSQL JSONB equality',cardinalityCases:[0,1,5000,5001],productionRequests:0}));
+  for(const role of ['anon','authenticated']){
+   assert.equal((await db.query("select has_function_privilege($1,$2,'EXECUTE') allowed",[role,rowSignature])).rows[0].allowed,false);await db.exec('set role '+role+';');await assert.rejects(db.query('select * from public.nothingsports_read_current_fixture_bundle_json_rows(null)'),/permission denied/);await db.exec('reset role;');
+  }
+  await db.exec('set role service_role;');await aggregationEquivalent(null,5001,false);await db.exec('reset role;');
+  assert.equal((await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[globalSignature])).rows[0].digest,'ef1658b2eb58a376f368ede88730ad43');
+  assert.equal((await db.query('select md5(pg_get_functiondef($1::regprocedure)) digest',[wireSignature])).rows[0].digest,'a15bc809eaf15601a52855cb667f7b9f');
+  console.log(JSON.stringify({schemaVersion:'global-json-row-regression.v1',rowDigest,rowsHint:1,oneRowCardinality:true,exactSQLNumericEquality:true,oldDependenciesUnchanged:true,productionCalls:0}));
   console.log('Global aggregation: exact SQL numerics/whole-output NULL, empty, alias, selected, 0/1/5000/5001, clocks/nulls/Unicode, replay/mismatch/security guards and unchanged ACL passed.');
   console.log('Global/near transfer beyond 1000 rows, preserved current membership and reschedules, uncertain clocks, parent/detail isolation, observations/aliases/rubbers, score-overlay retention, two-read budget, degraded fallback, service-only access and complete SQL equivalence passed.');
  }finally{await db.close();}
