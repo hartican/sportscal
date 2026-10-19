@@ -203,13 +203,13 @@ async function handlerContracts(){
   const supabaseCache = require.cache[supabasePath];
   const serverCache = require.cache[serverPath];
   const rewardsCache = require.cache[rewardsPath];
-  let identityReady=true;
+  let identityReady=true,viewerFailure="",viewerUser={id:"11111111-1111-4111-8111-111111111111"},viewerToken="token",profileReads=0,personaReads=0,snapshotReads=0;
   let pilotCalls=0,profileWrites=0,submitMode="success",profileVisibility="visible",eventPhase="heat",existingSubmission=null;
   const submitCalls=[];
   supabaseCache.exports={
     ...actualSupabase,
-    bearerToken(){return "token";},
-    async authenticatedUser(){return{id:"11111111-1111-4111-8111-111111111111"};},
+    bearerToken(){return viewerToken;},
+    async authenticatedUser(){return viewerUser;},
     async supabaseServiceRequest(){profileWrites+=1;return null;},
   };
   serverCache.exports={
@@ -222,12 +222,12 @@ async function handlerContracts(){
     async rows(table){return table==="contributions"&&existingSubmission?[existingSubmission]:[];},
     rowsPath(){return"/profiles";},
     async pilotFor(){pilotCalls+=1;return{approved:true,suspended:false};},
-    async profileFor(){return{profile_id:"profile-one",display_name:"Test Person",handle:"test_person",visibility:profileVisibility};},
+    async profileFor(){profileReads++;if(viewerFailure==="profile")throw Error("private profile failure");return{profile_id:"profile-one",user_id:viewerUser.id,display_name:"Test Person",handle:"test_person",visibility:profileVisibility};},
     async snapshots(){return[];},
-    async refreshEventSnapshots(){},
+    async refreshEventSnapshots(){snapshotReads++;if(viewerFailure==="snapshot")throw Error("sporting snapshot unavailable");},
     async reviewedIdentityReady(){return identityReady;},
     ownerProfile:actualServer.ownerProfile,
-    async personaFor(){return{persona:"general",moderation_flag:false};},
+    async personaFor(){personaReads++;if(viewerFailure==="persona")throw Error("private persona failure");return{persona:"general",moderation_flag:viewerFailure==="moderated"};},
   };
   rewardsCache.exports={
     ...actualRewards,
@@ -241,6 +241,22 @@ async function handlerContracts(){
   delete require.cache[handlerPath];
   try{
     const handler=require(handlerPath);
+    for(const mode of ["snapshot","profile","persona","moderated"]){
+      viewerFailure=mode;profileReads=0;personaReads=0;snapshotReads=0;
+      const result=responseCapture();await handler({method:"GET",query:{viewer:"1"},headers:{authorization:"Bearer token"}},result);
+      assert.equal(result.statusCode,200);assert.equal(result.body.viewer.signedIn,true);
+      assert.equal(result.body.viewer.profileUnavailable,["profile","persona"].includes(mode));
+      assert.equal(result.body.viewer.ratingEligible,mode==="snapshot");
+      assert.equal(profileReads,1);assert.equal(personaReads,1);assert.equal(snapshotReads,0,"viewer read cannot load a sporting snapshot");
+      assert.equal(Object.hasOwn(result.body.viewer.profile||{},"user_id"),false,"owner projection cannot expose storage identity");
+      assert.equal(result.headers["Cache-Control"],"private, no-store, max-age=0");
+    }
+    for(const anonymous of [false,true]){
+      viewerToken=anonymous?"token":"";viewerUser=anonymous?{id:"guest",is_anonymous:true}:null;profileReads=0;personaReads=0;
+      const result=responseCapture();await handler({method:"GET",query:{viewer:"1"}},result);
+      assert.equal(result.statusCode,401);assert.equal(result.body.code,"sign_in_required");assert.equal(profileReads+personaReads,0);
+    }
+    viewerFailure="";viewerToken="token";viewerUser={id:"11111111-1111-4111-8111-111111111111"};
     const profileResponse=responseCapture();
     await handler({method:"POST",headers:{authorization:"Bearer token"},body:{action:"profile",displayName:"Test Person",handle:"test_person"}},profileResponse);
     assert.equal(profileResponse.statusCode,200);

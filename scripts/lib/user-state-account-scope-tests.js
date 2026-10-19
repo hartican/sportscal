@@ -176,10 +176,10 @@ async function indicatorProfileResults(){
  const source=slice('function acceptNothingscoreViewer(','\nfunction createChatState(')+'\n'+slice('async function refreshNothingscoreViewer(','\nlet nscReturnPosition');
  const results=[];
  for(const nextOwner of ['A','B']){
-  let release,life={accountId:'A',generation:1};
-  const c={activeEvents:[{id:'disposable-fixture'}],EVENTS:[],serverPersistence:{user:{id:'A'}},nothingscoreViewer:{marker:'new current profile'},nothingscoreEventId:e=>e.id,mergeNothingscoreSnapshot(){},serverSyncClient:{accountSnapshot:()=>life,nothingscoreRequest:()=>new Promise(r=>release=r)}};
+  let release,life={accountId:'A',generation:1,hasSession:true};
+  const c={publicProfileSettingsLoading:null,settingsSection:'account',document:{getElementById:()=>null},activeEvents:[{id:'disposable-fixture'}],EVENTS:[],serverPersistence:{user:{id:'A'}},nothingscoreViewer:{marker:'new current profile'},nothingscoreEventId:e=>e.id,mergeNothingscoreSnapshot(){},serverSyncClient:{accountSnapshot:()=>life,nothingscoreRequest:()=>new Promise(r=>release=r)}};
   vm.createContext(c);vm.runInContext(source,c);const pending=c.refreshNothingscoreViewer();
-  life={accountId:nextOwner,generation:2};c.serverPersistence.user={id:nextOwner};release({viewer:{marker:'stale result'}});await pending;
+  life={accountId:nextOwner,generation:2,hasSession:true};c.serverPersistence.user={id:nextOwner};release({viewer:{marker:'stale result'}});await pending;
   assert.equal(c.nothingscoreViewer.marker,'new current profile');results.push('actual delayed profile '+(nextOwner==='A'?'same-owner lifetime':'replacement owner'));
  }
  return results;

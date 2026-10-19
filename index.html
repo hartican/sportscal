@@ -4813,6 +4813,11 @@ function setServerPersistence(patch){
   const life=serverSyncClient?.accountSnapshot?.();
   if(patch?.state==='signedIn' && nextOwnerId===life?.accountId)accountIndicatorGeneration=life.generation;
   renderAccountIndicator();
+  if(patch?.state==='signedIn' && nextOwnerId && nextOwnerId===life?.accountId &&
+      (publicProfileSettingsLoading?.owner!==nextOwnerId || publicProfileSettingsLoading?.generation!==life.generation) &&
+      (nothingscoreViewerScope?.owner!==nextOwnerId || nothingscoreViewerScope?.generation!==life.generation)){
+    void refreshNothingscoreViewer().catch(()=>{});
+  }
   return serverPersistence;
 }
 
@@ -14233,17 +14238,25 @@ function appendPublicProfileAccountSettings(body){
   const title = document.createElement("h3");
   title.textContent = "Public Profile";
   section.appendChild(title);
-  if (!nothingscoreViewer.signedIn){
+  const life=serverSyncClient.accountSnapshot(),owner=serverPersistence.user?.id||"";
+  if (!nothingscoreViewer.signedIn || nothingscoreViewerScope?.owner!==owner || nothingscoreViewerScope?.generation!==life.generation){
+    const request=publicProfileSettingsLoading?.owner===owner && publicProfileSettingsLoading?.generation===life.generation ? publicProfileSettingsLoading : null;
     const loading = document.createElement("p");
     loading.className = "preference-help";
-    loading.textContent = "Loading your Public Profile…";
+    loading.textContent = request?.error || "Loading your Public Profile…";
     section.appendChild(loading);
-    publicProfileSettingsLoading ||= refreshNothingscoreViewer()
-      .catch(error => { loading.textContent = error.message || "Your Public Profile is temporarily unavailable."; })
-      .finally(() => {
-        publicProfileSettingsLoading = null;
-        if (document.getElementById("settingsModal")?.classList.contains("show") && settingsSection === "account") renderSettingsScreen();
+    if(request?.error){
+      const retry=document.createElement("button");
+      retry.type="button";retry.className="btn ghost";retry.textContent="Retry Public Profile";
+      retry.addEventListener("click",()=>{
+        if(owner!==(serverPersistence.user?.id||"") || owner!==serverSyncClient.accountSnapshot().accountId || life.generation!==serverSyncClient.accountSnapshot().generation)return;
+        void refreshNothingscoreViewer().catch(()=>{});
+        renderSettingsScreen();
       });
+      section.appendChild(retry);
+    }else if(!request){
+      void refreshNothingscoreViewer().catch(()=>{});
+    }
     body.querySelector(".preference-stack")?.appendChild(section);
     return;
   }
@@ -17400,15 +17413,30 @@ function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
 }
 
 async function refreshNothingscoreViewer(){
-  const event = activeEvents[0] || EVENTS[0] || null;
-  if (!event) return null;
-  const owner = serverPersistence.user?.id || "";
-  const ownerGeneration=serverSyncClient.accountSnapshot().generation;
-  const payload = await serverSyncClient.nothingscoreRequest({ eventId:nothingscoreEventId(event) });
-  if (owner !== (serverPersistence.user?.id || "")) return null;
-  if (payload.viewer) acceptNothingscoreViewer(payload.viewer,owner,ownerGeneration);
-  if (payload.detail) mergeNothingscoreSnapshot(payload.detail);
-  return payload.viewer || null;
+  const owner=serverPersistence.user?.id||"";
+  const life=serverSyncClient.accountSnapshot(),generation=life.generation;
+  if(!owner || owner!==life.accountId || !life.hasSession)return null;
+  const current=()=>owner===(serverPersistence.user?.id||"") && owner===serverSyncClient.accountSnapshot().accountId && generation===serverSyncClient.accountSnapshot().generation;
+  if(publicProfileSettingsLoading?.owner===owner && publicProfileSettingsLoading?.generation===generation && publicProfileSettingsLoading.promise)return publicProfileSettingsLoading.promise;
+  const request={owner,generation,promise:null,error:""};
+  publicProfileSettingsLoading=request;
+  request.promise=(async()=>{
+    try{
+      const payload=await serverSyncClient.nothingscoreRequest({viewer:true});
+      if(!current())return null;
+      if(!payload?.viewer?.signedIn || payload.viewer.profileUnavailable)throw new Error("Your Public Profile is temporarily unavailable.");
+      acceptNothingscoreViewer(payload.viewer,owner,generation);
+      return payload.viewer;
+    }catch(error){
+      if(!current())return null;
+      request.error="Your Public Profile could not be loaded. Try again.";
+      throw error;
+    }finally{
+      request.promise=null;
+      if(current() && publicProfileSettingsLoading===request && document.getElementById("settingsModal")?.classList.contains("show") && settingsSection==="account")renderSettingsScreen();
+    }
+  })();
+  return request.promise;
 }
 
 let nscReturnPosition=null;

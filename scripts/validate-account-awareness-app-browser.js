@@ -10,6 +10,7 @@ const engineName=process.env.ACCOUNT_APP_QA_BROWSER||'chromium';
 const engine=engineName==='webkit'?webkit:chromium;
 const token=(id,nonce)=>'e30.'+Buffer.from(JSON.stringify({sub:id,nonce})).toString('base64url')+'.disposable';
 const delay=ms=>new Promise(r=>setTimeout(r,ms));
+const sourceRuntime=(process.env.ACCOUNT_APP_QA_HYDRATION_ONLY||process.env.ACCOUNT_APP_QA_SOURCE_RUNTIME)?require('./build-app-shell-runtime').build():null;
 (async()=>{
  const browser=await engine.launch({headless:true,...(engineName==='chromium'?{channel:process.env.QA_BROWSER_CHANNEL||'chrome'}:{})});
  let layouts=0,behaviours=0;const allErrors=[],chooserProof=[],chooserCounts=[];
@@ -19,10 +20,11 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
    await context.addInitScript(()=>{if('serviceWorker' in navigator)Object.defineProperty(navigator.serviceWorker,'ready',{configurable:true,value:Promise.resolve({pushManager:{getSubscription:async()=>null}})});});
    const api=[],errors=[],chooserEvents=[];let owner='qa-a',nonce=0,expired=false,holdState=false,releaseState,failHelper=false,holdHelper=false,releaseHelper;
    let row=null,meta={sports:[]};
-   const viewerProfiles={};let holdViewer=false,releaseViewer=null,holdImage=false,releaseImage=null;const imageRequests=[];
+   let viewerMode="success";const viewerProfiles={};let holdViewer=false,releaseViewer=null,holdImage=false,releaseImage=null;const imageRequests=[];
    await context.route('**/*',async route=>{
     const request=route.request(),u=new URL(request.url());
     if(u.origin!==new URL(url).origin)return route.abort('blockedbyclient');
+    if(sourceRuntime&&u.pathname==='/assets/js/app-shell-runtime.js')return route.fulfill({contentType:'application/javascript',body:sourceRuntime});
     if(u.pathname==='/assets/js/account-awareness-runtime.js'){
      if(failHelper)return route.fulfill({status:503,body:'Unavailable'});
      if(holdHelper)await new Promise(resolve=>releaseHelper=resolve);
@@ -48,6 +50,11 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
     }
     if(u.pathname==='/api/user-meta'&&method==='GET')return route.fulfill({json:{meta}});
     if(u.pathname==='/api/nothingscore'&&method==='GET'){
+     if(process.env.ACCOUNT_APP_QA_HYDRATION_ONLY && !u.searchParams.has('viewer'))return route.fulfill({status:503,json:{error:'Controlled sporting snapshot unavailable'}});
+     if(viewerMode==='failure')return route.fulfill({status:503,json:{error:'Controlled viewer unavailable'}});
+     if(viewerMode==='null')return route.fulfill({json:{viewer:null}});
+     if(viewerMode==='unavailable')return route.fulfill({json:{viewer:{signedIn:true,profileUnavailable:true,profile:null}}});
+     if(viewerMode==='signedOut')return route.fulfill({json:{viewer:{signedIn:false,profile:null}}});
      const profile={...(viewerProfiles[owner]||{handle:'qa_handle',displayName:'Avery Sample',visibility:'visible'})};
      if(holdViewer){holdViewer=false;await new Promise(resolve=>releaseViewer=resolve);}
      return route.fulfill({json:{viewer:{signedIn:true,ratingEligible:true,profile}}});
@@ -66,6 +73,35 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
    const preferences=()=>page.evaluate(()=>JSON.stringify(currentServerStatePayload()));
    const before=await preferences();
    await status('signedOut');assert.equal(await chip.locator('.account-awareness-label').innerText(),'Not signed in');
+   if(process.env.ACCOUNT_APP_QA_HYDRATION_ONLY){
+    viewerProfiles[owner]={handle:'qa_handle',displayName:'Avery Sample',avatarUrl:url+'/account-avatar-qa/cold.svg'};
+    const profileReads=()=>api.filter(item=>item.path==='/api/nothingscore'&&new URLSearchParams(item.query).has('viewer')).length;
+    for(const mode of ['success','failure','null','unavailable','signedOut']){
+     viewerMode=mode;holdState=true;releaseState=null;
+     const session={accessToken:token(owner,++nonce),refreshToken:'disposable-restored',expiresAt:Date.now()+3600000};
+     await page.evaluate(session=>localStorage.setItem('ns_auth_persistent_session_v1',JSON.stringify(session)),session);
+     const beforeReads=profileReads();await page.reload({waitUntil:'domcontentloaded'});
+     for(let i=0;i<150&&!releaseState;i++)await delay(20);assert(releaseState,'cold stored-session hydration reaches existing user-state transport');
+     await page.evaluate(()=>{activeEvents=[];EVENTS.splice(0);});holdState=false;releaseState();
+     await page.waitForFunction(()=>!startupCoordinator.isHydrating());await readyForControls();await status('signedIn');
+     if(mode==='success'){
+      await page.waitForFunction(()=>document.querySelector('#accountIndicator .account-awareness-label')?.textContent==='@qa_handle');
+      assert.equal(await page.evaluate(()=>nothingscoreViewerScope.owner===serverSyncClient.accountSnapshot().accountId&&nothingscoreViewerScope.generation===serverSyncClient.accountSnapshot().generation),true);
+     }else{
+      await chip.click();await page.getByRole('button',{name:'Retry Public Profile',exact:true}).waitFor();
+      await page.evaluate(()=>{renderSettingsScreen();renderSettingsScreen();renderSettingsScreen();});await delay(80);
+      assert.equal(profileReads()-beforeReads,1,'failed cold hydration cannot loop on Account renders');
+      assert.equal(await chip.locator('.account-awareness-label').innerText(),'Account');
+      viewerMode='success';await page.getByRole('button',{name:'Retry Public Profile',exact:true}).click();
+      await page.waitForFunction(()=>document.querySelector('#accountIndicator .account-awareness-label')?.textContent==='@qa_handle');
+      assert.equal(profileReads()-beforeReads,2,'one deliberate Retry adds exactly one read');
+     }
+     await page.waitForFunction(()=>{const image=document.querySelector('#accountIndicator img');return image?.complete&&image.naturalWidth>0;});
+     assert.equal(profileReads()-beforeReads,mode==='success'?1:2);behaviours++;
+    }
+    assert.deepEqual(errors,[]);const result={engine:engineName,coldRestoredSdk:true,emptyFixtures:true,sportingSnapshot503:true,scenarios:5,behaviours,manualAcceptCalls:0,manualRefreshCalls:0,requests:api.filter(x=>x.path==='/api/nothingscore'),errors,limits:'Isolated loopback browser with disposable stored session and mocked transport; no real account or deployment proof'};
+    if(output)fs.writeFileSync(path.join(output,engineName+'-hydration-results.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));await context.close();continue;
+   }
    const setState=async(state,user)=>page.evaluate(({state,user})=>setServerPersistence({configured:true,state,user,message:''}),{state,user});
    const signIn=async(id='qa-a',isExpired=false)=>{
     owner=id;expired=isExpired;
@@ -171,7 +207,7 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
      viewerProfiles['qa-a']={handle:'casey_unique',displayName:'Casey Vale'};await page.evaluate(()=>refreshNothingscoreViewer());assert.equal(await avatar.innerText(),'CV');await chooseOnce('Enter');await chooseOnce('Space');
      // A pending neutral account opens the existing loading page only. Later
      // accepted metadata cannot replay a chooser without a fresh gesture.
-     await page.evaluate(()=>acceptNothingscoreViewer({signedIn:false,profile:null},'qa-a',serverSyncClient.accountSnapshot().generation));holdViewer=true;releaseViewer=null;count=chooserEvents.length;await picture.click();await page.locator('#settingsModal.show').waitFor();for(let i=0;i<100&&!releaseViewer;i++)await delay(20);assert(releaseViewer);assert.equal(await page.locator('#settingsBody input[type=file]').count(),0);assert.equal(chooserEvents.length,count);await closeAccount();releaseViewer();await page.waitForFunction(()=>nothingscoreViewer.signedIn);assert.equal(chooserEvents.length,count,'late hydration does not replay closed intent');await chooseOnce('Enter');behaviours++;
+     await page.evaluate(()=>{publicProfileSettingsLoading=null;acceptNothingscoreViewer({signedIn:false,profile:null},'qa-a',serverSyncClient.accountSnapshot().generation);});holdViewer=true;releaseViewer=null;count=chooserEvents.length;await picture.click();await page.locator('#settingsModal.show').waitFor();for(let i=0;i<100&&!releaseViewer;i++)await delay(20);assert(releaseViewer);assert.equal(await page.locator('#settingsBody input[type=file]').count(),0);assert.equal(chooserEvents.length,count);await closeAccount();releaseViewer();await page.waitForFunction(()=>nothingscoreViewer.signedIn);assert.equal(chooserEvents.length,count,'late hydration does not replay closed intent');await chooseOnce('Enter');behaviours++;
      // Replacement while the native chooser is open removes the old input;
      // cancellation must not restore a prior account's file or open another.
      const oldCount=chooserEvents.length,opened=page.waitForEvent('filechooser');await picture.click();const chooser=await opened;await signIn('qa-b');viewerProfiles['qa-b']={handle:'blair_unique',displayName:'Blair Stone'};await page.evaluate(()=>refreshNothingscoreViewer());await chooser.setFiles([]).catch(error=>assert.match(error.message,/detach|not attached|closed/i));assert.equal(chooserEvents.length,oldCount+1);assert.equal(await page.locator('#settingsBody input[type=file]').evaluate(node=>node.files.length),0);await closeAccount();assert.equal(await chip.locator('.account-awareness-label').innerText(),'@blair_unique');behaviours++;
@@ -185,6 +221,7 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
    }
    assert.equal(chooserEvents.length,[390,1280].includes(width)?10:0,'total native chooser count matches deliberate gestures only');chooserCounts.push({width,nativeChooserEvents:chooserEvents.length});assert.deepEqual(errors,[],'No unhandled mounted-app errors');allErrors.push(...errors);await context.close();
   }
+  if(process.env.ACCOUNT_APP_QA_HYDRATION_ONLY)return;
   const result={engine:engineName,actualMountedApp:true,layoutOnly:Boolean(process.env.ACCOUNT_APP_QA_LAYOUT_ONLY),layouts,behaviours,errors:allErrors,chooserCounts,chooserProof,pendingNeutral:'Account/loading only; no asynchronous chooser replay',avatarCases:process.env.ACCOUNT_APP_QA_LAYOUT_ONLY?'not rerun in layout-only check':'actual accepted callback, pre/post helper, picture/no-picture/native failure/missing name/late image/late profile/A-B-A',layoutContract:'Account first/left; Settings immediately left of Calendar;44px controls',transport:'loopback static candidate, mocked disposable API; external origins blocked',limits:'Component and local integration evidence; no hosted, real account or physical device claim'};
   if(output)fs.writeFileSync(path.join(output,engineName+'-results.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
  }finally{await browser.close();}

@@ -757,7 +757,7 @@
         }finally{releaseUpdate?.();}
       },
       profileAvatarExpanded(profileId){return authenticatedRequest(`/api/nothingscore?avatarExpanded=${encodeURIComponent(profileId)}`,{responseType:"blob",cache:"no-store"});},
-      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, picks = "", fixture = "", activity = null, handle = "", rewards = false, ratingAffinity = false } = {}, command = null){
+      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, picks = "", fixture = "", activity = null, handle = "", rewards = false, ratingAffinity = false, viewer = false } = {}, command = null){
         if (command){
           return authenticatedRequest("/api/nothingscore", { method:"POST", body:JSON.stringify(command) });
         }
@@ -766,6 +766,7 @@
         if (eventId) params.set("eventId", eventId);
         if (leaderboard) params.set("leaderboard", leaderboard);
         if(rewards)params.set("rewards","1");
+        if(viewer)params.set("viewer","1");
         if(ladder){params.set('ladder','1');Object.entries(ladder).forEach(([k,v])=>params.set(k,String(v)));}
         if(fixture)params.set('fixture',fixture);if(picks)params.set('picks',picks);if(handle)params.set('handle',handle);if(activity){params.set('activity','1');params.set('cursor',String(activity.cursor||0));}
         if(rankings){params.set("rankings","1");Object.entries(rankings).forEach(([key,value])=>{if(value!==null&&value!==undefined)params.set(key,String(value));});}

@@ -84,4 +84,24 @@ for(const helperFirst of [true,false]){
  context.serverPersistence.state='checking';assert.equal(current().initials,'');assert.equal(current().avatarUrl,'');context.serverPersistence.state='signedIn';cases++;
  context.syncNothingscoreSessionState('account-a',null);assert.equal(context.nothingscoreViewerScope,null);assert.equal(context.nothingscoreViewer.profile,null);cases++;
 }
-console.log(JSON.stringify({passed:true,cases,scope:'Pure model plus actual app hydration/lifetime adapters in an isolated VM; no browser transport, real account or storage proof'}));
+async function viewerRequestLifetimes(){
+ const refreshSource=html.slice(html.indexOf('async function refreshNothingscoreViewer('),html.indexOf('let nscReturnPosition'));
+ const life={accountId:'account-a',generation:3,hasSession:true};const reads=[];let renders=0;
+ const context={console,Date,serverPersistence:{user:{id:'account-a'}},serverSyncClient:{accountSnapshot:()=>life,nothingscoreRequest:options=>{assert.equal(options.viewer,true);return new Promise((resolve,reject)=>reads.push({resolve,reject}));}},nothingscoreViewer:{signedIn:false,profile:null},nothingscoreViewerScope:null,publicProfileSettingsLoading:null,settingsSection:'account',document:{getElementById:()=>({classList:{contains:()=>true}})},renderSettingsScreen:()=>renders++};
+ context.globalThis=context;vm.createContext(context);vm.runInContext(acceptSource+refreshSource,context);
+ const viewer=handle=>({viewer:{signedIn:true,profile:{handle,displayName:'Current Person'}}});
+ const first=context.refreshNothingscoreViewer(),joined=context.refreshNothingscoreViewer();assert.equal(reads.length,1,'concurrent current-scope calls share one read');
+ life.accountId='account-b';life.generation=4;context.serverPersistence.user={id:'account-b'};
+ const second=context.refreshNothingscoreViewer(),secondRequest=context.publicProfileSettingsLoading;
+ reads[0].resolve(viewer('old_a'));await first;await joined;assert.equal(context.nothingscoreViewerScope,null);assert.equal(context.publicProfileSettingsLoading,secondRequest);assert.equal(renders,0,'stale finally cannot repaint current Account');
+ reads[1].resolve(viewer('current_b'));await second;assert.equal(context.nothingscoreViewer.profile.handle,'current_b');assert.equal(renders,1);
+ const priorB=context.refreshNothingscoreViewer();life.accountId='account-a';life.generation=5;context.serverPersistence.user={id:'account-a'};
+ const aReturn=context.refreshNothingscoreViewer();reads[3].resolve(viewer('current_a'));await aReturn;reads[2].reject(Error('old owner failure'));await priorB;
+ assert.equal(context.nothingscoreViewer.profile.handle,'current_a');assert.equal(context.publicProfileSettingsLoading.error,'');assert.equal(renders,2);
+ const priorEpoch=context.refreshNothingscoreViewer();life.generation=6;const currentEpoch=context.refreshNothingscoreViewer();reads[5].resolve(viewer('new_epoch'));await currentEpoch;reads[4].resolve(viewer('old_epoch'));await priorEpoch;
+ assert.equal(context.nothingscoreViewer.profile.handle,'new_epoch');assert.equal(context.nothingscoreViewerScope.generation,6);assert.equal(renders,3);
+ const unavailable=context.refreshNothingscoreViewer();reads[6].resolve({viewer:{signedIn:true,profileUnavailable:true,profile:null}});await assert.rejects(unavailable,/temporarily unavailable/);
+ assert.equal(context.nothingscoreViewer.profile.handle,'new_epoch','transient failure preserves accepted current profile');assert.match(context.publicProfileSettingsLoading.error,/could not be loaded/);assert.equal(reads.length,7);assert.equal(renders,4);
+ life.hasSession=false;await context.refreshNothingscoreViewer();assert.equal(reads.length,7,'no viewer request after session removal');cases+=12;
+}
+viewerRequestLifetimes().then(()=>console.log(JSON.stringify({passed:true,cases,scope:'Pure model plus actual app acceptance and async request lifetimes in an isolated VM; no real account or storage proof'}))).catch(error=>{console.error(error);process.exitCode=1;});
