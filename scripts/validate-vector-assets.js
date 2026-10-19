@@ -35,11 +35,33 @@ sportRegistry.domains.filter(domain => domain.domainId.startsWith("sport:")).for
 sportRegistry.domains.filter(domain => domain.domainId.startsWith("special:")).forEach(domain => {
   assert(canonicalSpecialEventIds.has(domain.domainId), `${domain.key} must map to a canonical special-event domain`);
 });
-sportRegistry.domains.forEach(domain => {
-  assert(domain.narrativeProfile?.id, `${domain.key} must select a sport-specific narrative profile`);
-  assert(domain.narrativeProfile.signals.length > 0, `${domain.key} must configure at least one narrative signal`);
-  domain.narrativeProfile.signals.forEach(signal => assert.doesNotThrow(() => new RegExp(signal.match, "i"), `${domain.key} narrative signals must compile`));
-});
+function validateNarrativeProfile(domain){
+  const profile = domain.narrativeProfile;
+  if (profile === undefined){
+    assert.equal(domain.supportsNarrative, false, `${domain.key} must explicitly disable narrative support when no profile is declared`);
+    return;
+  }
+  assert(typeof profile?.id === "string" && profile.id.trim(), `${domain.key} must select a sport-specific narrative profile`);
+  assert(Array.isArray(profile.signals) && profile.signals.length > 0, `${domain.key} must configure at least one narrative signal`);
+  profile.signals.forEach(signal => {
+    assert(typeof signal?.match === "string" && signal.match.trim(), `${domain.key} narrative signals must declare a pattern`);
+    assert.doesNotThrow(() => new RegExp(signal.match, "i"), `${domain.key} narrative signals must compile`);
+  });
+}
+sportRegistry.domains.forEach(validateNarrativeProfile);
+
+// Explicitly unsupported domains need no fabricated editorial profile. Every
+// declared profile remains strict, including profiles retained on legacy codes.
+assert.doesNotThrow(() => validateNarrativeProfile({ key:"qa-unsupported", supportsNarrative:false }));
+for (const supportsNarrative of [true, undefined]){
+  assert.throws(() => validateNarrativeProfile({ key:"qa-missing", supportsNarrative }), /explicitly disable narrative support/);
+}
+for (const supportsNarrative of [false, true, undefined]){
+  assert.doesNotThrow(() => validateNarrativeProfile({ key:"qa-valid", supportsNarrative, narrativeProfile:{ id:"narrative:qa", signals:[{match:"rival|final"}] } }));
+  for (const narrativeProfile of [null, {}, {id:"",signals:[{match:"final"}]}, {id:"narrative:qa",signals:[]}, {id:"narrative:qa",signals:null}, {id:"narrative:qa",signals:[{}]}, {id:"narrative:qa",signals:[{match:""}]}, {id:"narrative:qa",signals:[{match:"["}]}]){
+    assert.throws(() => validateNarrativeProfile({ key:"qa-malformed", supportsNarrative, narrativeProfile }), /narrative|profile|pattern/);
+  }
+}
 
 Object.values(vectorAssets.openUse).filter(entry => entry.render === "mask").forEach(entry => {
   if(entry.key === "sport:motorcycle"){assert.equal(entry.author,"Magnific");assert.match(entry.license,/Flaticon/);}else{assert.equal(entry.library, "Sporticon");assert.equal(entry.license, "Apache-2.0");}
