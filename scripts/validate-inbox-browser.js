@@ -1,13 +1,22 @@
 'use strict';
-const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const root=path.resolve(__dirname,'..'),baseUrl=process.env.INBOX_QA_URL||'http://127.0.0.1:33966',origin=new URL(baseUrl).origin;
+const inboxSha=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'assets/js/notifications-inbox.js'))).digest('hex');
 async function main(){
  const browser=await chromium.launch({headless:true});
  try{for(const width of [320,390,430,768,1280]){
-  const page=await browser.newPage({viewport:{width,height:844},serviceWorkers:'block'}),errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.text().includes('Inbox refresh'))console.log(m.text());});
+  const page=await browser.newPage({viewport:{width,height:844},serviceWorkers:'block'}),errors=[],scripts=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.text().includes('Inbox refresh'))console.log(m.text());});
+  page.on('response',response=>{if(new URL(response.url()).pathname==='/assets/js/notifications-inbox.js')scripts.push(response);});
   const account='11111111-1111-4111-8111-111111111111',token='x.'+Buffer.from(JSON.stringify({sub:account})).toString('base64url')+'.x';
   const seen=[],items=Array.from({length:25},(_,i)=>({id:`22222222-2222-4222-8222-${String(i).padStart(12,'0')}`,kind:i===0?'chat':'points',points:1,version:1,read:false,at:new Date(Date.now()-i*60000).toISOString(),messageCount:3,roomName:'Australia v India',sender:'Amy',preview:'Australia won by 8 wickets',detail:'heat_rating'}));
   await page.addInitScript(({token})=>{localStorage.setItem('ns_preferences_v1',JSON.stringify({version:27,onboardingComplete:true}));localStorage.setItem('ns_auth_persistent_session_v1',JSON.stringify({accessToken:token,refreshToken:'test',expiresAt:Date.now()+3600000}));},{token});
+  await page.route('**/*',route=>{
+   const url=new URL(route.request().url());if(url.origin!==origin)return route.abort();
+   if(url.pathname==='/assets/js/app-shell-runtime.js')return route.fulfill({contentType:'text/javascript',body:fs.readFileSync(path.join(root,'assets/js/app-shell-runtime.js'),'utf8')});
+   return route.continue();
+  });
   await page.route('**/api/**',async route=>{
+   if(new URL(route.request().url()).origin!==origin)return route.abort();
    if(route.request().url().includes('/api/inbox')){
     if(route.request().method()==='POST'){seen.push(...route.request().postDataJSON().seen);return route.fulfill({json:{ok:true}});}
     return route.fulfill({json:{items,unreadCount:25,nextCursor:null}});
@@ -16,7 +25,9 @@ async function main(){
    if(route.request().url().includes('/api/nothingscore'))return route.fulfill({json:{points:25,settlements:[],entries:[],privileges:[]}});
    return route.fulfill({status:503,json:{error:'Test fixture: service offline'}});
   });
-  await page.goto(process.env.INBOX_QA_URL||'http://127.0.0.1:33966');await page.waitForFunction(()=>typeof notificationsInbox!=='undefined'&&startupFunnelFinished&&!startupCoordinator.isHydrating());
+  await page.goto(baseUrl);await page.waitForFunction(()=>Boolean(notificationsInbox)&&startupFunnelFinished&&!startupCoordinator.isHydrating());
+  assert.equal(scripts.length,1,'Idle initialisation fetches the actual Inbox module exactly once');assert.equal(scripts[0].status(),200);assert.equal(crypto.createHash('sha256').update(await scripts[0].body()).digest('hex'),inboxSha,'Normal acceptance must execute the unchanged actual module');
+  assert.equal(await page.locator('#notificationsInbox').count(),1,'Idle creates one Inbox, without opening it');assert.equal(await page.locator('#notificationsInbox').evaluate(dialog=>dialog.open),false);
   await page.evaluate(()=>{document.getElementById('startupLaunch')?.remove();document.querySelectorAll('.modal-backdrop').forEach(x=>x.classList.remove('show'));});
   const geometry=await page.evaluate(()=>Object.fromEntries(['settingsBtn','calendarSyncBtn','shareAppBtn','notificationsBtn'].map(id=>{const r=document.getElementById(id).getBoundingClientRect();return [id,{x:r.x,y:r.y,width:r.width,height:r.height}];})));
   assert(Math.abs(geometry.settingsBtn.y-geometry.shareAppBtn.y)<5);assert(geometry.settingsBtn.x<geometry.calendarSyncBtn.x&&geometry.calendarSyncBtn.x<geometry.shareAppBtn.x);
@@ -47,7 +58,7 @@ async function main(){
   assert.equal(await page.evaluate(()=>document.activeElement.id),'notificationsBtn');
   assert.equal(await page.evaluate(()=>Boolean(history.state?.inbox)),false,'Dismiss must clear inbox ownership synchronously');
   if(width===390)await page.screenshot({path:'/tmp/ns-notifications-inbox-mobile.png'});
-  assert.equal(errors.filter(x=>/notifications|inbox/i.test(x)).length,0,errors.join('\n'));await page.close();
+  assert.equal(errors.filter(x=>/notifications|inbox/i.test(x)).length,0,errors.join('\n'));assert.deepEqual(errors,[]);await page.close();
  }
  console.log('Inbox browser: five widths, header alignment, modal geometry, visible read batching, preview spoiler rules and focus passed.');
  }finally{await browser.close();}

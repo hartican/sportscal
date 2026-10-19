@@ -18065,7 +18065,6 @@ window.addEventListener('focus',maybeInviteClassicReview);
 setTimeout(maybeInviteClassicReview,5000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFeedClock();});
 </script>
-<script src="assets/js/notifications-inbox.js?v=552"></script>
 <script>
 let notificationDestinationDialog=null;
 function closeNotificationDestination(){
@@ -18102,13 +18101,35 @@ async function openNotificationDestination(item){
   }
   notificationDestinationDialog?.addEventListener('close',event=>{if(event.target.dataset.closingFromRoute!=='true'&&history.state?.inboxDestination)history.back();},{once:true});
 }
-const notificationsInbox=NOTHINGSPORTS_INBOX.create({
-  request:(query,seen)=>serverSyncClient.inboxRequest(query,seen),
-  owner:()=>serverSyncClient?.sessionSubject()||'',
-  spoilers:()=>Boolean(userPreferences.showSpoilers),
-  navigate:openNotificationDestination,closeDestination:closeNotificationDestination,
-  signIn:()=>openSettings({section:'account'})
-});
+let notificationsInbox,notificationsInboxLoading,notificationsInboxStarted=false,notificationsInboxRevision=0;
+function ensureNotificationsInbox(){
+  notificationsInboxStarted=true;
+  return notificationsInboxLoading ||= loadDeferredScript('assets/js/notifications-inbox.js?v=552').then(()=>notificationsInbox ||= NOTHINGSPORTS_INBOX.create({
+    request:(query,seen)=>serverSyncClient.inboxRequest(query,seen),
+    owner:()=>serverSyncClient?.sessionSubject()||'',
+    spoilers:()=>Boolean(userPreferences.showSpoilers),
+    navigate:openNotificationDestination,closeDestination:closeNotificationDestination,
+    signIn:()=>openSettings({section:'account'})
+  })).catch(error=>{
+    notificationsInboxLoading=null;
+    console.warn('Inbox module unavailable',error);
+    showToast('Notifications unavailable. Tap the bell to try again.');
+    return null;
+  }).finally(()=>document.getElementById('notificationsBtn').removeAttribute('aria-busy'));
+}
+addEventListener('ns-account-change',()=>{notificationsInboxRevision++;});
+document.getElementById('notificationsBtn').onclick=()=>{
+  const revision=++notificationsInboxRevision,owner=serverSyncClient?.sessionSubject()||'';
+  document.getElementById('notificationsBtn').setAttribute('aria-busy','true');
+  showToast('Loading notifications…');
+  void ensureNotificationsInbox().then(inbox=>{
+    const toast=document.getElementById('toast');if(toast.textContent==='Loading notifications…')toast.classList.remove('show');
+    if(inbox&&revision===notificationsInboxRevision&&owner===(serverSyncClient?.sessionSubject()||''))inbox.show();
+  });
+};
+const warmNotificationsInbox=()=>{if(!notificationsInboxStarted)void ensureNotificationsInbox();};
+if(typeof window.requestIdleCallback==='function')window.requestIdleCallback(warmNotificationsInbox,{timeout:1800});
+else window.setTimeout(warmNotificationsInbox,600);
 if(new URLSearchParams(location.search).has('impactRequest')||new URLSearchParams(location.search).has('impactInbox'))void ensureImpactFeedback().then(ui=>ui.route()).catch(()=>showToast('Impact requests could not load.'));
 </script>
 </body>
