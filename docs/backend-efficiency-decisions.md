@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Source-only terminal matches retain their original window — 19 October 2026
+
+The existing Match Centre model admits source-confirmed cancelled, canceled and abandoned matches during their original terminal hour. The near SQL reader must conservatively retain source-only candidates for that same model, without relying on a published/preserved ID. Extend only its three existing terminal-status sets; retain indexed context closure, explicit-null precedence, original completion marks, the conservative SQL window, the five-thousand/5,001 sentinel, final payload boundary and service-only invoker permissions. Other readers and the observation projector remain unchanged.
+
+A separate latest-reader SQL/store/handler rehearsal preserves the original historical equivalence tests. Compare each independent original clock with actual global projection; raw unsupported clocks that the existing projector nulls remain unknown. Verification receipts cannot restart the terminal hour. This is a correctness repair to the approved interruption contract, not a demonstrated latency improvement. Normal exact-SHA release and repeated fresh acceptance remain required. [Local evidence](/Users/jackhartican/Documents/AI/Codex/nothingsport-release-resume-20261019/near-terminal-correctness/report.md).
+
 ## Ordinary global Feed read measurements — 18 October 2026
 
 The trusted default live-snapshot reader may measure its existing global null-ID source-health/current-bundle pair, without extra requests, response cloning or body rereads. The factory remains opt-in; selected, near and participant reads retain their existing behaviour. Emit bounded allowlisted monotonic fetch/header/body/parse and leg/validation/projection metadata only on failure or a global read of at least two seconds. Fast success stays quiet. Logger throws and rejected returned promises cannot change facts or errors.
