@@ -583,6 +583,9 @@
         const payload = await jsonRequest("/api/auth", {
           method: "POST",
           body: JSON.stringify({ action: "password-sign-in", email, password }),
+        }).catch(error => {
+          if (generation !== sessionGeneration) throw accountScopeError();
+          throw error;
         });
         if (generation !== sessionGeneration) throw accountScopeError();
         persistSession = persist !== false;
@@ -601,6 +604,9 @@
         const payload = await jsonRequest("/api/auth", {
           method:"POST",
           body:JSON.stringify({ action:"sign-up", email, password, meta }),
+        }).catch(error => {
+          if (generation !== sessionGeneration) throw accountScopeError();
+          throw error;
         });
         if (generation !== sessionGeneration) throw accountScopeError();
         if (!payload.session) return payload;

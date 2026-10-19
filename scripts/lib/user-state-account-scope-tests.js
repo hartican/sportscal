@@ -250,5 +250,58 @@ async function queuedStorageLifetimes(){
  }
  return results;
 }
-module.exports=async function validateAccountScopes(){const cases=[...await orchestration(),...await sdk(),...await recoveryUi(),...await overlappingRefreshes(),...await overlappingRefreshes({useLease:true}),...await horseAccountScopes(),...await indicatorLifetimes(),...await indicatorProfileResults(),...await queuedStorageLifetimes()];console.log(`Account isolation: ${cases.length} actual orchestration/SDK/recovery scenarios passed; no service or database connection.`);return cases;};
+async function deliberateAuthFailures(){
+ const html=fs.readFileSync(path.join(__dirname,'../../index.html'),'utf8');
+ const marker='  document.getElementById("accountSignInForm").addEventListener("submit", async event => {';
+ const start=html.indexOf(marker),end=html.indexOf('\n  });\n  appendPreferenceRecoverySettings(body);',start);assert(start>=0&&end>start,'actual Account sign-in handler source');
+ const handler='async function qaSignInSubmit(event){'+html.slice(start+marker.length,end)+'\n}';
+ const source=fs.readFileSync(path.join(__dirname,'../../config/server-sync.js'),'utf8'),results=[];
+ for(const method of ['signIn','signUp'])for(const kind of ['http','transport'])for(const replacement of ['owner','lifetime','current']){
+  const storage=memoryStorage(),persistent=memoryStorage(),clock=Date.now(),requests=[];
+  const token=(sub,revision)=>'e30.'+Buffer.from(JSON.stringify({sub,revision})).toString('base64url')+'.disposable';
+  const session=(sub,revision)=>({accessToken:token(sub,revision),refreshToken:'disposable-'+sub+'-'+revision,expiresAt:clock+3600000});
+  const response=(payload,status=200)=>new Response(JSON.stringify(payload),{status,headers:{'Content-Type':'application/json'}});
+  persistent.setItem('ns_auth_persistent_session_v1',JSON.stringify(session('A',1)));
+  const runtime={module:{exports:{}},Buffer,structuredClone,AbortController,Event,Response,setTimeout,clearTimeout};
+  vm.createContext(runtime);vm.runInContext(source,runtime);
+  const transportError=new Error('Disposable old Auth transport failure');let release,hold=true,caught;
+  const client=runtime.module.exports.createClient({storage,persistentStorage:persistent,now:()=>clock,fetchImpl:async(url,options)=>{
+   requests.push({url,action:JSON.parse(options.body).action});
+   if(hold){hold=false;return new Promise((resolve,reject)=>{release=()=>kind==='transport'?reject(transportError):resolve(response({error:'Disposable old Auth400',code:'auth_bad_credentials'},400));});}
+   return response({session:session(replacement==='owner'?'B':'A',2)});
+  }});
+  await client.restoreSession();
+  const ui={patches:0,toasts:0,finishes:0,bootstraps:0},oldJourney={};
+  const app={serverPersistence:{state:'signedIn',user:{id:'A'},message:'original A'},accountIndicatorJourney:oldJourney,
+   document:{getElementById:id=>({value:id==='accountEmail'?'disposable@example.invalid':'test-only',checked:true})},
+   setServerPersistence:patch=>{ui.patches++;Object.assign(app.serverPersistence,patch);},showToast:()=>ui.toasts++,bootstrapServerPersistence:async()=>ui.bootstraps++,
+   NOTHINGSPORTS_ACCOUNT_INDICATOR_APP:{finish:()=>ui.finishes++,complete:()=>{throw Error('Rejected Auth must not complete Account');}},
+   serverSyncClient:{signIn:(...args)=>client.signIn(...args).catch(error=>{caught=error;throw error;}),accountSnapshot:()=>client.accountSnapshot()}};
+  vm.createContext(app);vm.runInContext(handler,app);
+  const operation=method==='signIn'?app.qaSignInSubmit({preventDefault(){}}):client.signUp('disposable@example.invalid','test-only',{}).catch(error=>{caught=error;});
+  for(let i=0;i<100&&!release;i++)await new Promise(r=>setTimeout(r,1));assert(release);
+  if(replacement!=='current'){
+   await client.signIn('new@example.invalid','test-only');
+   app.serverPersistence={state:'signedIn',user:{id:replacement==='owner'?'B':'A'},message:'newer lifetime active'};app.accountIndicatorJourney={};
+  }
+  const latestUi=clone(app.serverPersistence),patches=ui.patches,latestStored=persistent.getItem('ns_auth_persistent_session_v1'),requestCount=requests.length;
+  release();await operation;
+  if(replacement!=='current'){
+   assert.deepEqual(app.serverPersistence,latestUi,method+' '+kind+' failure must not repaint the newer '+replacement);
+   assert.equal(caught?.code,'account_scope_changed',method+' '+kind+' rejection must carry its ended lifetime');assert.equal(ui.patches,patches);assert.equal(ui.toasts,0);assert.equal(ui.finishes,0);
+  }else{
+   if(kind==='transport')assert.equal(caught,transportError,'current lifetime retains the original transport error');
+   else{assert.equal(caught?.code,'auth_bad_credentials');assert.equal(caught.status,400);assert.equal(caught.message,'Disposable old Auth400');}
+   if(method==='signIn'){
+    assert.equal(app.serverPersistence.state,'signedOut');assert.equal(app.serverPersistence.message,caught.message);assert.equal(ui.patches,patches+1);assert.equal(ui.toasts,1);assert.equal(ui.finishes,1);
+   }
+  }
+  assert.equal(ui.bootstraps,0);assert.equal(requests.length,requestCount,'a rejected deliberate Auth request adds no retry or follow-up request');
+  assert.equal(persistent.getItem('ns_auth_persistent_session_v1'),latestStored,'old rejection cannot clear or overwrite current durable credentials');
+  results.push('deliberate Auth '+method+' '+kind+' '+replacement);
+ }
+ return results;
+}
+module.exports=async function validateAccountScopes(){const cases=[...await orchestration(),...await sdk(),...await recoveryUi(),...await overlappingRefreshes(),...await overlappingRefreshes({useLease:true}),...await horseAccountScopes(),...await indicatorLifetimes(),...await indicatorProfileResults(),...await queuedStorageLifetimes(),...await deliberateAuthFailures()];console.log(`Account isolation: ${cases.length} actual orchestration/SDK/recovery scenarios passed; no service or database connection.`);return cases;};
 module.exports.queuedStorageLifetimes=queuedStorageLifetimes;
+module.exports.deliberateAuthFailures=deliberateAuthFailures;
