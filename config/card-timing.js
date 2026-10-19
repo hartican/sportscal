@@ -165,12 +165,14 @@
     const isUnexpected=unexpected(event),terminal=statuses.some(value=>['completed','finished','final','cancelled','canceled','abandoned','postponed'].includes(value));
     if(observed?.key==='awaiting-update'&&!isUnexpected&&!terminal)status=observed.label;
     const freshness=event.stale===true||event.sourceStale===true?'Awaiting update':!terminal&&observed?.key==='awaiting-update'?observed.label:null;
+    if(status==='LIVE'&&freshness)status='LAST REPORTED LIVE';
     return Object.freeze({day:fullRange&&range?day:progressLabel|| (precision==='not-before'?day:venueCalendar?day:date?(range?day:dated(date)):'DATE UNAVAILABLE'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, freshness, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. ${started?'':'Scheduled '}${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
   }
   // One pure view for construction and live patches; DOM remains with callers.
   function badgePresentation(event,reference=new Date(),options={}){
     const value=presentation(event,reference,options),pause=pausePresentation(event,reference),pausedClock=pause&&(event.key==='cricket'&&value.progress||pause.restartTimeUtc);
-    return Object.freeze({...value,pause,badgeClock:pausedClock?[pause.label.toUpperCase(),pause.restart].join(' • '):value.time,badgeStatus:pausedClock?'':pause&&value.freshness?pause.label.toUpperCase():value.status,badgeFreshness:pause?value.freshness:null,ariaLabel:[pause&&value.freshness?pause.label:null,pausedClock?pause.restart:null,value.ariaLabel,'Open fixture'].filter(Boolean).join('. ')});
+    const terminal=/^(FINISHED|CANCELLED|ABANDONED|POSTPONED)\b/.test(value.status);
+    return Object.freeze({...value,pause,badgeClock:terminal&&!value.time.startsWith('REPORTED START ')?'':pausedClock?[pause.label.toUpperCase(),pause.restart].join(' • '):value.time,badgeStatus:pausedClock?'':pause&&value.freshness?pause.label.toUpperCase():value.status,badgeFreshness:pause||value.status==='LAST REPORTED LIVE'?value.freshness:null,ariaLabel:[pause&&value.freshness?pause.label:null,pausedClock?pause.restart:null,value.ariaLabel,'Open fixture'].filter(Boolean).join('. ')});
   }
   function minimised(event, reference = new Date()){
     const value=presentation(event,reference),pause=pausePresentation(event,reference);

@@ -18,3 +18,6 @@
 .mc-participant-row .compact-matchup-side{flex:1 0 140px;max-width:100%}
 .mc-participant-score{max-width:100%;flex-wrap:wrap;justify-content:flex-end;margin-inline-start:auto}
 .mc-row .compact-participant-mark,.mc-row .compact-participant-fallback{flex-basis:30px}
+
+.mc-expanded .fixture-timing-badge{color:var(--text);background:var(--soft-fill,var(--bg-card));border-color:var(--border)}
+.match-centre-actions .milestone-mute{width:auto;max-width:100%;min-width:44px;min-height:44px;height:auto;padding:8px 12px;white-space:normal;overflow-wrap:anywhere;font:inherit;line-height:1.4}
