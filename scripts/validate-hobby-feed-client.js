@@ -33,6 +33,18 @@ async function main(){
   }});
   await assert.rejects(deadlineClient.loadFeed(),error=>error.code==='request_timeout'&&!error.message.includes('PRIVATE_'),'the existing whole-response deadline remains an honest timeout');
   assert.equal(abortedRequests,1);
+  for(const phase of ['before-fetch','during-body']){
+    const stop=new AbortController(),reason=Error('CONSTRUCTED_CALLER_ABORT');let calls=0,bodyStarted;
+    const ready=new Promise(resolve=>{bodyStarted=resolve;});
+    const cancelledClient=sync.createClient({storage:deadlineStorage,persistentStorage:{getItem:()=>null},fetchImpl:async(_url,options)=>{
+      calls++;if(options.signal.aborted)throw options.signal.reason;
+      return {...result(null),json:()=>new Promise((_resolve,reject)=>{bodyStarted();options.signal.addEventListener('abort',()=>reject(options.signal.reason),{once:true});})};
+    }});
+    if(phase==='before-fetch')stop.abort(reason);
+    const cancelled=cancelledClient.chatRequest({mode:'rooms'},null,{signal:stop.signal}).catch(error=>error);
+    if(phase==='during-body'){await ready;stop.abort(reason);}
+    assert.equal(await cancelled,reason,'caller cancellation retains its original reason: '+phase);assert.equal(calls,1);
+  }
   const signedOut=client.loadFeed().catch(e=>e);await tick();client.clearSession();resolvers.shift()(result({events:['alice']}));assert.equal((await signedOut).code,'feed_request_superseded');
   console.log('Feed client: shared request, 304, invalidation, stale response, failed-body retention/deadline and sign-out isolation passed');
 }

@@ -225,10 +225,13 @@
       const payload = await response.json().catch(error => {
         // A cut-off successful body is not an empty valid response. Let the
         // existing cancellation/deadline handler classify aborted reads.
-        if (controller.signal.aborted || externalSignal?.aborted) throw error;
-        if (response.ok) throw Object.assign(new Error("The server response could not be read. Your local copy is still available."), {
-          code:"server_response_invalid",
-        });
+        // The caller's signal is already linked to this controller above.
+        if (controller.signal.aborted) throw error;
+        if (response.ok){
+          const invalid = new Error("Server response unreadable.");
+          invalid.code = "server_response_invalid";
+          throw invalid;
+        }
         // Preserve HTTP/auth error handling when an error page is not JSON.
         return {};
       });
@@ -245,7 +248,7 @@
       }catch(error){
         if(externalSignal?.aborted)throw error;
         if (controller.signal.aborted){
-          const timedOut = new Error("The server took too long to respond. Check confirmation before trying again.");
+          const timedOut = new Error("Request timed out. Check confirmation before trying again.");
           timedOut.code = "request_timeout";
           throw timedOut;
         }
