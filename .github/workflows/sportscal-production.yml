@@ -235,6 +235,8 @@ jobs:
           node scripts/validate-year-review-alerts.js
           node scripts/validate-card-lifecycle.js
           node scripts/validate-nothingscore-submissions.js
+          node scripts/validate-spectacle.js
+          node scripts/validate-vector-assets.js
           node scripts/validate-live-rating-alerts.js
           node scripts/validate-impact-feedback.js
           node scripts/validate-impact-dispatch.js
