@@ -56,7 +56,7 @@ const {createSnapshotStore,readLiveSnapshots}=require('../lib/live-fixtures');
   assert.equal(originalAttributes.provolatile,'s');assert.equal(originalAttributes.prosecdef,false);assert.equal(originalAttributes.lanname,'sql');assert.deepEqual(originalAttributes.proconfig,['search_path=""']);
   await db.exec('begin;');await assert.rejects(db.exec(aggregationMigration),/already exists/,'Migration cannot replay against an already changed reader');await db.exec('rollback;');
   const rowSignature='public.nothingsports_read_current_fixture_bundle_json_rows(text[])';
-  const rowMigration=fs.readFileSync('supabase/migrations/20261019021027_add_global_fixture_json_rows_reader.sql','utf8');
+  const rowMigration=fs.readFileSync('supabase/migrations/20261019023712_add_global_fixture_json_rows_reader.sql','utf8');
   const oldRowDependencies=async()=>(await db.query("select jsonb_object_agg(p.oid::text,jsonb_build_object('definition',pg_get_functiondef(p.oid),'acl',p.proacl::text)) contracts from pg_proc p where p.pronamespace='public'::regnamespace and p.proname like 'nothingsports_%' and p.proname<>'nothingsports_read_current_fixture_bundle_json_rows'")).rows[0].contracts;
   const beforeRowDependencies=await oldRowDependencies();
   for(const mutation of [

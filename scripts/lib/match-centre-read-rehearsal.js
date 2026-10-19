@@ -365,7 +365,7 @@ async function run(db) {
     const alternateBefore=await merged("qa_reference_match_centre_bundle"),alternateAfter=await merged("nothingsports_read_match_centre_fixture_bundle");
     assert.equal(alternateBefore.length,1);assert.deepEqual(alternateAfter,alternateBefore,"A supported alternate source clock retains same-match details");
   });
-  await test("cancelled known correction removes an old published starting-soon member", async () => {
+  await test("cancelled known correction replaces starting-soon state for its original terminal hour", async () => {
     const old = fixture("cancelled-known", {
       status: "scheduled",
       startTimeUtc: at(20)
@@ -385,12 +385,13 @@ async function run(db) {
         return this;
       }
     };
+    let observedSources;
     const handler = createMatchCentreHandler({
       enabled: () => true,
       clock: () => now,
       published: () => [ old ],
       snapshotRead: async options => ({
-        sources: await store.read(options),
+        sources: observedSources = await store.read(options),
         readAt: now,
         stale: false
       }),
@@ -402,7 +403,21 @@ async function run(db) {
       url: "/api/match-centre?membership=everything"
     }, response);
     assert.equal(response.body.membershipStale, false);
-    assert.deepEqual(response.body.fixtures, []);
+    assert.equal(response.body.fixtures.length, 1);
+    assert.equal(response.body.fixtures[0].id, old.id);
+    assert.equal(response.body.fixtures[0].status, "cancelled");
+    assert.equal(Date.parse(response.body.fixtures[0].statusFactObservedAt), now);
+    const later = now + 3600001, expiredResponse = {
+      setHeader() {}, status() { return this; }, json(body) { this.body = body; return this; }
+    };
+    const expiredHandler = createMatchCentreHandler({
+      enabled: () => true, clock: () => later, published: () => [old],
+      snapshotRead: async () => ({sources: observedSources, readAt: later, stale: false}),
+      request: () => { throw Error("Unexpected additional read"); }
+    });
+    await expiredHandler({url: "/api/match-centre?membership=everything"}, expiredResponse);
+    assert.equal(expiredResponse.body.membershipStale, false);
+    assert.deepEqual(expiredResponse.body.fixtures, [], "A new read receipt cannot extend cancellation's original hour");
   });
   await test("no current matches is a complete quiet result", async () => {
     await seed(noise);
