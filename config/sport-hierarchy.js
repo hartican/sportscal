@@ -51,6 +51,7 @@
     ["competition:afc", "AFC competitions", "competition", "discipline:football:international"],
     ["competition:premier-league", "Premier League", "competition", "discipline:football:club"],
     ["competition:a-leagues", "A-League Men", "competition", "discipline:football:club", ["A-League", "A League Men"]],
+    ["competition:australian-championship", "Australian Championship", "competition", "discipline:football:club"],
     ["competition:bundesliga", "Bundesliga", "competition", "discipline:football:club"],
     ["competition:la-liga", "La Liga", "competition", "discipline:football:club"],
     ["competition:serie-a", "Serie A", "competition", "discipline:football:club"],

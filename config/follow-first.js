@@ -623,6 +623,7 @@
     const competitionPreference = (graph.competitionPreferences || []).find(item => item.competitionId === event.competitionId);
     const explicitSelectors = new Set(next.selectedSelectorEntityIds || []);
     const explicitCompetition = competitionPreference?.enabled === true;
+    if(event.competitionId==='competition:australian-championship')return explicitCompetition&&followPolicy.sportingFixture(event)?{type:'competition',entityKind:'competition',id:event.competitionId,label:null,displayTag:false}:null;
     const explicitScopedSport = explicitSelectors.has(`sport:${sourceSportId}`)
       || (!explicitSelectors.size && followedSportIds.has(sourceSportId) && !followedSportIds.has(sourceSportId.replace(/w$/, "")));
     if (followPolicy.explicitCompetitionRequired(event) && !(event.lemansCalendar===true&&(next.followFirst.followedMajorEventIds||[]).includes('le-mans-24-hours')) && !(sourceSportId==='golf'&&(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')) && !(explicitCompetition || ((["aflw","nrlw","wnba","wsl","tdf","giro","vuelta","dakar"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;

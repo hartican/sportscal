@@ -121,11 +121,13 @@ function buildFootballClubRow(team, league, players, expanded, sportKey = "footb
   row.dataset.scrollKey = `directory-team:${sportKey}:${team.id}`;
   const head = document.createElement("div");
   head.className = "football-club-head";
-  const crest = document.createElement("img");
+  const mark = CARD_IDENTITIES?.participantMarks?.[team.id];
+  const missingChampionshipCrest=team.leagueId==='competition:australian-championship'&&!team.crestUrl&&!mark;
+  const crest = document.createElement(missingChampionshipCrest?"span":"img");
   crest.className = "football-club-crest";
   crest.dataset.scrollStable = `directory-crest:${sportKey}:${team.id}`;
-  const mark = CARD_IDENTITIES?.participantMarks?.[team.id];
-  if (mark) applyTeamLogoAsset(crest, mark, "icon");
+  if(missingChampionshipCrest){crest.innerHTML=glyphMarkup('sport:football');crest.setAttribute('aria-hidden','true');}
+  else if (mark) applyTeamLogoAsset(crest, mark, "icon");
   else {
     installIdentityImageRecovery(crest);
     crest.src = team.crestUrl || "";
@@ -141,7 +143,7 @@ function buildFootballClubRow(team, league, players, expanded, sportKey = "footb
   title.textContent = team.displayName;title.dataset.profileTrigger='team:'+team.id;title.setAttribute('role','button');title.setAttribute('aria-label',`Open ${team.displayName} profile in Follow`);title.tabIndex=0;title.onclick=()=>void openAthleteProfile(team.id,team.displayName,sportKey,title);title.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();title.click();}};
   const detail = document.createElement("span");
   const playerScope = ["nrl", "afl", "aflw"].includes(sportKey) ? "current player" : "priority player";
-  detail.textContent = `${league?.displayName || SPORT_META[sportKey]?.label || "Sport"} · ${players.length} ${playerScope}${players.length === 1 ? "" : "s"}`;
+  detail.textContent = team.leagueId==='competition:australian-championship' ? 'Australian Championship · Player directory unavailable' : `${league?.displayName || SPORT_META[sportKey]?.label || "Sport"} · ${players.length} ${playerScope}${players.length === 1 ? "" : "s"}`;
   copy.append(title, detail);
   const follow = buildDirectoryFollowButton(team.id, { sportKey, leagueId: team.leagueId, label: team.displayName });
   const expander = document.createElement("button");
@@ -175,7 +177,7 @@ function buildFootballClubRow(team, league, players, expanded, sportKey = "footb
     if (!players.length){
       const empty = document.createElement("div");
       empty.className = "football-directory-empty";
-      empty.textContent = "No priority players match the current filters.";
+      empty.textContent = team.leagueId==='competition:australian-championship' ? 'Player directory unavailable.' : "No priority players match the current filters.";
       list.appendChild(empty);
     }
     row.appendChild(list);
@@ -223,7 +225,7 @@ function renderFootballDirectory(container, {
   if(filters.entityType==='athlete'){
     const list=document.createElement('div');list.className='football-club-list';const batchKey=JSON.stringify(['players:'+sportKey,filters]);const limit=followDirectoryBatchLimits.get(batchKey)||40;
     filtered.players.slice(0,limit).forEach(player=>list.append(buildFootballPlayerRow(player,sportKey)));directory.append(list);
-    if(!filtered.players.length){const empty=document.createElement('p');empty.textContent='No players match these filters.';directory.append(empty);}
+    if(!filtered.players.length){const empty=document.createElement('p');empty.textContent=filters.leagueId==='competition:australian-championship'?'Player directory unavailable.':'No players match these filters.';directory.append(empty);}
     if(filtered.players.length>limit){const more=document.createElement('button');more.className='btn ghost';more.textContent='Show more players';more.onclick=()=>{followDirectoryBatchLimits.set(batchKey,limit+40);renderStandingsContext();};directory.append(more);}container.append(directory);return;
   }
   const summary = document.createElement("p");
@@ -233,7 +235,7 @@ function renderFootballDirectory(container, {
     : directoryData.players.some(player => player.birthCountryCode)
       ? " Flags use evidenced birthplace where published; provider country is labelled as country, not birthplace."
       : " Players are a source-backed priority shortlist, not a weekly team list.";
-  summary.textContent = `${filtered.teams.length} club${filtered.teams.length === 1 ? "" : "s"} · ${filtered.players.length} matching player${filtered.players.length === 1 ? "" : "s"}.${directoryNote}`;
+  summary.textContent = filters.leagueId==='competition:australian-championship' ? `${filtered.teams.length} clubs · Player directory unavailable.` : `${filtered.teams.length} club${filtered.teams.length === 1 ? "" : "s"} · ${filtered.players.length} matching player${filtered.players.length === 1 ? "" : "s"}.${directoryNote}`;
   directory.appendChild(summary);
   const list = document.createElement("div");
   list.className = "football-club-list";
@@ -588,6 +590,13 @@ function renderFollowViewLoaded(){
   const follow=document.createElement('input');follow.type='checkbox';follow.checked=followed;follow.setAttribute('aria-label',`Follow ${entity.label}`);
   follow.addEventListener('change',()=>saveFollowSport({id:entity.canonicalSportKeys?.[0],selectorId:entity.id,label:entity.label},follow.checked));
   followLabel.append(follow,document.createTextNode(`Follow ${entity.label}`));commonControls.appendChild(followLabel);
+  if(entity.id==='sport:football'){
+    const label=document.createElement('label');label.className='follow-checkbox';
+    const league=document.createElement('input');league.type='checkbox';league.setAttribute('aria-label','Follow Australian Championship');
+    league.checked=userPreferences.preferenceGraph?.competitionPreferences?.some(p=>p.competitionId==='competition:australian-championship'&&p.enabled===true)===true;
+    league.onchange=()=>{const next=clonePreferences(userPreferences);next.preferenceGraph=PREFERENCE_SYSTEM.upsertCompetitionPreference(next.preferenceGraph,'competition:australian-championship',{enabled:league.checked,templateInheritedFromDomain:false});savePreferences(next);void requestFeedRebuildAfterFollowChange();renderAll({preserveViewport:true});};
+    label.append(league,document.createTextNode('Follow Australian Championship'));commonControls.append(label);
+  }
   if(followed && FOLLOW_FEED_POLICY.australiansFilterUseful({selectorId:entity.id,key:followDirectoryKey(entity),competitionId:entity.competitionId})){
     const label=document.createElement('label');label.className='follow-checkbox';
     const au=document.createElement('input');au.type='checkbox';au.checked=(userPreferences.followFirst.australiansOnlySportIds || []).includes(entity.id);au.setAttribute('aria-label','Follow Australians');

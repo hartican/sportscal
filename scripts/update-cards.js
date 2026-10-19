@@ -71,6 +71,16 @@ function runStep(args) {
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
+  if(argv.includes('--australian-championship')){
+    const captures=argv.filter(arg=>arg.startsWith('--capture='));
+    const allowed=new Set(['--australian-championship','--local-only','-p']);
+    if(!argv.includes('--local-only')||captures.length!==1||!captures[0].slice(10)||new Set(argv).size!==argv.length||argv.some(arg=>!allowed.has(arg)&&!arg.startsWith('--capture=')))throw Error('Australian Championship requires only --australian-championship --capture=<retained-directory> --local-only with optional -p. No writes or source steps ran.');
+    if(env.REFRESH_REPORT)throw Error('Australian Championship retained route cannot inherit REFRESH_REPORT. No diagnostic or source writes ran.');
+    const captureFolder=path.resolve(captures[0].slice(10));
+    const championship=require('./lib/australian-championship');championship.validate(championship.loadCapture(captureFolder));
+    require('./build-code-inspector').preflightRetainedFootballOnly();
+    return {localOnly:true,australianChampionship:{captureFolder}};
+  }
   for (const route of ['--a-league', '--broadcaster-review', '--venue-review', '--nations-finals', '--canonical-readiness']) {
     if (!argv.includes(route)) continue;
     const allowed = new Set([route, '--local-only', '-p']);
@@ -511,6 +521,18 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function runMain() {
   const options = parseOptions();
+  if(options.australianChampionship){
+    console.log(JSON.stringify(require('./lib/australian-championship').apply(options.australianChampionship)));
+    for(const args of [
+      ['scripts/refresh-football-directory.js','--check'],
+      ['scripts/build-code-inspector.js','--codes=football','--retained-football-only'],
+      ['scripts/build-follow-directories.js','--codes=football'],
+      ['scripts/build-follow-directories.js','--codes=football','--check'],
+      ['scripts/validate-australian-championship.js'],
+      ['scripts/validate-australian-championship-integration.js'],
+    ])runStep(args);
+    console.log('Australian Championship retained capture projected locally; no source, shell, account, database or publication operation.');return;
+  }
   if(process.argv.includes('--a-league')){
     const result=await require('./lib/a-league-schedule').refresh();console.log(JSON.stringify(result));
     if(result.state==='deferred-retained')throw Error(result.error+'; retained last-good A-League schedule.');
@@ -1086,7 +1108,8 @@ async function runMain() {
 
 async function main(){
   // Validate mode before creating diagnostic state or starting any source step.
-  parseOptions();
+  const initialOptions=parseOptions();
+  if(initialOptions.australianChampionship)return runMain();
   process.env.REFRESH_REPORT ||= path.join(os.tmpdir(),'ns-refresh-report-'+crypto.randomUUID()+'.json');
   require('./lib/refresh-report').update({mode:process.argv.includes('--quick')?'quick':'full',publicationState:'refreshing',stage:'starting',sourceFailures:[],missingResults:[],blockingError:null,failedStep:null,failureChain:[]});
   const prior=process.env.FOOTBALL_DATA_RUN_DIR;

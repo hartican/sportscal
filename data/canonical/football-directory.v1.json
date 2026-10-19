@@ -793,6 +793,94 @@
       "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams?limit=100",
       "sourceType": "reputable",
       "checkedAt": "2026-10-16T21:40:54.063Z"
+    },
+    {
+      "id": "source:football:australian-championship:2026:summary",
+      "provider": "Football Australia official Australian Championship API",
+      "url": "https://api.ffa.football/c1143/s2026/summary",
+      "sourceType": "official",
+      "checkedAt": "2026-10-19T07:47:02.234901+00:00",
+      "providerTimestamp": "2026-10-19T07:46:12+00:00"
+    },
+    {
+      "id": "source:football:australian-championship:2026:round-1",
+      "provider": "Football Australia official Australian Championship API",
+      "url": "https://api.ffa.football/c1143/s2026/r1/fixture",
+      "sourceType": "official",
+      "checkedAt": "2026-10-19T07:47:02.378343+00:00",
+      "providerTimestamp": "2026-10-19T07:46:03+00:00"
+    },
+    {
+      "id": "source:football:australian-championship:2026:round-2",
+      "provider": "Football Australia official Australian Championship API",
+      "url": "https://api.ffa.football/c1143/s2026/r2/fixture",
+      "sourceType": "official",
+      "checkedAt": "2026-10-19T07:47:02.514818+00:00",
+      "providerTimestamp": "2026-10-19T07:46:43+00:00"
+    },
+    {
+      "id": "source:football:australian-championship:2026:round-3",
+      "provider": "Football Australia official Australian Championship API",
+      "url": "https://api.ffa.football/c1143/s2026/r3/fixture",
+      "sourceType": "official",
+      "checkedAt": "2026-10-19T07:47:02.660825+00:00",
+      "providerTimestamp": "2026-10-19T07:46:17+00:00"
+    },
+    {
+      "id": "source:football:australian-championship:2026:round-4",
+      "provider": "Football Australia official Australian Championship API",
+      "url": "https://api.ffa.football/c1143/s2026/r4/fixture",
+      "sourceType": "official",
+      "checkedAt": "2026-10-19T07:47:02.787197+00:00",
+      "providerTimestamp": "2026-10-19T07:46:35+00:00"
+    },
+    {
+      "id": "source:football:australian-championship:2026:round-5",
+      "provider": "Football Australia official Australian Championship API",
+      "url": "https://api.ffa.football/c1143/s2026/r5/fixture",
+      "sourceType": "official",
+      "checkedAt": "2026-10-19T07:47:02.909490+00:00",
+      "providerTimestamp": "2026-10-19T07:46:24+00:00"
+    },
+    {
+      "id": "source:football:australian-championship:2026:round-6",
+      "provider": "Football Australia official Australian Championship API",
+      "url": "https://api.ffa.football/c1143/s2026/r6/fixture",
+      "sourceType": "official",
+      "checkedAt": "2026-10-19T07:47:03.040677+00:00",
+      "providerTimestamp": "2026-10-19T07:46:25+00:00"
+    },
+    {
+      "id": "source:football:australian-championship:2026:round-7",
+      "provider": "Football Australia official Australian Championship API",
+      "url": "https://api.ffa.football/c1143/s2026/r7/fixture",
+      "sourceType": "official",
+      "checkedAt": "2026-10-19T07:47:03.226075+00:00",
+      "providerTimestamp": "2026-10-19T07:47:03+00:00"
+    },
+    {
+      "id": "source:football:australian-championship:2026:round-8",
+      "provider": "Football Australia official Australian Championship API",
+      "url": "https://api.ffa.football/c1143/s2026/r8/fixture",
+      "sourceType": "official",
+      "checkedAt": "2026-10-19T07:47:03.410186+00:00",
+      "providerTimestamp": "2026-10-19T07:47:03+00:00"
+    },
+    {
+      "id": "source:football:australian-championship:2026:round-9",
+      "provider": "Football Australia official Australian Championship API",
+      "url": "https://api.ffa.football/c1143/s2026/r9/fixture",
+      "sourceType": "official",
+      "checkedAt": "2026-10-19T07:47:03.616431+00:00",
+      "providerTimestamp": "2026-10-19T07:47:03+00:00"
+    },
+    {
+      "id": "source:football:australian-championship:2026:ladder",
+      "provider": "Football Australia official Australian Championship API",
+      "url": "https://api.ffa.football/c1143/s2026/ladder",
+      "sourceType": "official",
+      "checkedAt": "2026-10-19T07:47:03.761438+00:00",
+      "providerTimestamp": "2026-10-19T07:46:59+00:00"
     }
   ],
   "leagues": [
@@ -872,6 +960,20 @@
         "source:football:a-league-men:official",
         "source:football:a-league-men:clubs-current"
       ]
+    },
+    {
+      "id": "competition:australian-championship",
+      "key": "australian-championship",
+      "displayName": "Australian Championship",
+      "countryCode": "AU",
+      "seasonLabel": "2026",
+      "teamCount": 16,
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "refreshPolicy": "retained-capture-only",
+      "playerCoverage": "unavailable"
     }
   ],
   "teams": [
@@ -3082,6 +3184,390 @@
         "source:football:a-league-men:bootstrap"
       ],
       "active": true
+    },
+    {
+      "id": "team:football:australian-championship:9927",
+      "displayName": "Adelaide City",
+      "shortName": "Adelaide City",
+      "aliases": [],
+      "abbreviation": "ADC",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9927",
+        "ffaUuid": "6b378713-8919-3420-9694-bb7fce21db70"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:14521",
+      "displayName": "Avondale FC",
+      "shortName": "Avondale FC",
+      "aliases": [],
+      "abbreviation": "AVO",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "14521",
+        "ffaUuid": "41ec433e-9f9f-3428-bdec-94801834ebed"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:9944",
+      "displayName": "Bayswater City",
+      "shortName": "Bayswater City",
+      "aliases": [],
+      "abbreviation": "BAY",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9944",
+        "ffaUuid": "2dada3e2-fb53-3da8-9f53-43f3452d12d5"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:9946",
+      "displayName": "Broadmeadow Magic",
+      "shortName": "Broadmeadow Magic",
+      "aliases": [],
+      "abbreviation": "MAG",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9946",
+        "ffaUuid": "3cc5c5fe-f2e7-3906-b29d-67411f11145e"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:11255",
+      "displayName": "Canberra Croatia",
+      "shortName": "Canberra Croatia",
+      "aliases": [],
+      "abbreviation": "CRO",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "11255",
+        "ffaUuid": "f40d5205-22a0-386c-9530-b06c8428bd87"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:11022",
+      "displayName": "Lions FC",
+      "shortName": "Lions FC",
+      "aliases": [],
+      "abbreviation": "LIO",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "11022",
+        "ffaUuid": "39203e7a-a67f-34b4-a7fe-4e1775c05dd2"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:3502",
+      "displayName": "Marconi Stallions",
+      "shortName": "Marconi Stallions",
+      "aliases": [],
+      "abbreviation": "MAR",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "3502",
+        "ffaUuid": "60f0c16a-ae3e-30fb-8161-10dd396bfad9"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:11021",
+      "displayName": "Oakleigh Cannons",
+      "shortName": "Oakleigh Cannons",
+      "aliases": [],
+      "abbreviation": "OAK",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "11021",
+        "ffaUuid": "ec763427-341e-3a70-b5f6-bfd148a6c9f9"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:20436",
+      "displayName": "Preston Lions",
+      "shortName": "Preston Lions",
+      "aliases": [],
+      "abbreviation": "PRL",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "20436",
+        "ffaUuid": "a42163b8-5945-4f67-a94c-87b42a4cca15"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:9928",
+      "displayName": "South Hobart",
+      "shortName": "South Hobart",
+      "aliases": [],
+      "abbreviation": "SHO",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9928",
+        "ffaUuid": "67362601-bc79-3ab6-85d9-73d81c4461f1"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:10470",
+      "displayName": "South Melbourne",
+      "shortName": "South Melbourne",
+      "aliases": [],
+      "abbreviation": "SMB",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "10470",
+        "ffaUuid": "caa748c4-faa6-3a74-82aa-ea94dc7dadc4"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:15433",
+      "displayName": "Sutherland Sharks",
+      "shortName": "Sutherland Sharks",
+      "aliases": [],
+      "abbreviation": "SSS",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "15433",
+        "ffaUuid": "12175720-35fc-3278-9cf1-1ec943fd2877"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:9938",
+      "displayName": "Sydney Olympic",
+      "shortName": "Sydney Olympic",
+      "aliases": [],
+      "abbreviation": "OLY",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9938",
+        "ffaUuid": "1e24de88-c8e4-3c8f-bc33-2b75db1b988d"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:9939",
+      "displayName": "Sydney United 58",
+      "shortName": "Sydney United 58",
+      "aliases": [],
+      "abbreviation": "SUD",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "9939",
+        "ffaUuid": "0e4fe633-6261-3501-86a5-ad0077e2344a"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:20439",
+      "displayName": "Wests Apia",
+      "shortName": "Wests Apia",
+      "aliases": [],
+      "abbreviation": "WAFC",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "20439",
+        "ffaUuid": "aba11d2d-4e39-4f6a-bccc-0294a7ca44ad"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
+    },
+    {
+      "id": "team:football:australian-championship:879",
+      "displayName": "Wollongong Wolves",
+      "shortName": "Wollongong Wolves",
+      "aliases": [],
+      "abbreviation": "WOL",
+      "countryCode": "AU",
+      "teamKind": "club",
+      "competitionScope": "domestic",
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:australian-championship",
+      "externalIds": {
+        "ffa": "879",
+        "ffaUuid": "3e3417fe-b876-3bea-af3c-965e1995afb4"
+      },
+      "sourceRefs": [
+        "source:football:australian-championship:2026:summary"
+      ],
+      "sourceCheckedAt": "2026-10-19T07:47:02.234901+00:00",
+      "crestUrl": null,
+      "crestSourceUrl": null,
+      "crestStatus": "unavailable-from-retained-source",
+      "playerCoverage": "unavailable"
     }
   ],
   "players": [

@@ -109,6 +109,7 @@ function normalizeRecord(record, additions = {}){
     marketValue:Number.isFinite(Number(record.marketValue ?? record.marketValueEur)) ? Number(record.marketValue ?? record.marketValueEur) : null,
     currentTeamId:record.currentTeamId || null,
     leagueId:record.leagueId || null,
+    ...(record.leagueId==='competition:australian-championship'?{leagueName:'Australian Championship',playerCoverage:'unavailable',crestStatus:record.crestStatus}:{}),
     ...(discoveredCompetitions.has(record.leagueId)?{leagueName:discoveredCompetitions.get(record.leagueId)}:{}),
     teamKind:record.teamKind || (record.isNationalTeam === true ? "national" : null),
     position:record.position || metadata.discipline || metadata.championshipRole || null,
@@ -391,7 +392,7 @@ function main(){
   for(const chunk of chunks.values())for(const [id,record] of chunk){
     const choose=(key,league)=>{const rows=rankRows.get(identityKey(key))||[];return rows.filter(row=>!league||row.competitionId===league||row.competitionId?.startsWith(league+'-')).sort((a,b)=>String(b.asOf||'').localeCompare(String(a.asOf||'')))[0];};
     const rank=choose(id,record.leagueId),team=record.currentTeamId&&chunk.get(record.currentTeamId),teamRank=record.currentTeamId&&choose(record.currentTeamId,record.leagueId||team?.leagueId);
-    chunk.set(id,{...record,...(rank?{ranking:record.entityType==='athlete'?rank.rank:record.ranking,ladderPosition:record.entityType==='team'?rank.rank:record.ladderPosition,rankingBasis:rank.roundLabel||record.rankingBasis,rankingCheckedOn:rank.asOf?.slice(0,10),rankingSourceUrl:rank.sourceUrl,competitionId:rank.competitionId,...(rank.conferenceId?{standingGroup:(record.leagueName||'NFL')+' · '+rank.conferenceId}:{})}:{}),...(teamRank?{currentTeamRank:teamRank.rank}: {})});
+    chunk.set(id,{...record,...(rank?{ranking:record.entityType==='athlete'?rank.rank:record.ranking,ladderPosition:record.entityType==='team'?rank.rank:record.ladderPosition,rankingBasis:rank.roundLabel||record.rankingBasis,rankingCheckedOn:rank.asOf?.slice(0,10),rankingSourceUrl:rank.sourceUrl,competitionId:rank.competitionId,...(rank.conferenceId?{standingGroup:(record.leagueName||'NFL')+' · '+rank.conferenceId}:{}),...(record.leagueId==='competition:australian-championship'&&rank.groupName?{standingGroup:'Australian Championship · '+rank.groupName,rankingBasis:rank.groupName}:{})}:{}),...(teamRank?{currentTeamRank:teamRank.rank}: {})});
   }
   const generatedAt = sourceGeneratedAt.slice().sort().at(-1) || "2026-08-25T00:00:00.000Z";
   for(const chunk of chunks.values())for(const [id,record] of chunk)if(isUnresolvedTeam(record))chunk.delete(id);

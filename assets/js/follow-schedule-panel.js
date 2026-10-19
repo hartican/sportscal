@@ -226,34 +226,40 @@ function renderCodeInspectorStandings(panel, code){
   if (publishedStandings.length){
     const byCompetition = new Map();
     publishedStandings.forEach(entry => {
-      const rows = byCompetition.get(entry.competitionId) || [];
+      const groupKey=entry.competitionId==='competition:australian-championship'?entry.competitionId+':group:'+entry.groupId:entry.competitionId;
+      const rows = byCompetition.get(groupKey) || [];
       rows.push(entry);
-      byCompetition.set(entry.competitionId, rows);
+      byCompetition.set(groupKey, rows);
     });
-    byCompetition.forEach((rows, competitionId) => {
+    byCompetition.forEach((rows) => {
+      const competitionId=rows[0].competitionId,championship=competitionId==='competition:australian-championship';
       if(competitionId==='competition:chl'&&rows.every(row=>row.recordKind==='club-record')){renderChlClubRecords(panel,rows);return;}
       if(competitionId==='competition:nfl'&&rows.every(row=>row.rankScope==='conference')){renderNflConferenceStandings(panel,rows);return;}
       const section = document.createElement("section");
       section.className = "standings-module code-inspector-published-standings";
       const title = document.createElement("h3");
-      title.textContent = competitionId === "competition:nhl" ? "NHL standings"
+      title.textContent = championship ? 'Australian Championship · '+rows[0].groupName : competitionId === "competition:nhl" ? "NHL standings"
         : competitionId === "competition:chl" ? "Champions Hockey League table"
         : (CANONICAL_TAXONOMY.competitions || []).find(competition => competition.id === competitionId)?.name || rows[0]?.competitionName || "Competition standings";
       const list = document.createElement("div");
       list.className = "code-inspector-fixtures";
+      if(championship){list.setAttribute('role','table');list.setAttribute('aria-label',title.textContent);}
       rows.sort((first, second) => Number(first.sortOrder || first.rank || 999) - Number(second.sortOrder || second.rank || 999) || String(first.displayName).localeCompare(String(second.displayName))).forEach(entry => {
         const row = document.createElement("article");
         row.className = "code-inspector-fixture code-inspector-standing-row";
         const label = document.createElement("strong");
+        if(championship){row.setAttribute('role','row');label.setAttribute('role','rowheader');}
         const position = NOTHINGSPORTS_FEED_CARD_PRESENTATION.standingPosition(entry);
         label.textContent = `${position}${position==='Pending'||position==='—'?' ·':'.'} ${entry.displayName}`;
         const facts = document.createElement("span");
+        if(championship)facts.setAttribute('role','cell');
         const played = entry.played ?? entry.gamesPlayed ?? entry.stats?.gamesPlayed ?? entry.stats?.gamesplayed;
         const wins = entry.won ?? entry.wins ?? entry.stats?.wins;
         const losses = entry.lost ?? entry.losses ?? entry.stats?.losses;
         const draws = entry.drawn;
         const points = entry.ladderPoints ?? entry.points ?? entry.stats?.points;
         facts.textContent = [played != null ? `${played} played` : null, wins != null ? `${wins} wins` : null, draws != null ? `${draws} draws` : null, losses != null ? `${losses} losses` : null, competitionId==='competition:nhl'&&entry.otLosses!=null?`${entry.otLosses} OT/SO losses`:null, points != null ? `${points} pts` : null, competitionId==='competition:nhl'&&entry.goalsFor!=null?`${entry.goalsFor} GF · ${entry.goalsAgainst} GA · ${entry.goalDifferential>0?'+':''}${entry.goalDifferential} GD`:null, entry.derived ? `${entry.pointsFor} GF · ${entry.pointsAgainst} GA · ${entry.pointsDifference>0?"+":""}${entry.pointsDifference} GD` : null].filter(Boolean).join(" · ") || "Season table published; results pending.";
+        if(championship)facts.textContent+=[entry.goalsFor!=null?` · ${entry.goalsFor} GF`:null,entry.goalsAgainst!=null?` · ${entry.goalsAgainst} GA`:null,entry.goalDifference!=null?` · ${entry.goalDifference} GD`:null].filter(Boolean).join('');
         row.append(label, facts);
         list.appendChild(row);
       });

@@ -393,7 +393,7 @@ async function bootstrapAndWrite(){
     console.log(`Fetching ${league.name} clubs, priority players and fixtures...`);
     snapshots.push(await bootstrapLeague(league, checkedAt));
   }
-  const directory = {
+  let directory = {
     schemaVersion: "football-directory.v1",
     seasonLabel: SEASON_LABEL,
     generatedAt: checkedAt,
@@ -405,6 +405,7 @@ async function bootstrapAndWrite(){
     teams: snapshots.flatMap(snapshot => snapshot.teams),
     players: snapshots.flatMap(snapshot => snapshot.players),
   };
+  if(fs.existsSync(DIRECTORY_PATH))directory=require('./lib/australian-championship').preserveDirectory(directory,JSON.parse(fs.readFileSync(DIRECTORY_PATH,'utf8')));
   const index = {
     schemaVersion: "football-follow-index.v1",
     generatedAt: checkedAt,
@@ -419,7 +420,7 @@ async function bootstrapAndWrite(){
     staged.push([temp, target]);
   };
   const identityPath = path.join(ROOT, "config/card-identities.js");
-  stage(identityPath, fs.readFileSync(identityPath, "utf8").replace(/\/\* football-club-identities:start \*\/[\s\S]*?\/\* football-club-identities:end \*\//, require('./lib/football-identity-source').footballIdentitySource(directory.teams)));
+  stage(identityPath, fs.readFileSync(identityPath, "utf8").replace(/\/\* football-club-identities:start \*\/[\s\S]*?\/\* football-club-identities:end \*\//, require('./lib/football-identity-source').footballIdentitySource(directory.teams.filter(team=>team.crestUrl))));
   stage(DIRECTORY_PATH, `${JSON.stringify(directory, null, 2)}\n`);
   stage(DIRECTORY_SCRIPT_PATH, `globalThis.NOTHINGSPORTS_FOOTBALL_DIRECTORY_DATA = ${JSON.stringify(directory)};\n`);
   stage(INDEX_PATH, `${JSON.stringify(index, null, 2)}\n`);
@@ -474,7 +475,7 @@ async function refreshEuropeanFixtures(){
 
 // Kept as a source-free compatibility route for retained Follow rebuilds.
 function pruneRemovedLeagues(){
-  console.log("All six approved Football leagues retained; no competition pruning required.");
+  console.log("Approved Football leagues and any retained-only Championship snapshot preserved; no competition pruning required.");
 }
 
 function checkExisting(){
@@ -485,11 +486,16 @@ function checkExisting(){
     if ((league.key === "a-league-men" ? document.events.filter(event=>event.stage === "Regular Season").length : document.events.length) !== league.fixtures) throw new Error(`${league.name} fixture snapshot expected ${league.fixtures}, received ${document.events.length}`);
     if (new Set(document.events.map(event => event.id)).size !== document.events.length) throw new Error(`${league.name} fixture IDs must be unique`);
   });
+  const championship=require('./lib/australian-championship'),directory=JSON.parse(fs.readFileSync(DIRECTORY_PATH,'utf8'));
+  if(directory.leagues.some(league=>league.id===championship.COMPETITION)){
+    const retained=JSON.parse(fs.readFileSync(path.join(FIXTURE_DIR,championship.KEY+'.json'),'utf8'));
+    if(retained.leagueId!==championship.COMPETITION||retained.events.length!==48||retained.standings.length!==16||retained.refreshPolicy!=='retained-capture-only')throw Error('Retained Championship snapshot is incomplete or misbound');
+  }
   const core = JSON.parse(fs.readFileSync(CORE_FIXTURE_PATH, "utf8"));
   if (core.schemaVersion !== "football-core-events.v1") throw new Error("Football core fixture schema is invalid");
   if (!core.events.length || core.events.some(event => Number(event.expected) < 8)) throw new Error("Football core fixtures must contain only 4/5 and 5/5 events");
   if (new Set(core.events.map(event => event.canonicalEventId)).size !== core.events.length) throw new Error("Football core fixtures must be deduplicated");
-  console.log("Football fixture snapshots valid: all six active league schedules are complete and deduplicated.");
+  console.log("Football fixture snapshots valid: six existing schedules and any explicit retained Championship publication are deduplicated.");
 }
 
 async function main(){

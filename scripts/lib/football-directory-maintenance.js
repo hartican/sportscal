@@ -4,9 +4,10 @@ const LEAGUES={'premier-league':'eng.1',bundesliga:'ger.1','la-liga':'esp.1','se
 const DAY=86400000,REFRESH_AFTER=30*DAY;
 async function refreshDue({root=path.resolve(__dirname,'../..'),now=new Date(),offline=false,fetchImpl=fetch}={}){
   const file=path.join(root,'data/canonical/football-directory.v1.json'),directory=JSON.parse(fs.readFileSync(file,'utf8'));
+  const retainedOnly=directory.leagues.filter(l=>l.id==='competition:australian-championship'&&l.key==='australian-championship'&&l.refreshPolicy==='retained-capture-only').map(l=>({leagueId:l.id,checkedAt:l.sourceCheckedAt,state:'retained-only-source-readiness-unverified'}));
   const age=+now-Date.parse(directory.generatedAt);
   if(!Number.isFinite(age)||age<0)throw Error('Invalid football directory observation date');
-  if(age<REFRESH_AFTER)return {changed:false,state:'current',requests:0};
+  if(age<REFRESH_AFTER)return {changed:false,state:retainedOnly.length?'current-approved-sources-with-retained-only-league':'current',requests:0,...(retainedOnly.length?{retainedOnly}:{})};
   if(offline)return {changed:false,state:'offline-retained',requests:0};
   const deadline=AbortSignal.timeout(300000),receipts=[],deferred=[],absent=[],jobs=[],next=structuredClone(directory);
   async function read(url){
@@ -18,6 +19,9 @@ async function refreshDue({root=path.resolve(__dirname,'../..'),now=new Date(),o
   const setSource=source=>{const i=next.sources.findIndex(s=>s.id===source.id);if(i<0)next.sources.push(source);else next.sources[i]=source;};
   // All approved complete club sets are required before publishing the directory.
   for(const league of next.leagues){
+    if(league.id==='competition:australian-championship'&&league.key==='australian-championship'&&league.refreshPolicy==='retained-capture-only'){
+      continue;
+    }
     const code=LEAGUES[league.key];if(!code)throw Error('Unapproved football directory league');
     const url=`https://site.api.espn.com/apis/site/v2/sports/soccer/${code}/teams?limit=100`,{payload,receipt}=await read(url);
     const teams=payload.sports?.[0]?.leagues?.[0]?.teams?.map(row=>row.team)||[],retained=next.teams.filter(t=>t.leagueId===league.id);
@@ -50,12 +54,12 @@ async function refreshDue({root=path.resolve(__dirname,'../..'),now=new Date(),o
     }
   }));
   next.generatedAt=receipts.map(r=>r.checkedAt).sort().at(-1);
-  next.refreshEvidence={kind:'complete-club-check-with-independent-rosters',checkedAt:next.generatedAt,teams:jobs.length,players:directory.players.length,absent:absent.sort(),deferred:deferred.sort((a,b)=>a.teamId.localeCompare(b.teamId)),receipts:receipts.sort((a,b)=>a.url.localeCompare(b.url))};
+  next.refreshEvidence={kind:'complete-club-check-with-independent-rosters',checkedAt:next.generatedAt,teams:jobs.length,players:directory.players.length,absent:absent.sort(),deferred:deferred.sort((a,b)=>a.teamId.localeCompare(b.teamId)),receipts:receipts.sort((a,b)=>a.url.localeCompare(b.url)),...(retainedOnly.length?{scope:'approved network leagues only',retainedOnly}: {})};
   const indexFile=path.join(root,'data/canonical/football-follow-index.v1.json'),index={...JSON.parse(fs.readFileSync(indexFile,'utf8')),generatedAt:next.generatedAt};
   const outputs=[[file,JSON.stringify(next,null,2)+'\n'],[file.replace(/\.json$/,'.js'),'globalThis.NOTHINGSPORTS_FOOTBALL_DIRECTORY_DATA = '+JSON.stringify(next)+';\n'],[indexFile,JSON.stringify(index,null,2)+'\n'],[indexFile.replace(/\.json$/,'.js'),'globalThis.NOTHINGSPORTS_FOOTBALL_FOLLOW_INDEX = '+JSON.stringify(index)+';\n']];
   const previous=outputs.map(([name])=>[name,fs.readFileSync(name)]);
   try{for(const [name,body] of outputs){const tmp=name+'.candidate-'+process.pid;fs.writeFileSync(tmp,body);fs.renameSync(tmp,name);}}
   catch(error){for(const [name,body] of previous)fs.writeFileSync(name,body);throw error;}
-  return {changed:true,state:deferred.length?'verified-clubs-roster-gaps':'verified',requests:jobs.length+next.leagues.length,checkedAt:next.generatedAt,teams:jobs.length,players:directory.players.length,absent:absent.length,deferred};
+  return {changed:true,state:retainedOnly.length?'verified-approved-sources-with-retained-only-league':deferred.length?'verified-clubs-roster-gaps':'verified',requests:jobs.length+next.leagues.length-retainedOnly.length,checkedAt:next.generatedAt,teams:jobs.length,players:directory.players.length,absent:absent.length,deferred,...(retainedOnly.length?{retainedOnly}:{})};
 }
 module.exports={refreshDue,REFRESH_AFTER};

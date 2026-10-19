@@ -433,6 +433,70 @@
     {
       "id": "team:football:western-sydney-wanderers",
       "leagueId": "competition:a-leagues"
+    },
+    {
+      "id": "team:football:australian-championship:9927",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:14521",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:9944",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:9946",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:11255",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:11022",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:3502",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:11021",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:20436",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:9928",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:10470",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:15433",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:9938",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:9939",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:20439",
+      "leagueId": "competition:australian-championship"
+    },
+    {
+      "id": "team:football:australian-championship:879",
+      "leagueId": "competition:australian-championship"
     }
   ],
   "players": [
@@ -14915,6 +14979,70 @@
     {
       "id": "team:football:argentina",
       "displayName": "Argentina"
+    },
+    {
+      "id": "team:football:australian-championship:10470",
+      "displayName": "South Melbourne"
+    },
+    {
+      "id": "team:football:australian-championship:11021",
+      "displayName": "Oakleigh Cannons"
+    },
+    {
+      "id": "team:football:australian-championship:11022",
+      "displayName": "Lions FC"
+    },
+    {
+      "id": "team:football:australian-championship:11255",
+      "displayName": "Canberra Croatia"
+    },
+    {
+      "id": "team:football:australian-championship:14521",
+      "displayName": "Avondale FC"
+    },
+    {
+      "id": "team:football:australian-championship:15433",
+      "displayName": "Sutherland Sharks"
+    },
+    {
+      "id": "team:football:australian-championship:20436",
+      "displayName": "Preston Lions"
+    },
+    {
+      "id": "team:football:australian-championship:20439",
+      "displayName": "Wests Apia"
+    },
+    {
+      "id": "team:football:australian-championship:3502",
+      "displayName": "Marconi Stallions"
+    },
+    {
+      "id": "team:football:australian-championship:879",
+      "displayName": "Wollongong Wolves"
+    },
+    {
+      "id": "team:football:australian-championship:9927",
+      "displayName": "Adelaide City"
+    },
+    {
+      "id": "team:football:australian-championship:9928",
+      "displayName": "South Hobart"
+    },
+    {
+      "id": "team:football:australian-championship:9938",
+      "displayName": "Sydney Olympic"
+    },
+    {
+      "id": "team:football:australian-championship:9939",
+      "displayName": "Sydney United 58"
+    },
+    {
+      "id": "team:football:australian-championship:9944",
+      "displayName": "Bayswater City"
+    },
+    {
+      "id": "team:football:australian-championship:9946",
+      "displayName": "Broadmeadow Magic"
     },
     {
       "id": "team:football:belgium",

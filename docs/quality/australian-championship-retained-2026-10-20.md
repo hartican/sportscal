@@ -1,0 +1,13 @@
+# Australian Championship: retained factual integration
+
+20 October2026. Current-base integration is local preparation; production remains app573/99262999 with a failed global freshness gate.
+
+Use frozen a75e2edf40188d201e37002251a4a4c737784fe2: allowlisted facts, adapter and pure validator. Original eleven-response extraction and byte-agreement evidence stays at `/Users/jackhartican/Documents/AI/Codex/championship-factual-minimum-20261020/frozen-source-handoff.json`. Raw bodies, operational manifest, logos and the old531 assembly are excluded. New integration evidence belongs in `/Users/jackhartican/Documents/AI/Codex/nothingsport-championship-integration-20261020`.
+
+Verified retained scope: sixteen clubs,48group fixtures, four independent tables; eight completed and forty upcoming at the original19October capture. Empty rounds7–9 do not establish finalists, dates or venues. Regulation and penalties remain separate; winnerID0 is unknown. Source W/D/L and points inconsistencies are retained rather than repaired by inference. Individual fixture/provider/collection clocks stay distinct.
+
+No fixture-specific viewing, player directory or crests are evidenced. Show these gaps honestly with the existing Football glyph. Public factual access is not an unattended-ingestion or commercial-reuse clearance. This integration contains no provider transport, scheduler, new source collection, account/database operation or renewed observation. The six already-approved directory sources retain their existing cadence; this additional league stays retained-only.
+
+The existing canonical update-cards owner has one strict local retained route; malformed/mixed modes, inherited reports, invalid facts and missing peer chunks reject before writing. Non-Football files and the existing12-club/156-fixture A-League source remain byte-identical. Canonical Football peers and all846 prior Inspector/Schedule rows remain exact, including raw Derby tags and the existing empty viewing representation. The first regeneration exposed five unrelated normalisation differences; the strict retained peer-copy correction prevents them. The released renderer continues deriving Derby at display time. Shared rules: default-off league, explicit club/league admission, authoritative exclusions, Results OFF and two-step table consent. Loading a followed league's schedule is separate from admitting its fixtures.
+
+Both current-base source reviews, generated/installed/browser budgets, normal release, served bytes and hosted proof remain mandatory. This factual minimum is not whole-sport or monetisable-MVP certification.

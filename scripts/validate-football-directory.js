@@ -28,7 +28,8 @@ function validate(){
   const workerSource = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
   const hierarchySource = fs.readFileSync(path.join(ROOT, "config/sport-hierarchy.js"), "utf8");
   assert.equal(directory.schemaVersion, "football-directory.v1");
-  assert.equal(directory.leagues.length, 6, "all six approved leagues must be published");
+  assert.equal(directory.leagues.length, 7, "six existing leagues and the retained Australian Championship must be published");
+  assert(directory.leagues.some(league=>league.id==='competition:australian-championship'&&league.refreshPolicy==='retained-capture-only'));
   assert(directory.leagues.some(league => league.id === "competition:a-leagues" && league.key === "a-league-men"), "A-League Men must be available under Football leagues");
   uniqueIds(directory.leagues, "league");
   uniqueIds(directory.teams, "team");
@@ -38,6 +39,9 @@ function validate(){
   if(directory.refreshEvidence){
     assert.equal(directory.refreshEvidence.kind,'complete-club-check-with-independent-rosters');
     for(const league of directory.leagues){
+      if(league.id==='competition:australian-championship'){
+        const adapter=require('./lib/australian-championship'),expected=adapter.project(adapter.loadCapture()).sources,source=directory.sources.find(s=>league.sourceRefs.includes(s.id));assert.deepEqual(directory.sources.filter(s=>s.id.startsWith(adapter.sourceId(''))),expected,'retained Championship preserves the exact allowlisted original source clocks and routes');assert(source&&source.checkedAt===league.sourceCheckedAt&&league.refreshPolicy==='retained-capture-only','retained Championship source readiness remains separate from approved network sources');continue;
+      }
       const source=directory.sources.find(s=>s.id===`source:football:${league.key}:clubs-current`);
       assert(source && Date.parse(source.checkedAt)<=Date.now() && Date.now()-Date.parse(source.checkedAt)<=45*86400000,`${league.displayName} requires an actual current club observation`);
       assert(directory.refreshEvidence.receipts.some(r=>r.url===source.url&&r.checkedAt===source.checkedAt&&/^[a-f0-9]{64}$/.test(r.sha256)),'club source requires a retained response receipt');
@@ -53,7 +57,8 @@ function validate(){
   });
   directory.teams.forEach(team => {
     assert(leagueIds.has(team.leagueId), `${team.displayName} has unknown league`);
-    assert(/^https:\/\//.test(team.crestUrl), `${team.displayName} requires an HTTPS crest`);
+    if(team.leagueId==='competition:australian-championship')assert(team.crestUrl===null&&team.crestStatus==='unavailable-from-retained-source'&&team.playerCoverage==='unavailable','new Championship clubs use honest missing artwork/player evidence');
+    else assert(/^https:\/\//.test(team.crestUrl), `${team.displayName} requires an HTTPS crest`);
     team.sourceRefs.forEach(id => assert(sourceIds.has(id), `${team.displayName} has unknown source ${id}`));
   });
   const legacyFootballTeamIds = new Set(require("../config/team-follow-catalogue.js").teamsForDomain("sport:football")
@@ -153,7 +158,7 @@ function validate(){
   const malformed = directoryApi.parseSessionState("{bad");
   assert.equal(malformed.activeView, "tables");
   assert.equal(Object.hasOwn(malformed, "selectedSportKeys"), false, "durable selected sports must never leak into the transient session contract");
-  console.log(`Football directory valid: ${directory.teams.length} clubs and ${directory.players.length} priority players across five leagues.`);
+  console.log(`Football directory valid: ${directory.teams.length} clubs and ${directory.players.length} retained priority players across seven leagues; Championship players/artwork remain unavailable.`);
   return directory;
 }
 

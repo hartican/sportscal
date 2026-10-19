@@ -147,7 +147,9 @@
     // Bathurst is the explicitly approved inherited Motorsport coverage.
     // Loading the schedule does not override the admission policy's opt-outs.
     if(keys.has('motorsport'))keys.add('supercars');
-    if(preferences?.followFirst?.followedMajorEventIds?.some(id=>['presidents-cup','masters-tournament','pga-championship','us-open-golf','the-open'].includes(id))||(preferences?.preferenceGraph?.competitionPreferences||[]).some(p=>p.competitionId==='competition:presidents-cup'&&p.enabled===true))keys.add('golf');
+    const competitions=new Set((preferences?.preferenceGraph?.competitionPreferences||[]).filter(choice=>choice.enabled===true).map(choice=>choice.competitionId));
+    if(preferences?.followFirst?.followedMajorEventIds?.some(id=>['presidents-cup','masters-tournament','pga-championship','us-open-golf','the-open'].includes(id))||competitions.has('competition:presidents-cup'))keys.add('golf');
+    if(competitions.has('competition:australian-championship'))keys.add('football');
     for (const follow of preferences?.preferenceGraph?.entityFollows || []){
       if (["follow", "priority"].includes(follow?.followLevel)) keys.add(String(follow.participantId || "").split(":")[1]);
     }
@@ -155,8 +157,7 @@
     if(preferences?.followFirst?.followedMajorEventIds?.includes('le-mans-24-hours'))keys.add('lemans');
     const ids = new Set([...keys].map(key => {const base=key.replace(/-women$/,'');return `sport:${aliases[base] || base}`;}));
     const competitionCodes={lemans:'competition:le-mans',tdf:'competition:tour-de-france',giro:'competition:giro-ditalia',vuelta:'competition:vuelta-a-espana',wsl:'competition:wsl-championship-tour',dakar:'competition:dakar'};
-    for(const key of keys)if(competitionCodes[key])ids.add(competitionCodes[key]);
-    for(const choice of preferences?.preferenceGraph?.competitionPreferences||[])if(choice.enabled===true&&Object.values(competitionCodes).includes(choice.competitionId))ids.add(choice.competitionId);
+    for(const [key,id] of Object.entries(competitionCodes))if(keys.has(key)||competitions.has(id))ids.add(id);
     if((preferences?.preferenceGraph?.entityFollows || []).some(follow=>/^competitor:f1:/.test(follow.participantId)&&['follow','priority'].includes(follow.followLevel)))ids.add('sport:motorsport');
     // A taxonomy parent does not imply data containment (e.g. AFL and AFLW).
     return codes.filter(code => ids.has(code.id) || keys.has(code.slug));
