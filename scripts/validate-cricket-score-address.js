@@ -22,6 +22,12 @@ async function run(){
   assert.equal(fixture.scoreCheckedAt,official.scoreCheckedAt);assert.equal(fixture.statusCheckedAt,official.statusCheckedAt);assert.equal(fixture.statusFactObservedAt,official.statusFactObservedAt);assert.equal(fixture.stale,false);
   assert.equal(calls.length,1,'The same compact RPC owns this lookup, with no additional request');assert.equal(calls[0].timeoutMs,3000);assert(calls[0].ids.includes(capture.providerId));assert.equal(snapshots,0);
  }
+ // At the existing sixty-ID boundary, resolving a score address must not
+ // create a second RPC. Discovery rows remain covered by their evt_88 key.
+ const fullIds=[capture.canonicalId,'evt_88',...Array.from({length:58},(_,i)=>'fixture:cricket:boundary:'+i)],fullCalls=[];
+ const fullHandler=createMatchCentreHandler({enabled:()=>true,clock:()=>Date.parse(capture.clock),published:()=>[{...capture.published,sourceEventIds:[capture.canonicalId,'evt_88']}],request:async(_path,options)=>{fullCalls.push(options.body.p_fixture_ids);return capture.rows.filter(row=>row.identity_keys.some(id=>options.body.p_fixture_ids.includes(id))).map(({fixture,checked_at})=>({fixture,checked_at}));}});
+ const fullRes=response();await fullHandler({url:'/api/match-centre?ids='+encodeURIComponent(fullIds.join(','))},fullRes);
+ assert.equal(fullRes.code,200);assert.equal(fullCalls.length,1,'Reviewed address resolution cannot add a batch at the sixty-ID boundary');assert.equal(fullCalls[0].length,60);assert(fullCalls[0].includes(capture.providerId));assert(fullCalls[0].includes('evt_88'));assert.equal(fullRes.body.fixtures[0].score.innings[0].runs,97);
  for(const id of ['fixture:cricket:CA:39990','fixture:cricket:unknown','constructor','toString','__proto__']){
   let ids;const handler=createMatchCentreHandler({enabled:()=>true,published:()=>[capture.published],request:async(_path,options)=>{ids=options.body.p_fixture_ids;return [];}});const res=response();await handler({url:'/api/match-centre?ids='+id},res);assert.deepEqual(ids,[id],'Other Tests and unknown requests are not widened');assert.deepEqual(res.body.fixtures,[]);
  }
