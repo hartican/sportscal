@@ -33,7 +33,7 @@ const espnShield={...base,id:'fixture:cricket:espn:1544864',key:'cricket',status
 assert.equal(m.select([espnShield,caShield],now).length,0,'Domestic Shield is outside the approved Follow catalogue even in Everything');
 Object.assign(espnShield,{format:'Test',homeParticipantId:'team:cricket:australia',awayParticipantId:'team:cricket:south-africa'});Object.assign(caShield,{format:'Test',homeParticipantId:'team:cricket:australia',awayParticipantId:'team:cricket:south-africa'});
 assert.deepEqual(m.select([espnShield,caShield],now).map(m.id),[caShield.id],'Same approved teams and exact kickoff produce one official Test card');assert.equal(espnShield.id,'fixture:cricket:espn:1544864','Display grouping does not rewrite provider identity');assert.equal(m.select([espnShield,{...caShield,startTimeUtc:new Date(now+60000).toISOString()}],now).length,2,'A different kickoff cannot merge');
-assert.equal(m.interval({...base,status:'suspended'}),1800000);
+assert.equal(m.interval({...base,status:'suspended'}),600000);
 assert.deepEqual(m.select([{...base,id:'b'},{...base,id:'a'}],now).map(m.id),['a','b']);
 assert(!JSON.stringify(m.compact({...base,key:'tennis',points:'40-30',games:{home:3,away:2}})).includes('40-30'));
 assert.equal(m.compact({...base,sourceUrl:'javascript:alert(1)'}).officialUrl,'https://www.nrl.com/draw/');
@@ -80,7 +80,13 @@ let partialIds;const absent={...fresh,id:'fixture:nrl:absent',homeParticipantId:
 for(const update of [{status:'stumps'}, {status:'completed',completedAt:new Date(now-60000).toISOString()}, {status:'suspended',restartTimeUtc:new Date(now+60000).toISOString()}, {key:'football',innings:[],homeScore:0,awayScore:0}]){
  const fixture={...observed,...update};let redundant=0;const state=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[],snapshotRead:async()=>({readAt:now,stale:false,sources:[{fixtures:[fixture]}]}),request:async()=>{redundant++;return [];}});r=response();await state({url:'/api/match-centre?membership=everything'},r);assert.equal(redundant,0);assert.equal(r.body.fixtures[0].status,fixture.status,'Paused and final states retain their source meaning');assert.equal(r.body.fixtures[0].statusCheckedAt,fixture.statusCheckedAt);if(update.homeScore===0)assert.deepEqual(r.body.fixtures[0].score,{home:0,away:0},'Both explicit zero scores survive reuse');
 }
-let pausedReads=0;const restarting={...observed,key:'tennis',tournamentLevel:'WTA1000',sets:[{home:6,away:3}],status:'suspended',restartTimeUtc:new Date(now+60000).toISOString(),scoreCheckedAt:new Date(now-240001).toISOString()};const paused=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[],snapshotRead:async()=>({readAt:now,stale:false,sources:[{fixtures:[restarting]}]}),request:async()=>{pausedReads++;return [];}});r=response();await paused({url:'/api/match-centre?membership=everything'},r);assert.equal(pausedReads,1,'A near restart uses the supplied clock and its tighter score budget');assert(r.body.fixtures[0].stale);
+const restarting={...observed,key:'tennis',tournamentLevel:'WTA1000',sets:[{home:6,away:3}],status:'suspended',restartTimeUtc:new Date(now+60000).toISOString()};
+for(const [age,expectedReads] of [[240001,0],[m.interval(restarting,now)*2+1,1]]){
+ let pausedReads=0,readOptions;const current={...restarting,scoreCheckedAt:new Date(now-age).toISOString()};
+ const paused=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[],snapshotRead:async()=>({readAt:now,stale:false,sources:[{fixtures:[current]}]}),request:async(_path,options)=>{pausedReads++;readOptions=options;return [];}});
+ r=response();await paused({url:'/api/match-centre?membership=everything'},r);assert.equal(pausedReads,expectedReads,'An unconfirmed near-restart clock cannot shorten the ten-minute interruption interval');assert.equal(r.body.fixtures[0].stale,expectedReads===1);assert.equal(r.body.fixtures[0].scoreCheckedAt,current.scoreCheckedAt,'Reusing or rejecting a score never renews its fact clock');
+ if(expectedReads){assert.equal(readOptions.timeoutMs,3000);assert(readOptions.body.p_fixture_ids.length<=60,'Stale-score fallback remains bounded');}
+}
 const partial=createMatchCentreHandler({clock:()=>now,enabled:()=>true,published:()=>[absent],snapshotRead:async()=>({readAt:now,stale:false,sources:[{checked_at:new Date(now).toISOString(),fixtures:[observed]}]}),request:async(_path,options)=>{partialIds=options.body.p_fixture_ids;return [];} });
 r=response();await partial({url:'/api/match-centre?membership=everything'},r);assert.deepEqual(partialIds,[absent.id],'Only the uncovered published fixture needs another read');assert.equal(r.body.events.length,2,'Both sourced and published membership remain visible');
 require('./validate-fixture-alias-reuse')();

@@ -42,7 +42,7 @@
  function install(card,event,options){
   if(card.classList?.contains('is-minimised-row'))return;
   card.querySelector('.cricket-test-day')?.remove();
-  const timing=globalThis.NOTHINGSPORTS_CARD_TIMING?.presentation(event,undefined,{fullRange:card.classList?.contains('feed-fixture')===true});
+  const timing=globalThis.NOTHINGSPORTS_CARD_TIMING?.badgePresentation(event,undefined,{fullRange:card.classList?.contains('feed-fixture')===true});
   for(const badge of card.querySelectorAll('.fixture-timing-badge')){
    let progress=badge.querySelector('.fixture-source-progress');
    if(card.classList.contains('feed-fixture')&&globalThis.NOTHINGSPORTS_FEED_TIMELINE?.finalDay(event)&&timing?.progress){
@@ -50,7 +50,16 @@
     progress.textContent=timing.progress;
    }else progress?.remove();
   }
-  if(timing?.progress){for(const day of card.querySelectorAll('.fixture-timing-day'))day.textContent=timing.day;const pause=globalThis.NOTHINGSPORTS_CARD_TIMING.pausePresentation(event);if(event.key==='cricket'){for(const badge of card.querySelectorAll('.fixture-timing-badge')){let clock=badge.querySelector('.fixture-timing-clock');if(!clock){clock=document.createElement('span');clock.className='fixture-timing-clock';badge.append(clock);}clock.textContent=pause?[timing.status,pause.restart].filter(Boolean).join(' • '):timing.time;badge.querySelector('.fixture-timing-status')?.remove();if(timing.status&&!pause){const status=document.createElement('small');status.className='fixture-timing-status';status.textContent=timing.status;badge.append(status);}}}for(const badge of card.querySelectorAll('.fixture-timing-badge')){badge.title=timing.fullSchedule;badge.setAttribute('aria-label',timing.ariaLabel+'. Open fixture');}const compact=card.querySelector('.compact-card-time');if(compact)compact.textContent=[timing.progress,timing.status,globalThis.NOTHINGSPORTS_CARD_TIMING.pausePresentation(event)?.restart].filter(Boolean).join(' · ');}
+  if(timing){
+   if(timing.progress)for(const day of card.querySelectorAll('.fixture-timing-day'))day.textContent=timing.day;
+   for(const badge of card.querySelectorAll('.fixture-timing-badge')){
+     let clock=badge.querySelector('.fixture-timing-clock');if(timing.badgeClock){if(!clock){clock=document.createElement('span');clock.className='fixture-timing-clock';badge.append(clock);}clock.textContent=timing.badgeClock;}else clock?.remove();
+     let status=badge.querySelector('.fixture-timing-status:not(.fixture-timing-freshness)');if(timing.badgeStatus){if(!status){status=document.createElement('small');status.className='fixture-timing-status';badge.append(status);}status.textContent=timing.badgeStatus;}else status?.remove();
+    let freshness=badge.querySelector('.fixture-timing-freshness');if(timing.badgeFreshness){if(!freshness){freshness=document.createElement('small');freshness.className='fixture-timing-status fixture-timing-freshness';badge.append(freshness);}freshness.textContent=timing.badgeFreshness;}else freshness?.remove();
+    badge.title=timing.fullSchedule;badge.setAttribute('aria-label',timing.ariaLabel);
+   }
+   const compact=card.querySelector('.compact-card-time');if(compact&&timing.progress)compact.textContent=[timing.progress,timing.status,timing.pause?.restart].filter(Boolean).join(' · ');
+  }
   const golfSlot=card.querySelector('.fixture-golf-details');if(golfSlot&&globalThis.NOTHINGSPORTS_GOLF_SCORES)globalThis.NOTHINGSPORTS_GOLF_SCORES.mount(golfSlot,event,{visible:options.resultsOn,followed:id=>cachedParticipantFollow(id).followed});
   const racingSlot=card.querySelector('.fixture-racing-details');if(racingSlot&&globalThis.NOTHINGSPORTS_RACING_DETAILS)globalThis.NOTHINGSPORTS_RACING_DETAILS.mount(racingSlot,event,{visible:()=>event.key==='horse-racing'||(typeof isSpoilerVisible==='function'?isSpoilerVisible(event):options.resultsOn),resultsVisible:()=>typeof isSpoilerVisible==='function'?isSpoilerVisible(event):options.resultsOn,followed:entry=>cardIdentityParticipants().some(p=>entry.drivers?.includes(p.displayName||p.name)&&cachedParticipantFollow(p.id).followed)});
   card.querySelector('.feed-live-score')?.remove();

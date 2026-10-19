@@ -5,42 +5,11 @@
  const final=e=>/^(completed|finished|final)$/.test(e.status||'');
  const interrupted=e=>/^(stumps|suspended|interrupted|delayed|rain-delay|break)$/.test(e.status||'');
  const halftime=e=>e.status==='break'&&e.statusText==='Half-time';
- // Interpret canonical states, not arbitrary provider codes or score narratives.
- // Keep source text for provenance; only recognised status phrases become a
- // Results-OFF label. Sport adapters remain responsible for their raw codes.
- function interruption(e){
-  const status=String(e.status||''),sourceText=typeof e.statusText==='string'?e.statusText:null,text=(sourceText||'').trim();
-  const result=(state,label,reason=null)=>({state,label,reason,sourceStatus:status,sourceText});
-  if(!interrupted(e)&&status!=='ongoing'&&!/^(postponed|abandoned|cancelled|canceled)$/.test(status))return null;
-  if(status==='stumps')return result('normal-break','Stumps');
-  if(/^(break|ongoing)$/.test(status)&&/^(Half-time|Lunch|Tea|Drinks|Innings (?:break|interval)|Break|Stumps|End of day|Session ended)$/i.test(text))return result('normal-break',text);
-  const racing=e.score?.racing?.statusText;
-  if(interrupted(e)&&/^(Red flag|Race suspended|Session suspended|Play suspended)$/i.test(racing||''))return result('suspended',racing,racing);
-  if(interrupted(e)&&/^(Safety car|Virtual safety car)$/i.test(racing||''))return result('sport-pause',racing);
-  // Anchored phrases cannot reveal a score, winner or free-form commentary.
-  const reason=/^(?:(?:(?:start|play|match|race|session|toss)\s+)?(?:is\s+)?(?:delayed(?: start)?|suspended|interrupted|stopped|postponed|abandoned|cancelled|canceled)\s*(?:(?:due to|because of|for|by)\s*|[-:–—]\s*))?(rain(?: delay)?|lightning|bad light|unsafe (?:conditions|pitch|surface)|lighting(?: failure)?|lighting\/power failure|power (?:failure|outage)|floodlights?(?: failure)?|crowd (?:incident|incidents|disturbance)|medical (?:emergency|emergencies)|wet (?:outfield|pitch)|weather|fog|snow|extreme heat|excessive heat)[.!]?$/i.exec(text)?.[1]||null;
-  if(/^(postponed|abandoned|cancelled|canceled)$/.test(status)){const name=status==='canceled'?'Cancelled':status[0].toUpperCase()+status.slice(1);return result(status==='canceled'?'cancelled':status,name+(reason?' · '+reason:''),reason);}
-  if(status==='break'||status==='ongoing'){
-   if(!reason)return result('normal-break',status==='break'?'Break':text==='Session ended'?text:'Ongoing');
-  }
-  const start=Date.parse(e.actualStartTimeUtc||e.livePlayObservedAt||''),observedAt=Date.parse(e.statusCheckedAt||'');
-  const started=Number.isFinite(start)&&Number.isFinite(observedAt)&&start<=observedAt;
-  const state=status==='delayed'||/^(?:delayed start|start delayed|(?:match )?(?:start|toss) (?:is )?delayed)\b/i.test(text)?'delayed-start':status==='rain-delay'&&!started?'delayed':'suspended';
-  const generic=state==='suspended'?'Play suspended':'Delayed';
-  // A legacy rain-delay enum is not evidence of rain: some adapters used it
-  // for any weather/delay. A reason must be present in the source text.
-  return result(state,reason?generic+' · '+reason:generic,reason);
- }
- const unexpected=e=>['delayed-start','delayed','suspended'].includes(interruption(e)?.state);
- const pausedLabel=e=>interruption(e)?.label||(globalThis.NOTHINGSPORTS_CARD_TIMING||(typeof require==='function'?require('./card-timing'):null))?.pausePresentation(e)?.label||String(e.status||'').replace(/-/g,' ');
- function interruptionPresentation(e,now=Date.now()){
-  const fact=interruption(e);if(!fact||!interrupted(e)&&e.status!=='ongoing')return null;
-  const at=Date.parse(e.restartSourceCheckedAt||''),restart=Date.parse(e.restartTimeUtc||''),confirmed=Boolean(safeUrl(e.restartSourceUrl)&&Number.isFinite(at)&&at<=now&&Number.isFinite(restart));
-  let text=fact.state==='delayed-start'?'Start time unconfirmed':'Resume time unconfirmed';
-  if(confirmed&&restart<=now)text='Awaiting resumption update';
-  if(confirmed&&restart>now){const clock=new Date(restart),format=options=>new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',...options}),day=format({year:'numeric',month:'2-digit',day:'2-digit'}),prefix=day.format(clock)!==day.format(new Date(now))?format({weekday:'short',day:'numeric',month:'short',...(clock.getUTCFullYear()!==new Date(now).getUTCFullYear()?{year:'numeric'}:{})}).format(clock)+', ':'';text=(fact.state==='delayed-start'?'Starts at ':'Live again at ')+prefix+format({hour:'numeric',minute:'2-digit',hour12:true}).format(clock);}
-  return {...fact,restart:text};
- }
+ const cardTiming=()=>typeof module==='object'&&module.exports?require('./card-timing'):globalThis.NOTHINGSPORTS_CARD_TIMING;
+ const interruption=e=>cardTiming()?.interruption(e)||null;
+ const unexpected=e=>cardTiming()?.unexpected(e)||false;
+ const interruptionPresentation=(e,now=Date.now())=>cardTiming()?.interruptionPresentation(e,now)||null;
+ const pausedLabel=e=>interruption(e)?.label||cardTiming()?.pausePresentation(e)?.label||String(e.status||'').replace(/-/g,' ');
  function longPause(e,now){if(!interrupted(e)&&e.status!=='ongoing')return false;const fact=e.pauseObservation,at=Date.parse(fact?.status===e.status&&fact.reason===String(e.score?.racing?.statusText||e.statusText||pausedLabel(e)).trim().toLowerCase()?fact.observedAt:'');return e.status==='stumps'||/^(End of day|Session ended)$/i.test(e.statusText||'')||Number.isFinite(at)&&at<=now&&now-at>=1800000;}
  function supported(e,{catalogue=true}={}){
   const policy=globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY||(typeof require==='function'?require('./follow-feed-policy'):null);if(policy&&!policy.activeEligible(e))return false;
@@ -104,7 +73,7 @@
   const priority=e=>unexpected(e)&&section(e,now)==='live'?0.5:({'live':0,'paused':1,'awaiting-update':2,'starting-soon':3,'recently-finished':4,'ongoing-not-in-play':5})[section(e,now)];
   return members.filter(e=>!suppressed.has(id(e))).sort((a,b)=>priority(a)-priority(b)||(final(a)&&final(b)?completion(b)-completion(a):(Date.parse(a.startTimeUtc||a.estimatedStartTimeUtc)||0)-(Date.parse(b.startTimeUtc||b.estimatedStartTimeUtc)||0))||id(a).localeCompare(id(b)));
  }
- function interval(e,now=Date.now()){if(e.score?.racing)return 240000;const restart=Date.parse(e.restartTimeUtc||'');return interrupted(e)&&!halftime(e)&&!(restart>=now-120000&&restart<=now+1800000)?1800000:120000;}
+ function interval(e,now=Date.now()){if(unexpected(e))return 600000;if(e.score?.racing)return 240000;const restart=Date.parse(e.restartTimeUtc||'');return interrupted(e)&&!halftime(e)&&!(restart>=now-120000&&restart<=now+1800000)?1800000:120000;}
  function safeUrl(value){try{const u=new URL(value);return u.protocol==='https:'?u.href:null;}catch{return null;}}
  function officialUrl(e){return safeUrl(e.sourceUrl||e.canonicalSourceUrl||e.officialUrl)||({nrl:'https://www.nrl.com/draw/',afl:'https://www.afl.com.au/fixture','rugby-union':'https://www.world.rugby/tournaments/fixtures-results'})[sport(e)]||null;}
  function scorecard(e){

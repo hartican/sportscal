@@ -2,6 +2,7 @@
 const assert=require('node:assert/strict');
 const model=require('../config/match-centre');
 const {createMatchCentreHandler}=require('../lib/match-centre-handler');
+const timing=require('../config/card-timing'),{refreshInterval,refreshDueSources}=require('../lib/live-fixtures');
 // All interruption observations below are constructed, not captured rain proof.
 // The retained published record supplies only identity and scheduled context.
 const retained=require('../data/code-inspector/cricket.json').fixtures.find(e=>e.id==='fixture:cricket:espn:1525660');
@@ -10,12 +11,21 @@ const now=Date.parse('2026-10-18T10:00:00Z'),stamp=new Date(now).toISOString(),o
 const fixture={...retained,status:'live',statusText:null,statusCheckedAt:old,scoreCheckedAt:old,sourceCheckedAt:old,startTimeUtc:'2026-10-18T07:30:00Z',actualStartTimeUtc:'2026-10-18T07:30:00Z',innings:[{participantId:retained.homeParticipantId||retained.participantIds[0],runs:0,wickets:0,overs:'0.0'}]};
 const response=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},status(code){this.code=code;return this;},json(body){this.body=body;return this;}});
 async function run(){
+ const sandbox={Date,Intl,URL};require('node:vm').runInNewContext(require('node:fs').readFileSync(require.resolve('../config/card-timing'),'utf8'),sandbox);
+ assert.equal(sandbox.NOTHINGSPORTS_MATCH_CENTRE,undefined,'Cold Feed timing has no deferred Match Centre dependency');
+ assert.equal(sandbox.NOTHINGSPORTS_CARD_TIMING.pauseReason({...fixture,status:'suspended',statusText:'Lightning'}),'Play suspended · Lightning');
+ const staleBreak=timing.badgePresentation({...fixture,status:'break',statusText:'Half-time',statusCheckedAt:new Date(now-240001).toISOString()},now);
+ assert.match(staleBreak.badgeClock,/HALF-TIME/);assert.match(staleBreak.badgeFreshness,/Awaiting/);assert.match(staleBreak.ariaLabel,/Half-time/);assert(Object.isFrozen(staleBreak));
  let scenarios=0;
  for(const key of ['cricket','football','nrl','afl','tennis','rugby-union'])for(const reason of ['rain','lightning','unsafe conditions','lighting failure','lighting/power failure','power outage','crowd incident','medical emergency']){
   const e={...fixture,key,status:'suspended',statusText:'Play suspended due to '+reason,statusCheckedAt:stamp};
   const before=JSON.stringify(e),fact=model.interruption(e);
   assert.equal(fact.state,'suspended');assert.equal(fact.reason,reason);assert.equal(fact.sourceText,e.statusText);
   assert.equal(fact.label,'Play suspended · '+reason);assert.equal(model.section(e,now),'live');
+  assert.equal(timing.presentation(e,now).status,('Play suspended · '+reason).toUpperCase(),'Feed/Schedule use the same sourced reason');
+  assert(timing.minimised(e,now).time.includes(fact.label.toUpperCase()));
+  const sourced={...e,dateOnly:true,timePrecision:'date-only',restartTimeUtc:'2026-10-18T11:00:00Z',restartSourceUrl:'https://example.com/controlled-restart',restartSourceCheckedAt:stamp};
+  assert.match(timing.badgePresentation(sourced,now).badgeClock,/Live again at 10:00 pm/,'A separately confirmed restart is visible across sports even when the original start was date-only');
   assert.equal(model.liveState(e,now),'paused','Live section membership never implies actively playing');
   assert.equal(model.section({...e,stale:true},now+3*86400000),'live','An interruption never expires through elapsed schedule or stale checks');
   assert.equal(JSON.stringify(e),before,'Presentation never mutates sporting facts');scenarios++;
@@ -41,8 +51,12 @@ async function run(){
  assert.equal(model.interruptionPresentation(suspended,now).restart,'Resume time unconfirmed');
  const restart={...suspended,restartTimeUtc:'2026-10-18T11:00:00Z'};
  assert.equal(model.interruptionPresentation(restart,now).restart,'Resume time unconfirmed','A clock alone is not confirmed resumption');
+ const bareTiming=timing.presentation(restart,now),bareMinimised=timing.minimised(restart,now);
+ assert(!/10:00\s*PM|22:00/i.test([bareTiming.time,bareTiming.fullSchedule,bareTiming.ariaLabel,bareMinimised.time,bareMinimised.ariaLabel].join(' ')),'Unconfirmed restart clocks stay out of visible and accessible/full-title timing');
  const confirmed={...restart,restartSourceUrl:'https://www.cricket.com.au/matches/CA%3A39990',restartSourceCheckedAt:stamp};
  assert.match(model.interruptionPresentation(confirmed,now).restart,/Live again at/);
+ assert.equal(timing.pausePresentation(confirmed,now).restart,model.interruptionPresentation(confirmed,now).restart);
+ assert.match(timing.minimised(confirmed,now).time,/22:00/,'A separate sourced restart may display its revised clock');
  for(const patch of [{restartSourceUrl:'javascript:alert(1)'},{restartSourceCheckedAt:null},{restartSourceCheckedAt:'2026-10-18T11:00:00Z'},{restartTimeUtc:'invalid'}])assert.equal(model.interruptionPresentation({...confirmed,...patch},now).restart,'Resume time unconfirmed');
  assert.equal(model.interruptionPresentation(confirmed,now+3600000).restart,'Awaiting resumption update');
  assert.match(model.interruptionPresentation({...confirmed,status:'delayed'},now).restart,/Starts at/);
@@ -119,8 +133,21 @@ async function run(){
   assert.equal(reply.body.fixtures[0].status,'cancelled','API '+mode+' preserves cancellation against a stale live record');
   assert.equal(reply.body.fixtures[0].score.innings[0].runs,0);assert.equal(reply.body.fixtures[0].scoreCheckedAt,old);assert(selectedReads<=1);
  }
- for(const [value,interval] of [[fixture,120000],[suspended,1800000],[confirmed,1800000]])assert.equal(model.interval(value,now),interval,'Cadence remains unchanged in the allocated first pass');
- console.log(JSON.stringify({constructed:true,providerRainHistory:false,retainedFixture:retained.id,enumeratedCases:scenarios,repeatedResumptionScoreShapes:retainedSequences.length,scorelessReceiptsPerShape:3,apiReads:reads,scoreClocksPreserved:true,cadenceUnchanged:true}));
+ for(const [value,interval] of [[fixture,120000],[suspended,600000],[confirmed,600000]])assert.equal(model.interval(value,now),interval,'Unexpected interruptions use ten minutes while active play remains unchanged');
+ for(const e of [suspended,{...fixture,status:'delayed',actualStartTimeUtc:null},{...suspended,restartTimeUtc:new Date(now+60000).toISOString()}, {...suspended,status:'rain-delay',statusText:null}])assert.equal(refreshInterval([e],new Date(now)),600000,'A generic unexpected source is due every ten minutes, including near a proposed restart');
+ assert.equal(refreshInterval([suspended,fixture],new Date(now)),120000,'Another actively playing fixture retains the existing source interval');
+ assert.equal(refreshInterval([{...fixture,status:'break',statusText:'Half-time'}],new Date(now)),120000);
+ assert.equal(refreshInterval([{...fixture,status:'stumps'}],new Date(now)),1800000,'Normal stumps retains its quiet interval');
+ assert.equal(refreshInterval([{...fixture,status:'stumps',restartTimeUtc:new Date(now+60000).toISOString()}],new Date(now)),120000,'The existing normal-break near-restart rule is unchanged');
+ for(const [index,minimum,callback,expected] of [[0,0,null,600000],[1,900000,null,900000],[2,0,()=>120000,120000],[3,0,()=>1800000,1800000]]){
+  const id='controlled-interruption-interval-'+index;let moment=now,calls=0,writes=0,nextDueAt=0,lease=null;
+  const store={claim:async(_id,token)=>{if(lease||moment<nextDueAt)return null;lease=token;return {fixtures:[suspended]};},publish:async(_id,token,value)=>{assert.equal(token,lease);assert.equal(value.intervalMs,expected);nextDueAt=moment+value.intervalMs;lease=null;writes++;},fail:async()=>assert.fail('Constructed healthy source must not fail')};
+  const source={id,minimumIntervalMs:minimum,...(callback?{refreshInterval:callback}:{}),fetch:async()=>{calls++;return [{...suspended,sourceCheckedAt:new Date(moment).toISOString(),statusCheckedAt:new Date(moment).toISOString()}];}};
+  await refreshDueSources({sources:[source],store,now:new Date(moment)});assert.equal(calls,1);assert.equal(writes,1);
+  moment=now+expected-1;await refreshDueSources({sources:[source],store,now:new Date(moment)});assert.equal(calls,1,'No extra check before the existing lease/source deadline');
+  moment++;await refreshDueSources({sources:[source],store,now:new Date(moment)});assert.equal(calls,2);assert.equal(writes,2,'The next existing tick can claim only when due');
+ }
+ console.log(JSON.stringify({constructed:true,providerRainHistory:false,retainedFixture:retained.id,enumeratedCases:scenarios,repeatedResumptionScoreShapes:retainedSequences.length,scorelessReceiptsPerShape:3,apiReads:reads,scoreClocksPreserved:true,interruptionIntervalMs:600000,activeIntervalMs:120000}));
 }
 if(require.main===module)run().catch(error=>{console.error(error);process.exitCode=1;});
 module.exports={run,fixture,now};

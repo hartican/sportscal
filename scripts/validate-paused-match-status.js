@@ -5,9 +5,9 @@ const now=Date.parse('2026-10-12T00:00:00Z'),stamp=new Date(now-60000).toISOStri
 const base={id:'pause',key:'nrl',status:'rain-delay',statusCheckedAt:stamp,startTimeUtc:new Date(now-3600000).toISOString(),statusFactObservedAt:new Date(now-1800000).toISOString(),pauseObservation:{status:'rain-delay',reason:'rain delay',observedAt:new Date(now-1800000).toISOString()}};
 assert.equal(model.section({...base,status:'stumps',statusFactObservedAt:stamp},now),'ongoing-not-in-play','Stumps moves down immediately');
 assert.equal(model.section({...base,status:'ongoing',statusText:'Session ended',sourceStale:true},now),'ongoing-not-in-play','An explicit session end stays at the bottom while awaiting a check');
-assert.equal(model.section(base,now),'ongoing-not-in-play','The source pause reaches thirty minutes');
-for(const clock of [stamp,null,'invalid',new Date(now+1).toISOString()])assert.equal(model.section({...base,pauseObservation:{...base.pauseObservation,observedAt:clock}},now),'paused','Short/unknown/future pause clocks cannot establish a long pause');
-assert.equal(model.section({...base,statusCheckedAt:new Date(now).toISOString()},now),'ongoing-not-in-play','A repeated verification receipt does not reset the pause');
+assert.equal(model.section(base,now),'live','Unexpected interruptions remain in Live beyond thirty minutes');
+for(const clock of [stamp,null,'invalid',new Date(now+1).toISOString()])assert.equal(model.section({...base,pauseObservation:{...base.pauseObservation,observedAt:clock}},now),'live','Unexpected interruption visibility does not depend on a pause-duration clock');
+assert.equal(model.section({...base,statusCheckedAt:new Date(now).toISOString()},now),'live','Repeated verification retains the interruption in Live');
 assert.equal(model.section({...base,status:'break',statusText:'Lunch',pauseObservation:{status:'break',reason:'lunch',observedAt:stamp}},now),'paused','A changed source pause starts its own clock');
 assert.equal(model.section({...base,status:'live'},now),'live');
 assert.equal(model.section({...base,status:'live',stale:true},now),'awaiting-update');
@@ -15,19 +15,19 @@ assert.equal(model.section({...base,status:'live',score:{racing:{schema:'racing.
 assert.equal(model.section({...base,status:'break',statusText:'Half-time',statusCheckedAt:new Date(now-240001).toISOString(),statusFactObservedAt:stamp},now),'awaiting-update','An old half-time check keeps its existing active freshness limit');
 assert.equal(model.section({...base,status:'break',statusText:'Half-time',statusCheckedAt:new Date(now-240001).toISOString(),pauseObservation:{status:'break',reason:'half-time',observedAt:new Date(now-1800000).toISOString()}},now),'ongoing-not-in-play','A proven thirty-minute pause moves down even while its update is awaited');
 const events=[{...base,id:'long'}, {...base,id:'finished',status:'completed',completedAt:stamp}, {...base,id:'soon',status:'scheduled',startTimeUtc:new Date(now+60000).toISOString()}, {...base,id:'awaiting',status:'live',stale:true}, {...base,id:'brief',pauseObservation:{...base.pauseObservation,observedAt:stamp}}, {...base,id:'playing',status:'live'}];
-assert.deepEqual(model.select(events,now).map(model.id),['playing','brief','awaiting','soon','finished','long']);
+assert.deepEqual(model.select(events,now).map(model.id),['playing','brief','long','awaiting','soon','finished']);
 const resumed={...base,restartTimeUtc:'2026-10-12T07:30:00Z',restartSourceUrl:'https://www.cricket.com.au/matches/CA%3A39990',restartSourceCheckedAt:stamp};
 const compact=model.compact(resumed);for(const key of ['statusFactObservedAt','pauseObservation','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt'])assert.equal(compact[key],resumed[key],'Selected reads preserve '+key);
 for(const key of ['statusFactObservedAt','pauseObservation','restartTimeUtc','restartSourceUrl','restartSourceCheckedAt'])assert.equal(model.compact({...base,status:'live',[key]:null})[key],null,'A cleared source fact stays cleared');
 assert.equal(timing.pausePresentation(resumed,now).restart,'Live again at 6:30 pm');
 assert.match(timing.pausePresentation({...resumed,restartTimeUtc:'2026-10-13T07:30:00Z'},now).restart,/Tue 13 Oct.*6:30 pm/);
-for(const restartTimeUtc of [null,'invalid'])assert.equal(timing.pausePresentation({...resumed,restartTimeUtc},now).restart,'Resume time unavailable');
+for(const restartTimeUtc of [null,'invalid'])assert.equal(timing.pausePresentation({...resumed,restartTimeUtc},now).restart,'Resume time unconfirmed');
 assert.equal(timing.pausePresentation({...resumed,restartTimeUtc:stamp},now).restart,'Awaiting resumption update');
-assert.equal(timing.pausePresentation({...base,restartTimeUtc:null,broadcasts:[{startTimeUtc:resumed.restartTimeUtc}]},now).restart,'Resume time unavailable','Broadcasts cannot supply playing restarts');
+assert.equal(timing.pausePresentation({...base,restartTimeUtc:null,broadcasts:[{startTimeUtc:resumed.restartTimeUtc}]},now).restart,'Resume time unconfirmed','Broadcasts cannot supply playing restarts');
 assert.equal(timing.pausePresentation({...base,status:'live'},now),null);
 assert.equal(timing.pausePresentation({...base,tournamentParent:true},now),null);
 assert.equal(timing.pausePresentation({...base,status:'stumps'},now).label,'Stumps');
-assert.equal(timing.pausePresentation({...base,statusText:'Bad light'},now).label,'Bad light','Keep the actual reported interruption');
+assert.equal(timing.pausePresentation({...base,statusText:'Bad light'},now).label,'Delayed · Bad light','Keep the actual reported interruption without inventing a start');
 assert.equal(timing.pausePresentation({...base,status:'break',statusText:'Half-time'},now).label,'Half-time');
 assert.equal(timing.pausePresentation({...base,status:'break',statusText:'Australia lead by 139 runs'},now).label,'Break','Pause labels cannot reveal a score narrative with Results OFF');
 const html=fs.readFileSync('index.html','utf8'),start=html.indexOf('function refreshFeedClock(){'),end=html.indexOf('function renderFeedViewActions(',start);
@@ -54,5 +54,5 @@ assert.equal(marker.textContent,'Time Now','Refresh removes a stale live claim')
 const special={...events.find(e=>e.id==='playing'),id:'saved-major-contest'};context.activeEvents=[];context.feedCardSlots=new Map([[{}, {event:special,slot:{isConnected:true}}]]);marker=context.buildFeedNowMarker(special);context.refreshFeedClock();assert.equal(marker.textContent,'● Live Now','The unchanged minute refresh uses the actual visible reconciled slot for saved/automatic and nested fixtures');
 const pauseFacts=require('../lib/fixture-pause-observations').pauseObservations;
 for(const invalid of [null,'invalid',new Date(now+1).toISOString()]){const source={...base,statusCheckedAt:invalid,sourceCheckedAt:invalid};const [unknown]=pauseFacts([source],{observedFixtures:[source],now:new Date(now)}).fixtures;assert.equal(unknown.pauseObservation,null,'An unknown/future source receipt cannot establish a reason clock');}
-assert.equal(model.section({...base,pauseObservation:null},now),'paused','A legacy enum clock alone cannot prove the duration of the current reason');
+assert.equal(model.section({...base,pauseObservation:null},now),'live','Unexpected interruptions stay in Live without inferring a duration');
 console.log('Paused match status: source-state clocks, compact facts, restart labels and actual Feed marker/refresh passed.');

@@ -29,18 +29,47 @@
     if (!statuses.some(value => ['live','ongoing','in_progress','in-progress'].includes(value))) return null;
     return Object.freeze({key:'in-progress',label:'In progress',ariaLabel:'Tournament in progress. Session times vary.'});
   }
-  function pauseReason(event){
-    if(event.tournamentParent||event.majorEventMarker||['tennis_parent','golf_tournament','tournament_overview'].includes(event.cardType)||!['stumps','rain-delay','break','suspended','interrupted','delayed','ongoing'].includes(event.status))return null;
-    const racingPause=/^(Red flag|Safety car|Virtual safety car|Race suspended|Session suspended|Play suspended)$/i.test(event.score?.racing?.statusText||'')?event.score.racing.statusText:null;
-    return racingPause||(/^(Half-time|Lunch|Tea|Drinks|Innings break|Break|Stumps|Rain delay|Bad light|End of day|Session ended|Suspended|Interrupted|Delayed|Ongoing)$/i.test(event.statusText||'')?event.statusText:({'break':'Break','stumps':'Stumps','rain-delay':'Rain delay','suspended':'Suspended','interrupted':'Interrupted','delayed':'Delayed','ongoing':'Ongoing'})[event.status]);
+  const interrupted=e=>/^(stumps|suspended|interrupted|delayed|rain-delay|break)$/.test(e.status||'');
+  function safeUrl(value){try{const u=new URL(value);return u.protocol==='https:'?u.href:null;}catch{return null;}}
+ // Interpret canonical states, not arbitrary provider codes or score narratives.
+ // Keep source text for provenance; only recognised status phrases become a
+ // Results-OFF label. Sport adapters remain responsible for their raw codes.
+ function interruption(e){
+  const status=String(e.status||''),sourceText=typeof e.statusText==='string'?e.statusText:null,text=(sourceText||'').trim();
+  const result=(state,label,reason=null)=>({state,label,reason,sourceStatus:status,sourceText});
+  if(!interrupted(e)&&status!=='ongoing'&&!/^(postponed|abandoned|cancelled|canceled)$/.test(status))return null;
+  if(status==='stumps')return result('normal-break','Stumps');
+  if(/^(break|ongoing)$/.test(status)&&/^(Half-time|Lunch|Tea|Drinks|Innings (?:break|interval)|Break|Stumps|End of day|Session ended)$/i.test(text))return result('normal-break',text);
+  const racing=e.score?.racing?.statusText;
+  if(interrupted(e)&&/^(Red flag|Race suspended|Session suspended|Play suspended)$/i.test(racing||''))return result('suspended',racing,racing);
+  if(interrupted(e)&&/^(Safety car|Virtual safety car)$/i.test(racing||''))return result('sport-pause',racing);
+  // Anchored phrases cannot reveal a score, winner or free-form commentary.
+  const reason=/^(?:(?:(?:start|play|match|race|session|toss)\s+)?(?:is\s+)?(?:delayed(?: start)?|suspended|interrupted|stopped|postponed|abandoned|cancelled|canceled)\s*(?:(?:due to|because of|for|by)\s*|[-:–—]\s*))?(rain(?: delay)?|lightning|bad light|unsafe (?:conditions|pitch|surface)|lighting(?: failure)?|lighting\/power failure|power (?:failure|outage)|floodlights?(?: failure)?|crowd (?:incident|incidents|disturbance)|medical (?:emergency|emergencies)|wet (?:outfield|pitch)|weather|fog|snow|extreme heat|excessive heat)[.!]?$/i.exec(text)?.[1]||null;
+  if(/^(postponed|abandoned|cancelled|canceled)$/.test(status)){const name=status==='canceled'?'Cancelled':status[0].toUpperCase()+status.slice(1);return result(status==='canceled'?'cancelled':status,name+(reason?' · '+reason:''),reason);}
+  if(status==='break'||status==='ongoing'){
+   if(!reason)return result('normal-break',status==='break'?'Break':text==='Session ended'?text:'Ongoing');
   }
+  const start=Date.parse(e.actualStartTimeUtc||e.livePlayObservedAt||''),observedAt=Date.parse(e.statusCheckedAt||'');
+  const started=Number.isFinite(start)&&Number.isFinite(observedAt)&&start<=observedAt;
+  const state=status==='delayed'||/^(?:delayed start|start delayed|(?:match )?(?:start|toss) (?:is )?delayed)\b/i.test(text)?'delayed-start':status==='rain-delay'&&!started?'delayed':'suspended';
+  const generic=state==='suspended'?'Play suspended':'Delayed';
+  // A legacy rain-delay enum is not evidence of rain: some adapters used it
+  // for any weather/delay. A reason must be present in the source text.
+  return result(state,reason?generic+' · '+reason:generic,reason);
+ }
+ const unexpected=e=>['delayed-start','delayed','suspended'].includes(interruption(e)?.state);
+ function interruptionPresentation(e,now=Date.now()){
+  const fact=interruption(e);if(!fact||!interrupted(e)&&e.status!=='ongoing')return null;
+  const at=Date.parse(e.restartSourceCheckedAt||''),restart=Date.parse(e.restartTimeUtc||''),confirmed=Boolean(safeUrl(e.restartSourceUrl)&&Number.isFinite(at)&&at<=now&&Number.isFinite(restart));
+  let text=fact.state==='delayed-start'?'Start time unconfirmed':'Resume time unconfirmed';
+  if(confirmed&&restart<=now)text='Awaiting resumption update';
+  if(confirmed&&restart>now){const clock=new Date(restart),format=options=>formatter('en-AU',options),day=format({year:'numeric',month:'2-digit',day:'2-digit'}),year=format({year:'numeric'}),prefix=day.format(clock)!==day.format(new Date(now))?format({weekday:'short',day:'numeric',month:'short',...(year.format(clock)!==year.format(new Date(now))?{year:'numeric'}:{})}).format(clock).replace(/,/g,'')+', ':'';text=(fact.state==='delayed-start'?'Starts at ':'Live again at ')+prefix+format({hour:'numeric',minute:'2-digit',hour12:true}).format(clock);}
+  return {...fact,restart:text,restartTimeUtc:confirmed&&restart>now?e.restartTimeUtc:null};
+ }
+  const canPause=event=>!event.tournamentParent&&!event.majorEventMarker&&!['tennis_parent','golf_tournament','tournament_overview'].includes(event.cardType)&&!['completed','finished','final','cancelled','canceled','abandoned','postponed'].includes(event.scheduleStatus)&&['stumps','rain-delay','break','suspended','interrupted','delayed','ongoing'].includes(event.status);
+  function pauseReason(event){return canPause(event)?interruption(event)?.label||null:null;}
   function pausePresentation(event, reference = new Date()){
-    const label=pauseReason(event);if(!label)return null;
-    const restart=Date.parse(event.restartTimeUtc||''),now=new Date(reference);
-    const clock=Number.isFinite(restart)&&restart>+now?new Date(restart):null;
-    const time=clock?formatter('en-AU',{hour:'numeric',minute:'2-digit',hour12:true}).format(clock):null;
-    const day=clock&&dayKey(clock)!==dayKey(now)?formatter('en-AU',{weekday:'short',day:'numeric',month:'short',...(dayKey(clock).slice(0,4)!==dayKey(now).slice(0,4)?{year:'numeric'}:{})}).format(clock).replace(/,/g,'')+', ':'';
-    return {label,restart:clock?'Live again at '+day+time:Number.isFinite(restart)?'Awaiting resumption update':'Resume time unavailable'};
+    return canPause(event)?interruptionPresentation(event,+new Date(reference))||null:null;
   }
   function progress(event, reference = new Date()){
     const statuses=[event.status,event.scheduleStatus].map(value=>String(value||'').toLowerCase());
@@ -81,7 +110,7 @@
     const started=played(event),actual=actualStart(event,reference);
     const precision = actual?'actual':event.timePrecision;
     const uncertain = event.timeTbc || event.startTimeTbc;
-    const pausedRestart=/^(stumps|rain-delay|break|suspended|interrupted)$/.test(event.status||'')&&Number.isFinite(Date.parse(event.restartTimeUtc||''))?event.restartTimeUtc:null;
+    const pausedRestart=pausePresentation(event,reference)?.restartTimeUtc||null;
     const raw = pausedRestart || (actual?actual.toISOString():precision === "estimated" ? estimateClock(event,event.estimatedStartTimeUtc || event.startTimeUtc) : event.startTimeUtc);
     const parsed = new Date(raw || "");
     const hasTime = (actual||!event.dateOnly&&!uncertain) && (!precision || ["actual","exact","session-start","estimated","not-before"].includes(precision)) && Number.isFinite(+parsed);
@@ -118,32 +147,40 @@
     if (statuses.some(value => ["cancelled","canceled"].includes(value))) status = "CANCELLED";
     else if (statuses.includes("postponed")) status = "POSTPONED";
     else if (statuses.includes("abandoned")) status = "ABANDONED";
-    else if (statuses.includes("suspended")) status = (pause || "SUSPENDED").toUpperCase();
+    else if (statuses.includes("suspended")) status = (pause || "PLAY SUSPENDED").toUpperCase();
     else if (statuses.some(value => ["completed","finished","final"].includes(value))) status = "FINISHED";
     else if(pause)status=pause.toUpperCase();
     else if(statuses.includes("stumps"))status="STUMPS";
-    else if(statuses.includes("rain-delay"))status="RAIN DELAY";
+    else if(statuses.includes("rain-delay"))status="DELAYED";
     else if(statuses.includes("break"))status="BREAK";
     else if(statuses.includes("ongoing"))status="ONGOING";
     else if (statuses.some(value => ["live","in_progress","in-progress"].includes(value))) status = "LIVE";
+    const fact=interruption(event);if(fact&&['cancelled','abandoned','postponed'].includes(fact.state)&&status===fact.state.toUpperCase())status=fact.label.toUpperCase();
     if (tournamentPhase(event)) status = 'IN PROGRESS';
     const odi=typeof module==='object'&&module.exports?require('./odi-display'):globalThis.NOTHINGSPORTS_ODI_DISPLAY;
     if(odi?.awaiting(event,reference))status=odi.label;
     const controls=typeof module==='object'&&module.exports?require('./feed-controls'):globalThis.NOTHINGSPORTS_FEED_CONTROLS;
     const observed=controls?.timingState(event,reference);
     if(observed?.key==='half-time')status='HALF-TIME';
-    if(observed?.key==='awaiting-update')status=observed.label;
-    return Object.freeze({day:fullRange&&range?day:progressLabel|| (precision==='not-before'?day:venueCalendar?day:date?(range?day:dated(date)):'DATE UNAVAILABLE'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. ${started?'':'Scheduled '}${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
+    const isUnexpected=unexpected(event),terminal=statuses.some(value=>['completed','finished','final','cancelled','canceled','abandoned','postponed'].includes(value));
+    if(observed?.key==='awaiting-update'&&!isUnexpected&&!terminal)status=observed.label;
+    const freshness=event.stale===true||event.sourceStale===true?'Awaiting update':!terminal&&observed?.key==='awaiting-update'?observed.label:null;
+    return Object.freeze({day:fullRange&&range?day:progressLabel|| (precision==='not-before'?day:venueCalendar?day:date?(range?day:dated(date)):'DATE UNAVAILABLE'),time,label:status || scheduleLabel, primary:status || (range || event.dateOnly ? scheduleLabel : time), status, freshness, schedule:progressLabel||scheduleLabel, fullSchedule, progress:progressLabel, ariaLabel:[progressLabel,status ? `${status}. ${started?'':'Scheduled '}${fullSchedule}` : fullSchedule].filter(Boolean).join('. ')});
+  }
+  // One pure view for construction and live patches; DOM remains with callers.
+  function badgePresentation(event,reference=new Date(),options={}){
+    const value=presentation(event,reference,options),pause=pausePresentation(event,reference),pausedClock=pause&&(event.key==='cricket'&&value.progress||pause.restartTimeUtc);
+    return Object.freeze({...value,pause,badgeClock:pausedClock?[pause.label.toUpperCase(),pause.restart].join(' • '):value.time,badgeStatus:pausedClock?'':pause&&value.freshness?pause.label.toUpperCase():value.status,badgeFreshness:pause?value.freshness:null,ariaLabel:[pause&&value.freshness?pause.label:null,pausedClock?pause.restart:null,value.ariaLabel,'Open fixture'].filter(Boolean).join('. ')});
   }
   function minimised(event, reference = new Date()){
     const value=presentation(event,reference),pause=pausePresentation(event,reference);
     const clock=raw=>formatter('en-AU',{hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw));
-    const restart=Date.parse(event.restartTimeUtc||'');
+    const restart=Date.parse(pause?.restartTimeUtc||'');
     const actual=actualStart(event,reference);
     const started=played(event),raw=event.timePrecision==='estimated'?estimateClock(event,event.estimatedStartTimeUtc||event.startTimeUtc):event.startTimeUtc;
     let time=actual&&!pause?'REPORTED START '+clock(actual)+(value.status?' · '+value.status:''):started&&!pause?[value.time?'SCHEDULED '+(event.timePrecision==='estimated'?'APPROX. ':event.timePrecision==='not-before'?'NOT BEFORE ':'')+clock(raw):'',value.status].filter(Boolean).join(' · '):value.status;
     if(pause&&!/^(FINISHED|CANCELLED|POSTPONED|ABANDONED)$/.test(time)){
-      const suffix=Number.isFinite(restart)&&restart>+new Date(reference)?clock(restart):Number.isFinite(restart)||/awaiting/i.test(value.status)?'AWAITING UPDATE':'TIME UNAVAILABLE';
+      const suffix=Number.isFinite(restart)&&restart>+new Date(reference)?clock(restart):pause.restart==='Awaiting resumption update'||/awaiting/i.test(value.status)?'AWAITING UPDATE':'TIME UNAVAILABLE';
       time=pause.label.toUpperCase()+' · '+suffix;
     }else if(/awaiting/i.test(time))time='AWAITING UPDATE';
     if(!time&&!started){
@@ -163,5 +200,5 @@
     if(['completed','finished','final'].includes(event.status))return 'Completed';
     return event.eventType==='match'||event.timingProvenance?.precision==='venue-calendar'?'Time TBD':String(event.displayTime||'Session times vary').replace(/\b(?:TBC|unavailable)\b/gi,'TBD');
   }
-  return Object.freeze({presentation,minimised,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason,progress,played,actualStart,estimateClock});
+  return Object.freeze({interruption,unexpected,interruptionPresentation,presentation,badgePresentation,minimised,tournamentPhase,dateOnlyLabel,pausePresentation,pauseReason,progress,played,actualStart,estimateClock});
 });

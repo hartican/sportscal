@@ -17,9 +17,9 @@ async function run(){
   const browser=await pw[engine].launch({headless:true,...(engine==='chromium'?{channel:'chrome'}:{})});
   try{for(const width of [390,1280])for(const theme of ['light','dark']){
    const page=await browser.newPage({viewport:{width,height:900},colorScheme:theme,serviceWorkers:'block'}),errors=[];
-   page.on('pageerror',error=>errors.push(error.message));let phase=0,apiNow=now,membershipReads=0,selectedReads=0,failed=false,nonLocal=0;
+   page.on('pageerror',error=>errors.push(error.message));let phase=0,apiNow=now,membershipReads=0,selectedReads=0,failed=false,nonLocal=0,cold=true;
    const row=()=>{
-    const at=new Date(apiNow).toISOString(),e={...fixture,sourceCheckedAt:at,statusCheckedAt:at,scoreCheckedAt:at,statusFactObservedAt:at};
+    const at=new Date(apiNow).toISOString(),e={...fixture,fixtureObservationSchema:'fixture-observations.v1',sourceCheckedAt:at,statusCheckedAt:at,scoreCheckedAt:at,statusFactObservedAt:at};
     if(phase===0)return {...e,status:'suspended',statusText:'Rain delay'};
     if(phase===1)return {...e,status:'suspended',statusText:'Play suspended due to lightning',innings:[],scoreCheckedAt:null};
     if(phase===2)return {...e,status:'live',statusText:'Rain delay',innings:[{...fixture.innings[0],runs:1}],restartTimeUtc:'2026-10-18T11:00:00Z'};
@@ -33,6 +33,8 @@ async function run(){
    await page.route('**/*',async route=>{
     const url=new URL(route.request().url());
     if(url.origin!==origin){nonLocal++;return route.abort();}
+    if(url.pathname==='/assets/js/app-shell-runtime.js')return route.fulfill({contentType:'text/javascript',body:fs.readFileSync(path.join(root,'assets/js/app-shell-runtime.js'),'utf8')});
+    if(cold&&url.pathname==='/config/match-centre.js')return route.fulfill({contentType:'text/javascript',body:'/* Deferred model intentionally withheld during cold Feed/Schedule checks. */'});
     if(url.pathname==='/assets/js/match-centre-ui.js')return route.fulfill({contentType:'text/javascript',body:fs.readFileSync(path.join(root,'assets/js/match-centre-ui.source.js'),'utf8')});
     if(!url.pathname.startsWith('/api/'))return route.continue();
     const e=row(),snapshot=model.compact(e);
@@ -46,6 +48,19 @@ async function run(){
    await page.goto(origin);
    await page.waitForFunction(()=>typeof activateTopLevelTab==='function'&&startupFeedState.phase==='ready'&&!startupCoordinator.isHydrating());
    await page.locator('#startupLaunch').waitFor({state:'hidden'});
+   const coldCards=await page.evaluate(fixture=>{
+    if(typeof NOTHINGSPORTS_MATCH_CENTRE!=='undefined')throw Error('Cold rendering must precede deferred Match Centre');
+    const host=document.createElement('section');document.getElementById('listView').append(host);const result=[];userPreferences.showSpoilers=false;
+    for(const surface of ['feed','follow'])for(const state of ['compact','selected']){
+     activeTab=surface;const event={...fixture,id:fixture.id+':cold:'+surface+':'+state,eventId:fixture.id+':cold:'+surface+':'+state,canonicalEventId:fixture.id+':cold:'+surface+':'+state,status:'suspended',statusText:'Lightning',restartTimeUtc:'2026-10-18T11:00:00Z',restartSourceUrl:null,restartSourceCheckedAt:null};
+     const before=JSON.stringify(event);setCardState(event,state);const card=buildEventCard(event,{mode:surface==='feed'?'feed':'schedule'});host.append(card);
+     const timing=card.querySelector(state==='compact'?'.compact-card-time':'.fixture-timing-badge'),summary=card.querySelector(state==='compact'?'.compact-card-summary':'.fixture-timing-badge');
+     result.push({surface,state,text:timing?.textContent,aria:summary?.getAttribute('aria-label'),titles:[...card.querySelectorAll('[title]')].map(e=>e.title).join(' '),sourceUnchanged:JSON.stringify(event)===before});
+    }
+    activeTab='feed';userPreferences.showSpoilers=true;host.remove();return result;
+   },fixture);
+   for(const item of coldCards){assert.match(item.text,/PLAY SUSPENDED · LIGHTNING/);assert.match(item.aria,/PLAY SUSPENDED · LIGHTNING/);assert(!/10:00\s*PM|22:00/i.test(item.text+item.aria+item.titles),'A bare restart is absent from visible, title and accessible cold cards');assert(item.sourceUnchanged);}
+   cold=false;
    await page.addScriptTag({path:path.join(root,'config/match-centre.js')});
    await page.evaluate(()=>{setTunePromptOpen(false);suppressSessionRatingPrompt();});
    await page.locator('.tabs [data-tab=match-centre]').click();await page.getByRole('tab',{name:'Everything',exact:true}).click();
@@ -74,7 +89,7 @@ async function run(){
    }
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'The current app remains within the viewport');
    assert.deepEqual(errors,[]);assert(membershipReads>1&&selectedReads>0);
-   console.log(JSON.stringify({engine,width,theme,constructed:true,providerRainHistory:false,sourceRenderer:true,generatedRelease:false,automaticTransitions:6,resultsOff:true,focusRetained:true,membershipReads,selectedReads,blockedExternal:nonLocal}));passes++;await page.close();
+   console.log(JSON.stringify({engine,width,theme,constructed:true,providerRainHistory:false,sourceRenderer:true,generatedRelease:false,coldCards,automaticTransitions:6,resultsOff:true,focusRetained:true,membershipReads,selectedReads,blockedExternal:nonLocal}));passes++;await page.close();
   }}finally{await browser.close();}
  }}finally{await new Promise(resolve=>server.close(resolve));}
  console.log(JSON.stringify({browserPasses:passes,providerRequests:0,databaseRequests:0}));

@@ -112,19 +112,19 @@ function buildTournamentMarker(event){
 }
 
 function buildFixtureTimingBadge(ev){
-  const timing = NOTHINGSPORTS_CARD_TIMING.presentation(ev, nowAEST(), {fullRange:activeTab==='feed'});
+  const timing = NOTHINGSPORTS_CARD_TIMING.badgePresentation(ev, nowAEST(), {fullRange:activeTab==='feed'});
   const badge = document.createElement('button');badge.type='button';
   badge.className = 'fixture-timing-badge btn ghost';
   const day=document.createElement('span');day.className='fixture-timing-day';day.textContent=timing.day;
-  const pause=ev.key==='cricket'&&timing.progress?NOTHINGSPORTS_CARD_TIMING.pausePresentation(ev,nowAEST()):null;
-  const clock=document.createElement('span');clock.className='fixture-timing-clock';clock.textContent=pause?[timing.status,pause.restart].filter(Boolean).join(' • '):timing.time;
+  const clock=document.createElement('span');clock.className='fixture-timing-clock';clock.textContent=timing.badgeClock;
   badge.append(day);if(clock.textContent)badge.append(clock);
   if(activeTab==='feed'&&NOTHINGSPORTS_FEED_TIMELINE.finalDay(ev)&&timing.progress){const progress=document.createElement('small');progress.className='fixture-source-progress';progress.textContent=timing.progress;badge.append(progress);}
   if(['RALLY DATES','TOURNAMENT DATES'].includes(timing.time)){const note=document.createElement('small');note.textContent=ev.key==='wrc'?'Stage timetable not verified':ev.appearances?.length?'See player tee times':'Tee times not verified';badge.append(note);}
-  if(timing.status&&!pause){const status=document.createElement('small');status.className='fixture-timing-status';status.textContent=timing.status;badge.append(status);}
+  if(timing.badgeStatus){const status=document.createElement('small');status.className='fixture-timing-status';status.textContent=timing.badgeStatus;badge.append(status);}
+  if(timing.badgeFreshness){const freshness=document.createElement('small');freshness.className='fixture-timing-status fixture-timing-freshness';freshness.textContent=timing.badgeFreshness;badge.append(freshness);}
   badge.dataset.timingStatus = timing.status;
   badge.title = timing.fullSchedule;
-  badge.setAttribute('aria-label',`${timing.ariaLabel}. Open fixture`);
+  badge.setAttribute('aria-label',timing.ariaLabel);
   badge.onclick=event=>{event.stopPropagation();void openFixtureFromTimingCapsule(ev);};
   return badge;
 }
