@@ -11,11 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="571">
+<meta name="app-shell-version" content="572">
 <meta name="match-centre-enabled" content="true">
 
 <script src="/assets/js/app-update.js?v=533" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=571" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=572" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2021,7 +2021,7 @@ header.top .header-utilities{display:flex;flex:1;align-items:center;flex-wrap:no
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=571"></script>
+<script src="assets/js/app-shell-runtime.js?v=572"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10725,7 +10725,7 @@ function clearFantasyPlaceholderSpace(){globalThis.NOTHINGSPORTS_FANTASY_UI?.cle
 let fantasyUiLoading=null;
 function ensureFantasyUi(){
   if(globalThis.NOTHINGSPORTS_FANTASY_UI)return Promise.resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);
-  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=552';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
+  fantasyUiLoading ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/js/settings-optional-ui.js?v=572';script.onload=()=>resolve(globalThis.NOTHINGSPORTS_FANTASY_UI);script.onerror=()=>{fantasyUiLoading=null;script.remove();reject(Error('Fantasy controls unavailable'));};document.head.append(script);});
   return fantasyUiLoading;
 }
 let epicUiLoading;
@@ -12506,7 +12506,7 @@ function followHasStandings(code){
 const followDisclosureState=new Map();
 const followBulkSelection=new Set();
 function loadFollowPresentation(){
-  const url='assets/js/follow-presentation-ui.js?v=546';
+  const url='assets/js/follow-presentation-ui.js?v=572';
   return Promise.all([loadDeferredScript('config/participant-directory.js?v=512'),loadDeferredScript(url)]).then(()=>{
     if(typeof globalThis.renderFollowViewLoaded!=='function' || typeof globalThis.renderTeamsAndPlayersDirectoryLoaded!=='function'){
       loadDeferredScript.requests.delete(new URL(url,document.baseURI).href);
@@ -12552,7 +12552,7 @@ async function loadMatchCentre(){
   const panel=document.getElementById('listView');
   if(globalThis.renderMatchCentre){globalThis.renderMatchCentre();return;}
   panel.className='match-centre';panel.textContent='Loading Match Centre…';
-  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=566'),loadDeferredScript('config/score-details.js?v=527'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=566')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
+  loadMatchCentre.pending ||= Promise.all([loadDeferredScript('config/match-centre.js?v=566'),loadDeferredScript('config/score-details.js?v=527'),loadDeferredScript('config/surface-category-ui.js?v=403'),loadDeferredScript('assets/js/match-centre-refresh.js?v=340')]).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=572')).then(()=>{if(activeTab==='match-centre')renderMatchCentre();}).catch(()=>{if(activeTab==='match-centre'){panel.textContent='Match Centre could not load. ';const retry=document.createElement('button');retry.textContent='Retry';retry.onclick=loadMatchCentre;panel.append(retry);}}).finally(()=>{loadMatchCentre.pending=null;});return loadMatchCentre.pending;
 }
 function renderTeamsAndPlayersDirectory(container){
   if(typeof globalThis.renderTeamsAndPlayersDirectoryLoaded==='function')return globalThis.renderTeamsAndPlayersDirectoryLoaded(container);
@@ -13249,7 +13249,7 @@ function buildDismissedEventStub(record){
 
 async function renderEventOverviews(container){
  const host=document.createElement('div');host.className='event-overviews-host';container.append(host);
- try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=533');
+ try{await loadDeferredScript('config/surface-category-ui.js?v=403');await loadDeferredScript('config/event-overviews-ui.js?v=572');
  if(!host.isConnected)return;
  return NOTHINGSPORTS_EVENT_OVERVIEWS_UI.render(host);
  }catch{if(!host.isConnected)return;const notice=document.createElement('p');notice.textContent='Events could not load. Open a sport’s Schedule in Follow.';host.append(notice);}
@@ -14033,13 +14033,6 @@ function openFirstRunSettingsAfterFeedAlignment(){
   });
 }
 
-function settingsMenuItem(section, glyph, title, detail){
-  return `<button class="settings-menu-item" type="button" data-settings-section="${section}">
-    <span class="settings-menu-icon" aria-hidden="true">${glyphMarkup(glyph)}</span>
-    <span class="settings-menu-copy"><strong>${title}</strong><span>${detail}</span></span>
-    <span class="settings-menu-arrow" aria-hidden="true">${glyphMarkup("ui:chevron-right")}</span>
-  </button>`;
-}
 
 function setStandingsSpoilerModalOpen(open){
   const modal = document.getElementById("standingsSpoilerModal");
@@ -14078,13 +14071,6 @@ function bindSelectionActions(body, group, selectAll, deselectAll){
   });
 }
 
-function bindSettingsMenuNavigation(root){
-  root.querySelectorAll("[data-settings-section]").forEach(button => {
-    button.addEventListener("click", () => {
-      navigateSettingsSection(button.dataset.settingsSection);
-    });
-  });
-}
 
 function navigateSettingsSection(section, { replace = false } = {}){
   const nextSection = String(section || "main");
@@ -17925,7 +17911,7 @@ async function ensureFeedSourceReadiness(preferences=userPreferences){
   rebuildDerivedCardCache(activeEvents);
 }
 function loadDeferredStartupContext(){
-  return loadDeferredScript('config/startup-view-cache.js?v=566').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
+  return loadDeferredScript('config/startup-view-cache.js?v=572').then(()=>disposableStore?.evictExpired?.()).catch(()=>{});
 }
 
 let startupPostLoadHandled = false;

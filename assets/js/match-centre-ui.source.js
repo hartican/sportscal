@@ -2,8 +2,9 @@
 (() => {
  'use strict';
 function loadMatchCentreStyles(){
- if(document.querySelector('[data-mc-style]'))return;
- const link=document.createElement('link');link.rel='stylesheet';link.href='assets/styles/match-centre.css?v=507';link.dataset.mcStyle='';document.head.append(link);
+ const link=document.querySelector('link[data-mc-style]')||document.createElement('link');
+ if(link.getAttribute('href')!=='assets/styles/match-centre.css?v=572')link.href='assets/styles/match-centre.css?v=572';
+ if(!link.isConnected){link.rel='stylesheet';link.dataset.mcStyle='';document.head.append(link);}
 }
 loadMatchCentreStyles();
 

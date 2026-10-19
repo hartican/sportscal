@@ -15,6 +15,22 @@ function fantasySettingsSummary(){
   const p=userPreferences.fantasyDeadlines;
   return p.enabled?(p.gameByCompetition['competition:premier-league']==='fpl-classic'?'FPL':'Choose a game'):'Off';
 }
+function settingsMenuItem(section, glyph, title, detail){
+  return `<button class="settings-menu-item" type="button" data-settings-section="${section}">
+    <span class="settings-menu-icon" aria-hidden="true">${glyphMarkup(glyph)}</span>
+    <span class="settings-menu-copy"><strong>${title}</strong><span>${detail}</span></span>
+    <span class="settings-menu-arrow" aria-hidden="true">${glyphMarkup("ui:chevron-right")}</span>
+  </button>`;
+}
+
+function bindSettingsMenuNavigation(root){
+  root.querySelectorAll("[data-settings-section]").forEach(button => {
+    button.addEventListener("click", () => {
+      navigateSettingsSection(button.dataset.settingsSection);
+    });
+  });
+}
+
 function renderSettingsMenu(body){
   const hiddenCount = dismissedEventEntries().length;
   body.innerHTML = `<div class="settings-menu">

@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v571";
-const SHELL_VERSION = "571";
+const CACHE_NAME = "nothingsport-shell-v572";
+const SHELL_VERSION = "572";
 // Cycling artwork and championship projections cache after use through the
 // asset/data handlers below. Card identities already ship in the runtime.
 // Unassigned circuit candidates are optional assets, not install dependencies.
@@ -13,7 +13,7 @@ const APP_SHELL = [
 
   "/assets/identities/wsl/wave-white.svg",
   "/assets/identities/wsl/brand.png",
-  "/assets/js/follow-presentation-ui.js?v=546",
+  "/assets/js/follow-presentation-ui.js?v=572",
   "/assets/identities/wrc/routes/sardegna-lerno-2026.svg",
   "/assets/identities/wrc/helmet-white.svg",
   "/assets/identities/sailgp/sailing-white.svg",
@@ -22,7 +22,7 @@ const APP_SHELL = [
   "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=552",
   "/assets/js/impact-feedback-ui.js?v=552",
-  "/assets/js/settings-optional-ui.js?v=552",
+  "/assets/js/settings-optional-ui.js?v=572",
   "/assets/js/follow-navigation.js?v=522",
   "/assets/js/tournament-fixture-ui.js?v=533",
   "/assets/styles/notifications-inbox.css?v=280",
@@ -64,7 +64,7 @@ const APP_SHELL = [
   "/assets/identities/motogp/circuits/valencia.svg",
   "/assets/identities/motogp/motorcycle-white.svg",
   "/assets/identities/motogp/motorcycle.svg",
-  "/assets/js/app-shell-runtime.js?v=571",
+  "/assets/js/app-shell-runtime.js?v=572",
   "/assets/js/account-awareness-runtime.js?v=571",
   "/assets/js/follow-schedule-panel.js?v=562",
   "/assets/js/fixture-navigation.js?v=535",
@@ -100,13 +100,13 @@ const APP_SHELL = [
   // Account sync is already in the required runtime; the owner console caches
   // its separate source after first use.
   "/config/major-events.js?v=556",
-  "/config/event-overviews-ui.js?v=533",
+  "/config/event-overviews-ui.js?v=572",
   "/config/surface-category-ui.js?v=403",
-  "/assets/styles/match-centre.css?v=507",
+  "/assets/styles/match-centre.css?v=572",
   "/config/match-centre.js?v=566",
   // An upgrading page can receive this deferred module from its old worker.
   // Own it in the new cache before activation removes that old cache.
-  "/assets/js/match-centre-ui.js?v=566",
+  "/assets/js/match-centre-ui.js?v=572",
   "/assets/js/milestone-alerts-ui.js?v=535",
   "/config/feed-live-scores.js?v=566",
   "/config/feed-live-score-loader.js?v=556",

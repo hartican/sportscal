@@ -54,3 +54,23 @@ require('./validate-card-context')();
 require('./validate-minimised-cards');
 
 assert.equal(dateOnlyLabel({displayTime:"Time TBC"}),"Time TBD","Old cached timing labels render using TBD");
+
+// Display qualifications do not rewrite the sporting or planned-start facts.
+function validateMatchCentreQualifications(){
+const assert=require('node:assert/strict'),badge=require('../config/card-timing').badgePresentation,repairNow='2026-10-19T18:35:00Z';
+const observedLive={id:'controlled:status-qualification',key:'cricket',date:'2026-10-18',startTimeUtc:'2026-10-18T08:00:00Z',status:'live',statusCheckedAt:'2026-10-19T18:34:00Z'};
+for(const stale of [{stale:true},{sourceStale:true}]){
+ const event={...observedLive,...stale},before=JSON.stringify(event),value=badge(event,repairNow);
+ assert.equal(value.badgeStatus,'LAST REPORTED LIVE');assert.equal(value.badgeFreshness,'Awaiting update');assert.equal(JSON.stringify(event),before);
+}
+assert.equal(badge(observedLive,repairNow).badgeStatus,'LIVE','Fresh explicit live observations remain live');
+assert.equal(badge({...observedLive,status:'suspended',statusText:'Lightning',stale:true},repairNow).status,'PLAY SUSPENDED · LIGHTNING','Staleness does not erase a confirmed interruption');
+const terminalFixture=require('../data/code-inspector/football.json').fixtures.find(e=>e.id==='event:football:a-league-men:401892162');
+assert(terminalFixture,'Retained A-League terminal regression identity exists');
+const terminalBefore=JSON.stringify(terminalFixture),terminalBadge=badge(terminalFixture,repairNow);
+assert.equal(terminalBadge.status,'FINISHED');assert.equal(terminalBadge.badgeClock,'','A finished capsule does not advertise a scheduled start');
+assert.match(terminalBadge.fullSchedule,/SCHEDULED 8:00 PM/,'Historical planned kickoff stays available with its qualification');
+assert.equal(JSON.stringify(terminalFixture),terminalBefore);
+console.log('Match Centre qualifications: fresh/stale live, retained interruption and finished badge with original planned support passed.');
+}
+validateMatchCentreQualifications();
