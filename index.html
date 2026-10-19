@@ -1710,6 +1710,12 @@ header.top,#calendarControls,#mainContent,.app-footer,#jumpTodayBtn{animation:no
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 #settingsBtn{border-color:transparent;box-shadow:none;}
 #settingsBtn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+header.top .header-utilities{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:2px;min-width:0;}
+#accountIndicator{display:inline-flex;max-width:100%;min-width:0;}
+#accountIndicator .account-awareness-control{font-size:11px;padding:6px;gap:5px;background:transparent;}
+#accountIndicator .account-awareness-label{max-width:145px;overflow:hidden;text-overflow:ellipsis;}
+#accountIndicatorFallback{font-size:11px;min-height:44px;padding:6px;white-space:nowrap;}
+@media(max-width:600px){header.top .brand-title-row{flex-wrap:wrap;}header.top .header-utilities{flex:1 1 100%;justify-content:flex-end;}#accountIndicator{margin-right:auto;}}
 .feed-schedule-link{display:inline-block;color:var(--accent);background:none;border:0;padding:6px 0;font:inherit;font-size:.75rem;text-decoration:underline;text-underline-offset:3px;min-height:32px;}
 .follow-common-controls,.follow-event-bulk{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:10px 0;}
 .follow-schedule-panel{min-width:0;}
@@ -1749,6 +1755,7 @@ header.top,#calendarControls,#mainContent,.app-footer,#jumpTodayBtn{animation:no
         <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothing SPORT" fetchpriority="high" decoding="async"></h1>
         <div class="header-utilities">
           <button class="btn ghost" id="settingsBtn" type="button" aria-label="Settings"><span data-vector-glyph="ui:settings"></span><span class="full-label">Settings</span></button>
+          <span id="accountIndicator"><button class="btn ghost" id="accountIndicatorFallback" type="button" aria-label="Checking account status. Open Account.">Checking account…</button></span>
           <button class="btn ghost calendar-sync-action" id="calendarSyncBtn" type="button" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span></button>
           <button class="btn ghost share-app-action" id="shareAppBtn" type="button" aria-label="Share Nothing Sport"><span data-vector-glyph="ui:share"></span><span class="share-app-label">Share</span></button>
           <button class="btn ghost" id="notificationsBtn" type="button" aria-label="Notifications" aria-haspopup="dialog" aria-controls="notificationsInbox" aria-expanded="false"><span data-vector-glyph="ui:bell"></span><span id="notificationCount" class="notification-count" hidden></span></button>
@@ -3464,6 +3471,30 @@ let serverPersistence = {
   lastSyncedAt: null,
   message: "",
 };
+let accountIndicatorController = null, accountIndicatorLoading = null, accountIndicatorJourney = null;
+let accountIndicatorGeneration = -1;
+function renderAccountIndicator(){
+  if(accountIndicatorController)return accountIndicatorController.render();
+  const button=document.getElementById('accountIndicatorFallback');
+  if(button){
+    const life=serverSyncClient?.accountSnapshot?.();
+    button.textContent=!life?.hasSession && serverPersistence.state!=='requesting' ? 'Not signed in' : 'Checking account…';
+    button.setAttribute('aria-label',button.textContent+'. Open Account.');
+  }
+}
+function ensureAccountIndicator(){
+  if(accountIndicatorController)return Promise.resolve(accountIndicatorController);
+  accountIndicatorLoading ||= loadDeferredScript('assets/js/account-awareness-runtime.js?v=567')
+    .then(()=>NOTHINGSPORTS_ACCOUNT_INDICATOR_APP.mount())
+    .catch(()=>{accountIndicatorLoading=null;renderAccountIndicator();return null;});
+  return accountIndicatorLoading;
+}
+function acceptNothingscoreViewer(viewer,owner,generation){
+  const life=serverSyncClient.accountSnapshot();
+  if(owner!==(serverPersistence.user?.id||'') || owner!==life.accountId || generation!==life.generation)return;
+  nothingscoreViewer=viewer;
+  globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.acceptProfile(viewer,owner,generation);
+}
 function createChatState(overrides = {}){
   return {
     isAdmin:false,
@@ -4776,6 +4807,9 @@ function setServerPersistence(patch){
   }
   syncChatSessionState(previousOwnerId, nextOwnerId);
   syncNothingscoreSessionState(previousOwnerId, nextOwnerId);
+  const life=serverSyncClient?.accountSnapshot?.();
+  if(patch?.state==='signedIn' && nextOwnerId===life?.accountId)accountIndicatorGeneration=life.generation;
+  renderAccountIndicator();
   return serverPersistence;
 }
 
@@ -5132,6 +5166,8 @@ async function hydrateUserMetaSeed(scope = serverStateSyncScope()){
 }
 
 async function bootstrapServerPersistence({ session: sessionHint = undefined, checkStatus = true } = {}){
+  const accountJourney=accountIndicatorJourney?.phase==='signing-up'?accountIndicatorJourney:null;
+  const accountLife=serverSyncClient?.accountSnapshot?.();
   const generation = invalidateServerStateSyncScope();
   const currentGeneration = () => generation === serverStateSyncGeneration;
   let scope = null;
@@ -5225,6 +5261,7 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
           : "Your local copy is active. Server sync is temporarily unavailable.",
     });
   }
+  globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.complete(accountJourney,accountLife);
   return serverPersistence;
 }
 
@@ -10489,6 +10526,7 @@ async function submitNothingscoreAction(command, panel, { success = "Your Nothin
   }
   nothingscoreStatus(panel, "Saving…");
   const owner = serverPersistence.user?.id || "";
+  const ownerGeneration=serverSyncClient.accountSnapshot().generation;
   panel.querySelectorAll("button, input, select").forEach(control => { control.disabled = true; });
   try{
     const result = await serverSyncClient.nothingscoreRequest({}, command);
@@ -10497,7 +10535,7 @@ async function submitNothingscoreAction(command, panel, { success = "Your Nothin
       try{
         const payload = await serverSyncClient.nothingscoreRequest({ eventId:String(command.eventId) });
         if (owner !== (serverPersistence.user?.id || "")) return result;
-        if (payload.viewer) nothingscoreViewer = payload.viewer;
+        if (payload.viewer) acceptNothingscoreViewer(payload.viewer,owner,ownerGeneration);
         if (payload.detail && mergeNothingscoreSnapshot(payload.detail)) nothingscoreQueueRender();
       }catch(error){
         console.warn("Nothingscore receipt saved; fresh community detail will retry later", error);
@@ -10514,13 +10552,14 @@ async function submitNothingscoreAction(command, panel, { success = "Your Nothin
 
 async function reconcileNothingscoreSubmission(eventId,phase,{expectedOwner = serverPersistence.user?.id || ""} = {}){
   const owner = expectedOwner;
+  const ownerGeneration=serverSyncClient.accountSnapshot().generation;
   if (owner !== (serverPersistence.user?.id || "")) return null;
   const key = nothingscoreSubmissionKey(eventId,phase);
   try {
     const payload = await serverSyncClient.nothingscoreRequest({eventId});
     if (owner !== (serverPersistence.user?.id || "")) return null;
     if (!payload?.detail) return null;
-    if (payload.viewer) nothingscoreViewer = payload.viewer;
+    if (payload.viewer) acceptNothingscoreViewer(payload.viewer,owner,ownerGeneration);
     const receipt = payload.detail.currentUser?.submissions?.[phase];
     if (receipt) nothingscoreSubmissionStore.confirm(key,receipt);
     else if (!nothingscoreSubmissionRequests.has(key)) nothingscoreSubmissionStore.release(key);
@@ -13955,7 +13994,8 @@ function openSettings({ firstRun = false, section = "main" } = {}){
   renderSettingsScreen();
 }
 
-function closeSettings({ restoreTheme = true, restoreViewport = true } = {}){
+function closeSettings({ restoreTheme = true, restoreViewport = true, preserveAccountJourney = false } = {}){
+  if(!preserveAccountJourney)globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.finish(null);
   const viewportAnchor = settingsViewportAnchor;
   const modal = document.getElementById("settingsModal");
   modal.classList.remove("show");
@@ -14454,7 +14494,7 @@ function renderAccountSettings(body){
     <button class="btn ghost" type="button" id="forgotPasswordBtn">Forgot password?</button>
   </form>`;
   document.getElementById("createAccountBtn").addEventListener("click", () => {
-    closeSettings({ restoreViewport:false });
+    closeSettings({ restoreViewport:false, preserveAccountJourney:true });
     openSettings({ firstRun:true });
   });
   document.getElementById("forgotPasswordBtn").addEventListener("click", () => {
@@ -14466,14 +14506,20 @@ function renderAccountSettings(body){
     const email = document.getElementById("accountEmail").value.trim();
     const password = document.getElementById("accountPassword").value;
     const persist = document.getElementById("keepAccountSignedIn").checked;
+    const journey=accountIndicatorJourney;
+    if(journey)journey.phase='signing-in';
     setServerPersistence({ state: "requesting", message: "" });
     try{
       await serverSyncClient.signIn(email, password, { persist });
+      const life=serverSyncClient.accountSnapshot();
       await bootstrapServerPersistence();
+      globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.complete(journey,life);
       showToast(serverPersistence.user
         ? "Signed in. Your Nothing Sport profile is connected."
         : (serverPersistence.message || "Sign-in could not be completed."));
     }catch(error){
+      if(error?.code==='account_scope_changed'){if(journey===accountIndicatorJourney)globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.finish(null);return;}
+      if(journey===accountIndicatorJourney)globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.finish(null);
       setServerPersistence({
         state: "signedOut",
         message: error.message || "Email or password not recognised.",
@@ -15056,6 +15102,22 @@ function advanceOnboardingOrSave(){
   saveSettingsPreferences();
 }
 
+document.getElementById('accountIndicatorFallback').addEventListener('click',()=>{openSettings({section:'account'});void ensureAccountIndicator();});
+addEventListener('ns-account-change',()=>{
+  const life=serverSyncClient.accountSnapshot();
+  if(accountIndicatorGeneration>=0 && (life.generation!==accountIndicatorGeneration || life.accountId!==(serverPersistence.user?.id||''))){
+    if(serverPersistence.state!=='requesting' || life.hasSession)invalidateServerStateSyncScope();
+    setServerPersistence({state:life.hasSession?'error':'signedOut',user:null,message:life.hasSession?'Check your sign-in in Account.':''});
+    if(accountIndicatorJourney?.phase==='opened')globalThis.NOTHINGSPORTS_ACCOUNT_INDICATOR_APP?.finish(null);
+  }
+  renderAccountIndicator();
+});
+for(const event of ['online','offline','pageshow'])addEventListener(event,renderAccountIndicator);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderAccountIndicator();});
+addEventListener('ns-startup-ready',()=>{renderAccountIndicator();(window.requestIdleCallback || (f=>setTimeout(f,250)))(()=>void ensureAccountIndicator());},{once:true});
+document.getElementById('settingsModal').addEventListener('click',event=>{
+  if(event.target.closest('#startupCreateAccountBtn') && accountIndicatorJourney)accountIndicatorJourney.phase='signing-up';
+},true);
 document.getElementById("settingsBtn").addEventListener("click", () => openSettings());
 document.getElementById("settingsBackBtn").addEventListener("click", () => {
   if (settingsFirstRun && settingsWizardStep > 0){
@@ -17337,9 +17399,10 @@ async function refreshNothingscoreViewer(){
   const event = activeEvents[0] || EVENTS[0] || null;
   if (!event) return null;
   const owner = serverPersistence.user?.id || "";
+  const ownerGeneration=serverSyncClient.accountSnapshot().generation;
   const payload = await serverSyncClient.nothingscoreRequest({ eventId:nothingscoreEventId(event) });
   if (owner !== (serverPersistence.user?.id || "")) return null;
-  if (payload.viewer) nothingscoreViewer = payload.viewer;
+  if (payload.viewer) acceptNothingscoreViewer(payload.viewer,owner,ownerGeneration);
   if (payload.detail) mergeNothingscoreSnapshot(payload.detail);
   return payload.viewer || null;
 }

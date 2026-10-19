@@ -307,14 +307,40 @@
       globalThis.dispatchEvent?.(new Event('ns-account-change'));
     }
 
+    // Observe the existing auth owner's lifetime without exposing credentials
+    // or refreshing it. Session-only tabs retain their own identity.
+    function accountSnapshot(){
+      const active = session || storageRead(storage, SESSION_STORAGE_KEY)
+        || (persistSession ? storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY) : null);
+      return Object.freeze({ accountId:sessionSubject(active), expiresAt:active?.expiresAt || null,
+        generation:sessionGeneration, hasSession:Boolean(active) });
+    }
+    globalThis.addEventListener?.('storage', event => {
+      if (event.storageArea !== persistentStorage || (event.key !== null && event.key !== PERSISTENT_SESSION_STORAGE_KEY)) return;
+      if (!persistSession || storageRead(storage, SESSION_STORAGE_KEY)) return;
+      const next = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
+      if (session?.accessToken === next?.accessToken && session?.refreshToken === next?.refreshToken) return;
+      if (sessionSubject(session) !== sessionSubject(next)){
+        sessionGeneration += 1;
+        invalidateFeed();
+        refreshInFlight = null;
+      }
+      session = next;
+      globalThis.dispatchEvent?.(new Event('ns-account-change'));
+    });
+
     function restoreStoredSession(){
       const persistent = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
+      const temporary = storageRead(storage, SESSION_STORAGE_KEY);
+      if (temporary && persistent && sessionSubject(temporary) !== sessionSubject(persistent)){
+        persistSession = false;
+        return temporary;
+      }
       if (persistent){
         persistSession = true;
         storageWrite(storage, SESSION_STORAGE_KEY, null);
         return persistent;
       }
-      const temporary = storageRead(storage, SESSION_STORAGE_KEY);
       if (!temporary) return null;
       persistSession = persistencePreference() !== "session";
       if (persistSession){
@@ -543,10 +569,12 @@
         return currentSession();
       },
       async signIn(email, password, { persist = true } = {}){
+        const generation = sessionGeneration;
         const payload = await jsonRequest("/api/auth", {
           method: "POST",
           body: JSON.stringify({ action: "password-sign-in", email, password }),
         });
+        if (generation !== sessionGeneration) throw accountScopeError();
         persistSession = persist !== false;
         savePersistencePreference(persistSession);
         sessionGeneration += 1;
@@ -559,10 +587,12 @@
         return { ...saved };
       },
       async signUp(email, password, meta, { persist = true } = {}){
+        const generation = sessionGeneration;
         const payload = await jsonRequest("/api/auth", {
           method:"POST",
           body:JSON.stringify({ action:"sign-up", email, password, meta }),
         });
+        if (generation !== sessionGeneration) throw accountScopeError();
         if (!payload.session) return payload;
         persistSession = persist !== false;
         savePersistencePreference(persistSession);
@@ -827,6 +857,7 @@
         }
       },
       clearSession,
+      accountSnapshot,
       clearGuestChatSession,
       getSession(){
         return session ? { ...session } : restoreStoredSession();

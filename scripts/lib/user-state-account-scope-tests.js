@@ -10,7 +10,7 @@ function sources(){
 function context(src,accountStates=null){
  let subject='A',device=accountStates?clone(accountStates.A):{preferences:{theme:'night'},profile:{},eventUserState:{}},baseline={...clone(device),preferences:{...clone(device.preferences),theme:'day'},updatedAt:'2026-10-04T00:00:00Z'};
  const calls={reads:0,writes:0,applies:0,metaReads:0,metaWrites:0,seed:0};
- const c={USER_STATE_SYNC:sync,structuredClone,serverSyncTimer:null,serverStateSyncGeneration:0,serverSyncSequence:Promise.resolve(),serverPersistence:{state:'signedIn',user:{id:'A'}},serverStateBaseline:{state:clone(baseline),updatedAt:baseline.updatedAt},startupSessionStateBaseline:clone(device),userPreferences:{followFirst:{startupMeta:{sports:['football']}}},
+ const c={USER_STATE_SYNC:sync,structuredClone,accountIndicatorJourney:null,serverSyncTimer:null,serverStateSyncGeneration:0,serverSyncSequence:Promise.resolve(),serverPersistence:{state:'signedIn',user:{id:'A'}},serverStateBaseline:{state:clone(baseline),updatedAt:baseline.updatedAt},startupSessionStateBaseline:clone(device),userPreferences:{followFirst:{startupMeta:{sports:['football']}}},
  clearTimeout(){},currentServerStatePayload:()=>clone(device),emptyServerStatePayload:()=>({}),setServerPersistence:p=>Object.assign(c.serverPersistence,p),setPreferenceRecovery(){},setServerStateBaseline:s=>{c.serverStateBaseline={state:clone(s),updatedAt:s.updatedAt};},serverAuthoritativeFixturePins:(_s,d)=>d,clearAcknowledgedFixturePinCommands(){},applyServerState:s=>{calls.applies++;device=clone(s);},serverErrorEndsSession:e=>e.code==='invalid_refresh_token',showToast(){},fantasyPreferencesDiffer:()=>false,savePreferences(){calls.seed++;},FOLLOW_FIRST:{normalizeMeta:x=>x,applyMetaSeed:()=>({changed:true,preferences:{}})},console:{warn(){}},disablePushInstallation:async()=>{},clearCachedPersonalisedFeed:async()=>{},
  serverSyncClient:{sessionSubject:()=>subject,status:async()=>({configured:true}),restoreSession:async()=>({accessToken:'synthetic'}),loadState:async opts=>{calls.reads++;assert.equal(opts.accountId,'A');return{user:{id:'A'},state:clone(baseline)};},savePatch:async(p,opts)=>{calls.writes++;assert.equal(opts.accountId,'A');return{user:{id:'A'},state:{...sync.applyPatch(baseline,p),updatedAt:'2026-10-04T00:01:00Z'}};},loadMeta:async opts=>{calls.metaReads++;assert.equal(opts.accountId,'A');return{meta:{sports:['football']}};},saveMeta:async(m,opts)=>{calls.metaWrites++;assert.equal(opts.accountId,'A');return{meta:m};},signOut:async opts=>{calls.logout=(calls.logout||0)+1;assert.equal(opts.accountId,'A');subject='';}},
  switchAccount(){subject='B';if(accountStates)device=clone(accountStates.B);c.serverPersistence={state:'signedIn',user:{id:'B'},message:'B active'};c.serverStateBaseline={state:accountStates?clone(device):{preferences:{theme:'B'}},updatedAt:'B baseline'};},endSession(){subject='';},currentDevice:()=>clone(device),calls,
@@ -138,4 +138,50 @@ async function horseAccountScopes(){
  }
  return cases;
 }
-module.exports=async function validateAccountScopes(){const cases=[...await orchestration(),...await sdk(),...await recoveryUi(),...await overlappingRefreshes(),...await overlappingRefreshes({useLease:true}),...await horseAccountScopes()];console.log(`Account isolation: ${cases.length} actual orchestration/SDK/recovery scenarios passed; no service or database connection.`);return cases;};
+async function indicatorLifetimes(){
+ const source=fs.readFileSync(path.join(__dirname,'../../config/server-sync.js'),'utf8'),storage=memoryStorage(),persistent=memoryStorage(),listeners=new Map(),events=[];
+ const c={module:{exports:{}},Buffer,structuredClone,AbortController,Event,Response,setTimeout,clearTimeout,
+  addEventListener:(type,fn)=>listeners.set(type,fn),dispatchEvent:event=>events.push(event.type)};
+ vm.createContext(c);vm.runInContext(source,c);
+ let owner='A',clock=Date.now(),requests=0,hold=false,pending;
+ const token=id=>'e30.'+Buffer.from(JSON.stringify({sub:id})).toString('base64url')+'.disposable';
+ const session=id=>({accessToken:token(id),refreshToken:'disposable-'+id,expiresAt:clock+3600000});
+ const response=payload=>new Response(JSON.stringify(payload),{headers:{'Content-Type':'application/json'}});
+ const client=c.module.exports.createClient({storage,persistentStorage:persistent,now:()=>clock,fetchImpl:async()=>{
+  requests++;const result=response({session:session(owner)});if(hold){hold=false;return new Promise(r=>pending=()=>r(result));}return result;
+ }});
+ const notify=()=>listeners.get('storage')({storageArea:persistent,key:'ns_auth_persistent_session_v1'});
+ assert.deepEqual(Object.keys(client.accountSnapshot()).sort(),['accountId','expiresAt','generation','hasSession']);
+ assert.equal(requests,0,'read-only snapshot never refreshes auth');
+ await client.signIn('disposable@example.invalid','test-only',{persist:true});const first=client.accountSnapshot();
+ persistent.setItem('ns_auth_persistent_session_v1',JSON.stringify(session('B')));notify();
+ assert.equal(client.accountSnapshot().accountId,'B');assert(client.accountSnapshot().generation>first.generation);assert.equal(requests,1);
+ persistent.removeItem('ns_auth_persistent_session_v1');notify();assert.equal(client.accountSnapshot().hasSession,false);assert.equal(requests,1);
+ owner='A';await client.signIn('disposable@example.invalid','test-only',{persist:false});const own=client.accountSnapshot();
+ persistent.setItem('ns_auth_persistent_session_v1',JSON.stringify(session('B')));notify();assert.equal(client.accountSnapshot().accountId,'A');assert.equal(client.accountSnapshot().generation,own.generation);
+ const reopened=c.module.exports.createClient({storage,persistentStorage:persistent,now:()=>clock,fetchImpl:async()=>{throw Error('Reload observation must not fetch');}});
+ assert.equal(c.module.exports.sessionSubject(reopened.getSession()),'A','A session-only reload cannot adopt another persistent owner');
+ clock+=7200000;assert(client.accountSnapshot().expiresAt<clock);assert.equal(requests,2,'expiry observation does not dispatch a refresh');
+ const results=['nonsecret snapshot','persistent replacement','persistent signout','session-only storage refusal','session-only reload refusal','expiry without refresh'];
+ for(const method of ['signIn','signUp']){
+  owner='A';hold=true;const old=method==='signIn'?client.signIn('old@example.invalid','test-only'):client.signUp('old@example.invalid','test-only',{});
+  const rejected=assert.rejects(old,e=>e.code==='account_scope_changed');owner='B';await client.signIn('new@example.invalid','test-only');pending();await rejected;
+  assert.equal(client.accountSnapshot().accountId,'B','Late deliberate Auth cannot replace a newer lifetime');results.push('late '+method+' discarded');
+ }
+ client.clearSession();assert(events.includes('ns-account-change'));return results;
+}
+async function indicatorProfileResults(){
+ const html=fs.readFileSync(path.join(__dirname,'../../index.html'),'utf8');
+ const slice=(from,to)=>html.slice(html.indexOf(from),html.indexOf(to,html.indexOf(from)));
+ const source=slice('function acceptNothingscoreViewer(','\nfunction createChatState(')+'\n'+slice('async function refreshNothingscoreViewer(','\nlet nscReturnPosition');
+ const results=[];
+ for(const nextOwner of ['A','B']){
+  let release,life={accountId:'A',generation:1};
+  const c={activeEvents:[{id:'disposable-fixture'}],EVENTS:[],serverPersistence:{user:{id:'A'}},nothingscoreViewer:{marker:'new current profile'},nothingscoreEventId:e=>e.id,mergeNothingscoreSnapshot(){},serverSyncClient:{accountSnapshot:()=>life,nothingscoreRequest:()=>new Promise(r=>release=r)}};
+  vm.createContext(c);vm.runInContext(source,c);const pending=c.refreshNothingscoreViewer();
+  life={accountId:nextOwner,generation:2};c.serverPersistence.user={id:nextOwner};release({viewer:{marker:'stale result'}});await pending;
+  assert.equal(c.nothingscoreViewer.marker,'new current profile');results.push('actual delayed profile '+(nextOwner==='A'?'same-owner lifetime':'replacement owner'));
+ }
+ return results;
+}
+module.exports=async function validateAccountScopes(){const cases=[...await orchestration(),...await sdk(),...await recoveryUi(),...await overlappingRefreshes(),...await overlappingRefreshes({useLease:true}),...await horseAccountScopes(),...await indicatorLifetimes(),...await indicatorProfileResults()];console.log(`Account isolation: ${cases.length} actual orchestration/SDK/recovery scenarios passed; no service or database connection.`);return cases;};
